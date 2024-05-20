@@ -5,8 +5,8 @@ from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from rest_framework.response import Response
 
-from base.models import Course, Faculty,Country, About, Level
-from base.serializers import CourseSerializer, FacultySerializer, CountrySerializer, AboutSerializer, LevelSerializer
+from base.models import Course, Faculty,Country, About, Level, Contact
+from base.serializers import CourseSerializer, FacultySerializer, CountrySerializer, AboutSerializer, LevelSerializer, ContactSerializer
 
 from rest_framework import status
 
@@ -53,5 +53,30 @@ def getLevels(request):
     except Level.DoesNotExist:
         message = {'detail': 'No Levels Found'}
         return Response(message)
+    
+@api_view(['GET'])
+def getLevels(request):
+    try:
+        levels = Level.objects.all()
+        serializer = LevelSerializer(levels, many=True)
+        return Response(serializer.data)
+
+    except Level.DoesNotExist:
+        message = {'detail': 'No Levels Found'}
+        return Response(message)
+    
+@api_view(['POST'])
+def createContact(request):
+    data = request.data
+    contact = Contact.objects.create(
+        name=data['name'],
+        email=data['email'],
+        phoneNumber=data['phoneNumber'], 
+        subject=data['subject'],
+        message=data['message']
+    )
+
+    serializer = ContactSerializer(contact, many=False)
+    return Response(serializer.data)
     
 

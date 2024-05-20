@@ -7,6 +7,7 @@ import Footer from './components/Footer'
 import CountryScreen from './screens/CountryScreen'
 import ContactScreen from './screens/ContactScreen'
 import CourseFilterScreen from './screens/CourseFilterScreen'
+import CountriesScreen from './screens/CountriesScreen'
 
 const App = () => {
   return (
@@ -17,8 +18,11 @@ const App = () => {
         <Route path='/' element={<HomeScreen/>} />
         <Route path='/aboutUs' element={<AboutScreen/>} />
         <Route path='/contact' element={<ContactScreen/>} />
-        <Route path='/courses' element={<CourseFilterScreen/>} />
-        <Route path='/abroad'element={<CountryScreen/>} />
+        <Route path='/:award' element={<CourseFilterScreen/>} />
+        <Route path='/:award/:programe' element={<CourseFilterScreen/>} />
+        <Route path='/:award/:programe/:credit' element={<CourseFilterScreen/>} />
+        <Route path='/:award/:programe/:credit/:keyword' element={<CourseFilterScreen/>} />
+        <Route path='/abroad'element={<CountriesScreen/>} />
       </Routes>
       <Footer/>
     </Router>

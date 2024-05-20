@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import {Input} from "@nextui-org/react";
 import { VscSymbolKeyword } from "react-icons/vsc";
 import {Button} from "@nextui-org/button";
@@ -29,6 +29,11 @@ import { getCourseList, getLevelList } from '../actions/courseActions';
 
 const HomeScreen = () => {
 
+    const [keyword, setKeyword] = useState('')
+    const [programe, setPrograme] = useState('')
+    const [credit, setCredit] = useState('')
+    const [award, setAward] = useState('')
+
     const dispatch = useDispatch()
     const history = useNavigate()
     const location = useLocation()
@@ -43,6 +48,13 @@ const HomeScreen = () => {
       dispatch(getLevelList())
       dispatch(getCourseList())
     }, [dispatch])
+
+    const submitHandler = () => {
+      history(`${credit}${award}${programe}${keyword}`)
+    } 
+
+    
+
   return (
     <div className='h-fit w-full flex flex-col gap-12'>
       <section className='h-fit w-full relative overflow-hidden '>
@@ -54,7 +66,7 @@ const HomeScreen = () => {
         </div>
 
         <div className='h-fit w-full max-w-[1000px] mx-auto -mt-[300px] md:-mt-[100px] px-6'>
-          <div className='bg-white shadow-[0px_4px_25px_rgba(0,0,0,0.05)] h-fit w-full z-0 mt-auto  px-6 md:px-12 py-12 flex flex-col gap-6'>
+          <form className='bg-white shadow-[0px_4px_25px_rgba(0,0,0,0.05)] h-fit w-full z-0 mt-auto  px-6 md:px-12 py-12 flex flex-col gap-6'>
               <div className='flex flex-col md:flex-row  gap-6 items-center justify-between'>
                 <div className='w-full max-w-[500px]'>
                   <p className='text-3xl font-semibold'>Search Course</p>
@@ -64,9 +76,12 @@ const HomeScreen = () => {
                   placeholder="keyword"
                   labelPlacement="outside"
                   variant="bordered"
-                  
+                  required
+                  value={keyword} 
+                  onChange={(e) => setKeyword(e.target.value)} 
                   className='w-full shadow-none rounded-none'
                   radius='sm'
+                  required
                   size='lg'
                   endContent={
                     <VscSymbolKeyword />
@@ -76,12 +91,13 @@ const HomeScreen = () => {
               <div className='flex flex-col md:flex-row items-center justify-between gap-4'>
                 <Select
                   variant={'bordered'}
+                  required
                   placeholder="Programme"
                   className='w-full shadow-none rounded-none'
                   radius='sm'
                   size='lg'
                   endContent={
-                    <AiFillSignal  />
+                    <AiFillSignal />
                   }
                 >
                   {
@@ -89,7 +105,7 @@ const HomeScreen = () => {
                     '':
                     levels?
                     levels.map((i) => (
-                      <SelectItem key={i.id}>
+                      <SelectItem onClick={()=> setPrograme(`/${i.name}`)} value={i.name} key={i.id}>
                         {i.name}
                       </SelectItem>
                     ))
@@ -102,6 +118,7 @@ const HomeScreen = () => {
                   placeholder="Course credit"
                   className='w-full shadow-none rounded-none'
                   radius='sm'
+                  required
                   size='lg'
                   endContent={
                     <BsBookmarksFill  />
@@ -112,7 +129,7 @@ const HomeScreen = () => {
                     '':
                     courses?
                     courses.map((i) => (
-                      <SelectItem key={i.id}>
+                      <SelectItem onClick={()=> setCredit(`/${i.course_credit}`)} value={i.course_credit} key={i.id}>
                         {i.course_credit}
                       </SelectItem>
                     ))
@@ -125,6 +142,7 @@ const HomeScreen = () => {
                   placeholder="Course award"
                   className='w-full shadow-none rounded-none'
                   radius='sm'
+                  required
                   size='lg'
                   endContent={
                     <FaAward  />
@@ -133,9 +151,9 @@ const HomeScreen = () => {
                   {
                     courseListLoading?
                     '':
-                    courses?
+                    courses.qualification && courses?
                     courses.map((i) => (
-                      <SelectItem key={i.id}>
+                      <SelectItem onClick={()=> setAward(`/${i.qualification.name}`)} value={i.qualification.name} key={i.id}>
                         {i.qualification.name}
                       </SelectItem>
                     ))
@@ -147,31 +165,31 @@ const HomeScreen = () => {
                 {/* <Button size='lg' isIconOnly variant='solid' className='bg-[#DA0C0C] rounded-md px-4 text-white  min-w-fit justify-center' endContent={<IoSearch className='ml-4'/>}>
                   Search
                 </Button> */}
-                <Button color='' radius='sm' className="min-w-fit flex bg-[#DA0C0C] font-medium text-white md:px-6 py-6">
+                <Button onClick={() => submitHandler() } color='' radius='sm' className="min-w-fit flex bg-[#DA0C0C] font-medium text-white md:px-6 py-6">
                     <p>Search</p>
                     <IoSearch className='ml-4'/>
                 </Button>
               </div>
-          </div>
+          </form>
         </div>
         <div className='h-[25px]'></div>
       </section>
 
       <section className='h-fit w-full relative overflow-hidden px-8'>
         <div className='h-fit w-full max-w-[800px] mx-auto grid grid-cols-2 md:grid-cols-4 justify-center gap-6'>
-            <div className='w-full h-full flex flex-col items-center justify-center gap-4 bg-red-50 py-8 px-8 rounded-[8px]'>
+            <div className='w-full h-full flex flex-col items-center justify-center gap-4 bg-red-50 hover:bg-[#DA0C0C] text-black duration-200 cursor-pointer hover:text-white py-8 px-8 rounded-[8px]'>
               <MdOutlineAdsClick className='text-6xl'/>
               <p className='text-sm font-semibold'>Apply Online</p>
             </div>
-            <div className='w-full h-full flex flex-col items-center justify-center gap-4 bg-red-50 py-8 px-8 rounded-[8px]'>
+            <div className='w-full h-full flex flex-col items-center justify-center gap-4 bg-red-50 hover:bg-[#DA0C0C] text-black duration-200 cursor-pointer hover:text-white py-8 px-8 rounded-[8px]'>
               <MdOutlineVerified  className='text-6xl'/>
               <p className='text-sm font-semibold'>Verify Certificate</p>
             </div>
-            <div className='w-full h-full flex flex-col items-center justify-center gap-4 bg-red-50 py-8 px-8 rounded-[8px]'>
+            <div className='w-full h-full flex flex-col items-center justify-center gap-4 bg-red-50 hover:bg-[#DA0C0C] text-black duration-200 cursor-pointer hover:text-white py-8 px-8 rounded-[8px]'>
               <FaIdCard  className='text-6xl'/>
               <p className='text-sm font-semibold'>Student Portal</p>
             </div>
-            <div className='w-full h-full flex flex-col items-center justify-center gap-4 bg-red-50 py-8 px-8 rounded-[8px]'>
+            <div className='w-full h-full flex flex-col items-center justify-center gap-4 bg-red-50 hover:bg-[#DA0C0C] text-black duration-200 cursor-pointer hover:text-white py-8 px-8 rounded-[8px]'>
               <MdLibraryBooks  className='text-6xl'/>
               <p className='text-sm font-semibold'>E library</p>
             </div>

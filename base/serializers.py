@@ -84,5 +84,4 @@ class AbroadApplicationSerializer(serializers.ModelSerializer):
 class CourseRequirmentSerializer(serializers.ModelSerializer):
     class Meta:
         model = CourseRequirment
-        fields = '__all__'    
-
+        fields = '__all__' 
