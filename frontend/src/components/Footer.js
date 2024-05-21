@@ -4,6 +4,7 @@ import {Button} from "@nextui-org/react";
 import { RiInstagramFill } from "react-icons/ri";
 import { FaFacebook } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -30,20 +31,20 @@ const Footer = () => {
             <div className='flex flex-col justify-center items-center md:items-start md:justify-start '>
               <p className='text-base font-bold border-b-[2px] border-[#DA0C0C] gap-6 h-[60px] flex items-end py-[8px] text-center md:text-left'>PROGRAMMES</p>
               <div className='px-4 flex flex-col gap-2 py-4 order-1 text-center md:text-start'>
-                <p className='text-xs font-medium text-gray-600'>UNDERGRADUATE PROGRAMMES</p>
-                <p className='text-xs font-medium text-gray-600'>Degree(Full/Top-Up)</p>
-                <p className='text-xs font-medium text-gray-600'>POSTGRADUATE PROGRAMMES</p>
-                <p className='text-xs font-medium text-gray-600'>Masters(Full/Top-Up)</p>
+                <Link className='text-xs text-gray-500'>UNDERGRADUATE PROGRAMMES</Link>
+                <Link className='text-xs text-gray-500'>Degree(Full/Top-Up)</Link>
+                <Link className='text-xs text-gray-500'>POSTGRADUATE PROGRAMMES</Link>
+                <Link className='text-xs text-gray-500'>Masters(Full/Top-Up)</Link>
               </div>
             </div>
 
             <div className='flex flex-col justify-center items-center md:items-start md:justify-start '>
               <p className='text-base font-bold border-b-[2px] border-[#DA0C0C] gap-6 h-[60px] flex items-end py-[8px] text-center md:text-left'>AWARDING BODY QUALIFICATION</p>
               <div className='px-4 flex flex-col gap-2 py-4 order-1 text-center md:text-start'>
-                <p className='text-xs font-medium text-gray-600'>OTHM - UK</p>
-                <p className='text-xs font-medium text-gray-600'>QUALIFI - UK</p>
-                <p className='text-xs font-medium text-gray-600'>LRN - UK</p>
-                <p className='text-xs font-medium text-gray-600'>DLC - SL</p>
+                <Link className='text-xs text-gray-500'>OTHM - UK</Link>
+                <Link className='text-xs text-gray-500'>QUALIFI - UK</Link>
+                <Link className='text-xs text-gray-500'>LRN - UK</Link>
+                <Link className='text-xs text-gray-500'>DLC - SL</Link>
               </div>
             </div>
           </div>
@@ -51,26 +52,26 @@ const Footer = () => {
           <div className='flex flex-col justify-center items-center md:items-start md:justify-start '>
             <p className='text-base font-bold border-b-[2px] border-[#DA0C0C] gap-6 h-[60px] flex items-end py-[8px] text-center md:text-left'>USE FULL LINKS </p>
             <div className='px-4 flex flex-col gap-2 py-4 order-1 text-center md:text-start'>
-              <p className='text-xs font-medium text-gray-600'>PROGRESSION</p>
-              <p className='text-xs font-medium text-gray-600'>QUALITY STANDARDS VALID,VALUED LEARNING</p>
-              <p className='text-xs font-medium text-gray-600'>FACILITIES</p>
-              <p className='text-xs font-medium text-gray-600'>DISTANCE LEARNING</p>
-              <p className='text-xs font-medium text-gray-600'>CAREERS</p>
-              <p className='text-xs font-medium text-gray-600'>FAQ</p>
-              <p className='text-xs font-medium text-gray-600'>TESTIMONIAL</p>
+              <Link className='text-xs text-gray-500'>PROGRESSION</Link>
+              <Link className='text-xs text-gray-500'>QUALITY STANDARDS VALID,VALUED LEARNING</Link>
+              <Link className='text-xs text-gray-500'>FACILITIES</Link>
+              <Link className='text-xs text-gray-500'>DISTANCE LEARNING</Link>
+              <Link className='text-xs text-gray-500'>CAREERS</Link>
+              <Link className='text-xs text-gray-500'>FAQ</Link>
+              <Link className='text-xs text-gray-500'>TESTIMONIAL</Link>
             </div>
           </div>
 
           <div className='flex flex-col justify-center items-center md:items-start md:justify-start '>
             <p className='text-base font-bold border-b-[2px] border-[#DA0C0C] gap-6 h-[60px] flex items-end py-[8px] text-center md:text-left'>QUICK LINKS</p>
             <div className='px-4 flex flex-col gap-2 py-4 order-1 text-center md:text-start'>
-              <p className='text-xs font-medium text-gray-600'>APPLY ONLINE</p>
-              <p className='text-xs font-medium text-gray-600'>VERIFY CERTIFICATE</p>
-              <p className='text-xs font-medium text-gray-600'>STUDENT PORTAL</p>
-              <p className='text-xs font-medium text-gray-600'>PAY ONLINE</p>
-              <p className='text-xs font-medium text-gray-600'>EVENT CALENDER</p>
-              <p className='text-xs font-medium text-gray-600'>FAQ</p>
-              <p className='text-xs font-medium text-gray-600'>TESTIMONIAL</p>
+              <Link className='text-xs text-gray-500'>APPLY ONLINE</Link>
+              <Link className='text-xs text-gray-500'>VERIFY CERTIFICATE</Link>
+              <Link className='text-xs text-gray-500'>STUDENT PORTAL</Link>
+              <Link className='text-xs text-gray-500'>PAY ONLINE</Link>
+              <Link className='text-xs text-gray-500'>EVENT CALENDER</Link>
+              <Link className='text-xs text-gray-500'>FAQ</Link>
+              <Link className='text-xs text-gray-500'>TESTIMONIAL</Link>
             </div>
           </div>
         </div>

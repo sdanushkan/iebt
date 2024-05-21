@@ -12,6 +12,7 @@ class LevelSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class UnitSerializer(serializers.ModelSerializer):
+    level = LevelSerializer()
     class Meta:
         model = Unit
         fields = '__all__'
@@ -22,9 +23,17 @@ class QualificationApprovalSerializer(serializers.ModelSerializer):
         model = QualificationApproval
         fields = '__all__'   
 
+
+class OurQualificationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = OurQualification
+        fields = '__all__'   
+
+
 class CourseSerializer(serializers.ModelSerializer):
     faculty = FacultySerializer()
-    qualification = QualificationApprovalSerializer()
+    qualification = OurQualificationSerializer()
+    programe = LevelSerializer()
     # units = serializers.SerializerMethodField(read_only=True)
     units = serializers.SerializerMethodField(read_only=True)
     course_requirments = serializers.SerializerMethodField(read_only=True)
@@ -43,11 +52,7 @@ class CourseSerializer(serializers.ModelSerializer):
         serializer = CourseRequirmentSerializer(course_requirments, many=True)
         return serializer.data
 
-class OurQualificationSerializer(serializers.ModelSerializer):
-    
-    class Meta:
-        model = OurQualification
-        fields = '__all__'   
+
 
 class ContactSerializer(serializers.ModelSerializer):
     class Meta:

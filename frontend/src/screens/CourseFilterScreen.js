@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Button } from '@nextui-org/react'
+import { Button, image } from '@nextui-org/react'
 import { TfiLayoutGrid2Alt, TfiLayoutGrid3Alt, TfiLayoutGrid4Alt } from "react-icons/tfi";
 import {Accordion, AccordionItem} from "@nextui-org/react";
 import {Checkbox} from "@nextui-org/react";
@@ -10,11 +10,14 @@ import { PiSortAscendingBold } from "react-icons/pi";
 import { FaUsers } from "react-icons/fa";
 import { MdOutlineBookmarkBorder } from "react-icons/md";
 import { MdOutlineAccessTime } from "react-icons/md";
-import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
 import {RadioGroup, Radio, useRadio, VisuallyHidden, cn} from "@nextui-org/react";
 import { getCourseList, getLevelList } from '../actions/courseActions';
 import { useDispatch, useSelector } from 'react-redux';
 import { all } from 'axios';
+import {Tabs, Tab} from "@nextui-org/react";
+import { VscActivateBreakpoints } from "react-icons/vsc";
+import _ from 'lodash';
 
 const CourseFilterScreen = () => {
   const [filter, setFilter] = useState(false);
@@ -24,12 +27,13 @@ const CourseFilterScreen = () => {
   const {programe} = useParams()
   const {credit} = useParams()
   const {keyword} = useParams()
+  const {faculty} = useParams()
 
   const dispatch = useDispatch()
   const history = useNavigate()
   const location = useLocation()
 
-  const [faculty, setFaculty] = useState('')
+  const [nFaculty, setNFaculty] = useState('')
   const [nKeyword, setNKeyword] = useState('')
   const [nPrograme, setNPrograme] = useState('')
   const [nCredit, setNCredit] = useState('')
@@ -49,10 +53,44 @@ const CourseFilterScreen = () => {
     dispatch(getCourseList())
   }, [dispatch])
 
+  useEffect(() => {
+    if (faculty != "") {
+      setNFaculty(faculty)
+      
+    } else {
+      setNFaculty('faculties')
+    }
+    if (credit !="") {
+      setNCredit(credit)
+    } else {
+      setNCredit('credits')
+    }
+    if (programe !="") {
+      setNPrograme(programe)
+    } else {
+      setNPrograme('programes')
+    }
 
+    if (award !="") {
+      setNAward(award)
+    } else {
+      setNAward('awards')
+    }
+
+    if (keyword !="") {
+      setNAward(keyword)
+    } else {
+      setNAward('')
+    }
+  }, [faculty, programe, credit, award, keyword, location])
+
+
+  useEffect(() => {
+    window.scroll(0,0);
+  }, [location]);
   return (
     <div className='h-fit w-full md:pt-28 relative'>
-      <div className='relative h-fit w-full'>
+      <div className='relative h-fit w-full md:hidden'>
         <div className='h-fit w-full max-w-[1200px] mx-auto px-4 sm:px-6 overflow-hidden'>
           <div className='flex items-center justify-between my-2 font-medium border-2 mt-24 md:mt-0'>
             <div className='max-h-fit flex divide-x-1 overflow-hidden'>
@@ -89,68 +127,165 @@ const CourseFilterScreen = () => {
           </div>
         </div>
       </div>
-      <div className='h-[500px] w-full max-w-[1200px] flex gap-4 mx-auto md:px-6 pt-4'>
+      <div className='h-fit w-full max-w-[1200px] flex gap-4 mx-auto md:px-6 pt-4'>
+
         <div className={
           filter?
-          'h-full w-full duration-300  ml-0 md:w-[250px] flex md:block absolute top-0 md:relative z-30':
+          'h-full w-full duration-300  ml-0 md: flex md:block absolute top-0 md:relative z-30':
           'h-full w-full duration-300 -ml-[100%] md:ml-0 md:w-[250px] flex md:block top-0 absolute md:relative z-200'
         }>
           <div className='h-screen md:h-fit w-full bg-white px-4 md:px-0 py-6 md:py-0 divide-y-1 flex flex-col gap-4'>
 
-            <RadioGroup
-              label={`Select programe`}
-              className='text-base font-medium'
-              value={nPrograme}
-              onValueChange={setNPrograme}
-            >
-              {
-                loading?
-                '':
-                levels?
-                levels.map(i=>(
-                  <Radio size='sm' value={i.name}>{i.name}</Radio>
-                ))
-                :
-                ''
-              }
-            </RadioGroup>
+            <Accordion defaultExpandedKeys={["1", "2", "3","4"]} isCompact className='w-[250px]'>
+              <AccordionItem  className='text-base font-semibold overflow-hidden' key="1" aria-label="Faculties" startContent="Faculties" classNames={'w-full'}>
+                <Tabs variant='solid' selectedKey={nFaculty} onSelectionChange={setNFaculty} size='sm' isVertical defaultSelectedKey={nFaculty} fullWidth aria-label="Tabs sizes" color='danger' 
+                classNames={{
+                  tabList: "",
+                  cursor: "bg-[#DA0C0C]",
+                  tab: "",
+                  tabContent: "group-data-[selected=true]:text-[white]"
+                }}
+                className='w-[250px]'>
+                  {/* <Tab key={'faculties'} title={
+                    <div className='flex items-center justify-between space-x-2 text-left'>
+                      <VscActivateBreakpoints className='ml-0'/>
+                      <p className='ml-auto w-[150px]'>All</p> 
+                    </div>
+                  }>
+                  </Tab> */}
+                  {
+                    loading?
+                    '':
+                    faculties?
+                    faculties.map(i=>(
+                      <Tab key={i.slug} title={
+                        <div className='flex items-center justify-between space-x-2 text-left overflow-hidden'>
+                          <VscActivateBreakpoints className='ml-0'/>
+                          <p className='ml-auto w-[150px]'>{i.name}</p> 
+                        </div>
+                      }>
+                      </Tab>
+                    ))
+                    :
+                    ''
+                  }
+                </Tabs>
+              </AccordionItem>
+              
+              <AccordionItem  className='text-base font-semibold overflow-hidden' key="2" aria-label="Programes" startContent="Programes" classNames={'w-full'}>
+                <Tabs variant='solid' selectedKey={nPrograme} defaultSelectedKey={nPrograme} onSelectionChange={setNPrograme} size='sm' isVertical fullWidth aria-label="Tabs sizes" color='danger' 
+                classNames={{
+                    tabList: "",
+                    cursor: "bg-[#DA0C0C]",
+                    tab: "",
+                    tabContent: "group-data-[selected=true]:text-[white]"
+                  }}
+                className='w-[250px]'>
+                  {/* <Tab key={'programes'} onClick={() => setNFaculty('programes')} title={
+                    <div className='flex items-center justify-between space-x-2 text-left'>
+                      <VscActivateBreakpoints className='ml-0'/>
+                      <p className='ml-auto w-[150px]'>All</p> 
+                    </div>
+                  }>
+                  </Tab> */}
+                  {
+                    loading?
+                    '':
+                    levels?
+                    levels.map(i=>(
+                      <Tab key={i.slug} title={
+                        <div className='flex items-center justify-between space-x-2 text-left overflow-hidden'>
+                          <VscActivateBreakpoints className='ml-0'/>
+                          <p className='ml-auto w-[150px]'>{i.name}</p> 
+                        </div>
+                      }>
+                      </Tab>
+                    ))
+                    :
+                    ''
+                  }
+                </Tabs>
+              </AccordionItem>
 
-            <RadioGroup
-              label={`Select Qualification`}
-              className='text-base font-medium'
-              value={nAward}
-              onValueChange={setNAward}
-            >
-              {
-                courseListLoading?
-                '':
-                courses?
-                courses.map(i=>(
-                  <Radio size='sm' value={i.qualification.name}>{i.qualification.name}</Radio>
-                ))
-                :
-                ''
-              }
-            </RadioGroup>
+              <AccordionItem  className='text-base font-semibold overflow-hidden' key="3" aria-label="Qualification" startContent="Qualification" classNames={'w-full'}>
+                <Tabs variant='solid' selectedKey={nAward} onSelectionChange={setNAward} size='sm' isVertical fullWidth aria-label="Tabs sizes" color='danger' 
+                classNames={{
+                    tabList: "",
+                    cursor: "bg-[#DA0C0C]",
+                    tab: "",
+                    tabContent: "group-data-[selected=true]:text-[white]"
+                  }}
+                className='w-[250px]'>
+                  {/* <Tab key={'awards'} onClick={() => setNAward('awards')} title={
+                    <div className='flex items-center justify-between space-x-2 text-left'>
+                      <VscActivateBreakpoints className='ml-0'/>
+                      <p className='ml-auto w-[150px]'>All</p> 
+                    </div>
+                  }>
+                  </Tab> */}
+                  {
+                    loading?
+                    '':
+                    courses?
+                    _.uniqBy(_.flatMap(courses, 'qualification'), 'id').map(i=>(
+                      <Tab key={i.slug} title={
+                        <div className='flex items-center justify-between space-x-2 text-left overflow-hidden'>
+                          <VscActivateBreakpoints className='ml-0'/>
+                          <p className='ml-auto w-[150px]'>{i.name}</p> 
+                        </div>
+                      }>
+                      </Tab>
+                    ))
+                    :
+                    ''
+                  }
+                </Tabs>
+              </AccordionItem>
 
-            <RadioGroup
-              label={`Select Faculty`}
-              className='text-base font-medium'
-              value={faculty}
-              onValueChange={setFaculty}
-            >
-              {
-                facultyListLoading?
-                '':
-                faculties?
-                faculties.map(i=>(
-                  <Radio size='sm' value={i.name}>{i.name}</Radio>
-                ))
-                :
-                ''
-              }
-            </RadioGroup>
+              <AccordionItem  className='text-base font-semibold overflow-hidden' key="4" aria-label="Credits" startContent="Credits" classNames={'w-full'}>
+                <Tabs variant='solid' selectedKey={nCredit} isVertical fullWidth onSelectionChange={setNCredit} size='sm' 
+                classNames={{
+                  tabList: "",
+                  cursor: "bg-[#DA0C0C]",
+                  tab: "",
+                  tabContent: "group-data-[selected=true]:text-[white]"
+                }}
+                aria-label="Tabs sizes" >
+                  {/* <Tab key={'credits'} onClick={() => setNCredit('cresdits')} title={
+                    <div className='flex items-center justify-between space-x-2 text-left'>
+                      <VscActivateBreakpoints className='ml-0'/>
+                      <p className='ml-auto w-[150px]'>All</p> 
+                    </div>
+                  }>
+                  </Tab> */}
+                  {
+                    loading?
+                    '':
+                    courses?
+                    _.uniqBy(courses, 'course_credit').map(i=>(
+                      <Tab key={i.course_credit} title={
+                        <div className='flex items-center justify-between space-x-2 text-left overflow-hidden'>
+                          <VscActivateBreakpoints className='ml-0'/>
+                          <p className='ml-auto w-[150px]'>{i.course_credit}</p> 
+                        </div>
+                      }>
+                      </Tab>
+                    ))
+                    :
+                    <Tab onClick={() => setNPrograme('all')} title={
+                      <div className='flex items-center justify-between space-x-2 text-left'>
+                        <VscActivateBreakpoints className='ml-0'/>
+                        <p className='ml-auto w-[150px]'>All</p> 
+                      </div>
+                    }>
+                    </Tab>
+                  }
+                </Tabs>
+              
+               
+              </AccordionItem>
 
+            </Accordion>
 
           </div>
           <button onClick={() => setFilter(!filter)} className={
@@ -159,22 +294,24 @@ const CourseFilterScreen = () => {
             'h-full w-[20%] opacity-0 duration-300 backdrop-blur-0 bg-black bg-opacity-50 md:hidden'
           }></button>
         </div>
-        <div className='h-fit w-full'>
-          <div className={`w-fit mx-auto h-fit grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-2 md:gap-4 px-4 md:px-0`}>
+        <div className='h-fit w-full flex flex-col gap-6'>
+          <div className={`w-full mx-auto h-fit grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-4 px-4 md:px-0`}>
            
             {
               courseListLoading?
               '':
-              courses && faculties?
-              courses.filter(f => faculty != ''? faculties.map(nf => nf.name == f.faculty.name): all).map(i => (
-                <div key={i.id} className=' bg-white p-2 h-fit w-full shadow-[0px_4px_25px_rgba(0,0,0,0.05)] rounded-[16px]'>
-                  <img src='https://www.napier.ac.uk/-/media/images/course-images/computing-square.ashx?h=380&w=500&hash=158762B9468D74A404C70E3E968CD12B' alt='' className='h-[200px] w-full rounded-[8px]' />
+              courses?
+              courses.filter(f => nFaculty != 'faculties' ? f.faculty.slug == nFaculty : courses).filter(f2=>nPrograme != 'programes' ? f2.programe.slug == nPrograme : courses).filter(f3=> nCredit != 'credits' ? f3.course_credit == nCredit : courses).filter(f4=> nAward != 'awards' ? f4.qualification.slug == nAward : courses).map(i => (
+                <Link to={`/courses/${i.slug}`} key={i.id} className=' bg-white p-2 h-fit w-full shadow-[0px_4px_25px_rgba(0,0,0,0.05)] rounded-[16px]'>
+                  <img src={i.image} alt='' className='h-[200px] w-full rounded-[8px]' />
                   <div className='pt-4 flex flex-col gap-4'>
                     <div className=''>
                       <p className='text-xs text-red-600 font-medium'>Post Graduate course</p>
-                      <p className='font-semibold text-justify'>Level 7 Diploma in Health and Social Care Management (Postgraduate Diploma)</p>
+                      <p className='font-semibold text-justify'>{
+                        i.name
+                      }</p>
                     </div>
-                    <div className='h-[1px] w-full bg-black/10 ' ></div>
+                    <div className='h-[1px] w-full bg-black/10' ></div>
                     <div className='flex flex-row gap-1 items-center justify-between'>
                       <Button size='sm' variant='light' className='w-fit px-2 gap-1 text-xs text-gray-500' startContent={<MdOutlineAccessTime  className='text-base'/>}>
                         4 months
@@ -188,7 +325,7 @@ const CourseFilterScreen = () => {
                     </div>
                       
                   </div>
-                </div>
+                </Link>
               ))
               :
               ''

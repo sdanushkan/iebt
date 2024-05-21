@@ -8,21 +8,29 @@ import CountryScreen from './screens/CountryScreen'
 import ContactScreen from './screens/ContactScreen'
 import CourseFilterScreen from './screens/CourseFilterScreen'
 import CountriesScreen from './screens/CountriesScreen'
+import CourseScreen from './screens/CourseScreen'
+import Chatbot from './components/Chatbot'
+import ApplicationScreen from './screens/ApplicationScreen'
 
 const App = () => {
-  return (
+  return ( 
     <Router>
       <Header/>
-      {/* <Chatbot/> */}
+      <Chatbot/>
       <Routes>
         <Route path='/' element={<HomeScreen/>} />
-        <Route path='/aboutUs' element={<AboutScreen/>} />
+        <Route path='/about' element={<AboutScreen/>} />
+        <Route path='/application' element={<ApplicationScreen/>} />
         <Route path='/contact' element={<ContactScreen/>} />
-        <Route path='/:award' element={<CourseFilterScreen/>} />
-        <Route path='/:award/:programe' element={<CourseFilterScreen/>} />
-        <Route path='/:award/:programe/:credit' element={<CourseFilterScreen/>} />
-        <Route path='/:award/:programe/:credit/:keyword' element={<CourseFilterScreen/>} />
+        <Route path='/countries/:country' element={<CountryScreen/>} />
+        <Route path='/courses/:course' element={<CourseScreen/>} />
         <Route path='/abroad'element={<CountriesScreen/>} />
+        <Route path='faculties/:faculty' element={<CourseFilterScreen/>} />
+        <Route path='programes/:programe' element={<CourseFilterScreen/>} />
+        <Route path='faculties/:faculty/:course' element={<CourseFilterScreen/>} />
+        <Route path=':faculty/:programe/:award/:credit' element={<CourseFilterScreen/>} />
+        <Route path=':faculty/:programe/:award/:credit/:keyword' element={<CourseFilterScreen/>} />
+        
       </Routes>
       <Footer/>
     </Router>

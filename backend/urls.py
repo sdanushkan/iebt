@@ -23,11 +23,15 @@ from rest_framework_simplejwt.views import (
     TokenObtainPairView,
     TokenRefreshView,
 )
+
+from django.conf.urls.i18n import i18n_patterns
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', TemplateView.as_view(template_name='index.html')),
     path('api/courses/', include('base.urls.course_urls')),
     path('api/countries/', include('base.urls.abroad_urls')),
+    path("i18n/", include("django.conf.urls.i18n")),
     # path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     # path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
 
@@ -35,3 +39,4 @@ urlpatterns = [
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+urlpatterns += i18n_patterns(path("admin/", admin.site.urls))
