@@ -1,7 +1,7 @@
 import { combineReducers, applyMiddleware } from 'redux'
 import { thunk }  from 'redux-thunk'
 import { configureStore } from '@reduxjs/toolkit'
-import { composeWithDevTools } from 'redux-devtools-extension'
+// import { composeWithDevTools } from 'redux-devtools-extension'
 import { aboutDetailsReducer, courseListReducer, facultyListReducer, levelListReducer } from './reducers/courseReducers'
 import { countryListReducer } from './reducers/abroadReducers'
 // import { countryListReducer } from './reducers/countryReducers'
@@ -38,6 +38,6 @@ const initialState = {
 
 const  middlwere = [thunk]
 
-const store = configureStore({reducer, preloadedState:initialState}, composeWithDevTools(applyMiddleware(...middlwere)))
+const store = configureStore({reducer, preloadedState:initialState}, applyMiddleware(...middlwere))
 
 export default store

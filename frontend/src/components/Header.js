@@ -15,7 +15,7 @@ import { IoMenu } from "react-icons/io5";
 import { useDispatch, useSelector } from "react-redux";
 import { getFacultyList } from '../actions/courseActions';
 import {Accordion, AccordionItem} from "@nextui-org/react";
-
+ 
 const Header = () => {
     const [navbar, setNavbar] = useState(false);
 
@@ -168,7 +168,7 @@ const Header = () => {
                 <RiSecurePaymentFill />
               </Button>
               <div className='flex flex-col py-4'>
-                <p className='text-sm font-semibold text-[#DA0C0C] h-12 flex items-center px-2 '>Home</p>
+                <Link onClick={() => setNavbar(!navbar)} to={'/'} className='text-sm font-semibold text-[#DA0C0C] h-12 flex items-center px-2 '>Home</Link>
                 <Accordion>
                   
                   <AccordionItem key="2" aria-label="Faculties" className='flex flex-col' title={
@@ -179,7 +179,7 @@ const Header = () => {
                       '':
                       faculties?
                       faculties.map(i => (
-                        <Link to={`/facuties/${i.slug}`} className=' h-8 flex items-center text-xs px-4 font-medium'>{i.name}</Link>
+                        <Link onClick={() => setNavbar(!navbar)} to={`/facuties/${i.slug}`} className=' h-8 flex items-center text-xs px-4 font-medium'>{i.name}</Link>
                       ))
                       :
                       ''
@@ -187,9 +187,8 @@ const Header = () => {
                   </AccordionItem>
                   
                 </Accordion>
-                <p className='text-sm font-semibold text-[#DA0C0C] h-12 flex items-center px-2 '>About us</p>
-                <p className='text-sm font-semibold text-[#DA0C0C] h-12 flex items-center px-2 '>Contact us</p>
-                <p className='text-sm font-semibold text-[#DA0C0C] h-12 flex items-center px-2 '>Contact us</p>
+                <Link onClick={() => setNavbar(!navbar)} to={'/about'} className='text-sm font-semibold text-[#DA0C0C] h-12 flex items-center px-2 '>About us</Link>
+                <Link onClick={() => setNavbar(!navbar)} to={'/contact'} className='text-sm font-semibold text-[#DA0C0C] h-12 flex items-center px-2 '>Contact us</Link>
               </div>
             </div>
 

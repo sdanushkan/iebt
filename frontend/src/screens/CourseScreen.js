@@ -43,104 +43,122 @@ const CourseScreen = () => {
         {
             nCourse?
             <section className='relative'>
-                <img src={nCourse.image} alt='' className='h-[400px] w-full object-cover relative -z-40' />
+                <img src={nCourse.image} alt='' className='h-[400px] w-full object-cover relative -z-40 hidden lg:flex' />
                 <div className='absolute top-0 h-[400px] w-full bg-black/50 z-0 flex flex-col items-center justify-center'>
                     <Breadcrumbs 
                         classNames={{
                             list: "",
                         }}
                         itemClasses={{
-                            item: "text-white/60 data-[current=true]:text-white",
-                            separator: "text-white/40",
+                            item: "text-white/60 text-center data-[current=true]:text-white",
+                            separator: "text-white/40 text-center",
                         }}
-                    className='text-3xl font-medium'>
-                        <BreadcrumbItem className='text-3xl ' ><p className='text-base md:text-2xl capitalize font-bold'>{nCourse.faculty.name}</p></BreadcrumbItem>
-                        <BreadcrumbItem className='text-3xl ' ><p className='text-base md:text-2xl capitalize font-bold'>Course</p></BreadcrumbItem><br/>
-                        <BreadcrumbItem className='text-3xl ' ><p className='text-base md:text-2xl capitalize font-bold'>{nCourse.name}</p></BreadcrumbItem>
+                    className='text-3xl font-medium  max-w-fit mx-auto'>
+                        <BreadcrumbItem className='text-3xl ' ><p className='text-sm text-center md:text-2xl capitalize font-bold'>{nCourse.faculty.name}</p></BreadcrumbItem>
+                        <BreadcrumbItem className='text-3xl ' ><p className='text-sm text-center md:text-2xl capitalize font-bold'>Course</p></BreadcrumbItem><br/>
+                        <BreadcrumbItem className='text-3xl ' ><p className='text-sm text-center md:text-2xl capitalize font-bold'>{nCourse.name}</p></BreadcrumbItem>
                     </Breadcrumbs>
                 </div>
-                <div className='w-full h-fit max-w-[1100px] mx-auto bg-white shadow-[0px_4px_25px_rgba(0,0,0,0.05)] -mt-[100px] relative z-10 grid grid-cols-1 md:grid-cols-5 md:gap-4 sm:p-4 lg:p-8'>
+                <div className='w-full h-fit max-w-[1100px] mx-auto bg-white shadow-[0px_4px_25px_rgba(0,0,0,0.05)] lg:-mt-[100px] relative z-10 grid grid-cols-1 md:grid-cols-5 md:gap-4 sm:p-4 lg:p-8'>
                     <div className='w-full h-full md:col-span-3 flex flex-col gap-12'>
-                        <div className='w-full h-full md:col-span-3  flex flex-col gap-2'>
+                        <div className='w-full h-full md:col-span-3  flex flex-col gap-4'>
                             <img src={nCourse.image} alt='' className='h-[250px] w-full object-cover' />
-                            <div className='flex'>
-                                <Button size='sm' radius='full' variant='light' className=' px-2 py-2 gap-1 text-gray-500' startContent={<MdAccessTime/>}>
-                                    6 months
-                                </Button>
-                                <Button size='sm' radius='full' variant='light' className=' px-2 py-2 gap-1 text-gray-500' startContent={<FaRegCircleUser />}>
-                                    Online
-                                </Button>
-                            </div>
-                            <p className='text-xl font-semibold'>{nCourse.name}</p>
-                            <div className='flex flex-col sm:flex-row justify-between gap-8 '>
-                                <div className='flex flex-col'>
-                                    <p className='text-sm opacity-50'>Level</p>
-                                    <p className='text-sm font-medium'>{nCourse.programe.name}</p>
+                            <div className='flex flex-col px-6 gap-2'>
+                                <Breadcrumbs 
+                                    classNames={{
+                                        list: "",
+                                    }}
+                                    itemClasses={{
+                                        item: "text-black/60 text-center data-[current=true]:text-black",
+                                        separator: "text-black/40 text-center",
+                                    }}
+                                className='text-3xl font-medium  max-w-fit mx-auto'>
+                                    <BreadcrumbItem className='text-3xl ' ><p className='text-sm text-center md:text-2xl capitalize font-bold'>{nCourse.faculty.name}</p></BreadcrumbItem>
+                                    <BreadcrumbItem className='text-3xl ' ><p className='text-sm text-center md:text-2xl capitalize font-bold'>Course</p></BreadcrumbItem><br/>
+                                    <BreadcrumbItem className='text-3xl ' ><p className='text-sm text-center md:text-2xl capitalize font-bold'>{nCourse.name}</p></BreadcrumbItem>
+                                </Breadcrumbs>
+                                <div className='flex gap-2'>
+                                    <Button size='sm' radius='full' variant='bordered' className='px-2 py-2 gap-1 text-gray-500' startContent={<MdAccessTime/>}>
+                                        6 months
+                                    </Button>
+                                    <Button size='sm' radius='full' variant='bordered' className='px-2 py-2 gap-1 text-gray-500' startContent={<FaRegCircleUser />}>
+                                        Online
+                                    </Button>
                                 </div>
-                                <div className='flex flex-col'>
-                                    <p className='text-sm opacity-50'>Class on</p>
-                                    <p className='text-sm font-medium'>{nCourse.class_on}</p>
-                                </div>
-                                <div className='flex flex-col'>
-                                    <p className='text-sm opacity-50'>faculty</p>
-                                    <p className='text-sm font-medium'>{nCourse.faculty.name}</p>
-                                </div>
-                                <div className='flex flex-col'>
-                                    <p className='text-sm opacity-50'>Awarding by</p>
-                                    <p className='text-sm font-medium'>{nCourse.qualification.name}</p>
-                                </div>
+                                <p className='text-3xl font-bold'>{nCourse.name}</p>
+                                <div className='flex flex-col sm:flex-row justify-between gap-2 md:gap-8 '>
+                                    <div className='flex flex-col'>
+                                        <p className='text-sm opacity-50'>Level</p>
+                                        <p className='text-base font-medium capitalize'>{nCourse.programe.name}</p>
+                                    </div>
+                                    <div className='flex flex-col'>
+                                        <p className='text-sm opacity-50'>Class on</p>
+                                        <p className='text-base font-medium capitalize'>{nCourse.class_on}</p>
+                                    </div>
+                                    <div className='flex flex-col'>
+                                        <p className='text-sm opacity-50'>Faculty</p>
+                                        <p className='text-base font-medium capitalize'>{nCourse.faculty.name}</p>
+                                    </div>
+                                    <div className='flex flex-col'>
+                                        <p className='text-sm opacity-50'>Awarding by</p>
+                                        <p className='text-base font-medium capitalize'>{nCourse.qualification.name}</p>
+                                    </div>
 
+                                </div>
+                            </div>
+                            <div className='w-full px-6'>
+                                <Tabs size='lg' aria-label="Options">
+                                    <Tab key="overview" title="Overview">
+                                    <Card className='px-2 py-4'>
+                                        <CardBody className='flex flex-col gap-4'>
+                                            <div className='flex flex-col gap-4'>
+                                                <p className='text-lg font-bold'>Overview</p>
+                                                <p className='text-base text-gray-500'>The Level 7 Postgraduate Diploma in Psychology offers an advanced curriculum designed to deepen understanding and proficiency in various psychological theories and practices. Students gain a comprehensive insight into the complexities of human behavior and mental processes. This postgraduate level qualification equips graduates with advanced knowledge and skills necessary for pursuing careers in areas such as counselling, psychology, research, and academia.</p>
+                                            </div>
+                                            <div className='flex flex-col gap-4'>
+                                                <p className='text-lg font-bold'>Course Entry Requriments</p>
+                                                <p className='text-base text-gray-500'>Level 6/GD/First Degree in Psychology or 5 years of experience in Psychology </p>
+                                            </div>
+                                        </CardBody>
+                                    </Card>  
+                                    </Tab>
+                                    <Tab key="units" title="Units">
+                                    <Card className='p-4'>
+                                        <CardBody>
+                                            <div className='flex flex-col gap-4'>
+                                                <p className='text-lg font-bold'>Course unit</p>
+                                                <Table aria-label="Example static collection table">
+                                                    <TableHeader>
+                                                        <TableColumn>Module</TableColumn>
+                                                        <TableColumn>Level</TableColumn>
+                                                        <TableColumn>Credit</TableColumn>
+                                                    </TableHeader>
+                                                    <TableBody>
+                                                        {
+                                                            courseListLoading?
+                                                            '':
+                                                            nCourse && nCourse.units?
+                                                            nCourse.units.map(i => (
+                                                                <TableRow key={i.id}>
+                                                                    <TableCell>{i.name}</TableCell>
+                                                                    <TableCell>{i.level.name}</TableCell>
+                                                                    <TableCell>{i.credit_count}</TableCell>
+                                                                </TableRow>
+                                                            ))
+                                                            :
+                                                            ""
+                                                        }
+                                                    </TableBody>
+                                                </Table>
+                                            </div>
+                                        </CardBody>
+                                    </Card>  
+                                    </Tab>
+                                </Tabs>
                             </div>
                         </div>
                         
-                        <Tabs aria-label="Options">
-                            <Tab key="overview" title="Overview">
-                            <Card className='p-4'>
-                                <CardBody className='flex flex-col gap-4'>
-                                    <div className='flex flex-col gap-4'>
-                                        <p className='text-sm font-semibold'>OverView</p>
-                                        <p className='text-xs text-gray-500'>The Level 7 Postgraduate Diploma in Psychology offers an advanced curriculum designed to deepen understanding and proficiency in various psychological theories and practices. Students gain a comprehensive insight into the complexities of human behavior and mental processes. This postgraduate level qualification equips graduates with advanced knowledge and skills necessary for pursuing careers in areas such as counselling, psychology, research, and academia.</p>
-                                    </div>
-                                    <div className='flex flex-col gap-4'>
-                                        <p className='text-sm font-semibold'>Course Entry Requriments</p>
-                                        <p className='text-xs text-gray-500'>Level 6/GD/First Degree in Psychology or 5 years of experience in Psychology </p>
-                                    </div>
-                                </CardBody>
-                            </Card>  
-                            </Tab>
-                            <Tab key="units" title="Units">
-                            <Card className='p-4'>
-                                <CardBody>
-                                    <div className='flex flex-col gap-4'>
-                                        <p className='text-sm font-semibold'>Course unit</p>
-                                        <Table aria-label="Example static collection table">
-                                            <TableHeader>
-                                                <TableColumn>Module</TableColumn>
-                                                <TableColumn>Level</TableColumn>
-                                                <TableColumn>Credit</TableColumn>
-                                            </TableHeader>
-                                            <TableBody>
-                                                {
-                                                    courseListLoading?
-                                                    '':
-                                                    nCourse && nCourse.units?
-                                                    nCourse.units.map(i => (
-                                                        <TableRow key={i.id}>
-                                                            <TableCell>{i.name}</TableCell>
-                                                            <TableCell>{i.level.name}</TableCell>
-                                                            <TableCell>{i.credit_count}</TableCell>
-                                                        </TableRow>
-                                                    ))
-                                                    :
-                                                    ""
-                                                }
-                                            </TableBody>
-                                        </Table>
-                                    </div>
-                                </CardBody>
-                            </Card>  
-                            </Tab>
-                        </Tabs>
+                        
                         
                     </div>
 

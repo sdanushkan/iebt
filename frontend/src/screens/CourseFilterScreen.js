@@ -59,7 +59,7 @@ const CourseFilterScreen = () => {
       
     } else {
       setNFaculty('faculties')
-    }
+    } 
     if (credit !="") {
       setNCredit(credit)
     } else {
@@ -78,9 +78,9 @@ const CourseFilterScreen = () => {
     }
 
     if (keyword !="") {
-      setNAward(keyword)
+      setNKeyword(keyword)
     } else {
-      setNAward('')
+      setNKeyword('')
     }
   }, [faculty, programe, credit, award, keyword, location])
 
@@ -92,7 +92,7 @@ const CourseFilterScreen = () => {
     <div className='h-fit w-full md:pt-28 relative'>
       <div className='relative h-fit w-full md:hidden'>
         <div className='h-fit w-full max-w-[1200px] mx-auto px-4 sm:px-6 overflow-hidden'>
-          <div className='flex items-center justify-between my-2 font-medium border-2 mt-24 md:mt-0'>
+          <div className='flex items-center justify-between my-2 font-medium border-2 mt-28 md:mt-0'>
             <div className='max-h-fit flex divide-x-1 overflow-hidden'>
               <Button onClick={() => setFilter(!filter)} endContent={<BiFilterAlt className='text-xl' />} variant='bordered' radius='none' className='text-xs border-0 ' size='md'>Filter</Button>
               <Dropdown>
@@ -131,12 +131,12 @@ const CourseFilterScreen = () => {
 
         <div className={
           filter?
-          'h-full w-full duration-300  ml-0 md: flex md:block absolute top-0 md:relative z-30':
+          'h-full w-full duration-300  ml-0 md: flex md:block fixed top-0 md:relative z-50':
           'h-full w-full duration-300 -ml-[100%] md:ml-0 md:w-[250px] flex md:block top-0 absolute md:relative z-200'
         }>
           <div className='h-screen md:h-fit w-full bg-white px-4 md:px-0 py-6 md:py-0 divide-y-1 flex flex-col gap-4'>
 
-            <Accordion defaultExpandedKeys={["1", "2", "3","4"]} isCompact className='w-[250px]'>
+            <Accordion defaultExpandedKeys={["1", "2", "3","4"]} isCompact className='w-full min-w-full md:w-[250px]'>
               <AccordionItem  className='text-base font-semibold overflow-hidden' key="1" aria-label="Faculties" startContent="Faculties" classNames={'w-full'}>
                 <Tabs variant='solid' selectedKey={nFaculty} onSelectionChange={setNFaculty} size='sm' isVertical defaultSelectedKey={nFaculty} fullWidth aria-label="Tabs sizes" color='danger' 
                 classNames={{
@@ -294,14 +294,14 @@ const CourseFilterScreen = () => {
             'h-full w-[20%] opacity-0 duration-300 backdrop-blur-0 bg-black bg-opacity-50 md:hidden'
           }></button>
         </div>
-        <div className='h-fit w-full flex flex-col gap-6'>
+        <div className='h-fit w-full flex flex-col gap-6 relative z-10'>
           <div className={`w-full mx-auto h-fit grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-4 px-4 md:px-0`}>
            
             {
               courseListLoading?
               '':
               courses?
-              courses.filter(f => nFaculty != 'faculties' ? f.faculty.slug == nFaculty : courses).filter(f2=>nPrograme != 'programes' ? f2.programe.slug == nPrograme : courses).filter(f3=> nCredit != 'credits' ? f3.course_credit == nCredit : courses).filter(f4=> nAward != 'awards' ? f4.qualification.slug == nAward : courses).map(i => (
+              courses.filter(f => nFaculty != 'faculties' ? f.faculty.slug == nFaculty : courses).filter(f2=>nPrograme != 'programes' ? f2.programe.slug == nPrograme : courses).filter(f3=> nCredit != 'credits' ? f3.course_credit == nCredit : courses).filter(f4=> nAward != 'awards' ? f4.qualification.slug == nAward : courses).filter(f => nKeyword != '' ? f.faculty.name == nFaculty : courses).map(i => (
                 <Link to={`/courses/${i.slug}`} key={i.id} className=' bg-white p-2 h-fit w-full shadow-[0px_4px_25px_rgba(0,0,0,0.05)] rounded-[16px]'>
                   <img src={i.image} alt='' className='h-[200px] w-full rounded-[8px]' />
                   <div className='pt-4 flex flex-col gap-4'>

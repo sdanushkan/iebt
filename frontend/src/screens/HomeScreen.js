@@ -18,6 +18,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { IoArrowForwardOutline } from "react-icons/io5";
 import _ from 'lodash';
 import { TypeAnimation } from 'react-type-animation';
+import { FiSearch } from "react-icons/fi";
 
 // Import Swiper styles
 import 'swiper/css';
@@ -69,42 +70,49 @@ const HomeScreen = () => {
         
         <img src='https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' alt='' className='h-[700px] xl:h-[500px] w-full object-cover object-bottom  absolute -z-50'/>
 
-        <div className='h-[700px] xl:h-[500px] w-full px-6 relative -z-10 flex items-center justify-center bg-black/50'>
-          {/* <TypeAnimation
-            sequence={[
-              // Same substring at the start will only be typed out once, initially
-              'International Educational Business Campus',
-              2000
-            ]}
-            wrapper="span"
-            speed={50}
-            style={{ fontSize: '3.75em', display: 'inline-block', color:'white', fontWeight:600, textAlign:'center' }}
-            repeat={Infinity}
-          />
-             */}
+        <div className='h-[700px] xl:h-[500px] w-full px-4 relative -z-10 flex items-center justify-center bg-black/50'>
+          
+            
         </div>
+        <div className='w-full max-w-[1000px] h-[400px] md:h-[200px] mx-auto -mt-[600px] md:-mt-[300px] px-4 flex items-center flex-col justify-center  gap-8'>
+            <TypeAnimation
+              sequence={[
+                // Same substring at the start will only be typed out once, initially
+                'International Educational Business Campus',
+                2000
+              ]}
+              wrapper="span"
+              speed={50}
+              style={{ fontSize: '2em', color:'white', fontWeight:600, textAlign:'center' }}
+              repeat={Infinity}
+              className='text-base leading-10'
+            />
+            <Input
+                type="text"
+                placeholder="keyword"
+                labelPlacement="outside"
+                variant="bordered"
+                required
+                value={keyword} 
+                onChange={(e) => setKeyword(e.target.value)} 
+                className='w-full shadow-none rounded-none text-white backdrop-blur-2xl '
+               
+                radius='sm'
+                size='lg'
+                endContent={
+                  <Link to={`/search/${keyword}`}>
+                    <FiSearch  />
+                  </Link>
+                }
+              />
+          </div>
 
-        <div className='h-fit w-full max-w-[1000px] mx-auto -mt-[300px] md:-mt-[100px] px-6'>
-          <form className='bg-white shadow-[0px_4px_25px_rgba(0,0,0,0.05)] h-fit w-full z-0 mt-auto  px-6 md:px-12 py-12 flex flex-col gap-6'>
+        <div className='h-fit w-full max-w-[1000px] mx-auto px-6'>
+          <form className='bg-white shadow-[0px_4px_25px_rgba(0,0,0,0.05)] h-fit w-full z-40 mt-auto  px-6 md:px-12 py-8 flex flex-col gap-4'>
               <div className='flex flex-col md:flex-row  gap-6 items-center justify-between'>
                 <div className='w-full max-w-[500px]'>
-                  <p className='text-3xl font-semibold'>Search Course</p>
+                  <p className='text-3xl font-bold'>Search Course</p>
                 </div>
-                <Input
-                  type="text"
-                  placeholder="keyword"
-                  labelPlacement="outside"
-                  variant="bordered"
-                  required
-                  value={keyword} 
-                  onChange={(e) => setKeyword(e.target.value)} 
-                  className='w-full shadow-none rounded-none'
-                  radius='sm'
-                  size='lg'
-                  endContent={
-                    <VscSymbolKeyword />
-                  }
-                />
               </div>
               <div className='flex flex-col md:flex-row items-center justify-between gap-4'>
                 <Select
@@ -184,7 +192,7 @@ const HomeScreen = () => {
                 {/* <Button size='lg' isIconOnly variant='solid' className='bg-[#DA0C0C] rounded-md px-4 text-white  min-w-fit justify-center' endContent={<IoSearch className='ml-4'/>}>
                   Search
                 </Button> */}
-                <Button onClick={() => submitHandler() } color='' radius='sm' className="w-full md:min-w-fit flex bg-[#DA0C0C] font-medium text-white md:px-6 py-6">
+                <Button onClick={() => submitHandler() } color='' radius='sm' className="w-full md:min-w-fit flex bg-[#DA0C0C] font-semibold text-white md:px-4 py-6 text-base">
                     <p>Search</p>
                     <IoSearch className='ml-4'/>
                 </Button>
@@ -194,28 +202,28 @@ const HomeScreen = () => {
         <div className='h-[25px]'></div>
       </section>
 
-      <section className='h-fit w-full relative overflow-hidden px-8'>
-        <div className='h-fit w-full max-w-[800px] mx-auto grid grid-cols-2 md:grid-cols-4 justify-center gap-6'>
-            <Link to={'/application'} className='w-full h-full flex flex-col items-center justify-center gap-4 bg-red-50 hover:bg-[#DA0C0C] text-black duration-200 cursor-pointer hover:text-white py-8 px-8 rounded-[8px]'>
+      <section className='h-fit w-full relative overflow-hidden px-4'>
+        <div className='h-fit w-full max-w-[800px] mx-auto grid grid-cols-2 md:grid-cols-4 justify-center gap-2 lg:gap-6'>
+            <Link to={'/application'} className='w-full h-full flex flex-col items-center justify-center gap-4 bg-red-50 hover:bg-[#DA0C0C] text-black duration-200 cursor-pointer hover:text-white py-8 px-4 rounded-[8px]'>
               <MdOutlineAdsClick className='text-6xl'/>
               <p className='text-sm font-semibold'>Apply</p>
             </Link>
-            <div className='w-full h-full flex flex-col items-center justify-center gap-4 bg-red-50 hover:bg-[#DA0C0C] text-black duration-200 cursor-pointer hover:text-white py-8 px-8 rounded-[8px]'>
+            <div className='w-full h-full flex flex-col items-center justify-center gap-4 bg-red-50 hover:bg-[#DA0C0C] text-black duration-200 cursor-pointer hover:text-white py-8 px-4 rounded-[8px]'>
               <MdOutlineVerified  className='text-6xl'/>
               <p className='text-sm font-semibold'>Verify Certificate</p>
             </div>
-            <div className='w-full h-full flex flex-col items-center justify-center gap-4 bg-red-50 hover:bg-[#DA0C0C] text-black duration-200 cursor-pointer hover:text-white py-8 px-8 rounded-[8px]'>
+            <div className='w-full h-full flex flex-col items-center justify-center gap-4 bg-red-50 hover:bg-[#DA0C0C] text-black duration-200 cursor-pointer hover:text-white py-8 px-4 rounded-[8px]'>
               <FaIdCard  className='text-6xl'/>
               <p className='text-sm font-semibold'>Student Portal</p>
             </div>
-            <div className='w-full h-full flex flex-col items-center justify-center gap-4 bg-red-50 hover:bg-[#DA0C0C] text-black duration-200 cursor-pointer hover:text-white py-8 px-8 rounded-[8px]'>
+            <div className='w-full h-full flex flex-col items-center justify-center gap-4 bg-red-50 hover:bg-[#DA0C0C] text-black duration-200 cursor-pointer hover:text-white py-8 px-4 rounded-[8px]'>
               <MdLibraryBooks  className='text-6xl'/>
               <p className='text-sm font-semibold'>E library</p>
             </div>
         </div>
       </section>
 
-      <section className='h-fit w-full relative overflow-hidden px-8'>
+      <section className='h-fit w-full relative overflow-hidden px-4'>
         <div className='h-fit w-full max-w-[1100px] mx-auto justify-center gap-6'>
             <div className='flex flex-col'>
               <p className='uppercase text-xs '>Faculty</p>
@@ -254,7 +262,7 @@ const HomeScreen = () => {
         </div>
       </section>
 
-      <section className='h-fit w-full relative px-8'>
+      <section className='h-fit w-full relative px-4'>
         <div className='h-fit w-full max-w-[1100px] mx-auto justify-center gap-6'>
             <div className='flex flex-col'>
               <p className='uppercase text-xs '>Courses</p>
@@ -446,7 +454,7 @@ const HomeScreen = () => {
         </div>
       </section>
 
-      <section className='h-fit w-full relative overflow-hidden px-8 bg-red-50 py-16'>
+      <section className='h-fit w-full relative overflow-hidden px-4 bg-red-50 py-16'>
         <div className='h-fit w-full max-w-[1100px] mx-auto justify-center gap-6 '>
           <div className='flex flex-col pb-8'>
             <p className='uppercase text-xs '>Unlock Your Future</p>
@@ -485,7 +493,7 @@ const HomeScreen = () => {
       </section>
 
       <section className='h-fit w-full relative overflow-hidden'>
-        <div className='h-fit w-full max-w-[1100px] mx-auto px-8 overflow-visible'>
+        <div className='h-fit w-full max-w-[1100px] mx-auto px-4 overflow-visible'>
             <div className='flex flex-col pb-8'>
               <p className='uppercase text-xs '>Qualifications</p>
               <p className='text-4xl font-bold'>Our Qualifications</p>
@@ -510,7 +518,7 @@ const HomeScreen = () => {
                   _.uniqBy(_.flatMap(courses, 'qualification'), 'id').map(i=>(
                     <SwiperSlide key={i.id} className='bg-white shadow-[0px_4px_25px_rgba(0,0,0,0.05)] rounded-[8px] mb-8 w-[250px]'>
                       <img src={i.image} alt='' className='h-[150px] w-[200px] object-contain scale-80 mx-auto hover:scale-105 duration-200' />
-                      <div className='flex flex-col py-6 gap-4 px-8 '>
+                      <div className='flex flex-col py-6 gap-4 px-4 '>
                         <div className='flex flex-col-reverse'>
                         <p className='text-xs h-[32px] overflow-hidden text-gray-400'>{i.discription}</p>
                         <p className='text-based uppercase font-semibold'>{i.name}</p>
@@ -544,7 +552,7 @@ const HomeScreen = () => {
                   _.uniqBy(_.flatMap(courses, 'qualification'), 'id').map(i=>(
                     <SwiperSlide key={i.id} className='bg-white shadow-[0px_4px_25px_rgba(0,0,0,0.05)] rounded-[8px] mb-8 w-[250px]'>
                       <img src={i.image} alt='' className='h-[150px] w-[200px] object-contain scale-80 mx-auto hover:scale-105 duration-200' />
-                      <div className='flex flex-col py-6 gap-4 px-8 '>
+                      <div className='flex flex-col py-6 gap-4 px-4 '>
                         <div className='flex flex-col-reverse'>
                         <p className='text-xs h-[32px] overflow-hidden text-gray-400'>{i.discription}</p>
                         <p className='text-based uppercase font-semibold'>{i.name}</p>
@@ -578,7 +586,7 @@ const HomeScreen = () => {
                   _.uniqBy(_.flatMap(courses, 'qualification'), 'id').map(i=>(
                     <SwiperSlide key={i.id} className='bg-white shadow-[0px_4px_25px_rgba(0,0,0,0.05)] rounded-[8px] mb-8 w-[250px]'>
                       <img src={i.image} alt='' className='h-[150px] w-[200px] object-contain scale-80 mx-auto hover:scale-105 duration-200' />
-                      <div className='flex flex-col py-6 gap-4 px-8 '>
+                      <div className='flex flex-col py-6 gap-4 px-4 '>
                         <div className='flex flex-col-reverse'>
                         <p className='text-xs h-[32px] overflow-hidden text-gray-400'>{i.discription}</p>
                         <p className='text-based uppercase font-semibold'>{i.name}</p>

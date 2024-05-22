@@ -21,12 +21,13 @@ const App = () => {
         <Route path='/' element={<HomeScreen/>} />
         <Route path='/about' element={<AboutScreen/>} />
         <Route path='/application' element={<ApplicationScreen/>} />
-        <Route path='/contact' element={<ContactScreen/>} />
+        <Route path='/contact' element={<ContactScreen/>} /> 
         <Route path='/countries/:country' element={<CountryScreen/>} />
         <Route path='/courses/:course' element={<CourseScreen/>} />
         <Route path='/abroad'element={<CountriesScreen/>} />
         <Route path='faculties/:faculty' element={<CourseFilterScreen/>} />
         <Route path='programes/:programe' element={<CourseFilterScreen/>} />
+        <Route path='search/:keyword' element={<CourseFilterScreen/>} />
         <Route path='faculties/:faculty/:course' element={<CourseFilterScreen/>} />
         <Route path=':faculty/:programe/:award/:credit' element={<CourseFilterScreen/>} />
         <Route path=':faculty/:programe/:award/:credit/:keyword' element={<CourseFilterScreen/>} />
