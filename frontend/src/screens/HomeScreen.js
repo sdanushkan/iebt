@@ -19,6 +19,11 @@ import { IoArrowForwardOutline } from "react-icons/io5";
 import _ from 'lodash';
 import { TypeAnimation } from 'react-type-animation';
 import { FiSearch } from "react-icons/fi";
+import  apply  from '../assets/apply.png'
+import  verification  from '../assets/verification.png'
+import  sp  from '../assets/sp.png'
+import  es  from '../assets/es.png'
+import {Tooltip} from "@nextui-org/react";
 
 // Import Swiper styles
 import 'swiper/css';
@@ -59,22 +64,50 @@ const HomeScreen = () => {
       history(`${faculty}${programe}${award}${credit}${keyword}`)
     } 
 
-    useEffect(() => {
-      window.scroll(0,0);
-    }, [location]);
+    // useEffect(() => {
+    //   window.scroll(0,0);
+    // }, [location]);
     
 
   return (
-    <div className='h-fit w-full flex flex-col gap-12'>
-      <section className='h-fit w-full relative overflow-hidden'>
-        
-        <img src='https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' alt='' className='h-[700px] xl:h-[500px] w-full object-cover object-bottom  absolute -z-50'/>
+    <div className='h-fit w-full flex flex-col gap-8 lg:gap-12'>
+      <section className='h-fit w-full relative overflow-hidden lg:pb-2'>
 
-        <div className='h-[700px] xl:h-[500px] w-full px-4 relative -z-10 flex items-center justify-center bg-black/50'>
-          
-            
+        <div className='h-[600px] xl:h-[500px] w-full object-cover object-bottom  absolute -z-50'>
+          <Swiper
+            slidesPerView={1}
+            spaceBetween={10}
+            pagination={{
+              clickable: true,
+            }}
+            modules={[Pagination, Autoplay]}
+            className="w-full"
+            autoplay
+          >
+            <SwiperSlide className='w-full h-full'>
+              <img src='https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' alt='' className='h-[500px] w-full object-cover object-bottom'/>
+            </SwiperSlide>
+            <SwiperSlide className='w-full h-full'>
+              <img src='https://media.istockphoto.com/id/1307457391/photo/happy-black-student-raising-arm-to-answer-question-while-attending-class-with-her-university.jpg?s=612x612&w=0&k=20&c=iZaZFyC-WqlqSQc4elqUNPTxLvWPe8P5Tb_YdZnrI9Q=' alt='' className='h-[500px] w-full object-cover object-center'/>
+            </SwiperSlide>
+            {/* <SwiperSlide className='w-full h-full'>
+              <img src='https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' alt='' className='h-[500px] w-full object-cover object-bottom'/>
+            </SwiperSlide> */}
+          </Swiper>
         </div>
-        <div className='w-full max-w-[1000px] h-[400px] md:h-[200px] mx-auto -mt-[600px] md:-mt-[300px] px-4 flex items-center flex-col justify-center  gap-8'>
+        
+        <div className='h-[600px] xl:h-[500px] w-full px-8 relative -z-10 flex items-start justify-center bg-black/50'>
+          <div className='h-[400px] xl:h-[300px] w-full mt-[100px] flex flex-col justify-center gap-6'>
+            <div className='flex flex-col gap-2 max-w-[500px] mx-auto'>
+              <p className='text-4xl font-bold text-white lg:text-center'>International Educational Business Campus</p>
+              <p className='text-white/75 text-xs lg:text-center'>Lorem ipsum dolor sit amet consectetur. In nisl arcu risus at eu ipsum nunc magnis integer. Tristique aliquam risus mauris vitae adipiscing sit eget tristique. </p>
+            </div>
+            <Button color='' className="flex lg:hidden  bg-[#DA0C0C] text-xs lg:text-sm text-white px-4 md:px-5 py-2 md:py-3 rounded-full w-fit">
+              <p>Pay online</p>
+            </Button>
+          </div>
+        </div>
+        {/* <div className='w-full max-w-[1000px] h-[400px] md:h-[200px] mx-auto -mt-[600px] md:-mt-[300px] px-4 flex items-center flex-col justify-center  gap-8'>
             <TypeAnimation
               sequence={[
                 // Same substring at the start will only be typed out once, initially
@@ -105,152 +138,161 @@ const HomeScreen = () => {
                   </Link>
                 }
               />
-          </div>
-
-        <div className='h-fit w-full max-w-[1000px] mx-auto px-6'>
-          <form className='bg-white shadow-[0px_4px_25px_rgba(0,0,0,0.05)] h-fit w-full z-40 mt-auto  px-6 md:px-12 py-8 flex flex-col gap-4'>
-              <div className='flex flex-col md:flex-row  gap-6 items-center justify-between'>
+          </div> */}
+        <div className='h-fit w-full max-w-[1000px] mx-auto px-8 -mt-[100px] relative z-40'>
+          <form className='bg-white shadow-[0px_5px_50px_rgba(0,0,0,0.10)] h-fit w-full z-20 mt-auto  px-6 md:px-12 py-8 flex flex-col gap-4 rounded-[16px]'>
+              <div className='flex flex-row  gap-6 items-center justify-between'>
                 <div className='w-full max-w-[500px]'>
-                  <p className='text-3xl font-bold'>Search Course</p>
+                  <p className='text-xl font-bold text-[#DA0C0C]'>Search Course</p>
+                  <p className='text-xs text-gray-500'>Search And Filter our courses</p>
+                </div>
+                <div>
+                  <Button color='' className="flex bg-[#DA0C0C] text-xs lg:text-sm text-white px-4 md:px-5 py-2 md:py-3 rounded-full w-fit">
+                    <p>Search</p>
+                  </Button>
                 </div>
               </div>
-              <div className='flex flex-col md:flex-row items-center justify-between gap-4'>
-                <Select
-                  variant={'bordered'}
-                  required
-                  placeholder="Faculty"
-                  className='w-full shadow-none rounded-none'
-                  radius='sm'
-                  size='lg'
-                  endContent={
-                    <AiFillSignal />
-                  }
-                >
-                  {
-                    loading?
-                    '':
-                    faculties?
-                    faculties.map((i) => (
-                      <SelectItem onClick={()=> setFaculty(`/${i.slug}`)} value={i.slug} key={i.slug}>
-                        {i.name}
-                      </SelectItem>
-                    ))
-                    :
-                    ''
-                  }
-                </Select>
+              <div className='flex flex-col md:flex-row items-center justify-between gap-2'>
+                <div className='w-full flex lg:flex-row gap-2'>
+                  <Select
+                    variant={'bordered'}
+                    required
+                    placeholder="Faculty"
+                    className='w-full shadow-none rounded-none outline-none'
+                    radius='sm'
+                    size='md'
+                    
+                  >
+                    {
+                      loading?
+                      '':
+                      faculties?
+                      faculties.map((i) => (
+                        <SelectItem onClick={()=> setFaculty(`/${i.slug}`)} value={i.slug} key={i.slug}>
+                          {i.name}
+                        </SelectItem>
+                      ))
+                      :
+                      ''
+                    }
+                  </Select>
 
-                <Select
-                  variant={'bordered'}
-                  required
-                  placeholder="Programme"
-                  className='w-full shadow-none rounded-none'
-                  radius='sm'
-                  size='lg'
-                  endContent={
-                    <AiFillSignal />
-                  }
-                >
-                  {
-                    loading?
-                    '':
-                    levels?
-                    levels.map((i) => (
-                      <SelectItem onClick={()=> setPrograme(`/${i.slug}`)} value={i.slug} key={i.slug}>
-                        {i.name}
-                      </SelectItem>
-                    ))
-                    :
-                    ''
-                  }
-                </Select>
-                <Select
-                  variant={'bordered'}
-                  placeholder="Course award"
-                  className='w-full shadow-none rounded-none'
-                  radius='sm'
-                  required
-                  size='lg'
-                  endContent={
-                    <FaAward  />
-                  }
-                >
-                  {
-                    courseListLoading?
-                    '':
-                    courses?
-                    _.uniqBy(_.flatMap(courses, 'qualification'), 'id').map((i) => (
-                      <SelectItem onClick={()=> setAward(`/${i.slug}`)} value={i.slug} key={i.slug}>
-                        {i.name}
-                      </SelectItem>
-                    ))
-                    :
-                    ''
-                  }
-                </Select>
-                
-                {/* <Button size='lg' isIconOnly variant='solid' className='bg-[#DA0C0C] rounded-md px-4 text-white  min-w-fit justify-center' endContent={<IoSearch className='ml-4'/>}>
-                  Search
-                </Button> */}
-                <Button onClick={() => submitHandler() } color='' radius='sm' className="w-full md:min-w-fit flex bg-[#DA0C0C] font-semibold text-white md:px-4 py-6 text-base">
-                    <p>Search</p>
-                    <IoSearch className='ml-4'/>
-                </Button>
+                  <Select
+                    variant={'bordered'}
+                    required
+                    placeholder="Programme"
+                    className='w-full shadow-none rounded-none outline-none'
+                    radius='sm'
+                    size='md'
+                    
+                  >
+                    {
+                      loading?
+                      '':
+                      levels?
+                      levels.map((i) => (
+                        <SelectItem onClick={()=> setPrograme(`/${i.slug}`)} value={i.slug} key={i.slug}>
+                          {i.name}
+                        </SelectItem>
+                      ))
+                      :
+                      ''
+                    }
+                  </Select>
+                </div>
+                <div className='w-full flex lg:flex-row gap-2'>
+                  <Select
+                    variant={'bordered'}
+                    placeholder="Course award"
+                    className='w-full shadow-none rounded-none outline-none'
+                    radius='sm'
+                    size='md'
+                    
+                  
+                  >
+                    {
+                      courseListLoading?
+                      '':
+                      courses?
+                      _.uniqBy(_.flatMap(courses, 'qualification'), 'id').map((i) => (
+                        <SelectItem onClick={()=> setAward(`/${i.slug}`)} value={i.slug} key={i.slug}>
+                          {i.name}
+                        </SelectItem>
+                      ))
+                      :
+                      ''
+                    }
+                  </Select>
+                  <Select
+                    variant={'bordered'}
+                    placeholder="Course award"
+                    className='w-full shadow-none rounded-none outline-none'
+                    radius='sm'
+                    size='md'
+                  
+                  >
+                    {
+                      courseListLoading?
+                      '':
+                      courses?
+                      _.uniqBy(_.flatMap(courses, 'qualification'), 'id').map((i) => (
+                        <SelectItem onClick={()=> setAward(`/${i.slug}`)} value={i.slug} key={i.slug}>
+                          {i.name}
+                        </SelectItem>
+                      ))
+                      :
+                      ''
+                    }
+                  </Select>
+                </div>
               </div>
           </form>
         </div>
         <div className='h-[25px]'></div>
       </section>
 
-      <section className='h-fit w-full relative overflow-hidden px-4'>
+      <section className='h-fit w-full relative overflow-hidden px-8'>
         <div className='h-fit w-full max-w-[800px] mx-auto grid grid-cols-2 md:grid-cols-4 justify-center gap-2 lg:gap-6'>
-            <Link to={'/application'} className='w-full h-full flex flex-col items-center justify-center gap-4 bg-red-50 hover:bg-[#DA0C0C] text-black duration-200 cursor-pointer hover:text-white py-8 px-4 rounded-[8px]'>
-              <MdOutlineAdsClick className='text-6xl'/>
-              <p className='text-sm font-semibold'>Apply</p>
+            <Link to={'/application'} className='w-full h-fit flex flex-col items-center justify-center gap-4 bg-red-50 hover:bg-[#DA0C0C] text-black duration-200 cursor-pointer hover:text-white py-8 px-4 rounded-[8px]'>
+              <img src={apply}  alt='' className='w-16 h-16' />
+              <p className='text-xs lg:text-sm font-semibold px-2 text-center'>Apply</p>
             </Link>
-            <div className='w-full h-full flex flex-col items-center justify-center gap-4 bg-red-50 hover:bg-[#DA0C0C] text-black duration-200 cursor-pointer hover:text-white py-8 px-4 rounded-[8px]'>
-              <MdOutlineVerified  className='text-6xl'/>
-              <p className='text-sm font-semibold'>Verify Certificate</p>
+            <div className='w-full h-fit flex flex-col items-center justify-center gap-4 bg-red-50 hover:bg-[#DA0C0C] text-black duration-200 cursor-pointer hover:text-white py-8 px-4 rounded-[8px]'>
+              <img src={verification}  alt='' className='w-16 h-16' />
+              <p className='text-xs lg:text-sm font-semibold px-2 text-center'>Verify Certificate</p>
             </div>
-            <div className='w-full h-full flex flex-col items-center justify-center gap-4 bg-red-50 hover:bg-[#DA0C0C] text-black duration-200 cursor-pointer hover:text-white py-8 px-4 rounded-[8px]'>
-              <FaIdCard  className='text-6xl'/>
-              <p className='text-sm font-semibold'>Student Portal</p>
+            <div className='w-full h-fit flex flex-col items-center justify-center gap-4 bg-red-50 hover:bg-[#DA0C0C] text-black duration-200 cursor-pointer hover:text-white py-8 px-4 rounded-[8px]'>
+              <img src={sp}  alt='' className='w-16 h-16' />
+              <p className='text-xs lg:text-sm font-semibold px-2 text-center'>Student Portal</p>
             </div>
-            <div className='w-full h-full flex flex-col items-center justify-center gap-4 bg-red-50 hover:bg-[#DA0C0C] text-black duration-200 cursor-pointer hover:text-white py-8 px-4 rounded-[8px]'>
-              <MdLibraryBooks  className='text-6xl'/>
-              <p className='text-sm font-semibold'>E library</p>
+            <div className='w-full h-fit flex flex-col items-center justify-center gap-4 bg-red-50 hover:bg-[#DA0C0C] text-black duration-200 cursor-pointer hover:text-white py-8 px-4 rounded-[8px]'>
+              <img src={es}  alt='' className='w-16 h-16' />
+              <p className='text-xs lg:text-sm font-semibold px-2 text-center'>E library</p>
             </div>
         </div>
       </section>
 
-      <section className='h-fit w-full relative overflow-hidden px-4'>
-        <div className='h-fit w-full max-w-[1100px] mx-auto justify-center gap-6'>
+      <section className='h-fit w-full relative overflow-hidden px-8'>
+        <div className='h-fit w-full max-w-[1100px] mx-auto justify-center gap-2'>
             <div className='flex flex-col'>
               <p className='uppercase text-xs '>Faculty</p>
-              <p className='text-4xl font-bold'>Our Faculty</p>
+              <p className='text-2xl font-bold'>Our Faculty</p>
             </div>
-            <div className='grid grid-cols-1 md:grid-cols-2 pt-8 gap-8'>
+            <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 pt-8 gap-8'>
               {
                 facultyListLoading?
                 ''
                 :
                 faculties?
                 faculties.map(i => (
-                  <Link to={`/faculties/${i.slug}`} className='w-full h-[350px] flex flex-col items-center justify-center gap-4 rounded-[8px] relative bg-black'>
-                    <img src={i.image} alt='' className='h-full w-full object-cover object-top absolute z-0' />
-                    <div className='h-full w-full object-cover absolute  z-20  bg-gradient-to-t from-black to-transparent hover:to-black/10 duration-500' ></div>
-                    <div className='h-fit flex flex-col items-center gap-4 mt-auto px-4 py-8 absolute z-30 bottom-0'>
-                      <p className='text-2xl font-semibold text-white'>{i.name}</p>
-                      <div className='h-[2px] w-full bg-white/50'></div>
-                      <div className='flex gap-8'>
-                        <div className='flex flex-col items-center'>
-                          <p className='font-bold text-[#DA0C0C]'>200+</p>
-                          <p className='text-xs text-white'>Courses</p>
-                        </div>
-                        <div className='flex flex-col items-center'>
-                          <p className='font-bold text-[#DA0C0C]'>2000+</p>
-                          <p className='text-xs text-white'>Students</p>
-                        </div>
+                  <Link to={`/faculties/${i.slug}`} className='h-[200px] w-full bg-black relative rounded-[16px] overflow-hidden'>
+                    <img src={i.image} alt='' className='h-full w-full relative z-0' />
+                    <div className='w-full h-full bg-black/20 absolute z-30 top-0 hover:bg-black/50 duration-200'>
+                    </div>
+                    <div className='h-fit w-full py-2 px-2 absolute bottom-0 z-40'>
+                      <div className='h-fit w-full p-2 backdrop-blur-md rounded-[8px]'>
+                        <p className='text-white font-medium text-sm capitalize'>Faculty of</p>
+                        <p className='text-white font-bold text-lg capitalize'>{i.name}</p>
                       </div>
                     </div>
                   </Link>
@@ -262,13 +304,13 @@ const HomeScreen = () => {
         </div>
       </section>
 
-      <section className='h-fit w-full relative px-4'>
+      <section className='h-fit w-full relative px-8'>
         <div className='h-fit w-full max-w-[1100px] mx-auto justify-center gap-6'>
             <div className='flex flex-col'>
               <p className='uppercase text-xs '>Courses</p>
-              <p className='text-4xl font-bold'>Popular courses</p>
+              <p className='text-2xl font-bold'>Popular courses</p>
             </div>
-            <div className='hidden xl:block py-12'>
+            <div className='hidden xl:block'>
               <Swiper
                 slidesPerView={4}
                 spaceBetween={10}
@@ -282,29 +324,23 @@ const HomeScreen = () => {
                 {
                   courses?
                   courses.map(i =>(
-                    <SwiperSlide className='mb-12 bg-white p-2 h-fit w-[300px] shadow-[0px_4px_25px_rgba(0,0,0,0.05)] rounded-[16px] overflow-hidden'>
-                      <Link to={`/courses/${i.slug}`} className='overflow-hidden w-full h-full'>
-                        <div className='h-[200px] w-full overflow-hidden rounded-[8px]'>
-                          <img src={i.image} alt='' className='h-[200px] w-full rounded-[8px] hover:scale-105 duration-300' />
+                    <SwiperSlide className='bg-red-50 rounded-[16px] mt-[24px] mb-[48px] '>
+                      <Link to={`/courses/${i.slug}`} className='flex flex-col min-w-full p-2 gap-2'>
+                        <div className='h-[150px] w-full overflow-hidden rounded-[8px]'>
+                          <img src={i.image} alt='' className='h-[150px] hover:scale-105 duration-200 w-full object-cover rounded-[8px] border-[1px]' />
                         </div>
-                        <div className='pt-4 flex flex-col gap-4'>
-                          <div className=''>
-                            <p className='text-xs text-red-600 font-medium'>{i.qualification.name}</p>
-                            <p className='font-semibold text-justify'>{i.name}</p>
+                        <div className='flex flex-col py-2 gap-2 px-1'>
+                          <p className='text-sm font-medium capitalize text-gray-500'>{i.programe.name}</p>
+                          <p className='font-bold capitalize'>{i.name}</p>
+                          <p className='font-semibold text-xs uppercase text-[#DA0C0C]'>{i.qualification.name}</p>
+                        </div>
+                        <div className='flex flex-wrap gap-1'>
+                          <div className='flex bg-white text-sm text-gray-500 px-2 md:px-5 py-2 md:py-2 rounded-full capitalize'>
+                            online
                           </div>
-                          <div className='h-[1px] w-full bg-black/10 ' ></div>
-                          <div className='flex flex-row gap-1 items-center justify-between'>
-                            <Button size='sm' variant='light' className='w-fit px-2 gap-1 text-xs text-gray-500' startContent={<MdOutlineAccessTime  className='text-base'/>}>
-                              {i.duration}
-                            </Button>
-                            <Button size='sm' variant='light' className='w-fit px-2 gap-1 text-xs text-gray-500' startContent={<MdOutlineBookmarkBorder  className='text-base'/>}>
-                              {i.class_on}
-                            </Button>
-                            <Button size='sm' variant='light' className='w-fit px-2 gap-1 text-xs text-gray-500' startContent={<FaUsers className='text-base'/>}>
-                              3000+
-                            </Button>
+                          <div className='flex bg-white text-sm text-gray-500 px-2 md:px-5 py-2 md:py-2 rounded-full capitalize'>
+                            4 months
                           </div>
-                            
                         </div>
                       </Link>
                     </SwiperSlide>
@@ -328,29 +364,23 @@ const HomeScreen = () => {
                 {
                   courses?
                   courses.map(i =>(
-                    <SwiperSlide className='mb-12 bg-white p-2 h-fit w-[300px] shadow-[0px_4px_25px_rgba(0,0,0,0.05)] rounded-[16px] overflow-hidden'>
-                      <Link to={`/courses/${i.slug}`} className='overflow-hidden w-full h-full'>
-                        <div className='h-[200px] w-full overflow-hidden rounded-[8px]'>
-                          <img src={i.image} alt='' className='h-[200px] w-full rounded-[8px] hover:scale-105 duration-300' />
+                    <SwiperSlide className='bg-red-50 rounded-[16px] mt-[24px] mb-[48px] '>
+                      <Link to={`/courses/${i.slug}`} className='flex flex-col min-w-full p-2 gap-2'>
+                        <div className='h-[150px] w-full overflow-hidden rounded-[8px]'>
+                          <img src={i.image} alt='' className='h-[150px] hover:scale-105 duration-200 w-full object-cover rounded-[8px] border-[1px]' />
                         </div>
-                        <div className='pt-4 flex flex-col gap-4'>
-                          <div className=''>
-                            <p className='text-xs text-red-600 font-medium'>{i.qualification.name}</p>
-                            <p className='font-semibold text-justify'>{i.name}</p>
+                        <div className='flex flex-col py-2 gap-2 px-1'>
+                          <p className='text-sm font-medium capitalize text-gray-500'>{i.programe.name}</p>
+                          <p className='font-bold capitalize'>{i.name}</p>
+                          <p className='font-semibold text-xs uppercase text-[#DA0C0C]'>{i.qualification.name}</p>
+                        </div>
+                        <div className='flex flex-wrap gap-1'>
+                          <div className='flex bg-white text-sm text-gray-500 px-2 md:px-5 py-2 md:py-2 rounded-full capitalize'>
+                            online
                           </div>
-                          <div className='h-[1px] w-full bg-black/10 ' ></div>
-                          <div className='flex flex-row gap-1 items-center justify-between'>
-                            <Button size='sm' variant='light' className='w-fit px-2 gap-1 text-xs text-gray-500' startContent={<MdOutlineAccessTime  className='text-base'/>}>
-                              {i.duration}
-                            </Button>
-                            <Button size='sm' variant='light' className='w-fit px-2 gap-1 text-xs text-gray-500' startContent={<MdOutlineBookmarkBorder  className='text-base'/>}>
-                              {i.class_on}
-                            </Button>
-                            <Button size='sm' variant='light' className='w-fit px-2 gap-1 text-xs text-gray-500' startContent={<FaUsers className='text-base'/>}>
-                              3000+
-                            </Button>
+                          <div className='flex bg-white text-sm text-gray-500 px-2 md:px-5 py-2 md:py-2 rounded-full capitalize'>
+                            4 months
                           </div>
-                            
                         </div>
                       </Link>
                     </SwiperSlide>
@@ -374,29 +404,23 @@ const HomeScreen = () => {
                 {
                   courses?
                   courses.map(i =>(
-                    <SwiperSlide className='mb-12 bg-white p-2 h-fit w-[300px] shadow-[0px_4px_25px_rgba(0,0,0,0.05)] rounded-[16px] overflow-hidden'>
-                      <Link to={`/courses/${i.slug}`} className='overflow-hidden w-full h-full'>
-                        <div className='h-[200px] w-full overflow-hidden rounded-[8px]'>
-                          <img src={i.image} alt='' className='h-[200px] w-full rounded-[8px] hover:scale-105 duration-300' />
+                    <SwiperSlide className='bg-red-50 rounded-[16px] mt-[24px] mb-[48px] '>
+                      <Link to={`/courses/${i.slug}`} className='flex flex-col min-w-full p-2 gap-2'>
+                        <div className='h-[150px] w-full overflow-hidden rounded-[8px]'>
+                          <img src={i.image} alt='' className='h-[150px] hover:scale-105 duration-200 w-full object-cover rounded-[8px] border-[1px]' />
                         </div>
-                        <div className='pt-4 flex flex-col gap-4'>
-                          <div className=''>
-                            <p className='text-xs text-red-600 font-medium'>{i.qualification.name}</p>
-                            <p className='font-semibold text-justify'>{i.name}</p>
+                        <div className='flex flex-col py-2 gap-2 px-1'>
+                          <p className='text-sm font-medium capitalize text-gray-500'>{i.programe.name}</p>
+                          <p className='font-bold capitalize'>{i.name}</p>
+                          <p className='font-semibold text-xs uppercase text-[#DA0C0C]'>{i.qualification.name}</p>
+                        </div>
+                        <div className='flex flex-wrap gap-1'>
+                          <div className='flex bg-white text-sm text-gray-500 px-2 md:px-5 py-2 md:py-2 rounded-full capitalize'>
+                            online
                           </div>
-                          <div className='h-[1px] w-full bg-black/10 ' ></div>
-                          <div className='flex flex-row gap-1 items-center justify-between'>
-                            <Button size='sm' variant='light' className='w-fit px-2 gap-1 text-xs text-gray-500' startContent={<MdOutlineAccessTime  className='text-base'/>}>
-                              {i.duration}
-                            </Button>
-                            <Button size='sm' variant='light' className='w-fit px-2 gap-1 text-xs text-gray-500' startContent={<MdOutlineBookmarkBorder  className='text-base'/>}>
-                              {i.class_on}
-                            </Button>
-                            <Button size='sm' variant='light' className='w-fit px-2 gap-1 text-xs text-gray-500' startContent={<FaUsers className='text-base'/>}>
-                              3000+
-                            </Button>
+                          <div className='flex bg-white text-sm text-gray-500 px-2 md:px-5 py-2 md:py-2 rounded-full capitalize'>
+                            4 months
                           </div>
-                            
                         </div>
                       </Link>
                     </SwiperSlide>
@@ -420,29 +444,23 @@ const HomeScreen = () => {
                 {
                   courses?
                   courses.map(i =>(
-                    <SwiperSlide className='mb-12 bg-white p-2 h-fit w-[300px] shadow-[0px_4px_25px_rgba(0,0,0,0.05)] rounded-[16px] overflow-hidden'>
-                      <Link to={`/courses/${i.slug}`} className='overflow-hidden w-full h-full'>
-                        <div className='h-[200px] w-full overflow-hidden rounded-[8px]'>
-                          <img src={i.image} alt='' className='h-[200px] w-full rounded-[8px] hover:scale-105 duration-300' />
+                    <SwiperSlide className='bg-red-50 rounded-[16px] mt-[24px] mb-[48px] '>
+                      <Link to={`/courses/${i.slug}`} className='flex flex-col min-w-full p-2 gap-2'>
+                        <div className='h-[150px] w-full overflow-hidden rounded-[8px]'>
+                          <img src={i.image} alt='' className='h-[150px] hover:scale-105 duration-200 w-full object-cover rounded-[8px] border-[1px]' />
                         </div>
-                        <div className='pt-4 flex flex-col gap-4'>
-                          <div className=''>
-                            <p className='text-xs text-red-600 font-medium'>{i.qualification.name}</p>
-                            <p className='font-semibold text-justify'>{i.name}</p>
+                        <div className='flex flex-col py-2 gap-2 px-1'>
+                          <p className='text-sm font-medium capitalize text-gray-500'>{i.programe.name}</p>
+                          <p className='font-bold capitalize'>{i.name}</p>
+                          <p className='font-semibold text-xs uppercase text-[#DA0C0C]'>{i.qualification.name}</p>
+                        </div>
+                        <div className='flex flex-wrap gap-1'>
+                          <div className='flex bg-white text-sm text-gray-500 px-2 md:px-5 py-2 md:py-2 rounded-full capitalize'>
+                            online
                           </div>
-                          <div className='h-[1px] w-full bg-black/10 ' ></div>
-                          <div className='flex flex-row gap-1 items-center justify-between'>
-                            <Button size='sm' variant='light' className='w-fit px-2 gap-1 text-xs text-gray-500' startContent={<MdOutlineAccessTime  className='text-base'/>}>
-                              {i.duration}
-                            </Button>
-                            <Button size='sm' variant='light' className='w-fit px-2 gap-1 text-xs text-gray-500' startContent={<MdOutlineBookmarkBorder  className='text-base'/>}>
-                              {i.class_on}
-                            </Button>
-                            <Button size='sm' variant='light' className='w-fit px-2 gap-1 text-xs text-gray-500' startContent={<FaUsers className='text-base'/>}>
-                              3000+
-                            </Button>
+                          <div className='flex bg-white text-sm text-gray-500 px-2 md:px-5 py-2 md:py-2 rounded-full capitalize'>
+                            4 months
                           </div>
-                            
                         </div>
                       </Link>
                     </SwiperSlide>
@@ -454,36 +472,48 @@ const HomeScreen = () => {
         </div>
       </section>
 
-      <section className='h-fit w-full relative overflow-hidden px-4 bg-red-50 py-16'>
+      <section className='h-fit w-full relative overflow-hidden px-8 bg-red-50 py-12 lg:py-20'>
         <div className='h-fit w-full max-w-[1100px] mx-auto justify-center gap-6 '>
           <div className='flex flex-col pb-8'>
             <p className='uppercase text-xs '>Unlock Your Future</p>
-            <p className='text-4xl font-bold'>Available Scholarships</p>
+            <p className='text-2xl font-bold text-[#DA0C0C]'>Available Scholarships</p>
           </div>
-          <div className='w-fit mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
+          <div className='w-fit mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 justify-center xl:grid-cols-6 gap-8'>
             {
               loading?
               ''
               :
               levels?
               levels.map(i => (
-                <Link to={`programes/${i.slug}`} key={i.id} className='w-full min-h-[250px] md:min-h-[300px] bg-white shadow-[0px_4px_25px_rgba(0,0,0,0.05)] p-6  md:max-w-[300px] gap-8 flex flex-col rounded-[8px] relative overflow-hidden mx-auto hover:bg-[#DA0C0C] duration-500 hover:text-white hover:scale-105'>
-                  <div className='w-full flex flex-col relative z-30'>
-                    <p className='text-5xl font-bold capitalize'>{i.name}</p>
-                  </div>
-                  <div className='flex items-center gap-4 relative z-30'>
-                    <Button radius='full' isIconOnly variant='solid' className='bg-red-600 text-white shadow-[0px_4px_25px_rgba(0,0,0,0.05)] ' startContent={<IoArrowForwardOutline/>}>
-
-                    </Button>
-                    <p className='text-xs text-gray-300'>Learn more</p>
-                  </div>
-                  <div className='h-[300px] w-[300px] bg-[#DA0C0C] absolute bottom-0 right-0 transform translate-x-1/2 translate-y-1/2 rounded-full flex items-start justify-start z-0'>
-                    <div className='h-[150px] w-[150px] flex flex-col items-end justify-center text-white text-right pr-4'>
-                      <p className='text-4xl font-bold'>25%</p>
-                      <p className='text-xs'>Special offer</p>
+                <div className='h-fit w-fit mx-auto flex flex-col items-center relative'>
+                   <div className='h-[72px] w-[112px] flex flex-col items-center justify-center bg-white rounded-[8px] relative z-30'>
+                      <p className='text-[#DA0C0C] text-center text-2xl font-bold'>26%</p>
+                      <p className='text-[#DA0C0C] text-center text-xs font-semibold'>Special offer</p>
+                    </div> 
+                    <div className='h-[54px] w-[156px] flex items-center justify-center text-white font-bold text-center relative z-30'>
+                        {i.name}
                     </div>
-                  </div>
-                </Link>
+                    <button className='h-[90px] w-full bg-[#DA0C0C] hover:h-full duration-500 absolute bottom-0 z-10 rounded-[8px]'>
+
+                    </button>
+                </div>
+                // <Link to={`programes/${i.slug}`} key={i.id} className='w-full min-h-[250px] md:min-h-[300px] bg-white shadow-[0px_4px_25px_rgba(0,0,0,0.05)] p-6  md:max-w-[300px] gap-8 flex flex-col rounded-[8px] relative overflow-hidden mx-auto hover:bg-[#DA0C0C] duration-500 hover:text-white hover:scale-105'>
+                //   <div className='w-full flex flex-col relative z-30'>
+                //     <p className='text-5xl font-bold capitalize'>{i.name}</p>
+                //   </div>
+                //   <div className='flex items-center gap-4 relative z-30'>
+                //     <Button radius='full' isIconOnly variant='solid' className='bg-red-600 text-white shadow-[0px_4px_25px_rgba(0,0,0,0.05)] ' startContent={<IoArrowForwardOutline/>}>
+
+                //     </Button>
+                //     <p className='text-xs text-gray-300'>Learn more</p>
+                //   </div>
+                //   <div className='h-[300px] w-[300px] bg-[#DA0C0C] absolute bottom-0 right-0 transform translate-x-1/2 translate-y-1/2 rounded-full flex items-start justify-start z-0'>
+                //     <div className='h-[150px] w-[150px] flex flex-col items-end justify-center text-white text-right pr-4'>
+                //       <p className='text-4xl font-bold'>25%</p>
+                //       <p className='text-xs'>Special offer</p>
+                //     </div>
+                //   </div>
+                // </Link>
               ))
               :
               ''
@@ -492,11 +522,411 @@ const HomeScreen = () => {
         </div>
       </section>
 
-      <section className='h-fit w-full relative overflow-hidden'>
-        <div className='h-fit w-full max-w-[1100px] mx-auto px-4 overflow-visible'>
+      <section className='h-fit w-full relative overflow-hidden px-8 lg:py-12'>
+        <div className='h-fit w-full max-w-[900px] mx-auto justify-center gap-6 grid grid-col-1 lg:grid-cols-2 divide-y-1 lg:divide-x-1 lg:divide-y-0 divide-[#DA0C0C]'>
+          <div className='w-full h-fit flex-col gap-4 pt-4 lg:pt-0 hidden lg:flex my-auto'>
+            <p className='text-2xl font-bold text-[#DA0C0C] text-center lg:text-left'>IEBC Provides an extensive number of Programmes from Foundation to Masters which is regulated by UK Government Awarding Body</p>
+          </div>
+          <div className='w-full h-fit flex flex-col gap-4  pt-4 lg:pt-0 lg:pl-12'>
+            <p className='text-2xl font-bold text-center lg:text-left'>Your inspiration our Motivation</p>
+            <p className='text-sm text-gray-500 text-justify'>Students deserve to dream, to be inspired and gain knowledge, as a  college it is our duty to fulfill our student’s inspirations. IEBC is  here to guide students all the way through their studies and career.  Your Inspiration is our motivation.Students deserve to dream, to be inspired and gain knowledge, as a  college it is our duty to fulfill our student’s inspirations. IEBC is  here to guide students all the way through their studies and career.  Your Inspiration is our motivation.</p>
+          </div>
+          <div className='w-full h-fit flex flex-col gap-4 pt-4 lg:pt-0 lg:hidden'>
+            <p className='text-2xl font-bold text-[#DA0C0C] text-center lg:text-left'>IEBC Provides an extensive number of Programmes from Foundation to Masters which is regulated by UK Government Awarding Body</p>
+          </div>
+        </div>
+      </section>
+
+      <section className='h-fit w-full relative overflow-hidden px-8 bg-red-50 py-12 lg:py-16'>
+        <div className='h-fit w-full max-w-[1100px] mx-auto justify-center gap-6 '>
+          <div className='flex flex-col pb-8'>
+            <p className='uppercase text-xs '>Questions</p>
+            <p className='text-2xl font-bold'>Why Learn with us?</p>
+          </div>
+          <div className='w-full mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 justify-center gap-4'>
+
+            <Tooltip showArrow={true} content={
+              <div className='p-4'>
+                Somthing! Comming Soon
+              </div>
+            } placement='bottom'>
+              <div className='h-[175px] w-full min-w-full border-[1px] border-gray-300 rounded-[8px] flex  flex-col items-center justify-center gap-2 px-8'>
+                <img src='https://d65ixtnmlqq6w.cloudfront.net/wp-content/uploads/2023/11/diploma_12608865.webp' alt='' className='h-[80px] w-[80px] object-cover'/>
+                <p className='text-base font-bold text-center'>University Pathway Programmes</p>
+              </div>
+            </Tooltip>
+
+            <Tooltip showArrow={true} content={
+              <div className='p-4'>
+                Somthing! Comming Soon
+              </div>
+            } placement='bottom'>
+              <div className='h-[175px] w-full min-w-full border-[1px] border-gray-300 rounded-[8px] flex  flex-col items-center justify-center gap-2 px-8'>
+                <img src='https://d65ixtnmlqq6w.cloudfront.net/wp-content/uploads/2023/11/businessman_998412.webp' alt='' className='h-[80px] w-[80px] object-cover'/>
+                <p className='text-base font-bold text-center'>Professional Development Resources</p>
+              </div>
+            </Tooltip>
+
+            <Tooltip showArrow={true} content={
+              <div className='p-4'>
+                Somthing! Comming Soon
+              </div>
+            } placement='bottom'>
+              <div className='h-[175px] w-full min-w-full border-[1px] border-gray-300 rounded-[8px] flex  flex-col items-center justify-center gap-2 px-8'>
+                <img src='https://d65ixtnmlqq6w.cloudfront.net/wp-content/uploads/2023/11/policy.webp' alt='' className='h-[80px] w-[80px] object-cover'/>
+                <p className='text-base font-bold text-center'>Accredited Courses</p>
+              </div>
+            </Tooltip>
+
+            <Tooltip showArrow={true} content={
+              <div className='p-4'>
+                Somthing! Comming Soon
+              </div>
+            } placement='bottom'>
+              <div className='h-[175px] w-full min-w-full border-[1px] border-gray-300 rounded-[8px] flex  flex-col items-center justify-center gap-2 px-8'>
+                <img src='https://d65ixtnmlqq6w.cloudfront.net/wp-content/uploads/2023/11/membership.webp' alt='' className='h-[80px] w-[80px] object-cover'/>
+                <p className='text-base font-bold text-center'>Professional Body Membership</p>
+              </div>
+            </Tooltip>
+
+            <Tooltip showArrow={true} content={
+              <div className='p-4'>
+                Somthing! Comming Soon
+              </div>
+            } placement='bottom'>
+              <div className='h-[175px] w-full min-w-full border-[1px] border-gray-300 rounded-[8px] flex  flex-col items-center justify-center gap-2 px-8'>
+                <img src='https://d65ixtnmlqq6w.cloudfront.net/wp-content/uploads/2023/11/24-hours.webp' alt='' className='h-[80px] w-[80px] object-cover'/>
+                <p className='text-base font-bold text-center'>24/7 Connection. Anytime, Anywhere, Any Device</p>
+              </div>
+            </Tooltip>
+
+            <Tooltip showArrow={true} content={
+              <div className='p-4'>
+                Somthing! Comming Soon
+              </div>
+            } placement='bottom'>
+              <div className='h-[175px] w-full min-w-full border-[1px] border-gray-300 rounded-[8px] flex  flex-col items-center justify-center gap-2 px-8'>
+                <img src='https://d65ixtnmlqq6w.cloudfront.net/wp-content/uploads/2023/11/secure-payment.webp' alt='' className='h-[80px] w-[80px] object-cover'/>
+                <p className='text-base font-bold text-center'>University Pathway Programmes</p>
+              </div>
+            </Tooltip>
+            
+          </div>
+        </div>
+      </section>
+
+      <section className='h-fit w-full relative px-8 '>
+        <div className='h-fit w-full max-w-[1100px] mx-auto justify-center gap-6 grid grid-col-2 md:grid-cols-3 lg:grid-cols-5 bg-[#DA0C0C] text-white py-8 rounded-[16px]'>
+          <div className='w-full flex flex-col items-center justify-center'>
+            <p className='text-4xl font-bold'>100+</p>
+            <p className='text-sm font-medium'>Acadamic members</p>
+          </div>
+          <div className='w-full flex flex-col items-center justify-center'>
+            <p className='text-4xl font-bold'>100+</p>
+            <p className='text-sm font-medium'>Courses</p>
+          </div>
+          <div className='w-full flex flex-col items-center justify-center'>
+            <p className='text-4xl font-bold'>99+</p>
+            <p className='text-sm font-medium'>Student succes rate</p>
+          </div>
+          <div className='w-full flex flex-col items-center justify-center'>
+            <p className='text-4xl font-bold'>10000+</p>
+            <p className='text-sm font-medium'>Graduates</p>
+          </div>
+          <div className='w-full flex flex-col items-center justify-center'>
+            <p className='text-4xl font-bold'>5000+</p>
+            <p className='text-sm font-medium'>E books</p>
+          </div>
+        </div>
+      </section>
+
+      <section className='h-fit w-full relative overflow-hidden px-8'>
+        <div className='h-fit w-full max-w-[1100px] mx-auto overflow-visible'>
+            <div className='flex flex-col pb-8'>
+              <p className='uppercase text-xs'>Our Students Testimonials</p>
+              <p className='text-xl font-bold'>Students Say’s About Our Campus</p>
+            </div>
+
+
+            <div className='hidden sm:block'>
+              <Swiper
+                slidesPerView={2}
+                spaceBetween={25}
+                freeMode={true}
+                pagination={{
+                  clickable: true,
+                }}
+                autoplay
+                modules={[FreeMode, Pagination, Autoplay]}
+                className=""
+              >
+                {
+                  courseListLoading?
+                  '':
+                  courses?
+                  _.uniqBy(_.flatMap(courses, 'qualification'), 'id').map(i=>(
+                    <SwiperSlide className='h-fit w-full mt-2 mb-12 bg-red-50 p-6 md:p-12 rounded-[8px] relative overflow-hidden '>
+                      {/* <div className='h-[100px] w-[100px] absolute top-0 right-0 bg-[#DA0C0C] rotate-45 -z-20'>
+
+                      </div> */}
+                      <div className='flex flex-col'>
+                        <p className='text-lg font-bold text-[#DA0C0C] capitalize'>Ayesh hiruni</p>
+                        <p className='capitalize text-sm font-medium text-gray-500 '>veritual assistance</p>
+                        <p className='capitalize text-sm font-medium text-gray-500 '>Selan Bank</p>
+                      </div>
+                      <div className='h-[1px] w-full bg-red-100 my-4'></div>
+                      <div className=' py-2'>
+                        <p className='text-base font-semibold'>"Lorem ipsum dolor sit amet consectetur. In nisl arcu risus at eu ipsum nunc magnis integer. Tristique aliquam risus mauris vitae adipiscing sit eget tristique."</p>
+                      </div>
+                    </SwiperSlide>
+                  ))
+                  :
+                  ''
+                }
+              </Swiper>
+            </div>
+
+            <div className='sm:hidden'>
+              <Swiper
+                slidesPerView={1}
+                spaceBetween={25}
+                freeMode={true}
+                pagination={{
+                  clickable: true,
+                }}
+                autoplay
+                modules={[FreeMode, Pagination, Autoplay]}
+                className=""
+              >
+                {
+                  courseListLoading?
+                  '':
+                  courses?
+                  _.uniqBy(_.flatMap(courses, 'qualification'), 'id').map(i=>(
+                    <SwiperSlide className='h-fit w-full mt-2 mb-12 bg-red-50 p-6 md:p-12 rounded-[8px] relative overflow-hidden '>
+                      {/* <div className='h-[100px] w-[100px] absolute top-0 right-0 bg-[#DA0C0C] rotate-45 -z-20'>
+
+                      </div> */}
+                      <div className='flex flex-col'>
+                        <p className='text-lg font-bold text-[#DA0C0C] capitalize'>Ayesh hiruni</p>
+                        <p className='capitalize text-sm font-medium text-gray-500 '>veritual assistance</p>
+                        <p className='capitalize text-sm font-medium text-gray-500 '>Selan Bank</p>
+                      </div>
+                      <div className='h-[1px] w-full bg-red-100 my-4'></div>
+                      <div className=' py-2'>
+                        <p className='text-base font-semibold'>"Lorem ipsum dolor sit amet consectetur. In nisl arcu risus at eu ipsum nunc magnis integer. Tristique aliquam risus mauris vitae adipiscing sit eget tristique."</p>
+                      </div>
+                    </SwiperSlide>
+                  ))
+                  :
+                  ''
+                }
+              </Swiper>
+            </div>
+
+        </div>
+      </section>
+
+      <section className='h-fit w-full relative overflow-hidden px-8'>
+        <div className='h-fit w-full max-w-[1100px] mx-auto overflow-visible'>
+            <div className='flex flex-col pb-8'>
+              <p className='uppercase text-xs '>Resourse</p>
+              <p className='text-2xl font-bold'>Our Resourse</p>
+            </div>
+
+            <div className='hidden md:block'>
+              <Swiper
+                slidesPerView={3}
+                spaceBetween={10}
+                freeMode={true}
+                pagination={{
+                  clickable: true,
+                }}
+                autoplay
+                modules={[FreeMode, Pagination, Autoplay]}
+                className=""
+              >
+                <SwiperSlide className='h-[300px] w-full relative mt-4 mb-12'>
+                  <div className='h-[250px] w-full relative z-10'>
+                    <div className='h-[200px] w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px]'>
+
+                    </div>
+                  </div>
+                  <div className='w-full h-[100px] rounded-[8px] bg-[#DA0C0C] absolute bottom-0 -z-30'>
+
+                  </div>
+                </SwiperSlide>
+                <SwiperSlide className='h-[300px] w-full relative mt-4 mb-12'>
+                  <div className='h-[250px] w-full relative z-10'>
+                    <div className='h-[200px] w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px]'>
+
+                    </div>
+                  </div>
+                  <div className='w-full h-[100px] rounded-[8px] bg-[#DA0C0C] absolute bottom-0 -z-30'>
+
+                  </div>
+                </SwiperSlide>
+                <SwiperSlide className='h-[300px] w-full relative mt-4 mb-12'>
+                  <div className='h-[250px] w-full relative z-10'>
+                    <div className='h-[200px] w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px]'>
+
+                    </div>
+                  </div>
+                  <div className='w-full h-[100px] rounded-[8px] bg-[#DA0C0C] absolute bottom-0 -z-30'>
+
+                  </div>
+                </SwiperSlide>
+                <SwiperSlide className='h-[300px] w-full relative mt-4 mb-12'>
+                  <div className='h-[250px] w-full relative z-10'>
+                    <div className='h-[200px] w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px]'>
+
+                    </div>
+                  </div>
+                  <div className='w-full h-[100px] rounded-[8px] bg-[#DA0C0C] absolute bottom-0 -z-30'>
+
+                  </div>
+                </SwiperSlide>
+              </Swiper>
+            </div>
+
+            <div className='hidden sm:block md:hidden'>
+              <Swiper
+                slidesPerView={2}
+                spaceBetween={10}
+                freeMode={true}
+                pagination={{
+                  clickable: true,
+                }}
+                autoplay
+                modules={[FreeMode, Pagination, Autoplay]}
+                className=""
+              >
+                <SwiperSlide className='h-[300px] w-full relative mt-4 mb-12'>
+                  <div className='h-[250px] w-full relative z-10'>
+                    <div className='h-[200px] w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px]'>
+
+                    </div>
+                  </div>
+                  <div className='w-full h-[100px] rounded-[8px] bg-[#DA0C0C] absolute bottom-0 -z-30'>
+
+                  </div>
+                </SwiperSlide>
+                <SwiperSlide className='h-[300px] w-full relative mt-4 mb-12'>
+                      <div className='h-[250px] w-full relative z-10'>
+                        <div className='h-[200px] w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px]'>
+
+                        </div>
+                      </div>
+                      <div className='w-full h-[100px] rounded-[8px] bg-[#DA0C0C] absolute bottom-0 -z-30'>
+
+                      </div>
+                    </SwiperSlide>
+                    <SwiperSlide className='h-[300px] w-full relative mt-4 mb-12'>
+                      <div className='h-[250px] w-full relative z-10'>
+                        <div className='h-[200px] w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px]'>
+
+                        </div>
+                      </div>
+                      <div className='w-full h-[100px] rounded-[8px] bg-[#DA0C0C] absolute bottom-0 -z-30'>
+
+                      </div>
+                    </SwiperSlide>
+                    <SwiperSlide className='h-[300px] w-full relative mt-4 mb-12'>
+                      <div className='h-[250px] w-full relative z-10'>
+                        <div className='h-[200px] w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px]'>
+
+                        </div>
+                      </div>
+                      <div className='w-full h-[100px] rounded-[8px] bg-[#DA0C0C] absolute bottom-0 -z-30'>
+
+                      </div>
+                    </SwiperSlide>
+                    <SwiperSlide className='h-[300px] w-full relative mt-4 mb-12'>
+                      <div className='h-[250px] w-full relative z-10'>
+                        <div className='h-[200px] w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px]'>
+
+                        </div>
+                      </div>
+                      <div className='w-full h-[100px] rounded-[8px] bg-[#DA0C0C] absolute bottom-0 -z-30'>
+
+                      </div>
+                    </SwiperSlide>
+              </Swiper>
+            </div>
+
+            <div className='sm:hidden'>
+              <Swiper
+                slidesPerView={1}
+                spaceBetween={10}
+                freeMode={true}
+                pagination={{
+                  clickable: true,
+                }}
+                autoplay
+                modules={[FreeMode, Pagination, Autoplay]}
+                className=""
+              >
+                <SwiperSlide className='h-[300px] w-full relative mt-4 mb-12'>
+                  <div className='h-[250px] w-full relative z-10'>
+                    <div className='h-[200px] w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px]'>
+
+                    </div>
+                  </div>
+                  <div className='w-full h-[100px] rounded-[8px] bg-[#DA0C0C] absolute bottom-0 -z-30'>
+
+                  </div>
+                </SwiperSlide>
+                <SwiperSlide className='h-[300px] w-full relative mt-4 mb-12'>
+                      <div className='h-[250px] w-full relative z-10'>
+                        <div className='h-[200px] w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px]'>
+
+                        </div>
+                      </div>
+                      <div className='w-full h-[100px] rounded-[8px] bg-[#DA0C0C] absolute bottom-0 -z-30'>
+
+                      </div>
+                    </SwiperSlide>
+                    <SwiperSlide className='h-[300px] w-full relative mt-4 mb-12'>
+                      <div className='h-[250px] w-full relative z-10'>
+                        <div className='h-[200px] w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px]'>
+
+                        </div>
+                      </div>
+                      <div className='w-full h-[100px] rounded-[8px] bg-[#DA0C0C] absolute bottom-0 -z-30'>
+
+                      </div>
+                    </SwiperSlide>
+                    <SwiperSlide className='h-[300px] w-full relative mt-4 mb-12'>
+                      <div className='h-[250px] w-full relative z-10'>
+                        <div className='h-[200px] w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px]'>
+
+                        </div>
+                      </div>
+                      <div className='w-full h-[100px] rounded-[8px] bg-[#DA0C0C] absolute bottom-0 -z-30'>
+
+                      </div>
+                    </SwiperSlide>
+                    <SwiperSlide className='h-[300px] w-full relative mt-4 mb-12'>
+                      <div className='h-[250px] w-full relative z-10'>
+                        <div className='h-[200px] w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px]'>
+
+                        </div>
+                      </div>
+                      <div className='w-full h-[100px] rounded-[8px] bg-[#DA0C0C] absolute bottom-0 -z-30'>
+
+                      </div>
+                    </SwiperSlide>
+              </Swiper>
+            </div>
+
+        </div>
+      </section>
+
+      <section className='h-fit w-full relative overflow-hidden px-8'>
+        <div className='h-fit w-full max-w-[1100px] mx-auto overflow-visible'>
             <div className='flex flex-col pb-8'>
               <p className='uppercase text-xs '>Qualifications</p>
-              <p className='text-4xl font-bold'>Our Qualifications</p>
+              <p className='text-2xl font-bold'>Our Qualifications</p>
             </div>
 
             <div className='hidden md:block'>
@@ -516,7 +946,7 @@ const HomeScreen = () => {
                   '':
                   courses?
                   _.uniqBy(_.flatMap(courses, 'qualification'), 'id').map(i=>(
-                    <SwiperSlide key={i.id} className='bg-white shadow-[0px_4px_25px_rgba(0,0,0,0.05)] rounded-[8px] mb-8 w-[250px]'>
+                    <SwiperSlide key={i.id} className='bg-white border-[1px] border-red-100 rounded-[8px] mb-12 w-[250px]'>
                       <img src={i.image} alt='' className='h-[150px] w-[200px] object-contain scale-80 mx-auto hover:scale-105 duration-200' />
                       <div className='flex flex-col py-6 gap-4 px-4 '>
                         <div className='flex flex-col-reverse'>
@@ -550,7 +980,7 @@ const HomeScreen = () => {
                   '':
                   courses?
                   _.uniqBy(_.flatMap(courses, 'qualification'), 'id').map(i=>(
-                    <SwiperSlide key={i.id} className='bg-white shadow-[0px_4px_25px_rgba(0,0,0,0.05)] rounded-[8px] mb-8 w-[250px]'>
+                    <SwiperSlide key={i.id} className='bg-white border-[1px] border-red-100 rounded-[8px] mb-12 w-[250px]'>
                       <img src={i.image} alt='' className='h-[150px] w-[200px] object-contain scale-80 mx-auto hover:scale-105 duration-200' />
                       <div className='flex flex-col py-6 gap-4 px-4 '>
                         <div className='flex flex-col-reverse'>
@@ -584,7 +1014,7 @@ const HomeScreen = () => {
                   '':
                   courses?
                   _.uniqBy(_.flatMap(courses, 'qualification'), 'id').map(i=>(
-                    <SwiperSlide key={i.id} className='bg-white shadow-[0px_4px_25px_rgba(0,0,0,0.05)] rounded-[8px] mb-8 w-[250px]'>
+                    <SwiperSlide key={i.id} className='bg-white border-[1px] border-red-100 rounded-[8px] mb-12 w-[250px]'>
                       <img src={i.image} alt='' className='h-[150px] w-[200px] object-contain scale-80 mx-auto hover:scale-105 duration-200' />
                       <div className='flex flex-col py-6 gap-4 px-4 '>
                         <div className='flex flex-col-reverse'>

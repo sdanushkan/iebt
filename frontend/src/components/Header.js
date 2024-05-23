@@ -41,65 +41,57 @@ const Header = () => {
     <section className='relative z-50'>
 
         {/* navbar */}
-        <div className={
+        <Navbar 
+        classNames={{
+          item: [
+            "flex",
+            "relative",
+            "h-full",
+            "px-0",
+            "items-center",
+            "data-[active=true]:after:content-['']",
+            "data-[active=true]:after:absolute",
+            "data-[active=true]:after:bottom-0",
+            "data-[active=true]:after:left-0",
+            "data-[active=true]:after:right-0",
+            "data-[active=true]:after:h-[2px]",
+            "data-[active=true]:after:rounded-[2px]",
+            "data-[active=true]:after:bg-primary",
+          ],
+        }}
+        shouldHideOnScroll height={'fit'} maxWidth='full' className={
             location.pathname == "/login" || location.pathname == "/register" || location.pathname == "/Login" || location.pathname == "/Register"?
-            'h-fit w-full z-40 fixed bg-black/50 hidden':
-            'h-fit w-full z-40 fixed bg-black/50 md:fixed'
+            'h-fit w-full z-40 fixed bg-black/50 hidden px-0':
+            'h-fit w-full z-40 fixed bg-black/50 md:fixed px-0'
         }>
-            <div className='h-fit w-full max-w-[1200px] max-h-[100px] px-2  mx-auto flex justify-between items-center relative border-black/50 py-4'>
+            <div className='h-fit w-full max-w-[1200px] max-h-[100px] mx-auto flex justify-between items-center relative border-black/50 py-4'>
                 <div className='flex items-center '>
                   {/* <Button isIconOnly variant='light' onClick={() => setNavbar(!navbar)} className='md:hidden' >
                       <IoMenu  className='text-black text-2xl'/>
                   </Button> */}
                   <Link to={'/'}>
-                    <img src={logo} alt='' className='h-[72px]' />
+                    <img src={logo} alt='' className='h-[56px] lg:h-[64px]' />
                   </Link>
                 </div>
-                <div className='hidden lg:flex items-center justify-start gap-8'>
+                <div className='hidden lg:flex items-center justify-start gap-4'>
                   <Tabs color="primary" variant="underlined" aria-label="Options" 
                   classNames={{
-                    tabList: "",
+                    tabList: "text-",
                     cursor: "bg-[#DA0C0C]",
-                    tab: "",
-                    tabContent: "group-data-[selected=true]:text-[white]"
+                    tab: "max-w-fit ",
+                    tabContent: "group-data-[selected=true]:text-[white] focus:font-semibold text-white/50 hover:text-white "
                   }} selectedKey={selected} onSelectionChange={setSelected}>
                     <Tab key="/" title={
                       <Link to={'/'} className='flex items-center justify-center gap-1'>
-                        <p className='cursor-pointer text-sm uppercase text-white'>Home</p>
+                        <p className='cursor-pointer font-semibold text-xs uppercase '>Home</p>
                         {/* <MdOutlineArrowDropDown className='text-white' /> */}
                       </Link>
                     }>
                     
                     </Tab>
-                    <Tab key="/faculties" title={
-                      <Dropdown>
-                      <DropdownTrigger>
-                        <div className='flex items-center justify-center gap-1'>
-                          <p className='cursor-pointer text-sm uppercase text-white'>faculties</p>
-                          <MdOutlineArrowDropDown className='text-white' />
-                        </div>
-                      </DropdownTrigger>
-                      <DropdownMenu aria-label="Static Actions" className='rounded-none'>
-                        {
-                          loading?
-                          '':
-                          faculties?
-                          faculties.map(i => (
-                            <DropdownItem key={i.id} className=''>
-                              <Link to={`/faculties/${i.slug}`} >{i.name}</Link>
-                            </DropdownItem>
-                          )):
-                          ''
-                        }
-                        
-                      </DropdownMenu>
-                    </Dropdown>
-                    } >
-                      
-                    </Tab>
                     <Tab key="stdy-abroad" title={
                       <Link to={'/abroad'} className='flex items-center justify-center gap-1'>
-                      <p className='cursor-pointer text-sm uppercase text-white'>Study abroad</p>
+                      <p className='cursor-pointer font-semibold text-xs uppercase '>Study abroad</p>
                       {/* <MdOutlineArrowDropDown className='text-white' /> */}
                     </Link>
                     }>
@@ -108,7 +100,7 @@ const Header = () => {
 
                     <Tab key="contact" title={
                       <Link to={'/contact'} className='flex items-center justify-center gap-1'>
-                        <p className='cursor-pointer text-sm uppercase text-white'>Contact us</p>
+                        <p className='cursor-pointer font-semibold text-xs uppercase '>Contact us</p>
                         {/* <MdOutlineArrowDropDown className='text-white' /> */}
                       </Link>
                     }>
@@ -116,28 +108,49 @@ const Header = () => {
                     </Tab>
                     <Tab key="about" title={
                       <Link to={'/about'} className='flex items-center justify-center gap-1'>
-                        <p className='cursor-pointer text-sm uppercase text-white'>About us</p>
+                        <p className='cursor-pointer font-semibold text-xs uppercase '>About us</p>
                         {/* <MdOutlineArrowDropDown className='text-white' /> */}
                       </Link >
                     }>
                       
                     </Tab>
                   </Tabs>
-                  
-                  
-                  
 
-                  
-                  
-                  
+                  <Dropdown
+                    showArrow
+                    classNames={{
+                      base: "before:bg-default-200 mt-[16px]", // change arrow background
+                      content: "py-1 px-1 border border-default-200 bg-gradient-to-br from-white to-default-200 dark:from-default-50 dark:to-black ",
+                    }}
+                  >
+                    <DropdownTrigger>
+                      <div className='flex items-center justify-center gap-1'>
+                        <p className='cursor-pointer font-semibold text-xs uppercase text-white/50 focus:text-white'>faculties</p>
+                        <MdOutlineArrowDropDown className='text-white' />
+                      </div>
+                    </DropdownTrigger>
+                    <DropdownMenu aria-label="Static Actions" className='rounded-none'>
+                      {
+                        loading?
+                        '':
+                        faculties?
+                        faculties.map(i => (
+                          <DropdownItem key={i.id} className=''>
+                            <Link to={`/faculties/${i.slug}`} >{i.name}</Link>
+                          </DropdownItem>
+                        )):
+                        ''
+                      }
+                      
+                    </DropdownMenu>
+                  </Dropdown> 
                 </div>
                 <div>
-                  <Button color='' className="hidden lg:flex bg-[#DA0C0C] rounded-none text-white font-medium md:px-6 py-6">
+                  <Button color='' className="hidden lg:flex bg-[#DA0C0C] text-sm text-white px-2 md:px-5 py-2 md:py-3 rounded-full">
                     <p>Pay online</p>
-                    <RiSecurePaymentFill />
                   </Button>
-                  <Button isIconOnly variant='light' onClick={() => setNavbar(!navbar)} className='lg:hidden bg-[#DA0C0C] rounded-md' >
-                      <IoMenu  className='text-white text-2xl'/>
+                  <Button variant='light' onClick={() => setNavbar(!navbar)} className="lg:hidden flex bg-[#DA0C0C] text-xs lg:text-sm text-white px-2 md:px-5 py-2 md:py-3 rounded-full">
+                    <p>Menu</p>
                   </Button>
                 </div>
             </div>
@@ -147,7 +160,7 @@ const Header = () => {
             aria-label="Loading..."
             className="max-w-md"
             /> */}
-        </div>
+        </Navbar>
 
 
         {/* side navbar */}
