@@ -11,7 +11,7 @@ const AboutScreen = () => {
       window.scroll(0,0);
     }, [location]);
   return (
-    <div>AboutScreen</div>
+    <div className='mt-[500px]'>AboutScreen</div>
   )
 }
 

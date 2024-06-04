@@ -25,6 +25,8 @@ const ApplicationScreen = () => {
   const [faculty, setFaculty] = useState('')
   const [course, setCourse] = useState('')
 
+  const [GSEOLLSelected, setGSEOLLSelected] = React.useState("");
+
   useEffect(() => {
     window.scroll(0,0);
   }, [location]);
@@ -48,7 +50,7 @@ const ApplicationScreen = () => {
             <section className='w-full relative md:col-span-4'>
               <div className='h-fit w-full mx-auto px-2 sm:px-6 flex items-start gap-8 '>
                 <div className='w-full '>
-                  <Accordion className='w-full'>
+                  <Accordion defaultExpandedKeys={["1","2","3","4"]} className='w-full'>
                     <AccordionItem key="1" aria-label="course applied for" title={
                       <p className='text-[#DA0C0C] uppercase text-sm font-bold'>
                         Course applied for
@@ -248,7 +250,6 @@ const ApplicationScreen = () => {
                       
                       </div>
                     </AccordionItem>
-
                     <AccordionItem key="4" aria-label="Accordion 4" title={
                       <p className='text-[#DA0C0C] uppercase text-sm font-bold'>
                         Qualification (genaral)
@@ -259,12 +260,28 @@ const ApplicationScreen = () => {
                           <RadioGroup
                             label="GCE O/L"
                             orientation="horizontal"
+                            value={GSEOLLSelected}
+                            onValueChange={setGSEOLLSelected}
                           >
                             <Radio value="local">Local</Radio>
                             <Radio value="tamil">Tamil</Radio>
                             <Radio value="english">English</Radio>
                             <Radio value="others">others</Radio>
                           </RadioGroup>
+                          
+                          <Input
+                            key={'outside'}
+                            type="text"
+                            label="Language"
+                            disabled={
+                              GSEOLLSelected == "others"?
+                              false:
+                              true
+                            }
+                            
+                            placeholder='Enter other language'
+                            labelPlacement={'outside'}
+                          />
                           
                           <div className='flex flex-col md:flex-row gap-8'>
                             <div className='flex flex-col gap-4'>
@@ -946,6 +963,25 @@ const ApplicationScreen = () => {
                       </div>
                     </AccordionItem>
                   </Accordion>
+                  <div className='flex flex-col gap-2 pt-12'>
+                    <p className='text-lg font-bold'>DECLARATION-1</p>
+                    <p className='text-black/50 text-sm'>I understand that the course I have chosen is provided strictly in accordance with the approval 
+                    given by the relevant qualification awarding body. My qualification will thus be awarded direct 
+                    upon my achieving the minimum academic benchmark set by the awarding body. I have been 
+                    made aware that it is my responsibility to confirm the approval and recognition of the 
+                    qualification by any other relevant local or international professional bodies. I am further aware 
+                    that any changes that may occur in the future pertaining to the approval / recognition of the 
+                    qualification would be beyond the control of ENC and hence it cannot be held responsible for 
+                    such changes.</p>
+                    <p className='text-lg font-bold mt-4'>DECLARATION-2</p>
+                    <p className='text-black/50 text-sm'>By <span className='font-bold text-black'>submitting</span> this form, I confirm that to the best of my knowledge, the information given in 
+                    this form is correct and accurate. Further, I agree to abide by the rules and regulations of the 
+                    college. If any information given here is found to be false, I am aware my application will be 
+                    cancelled / admission will be quashed and I shall have no claim whatsoever from the college. I 
+                    also understand no refund or batch transfer will be effected after ten days from the start date of 
+                    the course.</p>
+
+                  </div>
                 </div>
               </div>
             </section>

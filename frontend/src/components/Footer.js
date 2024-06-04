@@ -1,12 +1,31 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import logo from '../assets/Logo.png'
 import {Button} from "@nextui-org/react";
 import { RiInstagramFill } from "react-icons/ri";
 import { FaFacebook } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { getCourseList } from '../actions/courseActions';
+import _ from 'lodash';
 
 const Footer = () => {
+    const {course} = useParams()
+
+    const dispatch = useDispatch()
+    const history = useNavigate()
+    const location = useLocation()
+
+    const courseList = useSelector(state => state.courseList)
+    const { error: courseListError, loading: courseListLoading, courses } = courseList
+
+    useEffect(() => {
+        dispatch(getCourseList())
+    }, [dispatch])
+
+    useEffect(() => {
+        window.scroll(0,0);
+      }, [location]);
   return (
     <footer className='h-fit w-full bg-[#DA0C0C] py-28'>
       <div className='h-fit w-full max-w-[1200px] mx-auto flex flex-col md:flex-row gap-8 '>
@@ -44,9 +63,9 @@ const Footer = () => {
             <div className='flex flex-col justify-center items-center md:items-start md:justify-start gap-2'>
               <p className='text-base font-bold border-b-[2px] border-[#DA0C0C] gap-6 h-[60px] flex items-end text-center md:text-left text-white'>AWARDING BODY QUALIFICATION</p>
               <div className='px-4 flex flex-col gap-2 py-2 md:py-4 order-1 text-center md:text-start'>
-                <Link className='text-xs text-white/80'>LRN- British Qualification</Link>
-                <Link className='text-xs text-white/80'>OTHM- British Qualification</Link>
-                <Link className='text-xs text-white/80'>Qualifi- British Qualification</Link>
+                <Link to={`awarding-body/lrn-uk-qualification`} className='text-xs text-white/80'>LRN- British Qualification</Link>
+                <Link to={`awarding-body/othm-uk-qualification`} className='text-xs text-white/80'>OTHM- British Qualification</Link>
+                <Link to={`awarding-body/qualifi-uk-qualification`} className='text-xs text-white/80'>Qualifi- British Qualification</Link>
               </div>
             </div>
           </div>

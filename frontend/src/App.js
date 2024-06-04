@@ -11,6 +11,7 @@ import CountriesScreen from './screens/CountriesScreen'
 import CourseScreen from './screens/CourseScreen'
 import Chatbot from './components/Chatbot'
 import ApplicationScreen from './screens/ApplicationScreen'
+import AwardingBodyScreen from './screens/AwardingBodyScreen'
 
 const App = () => {
   return ( 
@@ -19,12 +20,13 @@ const App = () => {
       <Chatbot/>
       <Routes>
         <Route path='/' element={<HomeScreen/>} />
-        <Route path='/about' element={<AboutScreen/>} />
-        <Route path='/application' element={<ApplicationScreen/>} />
-        <Route path='/contact' element={<ContactScreen/>} /> 
-        <Route path='/countries/:country' element={<CountryScreen/>} />
-        <Route path='/courses/:course' element={<CourseScreen/>} />
-        <Route path='/abroad'element={<CountriesScreen/>} />
+        <Route path='about' element={<AboutScreen/>} />
+        <Route path='application' element={<ApplicationScreen/>} />
+        <Route path='contact' element={<ContactScreen/>} /> 
+        <Route path='countries/:country' element={<CountryScreen/>} />
+        <Route path='courses/:course' element={<CourseScreen/>} />
+        <Route path='abroad'element={<CountriesScreen/>} />
+        <Route path='awarding-body/:name' element={<AwardingBodyScreen/>} />
         <Route path='faculties/:faculty' element={<CourseFilterScreen/>} />
         <Route path='programes/:programe' element={<CourseFilterScreen/>} />
         <Route path='search/:keyword' element={<CourseFilterScreen/>} />
