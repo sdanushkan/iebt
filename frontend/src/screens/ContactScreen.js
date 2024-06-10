@@ -4,10 +4,11 @@ import {Textarea} from "@nextui-org/input";
 import { Button } from '@nextui-org/react'
 import { FaPhoneAlt } from "react-icons/fa";
 import { IoMdMail } from "react-icons/io";
-import { IoHome } from "react-icons/io5";
+import { IoHome, IoPersonCircle } from "react-icons/io5";
 import { RiSecurePaymentFill } from "react-icons/ri";
 import { useDispatch } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { FaUser } from 'react-icons/fa6';
 
 const ContactScreen = () => {
   const dispatch = useDispatch()
@@ -20,9 +21,9 @@ const ContactScreen = () => {
   return (
     <div className='flex flex-col gap-14'>
       <section className='relative'>
-          <img src={'https://t3.ftcdn.net/jpg/05/30/96/04/360_F_530960431_c8fPd3HansYvrSJ4fJxZqp9OhjQmYoll.jpg'} alt='' className='h-[400px] w-full object-cover relative -z-40' />
+          <img src={'https://st4.depositphotos.com/21389766/23112/i/450/depositphotos_231122574-stock-photo-contact-contact-write-email-support.jpg'} alt='' className='h-[400px] w-full object-cover relative -z-40' />
           
-          <div className='w-full h-fit max-w-[1100px] mx-auto bg-white shadow-[0px_4px_25px_rgba(0,0,0,0.05)] -mt-[100px] relative z-10 md:gap-4 p-12'>
+          <div className='w-full h-fit max-w-[1100px] mx-auto bg-white shadow-[0px_4px_25px_rgba(0,0,0,0.05)] -mt-[100px] relative z-10 md:gap-4 p-12 rounded-t-[16px]'>
             <section className='relative'>
             <div className='h-fit w-fit mx-auto px-6 flex items-start gap-8'>
               <div className='flex flex-col gap-4 w-[300px]'>
@@ -61,26 +62,35 @@ const ContactScreen = () => {
                   <div className=' flex gap-4'>
                     <Input
                       type="text"
-                      placeholder="keyword"
+                      placeholder="Name"
                       labelPlacement="outside"
                       variant="bordered"
-                      
+                      startContent={
+                        <IoMdMail className="text-lg text-default-400 pointer-events-none flex-shrink-0" />
+                      }
                       className='w-full shadow-none rounded-none'
                       radius='sm'
-                      size='lg'
+                      size='md'
                       // endContent={
                       //   // <VscSymbolKeyword />
                       // }
                     />
                     <Input
-                      type="text"
-                      placeholder="keyword"
+                      type="email"
+                      placeholder="Email Address"
                       labelPlacement="outside"
                       variant="bordered"
-                      
+                      startContent={
+                        <IoPersonCircle className="text-lg text-default-400 pointer-events-none flex-shrink-0" />
+                      }
+                      endContent={
+                        <div className="pointer-events-none flex items-center">
+                          <span className="text-default-400 text-small">@gmail.com</span>
+                        </div>
+                      }
                       className='w-full shadow-none rounded-none'
                       radius='sm'
-                      size='lg'
+                      size='md'
                       // endContent={
                       //   // <VscSymbolKeyword />
                       // }
@@ -88,27 +98,32 @@ const ContactScreen = () => {
                   </div>
                   <div className=' flex gap-4'>
                     <Input
-                      type="text"
-                      placeholder="keyword"
+                      type="number"
+                      placeholder="Contact Number"
                       labelPlacement="outside"
                       variant="bordered"
-                      
+                      maxLength={10}
+                      startContent={
+                        <div className="pointer-events-none flex items-center">
+                          <span className="text-default-400 text-small">+94</span>
+                        </div>
+                      }
                       className='w-full shadow-none rounded-none'
                       radius='sm'
-                      size='lg'
+                      size='md'
                       // endContent={
                       //   // <VscSymbolKeyword />
                       // }
                     />
                     <Input
                       type="text"
-                      placeholder="keyword"
+                      placeholder="Subject"
                       labelPlacement="outside"
                       variant="bordered"
                       
                       className='w-full shadow-none rounded-none'
                       radius='sm'
-                      size='lg'
+                      size='md'
                       // endContent={
                       //   // <VscSymbolKeyword />
                       // }

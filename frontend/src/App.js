@@ -12,6 +12,7 @@ import CourseScreen from './screens/CourseScreen'
 import Chatbot from './components/Chatbot'
 import ApplicationScreen from './screens/ApplicationScreen'
 import AwardingBodyScreen from './screens/AwardingBodyScreen'
+import FAQScreen from './screens/FAQScreen'
 
 const App = () => {
   return ( 
@@ -21,6 +22,7 @@ const App = () => {
       <Routes>
         <Route path='/' element={<HomeScreen/>} />
         <Route path='about' element={<AboutScreen/>} />
+        <Route path='faq' element={<FAQScreen/>} />
         <Route path='application' element={<ApplicationScreen/>} />
         <Route path='contact' element={<ContactScreen/>} /> 
         <Route path='countries/:country' element={<CountryScreen/>} />

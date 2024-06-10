@@ -6,7 +6,7 @@ import {Tabs, Tab} from "@nextui-org/react";
 import {Badge} from "@nextui-org/badge";
 import { Progress } from "@nextui-org/react";
 import { useLoaderData, useLocation, useNavigate ,Link} from 'react-router-dom';
-import {Dropdown, DropdownTrigger, DropdownMenu, DropdownItem} from "@nextui-org/react";
+import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem} from "@nextui-org/react";
 import {GrFormAdd, GrFormSubtract, GrFormEdit} from 'react-icons/gr'
 import {MdOutlineCancel} from 'react-icons/md'
 import { MdOutlineArrowDropDown } from "react-icons/md";
@@ -14,7 +14,7 @@ import { RiSecurePaymentFill } from "react-icons/ri";
 import { IoMenu } from "react-icons/io5";
 import { useDispatch, useSelector } from "react-redux";
 import { getFacultyList } from '../actions/courseActions';
-import {Accordion, AccordionItem} from "@nextui-org/react";
+import { Accordion, AccordionItem} from "@nextui-org/react";
  
 const Header = () => {
     const [navbar, setNavbar] = useState(false);
@@ -89,14 +89,18 @@ const Header = () => {
                     }>
                     
                     </Tab>
-                    <Tab key="stdy-abroad" title={
+                    <Tab key="abroad" title={
                       <Link to={'/abroad'} className='flex items-center justify-center gap-1'>
                       <p className='cursor-pointer font-semibold text-xs uppercase '>Study abroad</p>
                       {/* <MdOutlineArrowDropDown className='text-white' /> */}
                     </Link>
                     }>
+
+                      
                       
                     </Tab>
+
+
 
                     <Tab key="contact" title={
                       <Link to={'/contact'} className='flex items-center justify-center gap-1'>
@@ -113,6 +117,14 @@ const Header = () => {
                       </Link >
                     }>
                       
+                    </Tab>
+
+                    <Tab key="faq" title={
+                      <Link to={'/faq'} className='flex items-center justify-center gap-1'>
+                      <p className='cursor-pointer font-semibold text-xs uppercase '>FAQ</p>
+                      {/* <MdOutlineArrowDropDown className='text-white' /> */}
+                    </Link>
+                    }>
                     </Tab>
                   </Tabs>
 
@@ -202,6 +214,7 @@ const Header = () => {
                 </Accordion>
                 <Link onClick={() => setNavbar(!navbar)} to={'/about'} className='text-sm font-semibold text-[#DA0C0C] h-12 flex items-center px-2 '>About us</Link>
                 <Link onClick={() => setNavbar(!navbar)} to={'/contact'} className='text-sm font-semibold text-[#DA0C0C] h-12 flex items-center px-2 '>Contact us</Link>
+                <Link onClick={() => setNavbar(!navbar)} to={'/foq'} className='text-sm font-semibold text-[#DA0C0C] h-12 flex items-center px-2 '>FAQ</Link>
               </div>
             </div>
 

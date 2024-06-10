@@ -1,13 +1,14 @@
 from django.db import models
 from django.urls import reverse
 from django.utils.text import slugify
+from ckeditor.fields import RichTextField
 
 # Create your models here.
 class Faculty(models.Model):
     name = models.CharField(max_length=200, null=True, blank=True)
     slug = models.SlugField(blank=True, null=True, unique=True)
     image = models.ImageField(null=True, blank=True, default='/faculty/placeholder.png')
-    description = models.CharField(max_length=2000, null=True, blank=True)
+    description = RichTextField()
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
@@ -24,6 +25,7 @@ class Faculty(models.Model):
 class Level(models.Model):
     name = models.CharField(max_length=200, null=True, blank=True)
     slug = models.SlugField(blank=True, null=True, unique=True)
+    order = models.IntegerField(default=1)
     offers = models.CharField(max_length=200, null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
@@ -43,9 +45,10 @@ class QualificationApproval(models.Model):
 
 class OurQualification(models.Model):
     name = models.CharField(max_length=200, null=True, blank=True)
+    order = models.IntegerField(default=0)
     slug = models.SlugField(blank=True, null=True, unique=True)
     image = models.ImageField(null=True, blank=True, default='/OurQualification/placeholder.png')
-    discription = models.CharField(max_length=2000, null=True, blank=True)
+    discription = RichTextField()
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
@@ -54,6 +57,7 @@ class OurQualification(models.Model):
     def save(self, *args, **kwargs):
         self.slug = slugify(self.name)
         super().save(*args, **kwargs )
+
 
 class Course(models.Model):
     name = models.CharField(max_length=200, null=True, blank=True)
@@ -65,6 +69,10 @@ class Course(models.Model):
     class_on = models.CharField(max_length=200, null=True, blank=True)
     programe = models.ForeignKey(Level, on_delete=models.SET_NULL, null=True)
     overview = models.CharField(max_length=2000, null=True, blank=True)
+    requirements = RichTextField()
+    units = RichTextField()
+    visible = models.BooleanField(default=True)
+    popular = models.BooleanField(default=False)
     duration = models.CharField(max_length=20, null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
@@ -85,23 +93,7 @@ class Course(models.Model):
     #         count = int(reviews['count'])
     #     return count
 
-class CourseRequirment(models.Model):
-    course = models.ForeignKey(Course, on_delete=models.SET_NULL, null=True)    
-    requirement = models.CharField(max_length=2000, null=True, blank=True)
-    created_at = models.DateTimeField(auto_now_add=True)
 
-    def __str__(self):
-        return self.course.name 
- 
-class Unit(models.Model):
-    course = models.ForeignKey(Course, on_delete=models.SET_NULL, null=True)    
-    level = models.ForeignKey(Level, on_delete=models.SET_NULL, null=True)  
-    name = models.CharField(max_length=2000, null=True, blank=True)  
-    credit_count = models.CharField(max_length=200, null=True, blank=True)  
-    created_at = models.DateTimeField(auto_now_add=True)
-
-    def __str__(self):
-        return self.course.name
     
 class Contact(models.Model):
     name = models.CharField(max_length=2000, null=True, blank=True)
@@ -118,10 +110,11 @@ class Country(models.Model):
     slug = models.SlugField(blank=True, null=True, unique=True)
     image = models.ImageField(null=True, blank=True, default='/country/image/placeholder.png')
     flag = models.ImageField(null=True, blank=True, default='/country/flag/placeholder.png')
-    visa_reqrequirementi = models.CharField(max_length=2000, null=True, blank=True)
-    discription = models.CharField(max_length=2000, null=True, blank=True)
-    details_and_scholarship = models.CharField(max_length=2000, null=True, blank=True)
-    job_and_proposal = models.CharField(max_length=2000, null=True, blank=True)
+    visa_reqrequirementi = RichTextField()
+    discription = RichTextField()
+    details_and_scholarship = RichTextField()
+    job_and_proposal = RichTextField()
+    FAQ = RichTextField(default='')
 
     def __str__(self):
         return self.name
@@ -136,8 +129,8 @@ class Country(models.Model):
     
 class FAQ(models.Model):
     country = models.ForeignKey(Country, on_delete=models.SET_NULL, null=True)
-    quation = models.ImageField(null=True, blank=True, default='/country/flag/placeholder.png')
-    answer = models.CharField(max_length=2000, null=True, blank=True)
+    question = RichTextField()
+    answer = RichTextField()
 
     def __str__(self):
         return self.country
@@ -147,14 +140,14 @@ class FAQ(models.Model):
         verbose_name_plural = 'FAQ'
     
 class About(models.Model):
-    our_story = models.CharField(max_length=2000, null=True, blank=True)
-    mission = models.CharField(max_length=2000, null=True, blank=True)
-    vision = models.CharField(max_length=2000, null=True, blank=True)
-    values = models.CharField(max_length=2000, null=True, blank=True)
+    our_story = RichTextField()
+    mission = RichTextField()
+    vision = RichTextField()
+    values = RichTextField()
 
     def __str__(self):
         return self.vision
-    
+
 class AbroadApplication(models.Model):
     first_name = models.CharField(max_length=2000, null=True, blank=True)
     last_name = models.CharField(max_length=2000, null=True, blank=True)
@@ -164,4 +157,16 @@ class AbroadApplication(models.Model):
 
     def __str__(self):
         return self.email
+
+class Page(models.Model):
+    name = models.CharField(max_length=2000, null=True, blank=True)
     
+    def __str__(self):
+        return self.name
+
+class PageCoverImage(models.Model):
+    image = models.ImageField(null=True, blank=True, default='/page/image/placeholder.png')
+    page = models.ForeignKey(Page, on_delete=models.SET_NULL, null=True)
+
+    def __str__(self):
+        return self.page

@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import { getCourseList, getLevelList } from '../actions/courseActions'
 import {Breadcrumbs, BreadcrumbItem} from "@nextui-org/react";
-
+import parse from 'html-react-parser';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -85,7 +85,7 @@ const AwardingBodyScreen = () => {
                             </div>
                             <div className='p-4 flex flex-col gap-2'>
                                 <p className='text-lg font-bold text-left'>{i.qualification.name}</p>
-                                <p className='text-sm text-justify opacity-75'>{i.qualification.discription}</p>
+                                <div className='text-sm text-justify opacity-75'>{parse(i.qualification.discription)}</div>
                             </div>
                             
                         </div>

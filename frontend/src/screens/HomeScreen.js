@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import {Input, navbar} from "@nextui-org/react";
-import { VscSymbolKeyword } from "react-icons/vsc";
+import { VscSymbolKeyword, VscVerifiedFilled } from "react-icons/vsc";
 import {Button} from "@nextui-org/button";
 import { IoSearch } from "react-icons/io5";
 import { AiFillSignal } from "react-icons/ai";
 import { BsBookmarksFill } from "react-icons/bs";
-import { FaAward } from "react-icons/fa";
+import { FaAward, FaHandHoldingUsd, FaSearchLocation } from "react-icons/fa";
 import {Select, SelectItem} from "@nextui-org/react";
 import { MdOutlineAdsClick } from "react-icons/md";
 import { MdOutlineVerified } from "react-icons/md";
@@ -24,7 +24,9 @@ import  verification  from '../assets/verification.png'
 import  sp  from '../assets/sp.png'
 import  es  from '../assets/es.png'
 import {Tooltip} from "@nextui-org/react";
-
+import ReactWhatsapp from 'react-whatsapp';
+import parse from 'html-react-parser';
+ 
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -33,14 +35,14 @@ import { Pagination, Autoplay, FreeMode } from 'swiper/modules';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { getCourseList, getLevelList } from '../actions/courseActions';
+import { FaArrowRightArrowLeft } from 'react-icons/fa6';
 
 const HomeScreen = () => {
-
     const [keyword, setKeyword] = useState('')
-    const [programe, setPrograme] = useState('/programes')
-    const [credit, setCredit] = useState('/credits')
-    const [award, setAward] = useState('/awards')
-    const [faculty, setFaculty] = useState('/faculties')
+    const [programe, setPrograme] = useState('')
+    const [credit, setCredit] = useState('')
+    const [award, setAward] = useState('')
+    const [faculty, setFaculty] = useState('')
 
     const dispatch = useDispatch()
     const history = useNavigate()
@@ -70,7 +72,7 @@ const HomeScreen = () => {
     
 
   return (
-    <div className='h-fit w-full flex flex-col gap-8 lg:gap-12'>
+    <div className='h-fit w-full flex flex-col gap-8 lg:gap-6'>
       <section className='h-fit w-full relative overflow-hidden lg:pb-2'>
 
         <div className='h-[600px] xl:h-[500px] w-full object-cover object-bottom  absolute -z-50'>
@@ -99,8 +101,8 @@ const HomeScreen = () => {
         <div className='h-[600px] xl:h-[500px] w-full px-8 relative -z-10 flex items-start justify-center bg-black/50'>
           <div className='h-[400px] xl:h-[300px] w-full mt-[100px] flex flex-col justify-center gap-6'>
             <div className='flex flex-col gap-2 max-w-[500px] mx-auto'>
-              <p className='text-4xl font-bold text-white lg:text-center'>International Educational Business Campus</p>
-              <p className='text-white/75 text-xs lg:text-center'>Lorem ipsum dolor sit amet consectetur. In nisl arcu risus at eu ipsum nunc magnis integer. Tristique aliquam risus mauris vitae adipiscing sit eget tristique. </p>
+              <p className='text-4xl font-bold text-white lg:text-center'>International Education and Business Campus</p>
+              <p className='text-white/75 text-xs lg:text-center'>Unleashing Brilliance, Building Community</p>
             </div>
             <Button color='' className="flex lg:hidden  bg-[#DA0C0C] text-xs lg:text-sm text-white px-4 md:px-5 py-2 md:py-3 rounded-full w-fit">
               <p>Pay online</p>
@@ -147,9 +149,9 @@ const HomeScreen = () => {
                   <p className='text-xs text-gray-500'>Search And Filter our courses</p>
                 </div>
                 <div>
-                  <Button color='' className="flex bg-[#DA0C0C] text-xs lg:text-sm text-white px-4 md:px-5 py-2 md:py-3 rounded-full w-fit">
+                  <Link to={`${faculty}${programe}${award}${credit}${keyword}`} color='' className="flex bg-[#DA0C0C] text-xs lg:text-sm text-white px-4 md:px-5 py-2 md:py-3 rounded-full w-fit">
                     <p>Search</p>
-                  </Button>
+                  </Link>
                 </div>
               </div>
               <div className='flex flex-col md:flex-row items-center justify-between gap-2'>
@@ -207,8 +209,6 @@ const HomeScreen = () => {
                     className='w-full shadow-none rounded-none outline-none'
                     radius='sm'
                     size='md'
-                    
-                  
                   >
                     {
                       courseListLoading?
@@ -225,7 +225,7 @@ const HomeScreen = () => {
                   </Select>
                   <Select
                     variant={'bordered'}
-                    placeholder="Course award"
+                    placeholder="Course credits"
                     className='w-full shadow-none rounded-none outline-none'
                     radius='sm'
                     size='md'
@@ -235,9 +235,9 @@ const HomeScreen = () => {
                       courseListLoading?
                       '':
                       courses?
-                      _.uniqBy(_.flatMap(courses, 'qualification'), 'id').map((i) => (
+                      _.uniqBy(courses, 'course_credit').map((i) => (
                         <SelectItem onClick={()=> setAward(`/${i.slug}`)} value={i.slug} key={i.slug}>
-                          {i.name}
+                          {i.course_credit}
                         </SelectItem>
                       ))
                       :
@@ -276,7 +276,7 @@ const HomeScreen = () => {
         <div className='h-fit w-full max-w-[1100px] mx-auto justify-center gap-2'>
             <div className='flex flex-col'>
               <p className='uppercase text-xs '>Faculty</p>
-              <p className='text-2xl font-bold'>Our Faculty</p>
+              <p className='text-2xl lg:text-4xl font-bold'>Our Faculty</p>
             </div>
             <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 pt-8 gap-4'>
               {
@@ -308,7 +308,7 @@ const HomeScreen = () => {
         <div className='h-fit w-full max-w-[1100px] mx-auto justify-center gap-6'>
             <div className='flex flex-col'>
               <p className='uppercase text-xs '>Courses</p>
-              <p className='text-2xl font-bold'>Popular courses</p>
+              <p className='text-2xl lg:text-4xl font-bold'>Popular courses</p>
             </div>
             <div className='hidden xl:block'>
               <Swiper
@@ -476,27 +476,27 @@ const HomeScreen = () => {
         <div className='h-fit w-full max-w-[1100px] mx-auto justify-center gap-6 '>
           <div className='flex flex-col pb-8'>
             <p className='uppercase text-xs '>Unlock Your Future</p>
-            <p className='text-2xl font-bold text-[#DA0C0C]'>Available Scholarships</p>
+            <p className='text-2xl lg:text-4xl font-bold text-[#DA0C0C]'>Available Scholarships</p>
           </div>
-          <div className='w-fit mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 justify-center xl:grid-cols-6 gap-8'>
+          <div className='w-fit mx-auto flex flex-wrap justify-center gap-4'>
             {
               loading?
               ''
               :
               levels?
               levels.map(i => (
-                <div className='h-fit w-fit mx-auto flex flex-col items-center relative'>
-                   <div className='h-[72px] w-[112px] flex flex-col items-center justify-center bg-white rounded-[8px] relative z-30'>
+                <ReactWhatsapp number="+94726263061" message={`${i.name}`} className='h-fit w-fit mx-auto flex flex-col items-center relative '>
+                   <div className='h-[72px] w-28 flex flex-col items-center justify-center bg-white rounded-[8px] relative z-30 hover:scale-105 duration-300'>
                       <p className='text-[#DA0C0C] text-center text-2xl font-bold'>26%</p>
                       <p className='text-[#DA0C0C] text-center text-xs font-semibold'>Special offer</p>
                     </div> 
-                    <div className='h-[54px] w-[156px] flex items-center justify-center text-white font-bold text-center relative z-30'>
+                    <div className='h-16 w-40 flex items-center justify-center text-white font-bold text-center relative z-30 text-sm px-4'>
                         {i.name}
                     </div>
                     <button className='h-[90px] w-full bg-[#DA0C0C] hover:h-full duration-500 absolute bottom-0 z-10 rounded-[8px]'>
 
                     </button>
-                </div>
+                </ReactWhatsapp>
                 // <Link to={`programes/${i.slug}`} key={i.id} className='w-full min-h-[250px] md:min-h-[300px] bg-white shadow-[0px_4px_25px_rgba(0,0,0,0.05)] p-6  md:max-w-[300px] gap-8 flex flex-col rounded-[8px] relative overflow-hidden mx-auto hover:bg-[#DA0C0C] duration-500 hover:text-white hover:scale-105'>
                 //   <div className='w-full flex flex-col relative z-30'>
                 //     <p className='text-5xl font-bold capitalize'>{i.name}</p>
@@ -522,6 +522,36 @@ const HomeScreen = () => {
         </div>
       </section>
 
+      <section className='h-fit w-full relative overflow-hidden px-8 bg-[#DA0C0C] py-12 lg:py-20'>
+        <div className='h-fit w-full max-w-[1100px] mx-auto justify-center gap-6 '>
+          <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4  gap-8'>
+              <div className='w-full flex flex-col gap-2 items-center justify-center'>
+                <VscVerifiedFilled className='text-8xl text-white' />
+                <p className='text-lg font-bold text-white text-center'>Accredited curriculum</p>
+                <p className='text-sm text-white text-center'>Our HEI offers a diverse range of accredited programs designed to meet the highest academic standards. Our qualifications are recognized by WES and UGC Sri Lanka.</p>
+              </div>
+
+              <div className='w-full flex flex-col gap-2 items-center justify-center'>
+                <FaHandHoldingUsd className='text-8xl text-white' />
+                <p className='text-lg font-bold text-white text-center'>Exceptional Educational Investment</p>
+                <p className='text-sm text-white text-center'>We provide an outstanding educational experience that offers great value for students looking to advance their knowledge and skills.</p>
+              </div>
+
+              <div className='w-full flex flex-col gap-2 items-center justify-center'>
+                <FaSearchLocation className='text-8xl text-white' />
+                <p className='text-lg font-bold text-white text-center'>Scholarships</p>
+                <p className='text-sm text-white text-center'>Explore the availability of scholarships to help with the cost of tuition, and rest assured that we're dedicated to helping you find the most affordable courses with us, ensuring that your educational journey is not only enriching but also financially accessible.</p>
+              </div>
+
+              <div className='w-full flex flex-col gap-2 items-center justify-center'>
+                <FaArrowRightArrowLeft className='text-8xl text-white' />
+                <p className='text-lg font-bold text-white text-center'>Progression</p>
+                <p className='text-sm text-white text-center'>Our strong partnership with the UK Government regulated awarding bodies allows students to upgrade their career with recognized universities, while also helping you to Easily transfer credits to any universities around the world</p>
+              </div>
+          </div>
+        </div>
+      </section>
+
       <section className='h-fit w-full relative overflow-hidden px-8 lg:py-12'>
         <div className='h-fit w-full max-w-[900px] mx-auto justify-center gap-6 grid grid-col-1 lg:grid-cols-2 divide-y-1 lg:divide-x-1 lg:divide-y-0 divide-[#DA0C0C]'>
           <div className='w-full h-fit flex-col gap-4 pt-4 lg:pt-0 hidden lg:flex my-auto'>
@@ -541,82 +571,73 @@ const HomeScreen = () => {
         <div className='h-fit w-full max-w-[1100px] mx-auto justify-center gap-6 '>
           <div className='flex flex-col pb-8'>
             <p className='uppercase text-xs '>Questions</p>
-            <p className='text-2xl font-bold'>Why Learn with us?</p>
+            <p className='text-2xl lg:text-4xl font-bold'>Why Learn with us?</p>
           </div>
-          <div className='w-full mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 justify-center gap-4'>
+          <div className='w-full mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 justify-center gap-4 place-content-evenly'>
 
             <Tooltip showArrow={true} content={
-              <div className='p-4'>
-                Somthing! Comming Soon
+              <div className='p-4 max-w-[500px] '>
+                University pathway programmes are designed to help our students transition smoothly into higher education. These programmes offer tailored support in academic skills, English language proficiency,and cultural adaptation, ensuring students are well-prepared for their chosen degree courses.
+
               </div>
             } placement='bottom'>
-              <div className='h-[175px] w-full min-w-full border-[1px] border-gray-300 rounded-[8px] flex  flex-col items-center justify-center gap-2 px-8'>
+              <div className='h-[175px] w-full min-w-full border-[1px] border-gray-300 rounded-[8px] flex  flex-col items-center justify-center gap-2 px-8 mx-auto'>
                 <img src='https://d65ixtnmlqq6w.cloudfront.net/wp-content/uploads/2023/11/diploma_12608865.webp' alt='' className='h-[80px] w-[80px] object-cover'/>
                 <p className='text-base font-bold text-center'>University Pathway Programmes</p>
               </div>
             </Tooltip>
 
             <Tooltip showArrow={true} content={
-              <div className='p-4'>
-                Somthing! Comming Soon
+              <div className='p-4 max-w-[500px] '>
+                Our professional development resources provide students with access to workshops, seminars, and online courses aimed at enhancing their career skills. Topics include leadership, project management, and industry-specific knowledge, all designed to support continuous learning and career advancement.
               </div>
             } placement='bottom'>
-              <div className='h-[175px] w-full min-w-full border-[1px] border-gray-300 rounded-[8px] flex  flex-col items-center justify-center gap-2 px-8'>
+              <div className='h-[175px] w-full min-w-full border-[1px] border-gray-300 rounded-[8px] flex  flex-col items-center justify-center gap-2 px-8 mx-auto'>
                 <img src='https://d65ixtnmlqq6w.cloudfront.net/wp-content/uploads/2023/11/businessman_998412.webp' alt='' className='h-[80px] w-[80px] object-cover'/>
                 <p className='text-base font-bold text-center'>Professional Development Resources</p>
               </div>
             </Tooltip>
 
             <Tooltip showArrow={true} content={
-              <div className='p-4'>
-                Somthing! Comming Soon
+              <div className='p-4 max-w-[500px] '>
+                We offer a range of accredited courses that meet industry standards and are recognized globally. These courses ensure students receive quality education and credentials that enhance their employability and career prospects.
               </div>
             } placement='bottom'>
-              <div className='h-[175px] w-full min-w-full border-[1px] border-gray-300 rounded-[8px] flex  flex-col items-center justify-center gap-2 px-8'>
+              <div className='h-[175px] w-full min-w-full border-[1px] border-gray-300 rounded-[8px] flex  flex-col items-center justify-center gap-2 px-8 mx-auto'>
                 <img src='https://d65ixtnmlqq6w.cloudfront.net/wp-content/uploads/2023/11/policy.webp' alt='' className='h-[80px] w-[80px] object-cover'/>
                 <p className='text-base font-bold text-center'>Accredited Courses</p>
               </div>
             </Tooltip>
 
             <Tooltip showArrow={true} content={
-              <div className='p-4'>
-                Somthing! Comming Soon
+              <div className='p-4 max-w-[500px] '>
+                Students can gain memberships to relevant professional bodies, providing networking opportunities, industry insights, and professional recognition. This membership supports career development and enhances professional credibility.
               </div>
             } placement='bottom'>
-              <div className='h-[175px] w-full min-w-full border-[1px] border-gray-300 rounded-[8px] flex  flex-col items-center justify-center gap-2 px-8'>
+              <div className='h-[175px] w-full min-w-full border-[1px] border-gray-300 rounded-[8px] flex  flex-col items-center justify-center gap-2 px-8 mx-auto'>
                 <img src='https://d65ixtnmlqq6w.cloudfront.net/wp-content/uploads/2023/11/membership.webp' alt='' className='h-[80px] w-[80px] object-cover'/>
                 <p className='text-base font-bold text-center'>Professional Body Membership</p>
               </div>
             </Tooltip>
 
             <Tooltip showArrow={true} content={
-              <div className='p-4'>
-                Somthing! Comming Soon
+              <div className='p-4 max-w-[500px] '>
+                Our digital platforms ensure students have 24/7 access to educational resources, support services, and communication tools. This flexibility allows learning and support to happen anytime, anywhere, on any device, making education more accessible and convenient.
               </div>
             } placement='bottom'>
-              <div className='h-[175px] w-full min-w-full border-[1px] border-gray-300 rounded-[8px] flex  flex-col items-center justify-center gap-2 px-8'>
+              <div className='h-[175px] w-full min-w-full border-[1px] border-gray-300 rounded-[8px] flex  flex-col items-center justify-center gap-2 px-8 mx-auto'>
                 <img src='https://d65ixtnmlqq6w.cloudfront.net/wp-content/uploads/2023/11/24-hours.webp' alt='' className='h-[80px] w-[80px] object-cover'/>
                 <p className='text-base font-bold text-center'>24/7 Connection. Anytime, Anywhere, Any Device</p>
               </div>
             </Tooltip>
 
-            <Tooltip showArrow={true} content={
-              <div className='p-4'>
-                Somthing! Comming Soon
-              </div>
-            } placement='bottom'>
-              <div className='h-[175px] w-full min-w-full border-[1px] border-gray-300 rounded-[8px] flex  flex-col items-center justify-center gap-2 px-8'>
-                <img src='https://d65ixtnmlqq6w.cloudfront.net/wp-content/uploads/2023/11/secure-payment.webp' alt='' className='h-[80px] w-[80px] object-cover'/>
-                <p className='text-base font-bold text-center'>University Pathway Programmes</p>
-              </div>
-            </Tooltip>
             
           </div>
         </div>
       </section>
 
       <section className='h-fit w-full relative px-8 '>
-        <div className='h-fit w-full max-w-[1100px] mx-auto justify-center gap-6 grid grid-col-2 md:grid-cols-3 lg:grid-cols-5 bg-[#DA0C0C] text-white py-8 rounded-[16px]'>
+        <div className='h-fit w-full max-w-[1100px] mx-auto justify-center gap-6 grid grid-col-2 md:grid-cols-3 lg:grid-cols-5 bg-[#DA0C0C] text-white py-12 rounded-[16px]'>
           <div className='w-full flex flex-col items-center justify-center'>
             <p className='text-4xl font-bold'>100+</p>
             <p className='text-sm font-medium'>Acadamic members</p>
@@ -644,7 +665,7 @@ const HomeScreen = () => {
         <div className='h-fit w-full max-w-[1100px] mx-auto overflow-visible'>
             <div className='flex flex-col pb-8'>
               <p className='uppercase text-xs'>Our Students Testimonials</p>
-              <p className='text-xl font-bold'>Students Say’s About Our Campus</p>
+              <p className='text-2xl lg:text-4xl font-bold'>Students Say’s About Our Campus</p>
             </div>
 
 
@@ -731,7 +752,7 @@ const HomeScreen = () => {
         <div className='h-fit w-full max-w-[1100px] mx-auto overflow-visible'>
             <div className='flex flex-col pb-8'>
               <p className='uppercase text-xs '>Resourse</p>
-              <p className='text-2xl font-bold'>Our Resourse</p>
+              <p className='text-2xl lg:text-4xl font-bold'>Our Resourse</p>
             </div>
 
             <div className='hidden md:block'>
@@ -926,7 +947,7 @@ const HomeScreen = () => {
         <div className='h-fit w-full max-w-[1100px] mx-auto overflow-visible'>
             <div className='flex flex-col pb-8'>
               <p className='uppercase text-xs '>Qualifications</p>
-              <p className='text-2xl font-bold'>Our Qualifications</p>
+              <p className='text-2xl lg:text-4xl font-bold'>Our Qualifications</p>
             </div>
 
             <div className='hidden md:block'>
@@ -950,13 +971,13 @@ const HomeScreen = () => {
                       <img src={i.image} alt='' className='h-[150px] w-[200px] object-contain scale-80 mx-auto hover:scale-105 duration-200' />
                       <div className='flex flex-col py-6 gap-4 px-4 '>
                         <div className='flex flex-col-reverse'>
-                        <p className='text-xs h-[32px] overflow-hidden text-gray-400'>{i.discription}</p>
+                        <p className='text-xs h-[32px] overflow-hidden text-gray-400'>{parse(i.discription)}</p>
                         <p className='text-based uppercase font-semibold'>{i.name}</p>
                         </div>
                         <p className='text-sm text-[#DA0C0C]'>More Details...</p>
                       </div>
                     </SwiperSlide>
-                  ))
+                  )).sort((a, b) => a.order - b.order)
                   :
                   ''
                 }

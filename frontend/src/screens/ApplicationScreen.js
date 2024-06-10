@@ -44,9 +44,9 @@ const ApplicationScreen = () => {
   return (
     <div className='flex flex-col gap-14'>
       <section className='relative'>
-          <img src={'https://t3.ftcdn.net/jpg/05/30/96/04/360_F_530960431_c8fPd3HansYvrSJ4fJxZqp9OhjQmYoll.jpg'} alt='' className='h-[400px] w-full object-cover relative -z-40' />
+          <img src={'https://img.freepik.com/free-vector/futuristic-background-design_23-2148503793.jpg'} alt='' className='h-[400px] w-full object-cover relative -z-40' />
           
-          <div className='w-full h-fit max-w-[1100px] mx-auto bg-white shadow-[0px_4px_25px_rgba(0,0,0,0.05)] -mt-[100px] relative z-10 md:gap-1 md:p-4 xl:p-12 grid grid-cols-1 md:grid-cols-5'>
+          <div className='w-full h-fit max-w-[1100px] mx-auto bg-white shadow-[0px_4px_25px_rgba(0,0,0,0.05)] -mt-[100px] relative z-10 md:gap-1 md:p-4 xl:p-12 grid grid-cols-1 md:grid-cols-5 rounded-[16px]'>
             <section className='w-full relative md:col-span-4'>
               <div className='h-fit w-full mx-auto px-2 sm:px-6 flex items-start gap-8 '>
                 <div className='w-full '>

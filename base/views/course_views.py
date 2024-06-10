@@ -13,7 +13,7 @@ from rest_framework import status
 @api_view(['GET'])
 def getCourses(request):
     try:
-        course = Course.objects.all()
+        course = Course.objects.all().order_by('qualification__order')
         serializer = CourseSerializer(course, many=True)
         return Response(serializer.data)
 
@@ -46,7 +46,7 @@ def getAbout(request):
 @api_view(['GET'])
 def getLevels(request):
     try:
-        levels = Level.objects.all()
+        levels = Level.objects.all().order_by('order')
         serializer = LevelSerializer(levels, many=True)
         return Response(serializer.data)
 

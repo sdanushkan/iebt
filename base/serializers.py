@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Faculty, Level, QualificationApproval, Course, OurQualification, Unit, Contact, Country, FAQ, About, AbroadApplication, CourseRequirment
+from .models import Faculty, Level, QualificationApproval, Course, OurQualification, Contact, Country, FAQ, About, AbroadApplication
 
 class FacultySerializer(serializers.ModelSerializer):
     class Meta:
@@ -9,12 +9,6 @@ class FacultySerializer(serializers.ModelSerializer):
 class LevelSerializer(serializers.ModelSerializer):
     class Meta:
         model = Level
-        fields = '__all__'
-
-class UnitSerializer(serializers.ModelSerializer):
-    level = LevelSerializer()
-    class Meta:
-        model = Unit
         fields = '__all__'
 
 
@@ -35,22 +29,22 @@ class CourseSerializer(serializers.ModelSerializer):
     qualification = OurQualificationSerializer()
     programe = LevelSerializer()
     # units = serializers.SerializerMethodField(read_only=True)
-    units = serializers.SerializerMethodField(read_only=True)
-    course_requirments = serializers.SerializerMethodField(read_only=True)
+    # units = serializers.SerializerMethodField(read_only=True)
+    # course_requirments = serializers.SerializerMethodField(read_only=True)
     
     class Meta:
         model = Course
         fields = '__all__'   
     
-    def get_units(self, obj):
-        units = obj.unit_set.all()
-        serializer = UnitSerializer(units, many=True)
-        return serializer.data 
+    # def get_units(self, obj):
+    #     units = obj.unit_set.all()
+    #     serializer = UnitSerializer(units, many=True)
+    #     return serializer.data 
     
-    def get_course_requirments(self, obj):
-        course_requirments = obj.courserequirment_set.all()
-        serializer = CourseRequirmentSerializer(course_requirments, many=True)
-        return serializer.data
+    # def get_course_requirments(self, obj):
+    #     course_requirments = obj.courserequirment_set.all()
+    #     serializer = CourseRequirmentSerializer(course_requirments, many=True)
+    #     return serializer.data
 
 
 
@@ -86,7 +80,7 @@ class AbroadApplicationSerializer(serializers.ModelSerializer):
         fields = '__all__'    
 
 
-class CourseRequirmentSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = CourseRequirment
-        fields = '__all__' 
+# class CourseRequirmentSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = CourseRequirment
+#         fields = '__all__' 
