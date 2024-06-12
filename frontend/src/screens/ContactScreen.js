@@ -23,7 +23,7 @@ const ContactScreen = () => {
       <section className='relative'>
           <img src={'https://st4.depositphotos.com/21389766/23112/i/450/depositphotos_231122574-stock-photo-contact-contact-write-email-support.jpg'} alt='' className='h-[400px] w-full object-cover relative -z-40' />
           
-          <div className='w-full h-fit max-w-[1100px] mx-auto bg-white shadow-[0px_4px_25px_rgba(0,0,0,0.05)] -mt-[100px] relative z-10 md:gap-4 p-12 rounded-t-[16px]'>
+          <div className='w-full h-fit max-w-[1024px] mx-auto bg-white shadow-[0px_4px_25px_rgba(0,0,0,0.05)] -mt-[100px] relative z-10 md:gap-4 p-12 rounded-t-[16px]'>
             <section className='relative'>
             <div className='h-fit w-fit mx-auto px-6 flex items-start gap-8'>
               <div className='flex flex-col gap-4 w-[300px]'>

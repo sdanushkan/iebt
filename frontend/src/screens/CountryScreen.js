@@ -53,7 +53,7 @@ const CountryScreen = () => {
                   <img src={nCountry.image} alt='' className='h-[400px] w-full object-cover relative -z-40' />
                 </div>
                 
-                <div className='w-full h-fit max-w-[1100px] mx-auto -mt-[100px] relative z-10 bg-transparent px-8'>
+                <div className='w-full h-fit max-w-[1024px] mx-auto -mt-[100px] relative z-10 bg-transparent px-8'>
                   <div className='w-full h-fit mx-auto bg-white rounded-[16px] shadow-[0px_4px_25px_rgba(0,0,0,0.05)] grid grid-cols-1 md:grid-cols-5 md:gap-4 lg:gap-8 p-12'>
                       <div className='w-full h-full md:col-span-3 flex flex-col gap-2'>
                         <div className=''>
@@ -160,7 +160,7 @@ const CountryScreen = () => {
         {
           nCountry?
           <section className='h-fit w-full'>
-            <div className='h-fit w-full max-w-[1100px] mx-auto px-8 py-8'>
+            <div className='h-fit w-full max-w-[1024px] mx-auto px-8 py-8'>
               <div className="flex w-full flex-col gap-4">
                 <Tabs aria-label="Options" 
                   classNames={{

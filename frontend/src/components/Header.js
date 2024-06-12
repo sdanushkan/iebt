@@ -15,7 +15,8 @@ import { IoMenu } from "react-icons/io5";
 import { useDispatch, useSelector } from "react-redux";
 import { getFacultyList } from '../actions/courseActions';
 import { Accordion, AccordionItem} from "@nextui-org/react";
- 
+import { HiOutlineMenu } from "react-icons/hi";
+
 const Header = () => {
     const [navbar, setNavbar] = useState(false);
 
@@ -161,8 +162,8 @@ const Header = () => {
                   <Button color='' className="hidden lg:flex bg-[#DA0C0C] text-sm text-white px-2 md:px-5 py-2 md:py-3 rounded-full">
                     <p>Pay online</p>
                   </Button>
-                  <Button variant='light' onClick={() => setNavbar(!navbar)} className="lg:hidden flex bg-[#DA0C0C] text-xs lg:text-sm text-white px-2 md:px-5 py-2 md:py-3 rounded-full">
-                    <p>Menu</p>
+                  <Button isIconOnly variant='light' onClick={() => setNavbar(!navbar)} className="lg:hidden flex bg-[#DA0C0C] text-xs lg:text-sm text-white px-2 md:px-5 py-2 md:py-3 rounded-full">
+                    <HiOutlineMenu />
                   </Button>
                 </div>
             </div>
@@ -212,6 +213,7 @@ const Header = () => {
                   </AccordionItem>
                   
                 </Accordion>
+                <Link onClick={() => setNavbar(!navbar)} to={'/abroad'} className='text-sm font-semibold text-[#DA0C0C] h-12 flex items-center px-2 '>Study abroad</Link>
                 <Link onClick={() => setNavbar(!navbar)} to={'/about'} className='text-sm font-semibold text-[#DA0C0C] h-12 flex items-center px-2 '>About us</Link>
                 <Link onClick={() => setNavbar(!navbar)} to={'/contact'} className='text-sm font-semibold text-[#DA0C0C] h-12 flex items-center px-2 '>Contact us</Link>
                 <Link onClick={() => setNavbar(!navbar)} to={'/foq'} className='text-sm font-semibold text-[#DA0C0C] h-12 flex items-center px-2 '>FAQ</Link>

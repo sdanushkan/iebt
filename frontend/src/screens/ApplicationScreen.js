@@ -46,7 +46,7 @@ const ApplicationScreen = () => {
       <section className='relative'>
           <img src={'https://img.freepik.com/free-vector/futuristic-background-design_23-2148503793.jpg'} alt='' className='h-[400px] w-full object-cover relative -z-40' />
           
-          <div className='w-full h-fit max-w-[1100px] mx-auto bg-white shadow-[0px_4px_25px_rgba(0,0,0,0.05)] -mt-[100px] relative z-10 md:gap-1 md:p-4 xl:p-12 grid grid-cols-1 md:grid-cols-5 rounded-[16px]'>
+          <div className='w-full h-fit max-w-[1024px] mx-auto bg-white shadow-[0px_4px_25px_rgba(0,0,0,0.05)] -mt-[100px] relative z-10 md:gap-1 md:p-4 xl:p-12 grid grid-cols-1 md:grid-cols-5 rounded-[16px]'>
             <section className='w-full relative md:col-span-4'>
               <div className='h-fit w-full mx-auto px-2 sm:px-6 flex items-start gap-8 '>
                 <div className='w-full '>

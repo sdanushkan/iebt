@@ -76,7 +76,7 @@ const CourseScreen = () => {
                         <BreadcrumbItem className='text-3xl ' ><p className='text-sm text-center md:text-2xl capitalize font-bold'>{nCourse.name}</p></BreadcrumbItem>
                     </Breadcrumbs>
                 </div>
-                <div className='w-full h-fit max-w-[1100px] mx-auto bg-white shadow-[0px_4px_25px_rgba(0,0,0,0.05)] lg:-mt-[100px] relative z-10 grid grid-cols-1 md:grid-cols-5 gap-4 sm:p-4 lg:p-8'>
+                <div className='w-full h-fit max-w-[1024px] mx-auto bg-white shadow-[0px_4px_25px_rgba(0,0,0,0.05)] lg:-mt-[100px] relative z-10 grid grid-cols-1 md:grid-cols-5 gap-4 sm:p-4 lg:p-8'>
                     <div className='w-full h-full md:col-span-3 flex flex-col gap-12'>
                         <div className='w-full h-full md:col-span-3 flex flex-col gap-8'>
                             <img src={nCourse.image} alt='' className='h-[250px] w-full object-cover' />

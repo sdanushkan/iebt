@@ -273,7 +273,7 @@ const HomeScreen = () => {
       </section>
 
       <section className='h-fit w-full relative overflow-hidden px-8'>
-        <div className='h-fit w-full max-w-[1100px] mx-auto justify-center gap-2'>
+        <div className='h-fit w-full max-w-[1024px] mx-auto justify-center gap-2'>
             <div className='flex flex-col'>
               <p className='uppercase text-xs '>Faculty</p>
               <p className='text-2xl lg:text-4xl font-bold'>Our Faculty</p>
@@ -305,7 +305,7 @@ const HomeScreen = () => {
       </section>
 
       <section className='h-fit w-full relative px-8'>
-        <div className='h-fit w-full max-w-[1100px] mx-auto justify-center gap-6'>
+        <div className='h-fit w-full max-w-[1024px] mx-auto justify-center gap-6'>
             <div className='flex flex-col'>
               <p className='uppercase text-xs '>Courses</p>
               <p className='text-2xl lg:text-4xl font-bold'>Popular courses</p>
@@ -473,7 +473,7 @@ const HomeScreen = () => {
       </section>
 
       <section className='h-fit w-full relative overflow-hidden px-8 bg-red-50 py-12 lg:py-20'>
-        <div className='h-fit w-full max-w-[1100px] mx-auto justify-center gap-6 '>
+        <div className='h-fit w-full max-w-[1024px] mx-auto justify-center gap-6 '>
           <div className='flex flex-col pb-8'>
             <p className='uppercase text-xs '>Unlock Your Future</p>
             <p className='text-2xl lg:text-4xl font-bold text-[#DA0C0C]'>Available Scholarships</p>
@@ -523,7 +523,7 @@ const HomeScreen = () => {
       </section>
 
       <section className='h-fit w-full relative overflow-hidden px-8 bg-[#DA0C0C] py-12 lg:py-20'>
-        <div className='h-fit w-full max-w-[1100px] mx-auto justify-center gap-6 '>
+        <div className='h-fit w-full max-w-[1024px] mx-auto justify-center gap-6 '>
           <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4  gap-8'>
               <div className='w-full flex flex-col gap-2 items-center justify-center'>
                 <VscVerifiedFilled className='text-8xl text-white' />
@@ -568,7 +568,7 @@ const HomeScreen = () => {
       </section>
 
       <section className='h-fit w-full relative overflow-hidden px-8 bg-red-50 py-12 lg:py-16'>
-        <div className='h-fit w-full max-w-[1100px] mx-auto justify-center gap-6 '>
+        <div className='h-fit w-full max-w-[1024px] mx-auto justify-center gap-6 '>
           <div className='flex flex-col pb-8'>
             <p className='uppercase text-xs '>Questions</p>
             <p className='text-2xl lg:text-4xl font-bold'>Why Learn with us?</p>
@@ -637,7 +637,7 @@ const HomeScreen = () => {
       </section>
 
       <section className='h-fit w-full relative px-8 '>
-        <div className='h-fit w-full max-w-[1100px] mx-auto justify-center gap-6 grid grid-col-2 md:grid-cols-3 lg:grid-cols-5 bg-[#DA0C0C] text-white py-12 rounded-[16px]'>
+        <div className='h-fit w-full max-w-[1024px] mx-auto justify-center gap-6 grid grid-col-2 md:grid-cols-3 lg:grid-cols-5 bg-[#DA0C0C] text-white py-12 rounded-[16px]'>
           <div className='w-full flex flex-col items-center justify-center'>
             <p className='text-4xl font-bold'>100+</p>
             <p className='text-sm font-medium'>Acadamic members</p>
@@ -662,7 +662,7 @@ const HomeScreen = () => {
       </section>
 
       <section className='h-fit w-full relative overflow-hidden px-8'>
-        <div className='h-fit w-full max-w-[1100px] mx-auto overflow-visible'>
+        <div className='h-fit w-full max-w-[1024px] mx-auto overflow-visible'>
             <div className='flex flex-col pb-8'>
               <p className='uppercase text-xs'>Our Students Testimonials</p>
               <p className='text-2xl lg:text-4xl font-bold'>Students Say’s About Our Campus</p>
@@ -749,7 +749,7 @@ const HomeScreen = () => {
       </section>
 
       <section className='h-fit w-full relative overflow-hidden px-8'>
-        <div className='h-fit w-full max-w-[1100px] mx-auto overflow-visible'>
+        <div className='h-fit w-full max-w-[1024px] mx-auto overflow-visible'>
             <div className='flex flex-col pb-8'>
               <p className='uppercase text-xs '>Resourse</p>
               <p className='text-2xl lg:text-4xl font-bold'>Our Resourse</p>
@@ -944,7 +944,7 @@ const HomeScreen = () => {
       </section>
 
       <section className='h-fit w-full relative overflow-hidden px-8'>
-        <div className='h-fit w-full max-w-[1100px] mx-auto overflow-visible'>
+        <div className='h-fit w-full max-w-[1024px] mx-auto overflow-visible'>
             <div className='flex flex-col pb-8'>
               <p className='uppercase text-xs '>Qualifications</p>
               <p className='text-2xl lg:text-4xl font-bold'>Our Qualifications</p>
