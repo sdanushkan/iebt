@@ -12,7 +12,8 @@ django-admin-thumbnails = "*"
 whitenoise = "*"
 django-jazzmin = "*"
 gunicorn = "*"
-django-ckeditor = "*"
+django-ckeditor = "==6.6.1"
+django-ckeditor-5 = "*"
 
 [dev-packages]
 

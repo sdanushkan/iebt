@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "6753614b37ee940deee3b50421584a64d2c580466e47f703a3a33978038177f2"
+            "sha256": "863eed08d9d36fd990d32797fac06b55b758f97b200ec02d9d7651a7b0ac21db"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -43,12 +43,21 @@
         },
         "django-ckeditor": {
             "hashes": [
-                "sha256:55b5f9ce3af47e3c8a8ed37d42be8439da2a664d6e571c2247c1db5c96459dd7",
-                "sha256:7144f9ead662306266c728912487313b3b87ba2abf9dbb82c447f662ce25d1f7"
+                "sha256:44894c2a1050f58edcab6f9e631dbb63fa5532e7432a5650cfd878b6f33b0d46",
+                "sha256:a804a98137058c00fc092aafc475e9491b2ca7c68c84d6ca12c4fa2453696017"
             ],
             "index": "pypi",
             "markers": "python_version >= '3.8'",
-            "version": "==6.7.1"
+            "version": "==6.6.1"
+        },
+        "django-ckeditor-5": {
+            "hashes": [
+                "sha256:0850402680fb6b9dc255b1883910173ed37cc28906712558008f1d5a29045e6f",
+                "sha256:76fa26bdd65842262be7deb1b4cdb419cb080c89c62e0af933dfdd035b13b688"
+            ],
+            "index": "pypi",
+            "markers": "python_version >= '3.7'",
+            "version": "==0.2.13"
         },
         "django-jazzmin": {
             "hashes": [
@@ -96,11 +105,11 @@
         },
         "packaging": {
             "hashes": [
-                "sha256:2ddfb553fdf02fb784c234c7ba6ccc288296ceabec964ad2eae3777778130bc5",
-                "sha256:eb82c5e3e56209074766e6885bb04b8c38a0c015d0a30036ebe7ece34c9989e9"
+                "sha256:026ed72c8ed3fcce5bf8950572258698927fd1dbda10a5e981cdf0ac37f4f002",
+                "sha256:5b8f2217dbdbd2f7f384c41c628544e6d52f2d0f53c6d0c3ea61aa5d1d7ff124"
             ],
-            "markers": "python_version >= '3.7'",
-            "version": "==24.0"
+            "markers": "python_version >= '3.8'",
+            "version": "==24.1"
         },
         "pillow": {
             "hashes": [

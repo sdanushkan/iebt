@@ -63,12 +63,12 @@ class Course(models.Model):
     name = models.CharField(max_length=200, null=True, blank=True)
     slug = models.SlugField(blank=True, null=True)
     faculty = models.ForeignKey(Faculty, on_delete=models.SET_NULL, null=True)  
-    image = models.ImageField(null=True, blank=True, default='/course/placeholder.png')  
+    image = models.ImageField(null=True, blank=True, default='/course/placeholder.png', upload_to='courses/')  
     course_credit = models.CharField(max_length=200, null=True, blank=True)
     qualification = models.ForeignKey(OurQualification, on_delete=models.SET_NULL, null=True)    
     class_on = models.CharField(max_length=200, null=True, blank=True)
     programe = models.ForeignKey(Level, on_delete=models.SET_NULL, null=True)
-    overview = models.CharField(max_length=2000, null=True, blank=True)
+    overview = RichTextField(default='')
     requirements = RichTextField()
     units = RichTextField()
     visible = models.BooleanField(default=True)
@@ -108,8 +108,8 @@ class Contact(models.Model):
 class Country(models.Model):
     name = models.CharField(max_length=2000, null=True, blank=True)
     slug = models.SlugField(blank=True, null=True, unique=True)
-    image = models.ImageField(null=True, blank=True, default='/country/image/placeholder.png')
-    flag = models.ImageField(null=True, blank=True, default='/country/flag/placeholder.png')
+    image = models.ImageField(null=True, blank=True, default='/country/image/placeholder.png', upload_to='country/image')
+    flag = models.ImageField(null=True, blank=True, default='/country/flag/placeholder.png', upload_to='country/flag')
     visa_reqrequirementi = RichTextField()
     discription = RichTextField()
     details_and_scholarship = RichTextField()
@@ -165,7 +165,7 @@ class Page(models.Model):
         return self.name
 
 class PageCoverImage(models.Model):
-    image = models.ImageField(null=True, blank=True, default='/page/image/placeholder.png')
+    image = models.ImageField(null=True, blank=True, default='/page/image/placeholder.png', upload_to='page/')
     page = models.ForeignKey(Page, on_delete=models.SET_NULL, null=True)
 
     def __str__(self):
