@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-3zbtjl8p4f*ds8=t@&w7zy7%z4)3bld_4ny(m1l4mg-)=##-0&
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['iebcampus-f2f71bef1783.herokuapp.com','*']
+ALLOWED_HOSTS = ['iebcampus-21002ef054d7.herokuapp.com','*']
 
 
 # Application definition
@@ -145,7 +145,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://iebcampus-f2f71bef1783.herokuapp.com',
+    'https://iebcampus-21002ef054d7.herokuapp.com',
     'http://localhost'
 ]
 
