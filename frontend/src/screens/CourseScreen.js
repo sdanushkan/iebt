@@ -22,6 +22,7 @@ import 'swiper/css/navigation';
 
 // import required modules
 import { EffectFlip, Autoplay, Navigation } from 'swiper/modules';
+import { usePDF } from 'react-to-pdf';
 
 
 import {Breadcrumbs, BreadcrumbItem} from "@nextui-org/react";
@@ -40,6 +41,8 @@ const CourseScreen = () => {
     const courseList = useSelector(state => state.courseList)
     const { error: courseListError, loading: courseListLoading, courses } = courseList
 
+    const { toPDF, targetRef } = usePDF({filename: 'page.pdf'});
+
     useEffect(() => {
         dispatch(getCourseList())
     }, [dispatch])
@@ -56,10 +59,10 @@ const CourseScreen = () => {
     
     
   return (
-    <div className='w-full h-fit'>
+    <div ref={targetRef} className='w-full h-fit'>
         {
             nCourse?
-            <section className='relative'>
+            <section className='relative overflow-hidden'>
                 <img src={nCourse.image} alt='' className='h-[400px] w-full object-cover relative -z-40 hidden lg:flex' />
                 <div className='absolute top-0 h-[400px] w-full bg-black/50 z-0 flex flex-col items-center justify-center'>
                     <Breadcrumbs 
@@ -70,10 +73,10 @@ const CourseScreen = () => {
                             item: "text-white/60 text-center data-[current=true]:text-white",
                             separator: "text-white/40 text-center",
                         }}
-                    className='text-3xl font-medium  max-w-fit mx-auto'>
-                        <BreadcrumbItem className='text-3xl ' ><p className='text-sm text-center md:text-2xl capitalize font-bold'>{nCourse.faculty.name}</p></BreadcrumbItem>
-                        <BreadcrumbItem className='text-3xl ' ><p className='text-sm text-center md:text-2xl capitalize font-bold'>Course</p></BreadcrumbItem><br/>
-                        <BreadcrumbItem className='text-3xl ' ><p className='text-sm text-center md:text-2xl capitalize font-bold'>{nCourse.name}</p></BreadcrumbItem>
+                    className='text-3xl w-full font-medium  mx-auto'>
+                        <BreadcrumbItem className='text-3xl max-w-full' ><p className='text-sm text-center md:text-2xl capitalize font-bold'>{nCourse.faculty.name}</p></BreadcrumbItem>
+                        <BreadcrumbItem className='text-3xl max-w-full' ><p className='text-sm text-center md:text-2xl capitalize font-bold'>Course</p></BreadcrumbItem><br/>
+                        <BreadcrumbItem className='text-3xl max-w-full' ><p className='text-sm text-center md:text-2xl capitalize font-bold'>{nCourse.name}</p></BreadcrumbItem>
                     </Breadcrumbs>
                 </div>
                 <div className='w-full h-fit max-w-[1024px] mx-auto bg-white shadow-[0px_4px_25px_rgba(0,0,0,0.05)] lg:-mt-[100px] relative z-10 grid grid-cols-1 md:grid-cols-5 gap-4 sm:p-4 lg:p-8'>
@@ -169,7 +172,7 @@ const CourseScreen = () => {
                                     </Tab>
                                 </Tabs>
                             </div>
-                            <div className='grid grid-cols-1 md:grid-cols-4 gap-4 px-8 md:px-0'>
+                            <div className='grid grid-cols-2 md:grid-cols-4 gap-4 px-8 md:px-0'>
                                 <Button className='w-full h-fit bg-[#0099FF] py-4 rounded-[8px] flex items-center justify-center gap-4 text-white text-lg font-bold hover:text-xl duration-200'>Apply online</Button>
                                 <Button className='w-full h-fit bg-[#0099FF] py-4 rounded-[8px] flex items-center justify-center gap-4 text-white text-lg font-bold hover:text-xl duration-200'>Pay online</Button>
                                 <Button className='w-full h-fit bg-[#0099FF] py-4 rounded-[8px] flex items-center justify-center gap-4 text-white text-lg font-bold hover:text-xl duration-200'>Inquire</Button>
@@ -181,7 +184,8 @@ const CourseScreen = () => {
                     <div className='h-fit w-full px-7 lg:px-0 md:col-span-2'>
                         <div className='w-full h-full  flex flex-col gap-4 border-[1px] border-black/20 rounded-[8px] p-4'>
                             <img src={nCourse.qualification.image} alt='' className='w-full h-fit bg-cover' />
-                            <p className='text-xl font-bold text-[#DA0C0C]' >{nCourse.qualification.name}</p>
+                            
+                            <p className='text-xl font-bold text-[#DA0C0C] text-center' >Qualification Awarded by "{nCourse.qualification.name}"</p>
                             {/* <img src="https://enc.lk/assets/img/lrn/level-6-graduate-diploma-bachelor's-degree.gif" alt='' className='w-full h-fit bg-cover' /> */}
                             <div className='h-[1px] w-full bg-[#da0c0c]'>
 
@@ -190,7 +194,7 @@ const CourseScreen = () => {
                                 
                                 <div className=' bg-[#DA0C0C] relative'>
                                     <Skeleton className='text-[#DA0C0C] bg-[#DA0C0C]'>
-                                        <img src={uk} alt='' className='h-[50px] w-full object-cover'/>
+                                        <img src={uk} alt='' className='h-[50px] w-full object-contain'/>
                                     </Skeleton>
                                     <img src={uk} alt='' className='h-[50px] w-full object-cover absolute top-0'/>
                                 </div>
@@ -230,18 +234,16 @@ const CourseScreen = () => {
                                     </Swiper>
 
                                 </div>
-                                <div className=' flex flex-col items-center justify-center gap-2'>
-                                    <div className='flex items-center justify-center gap-2 opacity-75'>
-                                        <FaWhatsapp className='text-base text-center'/>
-                                        <p className='text-base font-medium  text-center'>contact us</p>
-                                    </div>
-                                    <p className='text-xl font-bold text-center'>+94 77 828 9898</p>
+                                <div className=' flex items-center justify-center'>
+                                    <img src='https://i.pinimg.com/originals/e7/d1/99/e7d199bc42eeeb001962c6ed63d8b098.gif' alt='' className='h-20 w-h-20' />
+                                    <p className='text-lg font-bold text-center'>+94 77 828 9898</p>
                                 </div>
                                 
                                 
                             </div>
-                            <Button variant='bordered'>
-                                
+                            <Button onClick={() => toPDF()} variant='bordered' color='danger'>
+                                <p className='text-2xl text-[#DA0C0C] font-black'>E</p>
+                                <p>Brouchers</p>
                             </Button>
                         </div>
                     </div>

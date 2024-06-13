@@ -25,6 +25,7 @@
     "react-router-dom": "^6.23.1",
     "react-scripts": "5.0.1",
     "react-simple-chatbot": "^0.6.1",
+    "react-to-pdf": "^1.0.1",
     "react-type-animation": "^3.2.0",
     "react-whatsapp": "^0.3.0",
     "redux": "^5.0.1",

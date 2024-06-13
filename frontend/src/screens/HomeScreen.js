@@ -490,7 +490,7 @@ const HomeScreen = () => {
                       <p className='text-[#DA0C0C] text-center text-2xl font-bold'>26%</p>
                       <p className='text-[#DA0C0C] text-center text-xs font-semibold'>Special offer</p>
                     </div> 
-                    <div className='h-16 w-40 flex items-center justify-center text-white font-bold text-center relative z-30 text-sm px-4'>
+                    <div className='h-16 w-36 sm:w-40 flex items-center justify-center text-white font-bold text-center relative z-30 text-sm px-4'>
                         {i.name}
                     </div>
                     <button className='h-[90px] w-full bg-[#DA0C0C] hover:h-full duration-500 absolute bottom-0 z-10 rounded-[8px]'>
@@ -552,8 +552,9 @@ const HomeScreen = () => {
         </div>
       </section>
 
-      <section className='h-fit w-full relative overflow-hidden px-8 lg:py-12'>
-        <div className='h-fit w-full max-w-[900px] mx-auto justify-center gap-6 grid grid-col-1 lg:grid-cols-2 divide-y-1 lg:divide-x-1 lg:divide-y-0 divide-[#DA0C0C]'>
+      <section className='h-[400px] w-full relative overflow-hidden px-8 lg:py-12 bg-cover bg-bottom ' >
+        <img src='https://upload.wikimedia.org/wikipedia/commons/c/cd/University-of-Alabama-EngineeringResearchCenter-01.jpg' alt='' className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 h-full w-full z-0 opacity-15' />
+        <div className='h-fit w-full max-w-[900px] mx-auto justify-center gap-6 grid grid-col-1 lg:grid-cols-2 divide-y-1 lg:divide-x-1 lg:divide-y-0 divide-[#DA0C0C] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10'>
           <div className='w-full h-fit flex-col gap-4 pt-4 lg:pt-0 hidden lg:flex my-auto'>
             <p className='text-2xl font-bold text-[#DA0C0C] text-center lg:text-left'>IEBC Provides an extensive number of Programmes from Foundation to Masters which is regulated by UK Government Awarding Body</p>
           </div>

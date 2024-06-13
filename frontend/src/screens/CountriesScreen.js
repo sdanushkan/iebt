@@ -127,7 +127,7 @@ const CountriesScreen = () => {
               <p className='text-2xl md:text-4xl font-bold text-[#DA0C0C]'>Our Countries</p>
             </div>
             <div>
-              <IoMdArrowRoundForward className='text-[#DA0C0C]'/>
+              <IoMdArrowRoundForward className='text-[#DA0C0C] text-2xl'/>
             </div>
           </div>
           <div className='h-fit w-full object-cover relative overflow-hidden bg-[#5a2c33]'>
@@ -161,7 +161,7 @@ const CountriesScreen = () => {
                   <div className='h-full w-full bg-red-50 absolute rounded-full flex items-start justify-start z-0'>
                     
                     <img src={i.image} alt='' className='h-full w-full object-cover absolute z-0' />
-                    <div className='h-full w-full bg-gradient-to-t from-black/75 to-transparent absolute z-30'></div>
+                    <div className='h-full w-full bg-gradient-to-t from-black/75 to-transparent absolute z-30 hover:from-black duration-500'></div>
                   </div>
                 </Link>
               ))
