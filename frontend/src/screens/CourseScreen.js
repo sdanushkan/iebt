@@ -64,7 +64,7 @@ const CourseScreen = () => {
             nCourse?
             <section className='relative overflow-hidden'>
                 <img src={nCourse.image} alt='' className='h-[400px] w-full object-cover relative -z-40 hidden lg:flex' />
-                <div className='absolute top-0 h-[400px] w-full bg-black/50 z-0 flex flex-col items-center justify-center'>
+                <div className='absolute top-0 h-[400px] w-full bg-black/75 z-0 flex flex-col items-center justify-center'>
                     <Breadcrumbs 
                         classNames={{
                             list: "",
@@ -73,7 +73,7 @@ const CourseScreen = () => {
                             item: "text-white/60 text-center data-[current=true]:text-white",
                             separator: "text-white/40 text-center",
                         }}
-                    className='text-3xl w-full font-medium  mx-auto'>
+                    className='text-3xl w-fit font-medium  mx-auto'>
                         <BreadcrumbItem className='text-3xl max-w-full' ><p className='text-sm text-center md:text-2xl capitalize font-bold'>{nCourse.faculty.name}</p></BreadcrumbItem>
                         <BreadcrumbItem className='text-3xl max-w-full' ><p className='text-sm text-center md:text-2xl capitalize font-bold'>Course</p></BreadcrumbItem><br/>
                         <BreadcrumbItem className='text-3xl max-w-full' ><p className='text-sm text-center md:text-2xl capitalize font-bold'>{nCourse.name}</p></BreadcrumbItem>
@@ -131,7 +131,7 @@ const CourseScreen = () => {
                                     <Tab key="overview" title="Overview">
                                         <div className='h-fit flex flex-col gap-4 text-sm text-left p-6 border-[1px] border-black/20 rounded-[8px]'>
                                             <div className='flex flex-col gap-4 text-sm'>
-                                                {nCourse.overview}
+                                                {parse(nCourse.overview)}
                                             </div>
                                         </div>
                                     </Tab>

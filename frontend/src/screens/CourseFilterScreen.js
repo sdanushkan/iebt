@@ -143,17 +143,17 @@ const CourseFilterScreen = () => {
         }>
           <div className='h-screen md:h-fit w-full bg-white px-4 md:px-0 py-6 md:py-0 divide-y-1 flex flex-col gap-4'>
 
-            <Accordion defaultExpandedKeys={["1"]} isCompact className='w-full min-w-full md:w-[300px] md:min-w-[300px]'>
+            <Accordion  defaultExpandedKeys={["1"]} isCompact className='w-full min-w-full md:w-[300px] md:min-w-[300px]'>
               {
                 facultyListLoading?
                 "":
                 faculties && nFaculty?
                 faculties.map(i =>(
-                  <AccordionItem className='text-base font-semibold overflow-hidden' key={i.id} aria-label={i.name} startContent={i.name} classNames={'w-full'}>
+                  <AccordionItem  className='text-sm font-semibold overflow-hidden py-2' key={i.id} aria-label={i.name} startContent={i.name} classNames={'w-full'}>
                     {
                       loading?
                       '':
-                      levelList && nPrograme?
+                      courses && nPrograme?
                       <Tabs variant='solid' selectedKey={nPrograme} defaultSelectedKey={nPrograme} onSelectionChange={setNPrograme} size='sm' isVertical fullWidth aria-label="Tabs sizes" color='danger' 
                       classNames={{
                           tabList: "",
@@ -163,15 +163,19 @@ const CourseFilterScreen = () => {
                         }}
                       className='w-full'>
                         {
-                        levels.map(i=>(
-                          <Tab key={i.slug} title={
-                            <div className='flex items-center justify-between space-x-2 text-left overflow-hidden'>
-                              <VscActivateBreakpoints className='ml-0'/>
-                              <p className='ml-auto w-[200px]'>{i.name}</p> 
-                            </div>
-                          }>
-                          </Tab>
-                        ))
+                            courses || courses.programe?
+                            _.uniqBy(courses.filter(f => f.faculty.name == i.name), 'programe.id').map( i2 =>
+                                (
+                                  <Tab key={i2.slug} title={
+                                    <div className='flex items-center justify-between space-x-2 text-left overflow-hidden'>
+                                      <VscActivateBreakpoints className='ml-0'/>
+                                      <p className='ml-auto w-[200px]'>{i2.programe.name}</p> 
+                                    </div>
+                                  }>
+                                  </Tab>
+                                )
+                              ).sort((a, b) => a.programe && b.programe ? a.programe.id - b.programe.id:''):
+                              ''
                         }
                       </Tabs>:
                       ''
