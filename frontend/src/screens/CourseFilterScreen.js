@@ -33,7 +33,7 @@ const CourseFilterScreen = () => {
   const history = useNavigate()
   const location = useLocation()
 
-  const [nFaculty, setNFaculty] = useState(null)
+  const [nFaculty, setNFaculty] = useState('null')
   const [nKeyword, setNKeyword] = useState(null)
   const [nPrograme, setNPrograme] = useState(null)
   const [nCredit, setNCredit] = useState(null)
@@ -85,10 +85,16 @@ const CourseFilterScreen = () => {
   }, [faculty, programe, credit, award, keyword, location])
 
   useEffect(() => {
-    if (courses) {
-      setNCourses(courses.filter(f=> nFaculty? f.faculty.slug == nFaculty : courses))
+    if ((courses) && (nPrograme) && (nFaculty)) {
+      setNCourses(courses.filter(f=>  f.faculty.slug == nFaculty.anchorKey && f.programe.slug == nPrograme ))
+    } else if ((courses) && (!nPrograme) && (nFaculty)) {
+      setNCourses(courses.filter(f=> nFaculty.anchorKey? f.faculty.slug == nFaculty.anchorKey : courses))
     }
-  }, [courses, nFaculty])
+  }, [courses, nFaculty, nPrograme])
+
+  // useEffect(() => {
+  //   setNCourses(courses.filter(f=> nFaculty.anchorKey? f.faculty.slug == nFaculty.anchorKey : courses))
+  // }, [courses, nPrograme])
   
 
    
@@ -96,8 +102,8 @@ const CourseFilterScreen = () => {
     window.scroll(0,0);
   }, [location]);
   return (
-    <div className='h-fit w-full md:pt-28 relative'>
-      <div className='relative h-fit w-full md:hidden'>
+    <div className='h-fit w-full md:pt-28 relative pb-12'>
+      <div className='relative h-fit w-full md:hidden '>
         <div className='h-fit w-full max-w-[1200px] mx-auto px-4 sm:px-6 overflow-hidden'>
           <div className='flex items-center justify-between my-2 font-medium border-2 mt-28 md:mt-0'>
             <div className='max-h-fit flex divide-x-1 overflow-hidden'>
@@ -143,18 +149,18 @@ const CourseFilterScreen = () => {
         }>
           <div className='h-screen md:h-fit w-full bg-white px-4 md:px-0 py-6 md:py-0 divide-y-1 flex flex-col gap-4'>
 
-            <Accordion  defaultExpandedKeys={["1"]} isCompact className='w-full min-w-full md:w-[300px] md:min-w-[300px]'>
+            <Accordion  onSelect={nFaculty} onSelectionChange={setNFaculty} isCompact className='w-full min-w-full md:w-[300px] md:min-w-[300px]'>
               {
                 facultyListLoading?
                 "":
                 faculties && nFaculty?
                 faculties.map(i =>(
-                  <AccordionItem  className='text-sm font-semibold overflow-hidden py-2' key={i.id} aria-label={i.name} startContent={i.name} classNames={'w-full'}>
+                  <AccordionItem className='text-sm font-semibold overflow-hidden py-2' key={i.slug} aria-label={i.name} startContent={i.name} classNames={'w-full'}>
                     {
                       loading?
                       '':
                       courses && nPrograme?
-                      <Tabs variant='solid' selectedKey={nPrograme} defaultSelectedKey={nPrograme} onSelectionChange={setNPrograme} size='sm' isVertical fullWidth aria-label="Tabs sizes" color='danger' 
+                      <Tabs variant='solid'  selectedKey={nPrograme} defaultSelectedKey={nPrograme} onSelectionChange={setNPrograme} size='sm' isVertical fullWidth aria-label="Tabs sizes" color='danger' 
                       classNames={{
                           tabList: "",
                           cursor: "bg-[#DA0C0C]",
@@ -164,19 +170,29 @@ const CourseFilterScreen = () => {
                       className='w-full'>
                         {
                             courses || courses.programe?
-                            _.uniqBy(courses.filter(f => f.faculty.name == i.name), 'programe.id').map( i2 =>
+                            _.uniqBy(courses.filter(f => f.faculty.name == i.name), 'programe.id').filter(i1 => levels.some(i2 => i1.programe.slug == i2.slug)).map( i3 =>
                                 ( 
-                                  <Tab key={i2.slug} title={
+                                  <Tab key={i3.slug} title={
                                     <div className='flex items-center justify-between space-x-2 text-left overflow-hidden'>
                                       <VscActivateBreakpoints className='ml-0'/>
-                                      <p className='ml-auto w-[200px]'>{i2.programe.name}</p> 
+                                      <p className='ml-auto w-[200px]'>{i3.programe.name}</p> 
                                     </div>
                                   }>
                                   </Tab>
                                 )
-                              ).sort((a, b) => a.programe && b.programe ? a.programe.id - b.programe.id:''):
+                              ):
                               ''
                         }
+
+                        {/* {
+                          courses && courses.programe && levels?
+                          _.uniqBy(courses.filter(f => f.faculty.name === i.name), 'programe.id').filter(i => levels.some(i2 => i.slug == i2.slug)).map( i3 =>
+                            <p>{i3.name}</p>
+                          ) :
+                          ''                         
+                        }       */}
+
+
                       </Tabs>:
                       ''
                     }
@@ -330,8 +346,8 @@ const CourseFilterScreen = () => {
             {
               courseListLoading?
               '':
-              courses && nFaculty?
-              courses.filter(f=> nFaculty != 'faculties' ? f.faculty.slug == nFaculty : courses).map(i => (
+              courses && nCourses && nPrograme?
+              nCourses.map(i => (
                 <Link to={`/courses/${i.slug}`} key={i.id} className=' bg-white p-2 h-fit w-full shadow-[0px_4px_25px_rgba(0,0,0,0.05)] rounded-[16px]'>
                   <img src={i.image} alt='' className='h-[200px] w-full rounded-[8px]' />
                   <div className='pt-4 flex flex-col gap-4'>

@@ -323,7 +323,7 @@ const HomeScreen = () => {
               >
                 {
                   courses?
-                  courses.map(i =>(
+                  courses.filter(f => f.popular==true).map(i =>(
                     <SwiperSlide className='bg-red-50 rounded-[16px] mt-[24px] mb-[48px] '>
                       <Link to={`/courses/${i.slug}`} className='flex flex-col min-w-full p-2 gap-2'>
                         <div className='h-[150px] w-full overflow-hidden rounded-[8px]'>
