@@ -59,10 +59,10 @@ const CourseScreen = () => {
     
     
   return (
-    <div ref={targetRef} className='w-full h-fit'>
+    <div ref={targetRef} className='w-full h-fit '>
         {
             nCourse?
-            <section className='relative overflow-hidden'>
+            <section className='relative overflow-hidden pb-12'>
                 <img src={nCourse.image} alt='' className='h-[400px] w-full object-cover relative -z-40 hidden lg:flex' />
                 <div className='absolute top-0 h-[400px] w-full bg-black/75 z-0 flex flex-col items-center justify-center'>
                     <Breadcrumbs 
@@ -79,10 +79,10 @@ const CourseScreen = () => {
                         <BreadcrumbItem className='text-3xl max-w-full' ><p className='text-sm text-center md:text-2xl capitalize font-bold'>{nCourse.name}</p></BreadcrumbItem>
                     </Breadcrumbs>
                 </div>
-                <div className='w-full h-fit max-w-[1024px] mx-auto bg-white shadow-[0px_4px_25px_rgba(0,0,0,0.05)] lg:-mt-[100px] relative z-10 grid grid-cols-1 md:grid-cols-5 gap-4 sm:p-4 lg:p-8'>
+                <div className='w-full h-fit max-w-[1024px] mx-auto bg-white shadow-[0px_4px_25px_rgba(0,0,0,0.05)] lg:-mt-[100px] relative z-10 grid grid-cols-1 md:grid-cols-5 gap-4 sm:p-4 lg:p-8 rounded-[16px]'>
                     <div className='w-full h-full md:col-span-3 flex flex-col gap-12'>
                         <div className='w-full h-full md:col-span-3 flex flex-col gap-8'>
-                            <img src={nCourse.image} alt='' className='h-[250px] w-full object-cover' />
+                            <img src={nCourse.image} alt='' className='h-[250px] w-full object-cover rounded-[8px]' />
                             <div className='flex flex-col gap-6 px-6 lg:px-0'>
                                 <Breadcrumbs 
                                     classNames={{
@@ -98,10 +98,10 @@ const CourseScreen = () => {
                                     <BreadcrumbItem className='text-3xl ' ><p className='text-sm text-center md:text-2xl capitalize font-bold'>{nCourse.name}</p></BreadcrumbItem>
                                 </Breadcrumbs>
                                 <div className='flex gap-2'>
-                                    <Button size='sm' radius='full' variant='bordered' className='px-2 py-2 gap-1 text-gray-500' startContent={<MdAccessTime/>}>
+                                    <Button size='sm' radius='full' variant='bordered' className='px-2 py-2 gap-1 border-[#DA0C0C] border-opacity-50 text-[#DA0C0C] ' startContent={<MdAccessTime/>}>
                                         6 months
                                     </Button>
-                                    <Button size='sm' radius='full' variant='bordered' className='px-2 py-2 gap-1 text-gray-500' startContent={<FaRegCircleUser />}>
+                                    <Button size='sm' radius='full' variant='bordered' className='px-2 py-2 gap-1 border-[#DA0C0C] border-opacity-50 text-[#DA0C0C] ' startContent={<FaRegCircleUser />}>
                                         Online
                                     </Button>
                                 </div>
@@ -127,7 +127,13 @@ const CourseScreen = () => {
                                 </div>
                             </div>
                             <div className='w-full h-fit px-6 lg:px-0'>
-                                <Tabs size='md' aria-label="Options">
+                                <Tabs size='md' aria-label="Options" 
+                                classNames={{
+                                    tabList: "",
+                                    cursor: "bg-[#DA0C0C]",
+                                    tab: "",
+                                    tabContent: "group-data-[selected=true]:text-[white]"
+                                }}>
                                     <Tab key="overview" title="Overview">
                                         <div className='h-fit flex flex-col gap-4 text-sm text-left p-6 border-[1px] border-black/20 rounded-[8px]'>
                                             <div className='flex flex-col gap-4 text-sm'>
@@ -182,15 +188,15 @@ const CourseScreen = () => {
                     </div>
 
                     <div className='h-fit w-full px-7 lg:px-0 md:col-span-2'>
-                        <div className='w-full h-full  flex flex-col gap-4 border-[1px] border-black/20 rounded-[8px] p-4'>
+                        <div className='w-full h-full  flex flex-col gap-4 border-[1px] border-[#DA0C0C] border-opacity-25 rounded-[8px] p-4'>
                             <img src={nCourse.qualification.image} alt='' className='w-full h-fit bg-cover' />
                             
                             <p className='text-xl font-bold text-[#DA0C0C] text-center' >Qualification Awarded by "{nCourse.qualification.name}"</p>
                             {/* <img src="https://enc.lk/assets/img/lrn/level-6-graduate-diploma-bachelor's-degree.gif" alt='' className='w-full h-fit bg-cover' /> */}
-                            <div className='h-[1px] w-full bg-[#da0c0c]'>
+                            <div className='h-[1px] w-full bg-[#da0c0c] bg-opacity-25'>
 
                             </div>
-                            <div className='flex flex-col gap-4 bg-white px-8 py-8 rounded-[8px] border-[1px] border-[#DA0C0C] border-opacity-10'>
+                            <div className='flex flex-col gap-4 bg-white px-8 py-8 rounded-[8px] border-[1px] border-[#DA0C0C] border-opacity-25'>
                                 
                                 <div className=' bg-[#DA0C0C] relative'>
                                     <Skeleton className='text-[#DA0C0C] bg-[#DA0C0C]'>
@@ -234,9 +240,9 @@ const CourseScreen = () => {
                                     </Swiper>
 
                                 </div>
-                                <div className=' flex items-center justify-center'>
+                                <div className=' flex items-center justify-center animate-pulse'>
                                     <img src='https://i.pinimg.com/originals/e7/d1/99/e7d199bc42eeeb001962c6ed63d8b098.gif' alt='' className='h-20 w-h-20' />
-                                    <p className='text-lg font-bold text-center'>+94 77 828 9898</p>
+                                    <p className='text-lg font-bold text-center '>+94 77 828 9898</p>
                                 </div>
                                 
                                 

@@ -43,7 +43,7 @@ const CountriesScreen = () => {
   return ( 
     <div className='flex flex-col gap-12 pb-12'>
       <section className='h-fit w-full'>
-        <img src='https://images.unsplash.com/photo-1518317507427-5346735246ab?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' alt='' className='h-[400px] w-full object-cover object-top' />
+        <img src='https://images.unsplash.com/photo-1518317507427-5346735246ab?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' alt='' className='h-[300px] w-full object-cover object-top' />
       </section>
       <section>
         <div>

@@ -171,43 +171,94 @@ const CountryScreen = () => {
                   }}
                   size='lg'
                 >
-                  <Tab key="Study in Canada" title="Study in Canada">
-                    <div className=' bg-red-50 p-8 rounded-[8px] flex flex-col gap-4 '>
-                      {
-                        parse(nCountry.discription)
-                      }  
-                    </div>
-                  </Tab>
-                  <Tab key="Student Visa Requirements" title="Student Visa Requirements">
-                    <div className=' bg-red-50 p-8 rounded-[8px] flex flex-col gap-4 '>
-                      {
-                        parse(nCountry.visa_reqrequirementi)
-                      } 
-                    </div>
-                    
-                  </Tab>
-                  <Tab key="University Details and Scholarships" title="University Details and Scholarships">
-                    <div className=' bg-red-50 p-8 rounded-[8px] flex flex-col gap-4 '>
-                      {
-                        parse(nCountry.details_and_scholarship)
-                      } 
-                    </div> 
-                  </Tab>
-                  <Tab key="Job Prospects and Living Cost " title="Job Prospects and Living Cost ">
-                    <div className=' bg-red-50 p-8 rounded-[8px] flex flex-col gap-4 '>
-                      {
-                        parse(nCountry.job_and_proposal)
-                      } 
-                    </div> 
-                  </Tab>
-                  <Tab key="FAQ" title="FAQ">
-                    <div className=' bg-red-50 p-8 rounded-[8px] flex flex-col gap-4 '>
-                      {
-                        parse(nCountry.FAQ)
-                      } 
-                    </div> 
-                    
-                  </Tab>
+                  {
+                    nCountry.discription != "<p>null</p>" ?
+                    <Tab key={`Study in ${nCountry.name}`} title={`Study in ${nCountry.name}`}>
+                      <div className={
+                        nCountry.discription == "<p>null</p>"?
+                        'hidden bg-red-50 p-8 rounded-[8px] flex-col gap-4 ':
+                        ' bg-red-50 p-8 rounded-[8px] flex flex-col gap-4 '
+                      }>
+                        {
+                          parse(nCountry.discription)
+                        } 
+                      </div> 
+                    </Tab>
+                    :
+                    ''
+                  }
+               
+                  {
+                    nCountry.details_and_scholarship != "<p>null</p>" ?
+                    <Tab key="Details And Scholarship" title="Details And Scholarship">
+                      <div className={
+                        nCountry.details_and_scholarship == "<p>null</p>"?
+                        'hidden bg-red-50 p-8 rounded-[8px] flex-col gap-4 ':
+                        ' bg-red-50 p-8 rounded-[8px] flex flex-col gap-4 '
+                      }>
+                        {
+                          parse(nCountry.details_and_scholarship)
+                        } 
+                      </div> 
+                    </Tab>
+                    :
+                    ''
+                  }
+                  {
+                    nCountry.visa_reqrequirementi != "<p>null</p>" ?
+                    <Tab key="Student Visa Requirements" title="Student Visa Requirements">
+                      <div className={
+                        nCountry.visa_reqrequirementi == "<p>null</p>"?
+                        'hidden bg-red-50 p-8 rounded-[8px] flex-col gap-4 ':
+                        ' bg-red-50 p-8 rounded-[8px] flex flex-col gap-4 '
+                      }>
+                        {
+                          parse(nCountry.visa_reqrequirementi)
+                        } 
+                      </div> 
+                    </Tab>
+                    :
+                    ''
+                  }
+             
+               
+                  
+                  {
+                    nCountry.details_and_scholarship != "<p>null</p>" ?
+                    <Tab key="University Details and Scholarships" title="University Details and Scholarships">
+                      <div className={
+                        nCountry.details_and_scholarship == "<p>null</p>"?
+                        'hidden bg-red-50 p-8 rounded-[8px] flex-col gap-4 ':
+                        ' bg-red-50 p-8 rounded-[8px] flex flex-col gap-4 '
+                      }>
+                        {
+                          parse(nCountry.details_and_scholarship)
+                        } 
+                      </div> 
+                    </Tab>
+                    :
+                    ''
+                  }
+
+{
+                    nCountry.FAQ != "<p>null</p>" ?
+                    <Tab key="FAQ" title="FAQ">
+                      <div className={
+                        nCountry.FAQ == "<p>null</p>"?
+                        'hidden bg-red-50 p-8 rounded-[8px] flex-col gap-4 ':
+                        ' bg-red-50 p-8 rounded-[8px] flex flex-col gap-4 '
+                      }>
+                        {
+                          parse(nCountry.FAQ)
+                        } 
+                      </div> 
+                    </Tab>
+                    :
+                    ''
+                  }
+                  
+                  
+                  
                 </Tabs>
               </div>  
             </div>

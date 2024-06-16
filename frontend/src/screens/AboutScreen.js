@@ -19,7 +19,7 @@ const AboutScreen = () => {
   return (
     <div className='h-fit w-full flex flex-col gap-12 pb-12'>
       <section className='h-fit w-full relative bg-black'>
-        <img src={'https://static.vecteezy.com/system/resources/previews/015/634/808/non_2x/circular-hud-connection-with-circuit-board-futuristic-modern-website-background-or-cover-page-for-technology-and-finance-concept-and-education-future-company-vector.jpg'} alt='' className='h-[400px] w-full object-cover relative z-0 opacity-50' />
+        <img src={'https://static.vecteezy.com/system/resources/previews/015/634/808/non_2x/circular-hud-connection-with-circuit-board-futuristic-modern-website-background-or-cover-page-for-technology-and-finance-concept-and-education-future-company-vector.jpg'} alt='' className='h-[300px] w-full object-cover relative z-0 opacity-50' />
         <div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 pt-16'>
           <p className='text-2xl text-white font-bold'>About us</p>
         </div>
@@ -27,8 +27,8 @@ const AboutScreen = () => {
 
       <section className='h-fit w-full'>
         <div className='h-fit w-full max-w-[1024px] mx-auto px-8 flex flex-col md:flex-row gap-6'>
-          <div className='h-[300px] w-full bg-red-500'>
-
+          <div className='h-[200px] w-full bg-red-500'>
+            <img src='https://st2.depositphotos.com/1006009/11827/i/450/depositphotos_118276998-stock-photo-who-are-we-question-on.jpg' alt='' className='h-full w-full object-cover' />
           </div>
           <div className='flex flex-col gap-4'>
             <p className='text-2xl text-black font-bold'>Who We Are?</p>
@@ -60,15 +60,21 @@ const AboutScreen = () => {
 
       <section className='h-fit w-full'>
         <div className='h-fit w-full max-w-[1024px] mx-auto px-4 flex flex-col gap-6'>
-          <Tabs aria-label="Options" >
+          <Tabs aria-label="Options" 
+          classNames={{
+            tabList: "",
+            cursor: "bg-[#DA0C0C]",
+            tab: "",
+            tabContent: "group-data-[selected=true]:text-[white]"
+          }}>
             <Tab key="our story" title="Our story">
               <section className='h-fit w-full'>
-                <div className='h-fit w-full max-w-[1024px] mx-auto px-4 flex flex-col md:flex-row gap-6'>
-                  <div className='h-[300px] w-full bg-red-500'>
-
+                <div className='h-fit w-full max-w-[1024px] mx-auto px-4 flex flex-col md:flex-row gap-6 md:items-center'>
+                  <div className='h-[200px] w-full md:w-[300px] bg-red-500'>
+                    <img src='https://st2.depositphotos.com/1475009/6978/i/450/depositphotos_69786611-stock-photo-vintage-inscription-made-by-old.jpg' alt='' className='h-full w-full md:min-w-[300px] md:max-w-[300px]  object-cover' />
                   </div>
-                  <div className='flex flex-col gap-4'>
-                    <p className='text-2xl text-black font-bold'>Our story?</p>
+                  <div className='h-fit flex flex-col gap-4'>
+                    <p className='text-2xl text-black font-bold'>Our story</p>
                     <div className='flex flex-col gap-1'>
                       <p className='text-sm text-black opacity-50'>The International Educational Business Ca mpus(IEBC) offers students high-quality educational experiences and support services 
                         designed to ensure successful completion of their qualifications. We promote academic and career success by developing critical thinking, effective communication, creativity, and cultural awareness in a safe, accessible, 
@@ -84,7 +90,11 @@ const AboutScreen = () => {
             </Tab>
             <Tab key="our mission" title="Our mission">
               <section className='h-fit w-full'>
+                
                 <div className='h-fit w-full max-w-[1024px] mx-auto px-4 flex flex-col md:flex-row gap-6'>
+                  <div className='h-[200px] w-full md:min-w-[300px] md:max-w-[300px] bg-red-500'>
+                      <img src='https://st3.depositphotos.com/14431644/34729/i/450/depositphotos_347298024-stock-photo-conceptual-hand-writing-showing-our.jpg' alt='' className='h-full w-full md:min-w-[300px] md:max-w-[300px] object-cover' />
+                  </div>
                   <div className='flex flex-col gap-4'>
                     <p className='text-2xl text-black font-bold'>Our Mission</p>
                     <div className='flex flex-col gap-1'>
@@ -97,8 +107,8 @@ const AboutScreen = () => {
             <Tab key="our vission" title="Our vission">
               <section className='h-fit w-full'>
                 <div className='h-fit w-full max-w-[1024px] mx-auto px-4 flex flex-col md:flex-row gap-6'>
-                  <div className='h-[300px] w-full bg-red-500'>
-
+                  <div className='h-[200px] w-full md:min-w-[300px] md:max-w-[300px] bg-red-500'>
+                    <img src='https://lh4.googleusercontent.com/proxy/DmX2Yo22Z0UtpnAqg0FNbRYLqDrUzMExN69YKgW9aUJtOIHnvcO2M5fPFHXmEE-2TBU4Iq1yWvhaZ1mZqscmIQDnhA' alt='' className='h-full w-full md:min-w-[300px] md:max-w-[300px] object-cover' />
                   </div>
                   <div className='flex flex-col gap-4'>
                     <p className='text-2xl text-black font-bold'>Our Vision</p>
@@ -121,16 +131,16 @@ const AboutScreen = () => {
           <div className='flex flex-col gap-4'>
             <p className='text-2xl text-black font-bold'>Our Values</p>
             <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2'>
-              <div className='w-full p-8 border-[1px] border-black/25 flex flex-col gap-1'>
+              <div className='w-full p-8 border-[1px] border-[#] flex flex-col gap-1'>
                 <p className='text-base font-semibold text-black  text-center sm:text-left'>Excellence</p>
                 <p className='text-sm text-black opacity-50 text-center sm:text-left'>Commitment to providing high quality education and support services that foster academic and career success for all students.</p>
               </div>
-              <div className='w-full p-8 border-[1px] border-black/25 flex flex-col gap-2'>
+              <div className='w-full p-8 border-[1px] border-[#] flex flex-col gap-2'>
                 <p className='text-base font-semibold text-black  text-center sm:text-left'>Inclusivity</p>
                 <p className='text-sm text-black opacity-50 text-center sm:text-left'>Embracing a diverse and multicultural community, ensuring equity and accessibility in all 
                 aspects of the learning environment.</p>
               </div>
-              <div className='w-full sm:col-span-2 lg:col-span-1 p-8 border-[1px] border-black/25 flex flex-col gap-2'>
+              <div className='w-full sm:col-span-2 lg:col-span-1 p-8 border-[1px] border-[#] flex flex-col gap-2'>
                 <p className='text-base font-semibold text-black  text-center sm:text-left'>Integrity</p>
                 <p className='text-sm text-black opacity-50 text-center sm:text-left'>Upholding ethical standards and accountability through transparent, data-driven decisions 
                 and measurable outcomes that promote student achievement</p>
@@ -146,13 +156,18 @@ const AboutScreen = () => {
         <div className='h-fit w-full max-w-[1024px] mx-auto px-8 flex flex-col gap-6'>
           <p className='text-2xl text-black font-bold'>Culture and Structure</p>
           <div className='h-fit w-full flex flex-col md:flex-row gap-6 lg:gap-12'>      
-            <div className='h-[250px] md:min-h-full w-full md:w-[400px] lg:w-[500px] bg-red-500'>
-
+            <div className='h-[400px] md:min-h-full w-full md:w-[400px] lg:w-[500px] bg-red-500'>
+                <img src='https://dmh.lacounty.gov/wp-content/uploads/2021/10/LACDMH_Connecting-Our-Community_cc.png' alt='' className='h-full w-full object-cover' />
             </div>
             <div className='w-full flex flex-col gap-4'>
               
               <div className='flex flex-col gap-4'>
-                <Tabs aria-label="Options">
+                <Tabs aria-label="Options" classNames={{
+                  tabList: "",
+                  cursor: "bg-[#DA0C0C]",
+                  tab: "",
+                  tabContent: "group-data-[selected=true]:text-[white]"
+                }}>
                   <Tab key="culture" title="Culture">
                     <div className='flex flex-col gap-6'>
                       <div className='flex flex-col gap-1'>
@@ -210,7 +225,7 @@ const AboutScreen = () => {
           <div className='flex flex-col gap-4'>
             <p className='text-2xl font-bold text-red-500'>Learning Model</p>
             <div className='h-[200px] w-full bg-red-500'>
-
+                <img  src='https://media.sproutsocial.com/uploads/1e_facebook-cover-photo_labels@2x-1.png' alt='' className='h-full w-full object-cover'/>
             </div>
             <div className='flex flex-col gap-4'>
               

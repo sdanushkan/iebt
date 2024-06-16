@@ -19,7 +19,7 @@ const FAQScreen = () => {
   return (
     <div className='h-fit w-full flex flex-col gap-12 pb-12'>
       <section className='h-fit w-full relative bg-black '>
-        <img src={'https://static.vecteezy.com/system/resources/previews/015/634/808/non_2x/circular-hud-connection-with-circuit-board-futuristic-modern-website-background-or-cover-page-for-technology-and-finance-concept-and-education-future-company-vector.jpg'} alt='' className='h-[400px] w-full object-cover relative z-0 opacity-50' />
+        <img src={'https://www.smtusa.com/uploads/faqs.jpg'} alt='' className='h-[300px] w-full object-cover object-top relative z-0 opacity-50' />
         <div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 pt-16'>
           <p className='text-2xl text-white font-bold'>FAQ</p>
         </div>

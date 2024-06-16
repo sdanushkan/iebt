@@ -165,7 +165,7 @@ const CourseFilterScreen = () => {
                         {
                             courses || courses.programe?
                             _.uniqBy(courses.filter(f => f.faculty.name == i.name), 'programe.id').map( i2 =>
-                                (
+                                ( 
                                   <Tab key={i2.slug} title={
                                     <div className='flex items-center justify-between space-x-2 text-left overflow-hidden'>
                                       <VscActivateBreakpoints className='ml-0'/>

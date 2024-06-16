@@ -522,7 +522,7 @@ const HomeScreen = () => {
         </div>
       </section>
 
-      <section className='h-fit w-full relative overflow-hidden px-8 bg-[#DA0C0C] py-12 lg:py-20'>
+      {/* <section className='h-fit w-full relative overflow-hidden px-8 bg-[#DA0C0C] py-12 lg:py-20'>
         <div className='h-fit w-full max-w-[1024px] mx-auto justify-center gap-6 '>
           <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4  gap-8'>
               <div className='w-full flex flex-col gap-2 items-center justify-center'>
@@ -550,7 +550,7 @@ const HomeScreen = () => {
               </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       <section className='h-[400px] w-full relative overflow-hidden px-8 lg:py-12 bg-cover bg-bottom ' >
         <img src='https://upload.wikimedia.org/wikipedia/commons/c/cd/University-of-Alabama-EngineeringResearchCenter-01.jpg' alt='' className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 h-full w-full z-0 opacity-15' />
