@@ -8,6 +8,7 @@ function WorldMap() {
     <div  className="h-[300px] md:h-[400px] ">
       <VectorMap
         map={worldMill}
+        zoomOnScroll={false}
         containerStyle={{
           width: "100%",
           height: "100%",

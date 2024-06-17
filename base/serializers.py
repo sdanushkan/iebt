@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Faculty, Level, QualificationApproval, Course, OurQualification, Contact, Country, FAQ, About, AbroadApplication
+from .models import Faculty, Level, QualificationApproval, Course, OurQualification, Contact, Country, FAQ, About, AbroadApplication, CountryCategory
 
 class FacultySerializer(serializers.ModelSerializer):
     class Meta:
@@ -51,14 +51,20 @@ class CourseSerializer(serializers.ModelSerializer):
 class ContactSerializer(serializers.ModelSerializer):
     class Meta:
         model = Contact
+        fields = '__all__'  
+
+class CountryCategorySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CountryCategory
         fields = '__all__'    
 
 class CountrySerializer(serializers.ModelSerializer):
     faqs = serializers.SerializerMethodField(read_only=True)
+    category = CountryCategorySerializer()
     class Meta:
         model = Country
         fields = '__all__' 
-
+ 
     def get_faqs(self, obj):
         faqs = obj.faq_set.all()
         serializer = FAQSerializer(faqs, many=True)

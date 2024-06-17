@@ -105,16 +105,29 @@ class Contact(models.Model):
     def __str__(self):
         return self.name
     
-class Country(models.Model):
+class CountryCategory(models.Model):
     name = models.CharField(max_length=2000, null=True, blank=True)
     slug = models.SlugField(blank=True, null=True, unique=True)
+
+    def __str__(self):
+        return self.name
+    
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.name)
+        super().save(*args, **kwargs )
+    
+class Country(models.Model):
+    name = models.CharField(max_length=100, null=True, blank=True)
+    slug = models.SlugField(blank=True, null=True, unique=True)
+    sort_name = models.CharField(max_length=10, null=True, blank=True)
+    category = models.ForeignKey(CountryCategory, on_delete=models.SET_NULL, null=True)
     image = models.ImageField(null=True, blank=True, default='/country/image/placeholder.png', upload_to='country/image')
     flag = models.ImageField(null=True, blank=True, default='/country/flag/placeholder.png', upload_to='country/flag')
     visa_reqrequirementi = RichTextField()
     discription = RichTextField()
     details_and_scholarship = RichTextField()
     job_and_proposal = RichTextField()
-    FAQ = RichTextField(default='')
+    FAQ = RichTextField(default='') 
 
     def __str__(self):
         return self.name
