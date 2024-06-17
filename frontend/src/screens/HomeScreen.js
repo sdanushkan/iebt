@@ -26,7 +26,8 @@ import  es  from '../assets/es.png'
 import {Tooltip} from "@nextui-org/react";
 import ReactWhatsapp from 'react-whatsapp';
 import parse from 'html-react-parser';
- 
+import YouTube from 'react-youtube';
+
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -61,6 +62,16 @@ const HomeScreen = () => {
       dispatch(getLevelList())
       dispatch(getCourseList())
     }, [dispatch])
+
+    const opts = {
+      height: '200',
+      width: '100%',
+      playerVars: {
+        // https://developers.google.com/youtube/player_parameters
+        autoplay: 0,
+        controls:0,
+      },
+    };
 
     const submitHandler = () => {
       history(`${faculty}${programe}${award}${credit}${keyword}`)
@@ -752,13 +763,13 @@ const HomeScreen = () => {
       <section className='h-fit w-full relative overflow-hidden px-8'>
         <div className='h-fit w-full max-w-[1024px] mx-auto overflow-visible'>
             <div className='flex flex-col pb-8'>
-              <p className='uppercase text-xs '>Resourse</p>
-              <p className='text-2xl lg:text-4xl font-bold'>Our Resourse</p>
+              <p className='uppercase text-xs '>Resources</p>
+              <p className='text-2xl lg:text-4xl font-bold'>Our Resources</p>
             </div>
 
             <div className='hidden md:block'>
               <Swiper
-                slidesPerView={3}
+                slidesPerView={2}
                 spaceBetween={10}
                 freeMode={true}
                 pagination={{
@@ -770,8 +781,8 @@ const HomeScreen = () => {
               >
                 <SwiperSlide className='h-[300px] w-full relative mt-4 mb-12'>
                   <div className='h-[250px] w-full relative z-10'>
-                    <div className='h-[200px] w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px]'>
-
+                    <div className='h-[200px] w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px] overflow-hidden'>
+                        <YouTube videoId="VwevNwza6c8" opts={opts}  />
                     </div>
                   </div>
                   <div className='w-full h-[100px] rounded-[8px] bg-[#DA0C0C] absolute bottom-0 -z-30'>
@@ -780,8 +791,18 @@ const HomeScreen = () => {
                 </SwiperSlide>
                 <SwiperSlide className='h-[300px] w-full relative mt-4 mb-12'>
                   <div className='h-[250px] w-full relative z-10'>
-                    <div className='h-[200px] w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px]'>
+                    <div className='h-[200px] w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px] overflow-hidden'>
+                        <YouTube videoId="Kyd5XEDth3E" opts={opts}  />
+                    </div>
+                  </div>
+                  <div className='w-full h-[100px] rounded-[8px] bg-[#DA0C0C] absolute bottom-0 -z-30'>
 
+                  </div>
+                </SwiperSlide>
+                {/* <SwiperSlide className='h-[300px] w-full relative mt-4 mb-12'>
+                  <div className='h-[250px] w-full relative z-10'>
+                    <div className='h-[200px] w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px] overflow-hidden'>
+                        <YouTube videoId="2g811Eo7K8U" opts={opts}  />
                     </div>
                   </div>
                   <div className='w-full h-[100px] rounded-[8px] bg-[#DA0C0C] absolute bottom-0 -z-30'>
@@ -790,24 +811,14 @@ const HomeScreen = () => {
                 </SwiperSlide>
                 <SwiperSlide className='h-[300px] w-full relative mt-4 mb-12'>
                   <div className='h-[250px] w-full relative z-10'>
-                    <div className='h-[200px] w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px]'>
-
+                    <div className='h-[200px] w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px] overflow-hidden'>
+                        <YouTube videoId="2g811Eo7K8U" opts={opts}  />
                     </div>
                   </div>
                   <div className='w-full h-[100px] rounded-[8px] bg-[#DA0C0C] absolute bottom-0 -z-30'>
 
                   </div>
-                </SwiperSlide>
-                <SwiperSlide className='h-[300px] w-full relative mt-4 mb-12'>
-                  <div className='h-[250px] w-full relative z-10'>
-                    <div className='h-[200px] w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px]'>
-
-                    </div>
-                  </div>
-                  <div className='w-full h-[100px] rounded-[8px] bg-[#DA0C0C] absolute bottom-0 -z-30'>
-
-                  </div>
-                </SwiperSlide>
+                </SwiperSlide> */}
               </Swiper>
             </div>
 
@@ -825,8 +836,8 @@ const HomeScreen = () => {
               >
                 <SwiperSlide className='h-[300px] w-full relative mt-4 mb-12'>
                   <div className='h-[250px] w-full relative z-10'>
-                    <div className='h-[200px] w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px]'>
-
+                    <div className='h-[200px] w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px] overflow-hidden'>
+                        <YouTube videoId="2g811Eo7K8U" opts={opts}  />
                     </div>
                   </div>
                   <div className='w-full h-[100px] rounded-[8px] bg-[#DA0C0C] absolute bottom-0 -z-30'>
@@ -835,44 +846,44 @@ const HomeScreen = () => {
                 </SwiperSlide>
                 <SwiperSlide className='h-[300px] w-full relative mt-4 mb-12'>
                       <div className='h-[250px] w-full relative z-10'>
-                        <div className='h-[200px] w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px]'>
-
+                        <div className='h-[200px] w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px] overflow-hidden'>
+                            <YouTube videoId="Kyd5XEDth3E" opts={opts}  />
                         </div>
                       </div>
                       <div className='w-full h-[100px] rounded-[8px] bg-[#DA0C0C] absolute bottom-0 -z-30'>
 
                       </div>
-                    </SwiperSlide>
-                    <SwiperSlide className='h-[300px] w-full relative mt-4 mb-12'>
-                      <div className='h-[250px] w-full relative z-10'>
-                        <div className='h-[200px] w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px]'>
+                </SwiperSlide>
+                <SwiperSlide className='h-[300px] w-full relative mt-4 mb-12'>
+                  <div className='h-[250px] w-full relative z-10'>
+                    <div className='h-[200px] w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px] overflow-hidden'>
+                        <YouTube videoId="2g811Eo7K8U" opts={opts}  />
+                    </div>
+                  </div>
+                  <div className='w-full h-[100px] rounded-[8px] bg-[#DA0C0C] absolute bottom-0 -z-30'>
 
-                        </div>
-                      </div>
-                      <div className='w-full h-[100px] rounded-[8px] bg-[#DA0C0C] absolute bottom-0 -z-30'>
+                  </div>
+                </SwiperSlide>
+                {/* <SwiperSlide className='h-[300px] w-full relative mt-4 mb-12'>
+                  <div className='h-[250px] w-full relative z-10'>
+                    <div className='h-[200px] w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px] overflow-hidden'>
+                        <YouTube videoId="2g811Eo7K8U" opts={opts}  />
+                    </div>
+                  </div>
+                  <div className='w-full h-[100px] rounded-[8px] bg-[#DA0C0C] absolute bottom-0 -z-30'>
 
-                      </div>
-                    </SwiperSlide>
-                    <SwiperSlide className='h-[300px] w-full relative mt-4 mb-12'>
-                      <div className='h-[250px] w-full relative z-10'>
-                        <div className='h-[200px] w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px]'>
+                  </div>
+                </SwiperSlide>
+                <SwiperSlide className='h-[300px] w-full relative mt-4 mb-12'>
+                  <div className='h-[250px] w-full relative z-10'>
+                    <div className='h-[200px] w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px] overflow-hidden'>
+                        <YouTube videoId="2g811Eo7K8U" opts={opts}  />
+                    </div>
+                  </div>
+                  <div className='w-full h-[100px] rounded-[8px] bg-[#DA0C0C] absolute bottom-0 -z-30'>
 
-                        </div>
-                      </div>
-                      <div className='w-full h-[100px] rounded-[8px] bg-[#DA0C0C] absolute bottom-0 -z-30'>
-
-                      </div>
-                    </SwiperSlide>
-                    <SwiperSlide className='h-[300px] w-full relative mt-4 mb-12'>
-                      <div className='h-[250px] w-full relative z-10'>
-                        <div className='h-[200px] w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px]'>
-
-                        </div>
-                      </div>
-                      <div className='w-full h-[100px] rounded-[8px] bg-[#DA0C0C] absolute bottom-0 -z-30'>
-
-                      </div>
-                    </SwiperSlide>
+                  </div>
+                </SwiperSlide> */}
               </Swiper>
             </div>
 
@@ -890,8 +901,8 @@ const HomeScreen = () => {
               >
                 <SwiperSlide className='h-[300px] w-full relative mt-4 mb-12'>
                   <div className='h-[250px] w-full relative z-10'>
-                    <div className='h-[200px] w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px]'>
-
+                    <div className='h-[200px] w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px] overflow-hidden'>
+                        <YouTube videoId="2g811Eo7K8U" opts={opts}  />
                     </div>
                   </div>
                   <div className='w-full h-[100px] rounded-[8px] bg-[#DA0C0C] absolute bottom-0 -z-30'>
@@ -899,45 +910,45 @@ const HomeScreen = () => {
                   </div>
                 </SwiperSlide>
                 <SwiperSlide className='h-[300px] w-full relative mt-4 mb-12'>
-                      <div className='h-[250px] w-full relative z-10'>
-                        <div className='h-[200px] w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px]'>
+                  <div className='h-[250px] w-full relative z-10'>
+                    <div className='h-[200px] w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px] overflow-hidden'>
+                        <YouTube videoId="Kyd5XEDth3E" opts={opts}  />
+                    </div>
+                  </div>
+                  <div className='w-full h-[100px] rounded-[8px] bg-[#DA0C0C] absolute bottom-0 -z-30'>
 
-                        </div>
-                      </div>
-                      <div className='w-full h-[100px] rounded-[8px] bg-[#DA0C0C] absolute bottom-0 -z-30'>
+                  </div>
+                </SwiperSlide>
+                {/* <SwiperSlide className='h-[300px] w-full relative mt-4 mb-12'>
+                  <div className='h-[250px] w-full relative z-10'>
+                    <div className='h-[200px] w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px] overflow-hidden'>
+                        <YouTube videoId="2g811Eo7K8U" opts={opts}  />
+                    </div>
+                  </div>
+                  <div className='w-full h-[100px] rounded-[8px] bg-[#DA0C0C] absolute bottom-0 -z-30'>
 
-                      </div>
-                    </SwiperSlide>
-                    <SwiperSlide className='h-[300px] w-full relative mt-4 mb-12'>
-                      <div className='h-[250px] w-full relative z-10'>
-                        <div className='h-[200px] w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px]'>
+                  </div>
+                </SwiperSlide>
+                <SwiperSlide className='h-[300px] w-full relative mt-4 mb-12'>
+                  <div className='h-[250px] w-full relative z-10'>
+                    <div className='h-[200px] w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px] overflow-hidden'>
+                        <YouTube videoId="2g811Eo7K8U" opts={opts}  />
+                    </div>
+                  </div>
+                  <div className='w-full h-[100px] rounded-[8px] bg-[#DA0C0C] absolute bottom-0 -z-30'>
 
-                        </div>
-                      </div>
-                      <div className='w-full h-[100px] rounded-[8px] bg-[#DA0C0C] absolute bottom-0 -z-30'>
+                  </div>
+                </SwiperSlide>
+                <SwiperSlide className='h-[300px] w-full relative mt-4 mb-12'>
+                  <div className='h-[250px] w-full relative z-10'>
+                    <div className='h-[200px] w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px] overflow-hidden'>
+                        <YouTube videoId="2g811Eo7K8U" opts={opts}  />
+                    </div>
+                  </div>
+                  <div className='w-full h-[100px] rounded-[8px] bg-[#DA0C0C] absolute bottom-0 -z-30'>
 
-                      </div>
-                    </SwiperSlide>
-                    <SwiperSlide className='h-[300px] w-full relative mt-4 mb-12'>
-                      <div className='h-[250px] w-full relative z-10'>
-                        <div className='h-[200px] w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px]'>
-
-                        </div>
-                      </div>
-                      <div className='w-full h-[100px] rounded-[8px] bg-[#DA0C0C] absolute bottom-0 -z-30'>
-
-                      </div>
-                    </SwiperSlide>
-                    <SwiperSlide className='h-[300px] w-full relative mt-4 mb-12'>
-                      <div className='h-[250px] w-full relative z-10'>
-                        <div className='h-[200px] w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px]'>
-
-                        </div>
-                      </div>
-                      <div className='w-full h-[100px] rounded-[8px] bg-[#DA0C0C] absolute bottom-0 -z-30'>
-
-                      </div>
-                    </SwiperSlide>
+                  </div>
+                </SwiperSlide> */}
               </Swiper>
             </div>
 

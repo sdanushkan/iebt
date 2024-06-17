@@ -33,7 +33,7 @@ const CourseFilterScreen = () => {
   const history = useNavigate()
   const location = useLocation()
 
-  const [nFaculty, setNFaculty] = useState('null')
+  const [nFaculty, setNFaculty] = useState(null)
   const [nKeyword, setNKeyword] = useState(null)
   const [nPrograme, setNPrograme] = useState(null)
   const [nCredit, setNCredit] = useState(null)
@@ -58,23 +58,23 @@ const CourseFilterScreen = () => {
     if (faculty) {
       setNFaculty(faculty)
     } else {
-      setNFaculty('faculties')
+      setNFaculty(null)
     } 
     if (credit) {
       setNCredit(credit)
     } else {
-      setNCredit('credits')
+      setNCredit(null)
     }
     if (programe) {
       setNPrograme(programe)
     } else {
-      setNPrograme('programes')
+      setNPrograme(null)
     }
 
     if (award) {
       setNAward(award)
     } else {
-      setNAward('awards')
+      setNAward(null)
     }
 
     if (keyword) {
@@ -86,9 +86,11 @@ const CourseFilterScreen = () => {
 
   useEffect(() => {
     if ((courses) && (nPrograme) && (nFaculty)) {
-      setNCourses(courses.filter(f=>  f.faculty.slug == nFaculty.anchorKey && f.programe.slug == nPrograme ))
-    } else if ((courses) && (!nPrograme) && (nFaculty)) {
-      setNCourses(courses.filter(f=> nFaculty.anchorKey? f.faculty.slug == nFaculty.anchorKey : courses))
+      setNCourses(courses.filter(f=> f.faculty.slug == nFaculty.anchorKey && f.programe.slug == nPrograme))
+    } else if ((courses) && (nFaculty)) {
+      setNCourses(courses.filter(f=> f.faculty.slug == nFaculty.anchorKey || f.faculty.slug == nFaculty))
+    } else{
+      setNCourses(courses)
     }
   }, [courses, nFaculty, nPrograme])
 
@@ -159,7 +161,7 @@ const CourseFilterScreen = () => {
                     {
                       loading?
                       '':
-                      courses && nPrograme?
+                      courses ?
                       <Tabs variant='solid'  selectedKey={nPrograme} defaultSelectedKey={nPrograme} onSelectionChange={setNPrograme} size='sm' isVertical fullWidth aria-label="Tabs sizes" color='danger' 
                       classNames={{
                           tabList: "",
@@ -172,7 +174,7 @@ const CourseFilterScreen = () => {
                             courses || courses.programe?
                             _.uniqBy(courses.filter(f => f.faculty.name == i.name), 'programe.id').filter(i1 => levels.some(i2 => i1.programe.slug == i2.slug)).map( i3 =>
                                 ( 
-                                  <Tab key={i3.slug} title={
+                                  <Tab key={i3.programe.slug} title={
                                     <div className='flex items-center justify-between space-x-2 text-left overflow-hidden'>
                                       <VscActivateBreakpoints className='ml-0'/>
                                       <p className='ml-auto w-[200px]'>{i3.programe.name}</p> 
@@ -346,7 +348,7 @@ const CourseFilterScreen = () => {
             {
               courseListLoading?
               '':
-              courses && nCourses && nPrograme?
+              nCourses?
               nCourses.map(i => (
                 <Link to={`/courses/${i.slug}`} key={i.id} className=' bg-white p-2 h-fit w-full shadow-[0px_4px_25px_rgba(0,0,0,0.05)] rounded-[16px]'>
                   <img src={i.image} alt='' className='h-[200px] w-full rounded-[8px]' />
