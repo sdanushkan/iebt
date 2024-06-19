@@ -1898,7 +1898,7 @@ Fixed Issues:
 * [#11390](https://dev.ckeditor.com/ticket/11390): [IE] All [XML](https://ckeditor.com/cke4/addon/xml) plugin [methods](https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR.xml.html) now work in IE10+.
 * [#11542](https://dev.ckeditor.com/ticket/11542): [IE11] Fixed: Blurry toolbar icons when Right-to-Left UI language is set.
 * [#11504](https://dev.ckeditor.com/ticket/11504): Fixed: When [`config.fullPage`](https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-fullPage) is set to `true`, entities are not encoded in editor output.
-* [#10244](https://dev.ckeditor.com/ticket/10244): Integrated [Enhanced Image](https://ckeditor.com/cke4/addon/image2) dialog window with [Advanced Content Filter](https://ckeditor.com/docs/ckeditor4/latest/guide/dev_advanced_content_filter.html).
+* [#11004](https://dev.ckeditor.com/ticket/11004): Integrated [Enhanced Image](https://ckeditor.com/cke4/addon/image2) dialog window with [Advanced Content Filter](https://ckeditor.com/docs/ckeditor4/latest/guide/dev_advanced_content_filter.html).
 * [#11439](https://dev.ckeditor.com/ticket/11439): Fixed: Properties get cloned in the Cell Properties dialog window if multiple cells are selected.
 
 ## CKEditor 4.3.2
@@ -1908,7 +1908,7 @@ Fixed Issues:
 * [#11331](https://dev.ckeditor.com/ticket/11331): A menu button will have a changed label when selected instead of using the `aria-pressed` attribute.
 * [#11177](https://dev.ckeditor.com/ticket/11177): Widget drag handler improvements:
   * [#11176](https://dev.ckeditor.com/ticket/11176): Fixed: Initial position is not updated when the widget data object is empty.
-  * [#10241](https://dev.ckeditor.com/ticket/10241): Fixed: Multiple synchronous layout recalculations are caused by initial drag handler positioning causing performance issues.
+  * [#11001](https://dev.ckeditor.com/ticket/11001): Fixed: Multiple synchronous layout recalculations are caused by initial drag handler positioning causing performance issues.
   * [#11161](https://dev.ckeditor.com/ticket/11161): Fixed: Drag handler is not repositioned in various situations.
   * [#11281](https://dev.ckeditor.com/ticket/11281): Fixed: Drag handler and mask are duplicated after widget reinitialization.
 * [#11207](https://dev.ckeditor.com/ticket/11207): [Firefox] Fixed: Misplaced [Enhanced Image](https://ckeditor.com/cke4/addon/image2) resizer in the inline editor.
@@ -1985,7 +1985,7 @@ New Features:
 * [#10933](https://dev.ckeditor.com/ticket/10933): Widgets: Introduced drag and drop of block widgets with the [Line Utilities](https://ckeditor.com/cke4/addon/lineutils) plugin.
 * [#10936](https://dev.ckeditor.com/ticket/10936): Widget System changes for easier integration with other dialog systems.
 * [#10895](https://dev.ckeditor.com/ticket/10895): [Enhanced Image](https://ckeditor.com/cke4/addon/image2): Added file browser integration.
-* [#10242](https://dev.ckeditor.com/ticket/10242): Added the [`draggable`](https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR_plugins_widget_definition.html#property-draggable) option to disable drag and drop support for widgets.
+* [#11002](https://dev.ckeditor.com/ticket/11002): Added the [`draggable`](https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR_plugins_widget_definition.html#property-draggable) option to disable drag and drop support for widgets.
 * [#10937](https://dev.ckeditor.com/ticket/10937): [Mathematical Formulas](https://ckeditor.com/cke4/addon/mathjax) widget improvements:
   * loading indicator ([#10948](https://dev.ckeditor.com/ticket/10948)),
   * applying paragraph changes (like font color change) to iframe ([#10841](https://dev.ckeditor.com/ticket/10841)),

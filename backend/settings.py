@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'base',
-    # "storages",
+    "storages",
     'rest_framework_simplejwt',
     'ckeditor'
 
@@ -292,23 +292,23 @@ JAZZMIN_SETTINGS = {
     "language_chooser": True,
 }
 
-# STORAGES = {
-#     "default": {
-#         "BACKEND": "storages.backends.s3boto3.S3Boto3Storage"
-#         },
-#     "staticfiles": {
-#         "BACKEND": "storages.backends.s3.S3Storage",
-#     },
-# }
+STORAGES = {
+    "default": {
+        "BACKEND": "storages.backends.s3.S3Storage"
+    },
+    "staticfiles": {
+        "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage",
+    },
+}
 
-# AWS_STORAGE_BUCKET_NAME = 'iebc'
+AWS_STORAGE_BUCKET_NAME = 'iebc'
  
-# # AWS_S3_SIGNATURE_VERSION = 's3v4'
-# # AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
-# # AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
-# AWS_S3_ACCESS_KEY_ID = 'AKIAZQ3DODEJ3V3YR7RQ'
-# AWS_S3_SECRET_ACCESS_KEY = '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'
-# # AWS_DEFAULT_ACL = 'public-read'
-# # AWS_QUERYSTRING_AUTH = False
+# AWS_S3_SIGNATURE_VERSION = 's3v4'
+# AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+# AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+AWS_S3_ACCESS_KEY_ID = 'AKIAZQ3DODEJ3V3YR7RQ'
+AWS_S3_SECRET_ACCESS_KEY = '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'
+# AWS_DEFAULT_ACL = 'public-read'
+AWS_QUERYSTRING_AUTH = False
 
-# # AWS_S3_FILE_OVERWRITE = True
+AWS_S3_FILE_OVERWRITE = True
