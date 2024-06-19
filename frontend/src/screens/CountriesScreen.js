@@ -84,7 +84,7 @@ const CountriesScreen = () => {
               "":
               countries?
               countries.filter(f => f.category.slug == 'main').map(i => (
-                <Link key={i.slug} to={`/countries/${i.slug}`} className='bg-white min-w-[200px] max-w-[400px] h-[150px] border-1 border-gray-200 gap-8 flex flex-col rounded-[8px] relative overflow-hidden duration-500'>
+                <Link key={i.slug} to={`/countries/${i.slug}`} className='bg-white w-[200px] md:w-[250px] h-[150px] border-1 border-gray-200 gap-8 flex flex-col rounded-[8px] relative overflow-hidden duration-500'>
                   <div className='h-full p-6 flex flex-row justify-between'>
                     <div className='flex flex-col relative z-30 gap-1 mt-auto'>
                       <p className='text-2xl font-bold text-white'>{i.name}</p>
@@ -123,7 +123,7 @@ const CountriesScreen = () => {
               "":
               countries?
               countries.filter(f => f.category.slug == 'eu').map(i => (
-                <Link key={i.slug} to={`/countries/${i.slug}`} className='bg-white min-w-[200px] max-w-[400px] h-[150px] border-1 border-gray-200 gap-8 flex flex-col rounded-[8px] relative overflow-hidden duration-500'>
+                <Link key={i.slug} to={`/countries/${i.slug}`} className='bg-white w-[200px] md:w-[250px] h-[150px] border-1 border-gray-200 gap-8 flex flex-col rounded-[8px] relative overflow-hidden duration-500'>
                   <div className='h-full p-6 flex flex-row justify-between'>
                     <div className='flex flex-col relative z-30 gap-1 mt-auto'>
                       <p className='text-2xl font-bold text-white'>{i.name}</p>
@@ -161,7 +161,7 @@ const CountriesScreen = () => {
               "":
               countries?
               countries.filter(f => f.category.slug == 'medicine').map(i => (
-                <Link key={i.slug} to={`/countries/${i.slug}`} className='bg-white min-w-[200px] max-w-[400px] h-[150px] border-1 border-gray-200 gap-8 flex flex-col rounded-[8px] relative overflow-hidden duration-500'>
+                <Link key={i.slug} to={`/countries/${i.slug}`} className='bg-white w-[200px] md:w-[250px] h-[150px] border-1 border-gray-200 gap-8 flex flex-col rounded-[8px] relative overflow-hidden duration-500'>
                   <div className='h-full p-6 flex flex-row justify-between'>
                     <div className='flex flex-col relative z-30 gap-1 mt-auto'>
                       <p className='text-2xl font-bold text-white'>{i.name}</p>
@@ -210,7 +210,7 @@ const CountriesScreen = () => {
           </div>
       </section> */}
 
-      <section className='h-fit w-full bg-gradient-to-b from-red-100 to-transparent pt-12'>
+      <section className='h-fit w-full '>
         <div className='h-fit w-full max-w-[1024px] mx-auto px-8 flex flex-col'>
           
           <div className='w-full flex flex-col gap-4'>
@@ -219,47 +219,47 @@ const CountriesScreen = () => {
               
               <Accordion defaultExpandedKeys={["Admission Requirements"]} aria-label="Options">
                 <AccordionItem key="Admission Requirements" title={
-                  <p className='text-base font-medium'>Admission Requirements</p>
+                  <p className='text-lg font-semibold'>Admission Requirements</p>
                 }>
-                  <div className='flex flex-col gap-1'>
-                      <p className='text-sm text-black opacity-50 text-justify'>Institutions set criteria for international students, including English proficiency exams.
+                  <div className='flex flex-col gap-1 bg-gradient-to-b from-red-200 to-transparent py-8 px-4 rounded-[8px] mb-2'>
+                      <p className='text-base text-black text-justify'>Institutions set criteria for international students, including English proficiency exams.
                       </p>
                   </div>  
                 </AccordionItem>
                 <AccordionItem key="Selection of Universities" title={
-                  <p className='text-base font-medium'>Selection of Universities</p>
+                  <p className='text-lg font-semibold'>Selection of Universities</p>
                 }>
-                  <div className='flex flex-col gap-1'>
-                    <p className='text-sm text-black opacity-50 text-justify'>IEBC aids in choosing suitable institutions based on academic and financial fit.</p>
+                  <div className='flex flex-col gap-1 bg-gradient-to-b from-red-200 to-transparent py-8 px-4 rounded-[8px] mb-2'>
+                    <p className='text-base text-black text-justify'>IEBC aids in choosing suitable institutions based on academic and financial fit.</p>
                   </div> 
                 </AccordionItem>
                 <AccordionItem key="Career Counselling" title={
-                  <p className='text-base font-medium'>Career Counselling</p>
+                  <p className='text-lg font-semibold'>Career Counselling</p>
                 }>
-                  <div className='flex flex-col gap-1'>
-                    <p className='text-sm text-black opacity-50 text-justify'>Tailored advice on program selection and study abroad decisions for students.</p>
+                  <div className='flex flex-col gap-1 bg-gradient-to-b from-red-200 to-transparent py-8 px-4 rounded-[8px] mb-2'>
+                    <p className='text-base text-black text-justify'>Tailored advice on program selection and study abroad decisions for students.</p>
                   </div>  
                 </AccordionItem>
                 <AccordionItem key="Accommodation & Travel Arrangement" title={
-                  <p className='text-base font-medium'>Accommodation & Travel Arrangement</p>
+                  <p className='text-lg font-semibold'>Accommodation & Travel Arrangement</p>
                 }>
-                  <div className='flex flex-col gap-1'>
-                    <p className='text-sm text-black opacity-50 text-justify'>Assistance with visa-approved travel plans and settling in new accommodations abroad.</p>
+                  <div className='flex flex-col gap-1 bg-gradient-to-b from-red-200 to-transparent py-8 px-4 rounded-[8px] mb-2'>
+                    <p className='text-base text-black text-justify'>Assistance with visa-approved travel plans and settling in new accommodations abroad.</p>
                   </div>
                 </AccordionItem>
                 <AccordionItem key="Interview Preparation & Pre-departure Briefing" title={
-                  <p className='text-base font-medium'>Interview Preparation & Pre-departure Briefing</p>
+                  <p className='text-lg font-semibold'>Interview Preparation & Pre-departure Briefing</p>
                 }>
-                  <div className='flex flex-col gap-1'>
-                    <p className='text-sm text-black opacity-50 text-justify'>Preparation for challenges of studying abroad, including accommodation and travel 
+                  <div className='flex flex-col gap-1 bg-gradient-to-b from-red-200 to-transparent py-8 px-4 rounded-[8px] mb-2'>
+                    <p className='text-base text-black text-justify'>Preparation for challenges of studying abroad, including accommodation and travel 
                     arrangements.</p>
                   </div>
                 </AccordionItem>
                 <AccordionItem key="Document Processing" title={
-                  <p className='text-base font-medium'>Document Processing</p>
+                  <p className='text-lg font-semibold'>Document Processing</p>
                 }>
-                  <div className='flex flex-col gap-1'>
-                    <p className='text-sm text-black opacity-50 text-justify'>Guidance on compiling essential documents for visa applications and immigration requirements.</p>
+                  <div className='flex flex-col gap-1 bg-gradient-to-b from-red-200 to-transparent py-8 px-4 rounded-[8px] mb-2'>
+                    <p className='text-base text-black text-justify'>Guidance on compiling essential documents for visa applications and immigration requirements.</p>
                   </div>
                 </AccordionItem>
               </Accordion> 
@@ -272,7 +272,7 @@ const CountriesScreen = () => {
         </div>
       </section>
 
-      <section className='h-fit w-full bg-gradient-to-b from-red-100 to-transparent pt-12'>
+      <section className='h-fit w-full '>
         <div className='h-fit w-full max-w-[1024px] mx-auto px-8 flex flex-col '>
           
           <div className='w-full flex flex-col gap-4'>
@@ -281,54 +281,54 @@ const CountriesScreen = () => {
               
               <Accordion defaultExpandedKeys={["International Exposure "]} aria-label="Options">
                 <AccordionItem key="International Exposure " title={
-                  <p className='text-base font-medium'>International Exposure </p>
+                  <p className='text-lg font-semibold'>International Exposure </p>
                 }>
-                  <div className='flex flex-col gap-1'>
-                      <p className='text-sm text-black opacity-50 text-justify'>Gain diverse skills, manage studies and jobs, multicultural learning environment.
+                  <div className='flex flex-col gap-1 bg-gradient-to-b from-red-200 to-transparent py-8 px-4 rounded-[8px] mb-2'>
+                      <p className='text-base text-black text-justify'>Gain diverse skills, manage studies and jobs, multicultural learning environment.
                       </p>
                   </div>  
                 </AccordionItem>
                 <AccordionItem key="Enhance Your CV" title={
-                  <p className='text-base font-medium'>Enhance Your CV</p>
+                  <p className='text-lg font-semibold'>Enhance Your CV</p>
                 }>
-                  <div className='flex flex-col gap-1'>
-                    <p className='text-sm text-black opacity-50 text-justify'>Demonstrates adaptability, cultural openness, problem-solving in diverse environments..</p>
+                  <div className='flex flex-col gap-1 bg-gradient-to-b from-red-200 to-transparent py-8 px-4 rounded-[8px] mb-2'>
+                    <p className='text-base text-black text-justify'>Demonstrates adaptability, cultural openness, problem-solving in diverse environments..</p>
                   </div> 
                 </AccordionItem>
                 <AccordionItem key="Learn Self-Reliance" title={
-                  <p className='text-base font-medium'>Learn Self-Reliance</p>
+                  <p className='text-lg font-semibold'>Learn Self-Reliance</p>
                 }>
-                  <div className='flex flex-col gap-1'>
-                    <p className='text-sm text-black opacity-50 text-justify'>Develop independence, manage finances, navigate daily life in foreign settings.</p>
+                  <div className='flex flex-col gap-1 bg-gradient-to-b from-red-200 to-transparent py-8 px-4 rounded-[8px] mb-2'>
+                    <p className='text-base text-black text-justify'>Develop independence, manage finances, navigate daily life in foreign settings.</p>
                   </div>  
                 </AccordionItem>
                 <AccordionItem key="Gain a Global Mindset" title={
-                  <p className='text-base font-medium'>Gain a Global Mindset</p>
+                  <p className='text-lg font-semibold'>Gain a Global Mindset</p>
                 }>
-                  <div className='flex flex-col gap-1'>
-                    <p className='text-sm text-black opacity-50 text-justify'>Broaden horizons, understand global issues, cultural awareness, effective communication.</p>
+                  <div className='flex flex-col gap-1 bg-gradient-to-b from-red-200 to-transparent py-8 px-4 rounded-[8px] mb-2'>
+                    <p className='text-base text-black text-justify'>Broaden horizons, understand global issues, cultural awareness, effective communication.</p>
                   </div>
                 </AccordionItem>
                 <AccordionItem key="Top Quality Education" title={
-                  <p className='text-base font-medium'>Top Quality Education</p>
+                  <p className='text-lg font-semibold'>Top Quality Education</p>
                 }>
-                  <div className='flex flex-col gap-1'>
-                    <p className='text-sm text-black opacity-50 text-justify'>Studying abroad exposes you to world-class education systems, fostering academic excellence and 
+                  <div className='flex flex-col gap-1 bg-gradient-to-b from-red-200 to-transparent py-8 px-4 rounded-[8px] mb-2'>
+                    <p className='text-base text-black text-justify'>Studying abroad exposes you to world-class education systems, fostering academic excellence and 
                     global perspectives.</p>
                   </div>
                 </AccordionItem>
                 <AccordionItem key="Career Opportunities" title={
-                  <p className='text-base font-medium'>Career Opportunities</p>
+                  <p className='text-lg font-semibold'>Career Opportunities</p>
                 }>
-                  <div className='flex flex-col gap-1'>
-                    <p className='text-sm text-black opacity-50 text-justify'>International study enhances your CV, showing employers your adaptability and global mindset, opening doors to diverse career opportunities.</p>
+                  <div className='flex flex-col gap-1 bg-gradient-to-b from-red-200 to-transparent py-8 px-4 rounded-[8px] mb-2'>
+                    <p className='text-base text-black text-justify'>International study enhances your CV, showing employers your adaptability and global mindset, opening doors to diverse career opportunities.</p>
                   </div>
                 </AccordionItem>
                 <AccordionItem key="International Travel" title={
-                  <p className='text-base font-medium'>International Travel</p>
+                  <p className='text-lg font-semibold'>International Travel</p>
                 }>
-                  <div className='flex flex-col gap-1'>
-                    <p className='text-sm text-black opacity-50 text-justify'>Studying abroad isn't just about education; it's a life-changing adventure that broadens your cultural 
+                  <div className='flex flex-col gap-1 bg-gradient-to-b from-red-200 to-transparent py-8 px-4 rounded-[8px] mb-2'>
+                    <p className='text-base text-black text-justify'>Studying abroad isn't just about education; it's a life-changing adventure that broadens your cultural 
                     understanding and personal growth through international travel.</p>
                   </div>
                 </AccordionItem>
@@ -342,7 +342,7 @@ const CountriesScreen = () => {
         </div>
       </section>
 
-      <section className='h-fit w-full bg-gradient-to-b from-red-100 to-transparent pt-12'>
+      <section className='h-fit w-full '>
         <div className='h-fit w-full max-w-[1024px] mx-auto px-8 flex flex-col gap-6'>
           <p className='text-2xl md:text-4xl font-bold text-[#DA0C0C] text-center'>LANGUAGE ENTRY TEST</p>
           <div className='h-fit w-full flex flex-col md:flex-row gap-6 lg:gap-12'>      
@@ -363,7 +363,7 @@ const CountriesScreen = () => {
           </div>
         </div>
       </section>
-      <section className='h-fit w-full bg-gradient-to-b from-red-100 to-transparent pt-12'>
+      <section className='h-fit w-full '>
         <div className='h-fit w-full max-w-[1024px] mx-auto px-8 flex flex-col gap-6'>
           <p className='text-2xl md:text-4xl font-bold text-[#DA0C0C] text-center'>LIVING ABROAD</p>
           <div className='h-fit w-full flex flex-col md:flex-row gap-6 lg:gap-12'>      
