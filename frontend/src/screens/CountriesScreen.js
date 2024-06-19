@@ -24,7 +24,7 @@ import WorldMap from '../components/WorldMap';
 import { BiSolidMessageSquareDetail } from "react-icons/bi";
 import { FaCalendarAlt } from "react-icons/fa";
 import { IoMdArrowRoundForward } from "react-icons/io";
-
+import {Accordion, AccordionItem} from "@nextui-org/react";
 
 const CountriesScreen = () => {
   const [selected, setSelected] = React.useState("london");
@@ -42,11 +42,6 @@ const CountriesScreen = () => {
   
   return ( 
     <div className='flex flex-col gap-12 pb-12'>
-      <section className='h-fit w-full'>
-        <img src='https://images.unsplash.com/photo-1518317507427-5346735246ab?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' alt='' className='h-[300px] w-full object-cover object-top' />
-      </section>
-     
-
       {/* <section className='h-fit w-full relative px-8 bg-[#DA0C0C]'>
         <div className='h-fit w-full max-w-[1024px] mx-auto justify-center gap-6 grid grid-col-2 md:grid-cols-3 lg:grid-cols-4  text-white py-12 rounded-[16px]'>
           <div className='w-full flex flex-col items-center justify-center'>
@@ -69,16 +64,8 @@ const CountriesScreen = () => {
       </section> */}
 
       <section className='w-full h-fit relative '>
-          <div className='w-full max-w-[1024px] mx-auto flex justify-between items-center'>
-            <div className='flex flex-col pb-8'>
-              <p className='uppercase text-xs '>Unlock Your Future</p>
-              <p className='text-2xl md:text-4xl font-bold text-[#DA0C0C]'>Our Countries</p>
-            </div>
-            <div>
-              <IoMdArrowRoundForward className='text-[#DA0C0C] text-2xl'/>
-            </div>
-          </div>
-          <div className='h-fit w-full object-cover relative overflow-hidden bg-[#ffecef] py-8'>
+
+          <div className='h-fit w-full object-cover relative overflow-hidden bg-[#ffecef] py-16'>
             <WorldMap className="w-full"/>
           </div>
 
@@ -224,159 +211,175 @@ const CountriesScreen = () => {
       </section>
 
       <section className='h-fit w-full'>
-        <div className='w-full h-fit max-w-[1024px] mx-auto bg-white relative z-10 md:gap-4 px-8'>
-          <div className='flex flex-col pb-8'>
-            <p className='uppercase text-xs font-semibold opacity-50'>Study Abroad</p>
-            <p className='text-2xl md:text-4xl font-bold text-[#DA0C0C] text-left'>MEDICINE</p>
-          </div>
-          <div className='w-fit mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8'>
-
-            <div className='min-h-full w-full lg:w-[300px] p-8 bg-red-50 rounded-[8px] flex flex-col gap-4'>
-              <p className='text-lg font-semibold'>Admission Requirements</p>
-              <div className='px-4 '>
-                <li className='text-sm opacity-75'>
-                  Institutions set criteria for international students, including English proficiency exams.
-                </li>
-              </div>
-            </div>
-
-            <div className='min-h-full w-full lg:w-[300px] p-8 bg-red-50 rounded-[8px] flex flex-col gap-4'>
-              <p className='text-lg font-semibold'>Selection of Universities
-              </p>
-              <div className='px-4 '>
-                <li className='text-sm opacity-75'>
-                IEBC aids in choosing suitable institutions based on academic and financial fit.
-                </li>
-              </div>
-            </div>
-
-            <div className='min-h-full w-full lg:w-[300px] p-8 bg-red-50 rounded-[8px] flex flex-col gap-4'>
-              <p className='text-lg font-semibold'>Career Counselling
-              </p>
-              <div className='px-4 '>
-                <li className='text-sm opacity-75'>
-                Tailored advice on program selection and study abroad decisions for students.
-                </li>
-              </div>
-            </div>
-
-            <div className='min-h-full w-full lg:w-[300px] p-8 bg-red-50 rounded-[8px] flex flex-col gap-4'>
-              <p className='text-lg font-semibold'>Accommodation & Travel Arrangement
-              </p>
-              <div className='px-4 '>
-                <li className='text-sm opacity-75'>
-                Assistance with visa-approved travel plans and settling in new accommodations abroad.
-                </li>
-              </div>
-            </div>
-
-            <div className='min-h-full w-full lg:w-[300px] p-8 bg-red-50 rounded-[8px] flex flex-col gap-4'>
-              <p className='text-lg font-semibold'>Interview Preparation & Pre-departure Briefing
-
-              </p>
-              <div className='px-4 '>
-                <li className='text-sm opacity-75'>
-                  Preparation for challenges of studying abroad, including accommodation and travel 
-                  arrangements.
-                </li>
-              </div>
-            </div>
-
-            <div className='min-h-full w-full lg:w-[300px] p-8 bg-red-50 rounded-[8px] flex flex-col gap-4'>
-              <p className='text-lg font-semibold'>Document Processing</p>
-              <div className='px-4 '>
-                <li className='text-sm opacity-75'>
-                Guidance on compiling essential documents for visa applications and immigration requirements.
-                </li>
-              </div>
-            </div>
-
+        <div className='h-fit w-full max-w-[1024px] mx-auto px-8 flex flex-col'>
           
-
+          <div className='w-full flex flex-col gap-4'>
+            <p className='text-2xl md:text-4xl font-bold text-[#DA0C0C]'>IMMIGRATION SERVICES</p>
+            <div className='flex flex-col gap-4 w-full'>
+              
+              <Accordion defaultExpandedKeys={["Admission Requirements"]} aria-label="Options">
+                <AccordionItem key="Admission Requirements" title={
+                  <p className='text-base font-medium'>Admission Requirements</p>
+                }>
+                  <div className='flex flex-col gap-1'>
+                      <p className='text-sm text-black opacity-50 text-justify'>Institutions set criteria for international students, including English proficiency exams.
+                      </p>
+                  </div>  
+                </AccordionItem>
+                <AccordionItem key="Selection of Universities" title={
+                  <p className='text-base font-medium'>Selection of Universities</p>
+                }>
+                  <div className='flex flex-col gap-1'>
+                    <p className='text-sm text-black opacity-50 text-justify'>IEBC aids in choosing suitable institutions based on academic and financial fit.</p>
+                  </div> 
+                </AccordionItem>
+                <AccordionItem key="Career Counselling" title={
+                  <p className='text-base font-medium'>Career Counselling</p>
+                }>
+                  <div className='flex flex-col gap-1'>
+                    <p className='text-sm text-black opacity-50 text-justify'>Tailored advice on program selection and study abroad decisions for students.</p>
+                  </div>  
+                </AccordionItem>
+                <AccordionItem key="Accommodation & Travel Arrangement" title={
+                  <p className='text-base font-medium'>Accommodation & Travel Arrangement</p>
+                }>
+                  <div className='flex flex-col gap-1'>
+                    <p className='text-sm text-black opacity-50 text-justify'>Assistance with visa-approved travel plans and settling in new accommodations abroad.</p>
+                  </div>
+                </AccordionItem>
+                <AccordionItem key="Interview Preparation & Pre-departure Briefing" title={
+                  <p className='text-base font-medium'>Interview Preparation & Pre-departure Briefing</p>
+                }>
+                  <div className='flex flex-col gap-1'>
+                    <p className='text-sm text-black opacity-50 text-justify'>Preparation for challenges of studying abroad, including accommodation and travel 
+                    arrangements.</p>
+                  </div>
+                </AccordionItem>
+                <AccordionItem key="Document Processing" title={
+                  <p className='text-base font-medium'>Document Processing</p>
+                }>
+                  <div className='flex flex-col gap-1'>
+                    <p className='text-sm text-black opacity-50 text-justify'>Guidance on compiling essential documents for visa applications and immigration requirements.</p>
+                  </div>
+                </AccordionItem>
+              </Accordion> 
+              
+            </div>
           </div>
+                <Button variant='light' color='danger' className='w-fit mx-auto'>
+                Lern more
+              </Button>
         </div>
       </section>
 
       <section className='h-fit w-full'>
-        <div className='w-full h-fit max-w-[1024px] mx-auto bg-white relative z-10 md:gap-4 px-8'>
-          <div className='flex flex-col pb-8'>
-            <p className='uppercase text-xs font-semibold opacity-50'>Study Abroad</p>
-            <p className='text-2xl md:text-4xl font-bold text-[#DA0C0C] text-left'>BENEFITS OF STUDYING ABROAD
-            </p>
-          </div>
-          <div className='w-fit mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8'>
-
-            <div className='min-h-full w-full lg:w-[300px] p-8 bg-red-50 rounded-[8px] flex flex-col gap-4'>
-              <p className='text-lg font-semibold'>International Exposure</p>
-              <div className='px-4 '>
-                <li className='text-sm opacity-75'>
-                Gain diverse skills, manage studies and jobs, multicultural learning environment..
-                </li>
-              </div>
-            </div>
-
-            <div className='min-h-full w-full lg:w-[300px] p-8 bg-red-50 rounded-[8px] flex flex-col gap-4'>
-              <p className='text-lg font-semibold'>Enhance Your CV
-              </p>
-              <div className='px-4 '>
-                <li className='text-sm opacity-75'>
-                Demonstrates adaptability, cultural openness, problem-solving in diverse environments.
-
-                </li>
-              </div>
-            </div>
-
-            <div className='min-h-full w-full lg:w-[300px] p-8 bg-red-50 rounded-[8px] flex flex-col gap-4'>
-              <p className='text-lg font-semibold'>Learn Self-Reliance              </p>
-              <div className='px-4 '>
-                <li className='text-sm opacity-75'>
-                Develop independence, manage finances, navigate daily life in foreign settings.
-
-                </li>
-              </div>
-            </div>
-
-            <div className='min-h-full w-full lg:w-[300px] p-8 bg-red-50 rounded-[8px] flex flex-col gap-4'>
-              <p className='text-lg font-semibold'>Gain a Global Mindset
-
-              </p>
-              <div className='px-4 '>
-                <li className='text-sm opacity-75'>
-                Broaden horizons, understand global issues, cultural awareness, effective communication.
-                </li>
-              </div>
-            </div>
-
-            <div className='min-h-full w-full lg:w-[300px] p-8 bg-red-50 rounded-[8px] flex flex-col gap-4'>
-              <p className='text-lg font-semibold'>Top Quality Education
-              </p>
-              <div className='px-4 '>
-                <li className='text-sm opacity-75'>
-                Studying abroad exposes you to world-class education systems, fostering academic excellence and global perspectives.
-                </li>
-              </div>
-            </div>
-
-            <div className='min-h-full w-full lg:w-[300px] p-8 bg-red-50 rounded-[8px] flex flex-col gap-4'>
-              <p className='text-lg font-semibold'>Career Opportunities</p>
-              <div className='px-4 '>
-                <li className='text-sm opacity-75'>
-                International study enhances your CV, showing employers your adaptability and global mindset, opening doors to diverse career opportunities.
-                </li>
-              </div>
-            </div>
-
-            <div className='min-h-full w-full lg:w-[300px] p-8 bg-red-50 rounded-[8px] flex flex-col gap-4'>
-              <p className='text-lg font-semibold'>International Travel
-              </p>
-              <div className='px-4 '>
-                <li className='text-sm opacity-75'>
-                Studying abroad isn't just about education; it's a life-changing adventure that broadens your cultural understanding and personal growth through international travel.
-                </li>
-              </div>
-            </div>
-
+        <div className='h-fit w-full max-w-[1024px] mx-auto px-8 flex flex-col '>
           
+          <div className='w-full flex flex-col gap-4'>
+            <p className='text-2xl md:text-4xl font-bold text-[#DA0C0C]'>BENEFITS OF STUDYING ABROAD</p>
+            <div className='flex flex-col gap-4 w-full'>
+              
+              <Accordion defaultExpandedKeys={["International Exposure "]} aria-label="Options">
+                <AccordionItem key="International Exposure " title={
+                  <p className='text-base font-medium'>International Exposure </p>
+                }>
+                  <div className='flex flex-col gap-1'>
+                      <p className='text-sm text-black opacity-50 text-justify'>Gain diverse skills, manage studies and jobs, multicultural learning environment.
+                      </p>
+                  </div>  
+                </AccordionItem>
+                <AccordionItem key="Enhance Your CV" title={
+                  <p className='text-base font-medium'>Enhance Your CV</p>
+                }>
+                  <div className='flex flex-col gap-1'>
+                    <p className='text-sm text-black opacity-50 text-justify'>Demonstrates adaptability, cultural openness, problem-solving in diverse environments..</p>
+                  </div> 
+                </AccordionItem>
+                <AccordionItem key="Learn Self-Reliance" title={
+                  <p className='text-base font-medium'>Learn Self-Reliance</p>
+                }>
+                  <div className='flex flex-col gap-1'>
+                    <p className='text-sm text-black opacity-50 text-justify'>Develop independence, manage finances, navigate daily life in foreign settings.</p>
+                  </div>  
+                </AccordionItem>
+                <AccordionItem key="Gain a Global Mindset" title={
+                  <p className='text-base font-medium'>Gain a Global Mindset</p>
+                }>
+                  <div className='flex flex-col gap-1'>
+                    <p className='text-sm text-black opacity-50 text-justify'>Broaden horizons, understand global issues, cultural awareness, effective communication.</p>
+                  </div>
+                </AccordionItem>
+                <AccordionItem key="Top Quality Education" title={
+                  <p className='text-base font-medium'>Top Quality Education</p>
+                }>
+                  <div className='flex flex-col gap-1'>
+                    <p className='text-sm text-black opacity-50 text-justify'>Studying abroad exposes you to world-class education systems, fostering academic excellence and 
+                    global perspectives.</p>
+                  </div>
+                </AccordionItem>
+                <AccordionItem key="Career Opportunities" title={
+                  <p className='text-base font-medium'>Career Opportunities</p>
+                }>
+                  <div className='flex flex-col gap-1'>
+                    <p className='text-sm text-black opacity-50 text-justify'>International study enhances your CV, showing employers your adaptability and global mindset, opening doors to diverse career opportunities.</p>
+                  </div>
+                </AccordionItem>
+                <AccordionItem key="International Travel" title={
+                  <p className='text-base font-medium'>International Travel</p>
+                }>
+                  <div className='flex flex-col gap-1'>
+                    <p className='text-sm text-black opacity-50 text-justify'>Studying abroad isn't just about education; it's a life-changing adventure that broadens your cultural 
+                    understanding and personal growth through international travel.</p>
+                  </div>
+                </AccordionItem>
+              </Accordion> 
+              
+            </div>
+          </div>
+                <Button variant='light' color='danger' className='w-fit mx-auto'>
+                Lern more
+              </Button>
+        </div>
+      </section>
+
+      <section className='h-fit w-full'>
+        <div className='h-fit w-full max-w-[1024px] mx-auto px-8 flex flex-col gap-6'>
+          <p className='text-2xl md:text-4xl font-bold text-[#DA0C0C] text-center'>LANGUAGE ENTRY TEST</p>
+          <div className='h-fit w-full flex flex-col md:flex-row gap-6 lg:gap-12'>      
+            
+            <div className='w-full flex flex-col gap-4'>
+              
+                <p>For students aspiring to study abroad in English-taught programs, proving English language proficiency is a crucial requirement. Numerous standardized tests are recognized globally to assess non-native speakers'English skills. These exams are designed to evaluate the ability to understand lectures, participate in discussions, and complete academic assignments.
+                </p>
+
+                <p>
+                Commonly accepted English proficiency tests include IELTS Academic, TOEFL iBT, PTE Academic, C1 Advanced, and B2 First. While these tests share similarities, each has unique features and formats. 
+
+                </p>
+
+                <p>Each test has specific scoring criteria and expiration policies, typically requiring scores to be recent (within two years). Prospective students should verify the specific test requirements of their chosen universities to ensure they meet the necessary standards. Preparation resources, including practice tests, are available online to help candidates choose the best test for their needs</p>
+            </div>
+
+          </div>
+        </div>
+      </section>
+      <section className='h-fit w-full'>
+        <div className='h-fit w-full max-w-[1024px] mx-auto px-8 flex flex-col gap-6'>
+          <p className='text-2xl md:text-4xl font-bold text-[#DA0C0C] text-center'>LIVING ABROAD</p>
+          <div className='h-fit w-full flex flex-col md:flex-row gap-6 lg:gap-12'>      
+            
+            <div className='w-full flex flex-col gap-4'>
+              
+                <p>Adjusting to life abroad involves navigating a new culture, managing daily responsibilities, and building a support network. Initially, acclimating to a different culture, language, and traditions can be both challenging and exciting, and culture shock is a common experience that can be overwhelming for some.
+
+                </p>
+
+                <p>
+                Living abroad also means taking on various responsibilities, such as doing your laundry, cooking meals, and balancing studies, often while working part-time. Tackling these tasks with a positive attitude and organizational skills is crucial.
+                </p>
+
+                <p>Lastly, creating a support network by making friends, engaging in communal activities, and embracing the opportunities of student life abroad helps you feel more comfortable and at home in your new environment. This sense of belonging can make the experience so fulfilling that you may not want to leave</p>
+            </div>
 
           </div>
         </div>
