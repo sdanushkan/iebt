@@ -186,7 +186,7 @@ const CountriesScreen = () => {
           </div>
       </section>
 
-      <section className='w-full h-fit relative '>
+      {/* <section className='w-full h-fit relative '>
           <div className='w-full max-w-[1024px] mx-auto flex flex-col md:flex-row items-center gap-8 md:gap-16 justify-between px-8'>
             <div className='bg-black h-[300px] w-full md:w-[400px]'>
               <div className='bg-black h-[300px] w-full md:w-[400px] '>
@@ -208,9 +208,9 @@ const CountriesScreen = () => {
               </div>
             </div>
           </div>
-      </section>
+      </section> */}
 
-      <section className='h-fit w-full'>
+      <section className='h-fit w-full bg-gradient-to-b from-red-100 to-transparent pt-12'>
         <div className='h-fit w-full max-w-[1024px] mx-auto px-8 flex flex-col'>
           
           <div className='w-full flex flex-col gap-4'>
@@ -272,7 +272,7 @@ const CountriesScreen = () => {
         </div>
       </section>
 
-      <section className='h-fit w-full'>
+      <section className='h-fit w-full bg-gradient-to-b from-red-100 to-transparent pt-12'>
         <div className='h-fit w-full max-w-[1024px] mx-auto px-8 flex flex-col '>
           
           <div className='w-full flex flex-col gap-4'>
@@ -342,7 +342,7 @@ const CountriesScreen = () => {
         </div>
       </section>
 
-      <section className='h-fit w-full'>
+      <section className='h-fit w-full bg-gradient-to-b from-red-100 to-transparent pt-12'>
         <div className='h-fit w-full max-w-[1024px] mx-auto px-8 flex flex-col gap-6'>
           <p className='text-2xl md:text-4xl font-bold text-[#DA0C0C] text-center'>LANGUAGE ENTRY TEST</p>
           <div className='h-fit w-full flex flex-col md:flex-row gap-6 lg:gap-12'>      
@@ -363,7 +363,7 @@ const CountriesScreen = () => {
           </div>
         </div>
       </section>
-      <section className='h-fit w-full'>
+      <section className='h-fit w-full bg-gradient-to-b from-red-100 to-transparent pt-12'>
         <div className='h-fit w-full max-w-[1024px] mx-auto px-8 flex flex-col gap-6'>
           <p className='text-2xl md:text-4xl font-bold text-[#DA0C0C] text-center'>LIVING ABROAD</p>
           <div className='h-fit w-full flex flex-col md:flex-row gap-6 lg:gap-12'>      
