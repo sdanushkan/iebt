@@ -25,6 +25,7 @@ import { BiSolidMessageSquareDetail } from "react-icons/bi";
 import { FaCalendarAlt } from "react-icons/fa";
 import { IoMdArrowRoundForward } from "react-icons/io";
 import {Accordion, AccordionItem} from "@nextui-org/react";
+import { GrFormNextLink } from "react-icons/gr";
 
 const CountriesScreen = () => {
   const [selected, setSelected] = React.useState("london");
@@ -74,8 +75,8 @@ const CountriesScreen = () => {
       <section className='h-fit w-full'>
           <div className='w-full h-fit max-w-[1024px] mx-auto bg-white relative z-10 md:gap-4 px-8'>
             <div className='flex flex-col pb-8'>
-              <p className='uppercase text-xs font-semibold opacity-50'>Study Abroad</p>
-              <p className='text-2xl md:text-4xl font-bold text-[#DA0C0C] text-left'>Our Countries</p>
+              <p className='uppercase text-xs font-semibold opacity-50 text-center'>Study Abroad</p>
+              <p className='text-2xl md:text-4xl font-bold text-[#DA0C0C] text-center'>Our Countries</p>
             </div>
             <div className='w-fit mx-auto flex flex-wrap items-center justify-center gap-8'>
 
@@ -112,8 +113,8 @@ const CountriesScreen = () => {
       <section className='h-fit w-full'>
           <div className='w-full h-fit max-w-[1024px] mx-auto bg-white relative z-10 md:gap-4 px-8'>
             <div className='flex flex-col pb-8'>
-              <p className='uppercase text-xs font-semibold opacity-50'>Study Abroad</p>
-              <p className='text-2xl md:text-4xl font-bold text-[#DA0C0C] text-left'>EU COUNTRIES
+              <p className='uppercase text-xs font-semibold opacity-50 text-center'>Study Abroad</p>
+              <p className='text-2xl md:text-4xl font-bold text-[#DA0C0C] text-center'>EU COUNTRIES
               </p>
             </div>
             <div className='w-fit mx-auto flex flex-wrap items-center justify-center gap-8'>
@@ -151,8 +152,8 @@ const CountriesScreen = () => {
       <section className='h-fit w-full'>
           <div className='w-full h-fit max-w-[1024px] mx-auto bg-white relative z-10 md:gap-4 px-8'>
             <div className='flex flex-col pb-8'>
-              <p className='uppercase text-xs font-semibold opacity-50'>Study Abroad</p>
-              <p className='text-2xl md:text-4xl font-bold text-[#DA0C0C] text-left'>MEDICINE</p>
+              <p className='uppercase text-xs font-semibold opacity-50 text-center'>Study Abroad</p>
+              <p className='text-2xl md:text-4xl font-bold text-[#DA0C0C] text-center'>MEDICINE</p>
             </div>
             <div className='w-fit mx-auto flex flex-wrap items-center justify-center gap-8'>
 
@@ -195,8 +196,8 @@ const CountriesScreen = () => {
             </div>
             <div className='w-fit flex flex-col gap-8'>
               <div className='flex flex-col'>
-                <p className='uppercase text-xs font-semibold opacity-50'>Study Abroad</p>
-                <p className='text-2xl md:text-4xl font-bold text-[#DA0C0C]'>WHY CHOOSE US?</p>
+                <p className='uppercase text-xs font-semibold opacity-50 text-center'>Study Abroad</p>
+                <p className='text-2xl md:text-4xl font-bold text-[#DA0C0C] text-center'>WHY CHOOSE US?</p>
               </div>
               <div className='flex flex-col list-disc gap-1 px-8'>
                 <li className='text-base text-black font-medium'>Expert Education Counsellor Services</li>
@@ -214,7 +215,7 @@ const CountriesScreen = () => {
         <div className='h-fit w-full max-w-[1024px] mx-auto px-8 flex flex-col'>
           
           <div className='w-full flex flex-col gap-4'>
-            <p className='text-2xl md:text-4xl font-bold text-[#DA0C0C]'>IMMIGRATION SERVICES</p>
+            <p className='text-2xl md:text-4xl font-bold text-[#DA0C0C] text-center'>IMMIGRATION SERVICES</p>
             <div className='flex flex-col gap-4 w-full'>
               
               <Accordion defaultExpandedKeys={["Admission Requirements"]} aria-label="Options">
@@ -266,8 +267,10 @@ const CountriesScreen = () => {
               
             </div>
           </div>
-                <Button variant='light' color='danger' className='w-fit mx-auto'>
-                Lern more
+              <Button variant='light' color='danger' endContent={
+                  <GrFormNextLink />
+              } className=' mx-auto'>
+                Learn more
               </Button>
         </div>
       </section>
@@ -276,7 +279,7 @@ const CountriesScreen = () => {
         <div className='h-fit w-full max-w-[1024px] mx-auto px-8 flex flex-col '>
           
           <div className='w-full flex flex-col gap-4'>
-            <p className='text-2xl md:text-4xl font-bold text-[#DA0C0C]'>BENEFITS OF STUDYING ABROAD</p>
+            <p className='text-2xl md:text-4xl font-bold text-[#DA0C0C] text-center'>BENEFITS OF STUDYING ABROAD</p>
             <div className='flex flex-col gap-4 w-full'>
               
               <Accordion defaultExpandedKeys={["International Exposure "]} aria-label="Options">
@@ -336,8 +339,10 @@ const CountriesScreen = () => {
               
             </div>
           </div>
-                <Button variant='light' color='danger' className='w-fit mx-auto'>
-                Lern more
+              <Button variant='light' color='danger' endContent={
+                  <GrFormNextLink />
+              } className=' mx-auto'>
+                Learn more
               </Button>
         </div>
       </section>
