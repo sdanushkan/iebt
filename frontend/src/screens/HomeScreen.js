@@ -84,9 +84,10 @@ const HomeScreen = () => {
 
   return (
     <div className='h-fit w-full flex flex-col gap-8 lg:gap-6'>
-      <section className='h-fit w-full relative overflow-hidden lg:pb-2'>
+      <div>
+        <section className='h-fit w-full relative overflow-hidden'>
 
-        <div className='h-[600px] xl:h-[500px] w-full object-cover object-bottom  absolute -z-50'>
+        <div className='h-[600px] xl:h-[500px] w-full object-cover object-bottom absolute -z-50'>
           <Swiper
             slidesPerView={1}
             spaceBetween={10}
@@ -97,18 +98,18 @@ const HomeScreen = () => {
             className="w-full"
             autoplay
           >
-            <SwiperSlide className='w-full h-full'>
+            <SwiperSlide className='w-full h-full object-contain'>
               <img src='https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' alt='' className='h-[600px] xl:h-[500px] w-full object-cover object-bottom'/>
             </SwiperSlide>
-            <SwiperSlide className='w-full h-full'>
+            <SwiperSlide className='w-full h-full object-contain'>
               <img src='https://media.istockphoto.com/id/1307457391/photo/happy-black-student-raising-arm-to-answer-question-while-attending-class-with-her-university.jpg?s=612x612&w=0&k=20&c=iZaZFyC-WqlqSQc4elqUNPTxLvWPe8P5Tb_YdZnrI9Q=' alt='' className='h-[600px] xl:h-[500px] w-full object-cover object-center'/>
             </SwiperSlide>
-            {/* <SwiperSlide className='w-full h-full'>
+            {/* <SwiperSlide className='w-full h-full object-contain'>
               <img src='https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' alt='' className='h-[500px] w-full object-cover object-bottom'/>
             </SwiperSlide> */}
           </Swiper>
         </div>
-        
+
         <div className='h-[600px] xl:h-[500px] w-full px-8 relative -z-10 flex items-start justify-center bg-black/50'>
           <div className='h-[400px] xl:h-[300px] w-full mt-[100px] flex flex-col justify-center gap-6'>
             <div className='flex flex-col gap-2 max-w-[500px] mx-auto'>
@@ -142,7 +143,7 @@ const HomeScreen = () => {
                 value={keyword} 
                 onChange={(e) => setKeyword(e.target.value)} 
                 className='w-full shadow-none rounded-none text-white backdrop-blur-2xl '
-               
+              
                 radius='sm'
                 size='lg'
                 endContent={
@@ -153,7 +154,7 @@ const HomeScreen = () => {
               />
           </div> */}
         <div className='h-fit w-full max-w-[1000px] mx-auto px-8 -mt-[100px] relative z-40'>
-          <form className='bg-white shadow-[0px_5px_50px_rgba(0,0,0,0.10)] h-fit w-full z-20 mt-auto  px-6 md:px-12 py-8 flex flex-col gap-4 rounded-[16px]'>
+          <form className='bg-white shadow-[0px_5px_25px_rgba(0,0,0,0.05)] h-fit w-full z-20 mt-auto  px-6 md:px-12 py-8 flex flex-col gap-4 rounded-[8px]'>
               <div className='flex flex-row  gap-6 items-center justify-between'>
                 <div className='w-full max-w-[500px]'>
                   <p className='text-xl font-bold text-[#DA0C0C]'>Search Course</p>
@@ -260,28 +261,29 @@ const HomeScreen = () => {
           </form>
         </div>
         <div className='h-[25px]'></div>
-      </section>
+        </section>
 
-      <section className='h-fit w-full relative overflow-hidden px-8'>
+        <section className='h-fit w-full relative overflow-hidden px-8 py-6'>
         <div className='h-fit w-full max-w-[800px] mx-auto grid grid-cols-2 md:grid-cols-4 justify-center gap-2 lg:gap-6'>
-            <Link to={'/application'} className='w-full h-fit flex flex-col items-center justify-center gap-4 bg-red-50 hover:bg-[#DA0C0C] text-black duration-200 cursor-pointer hover:text-white py-8 px-4 rounded-[8px]'>
-              <img src={apply}  alt='' className='w-16 h-16' />
+            <Link to={'/application'} className='w-48 h-48 flex flex-col items-center justify-center gap-4 bg-white text-black duration-200 cursor-pointer hover:text-[#DA0C0C] p-12 hover:p-10 rounded-[8px] shadow-[0px_4px_25px_rgba(0,0,0,0.05)] hover:shadow-[0px_4px_25px_rgba(0,0,0,0.075)] '>
+              <img src={apply}  alt='' className='w-full h-full object-contain' />
               <p className='text-xs lg:text-sm font-semibold px-2 text-center'>Apply</p>
             </Link>
-            <div className='w-full h-fit flex flex-col items-center justify-center gap-4 bg-red-50 hover:bg-[#DA0C0C] text-black duration-200 cursor-pointer hover:text-white py-8 px-4 rounded-[8px]'>
-              <img src={verification}  alt='' className='w-16 h-16' />
+            <div className='w-48 h-48 flex flex-col items-center justify-center gap-4 bg-white text-black duration-200 cursor-pointer hover:text-[#DA0C0C] p-12 hover:p-10 rounded-[8px] shadow-[0px_4px_25px_rgba(0,0,0,0.05)] hover:shadow-[0px_4px_50px_rgba(0,0,0,0.075)]'>
+              <img src={verification}  alt='' className='w-full h-full object-contain' />
               <p className='text-xs lg:text-sm font-semibold px-2 text-center'>Verify Certificate</p>
             </div>
-            <div className='w-full h-fit flex flex-col items-center justify-center gap-4 bg-red-50 hover:bg-[#DA0C0C] text-black duration-200 cursor-pointer hover:text-white py-8 px-4 rounded-[8px]'>
-              <img src={sp}  alt='' className='w-16 h-16' />
+            <div className='w-48 h-48 flex flex-col items-center justify-center gap-4 bg-white text-black duration-200 cursor-pointer hover:text-[#DA0C0C] p-12 hover:p-10 rounded-[8px] shadow-[0px_4px_25px_rgba(0,0,0,0.05)] hover:shadow-[0px_4px_50px_rgba(0,0,0,0.075)]'>
+              <img src={sp}  alt='' className='w-full h-full object-contain' />
               <p className='text-xs lg:text-sm font-semibold px-2 text-center'>Student Portal</p>
             </div>
-            <div className='w-full h-fit flex flex-col items-center justify-center gap-4 bg-red-50 hover:bg-[#DA0C0C] text-black duration-200 cursor-pointer hover:text-white py-8 px-4 rounded-[8px]'>
-              <img src={es}  alt='' className='w-16 h-16' />
+            <div className='w-48 h-48 flex flex-col items-center justify-center gap-4 bg-white text-black duration-200 cursor-pointer hover:text-[#DA0C0C] p-12 hover:p-10 rounded-[8px] shadow-[0px_4px_25px_rgba(0,0,0,0.05)] hover:shadow-[0px_4px_50px_rgba(0,0,0,0.075)]'>
+              <img src={es}  alt='' className='w-full h-full object-contain' />
               <p className='text-xs lg:text-sm font-semibold px-2 text-center'>E library</p>
             </div>
         </div>
-      </section>
+        </section>
+      </div>
 
       <section className='h-fit w-full relative overflow-hidden px-8'>
         <div className='h-fit w-full max-w-[1024px] mx-auto justify-center gap-2'>
@@ -508,12 +510,12 @@ const HomeScreen = () => {
 
                     </button>
                 </ReactWhatsapp>
-                // <Link to={`programes/${i.slug}`} key={i.id} className='w-full min-h-[250px] md:min-h-[300px] bg-white shadow-[0px_4px_25px_rgba(0,0,0,0.05)] p-6  md:max-w-[300px] gap-8 flex flex-col rounded-[8px] relative overflow-hidden mx-auto hover:bg-[#DA0C0C] duration-500 hover:text-white hover:scale-105'>
+                // <Link to={`programes/${i.slug}`} key={i.id} className='w-full min-h-[250px] md:min-h-[300px] bg-white shadow-[0px_4px_25px_rgba(0,0,0,0.05)] hover:shadow-[0px_4px_50px_rgba(0,0,0,0.05)] p-6  md:max-w-[300px] gap-8 flex flex-col rounded-[8px] relative overflow-hidden mx-auto hover:bg-[#DA0C0C] duration-500 hover:text-[#DA0C0C] hover:scale-105'>
                 //   <div className='w-full flex flex-col relative z-30'>
                 //     <p className='text-5xl font-bold capitalize'>{i.name}</p>
                 //   </div>
                 //   <div className='flex items-center gap-4 relative z-30'>
-                //     <Button radius='full' isIconOnly variant='solid' className='bg-red-600 text-white shadow-[0px_4px_25px_rgba(0,0,0,0.05)] ' startContent={<IoArrowForwardOutline/>}>
+                //     <Button radius='full' isIconOnly variant='solid' className='bg-red-600 text-white shadow-[0px_4px_25px_rgba(0,0,0,0.05)] hover:shadow-[0px_4px_50px_rgba(0,0,0,0.05)] ' startContent={<IoArrowForwardOutline/>}>
 
                 //     </Button>
                 //     <p className='text-xs text-gray-300'>Learn more</p>

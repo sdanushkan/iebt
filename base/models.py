@@ -8,7 +8,7 @@ class Faculty(models.Model):
     name = models.CharField(max_length=200, null=True, blank=True)
     slug = models.SlugField(blank=True, null=True, unique=True)
     image = models.ImageField(null=True, blank=True, default='/faculty/placeholder.png')
-    description = RichTextField()
+    description = RichTextField(blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
@@ -48,7 +48,7 @@ class OurQualification(models.Model):
     order = models.IntegerField(default=0)
     slug = models.SlugField(blank=True, null=True, unique=True)
     image = models.ImageField(null=True, blank=True, default='/OurQualification/placeholder.png')
-    discription = RichTextField()
+    discription = RichTextField(blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
@@ -61,7 +61,7 @@ class OurQualification(models.Model):
 
 class Course(models.Model):
     name = models.CharField(max_length=200, null=True, blank=True)
-    slug = models.SlugField(blank=True, null=True)
+    slug = models.SlugField(max_length=200, blank=True, null=True)
     faculty = models.ForeignKey(Faculty, on_delete=models.SET_NULL, null=True)  
     image = models.ImageField(null=True, blank=True, default='/course/placeholder.png', upload_to='courses/')  
     course_credit = models.CharField(max_length=200, null=True, blank=True)
@@ -69,8 +69,8 @@ class Course(models.Model):
     class_on = models.CharField(max_length=200, null=True, blank=True)
     programe = models.ForeignKey(Level, on_delete=models.SET_NULL, null=True)
     overview = RichTextField(default='')
-    requirements = RichTextField()
-    units = RichTextField()
+    requirements = RichTextField(blank=True, null=True)
+    units = RichTextField(blank=True, null=True)
     visible = models.BooleanField(default=True)
     popular = models.BooleanField(default=False)
     duration = models.CharField(max_length=20, null=True, blank=True)
@@ -123,11 +123,11 @@ class Country(models.Model):
     category = models.ForeignKey(CountryCategory, on_delete=models.SET_NULL, null=True)
     image = models.ImageField(null=True, blank=True, default='/country/image/placeholder.png', upload_to='country/image')
     flag = models.ImageField(null=True, blank=True, default='/country/flag/placeholder.png', upload_to='country/flag')
-    visa_reqrequirementi = RichTextField()
-    discription = RichTextField()
-    details_and_scholarship = RichTextField()
-    job_and_proposal = RichTextField()
-    FAQ = RichTextField(default='') 
+    visa_reqrequirementi = RichTextField(blank=True, null=True)
+    discription = RichTextField(blank=True, null=True)
+    details_and_scholarship = RichTextField(blank=True, null=True)
+    job_and_proposal = RichTextField(blank=True, null=True)
+    FAQ = RichTextField(blank=True, null=True) 
 
     def __str__(self):
         return self.name
@@ -142,8 +142,8 @@ class Country(models.Model):
     
 class FAQ(models.Model):
     country = models.ForeignKey(Country, on_delete=models.SET_NULL, null=True)
-    question = RichTextField()
-    answer = RichTextField()
+    question = RichTextField(blank=True, null=True)
+    answer = RichTextField(blank=True, null=True)
 
     def __str__(self):
         return self.country
@@ -153,10 +153,10 @@ class FAQ(models.Model):
         verbose_name_plural = 'FAQ'
     
 class About(models.Model):
-    our_story = RichTextField()
-    mission = RichTextField()
-    vision = RichTextField()
-    values = RichTextField()
+    our_story = RichTextField(blank=True, null=True)
+    mission = RichTextField(blank=True, null=True)
+    vision = RichTextField(blank=True, null=True)
+    values = RichTextField(blank=True, null=True)
 
     def __str__(self):
         return self.vision

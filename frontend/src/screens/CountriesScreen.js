@@ -214,7 +214,7 @@ const CountriesScreen = () => {
       <section className='h-fit w-full '>
         <div className='h-fit w-full max-w-[1024px] mx-auto px-8 flex flex-col'>
           
-          <div className='w-full flex flex-col gap-4'>
+          <div className='w-full flex flex-col gap-4 text-justify'>
             <p className='text-2xl md:text-4xl font-bold text-[#DA0C0C] text-center'>IMMIGRATION SERVICES</p>
             <div className='flex flex-col gap-4 w-full'>
               
@@ -278,7 +278,7 @@ const CountriesScreen = () => {
       <section className='h-fit w-full '>
         <div className='h-fit w-full max-w-[1024px] mx-auto px-8 flex flex-col '>
           
-          <div className='w-full flex flex-col gap-4'>
+          <div className='w-full flex flex-col gap-4 text-justify'>
             <p className='text-2xl md:text-4xl font-bold text-[#DA0C0C] text-center'>BENEFITS OF STUDYING ABROAD</p>
             <div className='flex flex-col gap-4 w-full'>
               
@@ -352,7 +352,7 @@ const CountriesScreen = () => {
           <p className='text-2xl md:text-4xl font-bold text-[#DA0C0C] text-center'>LANGUAGE ENTRY TEST</p>
           <div className='h-fit w-full flex flex-col md:flex-row gap-6 lg:gap-12'>      
             
-            <div className='w-full flex flex-col gap-4'>
+            <div className='w-full flex flex-col gap-4 text-justify'>
               
                 <p>For students aspiring to study abroad in English-taught programs, proving English language proficiency is a crucial requirement. Numerous standardized tests are recognized globally to assess non-native speakers'English skills. These exams are designed to evaluate the ability to understand lectures, participate in discussions, and complete academic assignments.
                 </p>
@@ -373,7 +373,7 @@ const CountriesScreen = () => {
           <p className='text-2xl md:text-4xl font-bold text-[#DA0C0C] text-center'>LIVING ABROAD</p>
           <div className='h-fit w-full flex flex-col md:flex-row gap-6 lg:gap-12'>      
             
-            <div className='w-full flex flex-col gap-4'>
+            <div className='w-full flex flex-col gap-4 text-justify'>
               
                 <p>Adjusting to life abroad involves navigating a new culture, managing daily responsibilities, and building a support network. Initially, acclimating to a different culture, language, and traditions can be both challenging and exciting, and culture shock is a common experience that can be overwhelming for some.
 

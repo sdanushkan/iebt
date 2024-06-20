@@ -5,7 +5,7 @@ import { colorScale, countries, missingCountries } from "./Countries";
 
 function WorldMap() {
   return (
-    <div  className="h-[300px] md:h-[400px] ">
+    <div  className="h-[300px] md:h-[400px] mt-12">
       <VectorMap
         map={worldMill}
         zoomOnScroll={false}

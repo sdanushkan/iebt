@@ -36,6 +36,16 @@ export const missingCountries = [
     SE: 100,
     CH: 100,
     UA: 100,
+    LV: 100,
+    IT: 100,
+    IE: 100,
+    LT: 100,
+    MT: 100,
+    RO: 100,
+    BLR: 100,
+    RU: 100,
+    US: 100,
+    
   };
   
   export const colorScale = ["#E2AEFF", "#DA0C0C"];

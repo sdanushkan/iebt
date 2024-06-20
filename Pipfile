@@ -16,6 +16,7 @@ django-ckeditor = "==6.6.1"
 django-ckeditor-5 = "*"
 boto3 = "*"
 django-storages = "*"
+psycopg2 = "*"
 
 [dev-packages]
 
