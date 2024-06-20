@@ -59,7 +59,6 @@ const HomeScreen = () => {
     const { error:facultyListError, loading:facultyListLoading, faculties } = facultyList
     
     useEffect(() => {
-      dispatch(getLevelList())
       dispatch(getCourseList())
     }, [dispatch])
 
@@ -682,8 +681,7 @@ const HomeScreen = () => {
               <p className='text-2xl lg:text-4xl font-bold'>Students Say’s About Our Campus</p>
             </div>
 
-
-            <div className='hidden sm:block'>
+            <div className='hidden sm:flex'>
               <Swiper
                 slidesPerView={2}
                 spaceBetween={25}

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import {Navbar, NavbarBrand, NavbarContent, NavbarItem, Button} from "@nextui-org/react";
+import {Navbar, NavbarBrand, NavbarContent, NavbarItem, Button, DropdownSection} from "@nextui-org/react";
 import logo from '../assets/Logo.png'
 import { CiMenuBurger, CiSearch, CiShoppingCart, CiUser } from "react-icons/ci";
 import {Tabs, Tab} from "@nextui-org/react"; 
@@ -13,7 +13,7 @@ import { MdOutlineArrowDropDown } from "react-icons/md";
 import { RiSecurePaymentFill } from "react-icons/ri";
 import { IoMenu } from "react-icons/io5";
 import { useDispatch, useSelector } from "react-redux";
-import { getFacultyList } from '../actions/courseActions';
+import { getCourseList, getFacultyList, getLevelList } from '../actions/courseActions';
 import { Accordion, AccordionItem} from "@nextui-org/react";
 import { HiOutlineMenu } from "react-icons/hi";
 
@@ -27,14 +27,25 @@ const Header = () => {
     const facultyList = useSelector(state => state.facultyList)
     const { error, loading, faculties } = facultyList
 
+    const levelList = useSelector(state => state.levelList)
+    const { error:levelListError, loading: levelListLoading, levels } = levelList
+
     const [selected, setSelected] = useState("/");
 
     useEffect(() => {
       history(selected)
     }, [selected])
+
+    useEffect(() => {
+      if (location.pathname == '/'){
+        setSelected('/')
+      }
+
+    }, [location])
     
     useEffect(() => {
       dispatch(getFacultyList())
+      dispatch(getLevelList())
     }, [dispatch])
     
 
@@ -75,6 +86,72 @@ const Header = () => {
                   </Link>
                 </div>
                 <div className='hidden lg:flex items-center justify-start gap-4'>
+                  <Link to={'/'} className={
+                    location.pathname =='/'?
+                    'flex items-center justify-center gap-1 text-white border-b-[2px] border-[#DA0C0C] py-[7px] px-[2px]':
+                    'flex items-center justify-center gap-1 text-white border-b-[2px] border-transparent py-[7px] px-[2px]'
+                  }>
+                    <p className='cursor-pointer font-semibold text-xs uppercase '>Home</p>
+                    {/* <MdOutlineArrowDropDown className='text-white' /> */}
+                  </Link>
+                  <Dropdown
+                    showArrow
+                    backdrop="blur"
+                    classNames={{
+                      base: "before:bg-default-200 mt-[16px]", // change arrow background
+                      content: "py-1 px-1 border border-default-200 bg-gradient-to-br from-white to-default-200 dark:from-default-50 dark:to-black flex pb-0 ",
+                    }}
+                  >
+                    <DropdownTrigger>
+                      <div className='flex items-center justify-center gap-1'>
+                        <p className='cursor-pointer font-semibold text-xs uppercase text-white/50 focus:text-white'>Courses</p>
+                        <MdOutlineArrowDropDown className='text-white' />
+                      </div>
+                    </DropdownTrigger>
+                    <DropdownMenu aria-label="Static Actions" className='rounded-none flex  grid-cols-2 pb-0'>
+                      <DropdownSection className='pb-0'>
+                        <DropdownItem onHoverChange={'bg-[#ffffff]'} className='p-0 bg-transparent'>
+                          <div className='bg-gradient-to-br p-4'>
+                            <div className='grid grid-cols-2 gap-4'>
+                              <div className='w-full flex flex-col'>
+                                <p className='text-left text-base font-semibold text-black '>Courses</p>
+                                {
+                                  levelListLoading?
+                                  '':
+                                  levels?
+                                  levels.map(i => (
+                                    <Button variant='light' key={i.id} size='sm' className='text-left w-full'>
+                                      <Link to={`/faculties/${i.slug}`} className='text-left w-full'>{i.name}</Link>
+                                    </Button>
+                                  )):
+                                  ''
+                                }
+                              </div>
+
+                              <div className='w-full flex flex-col'>
+                                <p className='text-left text-base font-semibold text-black '>Faculties</p>
+                                {
+                                  loading?
+                                  '':
+                                  faculties?
+                                  faculties.map(i => (
+                                    <Button variant='light' key={i.id} size='sm' className='text-left w-full'>
+                                      <Link to={`/faculties/${i.slug}`} className='text-left w-full'>{i.name}</Link>
+                                    </Button>
+                                  )):
+                                  ''
+                                }
+                              </div>
+                            </div>
+                          </div>
+                        </DropdownItem>
+                        
+                      </DropdownSection>
+                      
+                     
+                      
+                    </DropdownMenu>
+                  </Dropdown> 
                   <Tabs color="primary" variant="underlined" aria-label="Options" 
                   classNames={{
                     tabList: "text-",
@@ -82,27 +159,15 @@ const Header = () => {
                     tab: "max-w-fit ",
                     tabContent: "group-data-[selected=true]:text-[white] focus:font-semibold text-white/50 hover:text-white "
                   }} selectedKey={selected} onSelectionChange={setSelected}>
-                    <Tab key="/" title={
-                      <Link to={'/'} className='flex items-center justify-center gap-1'>
-                        <p className='cursor-pointer font-semibold text-xs uppercase '>Home</p>
-                        {/* <MdOutlineArrowDropDown className='text-white' /> */}
-                      </Link>
-                    }>
-                    
+                
+                    <Tab key="/" className='hidden' title={
+                          <Link to={'/'} className='items-center justify-center gap-1 hidden'>
+                            <p className='cursor-pointer font-semibold text-xs uppercase '>Home</p>
+                            {/* <MdOutlineArrowDropDown className='text-white' /> */}
+                          </Link>
+                        }>
+                          
                     </Tab>
-                    <Tab key="abroad" title={
-                      <Link to={'/abroad'} className='flex items-center justify-center gap-1'>
-                      <p className='cursor-pointer font-semibold text-xs uppercase '>Study abroad</p>
-                      {/* <MdOutlineArrowDropDown className='text-white' /> */}
-                    </Link>
-                    }>
-
-                      
-                      
-                    </Tab>
-
-
-
                     <Tab key="contact" title={
                       <Link to={'/contact'} className='flex items-center justify-center gap-1'>
                         <p className='cursor-pointer font-semibold text-xs uppercase '>Contact us</p>
@@ -119,45 +184,21 @@ const Header = () => {
                     }>
                       
                     </Tab>
-
-                    <Tab key="faq" title={
-                      <Link to={'/faq'} className='flex items-center justify-center gap-1'>
-                      <p className='cursor-pointer font-semibold text-xs uppercase '>FAQ</p>
+                    <Tab key="abroad" title={
+                      <Link to={'/abroad'} className='flex items-center justify-center gap-1'>
+                      <p className='cursor-pointer font-semibold text-xs uppercase '>Study abroad</p>
                       {/* <MdOutlineArrowDropDown className='text-white' /> */}
                     </Link>
                     }>
+
+                      
+                      
                     </Tab>
                   </Tabs>
 
-                  <Dropdown
-                    showArrow
-                    classNames={{
-                      base: "before:bg-default-200 mt-[16px]", // change arrow background
-                      content: "py-1 px-1 border border-default-200 bg-gradient-to-br from-white to-default-200 dark:from-default-50 dark:to-black ",
-                    }}
-                  >
-                    <DropdownTrigger>
-                      <div className='flex items-center justify-center gap-1'>
-                        <p className='cursor-pointer font-semibold text-xs uppercase text-white/50 focus:text-white'>faculties</p>
-                        <MdOutlineArrowDropDown className='text-white' />
-                      </div>
-                    </DropdownTrigger>
-                    <DropdownMenu aria-label="Static Actions" className='rounded-none'>
-                      {
-                        loading?
-                        '':
-                        faculties?
-                        faculties.map(i => (
-                          <DropdownItem key={i.id} className=''>
-                            <Link to={`/faculties/${i.slug}`} >{i.name}</Link>
-                          </DropdownItem>
-                        )):
-                        ''
-                      }
-                      
-                    </DropdownMenu>
-                  </Dropdown> 
+                  
                 </div>
+      
                 <div>
                   <Button color='' className="hidden lg:flex bg-[#DA0C0C] text-sm text-white px-2 md:px-5 py-2 md:py-3 rounded-full">
                     <p>Pay online</p>
