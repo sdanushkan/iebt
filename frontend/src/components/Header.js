@@ -88,8 +88,8 @@ const Header = () => {
                 <div className='hidden lg:flex items-center justify-start gap-4'>
                   <Link to={'/'} className={
                     location.pathname =='/'?
-                    'flex items-center justify-center gap-1 text-white border-b-[2px] border-[#DA0C0C] py-[7px] px-[2px]':
-                    'flex items-center justify-center gap-1 text-white border-b-[2px] border-transparent py-[7px] px-[2px]'
+                    'flex items-center justify-center gap-1 text-white mx-4 border-b-[2px] border-[#DA0C0C] py-[7px] px-[2px]':
+                    'flex items-center justify-center gap-1 text-white mx-4 border-b-[2px] border-transparent py-[7px] px-[2px]'
                   }>
                     <p className='cursor-pointer font-semibold text-xs uppercase '>Home</p>
                     {/* <MdOutlineArrowDropDown className='text-white' /> */}
@@ -105,7 +105,6 @@ const Header = () => {
                     <DropdownTrigger>
                       <div className='flex items-center justify-center gap-1'>
                         <p className='cursor-pointer font-semibold text-xs uppercase text-white/50 focus:text-white'>Courses</p>
-                        <MdOutlineArrowDropDown className='text-white' />
                       </div>
                     </DropdownTrigger>
                     <DropdownMenu aria-label="Static Actions" className='rounded-none flex  grid-cols-2 pb-0'>
