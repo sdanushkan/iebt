@@ -166,7 +166,7 @@ const HomeScreen = () => {
                 </div>
               </div>
               <div className='flex flex-col md:flex-row items-center justify-between gap-2'>
-                <div className='w-full flex lg:flex-row gap-2'>
+                <div className='w-full grid grid-cols-2 md:flex lg:flex-row gap-2'>
                   <Select
                     variant={'bordered'}
                     required
@@ -264,19 +264,19 @@ const HomeScreen = () => {
 
         <section className='h-fit w-full relative overflow-hidden px-8 py-6'>
         <div className='h-fit w-full max-w-[800px] mx-auto grid grid-cols-2 md:grid-cols-4 justify-center gap-2 lg:gap-6'>
-            <Link to={'/application'} className='w-48 h-48 flex flex-col items-center justify-center gap-4 bg-white text-black duration-200 cursor-pointer hover:text-[#DA0C0C] p-12 hover:p-10 rounded-[8px] shadow-[0px_4px_25px_rgba(0,0,0,0.05)] hover:shadow-[0px_4px_25px_rgba(0,0,0,0.075)] '>
+            <Link to={'/application'} className='w-full md:w-48 h-full md:h-48 flex flex-col items-center justify-center gap-4 bg-white text-black duration-200 cursor-pointer hover:text-[#DA0C0C] p-12 hover:p-10 rounded-[8px] shadow-[0px_4px_25px_rgba(0,0,0,0.05)] hover:shadow-[0px_4px_25px_rgba(0,0,0,0.075)] '>
               <img src={apply}  alt='' className='w-full h-full object-contain' />
               <p className='text-xs lg:text-sm font-semibold px-2 text-center'>Apply</p>
             </Link>
-            <div className='w-48 h-48 flex flex-col items-center justify-center gap-4 bg-white text-black duration-200 cursor-pointer hover:text-[#DA0C0C] p-12 hover:p-10 rounded-[8px] shadow-[0px_4px_25px_rgba(0,0,0,0.05)] hover:shadow-[0px_4px_50px_rgba(0,0,0,0.075)]'>
+            <div className='w-full md:w-48 h-full md:h-48 flex flex-col items-center justify-center gap-4 bg-white text-black duration-200 cursor-pointer hover:text-[#DA0C0C] p-12 hover:p-10 rounded-[8px] shadow-[0px_4px_25px_rgba(0,0,0,0.05)] hover:shadow-[0px_4px_50px_rgba(0,0,0,0.075)]'>
               <img src={verification}  alt='' className='w-full h-full object-contain' />
               <p className='text-xs lg:text-sm font-semibold px-2 text-center'>Verify Certificate</p>
             </div>
-            <div className='w-48 h-48 flex flex-col items-center justify-center gap-4 bg-white text-black duration-200 cursor-pointer hover:text-[#DA0C0C] p-12 hover:p-10 rounded-[8px] shadow-[0px_4px_25px_rgba(0,0,0,0.05)] hover:shadow-[0px_4px_50px_rgba(0,0,0,0.075)]'>
+            <div className='w-full md:w-48 h-full md:h-48 flex flex-col items-center justify-center gap-4 bg-white text-black duration-200 cursor-pointer hover:text-[#DA0C0C] p-12 hover:p-10 rounded-[8px] shadow-[0px_4px_25px_rgba(0,0,0,0.05)] hover:shadow-[0px_4px_50px_rgba(0,0,0,0.075)]'>
               <img src={sp}  alt='' className='w-full h-full object-contain' />
               <p className='text-xs lg:text-sm font-semibold px-2 text-center'>Student Portal</p>
             </div>
-            <div className='w-48 h-48 flex flex-col items-center justify-center gap-4 bg-white text-black duration-200 cursor-pointer hover:text-[#DA0C0C] p-12 hover:p-10 rounded-[8px] shadow-[0px_4px_25px_rgba(0,0,0,0.05)] hover:shadow-[0px_4px_50px_rgba(0,0,0,0.075)]'>
+            <div className='w-full md:w-48 h-full md:h-48 flex flex-col items-center justify-center gap-4 bg-white text-black duration-200 cursor-pointer hover:text-[#DA0C0C] p-12 hover:p-10 rounded-[8px] shadow-[0px_4px_25px_rgba(0,0,0,0.05)] hover:shadow-[0px_4px_50px_rgba(0,0,0,0.075)]'>
               <img src={es}  alt='' className='w-full h-full object-contain' />
               <p className='text-xs lg:text-sm font-semibold px-2 text-center'>E library</p>
             </div>

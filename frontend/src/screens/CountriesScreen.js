@@ -66,26 +66,34 @@ const CountriesScreen = () => {
 
       <section className='w-full h-fit relative '>
 
-          <div className='h-fit w-full object-cover relative overflow-hidden bg-[#ffecef] py-16'>
-            <WorldMap className="w-full"/>
+          <div className='h-fit md:h-screen w-full object-cover relative overflow-hidden bg-[#ffecef] py-6 md:py-0 grid grid-cols-1 md:grid-cols-10'>
+            <div className='h-[350px] md:h-full w-full md:col-span-3 flex flex-col justify-center pl-6 lg:pl-12 gap-4'>
+              <p className='text-4xl font-black'>Get your free study abroad counselling with AECC</p>
+              <Button className='w-fit font-medium bg-[#DA0C0C] text-white'>
+                Acquire your dreams
+              </Button>
+            </div>
+            <div className='h-fit md:h-full w-full md:col-span-7 md:py-16'>
+              <WorldMap className="w-full h-full"/>
+            </div>
           </div>
 
       </section>
 
       <section className='h-fit w-full'>
-          <div className='w-full h-fit max-w-[1024px] mx-auto bg-white relative z-10 md:gap-4 px-8'>
+          <div className='w-full h-fit max-w-[1024px] mx-auto bg-white relative z-10 md:gap-4 px-6'>
             <div className='flex flex-col pb-8'>
               <p className='uppercase text-xs font-semibold opacity-50 text-center'>Study Abroad</p>
               <p className='text-2xl md:text-4xl font-bold text-[#DA0C0C] text-center'>Our Countries</p>
             </div>
-            <div className='w-fit mx-auto flex flex-wrap items-center justify-center gap-8'>
+            <div className='w-fit mx-auto grid-cols-2 sm:flex flex-wrap items-center justify-center gap-4 md:gap-8'>
 
             {
               loading?
               "":
               countries?
               countries.filter(f => f.category.slug == 'main').map(i => (
-                <Link key={i.slug} to={`/countries/${i.slug}`} className='bg-white w-[200px] md:w-[250px] h-[150px] border-1 border-gray-200 gap-8 flex flex-col rounded-[8px] relative overflow-hidden duration-500'>
+                <Link key={i.slug} to={`/countries/${i.slug}`} className='bg-white w-full sm:w-[200px] md:w-[250px] h-[150px] border-1 border-gray-200 gap-8 flex flex-col rounded-[8px] relative overflow-hidden duration-500'>
                   <div className='h-full p-6 flex flex-row justify-between'>
                     <div className='flex flex-col relative z-30 gap-1 mt-auto'>
                       <p className='text-2xl font-bold text-white'>{i.name}</p>
@@ -117,14 +125,14 @@ const CountriesScreen = () => {
               <p className='text-2xl md:text-4xl font-bold text-[#DA0C0C] text-center'>EU COUNTRIES
               </p>
             </div>
-            <div className='w-fit mx-auto flex flex-wrap items-center justify-center gap-8'>
+            <div className='w-fit mx-auto flex flex-wrap items-center justify-center gap-4 md:gap-8'>
 
             {
               loading?
               "":
               countries?
               countries.filter(f => f.category.slug == 'eu').map(i => (
-                <Link key={i.slug} to={`/countries/${i.slug}`} className='bg-white w-[200px] md:w-[250px] h-[150px] border-1 border-gray-200 gap-8 flex flex-col rounded-[8px] relative overflow-hidden duration-500'>
+                <Link key={i.slug} to={`/countries/${i.slug}`} className='bg-white w-full sm:w-[200px] md:w-[250px] h-[150px] border-1 border-gray-200 gap-8 flex flex-col rounded-[8px] relative overflow-hidden duration-500'>
                   <div className='h-full p-6 flex flex-row justify-between'>
                     <div className='flex flex-col relative z-30 gap-1 mt-auto'>
                       <p className='text-2xl font-bold text-white'>{i.name}</p>
@@ -155,14 +163,14 @@ const CountriesScreen = () => {
               <p className='uppercase text-xs font-semibold opacity-50 text-center'>Study Abroad</p>
               <p className='text-2xl md:text-4xl font-bold text-[#DA0C0C] text-center'>MEDICINE</p>
             </div>
-            <div className='w-fit mx-auto flex flex-wrap items-center justify-center gap-8'>
+            <div className='w-fit mx-auto flex flex-wrap items-center justify-center gap-4 md:gap-8'>
 
             {
               loading?
               "":
               countries?
               countries.filter(f => f.category.slug == 'medicine').map(i => (
-                <Link key={i.slug} to={`/countries/${i.slug}`} className='bg-white w-[200px] md:w-[250px] h-[150px] border-1 border-gray-200 gap-8 flex flex-col rounded-[8px] relative overflow-hidden duration-500'>
+                <Link key={i.slug} to={`/countries/${i.slug}`} className='bg-white w-full sm:w-[200px] md:w-[250px] h-[150px] border-1 border-gray-200 gap-8 flex flex-col rounded-[8px] relative overflow-hidden duration-500'>
                   <div className='h-full p-6 flex flex-row justify-between'>
                     <div className='flex flex-col relative z-30 gap-1 mt-auto'>
                       <p className='text-2xl font-bold text-white'>{i.name}</p>
@@ -269,9 +277,102 @@ const CountriesScreen = () => {
           </div>
               <Button variant='light' color='danger' endContent={
                   <GrFormNextLink />
-              } className=' mx-auto'>
+              } className=' ml-auto'>
                 Learn more
               </Button>
+        </div>
+      </section>
+
+      <section className='h-fit w-full bg-red-50 py-8 lg:py-12'>
+        <div className='h-fit w-full max-w-[1024px] mx-auto px-8 flex flex-col'>
+          
+          <div className='w-full flex flex-col md:flex-row gap-8 text-justify md:justify-between'>
+            <div className='lg:max-w-[350px] flex flex-col gap-2'>
+              <p className='text-2xl md:text-4xl font-bold text-[#DA0C0C] text-left'>IMMIGRATION SERVICES</p>
+              <p className=''>IEBC ensures a smooth travel for your educational purpose abroad. Start with our free counselling first</p>
+              <Button endContent={
+                    <GrFormNextLink />
+                } className='w-fit font-medium bg-[#DA0C0C] text-white mt-4'>
+                Explore our student services
+              </Button>
+            </div>
+            <div className='flex flex-col gap-4 w-full max-w-md'>
+              <p className='text-xl font-semibold'>Book an Appointment</p>
+              <div className='w-full flex flex-col gap-4 '>
+                <Input variant='flat' type='text' placeholder='Name'></Input>
+                <Input variant='flat' type='email' placeholder='Email'></Input>
+                <Input variant='flat' type='number' placeholder='Mobile number'></Input>
+                <Select 
+                    className="w-full" 
+                    // selectedKeys={pLocation}
+                    // onSelectionChange={setPLocation}
+                    variant=''
+                    placeholder='Preferred Study Destination'
+                    required
+                    size='md'
+
+                >
+                    {
+                      loading?
+                      "":
+                      countries.map(i => (
+                        <SelectItem key={i.slug} value={i.slug} className=''>
+                            {i.name}
+                        </SelectItem>
+                      ))
+                    }
+                </Select>
+                <Select 
+                    className="w-full" 
+                    // selectedKeys={pLocation}
+                    // onSelectionChange={setPLocation}
+                    variant=''
+                    placeholder='Year of Study'
+                    required
+                    size='md'
+
+                >
+                    <SelectItem key='2025' className=''>
+                        2025
+                    </SelectItem>
+                    <SelectItem key='2027' className=''>
+                        2027
+                    </SelectItem>
+                    <SelectItem key='2028' className=''>
+                        2028
+                    </SelectItem>
+                </Select>
+                <Select 
+                    className="w-full" 
+                    // selectedKeys={pLocation}
+                    // onSelectionChange={setPLocation}
+                    variant=''
+                    placeholder='Study Intake'
+                    required
+                    size='md'
+
+                >
+                    <SelectItem key='January – March' className=''>
+                        January – March
+                    </SelectItem>
+                    <SelectItem key='July – September' className=''>
+                        July – September
+                    </SelectItem>
+                    <SelectItem key='October – December' className=''>
+                        October – December
+                    </SelectItem>
+                    <SelectItem key='I’m Not Sure' className=''>
+                        I’m Not Sure
+                    </SelectItem>
+                </Select>
+                <Button variant='solid' color='danger' endContent={
+                    <GrFormNextLink />
+                } className='w-fit font-medium bg-[#DA0C0C] text-white mt-4'>
+                  Book now
+                </Button>
+              </div>             
+            </div>
+          </div>
         </div>
       </section>
 
@@ -341,7 +442,7 @@ const CountriesScreen = () => {
           </div>
               <Button variant='light' color='danger' endContent={
                   <GrFormNextLink />
-              } className=' mx-auto'>
+              } className=' ml-auto'>
                 Learn more
               </Button>
         </div>
