@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import {Input, navbar} from "@nextui-org/react";
+import {Input, Skeleton, navbar} from "@nextui-org/react";
 import { VscSymbolKeyword, VscVerifiedFilled } from "react-icons/vsc";
 import {Button} from "@nextui-org/button";
 import { IoSearch } from "react-icons/io5";
@@ -82,7 +82,7 @@ const HomeScreen = () => {
     
 
   return (
-    <div className='h-fit w-full flex flex-col gap-8 lg:gap-6'>
+    <div className='h-fit w-full flex flex-col gap-4'>
       <div>
         <section className='h-fit w-full relative overflow-hidden'>
 
@@ -156,7 +156,7 @@ const HomeScreen = () => {
           <form className='bg-white shadow-[0px_5px_25px_rgba(0,0,0,0.05)] h-fit w-full z-20 mt-auto  px-6 md:px-12 py-8 flex flex-col gap-4 rounded-[8px]'>
               <div className='flex flex-row  gap-6 items-center justify-between'>
                 <div className='w-full max-w-[500px]'>
-                  <p className='text-xl font-bold text-[#DA0C0C]'>Search Course</p>
+                  <p className='text-xl font-bold text-[#DA0C0C] text-left'>Search Course</p>
                   <p className='text-xs text-gray-500'>Search And Filter our courses</p>
                 </div>
                 <div>
@@ -168,7 +168,7 @@ const HomeScreen = () => {
               <div className='flex flex-col md:flex-row items-center justify-between gap-2'>
                 <div className='w-full grid grid-cols-2 md:flex lg:flex-row gap-2'>
                   <Select
-                    variant={'bordered'}
+                    variant={'flat'}
                     required
                     placeholder="Faculty"
                     className='w-full shadow-none rounded-none outline-none'
@@ -191,7 +191,7 @@ const HomeScreen = () => {
                   </Select>
 
                   <Select
-                    variant={'bordered'}
+                    variant={'flat'}
                     required
                     placeholder="Programme"
                     className='w-full shadow-none rounded-none outline-none'
@@ -215,7 +215,7 @@ const HomeScreen = () => {
                 </div>
                 <div className='w-full flex lg:flex-row gap-2'>
                   <Select
-                    variant={'bordered'}
+                    variant={'flat'}
                     placeholder="Course award"
                     className='w-full shadow-none rounded-none outline-none'
                     radius='sm'
@@ -235,7 +235,7 @@ const HomeScreen = () => {
                     }
                   </Select>
                   <Select
-                    variant={'bordered'}
+                    variant={'flat'}
                     placeholder="Course credits"
                     className='w-full shadow-none rounded-none outline-none'
                     radius='sm'
@@ -287,8 +287,8 @@ const HomeScreen = () => {
       <section className='h-fit w-full relative overflow-hidden px-8'>
         <div className='h-fit w-full max-w-[1024px] mx-auto justify-center gap-2'>
             <div className='flex flex-col'>
-              <p className='uppercase text-xs '>Faculty</p>
-              <p className='text-2xl lg:text-4xl font-bold'>Our Faculty</p>
+              <p className='uppercase text-xs text-center'>Faculty</p>
+              <p className='text-2xl lg:text-4xl font-bold text-center'>Our Faculty</p>
             </div>
             <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 pt-8 gap-4'>
               {
@@ -319,8 +319,8 @@ const HomeScreen = () => {
       <section className='h-fit w-full relative px-8'>
         <div className='h-fit w-full max-w-[1024px] mx-auto justify-center gap-6'>
             <div className='flex flex-col'>
-              <p className='uppercase text-xs '>Courses</p>
-              <p className='text-2xl lg:text-4xl font-bold'>Popular courses</p>
+              <p className='uppercase text-xs text-center'>Courses</p>
+              <p className='text-2xl lg:text-4xl font-bold text-center'>Popular courses</p>
             </div>
             <div className='hidden xl:block'>
               <Swiper
@@ -334,6 +334,43 @@ const HomeScreen = () => {
                 autoplay
               >
                 {
+                  courseListLoading?
+                  <Skeleton className='rounded-full'>
+                    <SwiperSlide className='bg-red-50 rounded-[16px] mt-[24px] mb-[48px] '>
+                      <Link  className='flex flex-col min-w-full p-2 gap-2'>
+                        
+                        <Skeleton className='rounded-[8px]'>
+                          <div className='h-[150px] w-full overflow-hidden rounded-[8px]'>
+                            <img src='' alt='' className='h-[150px] hover:scale-105 duration-200 w-full object-cover rounded-[8px] border-[1px]' />
+                          </div>
+                        </Skeleton>
+                        <div className='flex flex-col py-2 gap-2'>
+                          <Skeleton className='rounded-full'>
+                            <p className='text-sm font-medium capitalize text-gray-500'>Course name</p>
+                          </Skeleton>
+                          <Skeleton className='rounded-full'>
+                            <p className='text-sm font-medium capitalize text-gray-500'>i.programe.name</p>
+                          </Skeleton>
+                          <Skeleton className='rounded-full'>
+                            <p className='font-semibold text-xs uppercase text-[#DA0C0C]'>i.qualification.name</p>
+                          </Skeleton>
+                        </div>
+                        <div className='flex flex-wrap gap-1'>
+                          <Skeleton className='rounded-full'>
+                            <div className='flex bg-white text-sm text-gray-500 px-2 md:px-5 py-2 md:py-2 rounded-full capitalize'>
+                              online
+                            </div>
+                          </Skeleton>
+                          <Skeleton className='rounded-full'>
+                            <div className='flex bg-white text-sm text-gray-500 px-2 md:px-5 py-2 md:py-2 rounded-full capitalize'>
+                              4 months
+                            </div>
+                          </Skeleton>
+                        </div>
+                      </Link>
+                    </SwiperSlide>
+                  </Skeleton>
+                  :
                   courses?
                   courses.filter(f => f.popular==true).map(i =>(
                     <SwiperSlide className='bg-red-50 rounded-[16px] mt-[24px] mb-[48px] '>
@@ -484,11 +521,11 @@ const HomeScreen = () => {
         </div>
       </section>
 
-      <section className='h-fit w-full relative overflow-hidden px-8 bg-red-50 py-12 lg:py-20'>
+      <section className='h-fit w-full relative overflow-hidden px-8 bg-red-50 py-4 lg:py-12'>
         <div className='h-fit w-full max-w-[1024px] mx-auto justify-center gap-6 '>
           <div className='flex flex-col pb-8'>
-            <p className='uppercase text-xs '>Unlock Your Future</p>
-            <p className='text-2xl lg:text-4xl font-bold text-[#DA0C0C]'>Available Scholarships</p>
+            <p className='uppercase text-xs text-center'>Unlock Your Future</p>
+            <p className='text-2xl lg:text-4xl font-bold text-[#DA0C0C] text-center'>Available Scholarships</p>
           </div>
           <div className='w-fit mx-auto flex flex-wrap justify-center gap-4'>
             {
@@ -534,7 +571,7 @@ const HomeScreen = () => {
         </div>
       </section>
 
-      {/* <section className='h-fit w-full relative overflow-hidden px-8 bg-[#DA0C0C] py-12 lg:py-20'>
+      {/* <section className='h-fit w-full relative overflow-hidden px-8 bg-[#DA0C0C] py-4 lg:py-12'>
         <div className='h-fit w-full max-w-[1024px] mx-auto justify-center gap-6 '>
           <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4  gap-8'>
               <div className='w-full flex flex-col gap-2 items-center justify-center'>
@@ -564,18 +601,18 @@ const HomeScreen = () => {
         </div>
       </section> */}
 
-      <section className='h-[400px] w-full relative overflow-hidden px-8 lg:py-12 bg-cover bg-bottom ' >
-        <img src='https://upload.wikimedia.org/wikipedia/commons/c/cd/University-of-Alabama-EngineeringResearchCenter-01.jpg' alt='' className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 h-full w-full z-0 opacity-15' />
+      <section className='h-[400px] w-full relative overflow-hidden px-8 lg:py-6 bg-cover bg-bottom ' >
+        <img src='https://upload.wikimedia.org/wikipedia/commons/c/cd/University-of-Alabama-EngineeringResearchCenter-01.jpg' alt='' className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 h-full w-full z-0 opacity-25' />
         <div className='h-fit w-full max-w-[900px] mx-auto justify-center gap-6 grid grid-col-1 lg:grid-cols-2 divide-y-1 lg:divide-x-1 lg:divide-y-0 divide-[#DA0C0C] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10'>
           <div className='w-full h-fit flex-col gap-4 pt-4 lg:pt-0 hidden lg:flex my-auto'>
-            <p className='text-2xl font-bold text-[#DA0C0C] text-center lg:text-left'>IEBC Provides an extensive number of Programmes from Foundation to Masters which is regulated by UK Government Awarding Body</p>
+            <p className='text-2xl font-bold text-[#DA0C0C] text-center '>IEBC Provides an extensive number of Programmes from Foundation to Masters which is regulated by UK Government Awarding Body</p>
           </div>
           <div className='w-full h-fit flex flex-col gap-4  pt-4 lg:pt-0 lg:pl-12'>
-            <p className='text-2xl font-bold text-center lg:text-left'>Your inspiration our Motivation</p>
-            <p className='text-sm text-gray-500 text-justify'>Students deserve to dream, to be inspired and gain knowledge, as a  college it is our duty to fulfill our student’s inspirations. IEBC is  here to guide students all the way through their studies and career.  Your Inspiration is our motivation.Students deserve to dream, to be inspired and gain knowledge, as a  college it is our duty to fulfill our student’s inspirations. IEBC is  here to guide students all the way through their studies and career.  Your Inspiration is our motivation.</p>
+            <p className='text-2xl font-bold text-center '>Your inspiration our Motivation</p>
+            <p className='text-sm text-gray-700 font-medium text-justify'>Students deserve to dream, to be inspired and gain knowledge, as a  college it is our duty to fulfill our student’s inspirations. IEBC is  here to guide students all the way through their studies and career.  Your Inspiration is our motivation.Students deserve to dream, to be inspired and gain knowledge, as a  college it is our duty to fulfill our student’s inspirations. IEBC is  here to guide students all the way through their studies and career.  Your Inspiration is our motivation.</p>
           </div>
           <div className='w-full h-fit flex flex-col gap-4 pt-4 lg:pt-0 lg:hidden'>
-            <p className='text-2xl font-bold text-[#DA0C0C] text-center lg:text-left'>IEBC Provides an extensive number of Programmes from Foundation to Masters which is regulated by UK Government Awarding Body</p>
+            <p className='text-2xl font-bold text-[#DA0C0C] text-center '>IEBC Provides an extensive number of Programmes from Foundation to Masters which is regulated by UK Government Awarding Body</p>
           </div>
         </div>
       </section>
@@ -583,8 +620,8 @@ const HomeScreen = () => {
       <section className='h-fit w-full relative overflow-hidden px-8 bg-red-50 py-12 lg:py-16'>
         <div className='h-fit w-full max-w-[1024px] mx-auto justify-center gap-6 '>
           <div className='flex flex-col pb-8'>
-            <p className='uppercase text-xs '>Questions</p>
-            <p className='text-2xl lg:text-4xl font-bold'>Why Learn with us?</p>
+            <p className='uppercase text-xs text-center'>Questions</p>
+            <p className='text-2xl lg:text-4xl font-bold text-center'>Why Learn with us?</p>
           </div>
           <div className='w-full mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 justify-center gap-4 place-content-evenly'>
 
@@ -677,11 +714,11 @@ const HomeScreen = () => {
       <section className='h-fit w-full relative overflow-hidden px-8'>
         <div className='h-fit w-full max-w-[1024px] mx-auto overflow-visible'>
             <div className='flex flex-col pb-8'>
-              <p className='uppercase text-xs'>Our Students Testimonials</p>
-              <p className='text-2xl lg:text-4xl font-bold'>Students Say’s About Our Campus</p>
+              <p className='uppercase text-xs text-center'text-center>Our Students Testimonials</p>
+              <p className='text-2xl lg:text-4xl font-bold text-center'>Students Say’s About Our Campus</p>
             </div>
 
-            <div className='hidden sm:flex'>
+            <div className='h-fit hidden sm:flex'>
               <Swiper
                 slidesPerView={2}
                 spaceBetween={25}
@@ -693,29 +730,34 @@ const HomeScreen = () => {
                 modules={[FreeMode, Pagination, Autoplay]}
                 className=""
               >
-                {
-                  courseListLoading?
-                  '':
-                  courses?
-                  _.uniqBy(_.flatMap(courses, 'qualification'), 'id').map(i=>(
-                    <SwiperSlide className='h-fit w-full mt-2 mb-12 bg-red-50 p-6 md:p-12 rounded-[8px] relative overflow-hidden '>
-                      {/* <div className='h-[100px] w-[100px] absolute top-0 right-0 bg-[#DA0C0C] rotate-45 -z-20'>
+                <SwiperSlide className='max-h-[300px] w-full mt-2 mb-12 bg-red-50 p-6 md:p-12 rounded-[8px] relative overflow-hidden '>
+                  {/* <div className='h-[100px] w-[100px] absolute top-0 right-0 bg-[#DA0C0C] rotate-45 -z-20'>
 
-                      </div> */}
-                      <div className='flex flex-col'>
-                        <p className='text-lg font-bold text-[#DA0C0C] capitalize'>Ayesh hiruni</p>
-                        <p className='capitalize text-sm font-medium text-gray-500 '>veritual assistance</p>
-                        <p className='capitalize text-sm font-medium text-gray-500 '>Selan Bank</p>
-                      </div>
-                      <div className='h-[1px] w-full bg-red-100 my-4'></div>
-                      <div className=' py-2'>
-                        <p className='text-base font-semibold'>"Lorem ipsum dolor sit amet consectetur. In nisl arcu risus at eu ipsum nunc magnis integer. Tristique aliquam risus mauris vitae adipiscing sit eget tristique."</p>
-                      </div>
-                    </SwiperSlide>
-                  ))
-                  :
-                  ''
-                }
+                  </div> */}
+                  <div className='h-fit flex flex-col'>
+                    <p className='text-lg font-bold text-[#DA0C0C] capitalize'>Ayesh hiruni</p>
+                    <p className='capitalize text-sm font-medium text-gray-500 '>veritual assistance</p>
+                    <p className='capitalize text-sm font-medium text-gray-500 '>Selan Bank</p>
+                  </div>
+                  <div className='h-[1px] w-full bg-red-100 my-4'></div>
+                  <div className='max-h-fit py-2'>
+                    <p className='text-base font-semibold'>"Lorem ipsum dolor sit amet consectetur. In nisl arcu risus at eu ipsum nunc magnis integer. Tristique aliquam risus mauris vitae adipiscing sit eget tristique."</p>
+                  </div>
+                </SwiperSlide>
+                <SwiperSlide className='max-h-[300px] w-full mt-2 mb-12 bg-red-50 p-6 md:p-12 rounded-[8px] relative overflow-hidden '>
+                  {/* <div className='h-[100px] w-[100px] absolute top-0 right-0 bg-[#DA0C0C] rotate-45 -z-20'>
+
+                  </div> */}
+                  <div className='h-fit flex flex-col'>
+                    <p className='text-lg font-bold text-[#DA0C0C] capitalize'>Ayesh hiruni</p>
+                    <p className='capitalize text-sm font-medium text-gray-500 '>veritual assistance</p>
+                    <p className='capitalize text-sm font-medium text-gray-500 '>Selan Bank</p>
+                  </div>
+                  <div className='h-[1px] w-full bg-red-100 my-4'></div>
+                  <div className='max-h-fit py-2'>
+                    <p className='text-base font-semibold'>"Lorem ipsum dolor sit amet consectetur. In nisl arcu risus at eu ipsum nunc magnis integer. Tristique aliquam risus mauris vitae adipiscing sit eget tristique."</p>
+                  </div>
+                </SwiperSlide>
               </Swiper>
             </div>
 
@@ -736,7 +778,7 @@ const HomeScreen = () => {
                   '':
                   courses?
                   _.uniqBy(_.flatMap(courses, 'qualification'), 'id').map(i=>(
-                    <SwiperSlide className='h-fit w-full mt-2 mb-12 bg-red-50 p-6 md:p-12 rounded-[8px] relative overflow-hidden '>
+                    <SwiperSlide className='max-h-[300px] w-full mt-2 mb-12 bg-red-50 p-6 md:p-12 rounded-[8px] relative overflow-hidden '>
                       {/* <div className='h-[100px] w-[100px] absolute top-0 right-0 bg-[#DA0C0C] rotate-45 -z-20'>
 
                       </div> */}
@@ -746,7 +788,7 @@ const HomeScreen = () => {
                         <p className='capitalize text-sm font-medium text-gray-500 '>Selan Bank</p>
                       </div>
                       <div className='h-[1px] w-full bg-red-100 my-4'></div>
-                      <div className=' py-2'>
+                      <div className='max-h-fit py-2'>
                         <p className='text-base font-semibold'>"Lorem ipsum dolor sit amet consectetur. In nisl arcu risus at eu ipsum nunc magnis integer. Tristique aliquam risus mauris vitae adipiscing sit eget tristique."</p>
                       </div>
                     </SwiperSlide>
@@ -762,14 +804,14 @@ const HomeScreen = () => {
 
       <section className='h-fit w-full relative overflow-hidden px-8'>
         <div className='h-fit w-full max-w-[1024px] mx-auto overflow-visible'>
-            <div className='flex flex-col pb-8'>
-              <p className='uppercase text-xs '>Resources</p>
-              <p className='text-2xl lg:text-4xl font-bold'>Our Resources</p>
-            </div>
+            {/* <div className='flex flex-col pb-8'>
+              <p className='uppercase text-xs text-center'>Resources</p>
+              <p className='text-2xl lg:text-4xl font-bold text-center'>Our Resources</p>
+            </div> */}
 
             <div className='hidden md:block'>
               <Swiper
-                slidesPerView={2}
+                slidesPerView={3}
                 spaceBetween={10}
                 freeMode={true}
                 pagination={{
@@ -780,9 +822,9 @@ const HomeScreen = () => {
                 className=""
               >
                 <SwiperSlide className='h-[300px] w-full relative mt-4 mb-12'>
-                  <div className='h-[250px] w-full relative z-10'>
-                    <div className='h-[200px] w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px] overflow-hidden'>
-                        <YouTube videoId="VwevNwza6c8" opts={opts}  />
+                  <div className='h-[200px] w-full relative z-10'>
+                    <div className='h-fit w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px] overflow-hidden'>
+                    <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fweb.facebook.com%2Fiebc.lk%2Fvideos%2F390059596804608%2F&show_text=false&width=560&t=0" height={'100%'} width={'full'} className='w-full h-full object-cover' frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
                     </div>
                   </div>
                   <div className='w-full h-[100px] rounded-[8px] bg-[#DA0C0C] absolute bottom-0 -z-30'>
@@ -790,9 +832,29 @@ const HomeScreen = () => {
                   </div>
                 </SwiperSlide>
                 <SwiperSlide className='h-[300px] w-full relative mt-4 mb-12'>
-                  <div className='h-[250px] w-full relative z-10'>
-                    <div className='h-[200px] w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px] overflow-hidden'>
-                        <YouTube videoId="Kyd5XEDth3E" opts={opts}  />
+                  <div className='h-[200px] w-full relative z-10'>
+                    <div className='h-fit w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px] overflow-hidden'>
+                      <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fweb.facebook.com%2Fiebc.lk%2Fvideos%2F1113865666370498%2F&show_text=false&width=560&t=0" height={'100%'} width={'full'} className='w-full h-full object-cover' frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+                    </div>
+                  </div>
+                  <div className='w-full h-[100px] rounded-[8px] bg-[#DA0C0C] absolute bottom-0 -z-30'>
+
+                  </div>
+                </SwiperSlide>
+                <SwiperSlide className='h-[300px] w-full relative mt-4 mb-12'>
+                  <div className='h-[200px] w-full relative z-10'>
+                    <div className='h-fit w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px] overflow-hidden'>
+                      <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fweb.facebook.com%2Fiebc.lk%2Fvideos%2F1113865666370498%2F&show_text=false&width=560&t=0" height={'100%'} width={'full'} className='w-full h-full object-cover' frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+                    </div>
+                  </div>
+                  <div className='w-full h-[100px] rounded-[8px] bg-[#DA0C0C] absolute bottom-0 -z-30'>
+
+                  </div>
+                </SwiperSlide>
+                <SwiperSlide className='h-[300px] w-full relative mt-4 mb-12'>
+                  <div className='h-[200px] w-full relative z-10'>
+                    <div className='h-fit w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px] overflow-hidden'>
+                      <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fweb.facebook.com%2FIEBCGlobal%2Fvideos%2F137729791776490%2F&show_text=false&width=560&t=0" height={'100%'} width={'full'} className='w-full h-full object-cover' frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
                     </div>
                   </div>
                   <div className='w-full h-[100px] rounded-[8px] bg-[#DA0C0C] absolute bottom-0 -z-30'>
@@ -800,9 +862,9 @@ const HomeScreen = () => {
                   </div>
                 </SwiperSlide>
                 {/* <SwiperSlide className='h-[300px] w-full relative mt-4 mb-12'>
-                  <div className='h-[250px] w-full relative z-10'>
-                    <div className='h-[200px] w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px] overflow-hidden'>
-                        <YouTube videoId="2g811Eo7K8U" opts={opts}  />
+                  <div className='h-[200px] w-full relative z-10'>
+                    <div className='h-fit w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px] overflow-hidden'>
+                        <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fweb.facebook.com%2Fiebc.lk%2Fvideos%2F390059596804608%2F&show_text=false&width=560&t=0" height={'100%'} width={'full'} className='w-full h-full object-cover' frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
                     </div>
                   </div>
                   <div className='w-full h-[100px] rounded-[8px] bg-[#DA0C0C] absolute bottom-0 -z-30'>
@@ -810,9 +872,9 @@ const HomeScreen = () => {
                   </div>
                 </SwiperSlide>
                 <SwiperSlide className='h-[300px] w-full relative mt-4 mb-12'>
-                  <div className='h-[250px] w-full relative z-10'>
-                    <div className='h-[200px] w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px] overflow-hidden'>
-                        <YouTube videoId="2g811Eo7K8U" opts={opts}  />
+                  <div className='h-[200px] w-full relative z-10'>
+                    <div className='h-fit w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px] overflow-hidden'>
+                        <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fweb.facebook.com%2Fiebc.lk%2Fvideos%2F390059596804608%2F&show_text=false&width=560&t=0" height={'100%'} width={'full'} className='w-full h-full object-cover' frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
                     </div>
                   </div>
                   <div className='w-full h-[100px] rounded-[8px] bg-[#DA0C0C] absolute bottom-0 -z-30'>
@@ -835,9 +897,9 @@ const HomeScreen = () => {
                 className=""
               >
                 <SwiperSlide className='h-[300px] w-full relative mt-4 mb-12'>
-                  <div className='h-[250px] w-full relative z-10'>
-                    <div className='h-[200px] w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px] overflow-hidden'>
-                        <YouTube videoId="2g811Eo7K8U" opts={opts}  />
+                  <div className='h-[200px] w-full relative z-10'>
+                    <div className='h-fit w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px] overflow-hidden'>
+                        <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fweb.facebook.com%2Fiebc.lk%2Fvideos%2F390059596804608%2F&show_text=false&width=560&t=0" height={'100%'} width={'full'} className='w-full h-full object-cover' frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
                     </div>
                   </div>
                   <div className='w-full h-[100px] rounded-[8px] bg-[#DA0C0C] absolute bottom-0 -z-30'>
@@ -845,9 +907,9 @@ const HomeScreen = () => {
                   </div>
                 </SwiperSlide>
                 <SwiperSlide className='h-[300px] w-full relative mt-4 mb-12'>
-                      <div className='h-[250px] w-full relative z-10'>
-                        <div className='h-[200px] w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px] overflow-hidden'>
-                            <YouTube videoId="Kyd5XEDth3E" opts={opts}  />
+                      <div className='h-[200px] w-full relative z-10'>
+                        <div className='h-fit w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px] overflow-hidden'>
+                            <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fweb.facebook.com%2Fiebc.lk%2Fvideos%2F390059596804608%2F&show_text=false&width=560&t=0" height={'100%'} width={'full'} className='w-full h-full object-cover' frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
                         </div>
                       </div>
                       <div className='w-full h-[100px] rounded-[8px] bg-[#DA0C0C] absolute bottom-0 -z-30'>
@@ -855,9 +917,9 @@ const HomeScreen = () => {
                       </div>
                 </SwiperSlide>
                 <SwiperSlide className='h-[300px] w-full relative mt-4 mb-12'>
-                  <div className='h-[250px] w-full relative z-10'>
-                    <div className='h-[200px] w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px] overflow-hidden'>
-                        <YouTube videoId="2g811Eo7K8U" opts={opts}  />
+                  <div className='h-[200px] w-full relative z-10'>
+                    <div className='h-fit w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px] overflow-hidden'>
+                        <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fweb.facebook.com%2Fiebc.lk%2Fvideos%2F390059596804608%2F&show_text=false&width=560&t=0" height={'100%'} width={'full'} className='w-full h-full object-cover' frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
                     </div>
                   </div>
                   <div className='w-full h-[100px] rounded-[8px] bg-[#DA0C0C] absolute bottom-0 -z-30'>
@@ -865,9 +927,9 @@ const HomeScreen = () => {
                   </div>
                 </SwiperSlide>
                 {/* <SwiperSlide className='h-[300px] w-full relative mt-4 mb-12'>
-                  <div className='h-[250px] w-full relative z-10'>
-                    <div className='h-[200px] w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px] overflow-hidden'>
-                        <YouTube videoId="2g811Eo7K8U" opts={opts}  />
+                  <div className='h-[200px] w-full relative z-10'>
+                    <div className='h-fit w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px] overflow-hidden'>
+                        <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fweb.facebook.com%2Fiebc.lk%2Fvideos%2F390059596804608%2F&show_text=false&width=560&t=0" height={'100%'} width={'full'} className='w-full h-full object-cover' frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
                     </div>
                   </div>
                   <div className='w-full h-[100px] rounded-[8px] bg-[#DA0C0C] absolute bottom-0 -z-30'>
@@ -875,9 +937,9 @@ const HomeScreen = () => {
                   </div>
                 </SwiperSlide>
                 <SwiperSlide className='h-[300px] w-full relative mt-4 mb-12'>
-                  <div className='h-[250px] w-full relative z-10'>
-                    <div className='h-[200px] w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px] overflow-hidden'>
-                        <YouTube videoId="2g811Eo7K8U" opts={opts}  />
+                  <div className='h-[200px] w-full relative z-10'>
+                    <div className='h-fit w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px] overflow-hidden'>
+                        <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fweb.facebook.com%2Fiebc.lk%2Fvideos%2F390059596804608%2F&show_text=false&width=560&t=0" height={'100%'} width={'full'} className='w-full h-full object-cover' frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
                     </div>
                   </div>
                   <div className='w-full h-[100px] rounded-[8px] bg-[#DA0C0C] absolute bottom-0 -z-30'>
@@ -900,9 +962,9 @@ const HomeScreen = () => {
                 className=""
               >
                 <SwiperSlide className='h-[300px] w-full relative mt-4 mb-12'>
-                  <div className='h-[250px] w-full relative z-10'>
-                    <div className='h-[200px] w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px] overflow-hidden'>
-                        <YouTube videoId="2g811Eo7K8U" opts={opts}  />
+                  <div className='h-[200px] w-full relative z-10'>
+                    <div className='h-fit w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px] overflow-hidden'>
+                      <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fweb.facebook.com%2Fiebc.lk%2Fvideos%2F390059596804608%2F&show_text=false&width=560&t=0" height={'100%'} width={'full'} className='w-full h-full object-cover' frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
                     </div>
                   </div>
                   <div className='w-full h-[100px] rounded-[8px] bg-[#DA0C0C] absolute bottom-0 -z-30'>
@@ -910,9 +972,29 @@ const HomeScreen = () => {
                   </div>
                 </SwiperSlide>
                 <SwiperSlide className='h-[300px] w-full relative mt-4 mb-12'>
-                  <div className='h-[250px] w-full relative z-10'>
-                    <div className='h-[200px] w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px] overflow-hidden'>
-                        <YouTube videoId="Kyd5XEDth3E" opts={opts}  />
+                  <div className='h-[200px] w-full relative z-10'>
+                    <div className='h-fit w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px] overflow-hidden'>
+                      <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fweb.facebook.com%2Fiebc.lk%2Fvideos%2F390059596804608%2F&show_text=false&width=560&t=0" height={'100%'} width={'full'} className='w-full h-full object-cover' frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+                    </div>
+                  </div>
+                  <div className='w-full h-[100px] rounded-[8px] bg-[#DA0C0C] absolute bottom-0 -z-30'>
+
+                  </div>
+                </SwiperSlide>
+                <SwiperSlide className='h-[300px] w-full relative mt-4 mb-12'>
+                  <div className='h-[200px] w-full relative z-10'>
+                    <div className='h-fit w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px] overflow-hidden'>
+                      <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fweb.facebook.com%2Fiebc.lk%2Fvideos%2F390059596804608%2F&show_text=false&width=560&t=0" height={'100%'} width={'full'} className='w-full h-full object-cover' frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+                    </div>
+                  </div>
+                  <div className='w-full h-[100px] rounded-[8px] bg-[#DA0C0C] absolute bottom-0 -z-30'>
+
+                  </div>
+                </SwiperSlide>
+                <SwiperSlide className='h-[300px] w-full relative mt-4 mb-12'>
+                  <div className='h-[200px] w-full relative z-10'>
+                    <div className='h-fit w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px] overflow-hidden'>
+                      <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fweb.facebook.com%2Fiebc.lk%2Fvideos%2F390059596804608%2F&show_text=false&width=560&t=0" height={'100%'} width={'full'} className='w-full h-full object-cover' frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
                     </div>
                   </div>
                   <div className='w-full h-[100px] rounded-[8px] bg-[#DA0C0C] absolute bottom-0 -z-30'>
@@ -920,9 +1002,9 @@ const HomeScreen = () => {
                   </div>
                 </SwiperSlide>
                 {/* <SwiperSlide className='h-[300px] w-full relative mt-4 mb-12'>
-                  <div className='h-[250px] w-full relative z-10'>
-                    <div className='h-[200px] w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px] overflow-hidden'>
-                        <YouTube videoId="2g811Eo7K8U" opts={opts}  />
+                  <div className='h-[200px] w-full relative z-10'>
+                    <div className='h-fit w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px] overflow-hidden'>
+                        <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fweb.facebook.com%2Fiebc.lk%2Fvideos%2F390059596804608%2F&show_text=false&width=560&t=0" height={'100%'} width={'full'} className='w-full h-full object-cover' frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
                     </div>
                   </div>
                   <div className='w-full h-[100px] rounded-[8px] bg-[#DA0C0C] absolute bottom-0 -z-30'>
@@ -930,9 +1012,9 @@ const HomeScreen = () => {
                   </div>
                 </SwiperSlide>
                 <SwiperSlide className='h-[300px] w-full relative mt-4 mb-12'>
-                  <div className='h-[250px] w-full relative z-10'>
-                    <div className='h-[200px] w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px] overflow-hidden'>
-                        <YouTube videoId="2g811Eo7K8U" opts={opts}  />
+                  <div className='h-[200px] w-full relative z-10'>
+                    <div className='h-fit w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px] overflow-hidden'>
+                        <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fweb.facebook.com%2Fiebc.lk%2Fvideos%2F390059596804608%2F&show_text=false&width=560&t=0" height={'100%'} width={'full'} className='w-full h-full object-cover' frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
                     </div>
                   </div>
                   <div className='w-full h-[100px] rounded-[8px] bg-[#DA0C0C] absolute bottom-0 -z-30'>
@@ -940,9 +1022,9 @@ const HomeScreen = () => {
                   </div>
                 </SwiperSlide>
                 <SwiperSlide className='h-[300px] w-full relative mt-4 mb-12'>
-                  <div className='h-[250px] w-full relative z-10'>
-                    <div className='h-[200px] w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px] overflow-hidden'>
-                        <YouTube videoId="2g811Eo7K8U" opts={opts}  />
+                  <div className='h-[200px] w-full relative z-10'>
+                    <div className='h-fit w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px] overflow-hidden'>
+                        <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fweb.facebook.com%2Fiebc.lk%2Fvideos%2F390059596804608%2F&show_text=false&width=560&t=0" height={'100%'} width={'full'} className='w-full h-full object-cover' frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
                     </div>
                   </div>
                   <div className='w-full h-[100px] rounded-[8px] bg-[#DA0C0C] absolute bottom-0 -z-30'>
@@ -958,8 +1040,8 @@ const HomeScreen = () => {
       <section className='h-fit w-full relative overflow-hidden px-8'>
         <div className='h-fit w-full max-w-[1024px] mx-auto overflow-visible'>
             <div className='flex flex-col pb-8'>
-              <p className='uppercase text-xs '>Qualifications</p>
-              <p className='text-2xl lg:text-4xl font-bold'>Our Qualifications</p>
+              <p className='uppercase text-xs text-center'>Qualifications</p>
+              <p className='text-2xl lg:text-4xl font-bold text-center'>Our Qualifications</p>
             </div>
 
             <div className='hidden md:block'>

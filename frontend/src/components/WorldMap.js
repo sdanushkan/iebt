@@ -5,13 +5,13 @@ import { colorScale, countries, missingCountries } from "./Countries";
 
 function WorldMap() {
   return (
-    <div  className="h-[200px] md:h-[400px] mt-6 lg:mt-12">
+    <div  className="h-fit w-full mt-6 lg:mt-12">
       <VectorMap
         map={worldMill}
         zoomOnScroll={false}
+        className="w-full h-auto"
         containerStyle={{
-          width: "100%",
-          height: "100%",
+          
         }}
         backgroundColor="#ffecef"
         markers={missingCountries}

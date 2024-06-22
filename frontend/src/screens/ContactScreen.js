@@ -64,7 +64,7 @@ const ContactScreen = () => {
                       type="text"
                       placeholder="Name"
                       labelPlacement="outside"
-                      variant="bordered"
+                      variant="flat"
                       startContent={
                         <IoMdMail className="text-lg text-default-400 pointer-events-none flex-shrink-0" />
                       }
@@ -79,7 +79,7 @@ const ContactScreen = () => {
                       type="email"
                       placeholder="Email Address"
                       labelPlacement="outside"
-                      variant="bordered"
+                      variant="flat"
                       startContent={
                         <IoPersonCircle className="text-lg text-default-400 pointer-events-none flex-shrink-0" />
                       }
@@ -101,7 +101,7 @@ const ContactScreen = () => {
                       type="number"
                       placeholder="Contact Number"
                       labelPlacement="outside"
-                      variant="bordered"
+                      variant="flat"
                       maxLength={10}
                       startContent={
                         <div className="pointer-events-none flex items-center">
@@ -119,7 +119,7 @@ const ContactScreen = () => {
                       type="text"
                       placeholder="Subject"
                       labelPlacement="outside"
-                      variant="bordered"
+                      variant="flat"
                       
                       className='w-full shadow-none rounded-none'
                       radius='sm'
@@ -134,12 +134,12 @@ const ContactScreen = () => {
                     labelPlacement="outside"
                     placeholder="Enter your description"
                     className="w-full"
-                    variant='bordered'
+                    variant='flat'
                   />
                   <Button color='' className="hidden lg:flex bg-[#DA0C0C] text-white font-medium md:px-6 py-6 rounded-md">
-                        <p>Submit</p>
-                        <RiSecurePaymentFill  />
-                      </Button>
+                    <p>Submit</p>
+                    <RiSecurePaymentFill  />
+                  </Button>
                 </div>
               </div>
             </div>

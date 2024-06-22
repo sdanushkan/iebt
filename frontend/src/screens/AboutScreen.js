@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { useLocation, useNavigate } from 'react-router-dom'
 import {Accordion, AccordionItem} from "@nextui-org/accordion";
-import {Tabs, Tab, Card, CardBody, CardHeader} from "@nextui-org/react";
+import {Tabs, Tab, Card, CardBody, CardHeader, Skeleton} from "@nextui-org/react";
 
 
 const AboutScreen = () => {
@@ -19,21 +19,32 @@ const AboutScreen = () => {
   return (
     <div className='h-fit w-full flex flex-col gap-12 pb-12'>
       <section className='h-fit w-full relative bg-black'>
-        <img src={'https://static.vecteezy.com/system/resources/previews/015/634/808/non_2x/circular-hud-connection-with-circuit-board-futuristic-modern-website-background-or-cover-page-for-technology-and-finance-concept-and-education-future-company-vector.jpg'} alt='' className='h-[300px] w-full object-cover relative z-0 opacity-50' />
+        <img src={'https://t4.ftcdn.net/jpg/05/08/80/19/360_F_508801991_UTsCAOorx25USitqonfRADueJlzyjhDq.jpg'} alt='' className='h-[300px] w-full object-cover relative z-0 opacity-50' />
         <div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 pt-16'>
-          <p className='text-2xl text-white font-bold'>About us</p>
+          <p className='text-2xl md:text-4xl text-white font-bold'>About us</p>
         </div>
       </section>
 
       <section className='h-fit w-full'>
         <div className='h-fit w-full max-w-[1024px] mx-auto px-8 flex flex-col md:flex-row gap-6 md:gap-12 md:items-center'>
-          <div className='h-[200px] w-full md:w-[350px] md:h-[350px] rounded-full '>
-          <  div className='h-[200px] w-full md:w-[350px] md:h-[350px] rounded-full '>
-              <img src='https://st2.depositphotos.com/1006009/11827/i/450/depositphotos_118276998-stock-photo-who-are-we-question-on.jpg' alt='' className='h-full w-full md:w-[350px] md:h-[350px] rounded-full  object-cover' />
+          <div className='h-[200px] w-full md:w-[330px] md:h-[330px] md:min-w-[330px] md:min-h-[330px] md:max-w-[330px] md:max-h-[330px] rounded-[16px] md:rounded-full duration-300 flex items-center relative bg-black'>
+            <Skeleton className='h-full w-full rounded-[16px] md:rounded-full duration-300 flex items-center absolute bg-[#DA0C0C]'>
+            
+            </Skeleton>
+            <div className='h-full w-full rounded-[16px] md:rounded-full flex items-center absolute bg-black hover:scale-95 duration-300'>
+              <img src='https://st2.depositphotos.com/1006009/11827/i/450/depositphotos_118276998-stock-photo-who-are-we-question-on.jpg' alt='' className='h-full w-full rounded-full  object-cover' />
             </div>
           </div>
+          {/* <div className='h-[200px] w-full md:w-[330px] md:h-[330px] rounded-[16px] md:rounded-full duration-300 border-8 border-transparent flex items-center relative'>
+            <Skeleton className='h-[200px] w-full md:w-[330px] md:h-[330px] rounded-[16px] md:rounded-full bg-[#DA0C0C]'>
+              <div className='h-[200px] w-full md:w-[330px] md:h-[330px] rounded-[16px] md:rounded-full duration-300 border-black absolute z-10'></div>
+            </Skeleton>
+            <div className='h-[200px] w-full md:w-[330px] md:h-[330px] hover:md:w-[320px] hover:md:h-[320px] rounded-full duration-300 border-black absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-30'>
+              <img src='https://st2.depositphotos.com/1006009/11827/i/450/depositphotos_118276998-stock-photo-who-are-we-question-on.jpg' alt='' className='h-full w-full rounded-full  object-cover' />
+            </div>
+          </div> */}
           <div className='w-fit flex flex-col gap-4'>
-            <p className='text-2xl text-black font-bold'>Who We Are?</p>
+            <p className='text-2xl md:text-4xl text-black font-bold'>Who We Are?</p>
             <div className='flex flex-col gap-1'>
               <p className='text-sm text-black opacity-50 text-justify'>(IEBC) is a higher education institution that specializes in delivering cost-effective and high quality internationally accredited qualifications to a global audience, with a particular emphasis on serving students in Sri Lanka.
                 </p>
@@ -59,13 +70,16 @@ const AboutScreen = () => {
             <Tab key="our story" title="Our story">
               <section className='h-fit w-full'>
                 <div className='h-fit w-full max-w-[1024px] mx-auto flex flex-col md:flex-row-reverse gap-6 md:items-center md:gap-12'>
-                <div className='h-[200px] w-full md:w-[350px] md:h-[350px] rounded-full '>
-                  <div className='h-[200px] w-full md:w-[350px] md:h-[350px] rounded-full '>
-                    <img src='https://st2.depositphotos.com/1475009/6978/i/450/depositphotos_69786611-stock-photo-vintage-inscription-made-by-old.jpg' alt='' className='h-full w-full md:w-[350px] md:h-[350px] rounded-full  object-cover' />
+                  <div className='h-[200px] w-full md:w-[330px] md:h-[330px] md:min-w-[330px] md:min-h-[330px] md:max-w-[330px] md:max-h-[330px] rounded-[16px] md:rounded-full duration-300 flex items-center relative bg-black'>
+                    <Skeleton className='h-full w-full rounded-[16px] md:rounded-full duration-300 flex items-center absolute bg-[#DA0C0C]'>
+                    
+                    </Skeleton>
+                    <div className='h-full w-full rounded-[16px] md:rounded-full flex items-center absolute bg-black hover:scale-95 duration-300'>
+                      <img src='https://st2.depositphotos.com/1475009/6978/i/450/depositphotos_69786611-stock-photo-vintage-inscription-made-by-old.jpg' alt='' className='h-full w-full rounded-full  object-cover' />
+                    </div>
                   </div>
-                </div>
                   <div className='h-fit flex flex-col gap-4'>
-                    <p className='text-2xl text-black font-bold'>Our story</p>
+                    <p className='text-2xl md:text-4xl text-black font-bold'>Our story</p>
                     <div className='flex flex-col gap-1'>
                       <p className='text-sm text-black opacity-50 text-justify'>The International Educational Business Ca mpus(IEBC) offers students high-quality educational experiences and support services 
                         designed to ensure successful completion of their qualifications. We promote academic and career success by developing critical thinking, effective communication, creativity, and cultural awareness in a safe, accessible, 
@@ -82,14 +96,17 @@ const AboutScreen = () => {
             <Tab key="our mission" title="Our mission">
               <section className='h-fit w-full'>
                 
-                <div className='h-fit w-full max-w-[1024px] mx-auto flex flex-col md:flex-row gap-6'>
-                  <div className='h-[200px] w-full md:w-[350px] md:h-[350px] rounded-full '>
-                    <div className='h-[200px] w-full md:w-[350px] md:h-[350px] rounded-full '>
-                      <img src='https://st3.depositphotos.com/14431644/34729/i/450/depositphotos_347298024-stock-photo-conceptual-hand-writing-showing-our.jpg' alt='' className='h-full w-full md:w-[350px] md:h-[350px] rounded-full  object-cover' />
+                <div className='h-fit w-full max-w-[1024px] mx-auto flex flex-col md:flex-row gap-6 md:items-center'>
+                  <div className='h-[200px] w-full md:w-[330px] md:h-[330px] md:min-w-[330px] md:min-h-[330px] md:max-w-[330px] md:max-h-[330px] rounded-[16px] md:rounded-full duration-300 flex items-center relative bg-black'>
+                    <Skeleton className='h-full w-full rounded-[16px] md:rounded-full duration-300 flex items-center absolute bg-[#DA0C0C]'>
+                    
+                    </Skeleton>
+                    <div className='h-full w-full rounded-[16px] md:rounded-full flex items-center absolute bg-black hover:scale-95 duration-300'>
+                      <img src='https://st3.depositphotos.com/14431644/34729/i/450/depositphotos_347298024-stock-photo-conceptual-hand-writing-showing-our.jpg' alt='' className='h-full w-full rounded-full  object-cover' />
                     </div>
                   </div>
                   <div className='flex flex-col gap-4'>
-                    <p className='text-2xl text-black font-bold'>Our Mission</p>
+                    <p className='text-2xl md:text-4xl text-black font-bold'>Our Mission</p>
                     <div className='flex flex-col gap-1'>
                       <p className='text-sm text-black opacity-50 text-justify'>Dedicated to being one of the premier campuses on the island, we aim to contribute to society in transformative and enriching ways within a diverse and multi cultural learning environment.</p>
                     </div>
@@ -99,14 +116,17 @@ const AboutScreen = () => {
             </Tab>
             <Tab key="our vission" title="Our vission">
               <section className='h-fit w-full'>
-                <div className='h-fit w-full max-w-[1024px] mx-auto flex flex-col md:flex-row gap-6'>
-                    <div className='h-[200px] w-full md:w-[350px] md:h-[350px] rounded-full '>
-                      <div className='h-[200px] w-full md:w-[350px] md:h-[350px] rounded-full '>
-                        <img src='https://lh4.googleusercontent.com/proxy/DmX2Yo22Z0UtpnAqg0FNbRYLqDrUzMExN69YKgW9aUJtOIHnvcO2M5fPFHXmEE-2TBU4Iq1yWvhaZ1mZqscmIQDnhA' alt='' className='h-full w-full md:w-[350px] md:h-[350px] rounded-full  object-cover' />
-                      </div>
+                <div className='h-fit w-full max-w-[1024px] mx-auto flex flex-col md:flex-row gap-6 md:items-center'>
+                  <div className='h-[200px] w-full md:w-[330px] md:h-[330px] md:min-w-[330px] md:min-h-[330px] md:max-w-[330px] md:max-h-[330px] rounded-[16px] md:rounded-full duration-300 flex items-center relative bg-black'>
+                    <Skeleton className='h-full w-full rounded-[16px] md:rounded-full duration-300 flex items-center absolute bg-[#DA0C0C]'>
+                    
+                    </Skeleton>
+                    <div className='h-full w-full rounded-[16px] md:rounded-full flex items-center absolute bg-black hover:scale-95 duration-300'>
+                      <img src='https://lh4.googleusercontent.com/proxy/DmX2Yo22Z0UtpnAqg0FNbRYLqDrUzMExN69YKgW9aUJtOIHnvcO2M5fPFHXmEE-2TBU4Iq1yWvhaZ1mZqscmIQDnhA' alt='' className='h-full w-full rounded-full  object-cover' />
                     </div>
+                  </div>
                   <div className='flex flex-col gap-4'>
-                    <p className='text-2xl text-black font-bold'>Our Vision</p>
+                    <p className='text-2xl md:text-4xl text-black font-bold'>Our Vision</p>
                     <div className='flex flex-col gap-1'>
                         <p className='text-sm text-black opacity-50 text-justify'>The International Educational Business Campus (IEBC) offers students high-quality educational 
                         experiences and support services designed to ensure successful completion of their qualifications. We promote academic and career success by developing critical thinking, effective communication, creativity, and cultural awareness in a safe, accessible, and affordable learning environment. To meet the needs of our diverse student population, we prioritize equity and accountability through measurable learning outcomes, ethical data driven decisions, and a focus on student achievement.
@@ -124,18 +144,18 @@ const AboutScreen = () => {
       <section className='h-fit w-full'>
         <div className='h-fit w-full max-w-[1024px] mx-auto px-8 flex flex-col md:flex-row gap-6'>
           <div className='flex flex-col gap-4'>
-            <p className='text-2xl text-black font-bold'>Our Values</p>
+            <p className='text-2xl md:text-4xl text-black font-bold'>Our Values</p>
             <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2'>
-              <div className='w-full p-8 border-[1px] border-[#] flex flex-col gap-1'>
+              <div className='w-full p-8 border-[1px] border-[#DA0C0C] border-opacity-25 rounded-[16px] flex flex-col gap-1'>
                 <p className='text-base font-semibold text-black  text-center sm:text-left'>Excellence</p>
                 <p className='text-sm text-black opacity-50 text-justify sm:text-left'>Commitment to providing high quality education and support services that foster academic and career success for all students.</p>
               </div>
-              <div className='w-full p-8 border-[1px] border-[#] flex flex-col gap-2'>
+              <div className='w-full p-8 border-[1px] border-[#DA0C0C] border-opacity-25 rounded-[16px] flex flex-col gap-2'>
                 <p className='text-base font-semibold text-black  text-center sm:text-left'>Inclusivity</p>
                 <p className='text-sm text-black opacity-50 text-justify sm:text-left'>Embracing a diverse and multicultural community, ensuring equity and accessibility in all 
                 aspects of the learning environment.</p>
               </div>
-              <div className='w-full sm:col-span-2 lg:col-span-1 p-8 border-[1px] border-[#] flex flex-col gap-2'>
+              <div className='w-full sm:col-span-2 lg:col-span-1 p-8 border-[1px] border-[#DA0C0C] border-opacity-25 rounded-[16px] flex flex-col gap-2'>
                 <p className='text-base font-semibold text-black  text-center sm:text-left'>Integrity</p>
                 <p className='text-sm text-black opacity-50 text-justify sm:text-left'>Upholding ethical standards and accountability through transparent, data-driven decisions 
                 and measurable outcomes that promote student achievement</p>
@@ -149,11 +169,14 @@ const AboutScreen = () => {
 
       <section className='h-fit w-full'>
         <div className='h-fit w-full max-w-[1024px] mx-auto px-8 flex flex-col gap-6'>
-          <p className='text-2xl text-black font-bold'>Culture and Structure</p>
+          <p className='text-2xl md:text-4xl text-black font-bold'>Culture and Structure</p>
           <div className='h-fit w-full flex flex-col md:flex-row gap-6 lg:gap-12 md:items-center'>      
-            <div className='h-[200px] w-full md:w-[350px] md:h-[350px] rounded-full '>
-              <div className='h-[200px] w-full md:w-[350px] md:h-[350px] rounded-full '>
-                <img src='https://dmh.lacounty.gov/wp-content/uploads/2021/10/LACDMH_Connecting-Our-Community_cc.png' alt='' className='h-full w-full md:w-[350px] md:h-[350px] rounded-full  object-cover' />
+            <div className='h-[200px] w-full md:w-[330px] md:h-[330px] md:min-w-[330px] md:min-h-[330px] md:max-w-[330px] md:max-h-[330px] rounded-[16px] md:rounded-full duration-300 flex items-center relative bg-black'>
+              <Skeleton className='h-full w-full rounded-[16px] md:rounded-full duration-300 flex items-center absolute bg-[#DA0C0C]'>
+              
+              </Skeleton>
+              <div className='h-full w-full rounded-[16px] md:rounded-full flex items-center absolute bg-black hover:scale-95 duration-300'>
+                <img src='https://dmh.lacounty.gov/wp-content/uploads/2021/10/LACDMH_Connecting-Our-Community_cc.png' alt='' className='h-full w-full rounded-full  object-cover' />
               </div>
             </div>
             <div className='w-full flex flex-col gap-4'>

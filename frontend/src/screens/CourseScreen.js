@@ -247,8 +247,8 @@ const CourseScreen = () => {
                                 
                                 
                             </div>
-                            <Button onClick={() => toPDF()} variant='bordered' color='danger'>
-                                <p className='text-2xl text-[#DA0C0C] font-black'>E</p>
+                            <Button onClick={() => toPDF()} variant='solid' color='danger' className='w-fit bg-blue-950 text-white' >
+                                <p className='text-2xl font-black'>E</p>
                                 <p>Brouchers</p>
                             </Button>
                         </div>

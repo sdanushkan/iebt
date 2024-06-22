@@ -176,6 +176,14 @@ class Page(models.Model):
     
     def __str__(self):
         return self.name
+    
+class Testimonial(models.Model):
+    name = models.CharField(max_length=200, null=True, blank=True)
+    position = models.CharField(max_length=200, null=True, blank=True)
+    description = RichTextField(blank=True, null=True)
+    
+    def __str__(self):
+        return self.name
 
 class PageCoverImage(models.Model):
     image = models.ImageField(null=True, blank=True, default='/page/image/placeholder.png', upload_to='page/')
