@@ -57,6 +57,7 @@ const Header = () => {
         classNames={{
           item: [
             "flex",
+            "flex-col",
             "relative",
             "h-full",
             "px-0",
@@ -207,6 +208,9 @@ const Header = () => {
                   </Button>
                 </div>
             </div>
+            <section className=' flex items-center justify-center gap-4 py-2 bg-gray-100 fixed top-[90px]'>
+              <Link className='text-sm '>About</Link>
+            </section>
             {/* <Progress
             size="sm"
             isIndeterminate
@@ -214,6 +218,7 @@ const Header = () => {
             className="max-w-md"
             /> */}
         </Navbar>
+        
 
 
         {/* side navbar */}

@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Faculty, Level, QualificationApproval, Course, OurQualification, Contact, Country, FAQ, About, AbroadApplication, CountryCategory
+from .models import Faculty, Level, QualificationApproval, Course, OurQualification, Contact, Country, FAQ, About, AbroadApplication, CountryCategory, Testimonial
 
 class FacultySerializer(serializers.ModelSerializer):
     class Meta:
@@ -73,6 +73,11 @@ class CountrySerializer(serializers.ModelSerializer):
 class FAQSerializer(serializers.ModelSerializer):
     class Meta:
         model = FAQ
+        fields = '__all__'  
+
+class TestimonialSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Testimonial
         fields = '__all__'  
 
 class AboutSerializer(serializers.ModelSerializer):

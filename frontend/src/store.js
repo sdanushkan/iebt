@@ -3,7 +3,7 @@ import { thunk }  from 'redux-thunk'
 import { configureStore } from '@reduxjs/toolkit'
 // import { composeWithDevTools } from 'redux-devtools-extension'
 import { aboutDetailsReducer, courseListReducer, facultyListReducer, levelListReducer } from './reducers/courseReducers'
-import { countryListReducer } from './reducers/abroadReducers'
+import { countryListReducer, testimonialListReducer } from './reducers/abroadReducers'
 // import { countryListReducer } from './reducers/countryReducers'
 // import { applicationCreateReducer, contactCreateReducer, serviceListReducer } from './reducers/serviceReducers'
 // import { userActivationReducer, userForgotPasswordLinkReducer, userForgotPasswordReducer, userLoginReducer, userRegisterReducer } from './reducers/userReducers'
@@ -16,6 +16,7 @@ const reducer = combineReducers({
     levelList : levelListReducer,
 
     countryList :countryListReducer,
+    testimonialList : testimonialListReducer,
     
 })
 

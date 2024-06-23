@@ -172,10 +172,10 @@ const CountryScreen = () => {
                   size='lg'
                 >
                   {
-                    nCountry.discription != "<p>null</p>" ?
+                    nCountry.discription != "" ?
                     <Tab key={`Study in ${nCountry.name}`} title={`Study in ${nCountry.name}`}>
                       <div className={
-                        nCountry.discription == "<p>null</p>"?
+                        nCountry.discription == ""?
                         'hidden bg-red-50 p-8 rounded-[8px] flex-col gap-4 ':
                         ' bg-red-50 p-8 rounded-[8px] flex flex-col gap-4 '
                       }>
@@ -189,10 +189,10 @@ const CountryScreen = () => {
                   }
                
                   {
-                    nCountry.details_and_scholarship != "<p>null</p>" ?
+                    nCountry.details_and_scholarship != "" ?
                     <Tab key="Details And Scholarship" title="Details And Scholarship">
                       <div className={
-                        nCountry.details_and_scholarship == "<p>null</p>"?
+                        nCountry.details_and_scholarship == ""?
                         'hidden bg-red-50 p-8 rounded-[8px] flex-col gap-4 ':
                         ' bg-red-50 p-8 rounded-[8px] flex flex-col gap-4 '
                       }>
@@ -205,10 +205,10 @@ const CountryScreen = () => {
                     ''
                   }
                   {
-                    nCountry.visa_reqrequirementi != "<p>null</p>" ?
+                    nCountry.visa_reqrequirementi != "" ?
                     <Tab key="Student Visa Requirements" title="Student Visa Requirements">
                       <div className={
-                        nCountry.visa_reqrequirementi == "<p>null</p>"?
+                        nCountry.visa_reqrequirementi == ""?
                         'hidden bg-red-50 p-8 rounded-[8px] flex-col gap-4 ':
                         ' bg-red-50 p-8 rounded-[8px] flex flex-col gap-4 '
                       }>
@@ -224,10 +224,10 @@ const CountryScreen = () => {
                
                   
                   {
-                    nCountry.details_and_scholarship != "<p>null</p>" ?
+                    nCountry.details_and_scholarship != "" ?
                     <Tab key="University Details and Scholarships" title="University Details and Scholarships">
                       <div className={
-                        nCountry.details_and_scholarship == "<p>null</p>"?
+                        nCountry.details_and_scholarship == ""?
                         'hidden bg-red-50 p-8 rounded-[8px] flex-col gap-4 ':
                         ' bg-red-50 p-8 rounded-[8px] flex flex-col gap-4 '
                       }>
@@ -240,11 +240,11 @@ const CountryScreen = () => {
                     ''
                   }
 
-{
-                    nCountry.FAQ != "<p>null</p>" ?
+                  {
+                    nCountry.FAQ != "" ?
                     <Tab key="FAQ" title="FAQ">
                       <div className={
-                        nCountry.FAQ == "<p>null</p>"?
+                        nCountry.FAQ == ""?
                         'hidden bg-red-50 p-8 rounded-[8px] flex-col gap-4 ':
                         ' bg-red-50 p-8 rounded-[8px] flex flex-col gap-4 '
                       }>

@@ -179,7 +179,8 @@ class Page(models.Model):
     
 class Testimonial(models.Model):
     name = models.CharField(max_length=200, null=True, blank=True)
-    position = models.CharField(max_length=200, null=True, blank=True)
+    course = models.ForeignKey(Course, on_delete=models.SET_NULL, null=True, blank=True)
+    page = models.ForeignKey(Page, on_delete=models.SET_NULL, null=True, blank=True)
     description = RichTextField(blank=True, null=True)
     
     def __str__(self):

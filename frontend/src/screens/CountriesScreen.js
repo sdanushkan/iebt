@@ -40,6 +40,7 @@ import 'swiper/css/pagination';
 
 import { Pagination, Autoplay, FreeMode } from 'swiper/modules';
 import ReactPlayer from 'react-player'
+import CountUp from 'react-countup';
 
 
 const CountriesScreen = () => {
@@ -86,6 +87,7 @@ const CountriesScreen = () => {
 
   return ( 
     <div className='flex flex-col gap-12 pb-12'>
+      
       {/* <section className='h-fit w-full relative px-8 bg-[#DA0C0C]'>
         <div className='h-fit w-full max-w-[1100px] mx-auto justify-center gap-6 grid grid-col-2 md:grid-cols-3 lg:grid-cols-4  text-white py-12 rounded-[16px]'>
           <div className='w-full flex flex-col items-center justify-center'>
@@ -238,6 +240,29 @@ const CountriesScreen = () => {
           </div>
       </section>
 
+      <section className='h-fit w-full relative px-8 '>
+        <div className='h-fit w-full max-w-[1024px] mx-auto justify-center gap-6 grid grid-col-2 md:grid-cols-3 lg:grid-cols-4 bg-red-800 text-white py-12 rounded-[16px]'>
+          <div className='w-full flex flex-col items-center justify-center'>
+            
+
+            <p className='text-4xl font-bold'><CountUp duration={5} end={100} />%</p>
+            <p className='text-sm font-medium'>Satisfication</p>
+          </div>
+          <div className='w-full flex flex-col items-center justify-center'>
+            <p className='text-4xl font-bold'><CountUp duration={5} end={40} />+</p>
+            <p className='text-sm font-medium'>Countries</p>
+          </div>
+          <div className='w-full flex flex-col items-center justify-center'>
+            <p className='text-4xl font-bold'><CountUp duration={5} end={300} />+</p>
+            <p className='text-sm font-medium'>Universities</p>
+          </div>
+          <div className='w-full flex flex-col items-center justify-center'>
+            <p className='text-4xl font-bold'><CountUp duration={5} end={60} />+</p>
+            <p className='text-sm font-medium'>Success Clients</p>
+          </div>
+        </div>
+      </section>
+
       {/* <section className='w-full h-fit relative '>
           <div className='w-full max-w-[1100px] mx-auto flex flex-col md:flex-row items-center gap-8 md:gap-16 justify-between px-8'>
             <div className='bg-black h-[300px] w-full md:w-[400px]'>
@@ -329,7 +354,7 @@ const CountriesScreen = () => {
       <section className='h-fit w-full bg-red-50 py-8 lg:py-12'>
         <div className='h-fit w-full max-w-[1100px] mx-auto px-8 flex flex-col'>
           
-          <div className='w-full flex flex-col md:flex-row gap-8 text-justify md:justify-between'>
+          <div className='w-full flex flex-col md:flex-row gap-16 items-center text-justify md:justify-between'>
             <div className='lg:max-w-[350px] flex flex-col gap-2'>
               <p className='text-2xl md:text-4xl font-bold text-[#DA0C0C] text-left'>IMMIGRATION SERVICES</p>
               <p className=''>IEBC ensures a smooth travel for your educational purpose abroad. Start with our free counselling first</p>
@@ -339,16 +364,28 @@ const CountriesScreen = () => {
                 Explore our student services
               </Button>
             </div>
-            <div className='flex flex-col gap-4 w-full max-w-md'>
+            <div className='lg:max-w-[350px] flex flex-col gap-2'>
+              <p className='text-2xl md:text-4xl font-bold text-[#DA0C0C] text-left'>About our constaltancy</p>
+              <p className=''>IEBC ensures a smooth travel for your educational purpose abroad. Start with our free counselling first</p>
+              <Button endContent={
+                    <GrFormNextLink />
+                } className='w-fit font-medium bg-[#DA0C0C] text-white mt-4'>
+                Explore our student services
+              </Button>
+            </div>
+            <div className='flex flex-col gap-4 w-full max-w-md relative'>
+              <img src='https://www.marketsquaredental.com/files/2011/08/book-now.png' alt='' className='absolute w-full h-full opacity-25 object-contain scale-110' />
               <p className='text-xl font-semibold'>Book an Appointment</p>
               <div className='w-full flex flex-col gap-4 '>
                 <Input isClearable  variant='flat' type='text' placeholder='Name'></Input>
+                <div className='flex gap-4'>
                 <Input isClearable  variant='flat' type='email' placeholder='Email'></Input>
                 <Input isClearable  variant='flat' type='number' placeholder='Mobile number' startContent={
                   <div className="pointer-events-none flex items-center">
                     <span className="text-default-400 text-small">+94</span>
                   </div>
                 }></Input>
+                </div>
                 <div className='h-fit w-fit relative flex'>
                   <DatePicker
                     selected={startDate}
@@ -366,29 +403,7 @@ const CountriesScreen = () => {
                   <div className='absolute top-1/2  transform right-2 -translate-y-1/2'>
                     <IoCalendar/>
                   </div>
-                </div>
-                <Select 
-                    className="w-full" 
-                    // selectedKeys={pLocation}
-                    // onSelectionChange={setPLocation}
-                    variant=''
-                    placeholder='Preferred Study Destination'
-                    required
-                    size='md'
-
-                >
-                    {
-                      loading?
-                      "":
-                      countries?
-                      countries.map(i => (
-                        <SelectItem key={i.slug} value={i.slug} className=''>
-                            {i.name}
-                        </SelectItem>
-                      )):''
-                    }
-                </Select>
-                <Select 
+                  <Select 
                     className="w-full" 
                     // selectedKeys={pLocation}
                     // onSelectionChange={setPLocation}
@@ -408,29 +423,54 @@ const CountriesScreen = () => {
                         2028
                     </SelectItem>
                 </Select>
-                <Select 
-                    className="w-full" 
-                    // selectedKeys={pLocation}
-                    // onSelectionChange={setPLocation}
-                    variant=''
-                    placeholder='Study Intake'
-                    required
-                    size='md'
+                </div>
+                <div className='flex gap-2'>
+                  <Select 
+                      className="w-full" 
+                      // selectedKeys={pLocation}
+                      // onSelectionChange={setPLocation}
+                      variant=''
+                      placeholder='Preferred Study Destination'
+                      required
+                      size='md'
 
-                >
-                    <SelectItem key='January – March' className=''>
-                        January – March
-                    </SelectItem>
-                    <SelectItem key='July – September' className=''>
-                        July – September
-                    </SelectItem>
-                    <SelectItem key='October – December' className=''>
-                        October – December
-                    </SelectItem>
-                    <SelectItem key='I’m Not Sure' className=''>
-                        I’m Not Sure
-                    </SelectItem>
-                </Select>
+                  >
+                      {
+                        loading?
+                        "":
+                        countries?
+                        countries.map(i => (
+                          <SelectItem key={i.slug} value={i.slug} className=''>
+                              {i.name}
+                          </SelectItem>
+                        )):''
+                      }
+                  </Select>
+                  <Select 
+                      className="w-full" 
+                      // selectedKeys={pLocation}
+                      // onSelectionChange={setPLocation}
+                      variant=''
+                      placeholder='Study Intake'
+                      required
+                      size='md'
+
+                  >
+                      <SelectItem key='January – March' className=''>
+                          January – March
+                      </SelectItem>
+                      <SelectItem key='July – September' className=''>
+                          July – September
+                      </SelectItem>
+                      <SelectItem key='October – December' className=''>
+                          October – December
+                      </SelectItem>
+                      <SelectItem key='I’m Not Sure' className=''>
+                          I’m Not Sure
+                      </SelectItem>
+                  </Select>
+                </div>
+                
                 <Button variant='solid' color='danger' endContent={
                     <GrFormNextLink />
                 } className='w-fit font-medium bg-[#DA0C0C] text-white mt-4'>
@@ -442,7 +482,7 @@ const CountriesScreen = () => {
         </div>
       </section>
 
-      <section className='h-fit w-full '>
+      {/* <section className='h-fit w-full '>
         <div className='h-fit w-full max-w-[1100px] mx-auto px-8 flex flex-col '>
           
           <div className='w-full flex flex-col gap-4 text-justify'>
@@ -512,9 +552,370 @@ const CountriesScreen = () => {
                 Learn more
               </Button>
         </div>
+      </section> */}
+
+      <section className='h-fit w-full relative overflow-hidden px-8'>
+        <div className='h-fit w-full max-w-[1024px] mx-auto overflow-visible'>
+            {/* <div className='flex flex-col pb-8'>
+              <p className='uppercase text-xs text-center'>Resources</p>
+              <p className='text-2xl lg:text-4xl font-bold text-center'>Our Resources</p>
+            </div> */}
+
+            <div className='hidden md:block'>
+              <Swiper
+                slidesPerView={3}
+                spaceBetween={10}
+                freeMode={true}
+                pagination={{
+                  clickable: true,
+                }}
+                autoplay
+                modules={[FreeMode, Pagination, Autoplay]}
+                className=""
+              >
+                <SwiperSlide className='h-[300px] w-full relative mt-4 mb-12'>
+                  <div className='h-[200px] w-full relative z-10'>
+                    <div className='h-fit w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px] overflow-hidden'>
+                    <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fweb.facebook.com%2Fiebc.lk%2Fvideos%2F390059596804608%2F&show_text=false&width=560&t=0" height={'100%'} width={'full'} className='w-full h-full object-cover' frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+                    </div>
+                  </div>
+                  <div className='w-full h-[100px] rounded-[8px] bg-[#DA0C0C] absolute bottom-0 -z-30'>
+
+                  </div>
+                </SwiperSlide>
+                <SwiperSlide className='h-[300px] w-full relative mt-4 mb-12'>
+                  <div className='h-[200px] w-full relative z-10'>
+                    <div className='h-fit w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px] overflow-hidden'>
+                      <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fweb.facebook.com%2Fiebc.lk%2Fvideos%2F1113865666370498%2F&show_text=false&width=560&t=0" height={'100%'} width={'full'} className='w-full h-full object-cover' frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+                    </div>
+                  </div>
+                  <div className='w-full h-[100px] rounded-[8px] bg-[#DA0C0C] absolute bottom-0 -z-30'>
+
+                  </div>
+                </SwiperSlide>
+                <SwiperSlide className='h-[300px] w-full relative mt-4 mb-12'>
+                  <div className='h-[200px] w-full relative z-10'>
+                    <div className='h-fit w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px] overflow-hidden'>
+                    <iframe src="https://www.facebook.com/plugins/video.php?height=311&href=https%3A%2F%2Fwww.facebook.com%2FIEBCGlobal%2Fvideos%2F2909785615957489%2F&show_text=false&width=560&t=0" height={'100%'} width={'full'} className='w-full h-full object-cover'  frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+                    </div>
+                  </div>
+                  <div className='w-full h-[100px] rounded-[8px] bg-[#DA0C0C] absolute bottom-0 -z-30'>
+
+                  </div>
+                </SwiperSlide>
+                <SwiperSlide className='h-[300px] w-full relative mt-4 mb-12'>
+                  <div className='h-[200px] w-full relative z-10'>
+                    <div className='h-fit w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px] overflow-hidden'>
+                      <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fweb.facebook.com%2FIEBCGlobal%2Fvideos%2F137729791776490%2F&show_text=false&width=560&t=0" height={'100%'} width={'full'} className='w-full h-full object-cover' frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+                    </div>
+                  </div>
+                  <div className='w-full h-[100px] rounded-[8px] bg-[#DA0C0C] absolute bottom-0 -z-30'>
+
+                  </div>
+                </SwiperSlide>
+                {/* <SwiperSlide className='h-[300px] w-full relative mt-4 mb-12'>
+                  <div className='h-[200px] w-full relative z-10'>
+                    <div className='h-fit w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px] overflow-hidden'>
+                        <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fweb.facebook.com%2Fiebc.lk%2Fvideos%2F390059596804608%2F&show_text=false&width=560&t=0" height={'100%'} width={'full'} className='w-full h-full object-cover' frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+                    </div>
+                  </div>
+                  <div className='w-full h-[100px] rounded-[8px] bg-[#DA0C0C] absolute bottom-0 -z-30'>
+
+                  </div>
+                </SwiperSlide>
+                <SwiperSlide className='h-[300px] w-full relative mt-4 mb-12'>
+                  <div className='h-[200px] w-full relative z-10'>
+                    <div className='h-fit w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px] overflow-hidden'>
+                        <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fweb.facebook.com%2Fiebc.lk%2Fvideos%2F390059596804608%2F&show_text=false&width=560&t=0" height={'100%'} width={'full'} className='w-full h-full object-cover' frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+                    </div>
+                  </div>
+                  <div className='w-full h-[100px] rounded-[8px] bg-[#DA0C0C] absolute bottom-0 -z-30'>
+
+                  </div>
+                </SwiperSlide> */}
+              </Swiper>
+            </div>
+
+            <div className='hidden sm:block md:hidden'>
+              <Swiper
+                slidesPerView={2}
+                spaceBetween={10}
+                freeMode={true}
+                pagination={{
+                  clickable: true,
+                }}
+                autoplay
+                modules={[FreeMode, Pagination, Autoplay]}
+                className=""
+              >
+                <SwiperSlide className='h-[300px] w-full relative mt-4 mb-12'>
+                  <div className='h-[200px] w-full relative z-10'>
+                    <div className='h-fit w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px] overflow-hidden'>
+                        <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fweb.facebook.com%2Fiebc.lk%2Fvideos%2F390059596804608%2F&show_text=false&width=560&t=0" height={'100%'} width={'full'} className='w-full h-full object-cover' frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+                    </div>
+                  </div>
+                  <div className='w-full h-[100px] rounded-[8px] bg-[#DA0C0C] absolute bottom-0 -z-30'>
+
+                  </div>
+                </SwiperSlide>
+                <SwiperSlide className='h-[300px] w-full relative mt-4 mb-12'>
+                      <div className='h-[200px] w-full relative z-10'>
+                        <div className='h-fit w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px] overflow-hidden'>
+                            <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fweb.facebook.com%2Fiebc.lk%2Fvideos%2F390059596804608%2F&show_text=false&width=560&t=0" height={'100%'} width={'full'} className='w-full h-full object-cover' frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+                        </div>
+                      </div>
+                      <div className='w-full h-[100px] rounded-[8px] bg-[#DA0C0C] absolute bottom-0 -z-30'>
+
+                      </div>
+                </SwiperSlide>
+                <SwiperSlide className='h-[300px] w-full relative mt-4 mb-12'>
+                  <div className='h-[200px] w-full relative z-10'>
+                    <div className='h-fit w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px] overflow-hidden'>
+                        <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fweb.facebook.com%2Fiebc.lk%2Fvideos%2F390059596804608%2F&show_text=false&width=560&t=0" height={'100%'} width={'full'} className='w-full h-full object-cover' frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+                    </div>
+                  </div>
+                  <div className='w-full h-[100px] rounded-[8px] bg-[#DA0C0C] absolute bottom-0 -z-30'>
+
+                  </div>
+                </SwiperSlide>
+                {/* <SwiperSlide className='h-[300px] w-full relative mt-4 mb-12'>
+                  <div className='h-[200px] w-full relative z-10'>
+                    <div className='h-fit w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px] overflow-hidden'>
+                        <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fweb.facebook.com%2Fiebc.lk%2Fvideos%2F390059596804608%2F&show_text=false&width=560&t=0" height={'100%'} width={'full'} className='w-full h-full object-cover' frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+                    </div>
+                  </div>
+                  <div className='w-full h-[100px] rounded-[8px] bg-[#DA0C0C] absolute bottom-0 -z-30'>
+
+                  </div>
+                </SwiperSlide>
+                <SwiperSlide className='h-[300px] w-full relative mt-4 mb-12'>
+                  <div className='h-[200px] w-full relative z-10'>
+                    <div className='h-fit w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px] overflow-hidden'>
+                        <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fweb.facebook.com%2Fiebc.lk%2Fvideos%2F390059596804608%2F&show_text=false&width=560&t=0" height={'100%'} width={'full'} className='w-full h-full object-cover' frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+                    </div>
+                  </div>
+                  <div className='w-full h-[100px] rounded-[8px] bg-[#DA0C0C] absolute bottom-0 -z-30'>
+
+                  </div>
+                </SwiperSlide> */}
+              </Swiper>
+            </div>
+
+            <div className='sm:hidden'>
+              <Swiper
+                slidesPerView={1}
+                spaceBetween={10}
+                freeMode={true}
+                pagination={{
+                  clickable: true,
+                }}
+                autoplay
+                modules={[FreeMode, Pagination, Autoplay]}
+                className=""
+              >
+                <SwiperSlide className='h-[300px] w-full relative mt-4 mb-12'>
+                  <div className='h-[200px] w-full relative z-10'>
+                    <div className='h-fit w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px] overflow-hidden'>
+                      <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fweb.facebook.com%2Fiebc.lk%2Fvideos%2F390059596804608%2F&show_text=false&width=560&t=0" height={'100%'} width={'full'} className='w-full h-full object-cover' frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+                    </div>
+                  </div>
+                  <div className='w-full h-[100px] rounded-[8px] bg-[#DA0C0C] absolute bottom-0 -z-30'>
+
+                  </div>
+                </SwiperSlide>
+                <SwiperSlide className='h-[300px] w-full relative mt-4 mb-12'>
+                  <div className='h-[200px] w-full relative z-10'>
+                    <div className='h-fit w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px] overflow-hidden'>
+                      <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fweb.facebook.com%2Fiebc.lk%2Fvideos%2F390059596804608%2F&show_text=false&width=560&t=0" height={'100%'} width={'full'} className='w-full h-full object-cover' frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+                    </div>
+                  </div>
+                  <div className='w-full h-[100px] rounded-[8px] bg-[#DA0C0C] absolute bottom-0 -z-30'>
+
+                  </div>
+                </SwiperSlide>
+                <SwiperSlide className='h-[300px] w-full relative mt-4 mb-12'>
+                  <div className='h-[200px] w-full relative z-10'>
+                    <div className='h-fit w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px] overflow-hidden'>
+                      <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fweb.facebook.com%2Fiebc.lk%2Fvideos%2F390059596804608%2F&show_text=false&width=560&t=0" height={'100%'} width={'full'} className='w-full h-full object-cover' frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+                    </div>
+                  </div>
+                  <div className='w-full h-[100px] rounded-[8px] bg-[#DA0C0C] absolute bottom-0 -z-30'>
+
+                  </div>
+                </SwiperSlide>
+                <SwiperSlide className='h-[300px] w-full relative mt-4 mb-12'>
+                  <div className='h-[200px] w-full relative z-10'>
+                    <div className='h-fit w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px] overflow-hidden'>
+                      <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fweb.facebook.com%2Fiebc.lk%2Fvideos%2F390059596804608%2F&show_text=false&width=560&t=0" height={'100%'} width={'full'} className='w-full h-full object-cover' frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+                    </div>
+                  </div>
+                  <div className='w-full h-[100px] rounded-[8px] bg-[#DA0C0C] absolute bottom-0 -z-30'>
+
+                  </div>
+                </SwiperSlide>
+                {/* <SwiperSlide className='h-[300px] w-full relative mt-4 mb-12'>
+                  <div className='h-[200px] w-full relative z-10'>
+                    <div className='h-fit w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px] overflow-hidden'>
+                        <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fweb.facebook.com%2Fiebc.lk%2Fvideos%2F390059596804608%2F&show_text=false&width=560&t=0" height={'100%'} width={'full'} className='w-full h-full object-cover' frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+                    </div>
+                  </div>
+                  <div className='w-full h-[100px] rounded-[8px] bg-[#DA0C0C] absolute bottom-0 -z-30'>
+
+                  </div>
+                </SwiperSlide>
+                <SwiperSlide className='h-[300px] w-full relative mt-4 mb-12'>
+                  <div className='h-[200px] w-full relative z-10'>
+                    <div className='h-fit w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px] overflow-hidden'>
+                        <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fweb.facebook.com%2Fiebc.lk%2Fvideos%2F390059596804608%2F&show_text=false&width=560&t=0" height={'100%'} width={'full'} className='w-full h-full object-cover' frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+                    </div>
+                  </div>
+                  <div className='w-full h-[100px] rounded-[8px] bg-[#DA0C0C] absolute bottom-0 -z-30'>
+
+                  </div>
+                </SwiperSlide>
+                <SwiperSlide className='h-[300px] w-full relative mt-4 mb-12'>
+                  <div className='h-[200px] w-full relative z-10'>
+                    <div className='h-fit w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px] overflow-hidden'>
+                        <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fweb.facebook.com%2Fiebc.lk%2Fvideos%2F390059596804608%2F&show_text=false&width=560&t=0" height={'100%'} width={'full'} className='w-full h-full object-cover' frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+                    </div>
+                  </div>
+                  <div className='w-full h-[100px] rounded-[8px] bg-[#DA0C0C] absolute bottom-0 -z-30'>
+
+                  </div>
+                </SwiperSlide> */}
+              </Swiper>
+            </div>
+
+        </div>
       </section>
 
-      <section className='h-fit w-full '>
+      <section className='h-fit w-full relative overflow-hidden px-8'>
+        <div className='h-fit w-full max-w-[1024px] mx-auto overflow-visible'>
+            <div className='flex flex-col pb-8'>
+              <p className='uppercase text-xs text-center'text-center>Our Students Testimonials</p>
+              <p className='text-2xl lg:text-4xl font-bold text-center'>Students Say’s About Our Campus</p>
+            </div>
+
+            <div className='h-fit hidden sm:flex'>
+            <Swiper
+                slidesPerView={2}
+                spaceBetween={25}
+                freeMode={true}
+                pagination={{
+                  clickable: true,
+                }}
+                autoplay
+                modules={[FreeMode, Pagination, Autoplay]}
+                className=""
+              >
+                <SwiperSlide className='max-h-[300px] w-full mt-2 mb-12 bg-red-50 p-6 md:p-12 rounded-[8px] relative overflow-hidden '>
+                  {/* <div className='h-[100px] w-[100px] absolute top-0 right-0 bg-[#DA0C0C] rotate-45 -z-20'>
+
+                  </div> */}
+                  <div className='h-fit flex flex-col'>
+                    <p className='text-lg font-bold text-[#DA0C0C] capitalize'>Ayesh hiruni</p>
+                    <p className='capitalize text-sm font-medium text-gray-500 '>veritual assistance</p>
+                    <p className='capitalize text-sm font-medium text-gray-500 '>Selan Bank</p>
+                  </div>
+                  <div className='h-[1px] w-full bg-red-100 my-4'></div>
+                  <div className='max-h-fit py-2'>
+                    <p className='text-base font-semibold'>"Lorem ipsum dolor sit amet consectetur. In nisl arcu risus at eu ipsum nunc magnis integer. Tristique aliquam risus mauris vitae adipiscing sit eget tristique."</p>
+                  </div>
+                </SwiperSlide>
+
+                <SwiperSlide className='max-h-[300px] w-full mt-2 mb-12 bg-red-50 p-6 md:p-12 rounded-[8px] relative overflow-hidden '>
+                  {/* <div className='h-[100px] w-[100px] absolute top-0 right-0 bg-[#DA0C0C] rotate-45 -z-20'>
+
+                  </div> */}
+                  <div className='h-fit flex flex-col'>
+                    <p className='text-lg font-bold text-[#DA0C0C] capitalize'>Ayesh hiruni</p>
+                    <p className='capitalize text-sm font-medium text-gray-500 '>veritual assistance</p>
+                    <p className='capitalize text-sm font-medium text-gray-500 '>Selan Bank</p>
+                  </div>
+                  <div className='h-[1px] w-full bg-red-100 my-4'></div>
+                  <div className='max-h-fit py-2'>
+                    <p className='text-base font-semibold'>"Lorem ipsum dolor sit amet consectetur. In nisl arcu risus at eu ipsum nunc magnis integer. Tristique aliquam risus mauris vitae adipiscing sit eget tristique."</p>
+                  </div>
+                </SwiperSlide>
+                <SwiperSlide className='max-h-[300px] w-full mt-2 mb-12 bg-red-50 p-6 md:p-12 rounded-[8px] relative overflow-hidden '>
+                  {/* <div className='h-[100px] w-[100px] absolute top-0 right-0 bg-[#DA0C0C] rotate-45 -z-20'>
+
+                  </div> */}
+                  <div className='h-fit flex flex-col'>
+                    <p className='text-lg font-bold text-[#DA0C0C] capitalize'>Ayesh hiruni</p>
+                    <p className='capitalize text-sm font-medium text-gray-500 '>veritual assistance</p>
+                    <p className='capitalize text-sm font-medium text-gray-500 '>Selan Bank</p>
+                  </div>
+                  <div className='h-[1px] w-full bg-red-100 my-4'></div>
+                  <div className='max-h-fit py-2'>
+                    <p className='text-base font-semibold'>"Lorem ipsum dolor sit amet consectetur. In nisl arcu risus at eu ipsum nunc magnis integer. Tristique aliquam risus mauris vitae adipiscing sit eget tristique."</p>
+                  </div>
+                </SwiperSlide>
+              </Swiper>
+            </div>
+
+            <div className='sm:hidden'>
+              <Swiper
+                slidesPerView={1}
+                spaceBetween={25}
+                freeMode={true}
+                pagination={{
+                  clickable: true,
+                }}
+                autoplay
+                modules={[FreeMode, Pagination, Autoplay]}
+                className=""
+              >
+                <SwiperSlide className='max-h-[300px] w-full mt-2 mb-12 bg-red-50 p-6 md:p-12 rounded-[8px] relative overflow-hidden '>
+                  {/* <div className='h-[100px] w-[100px] absolute top-0 right-0 bg-[#DA0C0C] rotate-45 -z-20'>
+
+                  </div> */}
+                  <div className='flex flex-col'>
+                    <p className='text-lg font-bold text-[#DA0C0C] capitalize'>Ayesh hiruni</p>
+                    <p className='capitalize text-sm font-medium text-gray-500 '>veritual assistance</p>
+                    <p className='capitalize text-sm font-medium text-gray-500 '>Selan Bank</p>
+                  </div>
+                  <div className='h-[1px] w-full bg-red-100 my-4'></div>
+                  <div className='max-h-fit py-2'>
+                    <p className='text-base font-semibold'>"Lorem ipsum dolor sit amet consectetur. In nisl arcu risus at eu ipsum nunc magnis integer. Tristique aliquam risus mauris vitae adipiscing sit eget tristique."</p>
+                  </div>
+                </SwiperSlide>
+                <SwiperSlide className='max-h-[300px] w-full mt-2 mb-12 bg-red-50 p-6 md:p-12 rounded-[8px] relative overflow-hidden '>
+                  {/* <div className='h-[100px] w-[100px] absolute top-0 right-0 bg-[#DA0C0C] rotate-45 -z-20'>
+
+                  </div> */}
+                  <div className='flex flex-col'>
+                    <p className='text-lg font-bold text-[#DA0C0C] capitalize'>Ayesh hiruni</p>
+                    <p className='capitalize text-sm font-medium text-gray-500 '>veritual assistance</p>
+                    <p className='capitalize text-sm font-medium text-gray-500 '>Selan Bank</p>
+                  </div>
+                  <div className='h-[1px] w-full bg-red-100 my-4'></div>
+                  <div className='max-h-fit py-2'>
+                    <p className='text-base font-semibold'>"Lorem ipsum dolor sit amet consectetur. In nisl arcu risus at eu ipsum nunc magnis integer. Tristique aliquam risus mauris vitae adipiscing sit eget tristique."</p>
+                  </div>
+                </SwiperSlide>
+
+                <SwiperSlide className='max-h-[300px] w-full mt-2 mb-12 bg-red-50 p-6 md:p-12 rounded-[8px] relative overflow-hidden '>
+                  {/* <div className='h-[100px] w-[100px] absolute top-0 right-0 bg-[#DA0C0C] rotate-45 -z-20'>
+
+                  </div> */}
+                  <div className='flex flex-col'>
+                    <p className='text-lg font-bold text-[#DA0C0C] capitalize'>Ayesh hiruni</p>
+                    <p className='capitalize text-sm font-medium text-gray-500 '>veritual assistance</p>
+                    <p className='capitalize text-sm font-medium text-gray-500 '>Selan Bank</p>
+                  </div>
+                  <div className='h-[1px] w-full bg-red-100 my-4'></div>
+                  <div className='max-h-fit py-2'>
+                    <p className='text-base font-semibold'>"Lorem ipsum dolor sit amet consectetur. In nisl arcu risus at eu ipsum nunc magnis integer. Tristique aliquam risus mauris vitae adipiscing sit eget tristique."</p>
+                  </div>
+                </SwiperSlide>
+              </Swiper>
+            </div>
+
+        </div>
+      </section>
+
+      {/* <section className='h-fit w-full '>
         <div className='h-fit w-full max-w-[1100px] mx-auto px-8 flex flex-col gap-6'>
           <p className='text-2xl md:text-4xl font-bold text-[#DA0C0C] text-center'>LANGUAGE ENTRY TEST</p>
           <div className='h-fit w-full flex flex-col md:flex-row gap-6 lg:gap-12'>      
@@ -539,7 +940,7 @@ const CountriesScreen = () => {
       <section className='h-fit w-full '>
         <div className='h-fit w-full max-w-[1100px] mx-auto px-8 flex flex-col gap-6'>
           <p className='text-2xl md:text-4xl font-bold text-[#DA0C0C] text-center'>LIVING ABROAD</p>
-          {/* <div className='h-fit max-w-full grid grid-cols-1 md:grid-cols-2 gap-4'>
+          <div className='h-fit max-w-full grid grid-cols-1 md:grid-cols-2 gap-4'>
             <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fweb.facebook.com%2Fiebc.lk%2Fvideos%2F390059596804608%2F&show_text=false&width=560&t=0" className='w-full h-[300px] object-cover' frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
             
             <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fweb.facebook.com%2Fiebc.lk%2Fvideos%2F1113865666370498%2F&show_text=false&width=560&t=0" className='w-full h-[300px] object-cover' frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
@@ -547,7 +948,7 @@ const CountriesScreen = () => {
             <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fweb.facebook.com%2Fiebc.lk%2Fvideos%2F1113865666370498%2F&show_text=false&width=560&t=0" className='w-full h-[300px] object-cover' frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
 
             <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fweb.facebook.com%2FIEBCGlobal%2Fvideos%2F137729791776490%2F&show_text=false&width=560&t=0" className='w-full h-[300px] object-cover' frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
-          </div> */}
+          </div>
           <div className='h-fit w-full flex flex-col md:flex-row gap-6 lg:gap-12'>      
             
             <div className='w-full flex flex-col gap-4 text-justify'>
@@ -565,7 +966,7 @@ const CountriesScreen = () => {
 
           </div>
         </div>
-      </section>
+      </section> */}
     </div>
 
   )
