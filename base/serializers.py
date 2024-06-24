@@ -76,6 +76,7 @@ class FAQSerializer(serializers.ModelSerializer):
         fields = '__all__'  
 
 class TestimonialSerializer(serializers.ModelSerializer):
+    course = CourseSerializer() 
     class Meta:
         model = Testimonial
         fields = '__all__'  

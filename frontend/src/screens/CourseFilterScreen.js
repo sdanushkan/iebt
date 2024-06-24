@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Button, image } from '@nextui-org/react'
+import { Button, Skeleton, Spinner, image } from '@nextui-org/react'
 import { TfiLayoutGrid2Alt, TfiLayoutGrid3Alt, TfiLayoutGrid4Alt } from "react-icons/tfi";
 import {Accordion, AccordionItem} from "@nextui-org/react";
 import {Checkbox} from "@nextui-org/react";
@@ -23,22 +23,16 @@ const CourseFilterScreen = () => {
   const [filter, setFilter] = useState(false);
   const [gridCount, setGridCount] = useState(2);
 
-  const {award} = useParams()
+  
   const {programe} = useParams()
-  const {credit} = useParams()
-  const {keyword} = useParams()
-  const {faculty} = useParams()
 
   const dispatch = useDispatch()
   const history = useNavigate()
   const location = useLocation()
 
-  const [nFaculty, setNFaculty] = useState(null)
-  const [nKeyword, setNKeyword] = useState(null)
   const [nPrograme, setNPrograme] = useState(null)
-  const [nCredit, setNCredit] = useState(null)
-  const [nAward, setNAward] = useState(null)
   const [nCourses, setNCourses] = useState([])
+  const [nFaculty, setNFaculty] = useState(null)
 
   const levelList = useSelector(state => state.levelList)
   const { error, loading, levels } = levelList
@@ -55,40 +49,16 @@ const CourseFilterScreen = () => {
   }, [dispatch])
 
   useEffect(() => {
-    if (faculty) {
-      setNFaculty(faculty)
-    } else {
-      setNFaculty(null)
-    } 
-    if (credit) {
-      setNCredit(credit)
-    } else {
-      setNCredit(null)
-    }
     if (programe) {
       setNPrograme(programe)
-    } else {
-      setNPrograme(null)
-    }
-
-    if (award) {
-      setNAward(award)
-    } else {
-      setNAward(null)
-    }
-
-    if (keyword) {
-      setNKeyword(keyword)
-    } else {
-      setNKeyword(null)
-    }
-  }, [faculty, programe, credit, award, keyword, location])
+    }     
+  }, [location])
 
   useEffect(() => {
     if ((courses) && (nPrograme) && (nFaculty)) {
       setNCourses(courses.filter(f=> f.faculty.slug == nFaculty.anchorKey && f.programe.slug == nPrograme))
-    } else if ((courses) && (nFaculty)) {
-      setNCourses(courses.filter(f=> f.faculty.slug == nFaculty.anchorKey || f.faculty.slug == nFaculty))
+    } else if ((courses) && (nPrograme)) {
+      setNCourses(courses.filter(f=> f.programe.slug == nPrograme))
     } else{
       setNCourses(courses)
     }
@@ -103,6 +73,7 @@ const CourseFilterScreen = () => {
   useEffect(() => {
     window.scroll(0,0);
   }, [location]);
+
   return (
     <div className='h-fit w-full md:pt-28 relative pb-12'>
       <div className='relative h-fit w-full md:hidden '>
@@ -150,60 +121,67 @@ const CourseFilterScreen = () => {
           'h-full w-full duration-300 -ml-[100%] md:ml-0 md:w-[300px] flex md:block top-0 absolute md:relative z-20'
         }>
           <div className='h-screen md:h-fit w-full bg-white px-4 md:px-0 py-6 md:py-0 divide-y-1 flex flex-col gap-4'>
+        
+              <Accordion  onSelect={nFaculty} onSelectionChange={setNFaculty} isCompact className='w-full min-w-full md:w-[300px] md:min-w-[300px]'>
+                {
+                  facultyListLoading?
+                  "":
+                  faculties?
+                  faculties.map(i =>(
+                    <AccordionItem className='text-sm font-semibold overflow-hidden py-2' key={i.slug} aria-label={i.name} startContent={i.name} classNames={'w-full'}>
+                      {
+                        courseListLoading?
+                          <div className='flex flex-col gap-2'>
+                            <Skeleton className='rounded-[8px]'>
+                              <div className='h-8 w-full'>
 
-            <Accordion  onSelect={nFaculty} onSelectionChange={setNFaculty} isCompact className='w-full min-w-full md:w-[300px] md:min-w-[300px]'>
-              {
-                facultyListLoading?
-                "":
-                faculties && nFaculty?
-                faculties.map(i =>(
-                  <AccordionItem className='text-sm font-semibold overflow-hidden py-2' key={i.slug} aria-label={i.name} startContent={i.name} classNames={'w-full'}>
-                    {
-                      loading?
-                      '':
-                      courses ?
-                      <Tabs variant='solid'  selectedKey={nPrograme} defaultSelectedKey={nPrograme} onSelectionChange={setNPrograme} size='sm' isVertical fullWidth aria-label="Tabs sizes" color='danger' 
-                      classNames={{
-                          tabList: "",
-                          cursor: "bg-[#DA0C0C]",
-                          tab: "",
-                          tabContent: "group-data-[selected=true]:text-[white]"
-                        }}
-                      className='w-full'>
-                        {
-                            courses || courses.programe?
-                            _.uniqBy(courses.filter(f => f.faculty.name == i.name), 'programe.id').filter(i1 => levels.some(i2 => i1.programe.slug == i2.slug)).map( i3 =>
-                                ( 
-                                  <Tab key={i3.programe.slug} title={
-                                    <div className='flex items-center justify-between space-x-2 text-left overflow-hidden'>
-                                      <VscActivateBreakpoints className='ml-0'/>
-                                      <p className='ml-auto w-[200px]'>{i3.programe.name}</p> 
-                                    </div>
-                                  }>
-                                  </Tab>
-                                )
-                              ):
-                              ''
-                        }
+                              </div>
+                            </Skeleton>
+                          </div>
+                        :
+                        courses?
+                        <Tabs variant='solid'  selectedKey={nPrograme} defaultSelectedKey={nPrograme} onSelectionChange={setNPrograme} size='sm' isVertical fullWidth aria-label="Tabs sizes" color='danger' 
+                        classNames={{
+                            tabList: "",
+                            cursor: "bg-[#DA0C0C]",
+                            tab: "",
+                            tabContent: "group-data-[selected=true]:text-[white]"
+                          }}
+                        className='w-full'>
+                          {
+                              courses || courses.programe?
+                              _.uniqBy(courses.filter(f => f.faculty.name == i.name), 'programe.id').filter(i1 => levels.some(i2 => i1.programe.slug == i2.slug)).map( i3 =>
+                                  ( 
+                                    <Tab key={i3.programe.slug} title={
+                                      <div className='flex items-center justify-between space-x-2 text-left overflow-hidden'>
+                                        <VscActivateBreakpoints className='ml-0'/>
+                                        <p className='ml-auto w-[200px]'>{i3.programe.name}</p> 
+                                      </div>
+                                    }>
+                                    </Tab>
+                                  )
+                                ):
+                                ''
+                          }
 
-                        {/* {
-                          courses && courses.programe && levels?
-                          _.uniqBy(courses.filter(f => f.faculty.name === i.name), 'programe.id').filter(i => levels.some(i2 => i.slug == i2.slug)).map( i3 =>
-                            <p>{i3.name}</p>
-                          ) :
-                          ''                         
-                        }       */}
+                          {/* {
+                            courses && courses.programe && levels?
+                            _.uniqBy(courses.filter(f => f.faculty.name === i.name), 'programe.id').filter(i => levels.some(i2 => i.slug == i2.slug)).map( i3 =>
+                              <p>{i3.name}</p>
+                            ) :
+                            ''                         
+                          }       */}
 
 
-                      </Tabs>:
-                      ''
-                    }
-                  </AccordionItem>
-                )):
-                ''
-              }
-            </Accordion>
-
+                        </Tabs>:
+                        ''
+                      }
+                    </AccordionItem>
+                  )):
+                  ''
+                }
+              </Accordion>
+              
             {/* <Accordion defaultExpandedKeys={["1","2","3","4"]} isCompact className='w-full min-w-full md:w-[400px] md:min-w-[400px]'>
               <AccordionItem  className='text-base font-semibold overflow-hidden' key="1" aria-label="Faculties" startContent="Faculties" classNames={'w-full'}>
                 {
@@ -343,11 +321,20 @@ const CourseFilterScreen = () => {
           }></button>
         </div>
         <div className='h-fit w-full flex flex-col gap-6 relative z-10'>
+          <div className='py-3'>
+            {
+              nPrograme?
+              <p className='text-lg font-semibold'>All {nPrograme} Courses</p>:
+              ''
+            }
+          </div>
           <div className={`w-full mx-auto h-fit grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-4 px-4 md:px-0`}>
-           
             {
               courseListLoading?
-              '':
+              <div className='h-fit w-full flex justify-start'>
+                <Spinner size="md" />
+              </div>
+              :
               nCourses?
               nCourses.map(i => (
                 <Link to={`/courses/${i.slug}`} key={i.id} className=' bg-white p-2 h-fit w-full shadow-[0px_4px_25px_rgba(0,0,0,0.05)] rounded-[16px]'>

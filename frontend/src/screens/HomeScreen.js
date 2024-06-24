@@ -37,6 +37,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { getCourseList, getLevelList } from '../actions/courseActions';
 import { FaArrowRightArrowLeft } from 'react-icons/fa6';
+import { getTestimonialList } from '../actions/abroadActions';
 
 const HomeScreen = () => {
     const [keyword, setKeyword] = useState('')
@@ -52,6 +53,9 @@ const HomeScreen = () => {
     const levelList = useSelector(state => state.levelList)
     const { error, loading, levels } = levelList
 
+    const testimonialList = useSelector(state => state.testimonialList)
+    const { error: testimonialListError, loading: testimonialListLoading, testimonials } = testimonialList
+
     const courseList = useSelector(state => state.courseList)
     const { error: courseListError, loading: courseListLoading, courses } = courseList
 
@@ -60,6 +64,7 @@ const HomeScreen = () => {
     
     useEffect(() => {
       dispatch(getCourseList())
+      dispatch(getTestimonialList())
     }, [dispatch])
 
     const opts = {
@@ -109,16 +114,50 @@ const HomeScreen = () => {
           </Swiper>
         </div>
 
-        <div className='h-[600px] xl:h-[500px] w-full px-8 relative -z-10 flex items-start justify-center bg-black/50'>
-          <div className='h-[400px] xl:h-[300px] w-full mt-[100px] flex flex-col justify-center gap-6'>
-            <div className='flex flex-col gap-2 max-w-[500px] mx-auto'>
-              <p className='text-4xl font-bold text-white lg:text-center'>International Education and Business Campus</p>
-              <p className='text-white/75 text-xs lg:text-center'>Unleashing Brilliance, Building Community</p>
-            </div>
-            <Button color='' className="flex lg:hidden  bg-[#DA0C0C] text-xs lg:text-sm text-white px-4 md:px-5 py-2 md:py-3 rounded-full w-fit">
-              <p>Pay online</p>
-            </Button>
-          </div>
+        <div className='h-[600px] xl:h-[500px] w-max-[1024px] mx-auto px-8 relative -z-10 flex items-start justify-center bg-black/50'>
+        <Swiper
+            slidesPerView={1}
+            spaceBetween={10}
+            direction={'vertical'}
+            
+            modules={[ Autoplay]}
+            className='h-full w-full mt-[100px] flex flex-col justify-center gap-6'
+            autoplay
+          >
+            <SwiperSlide className='w-full h-full flex justify-start object-contain'>
+              <div className='h-[400px] xl:h-[300px]  w-fit px-6 flex flex-col justify-center gap-6'>
+                <div className='h-fit w-fit backdrop-blur-md flex flex-col gap-4 p-6 rounded-[16px]'>
+                  <div className='flex flex-col gap-2 max-w-[500px] mx-auto'>
+                    <p className='text-4xl font-bold text-white'>International Education and Business Campus</p>
+                    <p className='text-white/75 text-xs'>Unleashing Brilliance, Building Community</p>
+                  </div>
+                  <Button color='' className="flex bg-[#DA0C0C] text-xs lg:text-sm text-white px-4 md:px-5 py-2 md:py-3 rounded-full w-fit">
+                    <p>Pay online</p>
+                  </Button>
+                </div>
+              </div>
+            </SwiperSlide>
+            <SwiperSlide className='w-full h-full flex justify-start object-contain'>
+              <div className='h-[400px] xl:h-[300px]  w-fit px-6 flex flex-col justify-center gap-6'>
+                <div className='h-fit w-fit backdrop-blur-md flex flex-col gap-4 p-6 rounded-[16px]'>
+                  <div className='flex flex-col gap-2 max-w-[500px] mx-auto'>
+                    <p className='text-4xl font-bold text-white'>International Education and Business Campus</p>
+                    <p className='text-white/75 text-xs'>Unleashing Brilliance, Building Community</p>
+                  </div>
+                  <Button color='' className="flex bg-[#DA0C0C] text-xs lg:text-sm text-white px-4 md:px-5 py-2 md:py-3 rounded-full w-fit">
+                    <p>Pay online</p>
+                  </Button>
+                </div>
+              </div>
+            </SwiperSlide>
+            {/* <SwiperSlide className='w-full h-full object-contain'>
+              <img src='https://media.istockphoto.com/id/1307457391/photo/happy-black-student-raising-arm-to-answer-question-while-attending-class-with-her-university.jpg?s=612x612&w=0&k=20&c=iZaZFyC-WqlqSQc4elqUNPTxLvWPe8P5Tb_YdZnrI9Q=' alt='' className='h-[600px] xl:h-[500px] w-full object-cover object-center'/>
+            </SwiperSlide> */}
+            {/* <SwiperSlide className='w-full h-full object-contain'>
+              <img src='https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' alt='' className='h-[500px] w-full object-cover object-bottom'/>
+            </SwiperSlide> */}
+          </Swiper>
+          
         </div>
         {/* <div className='w-full max-w-[1000px] h-[400px] md:h-[200px] mx-auto -mt-[600px] md:-mt-[300px] px-4 flex items-center flex-col justify-center  gap-8'>
             <TypeAnimation
@@ -681,6 +720,17 @@ const HomeScreen = () => {
               </div>
             </Tooltip>
 
+            <Tooltip showArrow={true} content={
+              <div className='p-4 max-w-[500px] '>
+                Our digital platforms ensure students have 24/7 access to educational resources, support services, and communication tools. This flexibility allows learning and support to happen anytime, anywhere, on any device, making education more accessible and convenient.
+              </div>
+            } placement='bottom'>
+              <div className='h-[175px] w-full min-w-full border-[1px] border-gray-300 rounded-[8px] flex  flex-col items-center justify-center gap-2 px-8 mx-auto'>
+                <img src='https://d65ixtnmlqq6w.cloudfront.net/wp-content/uploads/2023/11/businessman_998412.webp' alt='' className='h-[80px] w-[80px] object-cover'/>
+                <p className='text-base font-bold text-center'>Educational Counselling                </p>
+              </div>
+            </Tooltip>
+
             
           </div>
         </div>
@@ -726,38 +776,57 @@ const HomeScreen = () => {
                 pagination={{
                   clickable: true,
                 }}
-                autoplay
+                autoplay={{
+                  delay: 6000,
+                  disableOnInteraction: false,
+                }}
                 modules={[FreeMode, Pagination, Autoplay]}
                 className=""
               >
-                <SwiperSlide className='max-h-[300px] w-full mt-2 mb-12 bg-red-50 p-6 md:p-12 rounded-[8px] relative overflow-hidden '>
-                  {/* <div className='h-[100px] w-[100px] absolute top-0 right-0 bg-[#DA0C0C] rotate-45 -z-20'>
+                {
+                  testimonialListLoading?
+                  <SwiperSlide className='max-h-[300px] w-full mt-2 mb-12 bg-red-50 p-6 md:p-12 rounded-[8px] relative overflow-hidden '>
+                    {/* <div className='h-[100px] w-[100px] absolute top-0 right-0 bg-[#DA0C0C] rotate-45 -z-20'>
 
-                  </div> */}
-                  <div className='h-fit flex flex-col'>
-                    <p className='text-lg font-bold text-[#DA0C0C] capitalize'>Ayesh hiruni</p>
-                    <p className='capitalize text-sm font-medium text-gray-500 '>veritual assistance</p>
-                    <p className='capitalize text-sm font-medium text-gray-500 '>Selan Bank</p>
-                  </div>
-                  <div className='h-[1px] w-full bg-red-100 my-4'></div>
-                  <div className='max-h-fit py-2'>
-                    <p className='text-base font-semibold'>"Lorem ipsum dolor sit amet consectetur. In nisl arcu risus at eu ipsum nunc magnis integer. Tristique aliquam risus mauris vitae adipiscing sit eget tristique."</p>
-                  </div>
-                </SwiperSlide>
-                <SwiperSlide className='max-h-[300px] w-full mt-2 mb-12 bg-red-50 p-6 md:p-12 rounded-[8px] relative overflow-hidden '>
-                  {/* <div className='h-[100px] w-[100px] absolute top-0 right-0 bg-[#DA0C0C] rotate-45 -z-20'>
+                    </div> */}
+                    <div className='h-fit flex flex-col'>
+                      <Skeleton>
+                        <p className='text-lg font-bold text-[#DA0C0C] capitalize'>Ayesh hiruni</p>
+                      </Skeleton>
+                      <Skeleton>
+                        <p className='capitalize text-sm font-medium text-gray-500 '>veritual assistance</p>
+                      </Skeleton>
+                      <Skeleton>
+                        <p className='capitalize text-sm font-medium text-gray-500 '>Selan Bank</p>
+                      </Skeleton>
+                    </div>
+                    <div className='h-[1px] w-full bg-red-100 my-4'></div>
+                    <div className='max-h-fit py-2'>
+                      <Skeleton>
+                        <p className='text-base font-semibold'>"Lorem ipsum dolor sit amet consectetur. In nisl arcu risus at eu ipsum nunc magnis integer. Tristique aliquam risus mauris vitae adipiscing sit eget tristique."</p>
+                      </Skeleton>
+                    </div>
+                  </SwiperSlide>:
+                  testimonials ?
+                  // filter(f=>f.page.name =='Home').
+                  testimonials.map(i=>(
+                    <SwiperSlide key={i.id} className='max-h-[300px] w-full mt-2 mb-12 bg-red-50 p-6 md:p-12 rounded-[8px] relative overflow-hidden '>
+                      {/* <div className='h-[100px] w-[100px] absolute top-0 right-0 bg-[#DA0C0C] rotate-45 -z-20'>
 
-                  </div> */}
-                  <div className='h-fit flex flex-col'>
-                    <p className='text-lg font-bold text-[#DA0C0C] capitalize'>Ayesh hiruni</p>
-                    <p className='capitalize text-sm font-medium text-gray-500 '>veritual assistance</p>
-                    <p className='capitalize text-sm font-medium text-gray-500 '>Selan Bank</p>
-                  </div>
-                  <div className='h-[1px] w-full bg-red-100 my-4'></div>
-                  <div className='max-h-fit py-2'>
-                    <p className='text-base font-semibold'>"Lorem ipsum dolor sit amet consectetur. In nisl arcu risus at eu ipsum nunc magnis integer. Tristique aliquam risus mauris vitae adipiscing sit eget tristique."</p>
-                  </div>
-                </SwiperSlide>
+                      </div> */}
+                      <div className='h-fit flex flex-col'>
+                        <p className='text-lg font-bold text-[#DA0C0C] capitalize'>{i.name}</p>
+                        <p className='capitalize text-sm font-medium text-gray-500 '>{i.course.name}</p> 
+                      </div>
+                      <div className='h-[1px] w-full bg-red-100 my-4'></div>
+                      <div className='max-h-fit py-2'>
+                        <p className='text-base font-semibold'>{parse(i.description)}</p>
+                      </div>
+                    </SwiperSlide>
+                  )):
+                  ''
+                }
+                
               </Swiper>
             </div>
 

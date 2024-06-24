@@ -87,14 +87,38 @@ const Header = () => {
                   </Link>
                 </div>
                 <div className='hidden lg:flex items-center justify-start gap-4'>
-                  <Link to={'/'} className={
-                    location.pathname =='/'?
-                    'flex items-center justify-center gap-1 text-white mx-4 border-b-[2px] border-[#DA0C0C] py-[7px] px-[2px]':
-                    'flex items-center justify-center gap-1 text-white mx-4 border-b-[2px] border-transparent py-[7px] px-[2px]'
-                  }>
-                    <p className='cursor-pointer font-semibold text-xs uppercase '>Home</p>
-                    {/* <MdOutlineArrowDropDown className='text-white' /> */}
-                  </Link>
+                  <Dropdown
+                    showArrow
+                    backdrop="blur"
+                    classNames={{
+                      base: "before:bg-default-200 mt-[16px]", // change arrow background
+                      content: "py-1 px-1 border border-default-200 bg-gradient-to-br from-white to-default-200 dark:from-default-50 dark:to-black flex pb-0 ",
+                    }}
+                  >
+                    <DropdownTrigger>
+                      <div className='flex items-center justify-center gap-1'>
+                        <p className='cursor-pointer font-semibold text-xs uppercase text-white/50 focus:text-white'>Home</p>
+                      </div>
+                    </DropdownTrigger>
+                    <DropdownMenu aria-label="Static Actions" className='rounded-none flex  grid-cols-2 pb-0'>
+                      <DropdownSection className='pb-0'>
+                        <DropdownItem onHoverChange={'bg-[#ffffff]'} className='p-0 bg-transparent'>
+                          <Button variant='light' size='sm' className='text-left w-full'>
+                              <Link to={'/'} className='text-left w-full'>Home</Link>
+                          </Button> 
+                        </DropdownItem>
+                        <DropdownItem onHoverChange={'bg-[#ffffff]'} className='p-0 bg-transparent'>
+                          <Button variant='light' size='sm' className='text-left w-full'>
+                              <Link to={'/about'} className='text-left w-full'>About Us</Link>
+                          </Button>
+                        </DropdownItem>
+                        
+                      </DropdownSection>
+                      
+                     
+                      
+                    </DropdownMenu>
+                  </Dropdown> 
                   <Dropdown
                     showArrow
                     backdrop="blur"
@@ -121,7 +145,7 @@ const Header = () => {
                                   levels?
                                   levels.map(i => (
                                     <Button variant='light' key={i.id} size='sm' className='text-left w-full'>
-                                      <Link to={`/faculties/${i.slug}`} className='text-left w-full'>{i.name}</Link>
+                                      <Link to={`/level/${i.slug}`} className='text-left w-full'>{i.name}</Link>
                                     </Button>
                                   )):
                                   ''
@@ -152,6 +176,38 @@ const Header = () => {
                       
                     </DropdownMenu>
                   </Dropdown> 
+                  {/* <Dropdown
+                    showArrow
+                    backdrop="blur"
+                    classNames={{
+                      base: "before:bg-default-200 mt-[16px]", // change arrow background
+                      content: "py-1 px-1 border border-default-200 bg-gradient-to-br from-white to-default-200 dark:from-default-50 dark:to-black flex pb-0 ",
+                    }}
+                  >
+                    <DropdownTrigger>
+                      <div className='flex items-center justify-center gap-1'>
+                        <p className='cursor-pointer font-semibold text-xs uppercase text-white/50 focus:text-white'>Study Abroad </p>
+                      </div>
+                    </DropdownTrigger>
+                    <DropdownMenu aria-label="Static Actions" className='rounded-none flex  grid-cols-2 pb-0'>
+                      <DropdownSection className='pb-0'>
+                        <DropdownItem onHoverChange={'bg-[#ffffff]'} className='p-0 bg-transparent'>
+                          <Button variant='light' size='sm' className='text-left w-full'>
+                              <Link to={'/abroad'} className='text-left w-full'>Destinations</Link>
+                          </Button> 
+                        </DropdownItem>
+                        <DropdownItem onHoverChange={'bg-[#ffffff]'} className='p-0 bg-transparent'>
+                          <Button variant='light' size='sm' className='text-left w-full'>
+                              <Link to={'/abroad/about'} className='text-left w-full'>About Us</Link>
+                          </Button>
+                        </DropdownItem>
+                        
+                      </DropdownSection>
+                      
+                     
+                      
+                    </DropdownMenu>
+                  </Dropdown>  */}
                   <Tabs color="primary" variant="underlined" aria-label="Options" 
                   classNames={{
                     tabList: "text-",
@@ -168,6 +224,14 @@ const Header = () => {
                         }>
                           
                     </Tab>
+                    <Tab key="abroad" title={
+                      <Link to={'/abroad'} className='flex items-center justify-center gap-1'>
+                        <p className='cursor-pointer font-semibold text-xs uppercase '>Study broad</p>
+                        {/* <MdOutlineArrowDropDown className='text-white' /> */}
+                      </Link>
+                    }>
+                      
+                    </Tab>
                     <Tab key="contact" title={
                       <Link to={'/contact'} className='flex items-center justify-center gap-1'>
                         <p className='cursor-pointer font-semibold text-xs uppercase '>Contact us</p>
@@ -176,25 +240,25 @@ const Header = () => {
                     }>
                       
                     </Tab>
-                    <Tab key="about" title={
+                    {/* <Tab key="about" title={
                       <Link to={'/about'} className='flex items-center justify-center gap-1'>
                         <p className='cursor-pointer font-semibold text-xs uppercase '>About us</p>
-                        {/* <MdOutlineArrowDropDown className='text-white' /> */}
+                        <MdOutlineArrowDropDown className='text-white' />
                       </Link >
                     }>
-                      
-                    </Tab>
-                    <Tab key="abroad" title={
+                    </Tab> */}
+                    {/* <Tab key="abroad" title={
                       <Link to={'/abroad'} className='flex items-center justify-center gap-1'>
                       <p className='cursor-pointer font-semibold text-xs uppercase '>Study abroad</p>
-                      {/* <MdOutlineArrowDropDown className='text-white' /> */}
+                      <MdOutlineArrowDropDown className='text-white' />
                     </Link>
                     }>
 
                       
                       
-                    </Tab>
+                    </Tab> */}
                   </Tabs>
+                  
 
                   
                 </div>
@@ -208,9 +272,9 @@ const Header = () => {
                   </Button>
                 </div>
             </div>
-            <section className=' flex items-center justify-center gap-4 py-2 bg-gray-100 fixed top-[90px]'>
+            {/* <section className=' flex items-center justify-center gap-4 py-2 bg-gray-100 fixed top-[90px]'>
               <Link className='text-sm '>About</Link>
-            </section>
+            </section> */}
             {/* <Progress
             size="sm"
             isIndeterminate

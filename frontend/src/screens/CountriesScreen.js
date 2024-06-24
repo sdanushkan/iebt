@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import {Input} from "@nextui-org/react";
 import { VscSymbolKeyword } from "react-icons/vsc";
 import {Button} from "@nextui-org/button";
+import thum from '../assets/thum.png'
 import { IoCalendar, IoDocument, IoDocuments, IoSearch } from "react-icons/io5";
 import { AiFillSignal } from "react-icons/ai";
 import { BsBookmarksFill } from "react-icons/bs";
@@ -33,6 +34,10 @@ import 'react-datepicker/dist/react-datepicker.css';
 import { setHours, setMinutes, getDay } from 'date-fns';
 import WebView from '@luxbit/react-electron-webview'
 import YouTube from 'react-youtube';
+import  apply  from '../assets/apply.png'
+import  verification  from '../assets/verification.png'
+import  sp  from '../assets/sp.png'
+import  es  from '../assets/es.png'
 
 // Import Swiper styles
 import 'swiper/css';
@@ -42,13 +47,14 @@ import { Pagination, Autoplay, FreeMode } from 'swiper/modules';
 import ReactPlayer from 'react-player'
 import CountUp from 'react-countup';
 
+import sdv from '../assets/sdv.mp4'
 
 const CountriesScreen = () => {
   // const WebView = require('@luxbit/react-electron-webview');
 
   const [selected, setSelected] = React.useState("london");
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch() 
   const history = useNavigate()
   const location = useLocation()
 
@@ -124,6 +130,28 @@ const CountriesScreen = () => {
           </div>
 
       </section>
+
+      <section className='h-fit w-full relative overflow-hidden px-8 py-6'>
+        <div className='h-fit w-full max-w-[800px] mx-auto grid grid-cols-2 md:grid-cols-4 justify-center gap-2 lg:gap-6'>
+        <Link to={'/abroad/about'} className='w-full md:w-48 h-full md:h-48 flex flex-col items-center justify-center gap-4 bg-white text-black duration-200 cursor-pointer hover:text-[#DA0C0C] p-12 hover:p-10 rounded-[8px] shadow-[0px_4px_25px_rgba(0,0,0,0.05)] hover:shadow-[0px_4px_50px_rgba(0,0,0,0.075)]'>
+              <img src={sp}  alt='' className='w-full h-full object-contain' />
+              <p className='text-base font-bold text-red-900 px-2 text-center'>About us</p>
+            </Link>
+            <Link to={'/ourservices'} className='w-full md:w-48 h-full md:h-48 flex flex-col items-center justify-center gap-4 bg-white text-black duration-200 cursor-pointer hover:text-[#DA0C0C] p-12 hover:p-10 rounded-[8px] shadow-[0px_4px_25px_rgba(0,0,0,0.05)] hover:shadow-[0px_4px_50px_rgba(0,0,0,0.075)]'>
+              <img src={es}  alt='' className='w-full h-full object-contain' />
+              <p className='text-base font-bold text-red-900 px-2 text-center'>Services</p>
+            </Link>
+            <Link to={'/application'} className='w-full md:w-48 h-full md:h-48 flex flex-col items-center justify-center gap-4 bg-white text-black duration-200 cursor-pointer hover:text-[#DA0C0C] p-12 hover:p-10 rounded-[8px] shadow-[0px_4px_25px_rgba(0,0,0,0.05)] hover:shadow-[0px_4px_25px_rgba(0,0,0,0.075)] '>
+              <img src={apply}  alt='' className='w-full h-full object-contain' />
+              <p className='text-base font-bold text-red-900 px-2 text-center'>Apply</p>
+            </Link>
+            <div className='w-full md:w-48 h-full md:h-48 flex flex-col items-center justify-center gap-4 bg-white text-black duration-200 cursor-pointer hover:text-[#DA0C0C] p-12 hover:p-10 rounded-[8px] shadow-[0px_4px_25px_rgba(0,0,0,0.05)] hover:shadow-[0px_4px_50px_rgba(0,0,0,0.075)]'>
+              <img src={verification}  alt='' className='w-full h-full object-contain' />
+              <p className='text-base font-bold text-red-900 px-2 text-center'>Book Appoinment</p>
+            </div>
+            
+        </div>
+    </section>
 
       <section className='h-fit w-full'>
           <div className='w-full h-fit max-w-[1100px] mx-auto bg-white relative z-10 md:gap-4 px-6'>
@@ -209,7 +237,6 @@ const CountriesScreen = () => {
               <p className='text-2xl md:text-4xl font-bold text-[#DA0C0C] text-center'>MEDICINE</p>
             </div>
             <div className='w-fit mx-auto flex flex-wrap items-center justify-center gap-4 md:gap-6'>
-
             {
               loading?
               "":
@@ -351,42 +378,54 @@ const CountriesScreen = () => {
         </div>
       </section> */}
 
-      <section className='h-fit w-full bg-red-50 py-8 lg:py-12'>
-        <div className='h-fit w-full max-w-[1100px] mx-auto px-8 flex flex-col'>
+      <section className='h-fit w-full bg-white '>
+        <div className='h-fit w-full flex flex-col'>
           
-          <div className='w-full flex flex-col md:flex-row gap-16 items-center text-justify md:justify-between'>
-            <div className='lg:max-w-[350px] flex flex-col gap-2'>
-              <p className='text-2xl md:text-4xl font-bold text-[#DA0C0C] text-left'>IMMIGRATION SERVICES</p>
-              <p className=''>IEBC ensures a smooth travel for your educational purpose abroad. Start with our free counselling first</p>
-              <Button endContent={
-                    <GrFormNextLink />
-                } className='w-fit font-medium bg-[#DA0C0C] text-white mt-4'>
-                Explore our student services
-              </Button>
+          <div className='w-full mx-auto max-w-[1024px] flex flex-col md:flex-row gap-16 items-center text-justify'>
+            <div className='flex  flex-col md:flex-row gap-8'>
+              {/* <div className='lg:max-w-[350px] flex flex-col gap-2'>
+                <p className='text-2xl md:text-4xl font-bold text-[#DA0C0C] text-left uppercase'>OUR SERVICES</p>
+                <p className='text-sm '>IEBC ensures a smooth travel for your educational purpose abroad. Start with our free counselling first</p>
+                <Link to={'/ourservices'}>
+                  <Button endContent={
+                        <GrFormNextLink />
+                    } className='w-fit font-medium bg-[#DA0C0C] text-white mt-4'>
+                    Explore our student services
+                  </Button>
+                </Link>
+                
+              </div>
+              <div className='lg:max-w-[350px] flex flex-col gap-2'>
+                <p className='text-2xl md:text-4xl font-bold text-[#DA0C0C] text-left uppercase'>About our consultancy</p>
+                <p className='text-sm '>IEBC ensures a smooth travel for your educational purpose abroad. Start with our free counselling first</p>
+                <Button endContent={
+                      <GrFormNextLink />
+                  } className='w-fit font-medium bg-[#DA0C0C] text-white mt-4'>
+                  About us
+                </Button>
+              </div> */}
+
+              {/* <video autoPlay> 
+                
+                <source src={sdv} type="video/mp4" />
+              </video> */}
+              <ReactPlayer light={<img src={thum} alt='Thumbnail'/>} url={sdv} loop={true} playing={false} controls={true} />
+
             </div>
-            <div className='lg:max-w-[350px] flex flex-col gap-2'>
-              <p className='text-2xl md:text-4xl font-bold text-[#DA0C0C] text-left'>About our constaltancy</p>
-              <p className=''>IEBC ensures a smooth travel for your educational purpose abroad. Start with our free counselling first</p>
-              <Button endContent={
-                    <GrFormNextLink />
-                } className='w-fit font-medium bg-[#DA0C0C] text-white mt-4'>
-                Explore our student services
-              </Button>
-            </div>
-            <div className='flex flex-col gap-4 w-full max-w-md relative'>
+            <div className='flex flex-col gap-4 w-full max-w-md relative mx-8'>
               <img src='https://www.marketsquaredental.com/files/2011/08/book-now.png' alt='' className='absolute w-full h-full opacity-25 object-contain scale-110' />
               <p className='text-xl font-semibold'>Book an Appointment</p>
-              <div className='w-full flex flex-col gap-4 '>
+              <div className='w-full flex flex-col gap-6'>
                 <Input isClearable  variant='flat' type='text' placeholder='Name'></Input>
-                <div className='flex gap-4'>
-                <Input isClearable  variant='flat' type='email' placeholder='Email'></Input>
-                <Input isClearable  variant='flat' type='number' placeholder='Mobile number' startContent={
-                  <div className="pointer-events-none flex items-center">
-                    <span className="text-default-400 text-small">+94</span>
-                  </div>
-                }></Input>
+                <div className='grid grid-cols-2 gap-6'>
+                  <Input isClearable  variant='flat' type='email' placeholder='Email'></Input>
+                  <Input isClearable  variant='flat' type='number' placeholder='Mobile number' startContent={
+                    <div className="pointer-events-none flex items-center">
+                      <span className="text-default-400 text-small">+94</span>
+                    </div>
+                  }></Input>
                 </div>
-                <div className='h-fit w-fit relative flex'>
+                <div className='h-fit w-full relative grid grid-cols-2 gap-6'>
                   <DatePicker
                     selected={startDate}
                     onChange={(date) => setStartDate(date)}
@@ -398,7 +437,7 @@ const CountriesScreen = () => {
                     minTime={setHours(setMinutes(new Date(), 0), 9)}
                     maxTime={setHours(setMinutes(new Date(), 0), 17)}
                     placeholderText="Select a date and time"
-                    className='min-w-[100%] w-full flex py-3 px-2 rounded-[8px] text-sm outline-none cursor-pointer bg-gray-100 shadow-sm hover:opacity-50'
+                    className='min-w-[100%] w-full flex py-[10px] px-3 rounded-[12px] text-sm outline-none cursor-pointer bg-gray-100 shadow-sm hover:opacity-50'
                   />
                   <div className='absolute top-1/2  transform right-2 -translate-y-1/2'>
                     <IoCalendar/>
@@ -424,7 +463,7 @@ const CountriesScreen = () => {
                     </SelectItem>
                 </Select>
                 </div>
-                <div className='flex gap-2'>
+                <div className='flex gap-6'>
                   <Select 
                       className="w-full" 
                       // selectedKeys={pLocation}
@@ -793,7 +832,7 @@ const CountriesScreen = () => {
         <div className='h-fit w-full max-w-[1024px] mx-auto overflow-visible'>
             <div className='flex flex-col pb-8'>
               <p className='uppercase text-xs text-center'text-center>Our Students Testimonials</p>
-              <p className='text-2xl lg:text-4xl font-bold text-center'>Students Say’s About Our Campus</p>
+              <p className='text-2xl lg:text-4xl font-bold text-center'>Study abroad Testimonial</p>
             </div>
 
             <div className='h-fit hidden sm:flex'>
@@ -915,58 +954,7 @@ const CountriesScreen = () => {
         </div>
       </section>
 
-      {/* <section className='h-fit w-full '>
-        <div className='h-fit w-full max-w-[1100px] mx-auto px-8 flex flex-col gap-6'>
-          <p className='text-2xl md:text-4xl font-bold text-[#DA0C0C] text-center'>LANGUAGE ENTRY TEST</p>
-          <div className='h-fit w-full flex flex-col md:flex-row gap-6 lg:gap-12'>      
-            
-            <div className='w-full flex flex-col gap-4 text-justify'>
-              
-                <p>For students aspiring to study abroad in English-taught programs, proving English language proficiency is a crucial requirement. Numerous standardized tests are recognized globally to assess non-native speakers'English skills. These exams are designed to evaluate the ability to understand lectures, participate in discussions, and complete academic assignments.
-                </p>
-
-                <p>
-                Commonly accepted English proficiency tests include IELTS Academic, TOEFL iBT, PTE Academic, C1 Advanced, and B2 First. While these tests share similarities, each has unique features and formats. 
-
-                </p>
-
-                <p>Each test has specific scoring criteria and expiration policies, typically requiring scores to be recent (within two years). Prospective students should verify the specific test requirements of their chosen universities to ensure they meet the necessary standards. Preparation resources, including practice tests, are available online to help candidates choose the best test for their needs.</p>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      <section className='h-fit w-full '>
-        <div className='h-fit w-full max-w-[1100px] mx-auto px-8 flex flex-col gap-6'>
-          <p className='text-2xl md:text-4xl font-bold text-[#DA0C0C] text-center'>LIVING ABROAD</p>
-          <div className='h-fit max-w-full grid grid-cols-1 md:grid-cols-2 gap-4'>
-            <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fweb.facebook.com%2Fiebc.lk%2Fvideos%2F390059596804608%2F&show_text=false&width=560&t=0" className='w-full h-[300px] object-cover' frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
-            
-            <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fweb.facebook.com%2Fiebc.lk%2Fvideos%2F1113865666370498%2F&show_text=false&width=560&t=0" className='w-full h-[300px] object-cover' frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
-
-            <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fweb.facebook.com%2Fiebc.lk%2Fvideos%2F1113865666370498%2F&show_text=false&width=560&t=0" className='w-full h-[300px] object-cover' frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
-
-            <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fweb.facebook.com%2FIEBCGlobal%2Fvideos%2F137729791776490%2F&show_text=false&width=560&t=0" className='w-full h-[300px] object-cover' frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
-          </div>
-          <div className='h-fit w-full flex flex-col md:flex-row gap-6 lg:gap-12'>      
-            
-            <div className='w-full flex flex-col gap-4 text-justify'>
-              
-                <p>
-                  Adjusting to life abroad involves navigating a new culture, managing daily responsibilities, and building a support network. Initially, acclimating to a different culture, language, and traditions can be both challenging and exciting, and culture shock is a common experience that can be overwhelming for some.
-                </p>
-                <p>
-                  Living abroad also means taking on various responsibilities, such as doing your laundry, cooking meals, and balancing studies, often while working part-time. Tackling these tasks with a positive attitude and organizational skills is crucial.
-                </p>
-                <p>
-                  Lastly, creating a support network by making friends, engaging in communal activities, and embracing the opportunities of student life abroad helps you feel more comfortable and at home in your new environment. This sense of belonging can make the experience so fulfilling that you may not want to leave.
-                </p>
-            </div>
-
-          </div>
-        </div>
-      </section> */}
+      
     </div>
 
   )

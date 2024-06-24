@@ -60,7 +60,7 @@ export const getTestimonialList = () => async (dispatch) => {
         }
 
         const { data } = await axios.get(
-            `/api/countries/`,
+            `/api/countries/testimonials`,
             config
         )
 
