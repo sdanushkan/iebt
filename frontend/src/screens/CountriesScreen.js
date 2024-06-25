@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import {Input} from "@nextui-org/react";
+import {Input, Skeleton} from "@nextui-org/react";
 import { VscSymbolKeyword } from "react-icons/vsc";
 import {Button} from "@nextui-org/button";
 import thum from '../assets/thum.png'
@@ -93,6 +93,118 @@ const CountriesScreen = () => {
 
   return ( 
     <div className='max-w-screen flex flex-col gap-12 pb-12 overflow-x-hidden'>
+      <section className='w-full h-fit relative bg-[#ffecef] max-w-screen overflow-hidden'>
+
+        <div className='h-fit md:h-[500px] w-full max-w-[1100px] mx-auto object-cover relative overflow-hidden bg-[#ffecef] py-6 md:py-0 grid grid-cols-1 md:grid-cols-2'>
+          <div className='h-[350px] md:h-full w-full flex flex-col justify-center gap-4 px-6 md:px-0'>
+            <p className='text-4xl font-black'>Get your free study abroad counselling with IEBC</p>
+            <Button className='w-fit font-medium bg-[#DA0C0C] text-white'>
+              Acquire your dreams
+            </Button>
+          </div>
+          <div className='h-fit md:h-full w-full md:py-16'>
+            <WorldMap className="w-full h-full"/>
+          </div>
+        </div>
+
+      </section>
+      <section className='w-full h-fit relative bg-[#ffecef] max-w-screen overflow-hidden'>
+          <img src='https://www.augusta.edu/studyabroad/images/study-abroad-banner.png' alt='' className='h-full w-full absolute '/>
+          <div className='h-[700px] md:h-[500px] w-full max-w-[1100px] mx-auto object-cover relative overflow-hidden bg-transparent py-0 flex flex-col md:flex-row justify-end'>
+            <div className='h-full w-full md:w-[500px] flex items-center ml-auto'>
+            <div className='h-full w-full flex flex-col justify-center  bg-black/25 gap-6 px-6'>
+            <p className='text-2xl font-bold'>Register</p>
+                <Input isClearable  variant='flat' type='text' placeholder='Name' className=''></Input>
+                <div className='grid grid-cols-2 gap-6'>
+                  <Input isClearable  variant='flat' type='email' placeholder='Email'></Input>
+                  <Input isClearable  variant='flat' type='number' placeholder='Mobile number' startContent={
+                    <div className="pointer-events-none flex items-center">
+                      <span className="text-default-400 text-small">+94</span>
+                    </div>
+                  }></Input>
+                </div>
+                <div className='h-fit w-full relative '>
+                  <div className='absolute top-1/2  transform right-2 -translate-y-1/2'>
+                    <IoCalendar/>
+                  </div>
+                  <Select 
+                    className="w-full" 
+                    // selectedKeys={pLocation}
+                    // onSelectionChange={setPLocation}
+                    variant=''
+                    placeholder='Year of Study'
+                    required
+                    size='md'
+
+                >
+                    <SelectItem key='2025' className=''>
+                        2025
+                    </SelectItem>
+                    <SelectItem key='2027' className=''>
+                        2027
+                    </SelectItem>
+                    <SelectItem key='2028' className=''>
+                        2028
+                    </SelectItem>
+                </Select>
+                </div>
+                <div className='flex gap-6'>
+                  <Select 
+                      className="w-full" 
+                      // selectedKeys={pLocation}
+                      // onSelectionChange={setPLocation}
+                      variant=''
+                      placeholder='Preferred Study Destination'
+                      required
+                      size='md'
+
+                  >
+                      {
+                        loading?
+                        "":
+                        countries?
+                        countries.map(i => (
+                          <SelectItem key={i.slug} value={i.slug} className=''>
+                              {i.name}
+                          </SelectItem>
+                        )):''
+                      }
+                  </Select>
+                  <Select 
+                      className="w-full" 
+                      // selectedKeys={pLocation}
+                      // onSelectionChange={setPLocation}
+                      variant=''
+                      placeholder='Study Intake'
+                      required
+                      size='md'
+
+                  >
+                      <SelectItem key='January – March' className=''>
+                          January – March
+                      </SelectItem>
+                      <SelectItem key='July – September' className=''>
+                          July – September
+                      </SelectItem>
+                      <SelectItem key='October – December' className=''>
+                          October – December
+                      </SelectItem>
+                      <SelectItem key='I’m Not Sure' className=''>
+                          I’m Not Sure
+                      </SelectItem>
+                  </Select>
+                </div>
+                
+                <Button variant='solid' color='danger' endContent={
+                    <GrFormNextLink />
+                } className='w-fit font-medium bg-[#DA0C0C] text-white mt-4'>
+                  Register now
+                </Button>
+              </div> 
+            </div>
+          </div>
+
+      </section>
       
       {/* <section className='h-fit w-full relative px-8 bg-[#DA0C0C]'>
         <div className='h-fit w-full max-w-[1100px] mx-auto justify-center gap-6 grid grid-col-2 md:grid-cols-3 lg:grid-cols-4  text-white py-12 rounded-[16px]'>
@@ -115,37 +227,25 @@ const CountriesScreen = () => {
         </div>
       </section> */}
 
-      <section className='w-full h-fit relative bg-[#ffecef] max-w-screen overflow-hidden'>
+      
 
-          <div className='h-fit md:h-[500px] w-full max-w-[1100px] mx-auto object-cover relative overflow-hidden bg-[#ffecef] py-6 md:py-0 grid grid-cols-1 md:grid-cols-10'>
-            <div className='h-[350px] md:h-full w-full md:col-span-4 flex flex-col justify-center gap-4 px-6 md:px-0'>
-              <p className='text-4xl font-black'>Get your free study abroad counselling with IEBC</p>
-              <Button className='w-fit font-medium bg-[#DA0C0C] text-white'>
-                Acquire your dreams
-              </Button>
-            </div>
-            <div className='h-fit md:h-full w-full md:col-span-6 md:py-16'>
-              <WorldMap className="w-full h-full"/>
-            </div>
-          </div>
-
-      </section>
+      
 
       <section className='h-fit w-full relative overflow-hidden px-8 py-6'>
-        <div className='h-fit w-full max-w-[800px] mx-auto grid grid-cols-2 md:grid-cols-4 justify-center gap-2 lg:gap-6'>
-        <Link to={'/abroad/about'} className='w-full md:w-48 h-full md:h-48 flex flex-col items-center justify-center gap-4 bg-white text-black duration-200 cursor-pointer hover:text-[#DA0C0C] p-12 hover:p-10 rounded-[8px] shadow-[0px_4px_25px_rgba(0,0,0,0.05)] hover:shadow-[0px_4px_50px_rgba(0,0,0,0.075)]'>
+        <div className='h-40 w-full max-w-[1024px] mx-auto grid grid-cols-2 md:grid-cols-4 justify-center gap-2 lg:gap-6'>
+        <Link to={'/abroad/about'} className='w-full h-36 flex flex-col items-center justify-center gap-4 hover:bg-white text-black duration-300 cursor-pointer hover:text-[#DA0C0C] p-10 hover:p-8 rounded-[8px] bg-red-50 hover:shadow-[0px_4px_50px_rgba(0,0,0,0.075)]'>
               <img src={sp}  alt='' className='w-full h-full object-contain' />
               <p className='text-base font-bold text-red-900 px-2 text-center'>About us</p>
             </Link>
-            <Link to={'/ourservices'} className='w-full md:w-48 h-full md:h-48 flex flex-col items-center justify-center gap-4 bg-white text-black duration-200 cursor-pointer hover:text-[#DA0C0C] p-12 hover:p-10 rounded-[8px] shadow-[0px_4px_25px_rgba(0,0,0,0.05)] hover:shadow-[0px_4px_50px_rgba(0,0,0,0.075)]'>
+            <Link to={'/ourservices'} className='w-full h-36 flex flex-col items-center justify-center gap-4 hover:bg-white text-black duration-300 cursor-pointer hover:text-[#DA0C0C] p-10 hover:p-8 rounded-[8px] bg-red-50 hover:shadow-[0px_4px_50px_rgba(0,0,0,0.075)]'>
               <img src={es}  alt='' className='w-full h-full object-contain' />
               <p className='text-base font-bold text-red-900 px-2 text-center'>Services</p>
             </Link>
-            <Link to={'/application'} className='w-full md:w-48 h-full md:h-48 flex flex-col items-center justify-center gap-4 bg-white text-black duration-200 cursor-pointer hover:text-[#DA0C0C] p-12 hover:p-10 rounded-[8px] shadow-[0px_4px_25px_rgba(0,0,0,0.05)] hover:shadow-[0px_4px_25px_rgba(0,0,0,0.075)] '>
+            <Link to={'/application'} className='w-full h-36 flex flex-col items-center justify-center gap-4 hover:bg-white text-black duration-300 cursor-pointer hover:text-[#DA0C0C] p-10 hover:p-8 rounded-[8px] bg-red-50 hover:shadow-[0px_4px_25px_rgba(0,0,0,0.075)] '>
               <img src={apply}  alt='' className='w-full h-full object-contain' />
               <p className='text-base font-bold text-red-900 px-2 text-center'>Apply</p>
             </Link>
-            <div className='w-full md:w-48 h-full md:h-48 flex flex-col items-center justify-center gap-4 bg-white text-black duration-200 cursor-pointer hover:text-[#DA0C0C] p-12 hover:p-10 rounded-[8px] shadow-[0px_4px_25px_rgba(0,0,0,0.05)] hover:shadow-[0px_4px_50px_rgba(0,0,0,0.075)]'>
+            <div className='w-full h-36 flex flex-col items-center justify-center gap-4 hover:bg-white text-black duration-300 cursor-pointer hover:text-[#DA0C0C] p-10 hover:p-8 rounded-[8px] bg-red-50 hover:shadow-[0px_4px_50px_rgba(0,0,0,0.075)]'>
               <img src={verification}  alt='' className='w-full h-full object-contain' />
               <p className='text-base font-bold text-red-900 px-2 text-center'>Book Appoinment</p>
             </div>
@@ -157,118 +257,475 @@ const CountriesScreen = () => {
           <div className='w-full h-fit max-w-[1100px] mx-auto bg-white relative z-10 md:gap-4 px-6'>
             <div className='flex flex-col pb-8'>
               <p className='uppercase text-xs font-semibold opacity-50 text-center'>Study Abroad</p>
-              <p className='text-2xl md:text-4xl font-bold text-[#DA0C0C] text-center'>Our Countries</p>
+              <p className='text-2xl md:text-4xl font-bold text-[#DA0C0C] text-center capitalize'>Our Countries</p>
             </div>
-            <div className='w-fit mx-auto grid grid-cols-2 sm:flex flex-wrap items-center justify-center gap-4'>
-
             {
               loading?
-              "":
-              countries?
-              countries.filter(f => f.category.slug == 'main').map(i => (
-                <Link key={i.slug} to={`/countries/${i.slug}`} className='bg-white w-full sm:w-[175px] h-[125px] border-1 border-gray-200 gap-8 flex flex-col rounded-[8px] relative overflow-hidden duration-500'>
-                  <div className='h-full p-6 flex flex-row justify-between'>
-                    <div className='flex flex-col relative z-30 gap-1 mt-auto'>
-                      <p className='text-xl font-bold text-white'>{i.name}</p>
-                      <p className='text-xs text-gray-100 opacity-75'>Learn more</p>
-                    </div>
-                    <div>
-                      <IoMdArrowRoundForward className='text-xl text-white'/>
-                    </div>
-                  </div>
-                  <div className='h-full w-full bg-red-50 absolute rounded-full flex items-start justify-start z-0'>
-                    
-                    <img src={i.image} alt='' className='h-full w-full object-cover absolute z-0' />
-                    <div className='h-full w-full bg-gradient-to-t from-black/75 to-transparent absolute z-30 hover:from-black/100 duration-500'></div>
-                  </div>
-                </Link>
-              ))
-              :
-              ""
-            }
+              <div className='w-fit mx-auto grid grid-cols-2 sm:flex flex-wrap items-center justify-center gap-4'>
 
-            </div>
+                  <Link className='bg-white w-full sm:w-[175px] h-[125px] border-1 border-gray-200 gap-8 flex flex-col rounded-[8px] relative overflow-hidden duration-500'>
+                    <div className='h-full p-6 flex flex-row justify-between'>
+                      <div className='flex flex-col relative z-30 gap-1 mt-auto'>
+                        <Skeleton className='rounded-[8px]'>
+                          <p className='text-xl font-bold text-white'>i.name</p>
+                        </Skeleton>
+                        <Skeleton className='rounded-[8px]'>
+                          <p className='text-xs text-gray-100 opacity-75'>Learn more</p>
+                        </Skeleton>
+                      </div>
+                      <div>
+                        <IoMdArrowRoundForward className='text-xl text-white'/>
+                      </div>
+                    </div>
+                    <Skeleton className='rounded-[8px]'>
+                      <div className='h-full w-full bg-red-50 absolute rounded-full flex items-start justify-start z-0'>
+                        
+                        <img src='' alt='' className='h-full w-full object-cover absolute z-0' />
+                        <div className='h-full w-full bg-gradient-to-t from-black/75 to-transparent absolute z-30 hover:from-black/100 duration-500'></div>
+                      </div>
+                    </Skeleton>
+                  </Link>
+
+                  <Link className='bg-white w-full sm:w-[175px] h-[125px] border-1 border-gray-200 gap-8 flex flex-col rounded-[8px] relative overflow-hidden duration-500'>
+                    <div className='h-full p-6 flex flex-row justify-between'>
+                      <div className='flex flex-col relative z-30 gap-1 mt-auto'>
+                        <Skeleton className='rounded-[8px]'>
+                          <p className='text-xl font-bold text-white'>i.name</p>
+                        </Skeleton>
+                        <Skeleton className='rounded-[8px]'>
+                          <p className='text-xs text-gray-100 opacity-75'>Learn more</p>
+                        </Skeleton>
+                      </div>
+                      <div>
+                        <IoMdArrowRoundForward className='text-xl text-white'/>
+                      </div>
+                    </div>
+                    <Skeleton className='rounded-[8px]'>
+                      <div className='h-full w-full bg-red-50 absolute rounded-full flex items-start justify-start z-0'>
+                        
+                        <img src='' alt='' className='h-full w-full object-cover absolute z-0' />
+                        <div className='h-full w-full bg-gradient-to-t from-black/75 to-transparent absolute z-30 hover:from-black/100 duration-500'></div>
+                      </div>
+                    </Skeleton>
+                  </Link>
+
+                  <Link className='bg-white w-full sm:w-[175px] h-[125px] border-1 border-gray-200 gap-8 flex flex-col rounded-[8px] relative overflow-hidden duration-500'>
+                    <div className='h-full p-6 flex flex-row justify-between'>
+                      <div className='flex flex-col relative z-30 gap-1 mt-auto'>
+                        <Skeleton className='rounded-[8px]'>
+                          <p className='text-xl font-bold text-white'>i.name</p>
+                        </Skeleton>
+                        <Skeleton className='rounded-[8px]'>
+                          <p className='text-xs text-gray-100 opacity-75'>Learn more</p>
+                        </Skeleton>
+                      </div>
+                      <div>
+                        <IoMdArrowRoundForward className='text-xl text-white'/>
+                      </div>
+                    </div>
+                    <Skeleton className='rounded-[8px]'>
+                      <div className='h-full w-full bg-red-50 absolute rounded-full flex items-start justify-start z-0'>
+                        
+                        <img src='' alt='' className='h-full w-full object-cover absolute z-0' />
+                        <div className='h-full w-full bg-gradient-to-t from-black/75 to-transparent absolute z-30 hover:from-black/100 duration-500'></div>
+                      </div>
+                    </Skeleton>
+                  </Link>
+
+                  <Link className='bg-white w-full sm:w-[175px] h-[125px] border-1 border-gray-200 gap-8 flex flex-col rounded-[8px] relative overflow-hidden duration-500'>
+                    <div className='h-full p-6 flex flex-row justify-between'>
+                      <div className='flex flex-col relative z-30 gap-1 mt-auto'>
+                        <Skeleton className='rounded-[8px]'>
+                          <p className='text-xl font-bold text-white'>i.name</p>
+                        </Skeleton>
+                        <Skeleton className='rounded-[8px]'>
+                          <p className='text-xs text-gray-100 opacity-75'>Learn more</p>
+                        </Skeleton>
+                      </div>
+                      <div>
+                        <IoMdArrowRoundForward className='text-xl text-white'/>
+                      </div>
+                    </div>
+                    <Skeleton className='rounded-[8px]'>
+                      <div className='h-full w-full bg-red-50 absolute rounded-full flex items-start justify-start z-0'>
+                        
+                        <img src='' alt='' className='h-full w-full object-cover absolute z-0' />
+                        <div className='h-full w-full bg-gradient-to-t from-black/75 to-transparent absolute z-30 hover:from-black/100 duration-500'></div>
+                      </div>
+                    </Skeleton>
+                  </Link>
+
+                  <Link className='bg-white w-full sm:w-[175px] h-[125px] border-1 border-gray-200 gap-8 flex flex-col rounded-[8px] relative overflow-hidden duration-500'>
+                    <div className='h-full p-6 flex flex-row justify-between'>
+                      <div className='flex flex-col relative z-30 gap-1 mt-auto'>
+                        <Skeleton className='rounded-[8px]'>
+                          <p className='text-xl font-bold text-white'>i.name</p>
+                        </Skeleton>
+                        <Skeleton className='rounded-[8px]'>
+                          <p className='text-xs text-gray-100 opacity-75'>Learn more</p>
+                        </Skeleton>
+                      </div>
+                      <div>
+                        <IoMdArrowRoundForward className='text-xl text-white'/>
+                      </div>
+                    </div>
+                    <Skeleton className='rounded-[8px]'>
+                      <div className='h-full w-full bg-red-50 absolute rounded-full flex items-start justify-start z-0'>
+                        
+                        <img src='' alt='' className='h-full w-full object-cover absolute z-0' />
+                        <div className='h-full w-full bg-gradient-to-t from-black/75 to-transparent absolute z-30 hover:from-black/100 duration-500'></div>
+                      </div>
+                    </Skeleton>
+                  </Link>
+                
+              </div>
+              :
+              countries?
+              <div className='w-fit mx-auto grid grid-cols-2 sm:flex flex-wrap items-center justify-center gap-4'>
+
+                {
+                  countries.filter(f => f.category.slug == 'main').map(i => (
+                    <Link key={i.slug} to={`/countries/${i.slug}`} className='bg-white w-full sm:w-[175px] h-[125px] border-1 border-gray-200 gap-8 flex flex-col rounded-[8px] relative overflow-hidden duration-500'>
+                      <div className='h-full p-6 flex flex-row justify-between'>
+                        <div className='flex flex-col relative z-30 gap-1 mt-auto'>
+                          <p className='text-xl font-bold text-white'>{i.name}</p>
+                          <p className='text-xs text-gray-100 opacity-75'>Learn more</p>
+                        </div>
+                        <div>
+                          <IoMdArrowRoundForward className='text-xl text-white'/>
+                        </div>
+                      </div>
+                      <div className='h-full w-full bg-red-50 absolute rounded-full flex items-start justify-start z-0'>
+                        
+                        <img src={i.image} alt='' className='h-full w-full object-cover absolute z-0' />
+                        <div className='h-full w-full bg-gradient-to-t from-black/75 to-transparent absolute z-30 hover:from-black/100 duration-500'></div>
+                      </div>
+                    </Link>
+                  ))
+                }
+
+              </div>:
+              ''
+            }
           </div>
       </section>
 
       <section className='h-fit w-full'>
-          <div className='w-full h-fit max-w-[1100px] mx-auto bg-white relative z-10 md:gap-4 px-8'>
+          <div className='w-full h-fit max-w-[1100px] mx-auto bg-white relative z-10 md:gap-4 px-6'>
             <div className='flex flex-col pb-8'>
               <p className='uppercase text-xs font-semibold opacity-50 text-center'>Study Abroad</p>
-              <p className='text-2xl md:text-4xl font-bold text-[#DA0C0C] text-center'>EU COUNTRIES
-              </p>
+              <p className='text-2xl md:text-4xl font-bold text-[#DA0C0C] text-center capitalize'>european nation countries</p>
             </div>
-            <div className='w-fit mx-auto grid grid-cols-2 md:flex flex-wrap items-center justify-center gap-4 md:gap-6'>
-
             {
               loading?
-              "":
-              countries?
-              countries.filter(f => f.category.slug == 'eu').map(i => (
-                <Link key={i.slug} to={`/countries/${i.slug}`} className='bg-white w-full sm:w-[200px] h-[150px] border-1 border-gray-200 gap-8 flex flex-col rounded-[8px] relative overflow-hidden duration-500'>
-                  <div className='h-full p-6 flex flex-row justify-between'>
-                    <div className='flex flex-col relative z-30 gap-1 mt-auto'>
-                      <p className='text-2xl font-bold text-white'>{i.name}</p>
-                      <p className='text-xs text-gray-100 opacity-75'>Learn more</p>
-                    </div>
-                    <div>
-                      <IoMdArrowRoundForward className='text-xl text-white'/>
-                    </div>
-                  </div>
-                  <div className='h-full w-full bg-red-50 absolute rounded-full flex items-start justify-start z-0'>
-                    
-                    <img src={i.image} alt='' className='h-full w-full object-cover absolute z-0' />
-                    <div className='h-full w-full bg-gradient-to-t from-black/75 to-transparent absolute z-30 hover:from-black/100 duration-500'></div>
-                  </div>
-                </Link>
-              ))
-              :
-              ""
-            }
+              <div className='w-fit mx-auto grid grid-cols-2 sm:flex flex-wrap items-center justify-center gap-4'>
 
-            </div>
+                  <Link className='bg-white w-full sm:w-[175px] h-[125px] border-1 border-gray-200 gap-8 flex flex-col rounded-[8px] relative overflow-hidden duration-500'>
+                    <div className='h-full p-6 flex flex-row justify-between'>
+                      <div className='flex flex-col relative z-30 gap-1 mt-auto'>
+                        <Skeleton className='rounded-[8px]'>
+                          <p className='text-xl font-bold text-white'>i.name</p>
+                        </Skeleton>
+                        <Skeleton className='rounded-[8px]'>
+                          <p className='text-xs text-gray-100 opacity-75'>Learn more</p>
+                        </Skeleton>
+                      </div>
+                      <div>
+                        <IoMdArrowRoundForward className='text-xl text-white'/>
+                      </div>
+                    </div>
+                    <Skeleton className='rounded-[8px]'>
+                      <div className='h-full w-full bg-red-50 absolute rounded-full flex items-start justify-start z-0'>
+                        
+                        <img src='' alt='' className='h-full w-full object-cover absolute z-0' />
+                        <div className='h-full w-full bg-gradient-to-t from-black/75 to-transparent absolute z-30 hover:from-black/100 duration-500'></div>
+                      </div>
+                    </Skeleton>
+                  </Link>
+
+                  <Link className='bg-white w-full sm:w-[175px] h-[125px] border-1 border-gray-200 gap-8 flex flex-col rounded-[8px] relative overflow-hidden duration-500'>
+                    <div className='h-full p-6 flex flex-row justify-between'>
+                      <div className='flex flex-col relative z-30 gap-1 mt-auto'>
+                        <Skeleton className='rounded-[8px]'>
+                          <p className='text-xl font-bold text-white'>i.name</p>
+                        </Skeleton>
+                        <Skeleton className='rounded-[8px]'>
+                          <p className='text-xs text-gray-100 opacity-75'>Learn more</p>
+                        </Skeleton>
+                      </div>
+                      <div>
+                        <IoMdArrowRoundForward className='text-xl text-white'/>
+                      </div>
+                    </div>
+                    <Skeleton className='rounded-[8px]'>
+                      <div className='h-full w-full bg-red-50 absolute rounded-full flex items-start justify-start z-0'>
+                        
+                        <img src='' alt='' className='h-full w-full object-cover absolute z-0' />
+                        <div className='h-full w-full bg-gradient-to-t from-black/75 to-transparent absolute z-30 hover:from-black/100 duration-500'></div>
+                      </div>
+                    </Skeleton>
+                  </Link>
+
+                  <Link className='bg-white w-full sm:w-[175px] h-[125px] border-1 border-gray-200 gap-8 flex flex-col rounded-[8px] relative overflow-hidden duration-500'>
+                    <div className='h-full p-6 flex flex-row justify-between'>
+                      <div className='flex flex-col relative z-30 gap-1 mt-auto'>
+                        <Skeleton className='rounded-[8px]'>
+                          <p className='text-xl font-bold text-white'>i.name</p>
+                        </Skeleton>
+                        <Skeleton className='rounded-[8px]'>
+                          <p className='text-xs text-gray-100 opacity-75'>Learn more</p>
+                        </Skeleton>
+                      </div>
+                      <div>
+                        <IoMdArrowRoundForward className='text-xl text-white'/>
+                      </div>
+                    </div>
+                    <Skeleton className='rounded-[8px]'>
+                      <div className='h-full w-full bg-red-50 absolute rounded-full flex items-start justify-start z-0'>
+                        
+                        <img src='' alt='' className='h-full w-full object-cover absolute z-0' />
+                        <div className='h-full w-full bg-gradient-to-t from-black/75 to-transparent absolute z-30 hover:from-black/100 duration-500'></div>
+                      </div>
+                    </Skeleton>
+                  </Link>
+
+                  <Link className='bg-white w-full sm:w-[175px] h-[125px] border-1 border-gray-200 gap-8 flex flex-col rounded-[8px] relative overflow-hidden duration-500'>
+                    <div className='h-full p-6 flex flex-row justify-between'>
+                      <div className='flex flex-col relative z-30 gap-1 mt-auto'>
+                        <Skeleton className='rounded-[8px]'>
+                          <p className='text-xl font-bold text-white'>i.name</p>
+                        </Skeleton>
+                        <Skeleton className='rounded-[8px]'>
+                          <p className='text-xs text-gray-100 opacity-75'>Learn more</p>
+                        </Skeleton>
+                      </div>
+                      <div>
+                        <IoMdArrowRoundForward className='text-xl text-white'/>
+                      </div>
+                    </div>
+                    <Skeleton className='rounded-[8px]'>
+                      <div className='h-full w-full bg-red-50 absolute rounded-full flex items-start justify-start z-0'>
+                        
+                        <img src='' alt='' className='h-full w-full object-cover absolute z-0' />
+                        <div className='h-full w-full bg-gradient-to-t from-black/75 to-transparent absolute z-30 hover:from-black/100 duration-500'></div>
+                      </div>
+                    </Skeleton>
+                  </Link>
+
+                  <Link className='bg-white w-full sm:w-[175px] h-[125px] border-1 border-gray-200 gap-8 flex flex-col rounded-[8px] relative overflow-hidden duration-500'>
+                    <div className='h-full p-6 flex flex-row justify-between'>
+                      <div className='flex flex-col relative z-30 gap-1 mt-auto'>
+                        <Skeleton className='rounded-[8px]'>
+                          <p className='text-xl font-bold text-white'>i.name</p>
+                        </Skeleton>
+                        <Skeleton className='rounded-[8px]'>
+                          <p className='text-xs text-gray-100 opacity-75'>Learn more</p>
+                        </Skeleton>
+                      </div>
+                      <div>
+                        <IoMdArrowRoundForward className='text-xl text-white'/>
+                      </div>
+                    </div>
+                    <Skeleton className='rounded-[8px]'>
+                      <div className='h-full w-full bg-red-50 absolute rounded-full flex items-start justify-start z-0'>
+                        
+                        <img src='' alt='' className='h-full w-full object-cover absolute z-0' />
+                        <div className='h-full w-full bg-gradient-to-t from-black/75 to-transparent absolute z-30 hover:from-black/100 duration-500'></div>
+                      </div>
+                    </Skeleton>
+                  </Link>
+                
+              </div>
+              :
+              countries?
+              <div className='w-fit mx-auto grid grid-cols-2 sm:flex flex-wrap items-center justify-center gap-4'>
+
+                {
+                  countries.filter(f => f.category.slug == 'eu').map(i => (
+                    <Link key={i.slug} to={`/countries/${i.slug}`} className='bg-white w-full sm:w-[175px] h-[125px] border-1 border-gray-200 gap-8 flex flex-col rounded-[8px] relative overflow-hidden duration-500'>
+                      <div className='h-full p-6 flex flex-row justify-between'>
+                        <div className='flex flex-col relative z-30 gap-1 mt-auto'>
+                          <p className='text-xl font-bold text-white'>{i.name}</p>
+                          <p className='text-xs text-gray-100 opacity-75'>Learn more</p>
+                        </div>
+                        <div>
+                          <IoMdArrowRoundForward className='text-xl text-white'/>
+                        </div>
+                      </div>
+                      <div className='h-full w-full bg-red-50 absolute rounded-full flex items-start justify-start z-0'>
+                        
+                        <img src={i.image} alt='' className='h-full w-full object-cover absolute z-0' />
+                        <div className='h-full w-full bg-gradient-to-t from-black/75 to-transparent absolute z-30 hover:from-black/100 duration-500'></div>
+                      </div>
+                    </Link>
+                  ))
+                }
+
+              </div>:
+              ''
+            }
           </div>
       </section>
 
       <section className='h-fit w-full'>
-          <div className='w-full h-fit max-w-[1100px] mx-auto bg-white relative z-10 md:gap-4 px-8'>
+          <div className='w-full h-fit max-w-[1100px] mx-auto bg-white relative z-10 md:gap-4 px-6'>
             <div className='flex flex-col pb-8'>
               <p className='uppercase text-xs font-semibold opacity-50 text-center'>Study Abroad</p>
-              <p className='text-2xl md:text-4xl font-bold text-[#DA0C0C] text-center'>MEDICINE</p>
+              <p className='text-2xl md:text-4xl font-bold text-[#DA0C0C] text-center capitalize'>medicine</p>
             </div>
-            <div className='w-fit mx-auto grid grid-cols-2 md:flex flex-wrap items-center justify-center gap-4 md:gap-6'>
             {
               loading?
-              "":
-              countries?
-              countries.filter(f => f.category.slug == 'medicine').map(i => (
-                <Link key={i.slug} to={`/countries/${i.slug}`} className='bg-white w-full sm:w-[200px] h-[150px] border-1 border-gray-200 gap-8 flex flex-col rounded-[8px] relative overflow-hidden duration-500'>
-                  <div className='h-full p-6 flex flex-row justify-between'>
-                    <div className='flex flex-col relative z-30 gap-1 mt-auto'>
-                      <p className='text-2xl font-bold text-white'>{i.name}</p>
-                      <p className='text-xs text-gray-100 opacity-75'>Learn more</p>
-                    </div>
-                    <div>
-                      <IoMdArrowRoundForward className='text-xl text-white'/>
-                    </div>
-                  </div>
-                  <div className='h-full w-full bg-red-50 absolute rounded-full flex items-start justify-start z-0'>
-                    
-                    <img src={i.image} alt='' className='h-full w-full object-cover absolute z-0' />
-                    <div className='h-full w-full bg-gradient-to-t from-black/75 to-transparent absolute z-30 hover:from-black/100 duration-500'></div>
-                  </div>
-                </Link>
-              ))
-              :
-              ""
-            }
+              <div className='w-fit mx-auto grid grid-cols-2 sm:flex flex-wrap items-center justify-center gap-4'>
 
-            </div>
+                  <Link className='bg-white w-full sm:w-[175px] h-[125px] border-1 border-gray-200 gap-8 flex flex-col rounded-[8px] relative overflow-hidden duration-500'>
+                    <div className='h-full p-6 flex flex-row justify-between'>
+                      <div className='flex flex-col relative z-30 gap-1 mt-auto'>
+                        <Skeleton className='rounded-[8px]'>
+                          <p className='text-xl font-bold text-white'>i.name</p>
+                        </Skeleton>
+                        <Skeleton className='rounded-[8px]'>
+                          <p className='text-xs text-gray-100 opacity-75'>Learn more</p>
+                        </Skeleton>
+                      </div>
+                      <div>
+                        <IoMdArrowRoundForward className='text-xl text-white'/>
+                      </div>
+                    </div>
+                    <Skeleton className='rounded-[8px]'>
+                      <div className='h-full w-full bg-red-50 absolute rounded-full flex items-start justify-start z-0'>
+                        
+                        <img src='' alt='' className='h-full w-full object-cover absolute z-0' />
+                        <div className='h-full w-full bg-gradient-to-t from-black/75 to-transparent absolute z-30 hover:from-black/100 duration-500'></div>
+                      </div>
+                    </Skeleton>
+                  </Link>
+
+                  <Link className='bg-white w-full sm:w-[175px] h-[125px] border-1 border-gray-200 gap-8 flex flex-col rounded-[8px] relative overflow-hidden duration-500'>
+                    <div className='h-full p-6 flex flex-row justify-between'>
+                      <div className='flex flex-col relative z-30 gap-1 mt-auto'>
+                        <Skeleton className='rounded-[8px]'>
+                          <p className='text-xl font-bold text-white'>i.name</p>
+                        </Skeleton>
+                        <Skeleton className='rounded-[8px]'>
+                          <p className='text-xs text-gray-100 opacity-75'>Learn more</p>
+                        </Skeleton>
+                      </div>
+                      <div>
+                        <IoMdArrowRoundForward className='text-xl text-white'/>
+                      </div>
+                    </div>
+                    <Skeleton className='rounded-[8px]'>
+                      <div className='h-full w-full bg-red-50 absolute rounded-full flex items-start justify-start z-0'>
+                        
+                        <img src='' alt='' className='h-full w-full object-cover absolute z-0' />
+                        <div className='h-full w-full bg-gradient-to-t from-black/75 to-transparent absolute z-30 hover:from-black/100 duration-500'></div>
+                      </div>
+                    </Skeleton>
+                  </Link>
+
+                  <Link className='bg-white w-full sm:w-[175px] h-[125px] border-1 border-gray-200 gap-8 flex flex-col rounded-[8px] relative overflow-hidden duration-500'>
+                    <div className='h-full p-6 flex flex-row justify-between'>
+                      <div className='flex flex-col relative z-30 gap-1 mt-auto'>
+                        <Skeleton className='rounded-[8px]'>
+                          <p className='text-xl font-bold text-white'>i.name</p>
+                        </Skeleton>
+                        <Skeleton className='rounded-[8px]'>
+                          <p className='text-xs text-gray-100 opacity-75'>Learn more</p>
+                        </Skeleton>
+                      </div>
+                      <div>
+                        <IoMdArrowRoundForward className='text-xl text-white'/>
+                      </div>
+                    </div>
+                    <Skeleton className='rounded-[8px]'>
+                      <div className='h-full w-full bg-red-50 absolute rounded-full flex items-start justify-start z-0'>
+                        
+                        <img src='' alt='' className='h-full w-full object-cover absolute z-0' />
+                        <div className='h-full w-full bg-gradient-to-t from-black/75 to-transparent absolute z-30 hover:from-black/100 duration-500'></div>
+                      </div>
+                    </Skeleton>
+                  </Link>
+
+                  <Link className='bg-white w-full sm:w-[175px] h-[125px] border-1 border-gray-200 gap-8 flex flex-col rounded-[8px] relative overflow-hidden duration-500'>
+                    <div className='h-full p-6 flex flex-row justify-between'>
+                      <div className='flex flex-col relative z-30 gap-1 mt-auto'>
+                        <Skeleton className='rounded-[8px]'>
+                          <p className='text-xl font-bold text-white'>i.name</p>
+                        </Skeleton>
+                        <Skeleton className='rounded-[8px]'>
+                          <p className='text-xs text-gray-100 opacity-75'>Learn more</p>
+                        </Skeleton>
+                      </div>
+                      <div>
+                        <IoMdArrowRoundForward className='text-xl text-white'/>
+                      </div>
+                    </div>
+                    <Skeleton className='rounded-[8px]'>
+                      <div className='h-full w-full bg-red-50 absolute rounded-full flex items-start justify-start z-0'>
+                        
+                        <img src='' alt='' className='h-full w-full object-cover absolute z-0' />
+                        <div className='h-full w-full bg-gradient-to-t from-black/75 to-transparent absolute z-30 hover:from-black/100 duration-500'></div>
+                      </div>
+                    </Skeleton>
+                  </Link>
+
+                  <Link className='bg-white w-full sm:w-[175px] h-[125px] border-1 border-gray-200 gap-8 flex flex-col rounded-[8px] relative overflow-hidden duration-500'>
+                    <div className='h-full p-6 flex flex-row justify-between'>
+                      <div className='flex flex-col relative z-30 gap-1 mt-auto'>
+                        <Skeleton className='rounded-[8px]'>
+                          <p className='text-xl font-bold text-white'>i.name</p>
+                        </Skeleton>
+                        <Skeleton className='rounded-[8px]'>
+                          <p className='text-xs text-gray-100 opacity-75'>Learn more</p>
+                        </Skeleton>
+                      </div>
+                      <div>
+                        <IoMdArrowRoundForward className='text-xl text-white'/>
+                      </div>
+                    </div>
+                    <Skeleton className='rounded-[8px]'>
+                      <div className='h-full w-full bg-red-50 absolute rounded-full flex items-start justify-start z-0'>
+                        
+                        <img src='' alt='' className='h-full w-full object-cover absolute z-0' />
+                        <div className='h-full w-full bg-gradient-to-t from-black/75 to-transparent absolute z-30 hover:from-black/100 duration-500'></div>
+                      </div>
+                    </Skeleton>
+                  </Link>
+                
+              </div>
+              :
+              countries?
+              <div className='w-fit mx-auto grid grid-cols-2 sm:flex flex-wrap items-center justify-center gap-4'>
+
+                {
+                  countries.filter(f => f.category.slug == 'medicine').map(i => (
+                    <Link key={i.slug} to={`/countries/${i.slug}`} className='bg-white w-full sm:w-[175px] h-[125px] border-1 border-gray-200 gap-8 flex flex-col rounded-[8px] relative overflow-hidden duration-500'>
+                      <div className='h-full p-6 flex flex-row justify-between'>
+                        <div className='flex flex-col relative z-30 gap-1 mt-auto'>
+                          <p className='text-xl font-bold text-white'>{i.name}</p>
+                          <p className='text-xs text-gray-100 opacity-75'>Learn more</p>
+                        </div>
+                        <div>
+                          <IoMdArrowRoundForward className='text-xl text-white'/>
+                        </div>
+                      </div>
+                      <div className='h-full w-full bg-red-50 absolute rounded-full flex items-start justify-start z-0'>
+                        
+                        <img src={i.image} alt='' className='h-full w-full object-cover absolute z-0' />
+                        <div className='h-full w-full bg-gradient-to-t from-black/75 to-transparent absolute z-30 hover:from-black/100 duration-500'></div>
+                      </div>
+                    </Link>
+                  ))
+                }
+
+              </div>:
+              ''
+            }
           </div>
       </section>
 
-      <section className='h-fit w-full relative px-8 '>
-        <div className='h-fit w-full max-w-[1024px] mx-auto justify-center gap-6 grid grid-col-2 md:grid-cols-3 lg:grid-cols-4 bg-red-800 text-white py-12 rounded-[16px]'>
+      <section className='h-fit w-full relative px-8 bg-red-800'>
+        <div className='h-fit w-full max-w-[1024px] mx-auto justify-center gap-6 grid grid-col-2 md:grid-cols-3 lg:grid-cols-4 bg-red-800 text-white py-6 rounded-[16px]'>
           <div className='w-full flex flex-col items-center justify-center'>
             
 
@@ -300,7 +757,7 @@ const CountriesScreen = () => {
             <div className='w-fit flex flex-col gap-8'>
               <div className='flex flex-col'>
                 <p className='uppercase text-xs font-semibold opacity-50 text-center'>Study Abroad</p>
-                <p className='text-2xl md:text-4xl font-bold text-[#DA0C0C] text-center'>WHY CHOOSE US?</p>
+                <p className='text-2xl md:text-4xl font-bold text-[#DA0C0C] text-center capitalize'>WHY CHOOSE US?</p>
               </div>
               <div className='flex flex-col list-disc gap-1 px-8'>
                 <li className='text-base text-black font-medium'>Expert Education Counsellor Services</li>
@@ -318,7 +775,7 @@ const CountriesScreen = () => {
         <div className='h-fit w-full max-w-[1100px] mx-auto px-8 flex flex-col'>
           
           <div className='w-full flex flex-col gap-4 text-justify'>
-            <p className='text-2xl md:text-4xl font-bold text-[#DA0C0C] text-center'>IMMIGRATION SERVICES</p>
+            <p className='text-2xl md:text-4xl font-bold text-[#DA0C0C] text-center capitalize'>IMMIGRATION SERVICES</p>
             <div className='flex flex-col gap-4 w-full'>
               
               <Accordion defaultExpandedKeys={["Admission Requirements"]} aria-label="Options">
@@ -382,7 +839,7 @@ const CountriesScreen = () => {
         <div className='h-fit w-full flex flex-col'>
           
           <div className='w-full mx-auto max-w-[1024px] flex flex-col md:flex-row gap-16 items-center text-justify'>
-            <div className='flex  flex-col md:flex-row gap-8 max-w-screen overflow-hidden'>
+            <div className='flex  flex-col md:flex-row gap-2 w-full overflow-hidden'>
               {/* <div className='lg:max-w-[350px] flex flex-col gap-2'>
                 <p className='text-2xl md:text-4xl font-bold text-[#DA0C0C] text-left uppercase'>OUR SERVICES</p>
                 <p className='text-sm '>IEBC ensures a smooth travel for your educational purpose abroad. Start with our free counselling first</p>
@@ -409,13 +866,13 @@ const CountriesScreen = () => {
                 
                 <source src={sdv} type="video/mp4" />
               </video> */}
-              <ReactPlayer light={<img src={thum} alt='Thumbnail'/>} url={sdv} loop={true} playing={false} controls={true} width={'100%'}/>
+              <ReactPlayer url={sdv} loop={true} playing={false} controls={true} />
 
             </div>
             <div className='max-w-screen flex flex-col gap-4 w-full max-w-md relative mx-8 px-4 md:px-0'>
               <img src='https://www.marketsquaredental.com/files/2011/08/book-now.png' alt='' className='absolute w-full h-full opacity-25 object-contain scale-110' />
-              <p className='text-xl font-semibold'>Book an Appointment</p>
               <div className='w-full flex flex-col gap-6'>
+                <p className='text-2xl font-bold'>Book an Appointment</p>
                 <Input isClearable  variant='flat' type='text' placeholder='Name'></Input>
                 <div className='grid grid-cols-2 gap-6'>
                   <Input isClearable  variant='flat' type='email' placeholder='Email'></Input>
@@ -525,7 +982,7 @@ const CountriesScreen = () => {
         <div className='h-fit w-full max-w-[1100px] mx-auto px-8 flex flex-col '>
           
           <div className='w-full flex flex-col gap-4 text-justify'>
-            <p className='text-2xl md:text-4xl font-bold text-[#DA0C0C] text-center'>BENEFITS OF STUDYING ABROAD</p>
+            <p className='text-2xl md:text-4xl font-bold text-[#DA0C0C] text-center capitalize'>BENEFITS OF STUDYING ABROAD</p>
             <div className='flex flex-col gap-4 w-full'>
               
               <Accordion defaultExpandedKeys={["International Exposure "]} aria-label="Options">
@@ -615,7 +1072,7 @@ const CountriesScreen = () => {
                 <SwiperSlide className='h-[300px] w-full relative mt-4 mb-12'>
                   <div className='h-[200px] w-full relative z-10'>
                     <div className='h-fit w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px] overflow-hidden'>
-                    <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fweb.facebook.com%2Fiebc.lk%2Fvideos%2F390059596804608%2F&show_text=false&width=560&t=0" height={'100%'} width={'full'} className='w-full h-full object-cover' frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+                    <iframe src="https://www.facebook.com/plugins/video.php?height=316&href=https%3A%2F%2Fweb.facebook.com%2FIEBCGlobal%2Fvideos%2F724979536505482%2F&show_text=false&width=560&t=0" height={'100%'} width={'full'} className='w-full h-full object-cover' frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
                     </div>
                   </div>
                   <div className='w-full h-[100px] rounded-[8px] bg-[#DA0C0C] absolute bottom-0 -z-30'>
@@ -625,7 +1082,7 @@ const CountriesScreen = () => {
                 <SwiperSlide className='h-[300px] w-full relative mt-4 mb-12'>
                   <div className='h-[200px] w-full relative z-10'>
                     <div className='h-fit w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px] overflow-hidden'>
-                      <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fweb.facebook.com%2Fiebc.lk%2Fvideos%2F1113865666370498%2F&show_text=false&width=560&t=0" height={'100%'} width={'full'} className='w-full h-full object-cover' frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+                    <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fweb.facebook.com%2FIEBCGlobal%2Fvideos%2F787360559926806%2F&show_text=false&width=560&t=0" height={'100%'} width={'full'} className='w-full h-full object-cover' frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
                     </div>
                   </div>
                   <div className='w-full h-[100px] rounded-[8px] bg-[#DA0C0C] absolute bottom-0 -z-30'>
@@ -635,7 +1092,7 @@ const CountriesScreen = () => {
                 <SwiperSlide className='h-[300px] w-full relative mt-4 mb-12'>
                   <div className='h-[200px] w-full relative z-10'>
                     <div className='h-fit w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px] overflow-hidden'>
-                    <iframe src="https://www.facebook.com/plugins/video.php?height=311&href=https%3A%2F%2Fwww.facebook.com%2FIEBCGlobal%2Fvideos%2F2909785615957489%2F&show_text=false&width=560&t=0" height={'100%'} width={'full'} className='w-full h-full object-cover'  frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+                    <iframe src="https://www.facebook.com/plugins/video.php?height=420&href=https%3A%2F%2Fweb.facebook.com%2FIEBCGlobal%2Fvideos%2F1063711408132096%2F&show_text=false&width=560&t=0" height={'100%'} width={'full'} className='w-full h-full object-cover' frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
                     </div>
                   </div>
                   <div className='w-full h-[100px] rounded-[8px] bg-[#DA0C0C] absolute bottom-0 -z-30'>
@@ -645,7 +1102,79 @@ const CountriesScreen = () => {
                 <SwiperSlide className='h-[300px] w-full relative mt-4 mb-12'>
                   <div className='h-[200px] w-full relative z-10'>
                     <div className='h-fit w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px] overflow-hidden'>
-                      <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fweb.facebook.com%2FIEBCGlobal%2Fvideos%2F137729791776490%2F&show_text=false&width=560&t=0" height={'100%'} width={'full'} className='w-full h-full object-cover' frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+                    <iframe src="https://www.facebook.com/plugins/video.php?height=316&href=https%3A%2F%2Fweb.facebook.com%2FIEBCGlobal%2Fvideos%2F1438798656686721%2F&show_text=false&width=560&t=0" height={'100%'} width={'full'} className='w-full h-full object-cover' frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+                    </div>
+                  </div>
+                  <div className='w-full h-[100px] rounded-[8px] bg-[#DA0C0C] absolute bottom-0 -z-30'>
+
+                  </div>
+                </SwiperSlide>
+
+                <SwiperSlide className='h-[300px] w-full relative mt-4 mb-12'>
+                  <div className='h-[200px] w-full relative z-10'>
+                    <div className='h-fit w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px] overflow-hidden'>
+                    <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fweb.facebook.com%2FIEBCGlobal%2Fvideos%2F809322143721464%2F&show_text=false&width=560&t=0" height={'100%'} width={'full'} className='w-full h-full object-cover' frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+                    </div>
+                  </div>
+                  <div className='w-full h-[100px] rounded-[8px] bg-[#DA0C0C] absolute bottom-0 -z-30'>
+
+                  </div>
+                </SwiperSlide>
+                <SwiperSlide className='h-[300px] w-full relative mt-4 mb-12'>
+                  <div className='h-[200px] w-full relative z-10'>
+                    <div className='h-fit w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px] overflow-hidden'>
+                    <iframe src="https://www.facebook.com/plugins/video.php?height=316&href=https%3A%2F%2Fweb.facebook.com%2FIEBCGlobal%2Fvideos%2F308333668443585%2F&show_text=false&width=560&t=0" height={'100%'} width={'full'} className='w-full h-full object-cover' frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+                    </div>
+                  </div>
+                  <div className='w-full h-[100px] rounded-[8px] bg-[#DA0C0C] absolute bottom-0 -z-30'>
+
+                  </div>
+                </SwiperSlide>
+                <SwiperSlide className='h-[300px] w-full relative mt-4 mb-12'>
+                  <div className='h-[200px] w-full relative z-10'>
+                    <div className='h-fit w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px] overflow-hidden'>
+                    <iframe src="https://www.facebook.com/plugins/video.php?height=420&href=https%3A%2F%2Fweb.facebook.com%2FIEBCGlobal%2Fvideos%2F585327600327936%2F&show_text=false&width=560&t=0" height={'100%'} width={'full'} className='w-full h-full object-cover' frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+                    </div>
+                  </div>
+                  <div className='w-full h-[100px] rounded-[8px] bg-[#DA0C0C] absolute bottom-0 -z-30'>
+
+                  </div>
+                </SwiperSlide>
+                <SwiperSlide className='h-[300px] w-full relative mt-4 mb-12'>
+                  <div className='h-[200px] w-full relative z-10'>
+                    <div className='h-fit w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px] overflow-hidden'>
+                    <iframe src="https://www.facebook.com/plugins/video.php?height=420&href=https%3A%2F%2Fweb.facebook.com%2FIEBCGlobal%2Fvideos%2F831771447883217%2F&show_text=false&width=560&t=0" height={'100%'} width={'full'} className='w-full h-full object-cover' frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+                    </div>
+                  </div>
+                  <div className='w-full h-[100px] rounded-[8px] bg-[#DA0C0C] absolute bottom-0 -z-30'>
+
+                  </div>
+                </SwiperSlide>
+
+                <SwiperSlide className='h-[300px] w-full relative mt-4 mb-12'>
+                  <div className='h-[200px] w-full relative z-10'>
+                    <div className='h-fit w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px] overflow-hidden'>
+                    <iframe src="https://www.facebook.com/plugins/video.php?height=420&href=https%3A%2F%2Fweb.facebook.com%2FIEBCGlobal%2Fvideos%2F856088048932476%2F&show_text=false&width=560&t=0" height={'100%'} width={'full'} className='w-full h-full object-cover' frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+                    </div>
+                  </div>
+                  <div className='w-full h-[100px] rounded-[8px] bg-[#DA0C0C] absolute bottom-0 -z-30'>
+
+                  </div>
+                </SwiperSlide>
+                <SwiperSlide className='h-[300px] w-full relative mt-4 mb-12'>
+                  <div className='h-[200px] w-full relative z-10'>
+                    <div className='h-fit w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px] overflow-hidden'>
+                    <iframe src="https://www.facebook.com/plugins/video.php?height=420&href=https%3A%2F%2Fweb.facebook.com%2FIEBCGlobal%2Fvideos%2F469373541830598%2F&show_text=false&width=560&t=0" height={'100%'} width={'full'} className='w-full h-full object-cover' frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+                    </div>
+                  </div>
+                  <div className='w-full h-[100px] rounded-[8px] bg-[#DA0C0C] absolute bottom-0 -z-30'>
+
+                  </div>
+                </SwiperSlide>
+                <SwiperSlide className='h-[300px] w-full relative mt-4 mb-12'>
+                  <div className='h-[200px] w-full relative z-10'>
+                    <div className='h-fit w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px] overflow-hidden'>
+                    <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fweb.facebook.com%2FIEBCGlobal%2Fvideos%2F650057759927476%2F&show_text=false&width=560&t=0" height={'100%'} width={'full'} className='w-full h-full object-cover' frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
                     </div>
                   </div>
                   <div className='w-full h-[100px] rounded-[8px] bg-[#DA0C0C] absolute bottom-0 -z-30'>
@@ -966,7 +1495,7 @@ export default CountriesScreen
 
 //  <section>
 //         <div>
-//           <div className='w-full h-fit max-w-[1100px] mx-auto bg-white shadow-[0px_4px_25px_rgba(0,0,0,0.05)] -mt-[125px] relative z-10 md:gap-4 p-6 rounded-[16px]'>
+//           <div className='w-full h-fit max-w-[1100px] mx-auto bg-white bg-red-50 shadow-[0px_4px_25px_rgba(0,0,0,0.05)] -mt-[125px] relative z-10 md:gap-4 p-6 rounded-[16px]'>
 //             <div className='w-full mx-auto flex items-center justify-around '>
 
 //               <div className='flex flex-col gap-2 items-center justify-center'>
@@ -996,7 +1525,7 @@ export default CountriesScreen
 //                       <p className='text-4xl font-bold text-white'>{i.name}</p>
 //                     </div>
 //                     <div className='flex items-center gap-4 relative z-30'>
-//                       <Button radius='full' isIconOnly variant='solid' className='bg-red-600 text-white shadow-[0px_4px_25px_rgba(0,0,0,0.05)] ' startContent={<IoArrowForwardOutline/>}>
+//                       <Button radius='full' isIconOnly variant='solid' className='bg-red-600 text-white bg-red-50 shadow-[0px_4px_25px_rgba(0,0,0,0.05)] ' startContent={<IoArrowForwardOutline/>}>
 
 //                       </Button>
 //                       <p className='text-xs text-gray-100'>Learn more</p>

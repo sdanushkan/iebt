@@ -361,7 +361,9 @@ const HomeScreen = () => {
               <p className='uppercase text-xs text-center'>Courses</p>
               <p className='text-2xl lg:text-4xl font-bold text-center'>Popular courses</p>
             </div>
-            <div className='hidden xl:block'>
+            {
+              courseListLoading?
+              <div className='hidden xl:block'>
               <Swiper
                 slidesPerView={4}
                 spaceBetween={10}
@@ -370,8 +372,41 @@ const HomeScreen = () => {
                 className="w-full"
                 autoplay
               >
-                {
-                  courseListLoading?
+                <Skeleton className='rounded-full'>
+                    <SwiperSlide className='bg-red-50 rounded-[16px] mt-[24px] mb-[48px] '>
+                      <Link  className='flex flex-col min-w-full p-2 gap-2'>
+                        
+                        <Skeleton className='rounded-[8px]'>
+                          <div className='h-[150px] w-full overflow-hidden rounded-[8px]'>
+                            <img src='' alt='' className='h-[150px] hover:scale-105 duration-200 w-full object-cover rounded-[8px] border-[1px]' />
+                          </div>
+                        </Skeleton>
+                        <div className='flex flex-col py-2 gap-2'>
+                          <Skeleton className='rounded-full'>
+                            <p className='text-sm font-medium capitalize text-gray-500'>Course name</p>
+                          </Skeleton>
+                          <Skeleton className='rounded-full'>
+                            <p className='text-sm font-medium capitalize text-gray-500'>i.programe.name</p>
+                          </Skeleton>
+                          <Skeleton className='rounded-full'>
+                            <p className='font-semibold text-xs uppercase text-[#DA0C0C]'>i.qualification.name</p>
+                          </Skeleton>
+                        </div>
+                        <div className='flex flex-wrap gap-1'>
+                          <Skeleton className='rounded-full'>
+                            <div className='flex bg-white text-sm text-gray-500 px-2 md:px-5 py-2 md:py-2 rounded-full capitalize'>
+                              online
+                            </div>
+                          </Skeleton>
+                          <Skeleton className='rounded-full'>
+                            <div className='flex bg-white text-sm text-gray-500 px-2 md:px-5 py-2 md:py-2 rounded-full capitalize'>
+                              4 months
+                            </div>
+                          </Skeleton>
+                        </div>
+                      </Link>
+                    </SwiperSlide>
+                  </Skeleton>
                   <Skeleton className='rounded-full'>
                     <SwiperSlide className='bg-red-50 rounded-[16px] mt-[24px] mb-[48px] '>
                       <Link  className='flex flex-col min-w-full p-2 gap-2'>
@@ -407,8 +442,91 @@ const HomeScreen = () => {
                       </Link>
                     </SwiperSlide>
                   </Skeleton>
-                  :
-                  courses?
+                  <Skeleton className='rounded-full'>
+                    <SwiperSlide className='bg-red-50 rounded-[16px] mt-[24px] mb-[48px] '>
+                      <Link  className='flex flex-col min-w-full p-2 gap-2'>
+                        
+                        <Skeleton className='rounded-[8px]'>
+                          <div className='h-[150px] w-full overflow-hidden rounded-[8px]'>
+                            <img src='' alt='' className='h-[150px] hover:scale-105 duration-200 w-full object-cover rounded-[8px] border-[1px]' />
+                          </div>
+                        </Skeleton>
+                        <div className='flex flex-col py-2 gap-2'>
+                          <Skeleton className='rounded-full'>
+                            <p className='text-sm font-medium capitalize text-gray-500'>Course name</p>
+                          </Skeleton>
+                          <Skeleton className='rounded-full'>
+                            <p className='text-sm font-medium capitalize text-gray-500'>i.programe.name</p>
+                          </Skeleton>
+                          <Skeleton className='rounded-full'>
+                            <p className='font-semibold text-xs uppercase text-[#DA0C0C]'>i.qualification.name</p>
+                          </Skeleton>
+                        </div>
+                        <div className='flex flex-wrap gap-1'>
+                          <Skeleton className='rounded-full'>
+                            <div className='flex bg-white text-sm text-gray-500 px-2 md:px-5 py-2 md:py-2 rounded-full capitalize'>
+                              online
+                            </div>
+                          </Skeleton>
+                          <Skeleton className='rounded-full'>
+                            <div className='flex bg-white text-sm text-gray-500 px-2 md:px-5 py-2 md:py-2 rounded-full capitalize'>
+                              4 months
+                            </div>
+                          </Skeleton>
+                        </div>
+                      </Link>
+                    </SwiperSlide>
+                  </Skeleton>
+                  <Skeleton className='rounded-full'>
+                    <SwiperSlide className='bg-red-50 rounded-[16px] mt-[24px] mb-[48px] '>
+                      <Link  className='flex flex-col min-w-full p-2 gap-2'>
+                        
+                        <Skeleton className='rounded-[8px]'>
+                          <div className='h-[150px] w-full overflow-hidden rounded-[8px]'>
+                            <img src='' alt='' className='h-[150px] hover:scale-105 duration-200 w-full object-cover rounded-[8px] border-[1px]' />
+                          </div>
+                        </Skeleton>
+                        <div className='flex flex-col py-2 gap-2'>
+                          <Skeleton className='rounded-full'>
+                            <p className='text-sm font-medium capitalize text-gray-500'>Course name</p>
+                          </Skeleton>
+                          <Skeleton className='rounded-full'>
+                            <p className='text-sm font-medium capitalize text-gray-500'>i.programe.name</p>
+                          </Skeleton>
+                          <Skeleton className='rounded-full'>
+                            <p className='font-semibold text-xs uppercase text-[#DA0C0C]'>i.qualification.name</p>
+                          </Skeleton>
+                        </div>
+                        <div className='flex flex-wrap gap-1'>
+                          <Skeleton className='rounded-full'>
+                            <div className='flex bg-white text-sm text-gray-500 px-2 md:px-5 py-2 md:py-2 rounded-full capitalize'>
+                              online
+                            </div>
+                          </Skeleton>
+                          <Skeleton className='rounded-full'>
+                            <div className='flex bg-white text-sm text-gray-500 px-2 md:px-5 py-2 md:py-2 rounded-full capitalize'>
+                              4 months
+                            </div>
+                          </Skeleton>
+                        </div>
+                      </Link>
+                    </SwiperSlide>
+                  </Skeleton>
+                
+                
+              </Swiper>    
+            </div>:
+            courses?
+            <div className='hidden xl:block'>
+              <Swiper
+                slidesPerView={4}
+                spaceBetween={10}
+                
+                modules={[ Autoplay]}
+                className="w-full"
+                autoplay
+              >
+                {
                   courses.filter(f => f.popular==true).map(i =>(
                     <SwiperSlide className='bg-red-50 rounded-[16px] mt-[24px] mb-[48px] '>
                       <Link to={`/courses/${i.slug}`} className='flex flex-col min-w-full p-2 gap-2'>
@@ -430,12 +548,134 @@ const HomeScreen = () => {
                         </div>
                       </Link>
                     </SwiperSlide>
-                  )):
-                  ''
+                  ))
                 }
                 
               </Swiper>    
-            </div>
+            </div>:
+            ''
+            }
+
+            {
+              courseListLoading?
+              <div className='hidden lg:block xl:hidden'>
+              <Swiper
+                slidesPerView={3}
+                spaceBetween={10}
+                
+                modules={[ Autoplay]}
+                className="w-full"
+                autoplay
+              >
+                <Skeleton className='rounded-full'>
+                    <SwiperSlide className='bg-red-50 rounded-[16px] mt-[24px] mb-[48px] '>
+                      <Link  className='flex flex-col min-w-full p-2 gap-2'>
+                        
+                        <Skeleton className='rounded-[8px]'>
+                          <div className='h-[150px] w-full overflow-hidden rounded-[8px]'>
+                            <img src='' alt='' className='h-[150px] hover:scale-105 duration-200 w-full object-cover rounded-[8px] border-[1px]' />
+                          </div>
+                        </Skeleton>
+                        <div className='flex flex-col py-2 gap-2'>
+                          <Skeleton className='rounded-full'>
+                            <p className='text-sm font-medium capitalize text-gray-500'>Course name</p>
+                          </Skeleton>
+                          <Skeleton className='rounded-full'>
+                            <p className='text-sm font-medium capitalize text-gray-500'>i.programe.name</p>
+                          </Skeleton>
+                          <Skeleton className='rounded-full'>
+                            <p className='font-semibold text-xs uppercase text-[#DA0C0C]'>i.qualification.name</p>
+                          </Skeleton>
+                        </div>
+                        <div className='flex flex-wrap gap-1'>
+                          <Skeleton className='rounded-full'>
+                            <div className='flex bg-white text-sm text-gray-500 px-2 md:px-5 py-2 md:py-2 rounded-full capitalize'>
+                              online
+                            </div>
+                          </Skeleton>
+                          <Skeleton className='rounded-full'>
+                            <div className='flex bg-white text-sm text-gray-500 px-2 md:px-5 py-2 md:py-2 rounded-full capitalize'>
+                              4 months
+                            </div>
+                          </Skeleton>
+                        </div>
+                      </Link>
+                    </SwiperSlide>
+                  </Skeleton>
+                  <Skeleton className='rounded-full'>
+                    <SwiperSlide className='bg-red-50 rounded-[16px] mt-[24px] mb-[48px] '>
+                      <Link  className='flex flex-col min-w-full p-2 gap-2'>
+                        
+                        <Skeleton className='rounded-[8px]'>
+                          <div className='h-[150px] w-full overflow-hidden rounded-[8px]'>
+                            <img src='' alt='' className='h-[150px] hover:scale-105 duration-200 w-full object-cover rounded-[8px] border-[1px]' />
+                          </div>
+                        </Skeleton>
+                        <div className='flex flex-col py-2 gap-2'>
+                          <Skeleton className='rounded-full'>
+                            <p className='text-sm font-medium capitalize text-gray-500'>Course name</p>
+                          </Skeleton>
+                          <Skeleton className='rounded-full'>
+                            <p className='text-sm font-medium capitalize text-gray-500'>i.programe.name</p>
+                          </Skeleton>
+                          <Skeleton className='rounded-full'>
+                            <p className='font-semibold text-xs uppercase text-[#DA0C0C]'>i.qualification.name</p>
+                          </Skeleton>
+                        </div>
+                        <div className='flex flex-wrap gap-1'>
+                          <Skeleton className='rounded-full'>
+                            <div className='flex bg-white text-sm text-gray-500 px-2 md:px-5 py-2 md:py-2 rounded-full capitalize'>
+                              online
+                            </div>
+                          </Skeleton>
+                          <Skeleton className='rounded-full'>
+                            <div className='flex bg-white text-sm text-gray-500 px-2 md:px-5 py-2 md:py-2 rounded-full capitalize'>
+                              4 months
+                            </div>
+                          </Skeleton>
+                        </div>
+                      </Link>
+                    </SwiperSlide>
+                  </Skeleton>
+                  <Skeleton className='rounded-full'>
+                    <SwiperSlide className='bg-red-50 rounded-[16px] mt-[24px] mb-[48px] '>
+                      <Link  className='flex flex-col min-w-full p-2 gap-2'>
+                        
+                        <Skeleton className='rounded-[8px]'>
+                          <div className='h-[150px] w-full overflow-hidden rounded-[8px]'>
+                            <img src='' alt='' className='h-[150px] hover:scale-105 duration-200 w-full object-cover rounded-[8px] border-[1px]' />
+                          </div>
+                        </Skeleton>
+                        <div className='flex flex-col py-2 gap-2'>
+                          <Skeleton className='rounded-full'>
+                            <p className='text-sm font-medium capitalize text-gray-500'>Course name</p>
+                          </Skeleton>
+                          <Skeleton className='rounded-full'>
+                            <p className='text-sm font-medium capitalize text-gray-500'>i.programe.name</p>
+                          </Skeleton>
+                          <Skeleton className='rounded-full'>
+                            <p className='font-semibold text-xs uppercase text-[#DA0C0C]'>i.qualification.name</p>
+                          </Skeleton>
+                        </div>
+                        <div className='flex flex-wrap gap-1'>
+                          <Skeleton className='rounded-full'>
+                            <div className='flex bg-white text-sm text-gray-500 px-2 md:px-5 py-2 md:py-2 rounded-full capitalize'>
+                              online
+                            </div>
+                          </Skeleton>
+                          <Skeleton className='rounded-full'>
+                            <div className='flex bg-white text-sm text-gray-500 px-2 md:px-5 py-2 md:py-2 rounded-full capitalize'>
+                              4 months
+                            </div>
+                          </Skeleton>
+                        </div>
+                      </Link>
+                    </SwiperSlide>
+                  </Skeleton>
+                
+              </Swiper>    
+            </div>:
+            courses?
             <div className='hidden lg:block xl:hidden'>
               <Swiper
                 slidesPerView={3}
@@ -446,7 +686,6 @@ const HomeScreen = () => {
                 autoplay
               >
                 {
-                  courses?
                   courses.map(i =>(
                     <SwiperSlide className='bg-red-50 rounded-[16px] mt-[24px] mb-[48px] '>
                       <Link to={`/courses/${i.slug}`} className='flex flex-col min-w-full p-2 gap-2'>
@@ -468,12 +707,100 @@ const HomeScreen = () => {
                         </div>
                       </Link>
                     </SwiperSlide>
-                  )):
-                  ''
+                  ))
                 }
                 
               </Swiper>    
-            </div>
+            </div>:
+            ''
+            }
+            
+
+            {
+              courseListLoading?
+              <div className='hidden sm:block lg:hidden'>
+              <Swiper
+                slidesPerView={2}
+                spaceBetween={10}
+                
+                modules={[ Autoplay]}
+                className="w-full"
+                autoplay
+              >
+                <Skeleton className='rounded-full'>
+                    <SwiperSlide className='bg-red-50 rounded-[16px] mt-[24px] mb-[48px] '>
+                      <Link  className='flex flex-col min-w-full p-2 gap-2'>
+                        
+                        <Skeleton className='rounded-[8px]'>
+                          <div className='h-[150px] w-full overflow-hidden rounded-[8px]'>
+                            <img src='' alt='' className='h-[150px] hover:scale-105 duration-200 w-full object-cover rounded-[8px] border-[1px]' />
+                          </div>
+                        </Skeleton>
+                        <div className='flex flex-col py-2 gap-2'>
+                          <Skeleton className='rounded-full'>
+                            <p className='text-sm font-medium capitalize text-gray-500'>Course name</p>
+                          </Skeleton>
+                          <Skeleton className='rounded-full'>
+                            <p className='text-sm font-medium capitalize text-gray-500'>i.programe.name</p>
+                          </Skeleton>
+                          <Skeleton className='rounded-full'>
+                            <p className='font-semibold text-xs uppercase text-[#DA0C0C]'>i.qualification.name</p>
+                          </Skeleton>
+                        </div>
+                        <div className='flex flex-wrap gap-1'>
+                          <Skeleton className='rounded-full'>
+                            <div className='flex bg-white text-sm text-gray-500 px-2 md:px-5 py-2 md:py-2 rounded-full capitalize'>
+                              online
+                            </div>
+                          </Skeleton>
+                          <Skeleton className='rounded-full'>
+                            <div className='flex bg-white text-sm text-gray-500 px-2 md:px-5 py-2 md:py-2 rounded-full capitalize'>
+                              4 months
+                            </div>
+                          </Skeleton>
+                        </div>
+                      </Link>
+                    </SwiperSlide>
+                  </Skeleton>
+                  <Skeleton className='rounded-full'>
+                    <SwiperSlide className='bg-red-50 rounded-[16px] mt-[24px] mb-[48px] '>
+                      <Link  className='flex flex-col min-w-full p-2 gap-2'>
+                        
+                        <Skeleton className='rounded-[8px]'>
+                          <div className='h-[150px] w-full overflow-hidden rounded-[8px]'>
+                            <img src='' alt='' className='h-[150px] hover:scale-105 duration-200 w-full object-cover rounded-[8px] border-[1px]' />
+                          </div>
+                        </Skeleton>
+                        <div className='flex flex-col py-2 gap-2'>
+                          <Skeleton className='rounded-full'>
+                            <p className='text-sm font-medium capitalize text-gray-500'>Course name</p>
+                          </Skeleton>
+                          <Skeleton className='rounded-full'>
+                            <p className='text-sm font-medium capitalize text-gray-500'>i.programe.name</p>
+                          </Skeleton>
+                          <Skeleton className='rounded-full'>
+                            <p className='font-semibold text-xs uppercase text-[#DA0C0C]'>i.qualification.name</p>
+                          </Skeleton>
+                        </div>
+                        <div className='flex flex-wrap gap-1'>
+                          <Skeleton className='rounded-full'>
+                            <div className='flex bg-white text-sm text-gray-500 px-2 md:px-5 py-2 md:py-2 rounded-full capitalize'>
+                              online
+                            </div>
+                          </Skeleton>
+                          <Skeleton className='rounded-full'>
+                            <div className='flex bg-white text-sm text-gray-500 px-2 md:px-5 py-2 md:py-2 rounded-full capitalize'>
+                              4 months
+                            </div>
+                          </Skeleton>
+                        </div>
+                      </Link>
+                    </SwiperSlide>
+                  </Skeleton>
+                
+              </Swiper>    
+            </div>:
+            courses?
             <div className='hidden sm:block lg:hidden'>
               <Swiper
                 slidesPerView={2}
@@ -484,7 +811,6 @@ const HomeScreen = () => {
                 autoplay
               >
                 {
-                  courses?
                   courses.map(i =>(
                     <SwiperSlide className='bg-red-50 rounded-[16px] mt-[24px] mb-[48px] '>
                       <Link to={`/courses/${i.slug}`} className='flex flex-col min-w-full p-2 gap-2'>
@@ -506,12 +832,134 @@ const HomeScreen = () => {
                         </div>
                       </Link>
                     </SwiperSlide>
-                  )):
-                  ''
+                  ))
                 }
                 
               </Swiper>    
-            </div>
+            </div>:
+            ''
+            }
+            
+
+            {
+              courseListLoading?
+              <div className='block sm:hidden'>
+              <Swiper
+                slidesPerView={1}
+                spaceBetween={10}
+                
+                modules={[ Autoplay]}
+                className="w-full"
+                autoplay
+              >
+                <Skeleton className='rounded-full'>
+                    <SwiperSlide className='bg-red-50 rounded-[16px] mt-[24px] mb-[48px] '>
+                      <Link  className='flex flex-col min-w-full p-2 gap-2'>
+                        
+                        <Skeleton className='rounded-[8px]'>
+                          <div className='h-[150px] w-full overflow-hidden rounded-[8px]'>
+                            <img src='' alt='' className='h-[150px] hover:scale-105 duration-200 w-full object-cover rounded-[8px] border-[1px]' />
+                          </div>
+                        </Skeleton>
+                        <div className='flex flex-col py-2 gap-2'>
+                          <Skeleton className='rounded-full'>
+                            <p className='text-sm font-medium capitalize text-gray-500'>Course name</p>
+                          </Skeleton>
+                          <Skeleton className='rounded-full'>
+                            <p className='text-sm font-medium capitalize text-gray-500'>i.programe.name</p>
+                          </Skeleton>
+                          <Skeleton className='rounded-full'>
+                            <p className='font-semibold text-xs uppercase text-[#DA0C0C]'>i.qualification.name</p>
+                          </Skeleton>
+                        </div>
+                        <div className='flex flex-wrap gap-1'>
+                          <Skeleton className='rounded-full'>
+                            <div className='flex bg-white text-sm text-gray-500 px-2 md:px-5 py-2 md:py-2 rounded-full capitalize'>
+                              online
+                            </div>
+                          </Skeleton>
+                          <Skeleton className='rounded-full'>
+                            <div className='flex bg-white text-sm text-gray-500 px-2 md:px-5 py-2 md:py-2 rounded-full capitalize'>
+                              4 months
+                            </div>
+                          </Skeleton>
+                        </div>
+                      </Link>
+                    </SwiperSlide>
+                  </Skeleton>
+                  <Skeleton className='rounded-full'>
+                    <SwiperSlide className='bg-red-50 rounded-[16px] mt-[24px] mb-[48px] '>
+                      <Link  className='flex flex-col min-w-full p-2 gap-2'>
+                        
+                        <Skeleton className='rounded-[8px]'>
+                          <div className='h-[150px] w-full overflow-hidden rounded-[8px]'>
+                            <img src='' alt='' className='h-[150px] hover:scale-105 duration-200 w-full object-cover rounded-[8px] border-[1px]' />
+                          </div>
+                        </Skeleton>
+                        <div className='flex flex-col py-2 gap-2'>
+                          <Skeleton className='rounded-full'>
+                            <p className='text-sm font-medium capitalize text-gray-500'>Course name</p>
+                          </Skeleton>
+                          <Skeleton className='rounded-full'>
+                            <p className='text-sm font-medium capitalize text-gray-500'>i.programe.name</p>
+                          </Skeleton>
+                          <Skeleton className='rounded-full'>
+                            <p className='font-semibold text-xs uppercase text-[#DA0C0C]'>i.qualification.name</p>
+                          </Skeleton>
+                        </div>
+                        <div className='flex flex-wrap gap-1'>
+                          <Skeleton className='rounded-full'>
+                            <div className='flex bg-white text-sm text-gray-500 px-2 md:px-5 py-2 md:py-2 rounded-full capitalize'>
+                              online
+                            </div>
+                          </Skeleton>
+                          <Skeleton className='rounded-full'>
+                            <div className='flex bg-white text-sm text-gray-500 px-2 md:px-5 py-2 md:py-2 rounded-full capitalize'>
+                              4 months
+                            </div>
+                          </Skeleton>
+                        </div>
+                      </Link>
+                    </SwiperSlide>
+                  </Skeleton>
+                  <Skeleton className='rounded-full'>
+                    <SwiperSlide className='bg-red-50 rounded-[16px] mt-[24px] mb-[48px] '>
+                      <Link  className='flex flex-col min-w-full p-2 gap-2'>
+                        
+                        <Skeleton className='rounded-[8px]'>
+                          <div className='h-[150px] w-full overflow-hidden rounded-[8px]'>
+                            <img src='' alt='' className='h-[150px] hover:scale-105 duration-200 w-full object-cover rounded-[8px] border-[1px]' />
+                          </div>
+                        </Skeleton>
+                        <div className='flex flex-col py-2 gap-2'>
+                          <Skeleton className='rounded-full'>
+                            <p className='text-sm font-medium capitalize text-gray-500'>Course name</p>
+                          </Skeleton>
+                          <Skeleton className='rounded-full'>
+                            <p className='text-sm font-medium capitalize text-gray-500'>i.programe.name</p>
+                          </Skeleton>
+                          <Skeleton className='rounded-full'>
+                            <p className='font-semibold text-xs uppercase text-[#DA0C0C]'>i.qualification.name</p>
+                          </Skeleton>
+                        </div>
+                        <div className='flex flex-wrap gap-1'>
+                          <Skeleton className='rounded-full'>
+                            <div className='flex bg-white text-sm text-gray-500 px-2 md:px-5 py-2 md:py-2 rounded-full capitalize'>
+                              online
+                            </div>
+                          </Skeleton>
+                          <Skeleton className='rounded-full'>
+                            <div className='flex bg-white text-sm text-gray-500 px-2 md:px-5 py-2 md:py-2 rounded-full capitalize'>
+                              4 months
+                            </div>
+                          </Skeleton>
+                        </div>
+                      </Link>
+                    </SwiperSlide>
+                  </Skeleton>
+              </Swiper>    
+            </div>:
+            courses?
             <div className='block sm:hidden'>
               <Swiper
                 slidesPerView={1}
@@ -522,7 +970,6 @@ const HomeScreen = () => {
                 autoplay
               >
                 {
-                  courses?
                   courses.map(i =>(
                     <SwiperSlide className='bg-red-50 rounded-[16px] mt-[24px] mb-[48px] '>
                       <Link to={`/courses/${i.slug}`} className='flex flex-col min-w-full p-2 gap-2'>
@@ -544,11 +991,12 @@ const HomeScreen = () => {
                         </div>
                       </Link>
                     </SwiperSlide>
-                  )):
-                  ''
+                  ))
                 }
               </Swiper>    
-            </div>
+            </div>:
+            ''
+            }
         </div>
       </section>
 
@@ -849,121 +1297,223 @@ const HomeScreen = () => {
               <p className='text-2xl lg:text-4xl font-bold text-center'>Students Say’s About Our Campus</p>
             </div>
 
-            <div className='h-fit hidden sm:flex'>
-              <Swiper
-                slidesPerView={2}
-                spaceBetween={25}
-                freeMode={true}
-                
-                autoplay={{
-                  delay: 6000,
-                  disableOnInteraction: false,
-                }}
-                modules={[FreeMode,  Autoplay]}
-                className="h-fit"
-              >
                 {
                   testimonialListLoading?
-                  <SwiperSlide className='max-h-fit min-w-full mt-2 mb-12 bg-red-50 p-6 md:p-12 rounded-[8px] relative overflow-hidden '>
-                    {/* <div className='h-[100px] w-[100px] absolute top-0 right-0 bg-[#DA0C0C] rotate-45 -z-20'>
+                  <div className='md:hidden'>
+                    <Swiper
+                      slidesPerView={2}
+                      spaceBetween={25}
+                      freeMode={true}
+                      
+                      autoplay
+                      modules={[FreeMode,  Autoplay]}
+                      className="h-fit"
+                    >
+                      <SwiperSlide className='max-h-fit w-full mt-2 mb-12 bg-red-50 p-6 md:p-12 rounded-[8px] relative overflow-hidden '>
+                        {/* <div className='h-[100px] w-[100px] absolute top-0 right-0 bg-[#DA0C0C] rotate-45 -z-20'>
 
-                    </div> */}
-                    <div className='h-fit w-full flex flex-col'>
-                      <Skeleton className='rounded-[8px]'>
-                        <p className='text-lg font-bold text-[#DA0C0C] capitalize'>Ayesh hiruni</p>
-                      </Skeleton>
-                      <Skeleton className='rounded-[8px]'>
-                        <p className='capitalize text-sm font-medium text-gray-500 '>veritual assistance</p>
-                      </Skeleton>
-                      <Skeleton className='rounded-[8px]'>
-                        <p className='capitalize text-sm font-medium text-gray-500 '>Selan Bank</p>
-                      </Skeleton>
-                    </div>
-                    <div className='h-[1px] w-full bg-red-100 my-4'></div>
-                    <div className='max-h-fit py-2'>
-                      <Skeleton className='rounded-[8px]'>
-                        <p className='text-base font-semibold'>"Lorem ipsum dolor sit amet consectetur. In nisl arcu risus at eu ipsum nunc magnis integer. Tristique aliquam risus mauris vitae adipiscing sit eget tristique."</p>
-                      </Skeleton>
-                    </div>
-                  </SwiperSlide>:
+                        </div> */}
+                        <div className='h-fit w-full flex flex-col gap-2'>
+                          <Skeleton className='rounded-[8px]'>
+                            <p className='text-lg font-bold text-[#DA0C0C] capitalize'>Ayesh hiruni</p>
+                          </Skeleton>
+                          <Skeleton className='rounded-[8px]'>
+                            <p className='capitalize text-sm font-medium text-gray-500 '>veritual assistance</p>
+                          </Skeleton>
+                          
+                        </div>
+                        <div className='h-[1px] w-full bg-red-100 my-4'></div>
+                        <div className='max-h-fit py-2'>
+                          <Skeleton className='rounded-[8px]'>
+                            <p className='text-base font-semibold'>"Lorem ipsum dolor sit amet consectetur. In nisl arcu risus at eu ipsum nunc magnis integer. Tristique aliquam risus mauris vitae adipiscing sit eget tristique."</p>
+                          </Skeleton>
+                        </div>
+                      </SwiperSlide>
+                      <SwiperSlide className='max-h-fit min-w-full mt-2 mb-12 bg-red-50 p-6 md:p-12 rounded-[8px] relative overflow-hidden '>
+                        {/* <div className='h-[100px] w-[100px] absolute top-0 right-0 bg-[#DA0C0C] rotate-45 -z-20'>
+
+                        </div> */}
+                        <div className='h-fit w-full flex flex-col gap-2'>
+                          <Skeleton className='rounded-[8px]'>
+                            <p className='text-lg font-bold text-[#DA0C0C] capitalize'>Ayesh hiruni</p>
+                          </Skeleton>
+                          <Skeleton className='rounded-[8px]'>
+                            <p className='capitalize text-sm font-medium text-gray-500 '>veritual assistance</p>
+                          </Skeleton>
+                          
+                        </div>
+                        <div className='h-[1px] w-full bg-red-100 my-4'></div>
+                        <div className='max-h-fit py-2'>
+                          <Skeleton className='rounded-[8px]'>
+                            <p className='text-base font-semibold'>"Lorem ipsum dolor sit amet consectetur. In nisl arcu risus at eu ipsum nunc magnis integer. Tristique aliquam risus mauris vitae adipiscing sit eget tristique."</p>
+                          </Skeleton>
+                        </div>
+                      </SwiperSlide>
+                      <SwiperSlide className='max-h-fit min-w-full mt-2 mb-12 bg-red-50 p-6 md:p-12 rounded-[8px] relative overflow-hidden '>
+                        {/* <div className='h-[100px] w-[100px] absolute top-0 right-0 bg-[#DA0C0C] rotate-45 -z-20'>
+
+                        </div> */}
+                        <div className='h-fit w-full flex flex-col gap-2'>
+                          <Skeleton className='rounded-[8px]'>
+                            <p className='text-lg font-bold text-[#DA0C0C] capitalize'>Ayesh hiruni</p>
+                          </Skeleton>
+                          <Skeleton className='rounded-[8px]'>
+                            <p className='capitalize text-sm font-medium text-gray-500 '>veritual assistance</p>
+                          </Skeleton>
+                          
+                        </div>
+                        <div className='h-[1px] w-full bg-red-100 my-4'></div>
+                        <div className='max-h-fit py-2'>
+                          <Skeleton className='rounded-[8px]'>
+                            <p className='text-base font-semibold'>"Lorem ipsum dolor sit amet consectetur. In nisl arcu risus at eu ipsum nunc magnis integer. Tristique aliquam risus mauris vitae adipiscing sit eget tristique."</p>
+                          </Skeleton>
+                        </div>
+                      </SwiperSlide>
+                    </Swiper>
+                  </div>
+                  :
                   testimonials ?
-                  // filter(f=>f.page.name =='Home').
-                  testimonials.map(i=>(
-                    <SwiperSlide key={i.id} className='max-h-fit w-full mt-2 mb-12 bg-red-50 p-6 md:p-12 rounded-[8px] relative overflow-hidden '>
-                      {/* <div className='h-[100px] w-[100px] absolute top-0 right-0 bg-[#DA0C0C] rotate-45 -z-20'>
+                  <div className='md:hidden'>
+                    <Swiper
+                      slidesPerView={2}
+                      spaceBetween={25}
+                      freeMode={true}
+                      
+                      autoplay
+                      modules={[FreeMode,  Autoplay]}
+                      className="h-fit"
+                    >
+                      {
+                        testimonials.map(i=>(
+                          <SwiperSlide key={i.id} className='max-h-fit w-full mt-2 mb-12 bg-red-50 p-6 md:p-12 rounded-[8px] relative overflow-hidden '>
+                            {/* <div className='h-[100px] w-[100px] absolute top-0 right-0 bg-[#DA0C0C] rotate-45 -z-20'>
 
-                      </div> */}
-                      <div className='h-fit flex flex-col'>
-                        <p className='text-lg font-bold text-[#DA0C0C] capitalize'>{i.name}</p>
-                        <p className='capitalize text-sm font-medium text-gray-500 '>{i.course.name}</p> 
-                      </div>
-                      <div className='h-[1px] w-full bg-red-100 my-4'></div>
-                      <div className='max-h-fit py-2'>
-                        <p className='text-sm font-medium'>{parse(i.description)}</p>
-                      </div>
-                    </SwiperSlide>
-                  )):
+                            </div> */}
+                            <div className='h-fit flex flex-col'>
+                              <p className='text-lg font-bold text-[#DA0C0C] capitalize'>{i.name}</p>
+                              <p className='capitalize text-sm font-medium text-gray-500 '>{i.course.name}</p> 
+                            </div>
+                            <div className='h-[1px] w-full bg-red-100 my-4'></div>
+                            <div className='max-h-fit py-2'>
+                              <p className='text-sm font-medium'>{parse(i.description)}</p>
+                            </div>
+                          </SwiperSlide>
+                        ))
+                      }
+                    </Swiper>
+                  </div>
+                  :
                   ''
-                }
-                
-              </Swiper>
-            </div>
+                }  
 
-            <div className='sm:hidden'>
-              <Swiper
-                slidesPerView={1}
-                spaceBetween={25}
-                freeMode={true}
-                
-                autoplay
-                modules={[FreeMode,  Autoplay]}
-                className="h-fit"
-              >
                 {
                   testimonialListLoading?
-                  <SwiperSlide className='max-h-fit w-full mt-2 mb-12 bg-red-50 p-6 md:p-12 rounded-[8px] relative overflow-hidden '>
-                    {/* <div className='h-[100px] w-[100px] absolute top-0 right-0 bg-[#DA0C0C] rotate-45 -z-20'>
+                  <div className='hidden md:block'>
+                    <Swiper
+                      slidesPerView={2}
+                      spaceBetween={25}
+                      freeMode={true}
+                      
+                      autoplay
+                      modules={[FreeMode,  Autoplay]}
+                      className="h-fit"
+                    >
+                      <SwiperSlide className='max-h-fit w-full mt-2 mb-12 bg-red-50 p-6 md:p-12 rounded-[8px] relative overflow-hidden '>
+                        {/* <div className='h-[100px] w-[100px] absolute top-0 right-0 bg-[#DA0C0C] rotate-45 -z-20'>
 
-                    </div> */}
-                    <div className='h-fit flex flex-col'>
-                      <Skeleton className='rounded-[8px]'>
-                        <p className='text-lg font-bold text-[#DA0C0C] capitalize'>Ayesh hiruni</p>
-                      </Skeleton>
-                      <Skeleton className='rounded-[8px]'>
-                        <p className='capitalize text-sm font-medium text-gray-500 '>veritual assistance</p>
-                      </Skeleton>
-                      <Skeleton className='rounded-[8px]'>
-                        <p className='capitalize text-sm font-medium text-gray-500 '>Selan Bank</p>
-                      </Skeleton>
-                    </div>
-                    <div className='h-[1px] w-full bg-red-100 my-4'></div>
-                    <div className='max-h-fit py-2'>
-                      <Skeleton className='rounded-[8px]'>
-                        <p className='text-base font-semibold'>"Lorem ipsum dolor sit amet consectetur. In nisl arcu risus at eu ipsum nunc magnis integer. Tristique aliquam risus mauris vitae adipiscing sit eget tristique."</p>
-                      </Skeleton>
-                    </div>
-                  </SwiperSlide>:
+                        </div> */}
+                        <div className='h-fit w-full flex flex-col gap-2'>
+                          <Skeleton className='rounded-[8px]'>
+                            <p className='text-lg font-bold text-[#DA0C0C] capitalize'>Ayesh hiruni</p>
+                          </Skeleton>
+                          <Skeleton className='rounded-[8px]'>
+                            <p className='capitalize text-sm font-medium text-gray-500 '>veritual assistance</p>
+                          </Skeleton>
+                          
+                        </div>
+                        <div className='h-[1px] w-full bg-red-100 my-4'></div>
+                        <div className='max-h-fit py-2'>
+                          <Skeleton className='rounded-[8px]'>
+                            <p className='text-base font-semibold'>"Lorem ipsum dolor sit amet consectetur. In nisl arcu risus at eu ipsum nunc magnis integer. Tristique aliquam risus mauris vitae adipiscing sit eget tristique."</p>
+                          </Skeleton>
+                        </div>
+                      </SwiperSlide>
+                      <SwiperSlide className='max-h-fit w-full mt-2 mb-12 bg-red-50 p-6 md:p-12 rounded-[8px] relative overflow-hidden '>
+                        {/* <div className='h-[100px] w-[100px] absolute top-0 right-0 bg-[#DA0C0C] rotate-45 -z-20'>
+
+                        </div> */}
+                        <div className='h-fit w-full flex flex-col gap-2'>
+                          <Skeleton className='rounded-[8px]'>
+                            <p className='text-lg font-bold text-[#DA0C0C] capitalize'>Ayesh hiruni</p>
+                          </Skeleton>
+                          <Skeleton className='rounded-[8px]'>
+                            <p className='capitalize text-sm font-medium text-gray-500 '>veritual assistance</p>
+                          </Skeleton>
+                          
+                        </div>
+                        <div className='h-[1px] w-full bg-red-100 my-4'></div>
+                        <div className='max-h-fit py-2'>
+                          <Skeleton className='rounded-[8px]'>
+                            <p className='text-base font-semibold'>"Lorem ipsum dolor sit amet consectetur. In nisl arcu risus at eu ipsum nunc magnis integer. Tristique aliquam risus mauris vitae adipiscing sit eget tristique."</p>
+                          </Skeleton>
+                        </div>
+                      </SwiperSlide>
+                      <SwiperSlide className='max-h-fit w-full mt-2 mb-12 bg-red-50 p-6 md:p-12 rounded-[8px] relative overflow-hidden '>
+                        {/* <div className='h-[100px] w-[100px] absolute top-0 right-0 bg-[#DA0C0C] rotate-45 -z-20'>
+
+                        </div> */}
+                        <div className='h-fit w-full flex flex-col gap-2'>
+                          <Skeleton className='rounded-[8px]'>
+                            <p className='text-lg font-bold text-[#DA0C0C] capitalize'>Ayesh hiruni</p>
+                          </Skeleton>
+                          <Skeleton className='rounded-[8px]'>
+                            <p className='capitalize text-sm font-medium text-gray-500 '>veritual assistance</p>
+                          </Skeleton>
+                          
+                        </div>
+                        <div className='h-[1px] w-full bg-red-100 my-4'></div>
+                        <div className='max-h-fit py-2'>
+                          <Skeleton className='rounded-[8px]'>
+                            <p className='text-base font-semibold'>"Lorem ipsum dolor sit amet consectetur. In nisl arcu risus at eu ipsum nunc magnis integer. Tristique aliquam risus mauris vitae adipiscing sit eget tristique."</p>
+                          </Skeleton>
+                        </div>
+                      </SwiperSlide>
+                    </Swiper>
+                  </div>
+                  :
                   testimonials ?
-                  // filter(f=>f.page.name =='Home').
-                  testimonials.map(i=>(
-                    <SwiperSlide key={i.id} className='max-h-fit w-full mt-2 mb-12 bg-red-50 p-6 md:p-12 rounded-[8px] relative overflow-hidden '>
-                      {/* <div className='h-[100px] w-[100px] absolute top-0 right-0 bg-[#DA0C0C] rotate-45 -z-20'>
+                  <div className='hidden md:block'>
+                    <Swiper
+                      slidesPerView={2}
+                      spaceBetween={25}
+                      freeMode={true}
+                      
+                      autoplay
+                      modules={[FreeMode,  Autoplay]}
+                      className="h-fit"
+                    >
+                      {
+                        testimonials.map(i=>(
+                          <SwiperSlide key={i.id} className='max-h-fit w-full mt-2 mb-12 bg-red-50 p-6 md:p-12 rounded-[8px] relative overflow-hidden '>
+                            {/* <div className='h-[100px] w-[100px] absolute top-0 right-0 bg-[#DA0C0C] rotate-45 -z-20'>
 
-                      </div> */}
-                      <div className='h-fit flex flex-col'>
-                        <p className='text-lg font-bold text-[#DA0C0C] capitalize'>{i.name}</p>
-                        <p className='capitalize text-sm font-medium text-gray-500 '>{i.course.name}</p> 
-                      </div>
-                      <div className='h-[1px] w-full bg-red-100 my-4'></div>
-                      <div className='max-h-fit py-2'>
-                        <p className='text-sm font-medium'>{parse(i.description)}</p>
-                      </div>
-                    </SwiperSlide>
-                  )):
+                            </div> */}
+                            <div className='h-fit flex flex-col'>
+                              <p className='text-lg font-bold text-[#DA0C0C] capitalize'>{i.name}</p>
+                              <p className='capitalize text-sm font-medium text-gray-500 '>{i.course.name}</p> 
+                            </div>
+                            <div className='h-[1px] w-full bg-red-100 my-4'></div>
+                            <div className='max-h-fit py-2'>
+                              <p className='text-sm font-medium'>{parse(i.description)}</p>
+                            </div>
+                          </SwiperSlide>
+                        ))
+                      }
+                    </Swiper>
+                  </div>
+                  :
                   ''
-                }
-              </Swiper>
-            </div>
+                }        
 
         </div>
       </section>
@@ -1204,69 +1754,360 @@ const HomeScreen = () => {
               <p className='text-2xl lg:text-4xl font-bold text-center'>Our Qualifications</p>
             </div>
 
-            <div className='hidden md:block'>
-              <Swiper
-                slidesPerView={3}
-                spaceBetween={10}
-                freeMode={true}
-                
-                autoplay
-                modules={[FreeMode,  Autoplay]}
-                className="h-fit"
-              >
-                {
-                  courseListLoading?
-                  '':
-                  courses?
-                  _.uniqBy(_.flatMap(courses, 'qualification'), 'id').map(i=>(
-                    <SwiperSlide key={i.id} className='bg-white border-[1px] border-red-100 rounded-[8px] mb-12 w-[250px]'>
-                      <img src={i.image} alt='' className='h-[150px] w-[200px] object-contain scale-80 mx-auto hover:scale-105 duration-200' />
-                      <div className='flex flex-col py-6 gap-4 px-4 '>
-                        <div className='flex flex-col-reverse'>
-                        <p className='text-xs h-[32px] overflow-hidden text-gray-400'>{parse(i.discription)}</p>
-                        <p className='text-based uppercase font-semibold'>{i.name}</p>
-                        </div>
-                        <p className='text-sm text-[#DA0C0C]'>More Details...</p>
-                      </div>
-                    </SwiperSlide>
-                  )).sort((a, b) => a.order - b.order)
-                  :
-                  ''
-                }
-              </Swiper>
-            </div>
+            {
+              courseListLoading?
+              <div className='hidden md:block'>
+                <Swiper
+                  slidesPerView={3}
+                  spaceBetween={10}
+                  freeMode={true}
+                  
+                  autoplay
+                  modules={[FreeMode,  Autoplay]}
+                  className="h-fit"
+                >
 
-            <div className='hidden sm:block md:hidden'>
-              <Swiper
-                slidesPerView={2}
-                spaceBetween={10}
-                freeMode={true}
-                
-                autoplay
-                modules={[FreeMode,  Autoplay]}
-                className="h-fit"
-              >
-                {
-                  courseListLoading?
-                  '':
-                  courses?
-                  _.uniqBy(_.flatMap(courses, 'qualification'), 'id').map(i=>(
-                    <SwiperSlide key={i.id} className='bg-white border-[1px] border-red-100 rounded-[8px] mb-12 w-[250px]'>
-                      <img src={i.image} alt='' className='h-[150px] w-[200px] object-contain scale-80 mx-auto hover:scale-105 duration-200' />
-                      <div className='flex flex-col py-6 gap-4 px-4 '>
-                        <div className='flex flex-col-reverse'>
-                        <p className='text-xs h-[32px] overflow-hidden text-gray-400'>{i.discription}</p>
-                        <p className='text-based uppercase font-semibold'>{i.name}</p>
+                      <SwiperSlide  className='bg-white border-[1px] border-red-100 rounded-[8px] mb-12 w-[250px] p-4'>
+                        <Skeleton className='rounded-[8px] '>
+                          <img src='' alt='' className='h-[150px] w-[200px] object-contain scale-80 mx-auto hover:scale-105 duration-200' />
+                        </Skeleton>
+                        <div className='flex flex-col py-6 gap-4  '>
+                          <div className='flex flex-col-reverse gap-2'>
+                      
+                          <Skeleton className='rounded-[8px]'><p className='text-based uppercase font-semibold'>i.name</p></Skeleton> 
+                          </div>
+                          <Skeleton className='rounded-[8px]'>
+                          <p className='text-sm text-[#DA0C0C]'>More Details...</p>
+                          </Skeleton>
                         </div>
-                        <p className='text-sm text-[#DA0C0C]'>More Details...</p>
-                      </div>
-                    </SwiperSlide>
-                  ))
-                  :
-                  ''
-                }
-              </Swiper>
-            </div>
+                      </SwiperSlide>
+                      <SwiperSlide  className='bg-white border-[1px] border-red-100 rounded-[8px] mb-12 w-[250px] p-4'>
+                        <Skeleton className='rounded-[8px] '>
+                          <img src='' alt='' className='h-[150px] w-[200px] object-contain scale-80 mx-auto hover:scale-105 duration-200' />
+                        </Skeleton>
+                        <div className='flex flex-col py-6 gap-4  '>
+                          <div className='flex flex-col-reverse gap-2'>
+                      
+                          <Skeleton className='rounded-[8px]'><p className='text-based uppercase font-semibold'>i.name</p></Skeleton> 
+                          </div>
+                          <Skeleton className='rounded-[8px]'>
+                          <p className='text-sm text-[#DA0C0C]'>More Details...</p>
+                          </Skeleton>
+                        </div>
+                      </SwiperSlide>
+                      <SwiperSlide  className='bg-white border-[1px] border-red-100 rounded-[8px] mb-12 w-[250px] p-4'>
+                        <Skeleton className='rounded-[8px] '>
+                          <img src='' alt='' className='h-[150px] w-[200px] object-contain scale-80 mx-auto hover:scale-105 duration-200' />
+                        </Skeleton>
+                        <div className='flex flex-col py-6 gap-4  '>
+                          <div className='flex flex-col-reverse gap-2'>
+                      
+                          <Skeleton className='rounded-[8px]'><p className='text-based uppercase font-semibold'>i.name</p></Skeleton> 
+                          </div>
+                          <Skeleton className='rounded-[8px]'>
+                          <p className='text-sm text-[#DA0C0C]'>More Details...</p>
+                          </Skeleton>
+                        </div>
+                      </SwiperSlide>
+
+                  {/* {
+                    courseListLoading?
+                    '':
+                    courses?
+                    _.uniqBy(_.flatMap(courses, 'qualification'), 'id').map(i=>(
+                      <SwiperSlide key={i.id} className='bg-white border-[1px] border-red-100 rounded-[8px] mb-12 w-[250px]'>
+                        <img src={i.image} alt='' className='h-[150px] w-[200px] object-contain scale-80 mx-auto hover:scale-105 duration-200' />
+                        <div className='flex flex-col py-6 gap-4 px-4 '>
+                          <div className='flex flex-col-reverse'>
+                          <p className='text-xs h-[32px] overflow-hidden text-gray-400'>{parse(i.discription)}</p>
+                          <p className='text-based uppercase font-semibold'>{i.name}</p>
+                          </div>
+                          <p className='text-sm text-[#DA0C0C]'>More Details...</p>
+                        </div>
+                      </SwiperSlide>
+                    )).sort((a, b) => a.order - b.order)
+                    :
+                    ''
+                  } */}
+                </Swiper>
+              </div>
+              :
+
+              courses?
+              <div className='hidden md:block'>
+                <Swiper
+                  slidesPerView={3}
+                  spaceBetween={10}
+                  freeMode={true}
+                  
+                  autoplay
+                  modules={[FreeMode,  Autoplay]}
+                  className="h-fit"
+                >
+
+                    
+
+                  {
+                    courseListLoading?
+                    '':
+                    courses?
+                    _.uniqBy(_.flatMap(courses, 'qualification'), 'id').map(i=>(
+                      <SwiperSlide key={i.id} className='bg-white border-[1px] border-red-100 rounded-[8px] mb-12 w-[250px]'>
+                        <img src={i.image} alt='' className='h-[150px] w-[200px] object-contain scale-80 mx-auto hover:scale-105 duration-200' />
+                        <div className='flex flex-col py-6 gap-4 px-4 '>
+                          <div className='flex flex-col-reverse'>
+                          <p className='text-xs h-[32px] overflow-hidden text-gray-400'>{parse(i.discription)}</p>
+                          <p className='text-based uppercase font-semibold'>{i.name}</p>
+                          </div>
+                          <p className='text-sm text-[#DA0C0C]'>More Details...</p>
+                        </div>
+                      </SwiperSlide>
+                    )).sort((a, b) => a.order - b.order)
+                    :
+                    ''
+                  }
+                </Swiper>
+              </div>:
+              ''
+            }
+
+            {
+              courseListLoading?
+              <div className='hidden sm:block md:hidden'>
+                <Swiper
+                  slidesPerView={2}
+                  spaceBetween={10}
+                  freeMode={true}
+                  
+                  autoplay
+                  modules={[FreeMode,  Autoplay]}
+                  className="h-fit"
+                >
+
+                      <SwiperSlide  className='bg-white border-[1px] border-red-100 rounded-[8px] mb-12 w-[250px] p-4'>
+                        <Skeleton className='rounded-[8px] '>
+                          <img src='' alt='' className='h-[150px] w-[200px] object-contain scale-80 mx-auto hover:scale-105 duration-200' />
+                        </Skeleton>
+                        <div className='flex flex-col py-6 gap-4  '>
+                          <div className='flex flex-col-reverse gap-2'>
+                      
+                          <Skeleton className='rounded-[8px]'><p className='text-based uppercase font-semibold'>i.name</p></Skeleton> 
+                          </div>
+                          <Skeleton className='rounded-[8px]'>
+                          <p className='text-sm text-[#DA0C0C]'>More Details...</p>
+                          </Skeleton>
+                        </div>
+                      </SwiperSlide>
+                      <SwiperSlide  className='bg-white border-[1px] border-red-100 rounded-[8px] mb-12 w-[250px] p-4'>
+                        <Skeleton className='rounded-[8px] '>
+                          <img src='' alt='' className='h-[150px] w-[200px] object-contain scale-80 mx-auto hover:scale-105 duration-200' />
+                        </Skeleton>
+                        <div className='flex flex-col py-6 gap-4  '>
+                          <div className='flex flex-col-reverse gap-2'>
+                      
+                          <Skeleton className='rounded-[8px]'><p className='text-based uppercase font-semibold'>i.name</p></Skeleton> 
+                          </div>
+                          <Skeleton className='rounded-[8px]'>
+                          <p className='text-sm text-[#DA0C0C]'>More Details...</p>
+                          </Skeleton>
+                        </div>
+                      </SwiperSlide>
+                      <SwiperSlide  className='bg-white border-[1px] border-red-100 rounded-[8px] mb-12 w-[250px] p-4'>
+                        <Skeleton className='rounded-[8px] '>
+                          <img src='' alt='' className='h-[150px] w-[200px] object-contain scale-80 mx-auto hover:scale-105 duration-200' />
+                        </Skeleton>
+                        <div className='flex flex-col py-6 gap-4  '>
+                          <div className='flex flex-col-reverse gap-2'>
+                      
+                          <Skeleton className='rounded-[8px]'><p className='text-based uppercase font-semibold'>i.name</p></Skeleton> 
+                          </div>
+                          <Skeleton className='rounded-[8px]'>
+                          <p className='text-sm text-[#DA0C0C]'>More Details...</p>
+                          </Skeleton>
+                        </div>
+                      </SwiperSlide>
+
+                  {/* {
+                    courseListLoading?
+                    '':
+                    courses?
+                    _.uniqBy(_.flatMap(courses, 'qualification'), 'id').map(i=>(
+                      <SwiperSlide key={i.id} className='bg-white border-[1px] border-red-100 rounded-[8px] mb-12 w-[250px]'>
+                        <img src={i.image} alt='' className='h-[150px] w-[200px] object-contain scale-80 mx-auto hover:scale-105 duration-200' />
+                        <div className='flex flex-col py-6 gap-4 px-4 '>
+                          <div className='flex flex-col-reverse'>
+                          <p className='text-xs h-[32px] overflow-hidden text-gray-400'>{parse(i.discription)}</p>
+                          <p className='text-based uppercase font-semibold'>{i.name}</p>
+                          </div>
+                          <p className='text-sm text-[#DA0C0C]'>More Details...</p>
+                        </div>
+                      </SwiperSlide>
+                    )).sort((a, b) => a.order - b.order)
+                    :
+                    ''
+                  } */}
+                </Swiper>
+              </div>
+              :
+
+              courses?
+              <div className='hidden sm:block md:hidden'>
+                <Swiper
+                  slidesPerView={2}
+                  spaceBetween={10}
+                  freeMode={true}
+                  
+                  autoplay
+                  modules={[FreeMode,  Autoplay]}
+                  className="h-fit"
+                >
+
+                    
+
+                  {
+                    courseListLoading?
+                    '':
+                    courses?
+                    _.uniqBy(_.flatMap(courses, 'qualification'), 'id').map(i=>(
+                      <SwiperSlide key={i.id} className='bg-white border-[1px] border-red-100 rounded-[8px] mb-12 w-[250px]'>
+                        <img src={i.image} alt='' className='h-[150px] w-[200px] object-contain scale-80 mx-auto hover:scale-105 duration-200' />
+                        <div className='flex flex-col py-6 gap-4 px-4 '>
+                          <div className='flex flex-col-reverse'>
+                          <p className='text-xs h-[32px] overflow-hidden text-gray-400'>{parse(i.discription)}</p>
+                          <p className='text-based uppercase font-semibold'>{i.name}</p>
+                          </div>
+                          <p className='text-sm text-[#DA0C0C]'>More Details...</p>
+                        </div>
+                      </SwiperSlide>
+                    )).sort((a, b) => a.order - b.order)
+                    :
+                    ''
+                  }
+                </Swiper>
+              </div>:
+              ''
+            }
+
+{
+              courseListLoading?
+              <div className='sm:hidden'>
+                <Swiper
+                  slidesPerView={1}
+                  spaceBetween={10}
+                  freeMode={true}
+                  
+                  autoplay
+                  modules={[FreeMode,  Autoplay]}
+                  className="h-fit"
+                >
+
+                      <SwiperSlide  className='bg-white border-[1px] border-red-100 rounded-[8px] mb-12 w-[250px] p-4'>
+                        <Skeleton className='rounded-[8px] '>
+                          <img src='' alt='' className='h-[150px] w-[200px] object-contain scale-80 mx-auto hover:scale-105 duration-200' />
+                        </Skeleton>
+                        <div className='flex flex-col py-6 gap-4  '>
+                          <div className='flex flex-col-reverse gap-2'>
+                      
+                          <Skeleton className='rounded-[8px]'><p className='text-based uppercase font-semibold'>i.name</p></Skeleton> 
+                          </div>
+                          <Skeleton className='rounded-[8px]'>
+                          <p className='text-sm text-[#DA0C0C]'>More Details...</p>
+                          </Skeleton>
+                        </div>
+                      </SwiperSlide>
+                      <SwiperSlide  className='bg-white border-[1px] border-red-100 rounded-[8px] mb-12 w-[250px] p-4'>
+                        <Skeleton className='rounded-[8px] '>
+                          <img src='' alt='' className='h-[150px] w-[200px] object-contain scale-80 mx-auto hover:scale-105 duration-200' />
+                        </Skeleton>
+                        <div className='flex flex-col py-6 gap-4  '>
+                          <div className='flex flex-col-reverse gap-2'>
+                      
+                          <Skeleton className='rounded-[8px]'><p className='text-based uppercase font-semibold'>i.name</p></Skeleton> 
+                          </div>
+                          <Skeleton className='rounded-[8px]'>
+                          <p className='text-sm text-[#DA0C0C]'>More Details...</p>
+                          </Skeleton>
+                        </div>
+                      </SwiperSlide>
+                      <SwiperSlide  className='bg-white border-[1px] border-red-100 rounded-[8px] mb-12 w-[250px] p-4'>
+                        <Skeleton className='rounded-[8px] '>
+                          <img src='' alt='' className='h-[150px] w-[200px] object-contain scale-80 mx-auto hover:scale-105 duration-200' />
+                        </Skeleton>
+                        <div className='flex flex-col py-6 gap-4  '>
+                          <div className='flex flex-col-reverse gap-2'>
+                      
+                          <Skeleton className='rounded-[8px]'><p className='text-based uppercase font-semibold'>i.name</p></Skeleton> 
+                          </div>
+                          <Skeleton className='rounded-[8px]'>
+                          <p className='text-sm text-[#DA0C0C]'>More Details...</p>
+                          </Skeleton>
+                        </div>
+                      </SwiperSlide>
+
+                  {/* {
+                    courseListLoading?
+                    '':
+                    courses?
+                    _.uniqBy(_.flatMap(courses, 'qualification'), 'id').map(i=>(
+                      <SwiperSlide key={i.id} className='bg-white border-[1px] border-red-100 rounded-[8px] mb-12 w-[250px]'>
+                        <img src={i.image} alt='' className='h-[150px] w-[200px] object-contain scale-80 mx-auto hover:scale-105 duration-200' />
+                        <div className='flex flex-col py-6 gap-4 px-4 '>
+                          <div className='flex flex-col-reverse'>
+                          <p className='text-xs h-[32px] overflow-hidden text-gray-400'>{parse(i.discription)}</p>
+                          <p className='text-based uppercase font-semibold'>{i.name}</p>
+                          </div>
+                          <p className='text-sm text-[#DA0C0C]'>More Details...</p>
+                        </div>
+                      </SwiperSlide>
+                    )).sort((a, b) => a.order - b.order)
+                    :
+                    ''
+                  } */}
+                </Swiper>
+              </div>
+              :
+
+              courses?
+              <div className='sm:hidden'>
+                <Swiper
+                  slidesPerView={1}
+                  spaceBetween={10}
+                  freeMode={true}
+                  
+                  autoplay
+                  modules={[FreeMode,  Autoplay]}
+                  className="h-fit"
+                >
+
+                    
+
+                  {
+                    courseListLoading?
+                    '':
+                    courses?
+                    _.uniqBy(_.flatMap(courses, 'qualification'), 'id').map(i=>(
+                      <SwiperSlide key={i.id} className='bg-white border-[1px] border-red-100 rounded-[8px] mb-12 w-[250px]'>
+                        <img src={i.image} alt='' className='h-[150px] w-[200px] object-contain scale-80 mx-auto hover:scale-105 duration-200' />
+                        <div className='flex flex-col py-6 gap-4 px-4 '>
+                          <div className='flex flex-col-reverse'>
+                          <p className='text-xs h-[32px] overflow-hidden text-gray-400'>{parse(i.discription)}</p>
+                          <p className='text-based uppercase font-semibold'>{i.name}</p>
+                          </div>
+                          <p className='text-sm text-[#DA0C0C]'>More Details...</p>
+                        </div>
+                      </SwiperSlide>
+                    )).sort((a, b) => a.order - b.order)
+                    :
+                    ''
+                  }
+                </Swiper>
+              </div>:
+              ''
+            }
+
+
+        
+      
 
             <div className='sm:hidden'>
               <Swiper
