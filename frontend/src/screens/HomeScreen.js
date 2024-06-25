@@ -329,7 +329,7 @@ const HomeScreen = () => {
               <p className='uppercase text-xs text-center'>Faculty</p>
               <p className='text-2xl lg:text-4xl font-bold text-center'>Our Faculty</p>
             </div>
-            <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 pt-8 gap-4'>
+            <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 pt-8 gap-4'>
               {
                 facultyListLoading?
                 ''
@@ -342,8 +342,8 @@ const HomeScreen = () => {
                     </div>
                     <div className='h-fit w-full py-2 px-2 absolute bottom-0 z-40'>
                       <div className='h-fit w-full p-2 backdrop-blur-md rounded-[8px]'>
-                        <p className='text-white font-medium text-sm capitalize'>Faculty of</p>
-                        <p className='text-white font-bold text-lg capitalize'>{i.name}</p>
+                        <p className='text-white font-medium text-xs sm:text-sm capitalize'>Faculty of</p>
+                        <p className='text-white font-bold sm:text-lg capitalize'>{i.name}</p>
                       </div>
                     </div>
                   </Link>
@@ -566,19 +566,19 @@ const HomeScreen = () => {
             <p className='uppercase text-xs text-center'>Unlock Your Future</p>
             <p className='text-2xl lg:text-4xl font-bold text-[#DA0C0C] text-center'>Available Scholarships</p>
           </div>
-          <div className='w-fit mx-auto flex flex-wrap justify-center gap-4'>
+          <div className='w-fit mx-auto grid grid-cols-3 md:flex flex-wrap justify-center gap-2 sm:gap-4'>
             {
               loading?
               ''
               :
               levels?
               levels.map(i => (
-                <ReactWhatsapp number="+94726263061" message={`${i.name}`} className='h-fit w-fit mx-auto flex flex-col items-center relative '>
+                <ReactWhatsapp number="+94726263061" message={`${i.name}`} className='h-fit min-w-full w-full md:w-fit mx-auto flex flex-col items-center relative '>
                    <div className='h-[72px] w-28 flex flex-col items-center justify-center bg-white rounded-[8px] relative z-30 hover:scale-105 duration-300'>
                       <p className='text-[#DA0C0C] text-center text-2xl font-bold'>26%</p>
                       <p className='text-[#DA0C0C] text-center text-xs font-semibold'>Special offer</p>
                     </div> 
-                    <div className='h-16 w-36 sm:w-40 flex items-center justify-center text-white font-bold text-center relative z-30 text-sm px-4'>
+                    <div className='h-16 w-full md:w-36 sm:w-40 flex items-center justify-center text-white font-bold text-center relative z-30 text-sm px-4'>
                         {i.name}
                     </div>
                     <button className='h-[90px] w-full bg-[#DA0C0C] hover:h-full duration-500 absolute bottom-0 z-10 rounded-[8px]'>
