@@ -298,15 +298,29 @@ const Header = () => {
                 'h-full w-[80%] bg-gray-200 duration-100 delay-100 overflow-hidden p-4':
                 'h-full w-[0px] bg-gray-200 duration-300 overflow-hidden p-4'
             }>
-              <Button color='' className="w-full flex bg-[#DA0C0C] rounded-none text-white font-medium md:px-6 py-6">
+              {/* <Button color='' className="w-full flex bg-[#DA0C0C] rounded-none text-white font-medium md:px-6 py-6">
                 <p>Pay online</p>
                 <RiSecurePaymentFill />
-              </Button>
+              </Button> */}
               <div className='flex flex-col py-4'>
                 <Link onClick={() => setNavbar(!navbar)} to={'/'} className='text-sm font-semibold text-[#DA0C0C] h-12 flex items-center px-2 '>Home</Link>
-                <Accordion>
+                <Accordion defaultExpandedKeys={['2']}>
                   
-                  <AccordionItem key="2" aria-label="Faculties" className='flex flex-col' title={
+                <AccordionItem key="2" aria-label="Faculties" className='flex flex-col' title={
+                  <p className='text-sm font-semibold text-[#DA0C0C]'>Courses</p>
+                }>
+                  { 
+                    levelListLoading?
+                    '':
+                    levels?
+                    levels.map(i => (
+                      <Link onClick={() => setNavbar(!navbar)} to={`/facuties/${i.slug}`} className=' h-8 flex items-center text-xs px-4 font-medium'>{i.name}</Link>
+                    )):
+                    ''
+                  }
+                </AccordionItem>
+
+                  <AccordionItem key="3" aria-label="Faculties" className='flex flex-col' title={
                     <p className='text-sm font-semibold text-[#DA0C0C]'>Faculties</p>
                   }>
                     {
@@ -323,9 +337,7 @@ const Header = () => {
                   
                 </Accordion>
                 <Link onClick={() => setNavbar(!navbar)} to={'/abroad'} className='text-sm font-semibold text-[#DA0C0C] h-12 flex items-center px-2 '>Study abroad</Link>
-                <Link onClick={() => setNavbar(!navbar)} to={'/about'} className='text-sm font-semibold text-[#DA0C0C] h-12 flex items-center px-2 '>About us</Link>
                 <Link onClick={() => setNavbar(!navbar)} to={'/contact'} className='text-sm font-semibold text-[#DA0C0C] h-12 flex items-center px-2 '>Contact us</Link>
-                <Link onClick={() => setNavbar(!navbar)} to={'/foq'} className='text-sm font-semibold text-[#DA0C0C] h-12 flex items-center px-2 '>FAQ</Link>
               </div>
             </div>
 

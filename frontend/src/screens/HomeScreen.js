@@ -336,7 +336,7 @@ const HomeScreen = () => {
                 :
                 faculties?
                 faculties.map(i => (
-                  <Link to={`/faculties/${i.slug}`} className='h-[200px] w-full bg-black relative rounded-[16px] overflow-hidden'>
+                  <Link to={`/faculties/${i.slug}`} className='h-[150px] md:h-[200px] w-full bg-black relative rounded-[16px] overflow-hidden'>
                     <img src={i.image} alt='' className='h-full w-full relative z-0' />
                     <div className='w-full h-full bg-black/20 absolute z-30 top-0 hover:bg-black/50 duration-200'>
                     </div>
@@ -638,7 +638,7 @@ const HomeScreen = () => {
           <div className='w-full h-fit flex-col gap-4 pt-4 lg:pt-0 hidden lg:flex my-auto'>
             <p className='text-2xl font-bold text-[#DA0C0C] text-center '>IEBC Provides an extensive number of Programmes from Foundation to Masters which is regulated by UK Government Awarding Body</p>
           </div>
-          <div className='w-full h-fit flex flex-col gap-4  pt-4 lg:pt-0 lg:pl-12'>
+          <div className='w-full h-fit flex flex-col gap-4  px-6 pt-4 lg:pt-0 lg:pl-12'>
             <p className='text-2xl font-bold text-center '>Your inspiration our Motivation</p>
             <p className='text-sm text-gray-700 font-medium text-justify'>Students deserve to dream, to be inspired and gain knowledge, as a  college it is our duty to fulfill our student’s inspirations. IEBC is  here to guide students all the way through their studies and career.  Your Inspiration is our motivation.Students deserve to dream, to be inspired and gain knowledge, as a  college it is our duty to fulfill our student’s inspirations. IEBC is  here to guide students all the way through their studies and career.  Your Inspiration is our motivation.</p>
           </div>
@@ -662,8 +662,8 @@ const HomeScreen = () => {
               </div>
             } placement='bottom'>
               <div className='h-[175px] w-full min-w-full border-[1px] border-gray-300 rounded-[8px] flex  flex-col items-center justify-center gap-2 px-8 mx-auto'>
-                <img src='https://d65ixtnmlqq6w.cloudfront.net/wp-content/uploads/2023/11/diploma_12608865.webp' alt='' className='h-[80px] w-[80px] object-cover'/>
-                <p className='text-base font-bold text-center'>University Pathway Programmes</p>
+                <img src='https://d65ixtnmlqq6w.cloudfront.net/wp-content/uploads/2023/11/diploma_12608865.webp' alt='' className='h-[40px] md:h-[80px] w-[40px] md:w-[80px] object-cover'/>
+                <p className='text-sm md:text-base font-bold text-center '>University Pathway Programmes</p>
               </div>
             </Tooltip>
 
@@ -673,8 +673,8 @@ const HomeScreen = () => {
               </div>
             } placement='bottom'>
               <div className='h-[175px] w-full min-w-full border-[1px] border-gray-300 rounded-[8px] flex  flex-col items-center justify-center gap-2 px-8 mx-auto'>
-                <img src='https://d65ixtnmlqq6w.cloudfront.net/wp-content/uploads/2023/11/businessman_998412.webp' alt='' className='h-[80px] w-[80px] object-cover'/>
-                <p className='text-base font-bold text-center'>Professional Development Resources</p>
+                <img src='https://d65ixtnmlqq6w.cloudfront.net/wp-content/uploads/2023/11/businessman_998412.webp' alt='' className='h-[40px] md:h-[80px] w-[40px] md:w-[80px] object-cover'/>
+                <p className='text-sm md:text-base font-bold text-center '>Professional Development Resources</p>
               </div>
             </Tooltip>
 
@@ -684,8 +684,8 @@ const HomeScreen = () => {
               </div>
             } placement='bottom'>
               <div className='h-[175px] w-full min-w-full border-[1px] border-gray-300 rounded-[8px] flex  flex-col items-center justify-center gap-2 px-8 mx-auto'>
-                <img src='https://d65ixtnmlqq6w.cloudfront.net/wp-content/uploads/2023/11/policy.webp' alt='' className='h-[80px] w-[80px] object-cover'/>
-                <p className='text-base font-bold text-center'>Accredited Courses</p>
+                <img src='https://d65ixtnmlqq6w.cloudfront.net/wp-content/uploads/2023/11/policy.webp' alt='' className='h-[40px] md:h-[80px] w-[40px] md:w-[80px] object-cover'/>
+                <p className='text-sm md:text-base font-bold text-center '>Accredited Courses</p>
               </div>
             </Tooltip>
 
@@ -695,8 +695,8 @@ const HomeScreen = () => {
               </div>
             } placement='bottom'>
               <div className='h-[175px] w-full min-w-full border-[1px] border-gray-300 rounded-[8px] flex  flex-col items-center justify-center gap-2 px-8 mx-auto'>
-                <img src='https://d65ixtnmlqq6w.cloudfront.net/wp-content/uploads/2023/11/membership.webp' alt='' className='h-[80px] w-[80px] object-cover'/>
-                <p className='text-base font-bold text-center'>Professional Body Membership</p>
+                <img src='https://d65ixtnmlqq6w.cloudfront.net/wp-content/uploads/2023/11/membership.webp' alt='' className='h-[40px] md:h-[80px] w-[40px] md:w-[80px] object-cover'/>
+                <p className='text-sm md:text-base font-bold text-center '>Professional Body Membership</p>
               </div>
             </Tooltip>
 
@@ -706,8 +706,8 @@ const HomeScreen = () => {
               </div>
             } placement='bottom'>
               <div className='h-[175px] w-full min-w-full border-[1px] border-gray-300 rounded-[8px] flex  flex-col items-center justify-center gap-2 px-8 mx-auto'>
-                <img src='https://d65ixtnmlqq6w.cloudfront.net/wp-content/uploads/2023/11/24-hours.webp' alt='' className='h-[80px] w-[80px] object-cover'/>
-                <p className='text-base font-bold text-center'>24/7 Connection. Anytime, Anywhere, Any Device</p>
+                <img src='https://d65ixtnmlqq6w.cloudfront.net/wp-content/uploads/2023/11/24-hours.webp' alt='' className='h-[40px] md:h-[80px] w-[40px] md:w-[80px] object-cover'/>
+                <p className='text-sm md:text-base font-bold text-center '>24/7 Connection. Anytime, Anywhere, Any Device</p>
               </div>
             </Tooltip>
 
@@ -717,21 +717,21 @@ const HomeScreen = () => {
               </div>
             } placement='bottom'>
               <div className='h-[175px] w-full min-w-full border-[1px] border-gray-300 rounded-[8px] flex  flex-col items-center justify-center gap-2 px-8 mx-auto'>
-                <img src='https://d65ixtnmlqq6w.cloudfront.net/wp-content/uploads/2023/11/businessman_998412.webp' alt='' className='h-[80px] w-[80px] object-cover'/>
-                <p className='text-base font-bold text-center'>Educational Counselling                </p>
+                <img src='https://d65ixtnmlqq6w.cloudfront.net/wp-content/uploads/2023/11/businessman_998412.webp' alt='' className='h-[40px] md:h-[80px] w-[40px] md:w-[80px] object-cover'/>
+                <p className='text-sm md:text-base font-bold text-center '>Educational Counselling                </p>
               </div>
             </Tooltip>
 
             
           </div>
 
-          <div className='w-full mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 justify-center gap-4 place-content-evenly lg:hidden'>
+          <div className='w-full mx-auto grid grid-cols-2 lg:grid-cols-3 justify-center gap-4 place-content-evenly lg:hidden'>
 
             <Popover>
               <PopoverTrigger>
               <div className='h-[175px] w-full min-w-full border-[1px] border-gray-300 rounded-[8px] flex  flex-col items-center justify-center gap-2 px-8 mx-auto'>
-                        <img src='https://d65ixtnmlqq6w.cloudfront.net/wp-content/uploads/2023/11/diploma_12608865.webp' alt='' className='h-[80px] w-[80px] object-cover'/>
-                        <p className='text-base font-bold text-center'>University Pathway Programmes</p>
+                        <img src='https://d65ixtnmlqq6w.cloudfront.net/wp-content/uploads/2023/11/diploma_12608865.webp' alt='' className='h-[40px] md:h-[80px] w-[40px] md:w-[80px] object-cover'/>
+                        <p className='text-sm md:text-base font-bold text-center '>University Pathway Programmes</p>
                       </div>
               </PopoverTrigger>
               <PopoverContent>
@@ -745,8 +745,8 @@ const HomeScreen = () => {
             <Popover>
               <PopoverTrigger>
               <div className='h-[175px] w-full min-w-full border-[1px] border-gray-300 rounded-[8px] flex  flex-col items-center justify-center gap-2 px-8 mx-auto'>
-                          <img src='https://d65ixtnmlqq6w.cloudfront.net/wp-content/uploads/2023/11/businessman_998412.webp' alt='' className='h-[80px] w-[80px] object-cover'/>
-                          <p className='text-base font-bold text-center'>Professional Development Resources</p>
+                          <img src='https://d65ixtnmlqq6w.cloudfront.net/wp-content/uploads/2023/11/businessman_998412.webp' alt='' className='h-[40px] md:h-[80px] w-[40px] md:w-[80px] object-cover'/>
+                          <p className='text-sm md:text-base font-bold text-center '>Professional Development Resources</p>
                         </div>
               </PopoverTrigger>
               <PopoverContent>
@@ -759,8 +759,8 @@ const HomeScreen = () => {
             <Popover>
               <PopoverTrigger>
               <div className='h-[175px] w-full min-w-full border-[1px] border-gray-300 rounded-[8px] flex  flex-col items-center justify-center gap-2 px-8 mx-auto'>
-                    <img src='https://d65ixtnmlqq6w.cloudfront.net/wp-content/uploads/2023/11/policy.webp' alt='' className='h-[80px] w-[80px] object-cover'/>
-                    <p className='text-base font-bold text-center'>Accredited Courses</p>
+                    <img src='https://d65ixtnmlqq6w.cloudfront.net/wp-content/uploads/2023/11/policy.webp' alt='' className='h-[40px] md:h-[80px] w-[40px] md:w-[80px] object-cover'/>
+                    <p className='text-sm md:text-base font-bold text-center '>Accredited Courses</p>
                   </div>
                   </PopoverTrigger>
                   <PopoverContent>
@@ -773,8 +773,8 @@ const HomeScreen = () => {
             <Popover>
               <PopoverTrigger>
               <div className='h-[175px] w-full min-w-full border-[1px] border-gray-300 rounded-[8px] flex  flex-col items-center justify-center gap-2 px-8 mx-auto'>
-                    <img src='https://d65ixtnmlqq6w.cloudfront.net/wp-content/uploads/2023/11/membership.webp' alt='' className='h-[80px] w-[80px] object-cover'/>
-                    <p className='text-base font-bold text-center'>Professional Body Membership</p>
+                    <img src='https://d65ixtnmlqq6w.cloudfront.net/wp-content/uploads/2023/11/membership.webp' alt='' className='h-[40px] md:h-[80px] w-[40px] md:w-[80px] object-cover'/>
+                    <p className='text-sm md:text-base font-bold text-center '>Professional Body Membership</p>
                   </div>
                   </PopoverTrigger>
                   <PopoverContent>
@@ -787,8 +787,8 @@ const HomeScreen = () => {
             <Popover>
               <PopoverTrigger>
               <div className='h-[175px] w-full min-w-full border-[1px] border-gray-300 rounded-[8px] flex  flex-col items-center justify-center gap-2 px-8 mx-auto'>
-                    <img src='https://d65ixtnmlqq6w.cloudfront.net/wp-content/uploads/2023/11/24-hours.webp' alt='' className='h-[80px] w-[80px] object-cover'/>
-                    <p className='text-base font-bold text-center'>24/7 Connection. Anytime, Anywhere, Any Device</p>
+                    <img src='https://d65ixtnmlqq6w.cloudfront.net/wp-content/uploads/2023/11/24-hours.webp' alt='' className='h-[40px] md:h-[80px] w-[40px] md:w-[80px] object-cover'/>
+                    <p className='text-sm md:text-base font-bold text-center '>24/7 Connection. Anytime, Anywhere, Any Device</p>
                   </div>
               </PopoverTrigger>
               <PopoverContent>
@@ -801,8 +801,8 @@ const HomeScreen = () => {
             <Popover>
               <PopoverTrigger>
               <div className='h-[175px] w-full min-w-full border-[1px] border-gray-300 rounded-[8px] flex  flex-col items-center justify-center gap-2 px-8 mx-auto'>
-                    <img src='https://d65ixtnmlqq6w.cloudfront.net/wp-content/uploads/2023/11/businessman_998412.webp' alt='' className='h-[80px] w-[80px] object-cover'/>
-                    <p className='text-base font-bold text-center'>Educational Counselling                </p>
+                    <img src='https://d65ixtnmlqq6w.cloudfront.net/wp-content/uploads/2023/11/businessman_998412.webp' alt='' className='h-[40px] md:h-[80px] w-[40px] md:w-[80px] object-cover'/>
+                    <p className='text-sm md:text-base font-bold text-center '>Educational Counselling                </p>
                   </div>
               </PopoverTrigger>
               <PopoverContent>
@@ -818,7 +818,7 @@ const HomeScreen = () => {
       </section>
 
       <section className='h-fit w-full relative px-8 '>
-        <div className='h-fit w-full max-w-[1024px] mx-auto justify-center gap-6 grid grid-col-2 md:grid-cols-3 lg:grid-cols-5 bg-[#DA0C0C] text-white py-12 rounded-[16px]'>
+        <div className='h-fit w-full max-w-[1024px] mx-auto justify-center gap-12 grid grid-cols-1 grid-col-2 md:grid-cols-3 lg:grid-cols-5 bg-[#DA0C0C] text-white py-12 rounded-[16px]'>
           <div className='w-full flex flex-col items-center justify-center'>
             <p className='text-4xl font-bold'>100+</p>
             <p className='text-sm font-medium'>Acadamic members</p>
@@ -860,28 +860,28 @@ const HomeScreen = () => {
                   disableOnInteraction: false,
                 }}
                 modules={[FreeMode,  Autoplay]}
-                className=""
+                className="h-fit"
               >
                 {
                   testimonialListLoading?
-                  <SwiperSlide className='max-h-[300px] w-full mt-2 mb-12 bg-red-50 p-6 md:p-12 rounded-[8px] relative overflow-hidden '>
+                  <SwiperSlide className='max-h-fit min-w-full mt-2 mb-12 bg-red-50 p-6 md:p-12 rounded-[8px] relative overflow-hidden '>
                     {/* <div className='h-[100px] w-[100px] absolute top-0 right-0 bg-[#DA0C0C] rotate-45 -z-20'>
 
                     </div> */}
-                    <div className='h-fit flex flex-col'>
-                      <Skeleton>
+                    <div className='h-fit w-full flex flex-col'>
+                      <Skeleton className='rounded-[8px]'>
                         <p className='text-lg font-bold text-[#DA0C0C] capitalize'>Ayesh hiruni</p>
                       </Skeleton>
-                      <Skeleton>
+                      <Skeleton className='rounded-[8px]'>
                         <p className='capitalize text-sm font-medium text-gray-500 '>veritual assistance</p>
                       </Skeleton>
-                      <Skeleton>
+                      <Skeleton className='rounded-[8px]'>
                         <p className='capitalize text-sm font-medium text-gray-500 '>Selan Bank</p>
                       </Skeleton>
                     </div>
                     <div className='h-[1px] w-full bg-red-100 my-4'></div>
                     <div className='max-h-fit py-2'>
-                      <Skeleton>
+                      <Skeleton className='rounded-[8px]'>
                         <p className='text-base font-semibold'>"Lorem ipsum dolor sit amet consectetur. In nisl arcu risus at eu ipsum nunc magnis integer. Tristique aliquam risus mauris vitae adipiscing sit eget tristique."</p>
                       </Skeleton>
                     </div>
@@ -889,7 +889,7 @@ const HomeScreen = () => {
                   testimonials ?
                   // filter(f=>f.page.name =='Home').
                   testimonials.map(i=>(
-                    <SwiperSlide key={i.id} className='max-h-[300px] w-full mt-2 mb-12 bg-red-50 p-6 md:p-12 rounded-[8px] relative overflow-hidden '>
+                    <SwiperSlide key={i.id} className='max-h-fit w-full mt-2 mb-12 bg-red-50 p-6 md:p-12 rounded-[8px] relative overflow-hidden '>
                       {/* <div className='h-[100px] w-[100px] absolute top-0 right-0 bg-[#DA0C0C] rotate-45 -z-20'>
 
                       </div> */}
@@ -899,7 +899,7 @@ const HomeScreen = () => {
                       </div>
                       <div className='h-[1px] w-full bg-red-100 my-4'></div>
                       <div className='max-h-fit py-2'>
-                        <p className='text-base font-semibold'>{parse(i.description)}</p>
+                        <p className='text-sm font-medium'>{parse(i.description)}</p>
                       </div>
                     </SwiperSlide>
                   )):
@@ -917,28 +917,28 @@ const HomeScreen = () => {
                 
                 autoplay
                 modules={[FreeMode,  Autoplay]}
-                className=""
+                className="h-fit"
               >
                 {
                   testimonialListLoading?
-                  <SwiperSlide className='max-h-[300px] w-full mt-2 mb-12 bg-red-50 p-6 md:p-12 rounded-[8px] relative overflow-hidden '>
+                  <SwiperSlide className='max-h-fit w-full mt-2 mb-12 bg-red-50 p-6 md:p-12 rounded-[8px] relative overflow-hidden '>
                     {/* <div className='h-[100px] w-[100px] absolute top-0 right-0 bg-[#DA0C0C] rotate-45 -z-20'>
 
                     </div> */}
                     <div className='h-fit flex flex-col'>
-                      <Skeleton>
+                      <Skeleton className='rounded-[8px]'>
                         <p className='text-lg font-bold text-[#DA0C0C] capitalize'>Ayesh hiruni</p>
                       </Skeleton>
-                      <Skeleton>
+                      <Skeleton className='rounded-[8px]'>
                         <p className='capitalize text-sm font-medium text-gray-500 '>veritual assistance</p>
                       </Skeleton>
-                      <Skeleton>
+                      <Skeleton className='rounded-[8px]'>
                         <p className='capitalize text-sm font-medium text-gray-500 '>Selan Bank</p>
                       </Skeleton>
                     </div>
                     <div className='h-[1px] w-full bg-red-100 my-4'></div>
                     <div className='max-h-fit py-2'>
-                      <Skeleton>
+                      <Skeleton className='rounded-[8px]'>
                         <p className='text-base font-semibold'>"Lorem ipsum dolor sit amet consectetur. In nisl arcu risus at eu ipsum nunc magnis integer. Tristique aliquam risus mauris vitae adipiscing sit eget tristique."</p>
                       </Skeleton>
                     </div>
@@ -946,7 +946,7 @@ const HomeScreen = () => {
                   testimonials ?
                   // filter(f=>f.page.name =='Home').
                   testimonials.map(i=>(
-                    <SwiperSlide key={i.id} className='max-h-[300px] w-full mt-2 mb-12 bg-red-50 p-6 md:p-12 rounded-[8px] relative overflow-hidden '>
+                    <SwiperSlide key={i.id} className='max-h-fit w-full mt-2 mb-12 bg-red-50 p-6 md:p-12 rounded-[8px] relative overflow-hidden '>
                       {/* <div className='h-[100px] w-[100px] absolute top-0 right-0 bg-[#DA0C0C] rotate-45 -z-20'>
 
                       </div> */}
@@ -956,7 +956,7 @@ const HomeScreen = () => {
                       </div>
                       <div className='h-[1px] w-full bg-red-100 my-4'></div>
                       <div className='max-h-fit py-2'>
-                        <p className='text-base font-semibold'>{parse(i.description)}</p>
+                        <p className='text-sm font-medium'>{parse(i.description)}</p>
                       </div>
                     </SwiperSlide>
                   )):
@@ -983,7 +983,7 @@ const HomeScreen = () => {
                 
                 autoplay
                 modules={[FreeMode,  Autoplay]}
-                className=""
+                className="h-fit"
               >
                 <SwiperSlide className='h-[300px] w-full relative mt-4 mb-12'>
                   <div className='h-[200px] w-full relative z-10'>
@@ -1056,7 +1056,7 @@ const HomeScreen = () => {
                 
                 autoplay
                 modules={[FreeMode,  Autoplay]}
-                className=""
+                className="h-fit"
               >
                 <SwiperSlide className='h-[300px] w-full relative mt-4 mb-12'>
                   <div className='h-[200px] w-full relative z-10'>
@@ -1119,7 +1119,7 @@ const HomeScreen = () => {
                 
                 autoplay
                 modules={[FreeMode,  Autoplay]}
-                className=""
+                className="h-fit"
               >
                 <SwiperSlide className='h-[300px] w-full relative mt-4 mb-12'>
                   <div className='h-[200px] w-full relative z-10'>
@@ -1212,7 +1212,7 @@ const HomeScreen = () => {
                 
                 autoplay
                 modules={[FreeMode,  Autoplay]}
-                className=""
+                className="h-fit"
               >
                 {
                   courseListLoading?
@@ -1244,7 +1244,7 @@ const HomeScreen = () => {
                 
                 autoplay
                 modules={[FreeMode,  Autoplay]}
-                className=""
+                className="h-fit"
               >
                 {
                   courseListLoading?
@@ -1276,7 +1276,7 @@ const HomeScreen = () => {
                 
                 autoplay
                 modules={[FreeMode,  Autoplay]}
-                className=""
+                className="h-fit"
               >
                 {
                   courseListLoading?
