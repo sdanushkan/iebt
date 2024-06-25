@@ -656,7 +656,16 @@ const HomeScreen = () => {
           </div>
           <div className='hidden w-full mx-auto lg:grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 justify-center gap-4 place-content-evenly'>
 
-            
+            <Tooltip showArrow={true} content={
+              <div className='p-4 max-w-[500px] '>
+                University pathway programmes are designed to help our students transition smoothly into higher education. These programmes offer tailored support in academic skills, English language proficiency,and cultural adaptation, ensuring students are well-prepared for their chosen degree courses.
+              </div>
+            } placement='bottom'>
+              <div className='h-[175px] w-full min-w-full border-[1px] border-gray-300 rounded-[8px] flex  flex-col items-center justify-center gap-2 px-8 mx-auto'>
+                <img src='https://d65ixtnmlqq6w.cloudfront.net/wp-content/uploads/2023/11/diploma_12608865.webp' alt='' className='h-[80px] w-[80px] object-cover'/>
+                <p className='text-base font-bold text-center'>University Pathway Programmes</p>
+              </div>
+            </Tooltip>
 
             <Tooltip showArrow={true} content={
               <div className='p-4 max-w-[500px] '>
