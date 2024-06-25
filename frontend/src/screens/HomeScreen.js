@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import {Input, Skeleton, navbar} from "@nextui-org/react";
+import {Input, Popover, PopoverContent, PopoverTrigger, Skeleton, navbar} from "@nextui-org/react";
 import { VscSymbolKeyword, VscVerifiedFilled } from "react-icons/vsc";
 import {Button} from "@nextui-org/button";
 import { IoSearch } from "react-icons/io5";
@@ -32,7 +32,7 @@ import YouTube from 'react-youtube';
 import 'swiper/css';
 import 'swiper/css/pagination';
 
-import { Pagination, Autoplay, FreeMode } from 'swiper/modules';
+import {  Autoplay, FreeMode } from 'swiper/modules';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { getCourseList, getLevelList } from '../actions/courseActions';
@@ -98,7 +98,7 @@ const HomeScreen = () => {
             pagination={{
               clickable: true,
             }}
-            modules={[Pagination, Autoplay]}
+            modules={[ Autoplay]}
             className="w-full"
             autoplay
           >
@@ -125,10 +125,10 @@ const HomeScreen = () => {
             autoplay
           >
             <SwiperSlide className='w-full h-full flex justify-start object-contain'>
-              <div className='h-[400px] xl:h-[300px]  w-fit px-6 flex flex-col justify-center gap-6'>
-                <div className='h-fit w-fit backdrop-blur-md flex flex-col gap-4 p-6 rounded-[16px]'>
+              <div className='h-[400px] xl:h-[300px] w-full md:w-fit px-6 flex flex-col justify-center gap-6'>
+                <div className='h-fit w-full md:w-fit backdrop-blur-md flex flex-col gap-4 p-6 rounded-[16px]'>
                   <div className='flex flex-col gap-2 max-w-[500px] mx-auto'>
-                    <p className='text-4xl font-bold text-white'>International Education and Business Campus</p>
+                    <p className='text-2xl md:text-4xl font-bold text-white'>International Education and Business Campus</p>
                     <p className='text-white/75 text-xs'>Unleashing Brilliance, Building Community</p>
                   </div>
                   <Button color='' className="flex bg-[#DA0C0C] text-xs lg:text-sm text-white px-4 md:px-5 py-2 md:py-3 rounded-full w-fit">
@@ -138,10 +138,10 @@ const HomeScreen = () => {
               </div>
             </SwiperSlide>
             <SwiperSlide className='w-full h-full flex justify-start object-contain'>
-              <div className='h-[400px] xl:h-[300px]  w-fit px-6 flex flex-col justify-center gap-6'>
-                <div className='h-fit w-fit backdrop-blur-md flex flex-col gap-4 p-6 rounded-[16px]'>
+              <div className='h-[400px] xl:h-[300px] w-full md:w-fit px-6 flex flex-col justify-center gap-6'>
+                <div className='h-fit w-full md:w-fit backdrop-blur-md flex flex-col gap-4 p-6 rounded-[16px]'>
                   <div className='flex flex-col gap-2 max-w-[500px] mx-auto'>
-                    <p className='text-4xl font-bold text-white'>International Education and Business Campus</p>
+                    <p className='text-2xl md:text-4xl font-bold text-white'>International Education and Business Campus</p>
                     <p className='text-white/75 text-xs'>Unleashing Brilliance, Building Community</p>
                   </div>
                   <Button color='' className="flex bg-[#DA0C0C] text-xs lg:text-sm text-white px-4 md:px-5 py-2 md:py-3 rounded-full w-fit">
@@ -365,10 +365,8 @@ const HomeScreen = () => {
               <Swiper
                 slidesPerView={4}
                 spaceBetween={10}
-                pagination={{
-                  clickable: true,
-                }}
-                modules={[Pagination, Autoplay]}
+                
+                modules={[ Autoplay]}
                 className="w-full"
                 autoplay
               >
@@ -442,10 +440,8 @@ const HomeScreen = () => {
               <Swiper
                 slidesPerView={3}
                 spaceBetween={10}
-                pagination={{
-                  clickable: true,
-                }}
-                modules={[Pagination, Autoplay]}
+                
+                modules={[ Autoplay]}
                 className="w-full"
                 autoplay
               >
@@ -482,10 +478,8 @@ const HomeScreen = () => {
               <Swiper
                 slidesPerView={2}
                 spaceBetween={10}
-                pagination={{
-                  clickable: true,
-                }}
-                modules={[Pagination, Autoplay]}
+                
+                modules={[ Autoplay]}
                 className="w-full"
                 autoplay
               >
@@ -522,10 +516,8 @@ const HomeScreen = () => {
               <Swiper
                 slidesPerView={1}
                 spaceBetween={10}
-                pagination={{
-                  clickable: true,
-                }}
-                modules={[Pagination, Autoplay]}
+                
+                modules={[ Autoplay]}
                 className="w-full"
                 autoplay
               >
@@ -560,25 +552,25 @@ const HomeScreen = () => {
         </div>
       </section>
 
-      <section className='h-fit w-full relative overflow-hidden px-8 bg-red-50 py-4 lg:py-12'>
+      <section className='h-fit w-full relative overflow-hidden px-6 bg-red-50 py-4 lg:py-12'>
         <div className='h-fit w-full max-w-[1024px] mx-auto justify-center gap-6 '>
           <div className='flex flex-col pb-8'>
             <p className='uppercase text-xs text-center'>Unlock Your Future</p>
             <p className='text-2xl lg:text-4xl font-bold text-[#DA0C0C] text-center'>Available Scholarships</p>
           </div>
-          <div className='w-fit mx-auto grid grid-cols-3 md:flex flex-wrap justify-center gap-2 sm:gap-4'>
+          <div className='w-fit mx-auto flex flex-wrap justify-center gap-2 sm:gap-4'>
             {
               loading?
               ''
               :
               levels?
               levels.map(i => (
-                <ReactWhatsapp number="+94726263061" message={`${i.name}`} className='h-fit min-w-full w-full md:w-fit mx-auto flex flex-col items-center relative '>
-                   <div className='h-[72px] w-28 flex flex-col items-center justify-center bg-white rounded-[8px] relative z-30 hover:scale-105 duration-300'>
+                <ReactWhatsapp number="+94726263061" message={`${i.name}`} className='h-fit w-fit mx-auto flex flex-col items-center relative '>
+                   <div className='h-[72px] w-16 sm:w-28 flex flex-col items-center justify-center bg-white rounded-[8px] relative z-30 hover:scale-105 duration-300'>
                       <p className='text-[#DA0C0C] text-center text-2xl font-bold'>26%</p>
-                      <p className='text-[#DA0C0C] text-center text-xs font-semibold'>Special offer</p>
+                      <p className='text-[#DA0C0C] text-center text-xs font-medium'>Special offer</p>
                     </div> 
-                    <div className='h-16 w-full md:w-36 sm:w-40 flex items-center justify-center text-white font-bold text-center relative z-30 text-sm px-4'>
+                    <div className='h-16 w-24 md:w-36 sm:w-40 flex items-center justify-center text-white font-bold text-center relative z-30 text-xs px-4'>
                         {i.name}
                     </div>
                     <button className='h-[90px] w-full bg-[#DA0C0C] hover:h-full duration-500 absolute bottom-0 z-10 rounded-[8px]'>
@@ -640,9 +632,9 @@ const HomeScreen = () => {
         </div>
       </section> */}
 
-      <section className='h-[400px] w-full relative overflow-hidden px-8 lg:py-6 bg-cover bg-bottom ' >
+      <section className='min-h-fit h-[500px] w-full relative px-8 lg:py-6 bg-cover bg-bottom ' >
         <img src='https://upload.wikimedia.org/wikipedia/commons/c/cd/University-of-Alabama-EngineeringResearchCenter-01.jpg' alt='' className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 h-full w-full z-0 opacity-25' />
-        <div className='h-fit w-full max-w-[900px] mx-auto justify-center gap-6 grid grid-col-1 lg:grid-cols-2 divide-y-1 lg:divide-x-1 lg:divide-y-0 divide-[#DA0C0C] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10'>
+        <div className='h-fit min-h-fit w-full max-w-[900px] mx-auto justify-center gap-6 grid grid-col-1 lg:grid-cols-2 divide-y-1 lg:divide-x-1 lg:divide-y-0 divide-[#DA0C0C] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10'>
           <div className='w-full h-fit flex-col gap-4 pt-4 lg:pt-0 hidden lg:flex my-auto'>
             <p className='text-2xl font-bold text-[#DA0C0C] text-center '>IEBC Provides an extensive number of Programmes from Foundation to Masters which is regulated by UK Government Awarding Body</p>
           </div>
@@ -662,19 +654,9 @@ const HomeScreen = () => {
             <p className='uppercase text-xs text-center'>Questions</p>
             <p className='text-2xl lg:text-4xl font-bold text-center'>Why Learn with us?</p>
           </div>
-          <div className='w-full mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 justify-center gap-4 place-content-evenly'>
+          <div className='hidden w-full mx-auto lg:grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 justify-center gap-4 place-content-evenly'>
 
-            <Tooltip showArrow={true} content={
-              <div className='p-4 max-w-[500px] '>
-                University pathway programmes are designed to help our students transition smoothly into higher education. These programmes offer tailored support in academic skills, English language proficiency,and cultural adaptation, ensuring students are well-prepared for their chosen degree courses.
-
-              </div>
-            } placement='bottom'>
-              <div className='h-[175px] w-full min-w-full border-[1px] border-gray-300 rounded-[8px] flex  flex-col items-center justify-center gap-2 px-8 mx-auto'>
-                <img src='https://d65ixtnmlqq6w.cloudfront.net/wp-content/uploads/2023/11/diploma_12608865.webp' alt='' className='h-[80px] w-[80px] object-cover'/>
-                <p className='text-base font-bold text-center'>University Pathway Programmes</p>
-              </div>
-            </Tooltip>
+            
 
             <Tooltip showArrow={true} content={
               <div className='p-4 max-w-[500px] '>
@@ -733,6 +715,96 @@ const HomeScreen = () => {
 
             
           </div>
+
+          <div className='w-full mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 justify-center gap-4 place-content-evenly lg:hidden'>
+
+            <Popover>
+              <PopoverTrigger>
+              <div className='h-[175px] w-full min-w-full border-[1px] border-gray-300 rounded-[8px] flex  flex-col items-center justify-center gap-2 px-8 mx-auto'>
+                        <img src='https://d65ixtnmlqq6w.cloudfront.net/wp-content/uploads/2023/11/diploma_12608865.webp' alt='' className='h-[80px] w-[80px] object-cover'/>
+                        <p className='text-base font-bold text-center'>University Pathway Programmes</p>
+                      </div>
+              </PopoverTrigger>
+              <PopoverContent>
+                <div className='p-4 max-w-[500px] '>
+                    University pathway programmes are designed to help our students transition smoothly into higher education. These programmes offer tailored support in academic skills, English language proficiency,and cultural adaptation, ensuring students are well-prepared for their chosen degree courses.
+
+                  </div>
+              </PopoverContent>
+            </Popover>
+
+            <Popover>
+              <PopoverTrigger>
+              <div className='h-[175px] w-full min-w-full border-[1px] border-gray-300 rounded-[8px] flex  flex-col items-center justify-center gap-2 px-8 mx-auto'>
+                          <img src='https://d65ixtnmlqq6w.cloudfront.net/wp-content/uploads/2023/11/businessman_998412.webp' alt='' className='h-[80px] w-[80px] object-cover'/>
+                          <p className='text-base font-bold text-center'>Professional Development Resources</p>
+                        </div>
+              </PopoverTrigger>
+              <PopoverContent>
+              <div className='p-4 max-w-[500px] '>
+                    Our professional development resources provide students with access to workshops, seminars, and online courses aimed at enhancing their career skills. Topics include leadership, project management, and industry-specific knowledge, all designed to support continuous learning and career advancement.
+                  </div>
+              </PopoverContent>
+            </Popover>
+
+            <Popover>
+              <PopoverTrigger>
+              <div className='h-[175px] w-full min-w-full border-[1px] border-gray-300 rounded-[8px] flex  flex-col items-center justify-center gap-2 px-8 mx-auto'>
+                    <img src='https://d65ixtnmlqq6w.cloudfront.net/wp-content/uploads/2023/11/policy.webp' alt='' className='h-[80px] w-[80px] object-cover'/>
+                    <p className='text-base font-bold text-center'>Accredited Courses</p>
+                  </div>
+                  </PopoverTrigger>
+                  <PopoverContent>
+              <div className='p-4 max-w-[500px] '>
+                We offer a range of accredited courses that meet industry standards and are recognized globally. These courses ensure students receive quality education and credentials that enhance their employability and career prospects.
+              </div>
+              </PopoverContent>
+            </Popover>
+
+            <Popover>
+              <PopoverTrigger>
+              <div className='h-[175px] w-full min-w-full border-[1px] border-gray-300 rounded-[8px] flex  flex-col items-center justify-center gap-2 px-8 mx-auto'>
+                    <img src='https://d65ixtnmlqq6w.cloudfront.net/wp-content/uploads/2023/11/membership.webp' alt='' className='h-[80px] w-[80px] object-cover'/>
+                    <p className='text-base font-bold text-center'>Professional Body Membership</p>
+                  </div>
+                  </PopoverTrigger>
+                  <PopoverContent>
+              <div className='p-4 max-w-[500px] '>
+                Students can gain memberships to relevant professional bodies, providing networking opportunities, industry insights, and professional recognition. This membership supports career development and enhances professional credibility.
+              </div>
+              </PopoverContent>
+            </Popover>
+
+            <Popover>
+              <PopoverTrigger>
+              <div className='h-[175px] w-full min-w-full border-[1px] border-gray-300 rounded-[8px] flex  flex-col items-center justify-center gap-2 px-8 mx-auto'>
+                    <img src='https://d65ixtnmlqq6w.cloudfront.net/wp-content/uploads/2023/11/24-hours.webp' alt='' className='h-[80px] w-[80px] object-cover'/>
+                    <p className='text-base font-bold text-center'>24/7 Connection. Anytime, Anywhere, Any Device</p>
+                  </div>
+              </PopoverTrigger>
+              <PopoverContent>
+              <div className='p-4 max-w-[500px] '>
+                Our digital platforms ensure students have 24/7 access to educational resources, support services, and communication tools. This flexibility allows learning and support to happen anytime, anywhere, on any device, making education more accessible and convenient.
+              </div>
+              </PopoverContent>
+            </Popover>
+
+            <Popover>
+              <PopoverTrigger>
+              <div className='h-[175px] w-full min-w-full border-[1px] border-gray-300 rounded-[8px] flex  flex-col items-center justify-center gap-2 px-8 mx-auto'>
+                    <img src='https://d65ixtnmlqq6w.cloudfront.net/wp-content/uploads/2023/11/businessman_998412.webp' alt='' className='h-[80px] w-[80px] object-cover'/>
+                    <p className='text-base font-bold text-center'>Educational Counselling                </p>
+                  </div>
+              </PopoverTrigger>
+              <PopoverContent>
+              <div className='p-4 max-w-[500px] '>
+                Our digital platforms ensure students have 24/7 access to educational resources, support services, and communication tools. This flexibility allows learning and support to happen anytime, anywhere, on any device, making education more accessible and convenient.
+              </div>
+              </PopoverContent>
+            </Popover>
+
+            
+          </div>
         </div>
       </section>
 
@@ -773,14 +845,12 @@ const HomeScreen = () => {
                 slidesPerView={2}
                 spaceBetween={25}
                 freeMode={true}
-                pagination={{
-                  clickable: true,
-                }}
+                
                 autoplay={{
                   delay: 6000,
                   disableOnInteraction: false,
                 }}
-                modules={[FreeMode, Pagination, Autoplay]}
+                modules={[FreeMode,  Autoplay]}
                 className=""
               >
                 {
@@ -835,34 +905,52 @@ const HomeScreen = () => {
                 slidesPerView={1}
                 spaceBetween={25}
                 freeMode={true}
-                pagination={{
-                  clickable: true,
-                }}
+                
                 autoplay
-                modules={[FreeMode, Pagination, Autoplay]}
+                modules={[FreeMode,  Autoplay]}
                 className=""
               >
                 {
-                  courseListLoading?
-                  '':
-                  courses?
-                  _.uniqBy(_.flatMap(courses, 'qualification'), 'id').map(i=>(
-                    <SwiperSlide className='max-h-[300px] w-full mt-2 mb-12 bg-red-50 p-6 md:p-12 rounded-[8px] relative overflow-hidden '>
+                  testimonialListLoading?
+                  <SwiperSlide className='max-h-[300px] w-full mt-2 mb-12 bg-red-50 p-6 md:p-12 rounded-[8px] relative overflow-hidden '>
+                    {/* <div className='h-[100px] w-[100px] absolute top-0 right-0 bg-[#DA0C0C] rotate-45 -z-20'>
+
+                    </div> */}
+                    <div className='h-fit flex flex-col'>
+                      <Skeleton>
+                        <p className='text-lg font-bold text-[#DA0C0C] capitalize'>Ayesh hiruni</p>
+                      </Skeleton>
+                      <Skeleton>
+                        <p className='capitalize text-sm font-medium text-gray-500 '>veritual assistance</p>
+                      </Skeleton>
+                      <Skeleton>
+                        <p className='capitalize text-sm font-medium text-gray-500 '>Selan Bank</p>
+                      </Skeleton>
+                    </div>
+                    <div className='h-[1px] w-full bg-red-100 my-4'></div>
+                    <div className='max-h-fit py-2'>
+                      <Skeleton>
+                        <p className='text-base font-semibold'>"Lorem ipsum dolor sit amet consectetur. In nisl arcu risus at eu ipsum nunc magnis integer. Tristique aliquam risus mauris vitae adipiscing sit eget tristique."</p>
+                      </Skeleton>
+                    </div>
+                  </SwiperSlide>:
+                  testimonials ?
+                  // filter(f=>f.page.name =='Home').
+                  testimonials.map(i=>(
+                    <SwiperSlide key={i.id} className='max-h-[300px] w-full mt-2 mb-12 bg-red-50 p-6 md:p-12 rounded-[8px] relative overflow-hidden '>
                       {/* <div className='h-[100px] w-[100px] absolute top-0 right-0 bg-[#DA0C0C] rotate-45 -z-20'>
 
                       </div> */}
-                      <div className='flex flex-col'>
-                        <p className='text-lg font-bold text-[#DA0C0C] capitalize'>Ayesh hiruni</p>
-                        <p className='capitalize text-sm font-medium text-gray-500 '>veritual assistance</p>
-                        <p className='capitalize text-sm font-medium text-gray-500 '>Selan Bank</p>
+                      <div className='h-fit flex flex-col'>
+                        <p className='text-lg font-bold text-[#DA0C0C] capitalize'>{i.name}</p>
+                        <p className='capitalize text-sm font-medium text-gray-500 '>{i.course.name}</p> 
                       </div>
                       <div className='h-[1px] w-full bg-red-100 my-4'></div>
                       <div className='max-h-fit py-2'>
-                        <p className='text-base font-semibold'>"Lorem ipsum dolor sit amet consectetur. In nisl arcu risus at eu ipsum nunc magnis integer. Tristique aliquam risus mauris vitae adipiscing sit eget tristique."</p>
+                        <p className='text-base font-semibold'>{parse(i.description)}</p>
                       </div>
                     </SwiperSlide>
-                  ))
-                  :
+                  )):
                   ''
                 }
               </Swiper>
@@ -883,11 +971,9 @@ const HomeScreen = () => {
                 slidesPerView={3}
                 spaceBetween={10}
                 freeMode={true}
-                pagination={{
-                  clickable: true,
-                }}
+                
                 autoplay
-                modules={[FreeMode, Pagination, Autoplay]}
+                modules={[FreeMode,  Autoplay]}
                 className=""
               >
                 <SwiperSlide className='h-[300px] w-full relative mt-4 mb-12'>
@@ -958,11 +1044,9 @@ const HomeScreen = () => {
                 slidesPerView={2}
                 spaceBetween={10}
                 freeMode={true}
-                pagination={{
-                  clickable: true,
-                }}
+                
                 autoplay
-                modules={[FreeMode, Pagination, Autoplay]}
+                modules={[FreeMode,  Autoplay]}
                 className=""
               >
                 <SwiperSlide className='h-[300px] w-full relative mt-4 mb-12'>
@@ -1023,11 +1107,9 @@ const HomeScreen = () => {
                 slidesPerView={1}
                 spaceBetween={10}
                 freeMode={true}
-                pagination={{
-                  clickable: true,
-                }}
+                
                 autoplay
-                modules={[FreeMode, Pagination, Autoplay]}
+                modules={[FreeMode,  Autoplay]}
                 className=""
               >
                 <SwiperSlide className='h-[300px] w-full relative mt-4 mb-12'>
@@ -1118,11 +1200,9 @@ const HomeScreen = () => {
                 slidesPerView={3}
                 spaceBetween={10}
                 freeMode={true}
-                pagination={{
-                  clickable: true,
-                }}
+                
                 autoplay
-                modules={[FreeMode, Pagination, Autoplay]}
+                modules={[FreeMode,  Autoplay]}
                 className=""
               >
                 {
@@ -1152,11 +1232,9 @@ const HomeScreen = () => {
                 slidesPerView={2}
                 spaceBetween={10}
                 freeMode={true}
-                pagination={{
-                  clickable: true,
-                }}
+                
                 autoplay
-                modules={[FreeMode, Pagination, Autoplay]}
+                modules={[FreeMode,  Autoplay]}
                 className=""
               >
                 {
@@ -1186,11 +1264,9 @@ const HomeScreen = () => {
                 slidesPerView={1}
                 spaceBetween={10}
                 freeMode={true}
-                pagination={{
-                  clickable: true,
-                }}
+                
                 autoplay
-                modules={[FreeMode, Pagination, Autoplay]}
+                modules={[FreeMode,  Autoplay]}
                 className=""
               >
                 {

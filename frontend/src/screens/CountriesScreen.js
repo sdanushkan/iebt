@@ -92,7 +92,7 @@ const CountriesScreen = () => {
   };
 
   return ( 
-    <div className='flex flex-col gap-12 pb-12'>
+    <div className='max-w-screen flex flex-col gap-12 pb-12 overflow-x-hidden'>
       
       {/* <section className='h-fit w-full relative px-8 bg-[#DA0C0C]'>
         <div className='h-fit w-full max-w-[1100px] mx-auto justify-center gap-6 grid grid-col-2 md:grid-cols-3 lg:grid-cols-4  text-white py-12 rounded-[16px]'>
@@ -115,10 +115,10 @@ const CountriesScreen = () => {
         </div>
       </section> */}
 
-      <section className='w-full h-fit relative bg-[#ffecef] '>
+      <section className='w-full h-fit relative bg-[#ffecef] max-w-screen overflow-hidden'>
 
           <div className='h-fit md:h-[500px] w-full max-w-[1100px] mx-auto object-cover relative overflow-hidden bg-[#ffecef] py-6 md:py-0 grid grid-cols-1 md:grid-cols-10'>
-            <div className='h-[350px] md:h-full w-full md:col-span-4 flex flex-col justify-center gap-4 '>
+            <div className='h-[350px] md:h-full w-full md:col-span-4 flex flex-col justify-center gap-4 px-6 md:px-0'>
               <p className='text-4xl font-black'>Get your free study abroad counselling with IEBC</p>
               <Button className='w-fit font-medium bg-[#DA0C0C] text-white'>
                 Acquire your dreams
@@ -159,7 +159,7 @@ const CountriesScreen = () => {
               <p className='uppercase text-xs font-semibold opacity-50 text-center'>Study Abroad</p>
               <p className='text-2xl md:text-4xl font-bold text-[#DA0C0C] text-center'>Our Countries</p>
             </div>
-            <div className='w-fit mx-auto grid-cols-2 sm:flex flex-wrap items-center justify-center gap-4'>
+            <div className='w-fit mx-auto grid grid-cols-2 sm:flex flex-wrap items-center justify-center gap-4'>
 
             {
               loading?
@@ -198,7 +198,7 @@ const CountriesScreen = () => {
               <p className='text-2xl md:text-4xl font-bold text-[#DA0C0C] text-center'>EU COUNTRIES
               </p>
             </div>
-            <div className='w-fit mx-auto flex flex-wrap items-center justify-center gap-4 md:gap-6'>
+            <div className='w-fit mx-auto grid grid-cols-2 md:flex flex-wrap items-center justify-center gap-4 md:gap-6'>
 
             {
               loading?
@@ -236,7 +236,7 @@ const CountriesScreen = () => {
               <p className='uppercase text-xs font-semibold opacity-50 text-center'>Study Abroad</p>
               <p className='text-2xl md:text-4xl font-bold text-[#DA0C0C] text-center'>MEDICINE</p>
             </div>
-            <div className='w-fit mx-auto flex flex-wrap items-center justify-center gap-4 md:gap-6'>
+            <div className='w-fit mx-auto grid grid-cols-2 md:flex flex-wrap items-center justify-center gap-4 md:gap-6'>
             {
               loading?
               "":
@@ -378,11 +378,11 @@ const CountriesScreen = () => {
         </div>
       </section> */}
 
-      <section className='h-fit w-full bg-white '>
+      <section className='h-fit max-w-full bg-white overflow-hidden'>
         <div className='h-fit w-full flex flex-col'>
           
           <div className='w-full mx-auto max-w-[1024px] flex flex-col md:flex-row gap-16 items-center text-justify'>
-            <div className='flex  flex-col md:flex-row gap-8'>
+            <div className='flex  flex-col md:flex-row gap-8 max-w-screen overflow-hidden'>
               {/* <div className='lg:max-w-[350px] flex flex-col gap-2'>
                 <p className='text-2xl md:text-4xl font-bold text-[#DA0C0C] text-left uppercase'>OUR SERVICES</p>
                 <p className='text-sm '>IEBC ensures a smooth travel for your educational purpose abroad. Start with our free counselling first</p>
@@ -409,10 +409,10 @@ const CountriesScreen = () => {
                 
                 <source src={sdv} type="video/mp4" />
               </video> */}
-              <ReactPlayer light={<img src={thum} alt='Thumbnail'/>} url={sdv} loop={true} playing={false} controls={true} />
+              <ReactPlayer light={<img src={thum} alt='Thumbnail'/>} url={sdv} loop={true} playing={false} controls={true} width={'100%'}/>
 
             </div>
-            <div className='flex flex-col gap-4 w-full max-w-md relative mx-8'>
+            <div className='max-w-screen flex flex-col gap-4 w-full max-w-md relative mx-8 px-4 md:px-0'>
               <img src='https://www.marketsquaredental.com/files/2011/08/book-now.png' alt='' className='absolute w-full h-full opacity-25 object-contain scale-110' />
               <p className='text-xl font-semibold'>Book an Appointment</p>
               <div className='w-full flex flex-col gap-6'>
