@@ -177,9 +177,23 @@ class Page(models.Model):
     def __str__(self):
         return self.name
     
+class University(models.Model):
+    name = models.CharField(max_length=200, null=True, blank=True)
+    slug = models.SlugField(blank=True, null=True, unique=True)
+    country = models.ForeignKey(Country, on_delete=models.SET_NULL, null=True, blank=True)
+    
+    def __str__(self):
+        return self.name
+    
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.name)
+        super().save(*args, **kwargs )
+
+
 class Testimonial(models.Model):
     name = models.CharField(max_length=200, null=True, blank=True)
     course = models.ForeignKey(Course, on_delete=models.SET_NULL, null=True, blank=True)
+    university = models.ForeignKey(University, on_delete=models.SET_NULL, null=True, blank=True)
     page = models.ForeignKey(Page, on_delete=models.SET_NULL, null=True, blank=True)
     description = RichTextField(blank=True, null=True)
     

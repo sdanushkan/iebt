@@ -1315,7 +1315,7 @@ const HomeScreen = () => {
                         </div> */}
                         <div className='h-fit w-full flex flex-col gap-2'>
                           <Skeleton className='rounded-[8px]'>
-                            <p className='text-lg font-bold text-[#DA0C0C] capitalize'>Ayesh hiruni</p>
+                            <p className='text-lg font-bold text-[#DA0C0C]'>Ayesh hiruni</p>
                           </Skeleton>
                           <Skeleton className='rounded-[8px]'>
                             <p className='capitalize text-sm font-medium text-gray-500 '>veritual assistance</p>
@@ -1335,7 +1335,7 @@ const HomeScreen = () => {
                         </div> */}
                         <div className='h-fit w-full flex flex-col gap-2'>
                           <Skeleton className='rounded-[8px]'>
-                            <p className='text-lg font-bold text-[#DA0C0C] capitalize'>Ayesh hiruni</p>
+                            <p className='text-lg font-bold text-[#DA0C0C]'>Ayesh hiruni</p>
                           </Skeleton>
                           <Skeleton className='rounded-[8px]'>
                             <p className='capitalize text-sm font-medium text-gray-500 '>veritual assistance</p>
@@ -1355,7 +1355,7 @@ const HomeScreen = () => {
                         </div> */}
                         <div className='h-fit w-full flex flex-col gap-2'>
                           <Skeleton className='rounded-[8px]'>
-                            <p className='text-lg font-bold text-[#DA0C0C] capitalize'>Ayesh hiruni</p>
+                            <p className='text-lg font-bold text-[#DA0C0C]'>Ayesh hiruni</p>
                           </Skeleton>
                           <Skeleton className='rounded-[8px]'>
                             <p className='capitalize text-sm font-medium text-gray-500 '>veritual assistance</p>
@@ -1390,7 +1390,7 @@ const HomeScreen = () => {
 
                             </div> */}
                             <div className='h-fit flex flex-col'>
-                              <p className='text-lg font-bold text-[#DA0C0C] capitalize'>{i.name}</p>
+                              <p className='text-lg font-bold text-[#DA0C0C]'>{i.name}</p>
                               <p className='capitalize text-sm font-medium text-gray-500 '>{i.course.name}</p> 
                             </div>
                             <div className='h-[1px] w-full bg-red-100 my-4'></div>
@@ -1424,7 +1424,7 @@ const HomeScreen = () => {
                         </div> */}
                         <div className='h-fit w-full flex flex-col gap-2'>
                           <Skeleton className='rounded-[8px]'>
-                            <p className='text-lg font-bold text-[#DA0C0C] capitalize'>Ayesh hiruni</p>
+                            <p className='text-lg font-bold text-[#DA0C0C]'>Ayesh hiruni</p>
                           </Skeleton>
                           <Skeleton className='rounded-[8px]'>
                             <p className='capitalize text-sm font-medium text-gray-500 '>veritual assistance</p>
@@ -1444,7 +1444,7 @@ const HomeScreen = () => {
                         </div> */}
                         <div className='h-fit w-full flex flex-col gap-2'>
                           <Skeleton className='rounded-[8px]'>
-                            <p className='text-lg font-bold text-[#DA0C0C] capitalize'>Ayesh hiruni</p>
+                            <p className='text-lg font-bold text-[#DA0C0C]'>Ayesh hiruni</p>
                           </Skeleton>
                           <Skeleton className='rounded-[8px]'>
                             <p className='capitalize text-sm font-medium text-gray-500 '>veritual assistance</p>
@@ -1464,7 +1464,7 @@ const HomeScreen = () => {
                         </div> */}
                         <div className='h-fit w-full flex flex-col gap-2'>
                           <Skeleton className='rounded-[8px]'>
-                            <p className='text-lg font-bold text-[#DA0C0C] capitalize'>Ayesh hiruni</p>
+                            <p className='text-lg font-bold text-[#DA0C0C]'>Ayesh hiruni</p>
                           </Skeleton>
                           <Skeleton className='rounded-[8px]'>
                             <p className='capitalize text-sm font-medium text-gray-500 '>veritual assistance</p>
@@ -1499,7 +1499,7 @@ const HomeScreen = () => {
 
                             </div> */}
                             <div className='h-fit flex flex-col'>
-                              <p className='text-lg font-bold text-[#DA0C0C] capitalize'>{i.name}</p>
+                              <p className='text-lg font-bold text-[#DA0C0C]'>{i.name}</p>
                               <p className='capitalize text-sm font-medium text-gray-500 '>{i.course.name}</p> 
                             </div>
                             <div className='h-[1px] w-full bg-red-100 my-4'></div>

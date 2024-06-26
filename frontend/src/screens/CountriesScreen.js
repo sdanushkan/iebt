@@ -93,7 +93,7 @@ const CountriesScreen = () => {
 
   return ( 
     <div className='max-w-screen flex flex-col gap-12 pb-12 overflow-x-hidden'>
-      <section className='w-full h-fit relative bg-[#ffecef] max-w-screen overflow-hidden'>
+      {/* <section className='w-full h-fit relative bg-[#ffecef] max-w-screen overflow-hidden'>
 
         <div className='h-fit md:h-[500px] w-full max-w-[1100px] mx-auto object-cover relative overflow-hidden bg-[#ffecef] py-6 md:py-0 grid grid-cols-1 md:grid-cols-2'>
           <div className='h-[350px] md:h-full w-full flex flex-col justify-center gap-4 px-6 md:px-0'>
@@ -107,99 +107,101 @@ const CountriesScreen = () => {
           </div>
         </div>
 
-      </section>
+      </section> */}
       <section className='w-full h-fit relative bg-[#ffecef] max-w-screen overflow-hidden'>
-          <img src='https://www.augusta.edu/studyabroad/images/study-abroad-banner.png' alt='' className='h-full w-full absolute '/>
+        <img src='https://img.freepik.com/free-photo/portrait-three-serious-students-studying-library_1262-18011.jpg?t=st=1719382737~exp=1719386337~hmac=87d2d8f02131935e1da46bad3e4687c8973e804196fce1690350a9c726ea41bc&w=826' alt='' className='h-full w-full absolute object-cover'/>
           <div className='h-[700px] md:h-[500px] w-full max-w-[1100px] mx-auto object-cover relative overflow-hidden bg-transparent py-0 flex flex-col md:flex-row justify-end'>
             <div className='h-full w-full md:w-[500px] flex items-center ml-auto'>
-            <div className='h-full w-full flex flex-col justify-center  bg-black/25 gap-6 px-6'>
-            <p className='text-2xl font-bold'>Register</p>
-                <Input isClearable  variant='flat' type='text' placeholder='Name' className=''></Input>
-                <div className='grid grid-cols-2 gap-6'>
-                  <Input isClearable  variant='flat' type='email' placeholder='Email'></Input>
-                  <Input isClearable  variant='flat' type='number' placeholder='Mobile number' startContent={
-                    <div className="pointer-events-none flex items-center">
-                      <span className="text-default-400 text-small">+94</span>
-                    </div>
-                  }></Input>
-                </div>
-                <div className='h-fit w-full relative '>
-                  <div className='absolute top-1/2  transform right-2 -translate-y-1/2'>
-                    <IoCalendar/>
+              <div className='h-full w-full flex flex-col justify-center relative'>
+                <img src='https://www.augusta.edu/studyabroad/images/study-abroad-banner.png' alt='' className='h-full w-full absolute object-cover'/>
+                <div className='h-full w-full flex flex-col justify-center px-4 gap-4 relative mt-24'>
+                  <p className='text-2xl font-bold'>Register</p>
+                  <Input isClearable  variant='flat' type='text' placeholder='Name' className=''></Input>
+                  <div className='grid grid-cols-2 gap-6'>
+                    <Input isClearable  variant='flat' type='email' placeholder='Email'></Input>
+                    <Input isClearable  variant='flat' type='number' placeholder='Mobile number' startContent={
+                      <div className="pointer-events-none flex items-center">
+                        <span className="text-default-400 text-small">+94</span>
+                      </div>
+                    }></Input>
                   </div>
-                  <Select 
-                    className="w-full" 
-                    // selectedKeys={pLocation}
-                    // onSelectionChange={setPLocation}
-                    variant=''
-                    placeholder='Year of Study'
-                    required
-                    size='md'
-
-                >
-                    <SelectItem key='2025' className=''>
-                        2025
-                    </SelectItem>
-                    <SelectItem key='2027' className=''>
-                        2027
-                    </SelectItem>
-                    <SelectItem key='2028' className=''>
-                        2028
-                    </SelectItem>
-                </Select>
-                </div>
-                <div className='flex gap-6'>
-                  <Select 
+                  <div className='h-fit w-full relative '>
+                    <div className='absolute top-1/2  transform right-2 -translate-y-1/2'>
+                      <IoCalendar/>
+                    </div>
+                    <Select 
                       className="w-full" 
                       // selectedKeys={pLocation}
                       // onSelectionChange={setPLocation}
                       variant=''
-                      placeholder='Preferred Study Destination'
+                      placeholder='Year of Study'
                       required
                       size='md'
 
                   >
-                      {
-                        loading?
-                        "":
-                        countries?
-                        countries.map(i => (
-                          <SelectItem key={i.slug} value={i.slug} className=''>
-                              {i.name}
-                          </SelectItem>
-                        )):''
-                      }
+                      <SelectItem key='2025' className=''>
+                          2025
+                      </SelectItem>
+                      <SelectItem key='2027' className=''>
+                          2027
+                      </SelectItem>
+                      <SelectItem key='2028' className=''>
+                          2028
+                      </SelectItem>
                   </Select>
-                  <Select 
-                      className="w-full" 
-                      // selectedKeys={pLocation}
-                      // onSelectionChange={setPLocation}
-                      variant=''
-                      placeholder='Study Intake'
-                      required
-                      size='md'
+                  </div>
+                  <div className='flex gap-6'>
+                    <Select 
+                        className="w-full" 
+                        // selectedKeys={pLocation}
+                        // onSelectionChange={setPLocation}
+                        variant=''
+                        placeholder='Preferred Study Destination'
+                        required
+                        size='md'
 
-                  >
-                      <SelectItem key='January – March' className=''>
-                          January – March
-                      </SelectItem>
-                      <SelectItem key='July – September' className=''>
-                          July – September
-                      </SelectItem>
-                      <SelectItem key='October – December' className=''>
-                          October – December
-                      </SelectItem>
-                      <SelectItem key='I’m Not Sure' className=''>
-                          I’m Not Sure
-                      </SelectItem>
-                  </Select>
-                </div>
-                
-                <Button variant='solid' color='danger' endContent={
-                    <GrFormNextLink />
-                } className='w-fit font-medium bg-[#DA0C0C] text-white mt-4'>
-                  Register now
-                </Button>
+                    >
+                        {
+                          loading?
+                          "":
+                          countries?
+                          countries.map(i => (
+                            <SelectItem key={i.slug} value={i.slug} className=''>
+                                {i.name}
+                            </SelectItem>
+                          )):''
+                        }
+                    </Select>
+                    <Select 
+                        className="w-full" 
+                        // selectedKeys={pLocation}
+                        // onSelectionChange={setPLocation}
+                        variant=''
+                        placeholder='Study Intake'
+                        required
+                        size='md'
+
+                    >
+                        <SelectItem key='January – March' className=''>
+                            January – March
+                        </SelectItem>
+                        <SelectItem key='July – September' className=''>
+                            July – September
+                        </SelectItem>
+                        <SelectItem key='October – December' className=''>
+                            October – December
+                        </SelectItem>
+                        <SelectItem key='I’m Not Sure' className=''>
+                            I’m Not Sure
+                        </SelectItem>
+                    </Select>
+                  </div>
+                  <Button variant='solid' color='danger' endContent={
+                      <GrFormNextLink />
+                  } className='w-fit font-medium bg-[#DA0C0C] text-white mt-4'>
+                    Register now
+                  </Button>
+                </div> 
               </div> 
             </div>
           </div>

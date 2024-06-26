@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Faculty, Course, Level, QualificationApproval, OurQualification, Country, Contact, FAQ, About, AbroadApplication , CountryCategory, Testimonial, Page
+from .models import Faculty, Course, Level, QualificationApproval, OurQualification, Country, Contact, FAQ, About, AbroadApplication , CountryCategory, Testimonial, Page, University
 import admin_thumbnails
 
 # Register your models here.
@@ -26,20 +26,24 @@ class FAQInline(admin.TabularInline):
 class CountryAdmin(admin.ModelAdmin):
     inlines = [FAQInline] 
 
-
+admin.site.register(Page)
 admin.site.register(Faculty)
+admin.site.register(Level)
+admin.site.register(OurQualification)
 admin.site.register(Course, 
                     # CourseAdmin
                     )
-admin.site.register(Level)
+
 # admin.site.register(CourseQualification)
-admin.site.register(OurQualification)
+
 # admin.site.register(Unit)
 admin.site.register(Country)
 admin.site.register(CountryCategory)
+
 admin.site.register(Contact)
 admin.site.register(FAQ)
 admin.site.register(About)
 admin.site.register(AbroadApplication)
-admin.site.register(Page)
+
+admin.site.register(University)
 admin.site.register(Testimonial)
