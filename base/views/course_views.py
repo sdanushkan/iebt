@@ -22,6 +22,17 @@ def getCourses(request):
         return Response(message)
     
 @api_view(['GET'])
+def searchCourses(request, search_query):
+    try:
+        course = Course.objects.filter(name=search_query)
+        serializer = CourseSerializer(course, many=True)
+        return Response(serializer.data)
+
+    except Course.DoesNotExist:
+        message = {'detail': 'No Country Found'}
+        return Response(message)
+
+@api_view(['GET'])
 def getFaculties(request):
     try:
         faculty = Faculty.objects.all()

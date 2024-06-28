@@ -22,6 +22,8 @@ import  verification  from '../assets/verification.png'
 import  sp  from '../assets/sp.png'
 import  es  from '../assets/es.png'
 
+import bg from '../assets/bg.gif'
+
 const CountryScreen = () => {
 
     const {country} = useParams()
@@ -306,6 +308,12 @@ const CountryScreen = () => {
               </div>
               
           </div>
+      </section>
+
+      <section className='h-fit w-full'>
+        <div className='h-fit w-full'>
+            <img src={bg} alt='' className='h-[200px] w-full object-cover' />
+        </div>
       </section>
         
     </div>

@@ -6,5 +6,6 @@ urlpatterns = [
    path('faculties', views.getFaculties , name='faculty-list'),
    path('about', views.getAbout , name='about-details'),
    path('levels', views.getLevels , name='level-list'),
-   path('createContact', views.createContact, name='contact-create')
+   path('createContact', views.createContact, name='contact-create'),
+   path('search/<str:search_query>', views.searchCourses, name='course-search')
 ]

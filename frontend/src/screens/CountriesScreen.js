@@ -108,16 +108,39 @@ const CountriesScreen = () => {
         </div>
 
       </section> */}
-      <section className='w-full h-fit relative bg-[#ffecef] max-w-screen overflow-hidden'>
-        <img src='https://img.freepik.com/free-photo/portrait-three-serious-students-studying-library_1262-18011.jpg?t=st=1719382737~exp=1719386337~hmac=87d2d8f02131935e1da46bad3e4687c8973e804196fce1690350a9c726ea41bc&w=826' alt='' className='h-full w-full absolute object-cover'/>
-          <div className='h-[700px] md:h-[500px] w-full max-w-[1100px] mx-auto object-cover relative overflow-hidden bg-transparent py-0 flex flex-col md:flex-row justify-end'>
-            <div className='h-full w-full md:w-[500px] flex items-center ml-auto'>
+        <section className='h-fit w-full relative overflow-hidden'>
+
+          <div className='h-[400px] lg:h-[500px] w-full object-cover object-bottom relative md:absolute -z-50'>
+            <Swiper
+              slidesPerView={1}
+              spaceBetween={10}
+              pagination={{
+                clickable: true,
+              }}
+              modules={[ Autoplay]}
+              className="w-full"
+              autoplay
+            >
+              <SwiperSlide className='w-full h-full object-contain'>
+                <img src='https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' alt='' className='h-[600px] xl:h-[500px] w-full object-cover object-bottom'/>
+              </SwiperSlide>
+              <SwiperSlide className='w-full h-full object-contain'>
+                <img src='https://media.istockphoto.com/id/1307457391/photo/happy-black-student-raising-arm-to-answer-question-while-attending-class-with-her-university.jpg?s=612x612&w=0&k=20&c=iZaZFyC-WqlqSQc4elqUNPTxLvWPe8P5Tb_YdZnrI9Q=' alt='' className='h-[600px] xl:h-[500px] w-full object-cover object-center'/>
+              </SwiperSlide>
+              {/* <SwiperSlide className='w-full h-full object-contain'>
+                <img src='https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' alt='' className='h-[500px] w-full object-cover object-bottom'/>
+              </SwiperSlide> */}
+            </Swiper>
+          </div>
+
+          <div className='h-[400px] lg:h-[500px] w-max-[1024px] mx-auto relative -z-10 flex items-start justify-end bg-black/50'>
+              <div className='h-full lg:w-[30%]'>
               <div className='h-full w-full flex flex-col justify-center relative'>
                 <img src='https://www.augusta.edu/studyabroad/images/study-abroad-banner.png' alt='' className='h-full w-full absolute object-cover'/>
-                <div className='h-full w-full flex flex-col justify-center px-4 gap-4 relative mt-24'>
+
+                <div className='h-full w-full flex flex-col justify-center px-8 md:border-l-[10px] border-white gap-4 relative md:mt-24'>
                   <p className='text-2xl font-bold'>Register</p>
-                  <Input isClearable  variant='flat' type='text' placeholder='Name' className=''></Input>
-                  <div className='grid grid-cols-2 gap-6'>
+                  <div className='grid grid-cols-1 gap-6'>
                     <Input isClearable  variant='flat' type='email' placeholder='Email'></Input>
                     <Input isClearable  variant='flat' type='number' placeholder='Mobile number' startContent={
                       <div className="pointer-events-none flex items-center">
@@ -150,7 +173,7 @@ const CountriesScreen = () => {
                       </SelectItem>
                   </Select>
                   </div>
-                  <div className='flex gap-6'>
+                  <div className='grid grid-cols-2 gap-6'>
                     <Select 
                         className="w-full" 
                         // selectedKeys={pLocation}
@@ -203,11 +226,11 @@ const CountriesScreen = () => {
                   </Button>
                 </div> 
               </div> 
-            </div>
+              </div>
           </div>
-
-      </section>
+        </section>
       
+    
       {/* <section className='h-fit w-full relative px-8 bg-[#DA0C0C]'>
         <div className='h-fit w-full max-w-[1100px] mx-auto justify-center gap-6 grid grid-col-2 md:grid-cols-3 lg:grid-cols-4  text-white py-12 rounded-[16px]'>
           <div className='w-full flex flex-col items-center justify-center'>
@@ -234,20 +257,20 @@ const CountriesScreen = () => {
       
 
       <section className='h-fit w-full relative overflow-hidden px-8 py-6'>
-        <div className='h-40 w-full max-w-[1024px] mx-auto grid grid-cols-2 md:grid-cols-4 justify-center gap-2 lg:gap-6'>
-        <Link to={'/abroad/about'} className='w-full h-36 flex flex-col items-center justify-center gap-4 hover:bg-white text-black duration-300 cursor-pointer hover:text-[#DA0C0C] p-10 hover:p-8 rounded-[8px] bg-red-50 hover:shadow-[0px_4px_50px_rgba(0,0,0,0.075)]'>
+        <div className='h-fit md:h-40 w-full max-w-[1024px] mx-auto grid grid-cols-2 md:grid-cols-4 justify-center gap-2 lg:gap-6'>
+        <Link to={'/abroad/about'} className='w-full h-36 flex flex-col items-center justify-center gap-2 md:gap-4 hover:bg-white text-black duration-300 cursor-pointer hover:text-[#DA0C0C] p-10 hover:p-8 rounded-[8px] bg-red-50 hover:shadow-[0px_4px_50px_rgba(0,0,0,0.075)]'>
               <img src={sp}  alt='' className='w-full h-full object-contain' />
               <p className='text-base font-bold text-red-900 px-2 text-center'>About us</p>
             </Link>
-            <Link to={'/ourservices'} className='w-full h-36 flex flex-col items-center justify-center gap-4 hover:bg-white text-black duration-300 cursor-pointer hover:text-[#DA0C0C] p-10 hover:p-8 rounded-[8px] bg-red-50 hover:shadow-[0px_4px_50px_rgba(0,0,0,0.075)]'>
+            <Link to={'/ourservices'} className='w-full h-36 flex flex-col items-center justify-center gap-2 md:gap-4 hover:bg-white text-black duration-300 cursor-pointer hover:text-[#DA0C0C] p-10 hover:p-8 rounded-[8px] bg-red-50 hover:shadow-[0px_4px_50px_rgba(0,0,0,0.075)]'>
               <img src={es}  alt='' className='w-full h-full object-contain' />
               <p className='text-base font-bold text-red-900 px-2 text-center'>Services</p>
             </Link>
-            <Link to={'/application'} className='w-full h-36 flex flex-col items-center justify-center gap-4 hover:bg-white text-black duration-300 cursor-pointer hover:text-[#DA0C0C] p-10 hover:p-8 rounded-[8px] bg-red-50 hover:shadow-[0px_4px_25px_rgba(0,0,0,0.075)] '>
+            <Link to={'/application'} className='w-full h-36 flex flex-col items-center justify-center gap-2 md:gap-4 hover:bg-white text-black duration-300 cursor-pointer hover:text-[#DA0C0C] p-10 hover:p-8 rounded-[8px] bg-red-50 hover:shadow-[0px_4px_25px_rgba(0,0,0,0.075)] '>
               <img src={apply}  alt='' className='w-full h-full object-contain' />
               <p className='text-base font-bold text-red-900 px-2 text-center'>Apply</p>
             </Link>
-            <div className='w-full h-36 flex flex-col items-center justify-center gap-4 hover:bg-white text-black duration-300 cursor-pointer hover:text-[#DA0C0C] p-10 hover:p-8 rounded-[8px] bg-red-50 hover:shadow-[0px_4px_50px_rgba(0,0,0,0.075)]'>
+            <div className='w-full h-36 flex flex-col items-center justify-center gap-2 md:gap-4 hover:bg-white text-black duration-300 cursor-pointer hover:text-[#DA0C0C] p-10 hover:p-8 rounded-[8px] bg-red-50 hover:shadow-[0px_4px_50px_rgba(0,0,0,0.075)]'>
               <img src={verification}  alt='' className='w-full h-full object-contain' />
               <p className='text-base font-bold text-red-900 px-2 text-center'>Book Appoinment</p>
             </div>
@@ -263,9 +286,9 @@ const CountriesScreen = () => {
             </div>
             {
               loading?
-              <div className='w-fit mx-auto grid grid-cols-2 sm:flex flex-wrap items-center justify-center gap-4'>
+              <div className='w-fit mx-auto flex flex-wrap items-center justify-center gap-2 md:gap-4 '>
 
-                  <Link className='bg-white w-full sm:w-[175px] h-[125px] border-1 border-gray-200 gap-8 flex flex-col rounded-[8px] relative overflow-hidden duration-500'>
+                  <Link className='bg-white w-[40%] sm:w-[175px] h-[125px] border-1 border-gray-200 gap-8 flex flex-col rounded-[8px] relative overflow-hidden duration-500'>
                     <div className='h-full p-6 flex flex-row justify-between'>
                       <div className='flex flex-col relative z-30 gap-1 mt-auto'>
                         <Skeleton className='rounded-[8px]'>
@@ -288,7 +311,7 @@ const CountriesScreen = () => {
                     </Skeleton>
                   </Link>
 
-                  <Link className='bg-white w-full sm:w-[175px] h-[125px] border-1 border-gray-200 gap-8 flex flex-col rounded-[8px] relative overflow-hidden duration-500'>
+                  <Link className='bg-white w-[40%] sm:w-[175px] h-[125px] border-1 border-gray-200 gap-8 flex flex-col rounded-[8px] relative overflow-hidden duration-500'>
                     <div className='h-full p-6 flex flex-row justify-between'>
                       <div className='flex flex-col relative z-30 gap-1 mt-auto'>
                         <Skeleton className='rounded-[8px]'>
@@ -311,7 +334,7 @@ const CountriesScreen = () => {
                     </Skeleton>
                   </Link>
 
-                  <Link className='bg-white w-full sm:w-[175px] h-[125px] border-1 border-gray-200 gap-8 flex flex-col rounded-[8px] relative overflow-hidden duration-500'>
+                  <Link className='bg-white w-[40%] sm:w-[175px] h-[125px] border-1 border-gray-200 gap-8 flex flex-col rounded-[8px] relative overflow-hidden duration-500'>
                     <div className='h-full p-6 flex flex-row justify-between'>
                       <div className='flex flex-col relative z-30 gap-1 mt-auto'>
                         <Skeleton className='rounded-[8px]'>
@@ -334,7 +357,7 @@ const CountriesScreen = () => {
                     </Skeleton>
                   </Link>
 
-                  <Link className='bg-white w-full sm:w-[175px] h-[125px] border-1 border-gray-200 gap-8 flex flex-col rounded-[8px] relative overflow-hidden duration-500'>
+                  <Link className='bg-white w-[40%] sm:w-[175px] h-[125px] border-1 border-gray-200 gap-8 flex flex-col rounded-[8px] relative overflow-hidden duration-500'>
                     <div className='h-full p-6 flex flex-row justify-between'>
                       <div className='flex flex-col relative z-30 gap-1 mt-auto'>
                         <Skeleton className='rounded-[8px]'>
@@ -357,7 +380,7 @@ const CountriesScreen = () => {
                     </Skeleton>
                   </Link>
 
-                  <Link className='bg-white w-full sm:w-[175px] h-[125px] border-1 border-gray-200 gap-8 flex flex-col rounded-[8px] relative overflow-hidden duration-500'>
+                  <Link className='bg-white w-[40%] sm:w-[175px] h-[125px] border-1 border-gray-200 gap-8 flex flex-col rounded-[8px] relative overflow-hidden duration-500'>
                     <div className='h-full p-6 flex flex-row justify-between'>
                       <div className='flex flex-col relative z-30 gap-1 mt-auto'>
                         <Skeleton className='rounded-[8px]'>
@@ -383,11 +406,11 @@ const CountriesScreen = () => {
               </div>
               :
               countries?
-              <div className='w-fit mx-auto grid grid-cols-2 sm:flex flex-wrap items-center justify-center gap-4'>
+              <div className='w-fit mx-auto flex flex-wrap items-center justify-center gap-2 md:gap-4 '>
 
                 {
                   countries.filter(f => f.category.slug == 'main').map(i => (
-                    <Link key={i.slug} to={`/countries/${i.slug}`} className='bg-white w-full sm:w-[175px] h-[125px] border-1 border-gray-200 gap-8 flex flex-col rounded-[8px] relative overflow-hidden duration-500'>
+                    <Link key={i.slug} to={`/countries/${i.slug}`} className='bg-white w-[40%] sm:w-[175px] h-[125px] border-1 border-gray-200 gap-8 flex flex-col rounded-[8px] relative overflow-hidden duration-500'>
                       <div className='h-full p-6 flex flex-row justify-between'>
                         <div className='flex flex-col relative z-30 gap-1 mt-auto'>
                           <p className='text-xl font-bold text-white'>{i.name}</p>
@@ -420,9 +443,9 @@ const CountriesScreen = () => {
             </div>
             {
               loading?
-              <div className='w-fit mx-auto grid grid-cols-2 sm:flex flex-wrap items-center justify-center gap-4'>
+              <div className='w-fit mx-auto flex flex-wrap items-center justify-center gap-2 md:gap-4 '>
 
-                  <Link className='bg-white w-full sm:w-[175px] h-[125px] border-1 border-gray-200 gap-8 flex flex-col rounded-[8px] relative overflow-hidden duration-500'>
+                  <Link className='bg-white w-[40%] sm:w-[175px] h-[125px] border-1 border-gray-200 gap-8 flex flex-col rounded-[8px] relative overflow-hidden duration-500'>
                     <div className='h-full p-6 flex flex-row justify-between'>
                       <div className='flex flex-col relative z-30 gap-1 mt-auto'>
                         <Skeleton className='rounded-[8px]'>
@@ -445,7 +468,7 @@ const CountriesScreen = () => {
                     </Skeleton>
                   </Link>
 
-                  <Link className='bg-white w-full sm:w-[175px] h-[125px] border-1 border-gray-200 gap-8 flex flex-col rounded-[8px] relative overflow-hidden duration-500'>
+                  <Link className='bg-white w-[40%] sm:w-[175px] h-[125px] border-1 border-gray-200 gap-8 flex flex-col rounded-[8px] relative overflow-hidden duration-500'>
                     <div className='h-full p-6 flex flex-row justify-between'>
                       <div className='flex flex-col relative z-30 gap-1 mt-auto'>
                         <Skeleton className='rounded-[8px]'>
@@ -468,7 +491,7 @@ const CountriesScreen = () => {
                     </Skeleton>
                   </Link>
 
-                  <Link className='bg-white w-full sm:w-[175px] h-[125px] border-1 border-gray-200 gap-8 flex flex-col rounded-[8px] relative overflow-hidden duration-500'>
+                  <Link className='bg-white w-[40%] sm:w-[175px] h-[125px] border-1 border-gray-200 gap-8 flex flex-col rounded-[8px] relative overflow-hidden duration-500'>
                     <div className='h-full p-6 flex flex-row justify-between'>
                       <div className='flex flex-col relative z-30 gap-1 mt-auto'>
                         <Skeleton className='rounded-[8px]'>
@@ -491,7 +514,7 @@ const CountriesScreen = () => {
                     </Skeleton>
                   </Link>
 
-                  <Link className='bg-white w-full sm:w-[175px] h-[125px] border-1 border-gray-200 gap-8 flex flex-col rounded-[8px] relative overflow-hidden duration-500'>
+                  <Link className='bg-white w-[40%] sm:w-[175px] h-[125px] border-1 border-gray-200 gap-8 flex flex-col rounded-[8px] relative overflow-hidden duration-500'>
                     <div className='h-full p-6 flex flex-row justify-between'>
                       <div className='flex flex-col relative z-30 gap-1 mt-auto'>
                         <Skeleton className='rounded-[8px]'>
@@ -514,7 +537,7 @@ const CountriesScreen = () => {
                     </Skeleton>
                   </Link>
 
-                  <Link className='bg-white w-full sm:w-[175px] h-[125px] border-1 border-gray-200 gap-8 flex flex-col rounded-[8px] relative overflow-hidden duration-500'>
+                  <Link className='bg-white w-[40%] sm:w-[175px] h-[125px] border-1 border-gray-200 gap-8 flex flex-col rounded-[8px] relative overflow-hidden duration-500'>
                     <div className='h-full p-6 flex flex-row justify-between'>
                       <div className='flex flex-col relative z-30 gap-1 mt-auto'>
                         <Skeleton className='rounded-[8px]'>
@@ -540,11 +563,11 @@ const CountriesScreen = () => {
               </div>
               :
               countries?
-              <div className='w-fit mx-auto grid grid-cols-2 sm:flex flex-wrap items-center justify-center gap-4'>
+              <div className='w-fit mx-auto flex flex-wrap items-center justify-center gap-2 md:gap-4 '>
 
                 {
                   countries.filter(f => f.category.slug == 'eu').map(i => (
-                    <Link key={i.slug} to={`/countries/${i.slug}`} className='bg-white w-full sm:w-[175px] h-[125px] border-1 border-gray-200 gap-8 flex flex-col rounded-[8px] relative overflow-hidden duration-500'>
+                    <Link key={i.slug} to={`/countries/${i.slug}`} className='bg-white w-[40%] sm:w-[175px] h-[125px] border-1 border-gray-200 gap-8 flex flex-col rounded-[8px] relative overflow-hidden duration-500'>
                       <div className='h-full p-6 flex flex-row justify-between'>
                         <div className='flex flex-col relative z-30 gap-1 mt-auto'>
                           <p className='text-xl font-bold text-white'>{i.name}</p>
@@ -577,9 +600,9 @@ const CountriesScreen = () => {
             </div>
             {
               loading?
-              <div className='w-fit mx-auto grid grid-cols-2 sm:flex flex-wrap items-center justify-center gap-4'>
+              <div className='w-fit mx-auto flex flex-wrap items-center justify-center gap-2 md:gap-4 '>
 
-                  <Link className='bg-white w-full sm:w-[175px] h-[125px] border-1 border-gray-200 gap-8 flex flex-col rounded-[8px] relative overflow-hidden duration-500'>
+                  <Link className='bg-white w-[40%] sm:w-[175px] h-[125px] border-1 border-gray-200 gap-8 flex flex-col rounded-[8px] relative overflow-hidden duration-500'>
                     <div className='h-full p-6 flex flex-row justify-between'>
                       <div className='flex flex-col relative z-30 gap-1 mt-auto'>
                         <Skeleton className='rounded-[8px]'>
@@ -602,7 +625,7 @@ const CountriesScreen = () => {
                     </Skeleton>
                   </Link>
 
-                  <Link className='bg-white w-full sm:w-[175px] h-[125px] border-1 border-gray-200 gap-8 flex flex-col rounded-[8px] relative overflow-hidden duration-500'>
+                  <Link className='bg-white w-[40%] sm:w-[175px] h-[125px] border-1 border-gray-200 gap-8 flex flex-col rounded-[8px] relative overflow-hidden duration-500'>
                     <div className='h-full p-6 flex flex-row justify-between'>
                       <div className='flex flex-col relative z-30 gap-1 mt-auto'>
                         <Skeleton className='rounded-[8px]'>
@@ -625,7 +648,7 @@ const CountriesScreen = () => {
                     </Skeleton>
                   </Link>
 
-                  <Link className='bg-white w-full sm:w-[175px] h-[125px] border-1 border-gray-200 gap-8 flex flex-col rounded-[8px] relative overflow-hidden duration-500'>
+                  <Link className='bg-white w-[40%] sm:w-[175px] h-[125px] border-1 border-gray-200 gap-8 flex flex-col rounded-[8px] relative overflow-hidden duration-500'>
                     <div className='h-full p-6 flex flex-row justify-between'>
                       <div className='flex flex-col relative z-30 gap-1 mt-auto'>
                         <Skeleton className='rounded-[8px]'>
@@ -648,7 +671,7 @@ const CountriesScreen = () => {
                     </Skeleton>
                   </Link>
 
-                  <Link className='bg-white w-full sm:w-[175px] h-[125px] border-1 border-gray-200 gap-8 flex flex-col rounded-[8px] relative overflow-hidden duration-500'>
+                  <Link className='bg-white w-[40%] sm:w-[175px] h-[125px] border-1 border-gray-200 gap-8 flex flex-col rounded-[8px] relative overflow-hidden duration-500'>
                     <div className='h-full p-6 flex flex-row justify-between'>
                       <div className='flex flex-col relative z-30 gap-1 mt-auto'>
                         <Skeleton className='rounded-[8px]'>
@@ -671,7 +694,7 @@ const CountriesScreen = () => {
                     </Skeleton>
                   </Link>
 
-                  <Link className='bg-white w-full sm:w-[175px] h-[125px] border-1 border-gray-200 gap-8 flex flex-col rounded-[8px] relative overflow-hidden duration-500'>
+                  <Link className='bg-white w-[40%] sm:w-[175px] h-[125px] border-1 border-gray-200 gap-8 flex flex-col rounded-[8px] relative overflow-hidden duration-500'>
                     <div className='h-full p-6 flex flex-row justify-between'>
                       <div className='flex flex-col relative z-30 gap-1 mt-auto'>
                         <Skeleton className='rounded-[8px]'>
@@ -697,11 +720,11 @@ const CountriesScreen = () => {
               </div>
               :
               countries?
-              <div className='w-fit mx-auto grid grid-cols-2 sm:flex flex-wrap items-center justify-center gap-4'>
+              <div className='w-fit mx-auto flex flex-wrap items-center justify-center gap-2 md:gap-4 '>
 
                 {
                   countries.filter(f => f.category.slug == 'medicine').map(i => (
-                    <Link key={i.slug} to={`/countries/${i.slug}`} className='bg-white w-full sm:w-[175px] h-[125px] border-1 border-gray-200 gap-8 flex flex-col rounded-[8px] relative overflow-hidden duration-500'>
+                    <Link key={i.slug} to={`/countries/${i.slug}`} className='bg-white w-[40%] sm:w-[175px] h-[125px] border-1 border-gray-200 gap-8 flex flex-col rounded-[8px] relative overflow-hidden duration-500'>
                       <div className='h-full p-6 flex flex-row justify-between'>
                         <div className='flex flex-col relative z-30 gap-1 mt-auto'>
                           <p className='text-xl font-bold text-white'>{i.name}</p>
