@@ -16,6 +16,7 @@ import FAQScreen from './screens/FAQScreen'
 import FacultyFilterScreen from './screens/FacultyFilterScreen'
 import AbroadAboutUsScreen from './screens/AbroadAboutUsScreen'
 import OurServicesScreen from './screens/OurServicesScreen'
+import DualQualificationScreen from './screens/DualQualificationScreen'
 
 const App = () => {
   return ( 
@@ -29,6 +30,7 @@ const App = () => {
         <Route path='application' element={<ApplicationScreen/>} />
         <Route path='ourservices' element={<OurServicesScreen/>} />
         <Route path='contact' element={<ContactScreen/>} /> 
+        <Route path='dual' element={<DualQualificationScreen/>} /> 
         <Route path='abroad/about' element={<AbroadAboutUsScreen/>} /> 
         <Route path='countries/:country' element={<CountryScreen/>} />
         <Route path='courses/:course' element={<CourseScreen/>} />

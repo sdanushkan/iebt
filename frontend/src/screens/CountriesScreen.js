@@ -18,7 +18,7 @@ import { FaUsers } from "react-icons/fa";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { IoArrowForwardOutline } from "react-icons/io5";
 import {RadioGroup, Radio, useRadio, VisuallyHidden, cn} from "@nextui-org/react";
-import { getCountryList } from '../actions/abroadActions';
+import { getCountryList, getTestimonialList } from '../actions/abroadActions';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import WorldMap from '../components/WorldMap';
@@ -38,6 +38,7 @@ import  apply  from '../assets/apply.png'
 import  verification  from '../assets/verification.png'
 import  sp  from '../assets/sp.png'
 import  es  from '../assets/es.png'
+import parse from 'html-react-parser';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -61,8 +62,12 @@ const CountriesScreen = () => {
   const countryList = useSelector(state => state.countryList)
   const { error, loading, countries } = countryList
 
+  const testimonialList = useSelector(state => state.testimonialList)
+  const { error: testimonialListError, loading: testimonialListLoading, testimonials } = testimonialList
+
   useEffect(() => {
     dispatch(getCountryList())
+    dispatch(getTestimonialList())
   }, [dispatch])
 
 
@@ -799,7 +804,7 @@ const CountriesScreen = () => {
       {/* <section className='h-fit w-full '>
         <div className='h-fit w-full max-w-[1100px] mx-auto px-8 flex flex-col'>
           
-          <div className='w-full flex flex-col gap-4 text-justify'>
+          <div className='w-full flex flex-col gap-4 text-left'>
             <p className='text-2xl md:text-4xl font-bold text-[#DA0C0C] text-center capitalize'>IMMIGRATION SERVICES</p>
             <div className='flex flex-col gap-4 w-full'>
               
@@ -808,7 +813,7 @@ const CountriesScreen = () => {
                   <p className='text-lg font-semibold'>Admission Requirements</p>
                 }>
                   <div className='flex flex-col gap-1 bg-gradient-to-b from-red-200 to-transparent py-8 px-4 rounded-[8px] mb-2'>
-                      <p className='text-base text-black text-justify'>Institutions set criteria for international students, including English proficiency exams.
+                      <p className='text-base text-black text-left'>Institutions set criteria for international students, including English proficiency exams.
                       </p>
                   </div>  
                 </AccordionItem>
@@ -816,28 +821,28 @@ const CountriesScreen = () => {
                   <p className='text-lg font-semibold'>Selection of Universities</p>
                 }>
                   <div className='flex flex-col gap-1 bg-gradient-to-b from-red-200 to-transparent py-8 px-4 rounded-[8px] mb-2'>
-                    <p className='text-base text-black text-justify'>IEBC aids in choosing suitable institutions based on academic and financial fit.</p>
+                    <p className='text-base text-black text-left'>IEBC aids in choosing suitable institutions based on academic and financial fit.</p>
                   </div> 
                 </AccordionItem>
                 <AccordionItem key="Career Counselling" title={
                   <p className='text-lg font-semibold'>Career Counselling</p>
                 }>
                   <div className='flex flex-col gap-1 bg-gradient-to-b from-red-200 to-transparent py-8 px-4 rounded-[8px] mb-2'>
-                    <p className='text-base text-black text-justify'>Tailored advice on program selection and study abroad decisions for students.</p>
+                    <p className='text-base text-black text-left'>Tailored advice on program selection and study abroad decisions for students.</p>
                   </div>  
                 </AccordionItem>
                 <AccordionItem key="Accommodation & Travel Arrangement" title={
                   <p className='text-lg font-semibold'>Accommodation & Travel Arrangement</p>
                 }>
                   <div className='flex flex-col gap-1 bg-gradient-to-b from-red-200 to-transparent py-8 px-4 rounded-[8px] mb-2'>
-                    <p className='text-base text-black text-justify'>Assistance with visa-approved travel plans and settling in new accommodations abroad.</p>
+                    <p className='text-base text-black text-left'>Assistance with visa-approved travel plans and settling in new accommodations abroad.</p>
                   </div>
                 </AccordionItem>
                 <AccordionItem key="Interview Preparation & Pre-departure Briefing" title={
                   <p className='text-lg font-semibold'>Interview Preparation & Pre-departure Briefing</p>
                 }>
                   <div className='flex flex-col gap-1 bg-gradient-to-b from-red-200 to-transparent py-8 px-4 rounded-[8px] mb-2'>
-                    <p className='text-base text-black text-justify'>Preparation for challenges of studying abroad, including accommodation and travel 
+                    <p className='text-base text-black text-left'>Preparation for challenges of studying abroad, including accommodation and travel 
                     arrangements.</p>
                   </div>
                 </AccordionItem>
@@ -845,7 +850,7 @@ const CountriesScreen = () => {
                   <p className='text-lg font-semibold'>Document Processing</p>
                 }>
                   <div className='flex flex-col gap-1 bg-gradient-to-b from-red-200 to-transparent py-8 px-4 rounded-[8px] mb-2'>
-                    <p className='text-base text-black text-justify'>Guidance on compiling essential documents for visa applications and immigration requirements.</p>
+                    <p className='text-base text-black text-left'>Guidance on compiling essential documents for visa applications and immigration requirements.</p>
                   </div>
                 </AccordionItem>
               </Accordion> 
@@ -863,7 +868,7 @@ const CountriesScreen = () => {
       <section className='h-fit max-w-full bg-white overflow-hidden'>
         <div className='h-fit w-full flex flex-col'>
           
-          <div className='w-full mx-auto max-w-[1024px] flex flex-col md:flex-row gap-16 items-center text-justify'>
+          <div className='w-full mx-auto max-w-[1024px] flex flex-col md:flex-row gap-16 items-center text-left'>
             <div className='flex  flex-col md:flex-row gap-2 w-full overflow-hidden'>
               {/* <div className='lg:max-w-[350px] flex flex-col gap-2'>
                 <p className='text-2xl md:text-4xl font-bold text-[#DA0C0C] text-left uppercase'>OUR SERVICES</p>
@@ -1006,7 +1011,7 @@ const CountriesScreen = () => {
       {/* <section className='h-fit w-full '>
         <div className='h-fit w-full max-w-[1100px] mx-auto px-8 flex flex-col '>
           
-          <div className='w-full flex flex-col gap-4 text-justify'>
+          <div className='w-full flex flex-col gap-4 text-left'>
             <p className='text-2xl md:text-4xl font-bold text-[#DA0C0C] text-center capitalize'>BENEFITS OF STUDYING ABROAD</p>
             <div className='flex flex-col gap-4 w-full'>
               
@@ -1015,7 +1020,7 @@ const CountriesScreen = () => {
                   <p className='text-lg font-semibold'>International Exposure </p>
                 }>
                   <div className='flex flex-col gap-1 bg-gradient-to-b from-red-200 to-transparent py-8 px-4 rounded-[8px] mb-2'>
-                      <p className='text-base text-black text-justify'>Gain diverse skills, manage studies and jobs, multicultural learning environment.
+                      <p className='text-base text-black text-left'>Gain diverse skills, manage studies and jobs, multicultural learning environment.
                       </p>
                   </div>  
                 </AccordionItem>
@@ -1023,28 +1028,28 @@ const CountriesScreen = () => {
                   <p className='text-lg font-semibold'>Enhance Your CV</p>
                 }>
                   <div className='flex flex-col gap-1 bg-gradient-to-b from-red-200 to-transparent py-8 px-4 rounded-[8px] mb-2'>
-                    <p className='text-base text-black text-justify'>Demonstrates adaptability, cultural openness, problem-solving in diverse environments..</p>
+                    <p className='text-base text-black text-left'>Demonstrates adaptability, cultural openness, problem-solving in diverse environments..</p>
                   </div> 
                 </AccordionItem>
                 <AccordionItem key="Learn Self-Reliance" title={
                   <p className='text-lg font-semibold'>Learn Self-Reliance</p>
                 }>
                   <div className='flex flex-col gap-1 bg-gradient-to-b from-red-200 to-transparent py-8 px-4 rounded-[8px] mb-2'>
-                    <p className='text-base text-black text-justify'>Develop independence, manage finances, navigate daily life in foreign settings.</p>
+                    <p className='text-base text-black text-left'>Develop independence, manage finances, navigate daily life in foreign settings.</p>
                   </div>  
                 </AccordionItem>
                 <AccordionItem key="Gain a Global Mindset" title={
                   <p className='text-lg font-semibold'>Gain a Global Mindset</p>
                 }>
                   <div className='flex flex-col gap-1 bg-gradient-to-b from-red-200 to-transparent py-8 px-4 rounded-[8px] mb-2'>
-                    <p className='text-base text-black text-justify'>Broaden horizons, understand global issues, cultural awareness, effective communication.</p>
+                    <p className='text-base text-black text-left'>Broaden horizons, understand global issues, cultural awareness, effective communication.</p>
                   </div>
                 </AccordionItem>
                 <AccordionItem key="Top Quality Education" title={
                   <p className='text-lg font-semibold'>Top Quality Education</p>
                 }>
                   <div className='flex flex-col gap-1 bg-gradient-to-b from-red-200 to-transparent py-8 px-4 rounded-[8px] mb-2'>
-                    <p className='text-base text-black text-justify'>Studying abroad exposes you to world-class education systems, fostering academic excellence and 
+                    <p className='text-base text-black text-left'>Studying abroad exposes you to world-class education systems, fostering academic excellence and 
                     global perspectives.</p>
                   </div>
                 </AccordionItem>
@@ -1052,14 +1057,14 @@ const CountriesScreen = () => {
                   <p className='text-lg font-semibold'>Career Opportunities</p>
                 }>
                   <div className='flex flex-col gap-1 bg-gradient-to-b from-red-200 to-transparent py-8 px-4 rounded-[8px] mb-2'>
-                    <p className='text-base text-black text-justify'>International study enhances your CV, showing employers your adaptability and global mindset, opening doors to diverse career opportunities.</p>
+                    <p className='text-base text-black text-left'>International study enhances your CV, showing employers your adaptability and global mindset, opening doors to diverse career opportunities.</p>
                   </div>
                 </AccordionItem>
                 <AccordionItem key="International Travel" title={
                   <p className='text-lg font-semibold'>International Travel</p>
                 }>
                   <div className='flex flex-col gap-1 bg-gradient-to-b from-red-200 to-transparent py-8 px-4 rounded-[8px] mb-2'>
-                    <p className='text-base text-black text-justify'>Studying abroad isn't just about education; it's a life-changing adventure that broadens your cultural 
+                    <p className='text-base text-black text-left'>Studying abroad isn't just about education; it's a life-changing adventure that broadens your cultural 
                     understanding and personal growth through international travel.</p>
                   </div>
                 </AccordionItem>
@@ -1389,74 +1394,190 @@ const CountriesScreen = () => {
               <p className='text-2xl lg:text-4xl font-bold text-center'>Study abroad Testimonial</p>
             </div>
 
-            <div className='h-fit hidden sm:flex'>
-            <Swiper
-                slidesPerView={2}
-                spaceBetween={25}
-                freeMode={true}
-                pagination={{
-                  clickable: true,
-                }}
-                autoplay
-                modules={[FreeMode, Pagination, Autoplay]}
-                className=""
-              >
-                <SwiperSlide className='max-h-[300px] w-full mt-2 mb-12 bg-red-50 p-6 md:p-12 rounded-[8px] relative overflow-hidden '>
-                  {/* <div className='h-[100px] w-[100px] absolute top-0 right-0 bg-[#DA0C0C] rotate-45 -z-20'>
+            {
+              testimonialListLoading?
+              <div className='h-fit hidden sm:flex'>
+                <Swiper
+                  slidesPerView={2}
+                  spaceBetween={25}
+                  freeMode={true}
+                  autoplay
+                  modules={[FreeMode, Autoplay]}
+                  className=""
+                >
+                  <SwiperSlide className='max-h-[300px] w-full mt-2 mb-12 bg-red-50 p-6 md:p-12 rounded-[8px] relative overflow-hidden '>
+                    {/* <div className='h-[100px] w-[100px] absolute top-0 right-0 bg-[#DA0C0C] rotate-45 -z-20'>
 
-                  </div> */}
-                  <div className='h-fit flex flex-col'>
-                    <p className='text-lg font-bold text-[#DA0C0C] capitalize'>Ayesh hiruni</p>
-                    <p className='capitalize text-sm font-medium text-gray-500 '>veritual assistance</p>
-                    <p className='capitalize text-sm font-medium text-gray-500 '>Selan Bank</p>
-                  </div>
-                  <div className='h-[1px] w-full bg-red-100 my-4'></div>
-                  <div className='max-h-fit py-2'>
-                    <p className='text-base font-semibold'>"Lorem ipsum dolor sit amet consectetur. In nisl arcu risus at eu ipsum nunc magnis integer. Tristique aliquam risus mauris vitae adipiscing sit eget tristique."</p>
-                  </div>
-                </SwiperSlide>
+                    </div> */}
+                    <div className='h-fit flex flex-col'>
+                      <p className='text-lg font-bold text-[#DA0C0C] capitalize'>Ayesh hiruni</p>
 
-                <SwiperSlide className='max-h-[300px] w-full mt-2 mb-12 bg-red-50 p-6 md:p-12 rounded-[8px] relative overflow-hidden '>
-                  {/* <div className='h-[100px] w-[100px] absolute top-0 right-0 bg-[#DA0C0C] rotate-45 -z-20'>
+                      <p className='capitalize text-sm font-medium text-gray-500 '>Selan Bank</p>
+                    </div>
+                    <div className='h-[1px] w-full bg-red-100 my-4'></div>
+                    <div className='max-h-fit py-2'>
+                      <p className='text-base font-semibold'>"Lorem ipsum dolor sit amet consectetur. In nisl arcu risus at eu ipsum nunc magnis integer. Tristique aliquam risus mauris vitae adipiscing sit eget tristique."</p>
+                    </div>
+                  </SwiperSlide>
 
-                  </div> */}
-                  <div className='h-fit flex flex-col'>
-                    <p className='text-lg font-bold text-[#DA0C0C] capitalize'>Ayesh hiruni</p>
-                    <p className='capitalize text-sm font-medium text-gray-500 '>veritual assistance</p>
-                    <p className='capitalize text-sm font-medium text-gray-500 '>Selan Bank</p>
-                  </div>
-                  <div className='h-[1px] w-full bg-red-100 my-4'></div>
-                  <div className='max-h-fit py-2'>
-                    <p className='text-base font-semibold'>"Lorem ipsum dolor sit amet consectetur. In nisl arcu risus at eu ipsum nunc magnis integer. Tristique aliquam risus mauris vitae adipiscing sit eget tristique."</p>
-                  </div>
-                </SwiperSlide>
-                <SwiperSlide className='max-h-[300px] w-full mt-2 mb-12 bg-red-50 p-6 md:p-12 rounded-[8px] relative overflow-hidden '>
-                  {/* <div className='h-[100px] w-[100px] absolute top-0 right-0 bg-[#DA0C0C] rotate-45 -z-20'>
+                  <SwiperSlide className='max-h-[300px] w-full mt-2 mb-12 bg-red-50 p-6 md:p-12 rounded-[8px] relative overflow-hidden '>
+                    {/* <div className='h-[100px] w-[100px] absolute top-0 right-0 bg-[#DA0C0C] rotate-45 -z-20'>
 
-                  </div> */}
-                  <div className='h-fit flex flex-col'>
-                    <p className='text-lg font-bold text-[#DA0C0C] capitalize'>Ayesh hiruni</p>
-                    <p className='capitalize text-sm font-medium text-gray-500 '>veritual assistance</p>
-                    <p className='capitalize text-sm font-medium text-gray-500 '>Selan Bank</p>
-                  </div>
-                  <div className='h-[1px] w-full bg-red-100 my-4'></div>
-                  <div className='max-h-fit py-2'>
-                    <p className='text-base font-semibold'>"Lorem ipsum dolor sit amet consectetur. In nisl arcu risus at eu ipsum nunc magnis integer. Tristique aliquam risus mauris vitae adipiscing sit eget tristique."</p>
-                  </div>
-                </SwiperSlide>
-              </Swiper>
-            </div>
+                    </div> */}
+                    <div className='h-fit flex flex-col'>
+                      <p className='text-lg font-bold text-[#DA0C0C] capitalize'>Ayesh hiruni</p>
+
+                      <p className='capitalize text-sm font-medium text-gray-500 '>Selan Bank</p>
+                    </div>
+                    <div className='h-[1px] w-full bg-red-100 my-4'></div>
+                    <div className='max-h-fit py-2'>
+                      <p className='text-base font-semibold'>"Lorem ipsum dolor sit amet consectetur. In nisl arcu risus at eu ipsum nunc magnis integer. Tristique aliquam risus mauris vitae adipiscing sit eget tristique."</p>
+                    </div>
+                  </SwiperSlide>
+                  <SwiperSlide className='max-h-[300px] w-full mt-2 mb-12 bg-red-50 p-6 md:p-12 rounded-[8px] relative overflow-hidden '>
+                    {/* <div className='h-[100px] w-[100px] absolute top-0 right-0 bg-[#DA0C0C] rotate-45 -z-20'>
+
+                    </div> */}
+                    <div className='h-fit flex flex-col'>
+                      <p className='text-lg font-bold text-[#DA0C0C] capitalize'>Ayesh hiruni</p>
+
+                      <p className='capitalize text-sm font-medium text-gray-500 '>Selan Bank</p>
+                    </div>
+                    <div className='h-[1px] w-full bg-red-100 my-4'></div>
+                    <div className='max-h-fit py-2'>
+                      <p className='text-base font-semibold'>"Lorem ipsum dolor sit amet consectetur. In nisl arcu risus at eu ipsum nunc magnis integer. Tristique aliquam risus mauris vitae adipiscing sit eget tristique."</p>
+                    </div>
+                  </SwiperSlide>
+                </Swiper>
+              </div>:
+              testimonials ?
+              <div className='h-fit hidden sm:flex'>
+                <Swiper
+                  slidesPerView={2}
+                  spaceBetween={25}
+                  freeMode={true}
+                  autoplay
+                  modules={[FreeMode, Autoplay]}
+                  className=""
+                >
+                  {
+                    testimonials.filter(f=>f.university != null).map(i => (
+                      <SwiperSlide key={i.id} className='max-h-[300px] w-full mt-2 mb-12 bg-red-50 p-6 md:p-12 rounded-[8px] relative overflow-hidden '>
+                      {/* <div className='h-[100px] w-[100px] absolute top-0 right-0 bg-[#DA0C0C] rotate-45 -z-20'>
+
+                      </div> */}
+                      <div className='h-fit flex flex-col'>
+                        <p className='text-lg font-bold text-[#DA0C0C] capitalize'>{i.name}</p>
+  
+                        <p className='capitalize text-sm font-medium text-gray-500 '>{i.course?i.course.name:''}</p>
+                      </div>
+                      <div className='h-[1px] w-full bg-red-100 my-4'></div>
+                      <div className='max-h-fit py-2'>
+                        <p className='text-base font-semibold'>{parse(i.description)}</p>
+                      </div>
+                    </SwiperSlide>
+                    ))
+                  }
+
+                  
+                </Swiper>
+              </div>:
+              ''
+            }
+
+            {
+              testimonialListLoading?
+              <div className='sm:hidden'>
+                <Swiper
+                  slidesPerView={1}
+                  spaceBetween={25}
+                  freeMode={true}
+                  autoplay
+                  modules={[FreeMode, Autoplay]}
+                  className=""
+                >
+                  <SwiperSlide className='max-h-[300px] w-full mt-2 mb-12 bg-red-50 p-6 md:p-12 rounded-[8px] relative overflow-hidden '>
+                    {/* <div className='h-[100px] w-[100px] absolute top-0 right-0 bg-[#DA0C0C] rotate-45 -z-20'>
+
+                    </div> */}
+                    <div className='flex flex-col'>
+                      <p className='text-lg font-bold text-[#DA0C0C] capitalize'>Ayesh hiruni</p>
+                      <p className='capitalize text-sm font-medium text-gray-500 '>Selan Bank</p>
+                    </div>
+                    <div className='h-[1px] w-full bg-red-100 my-4'></div>
+                    <div className='max-h-fit py-2'>
+                      <p className='text-base font-semibold'>"Lorem ipsum dolor sit amet consectetur. In nisl arcu risus at eu ipsum nunc magnis integer. Tristique aliquam risus mauris vitae adipiscing sit eget tristique."</p>
+                    </div>
+                  </SwiperSlide>
+                  <SwiperSlide className='max-h-[300px] w-full mt-2 mb-12 bg-red-50 p-6 md:p-12 rounded-[8px] relative overflow-hidden '>
+                    {/* <div className='h-[100px] w-[100px] absolute top-0 right-0 bg-[#DA0C0C] rotate-45 -z-20'>
+
+                    </div> */}
+                    <div className='flex flex-col'>
+                      <p className='text-lg font-bold text-[#DA0C0C] capitalize'>Ayesh hiruni</p>
+                      <p className='capitalize text-sm font-medium text-gray-500 '>Selan Bank</p>
+                    </div>
+                    <div className='h-[1px] w-full bg-red-100 my-4'></div>
+                    <div className='max-h-fit py-2'>
+                      <p className='text-base font-semibold'>"Lorem ipsum dolor sit amet consectetur. In nisl arcu risus at eu ipsum nunc magnis integer. Tristique aliquam risus mauris vitae adipiscing sit eget tristique."</p>
+                    </div>
+                  </SwiperSlide>
+
+                  <SwiperSlide className='max-h-[300px] w-full mt-2 mb-12 bg-red-50 p-6 md:p-12 rounded-[8px] relative overflow-hidden '>
+                    {/* <div className='h-[100px] w-[100px] absolute top-0 right-0 bg-[#DA0C0C] rotate-45 -z-20'>
+
+                    </div> */}
+                    <div className='flex flex-col'>
+                      <p className='text-lg font-bold text-[#DA0C0C] capitalize'>Ayesh hiruni</p>
+                      <p className='capitalize text-sm font-medium text-gray-500 '>Selan Bank</p>
+                    </div>
+                    <div className='h-[1px] w-full bg-red-100 my-4'></div>
+                    <div className='max-h-fit py-2'>
+                      <p className='text-base font-semibold'>"Lorem ipsum dolor sit amet consectetur. In nisl arcu risus at eu ipsum nunc magnis integer. Tristique aliquam risus mauris vitae adipiscing sit eget tristique."</p>
+                    </div>
+                  </SwiperSlide>
+                </Swiper>
+              </div>:
+              testimonials ?
+              <div className='sm:hidden'>
+                <Swiper
+                  slidesPerView={1}
+                  spaceBetween={25}
+                  freeMode={true}
+                  autoplay
+                  modules={[FreeMode, Autoplay]}
+                  className=""
+                >
+                  {
+                    testimonials.filter(f=>f.university != null).map(i=>(
+                      <SwiperSlide className='max-h-[300px] w-full mt-2 mb-12 bg-red-50 p-6 md:p-12 rounded-[8px] relative overflow-hidden '>
+                        {/* <div className='h-[100px] w-[100px] absolute top-0 right-0 bg-[#DA0C0C] rotate-45 -z-20'>
+
+                        </div> */}
+                        <div className='flex flex-col'>
+                          <p className='text-lg font-bold text-[#DA0C0C] capitalize'>Ayesh hiruni</p>
+                          <p className='capitalize text-sm font-medium text-gray-500 '>Selan Bank</p>
+                        </div>
+                        <div className='h-[1px] w-full bg-red-100 my-4'></div>
+                        <div className='max-h-fit py-2'>
+                          <p className='text-base font-semibold'>"Lorem ipsum dolor sit amet consectetur. In nisl arcu risus at eu ipsum nunc magnis integer. Tristique aliquam risus mauris vitae adipiscing sit eget tristique."</p>
+                        </div>
+                      </SwiperSlide>
+                    ))
+                  }
+                  
+                </Swiper>
+              </div>:
+              ''
+            }
 
             <div className='sm:hidden'>
               <Swiper
                 slidesPerView={1}
                 spaceBetween={25}
                 freeMode={true}
-                pagination={{
-                  clickable: true,
-                }}
                 autoplay
-                modules={[FreeMode, Pagination, Autoplay]}
+                modules={[FreeMode, Autoplay]}
                 className=""
               >
                 <SwiperSlide className='max-h-[300px] w-full mt-2 mb-12 bg-red-50 p-6 md:p-12 rounded-[8px] relative overflow-hidden '>
@@ -1465,7 +1586,6 @@ const CountriesScreen = () => {
                   </div> */}
                   <div className='flex flex-col'>
                     <p className='text-lg font-bold text-[#DA0C0C] capitalize'>Ayesh hiruni</p>
-                    <p className='capitalize text-sm font-medium text-gray-500 '>veritual assistance</p>
                     <p className='capitalize text-sm font-medium text-gray-500 '>Selan Bank</p>
                   </div>
                   <div className='h-[1px] w-full bg-red-100 my-4'></div>
@@ -1479,7 +1599,6 @@ const CountriesScreen = () => {
                   </div> */}
                   <div className='flex flex-col'>
                     <p className='text-lg font-bold text-[#DA0C0C] capitalize'>Ayesh hiruni</p>
-                    <p className='capitalize text-sm font-medium text-gray-500 '>veritual assistance</p>
                     <p className='capitalize text-sm font-medium text-gray-500 '>Selan Bank</p>
                   </div>
                   <div className='h-[1px] w-full bg-red-100 my-4'></div>
@@ -1494,7 +1613,6 @@ const CountriesScreen = () => {
                   </div> */}
                   <div className='flex flex-col'>
                     <p className='text-lg font-bold text-[#DA0C0C] capitalize'>Ayesh hiruni</p>
-                    <p className='capitalize text-sm font-medium text-gray-500 '>veritual assistance</p>
                     <p className='capitalize text-sm font-medium text-gray-500 '>Selan Bank</p>
                   </div>
                   <div className='h-[1px] w-full bg-red-100 my-4'></div>
@@ -1507,7 +1625,6 @@ const CountriesScreen = () => {
 
         </div>
       </section>
-
       
     </div>
 

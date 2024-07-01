@@ -342,7 +342,7 @@ const CourseFilterScreen = () => {
                   <div className='pt-4 flex flex-col gap-4'>
                     <div className=''>
                       <p className='text-xs text-red-600 font-medium'>Post Graduate course</p>
-                      <p className='font-semibold text-justify'>{
+                      <p className='font-semibold text-left'>{
                         i.name
                       }</p>
                     </div>

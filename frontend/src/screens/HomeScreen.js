@@ -64,7 +64,7 @@ const HomeScreen = () => {
     
     useEffect(() => {
       dispatch(getCourseList())
-      // dispatch(getTestimonialList())
+      dispatch(getTestimonialList())
     }, [dispatch])
 
     const opts = {
@@ -1088,7 +1088,7 @@ const HomeScreen = () => {
           </div>
           <div className='w-full h-fit flex flex-col gap-4  px-6 pt-4 lg:pt-0 lg:pl-12'>
             <p className='text-2xl font-bold text-center '>Your inspiration our Motivation</p>
-            <p className='text-sm text-gray-700 font-medium text-justify'>Students deserve to dream, to be inspired and gain knowledge, as a  college it is our duty to fulfill our student’s inspirations. IEBC is  here to guide students all the way through their studies and career.  Your Inspiration is our motivation.Students deserve to dream, to be inspired and gain knowledge, as a  college it is our duty to fulfill our student’s inspirations. IEBC is  here to guide students all the way through their studies and career.  Your Inspiration is our motivation.</p>
+            <p className='text-sm text-gray-700 font-medium text-left'>Students deserve to dream, to be inspired and gain knowledge, as a  college it is our duty to fulfill our student’s inspirations. IEBC is  here to guide students all the way through their studies and career.  Your Inspiration is our motivation.Students deserve to dream, to be inspired and gain knowledge, as a  college it is our duty to fulfill our student’s inspirations. IEBC is  here to guide students all the way through their studies and career.  Your Inspiration is our motivation.</p>
           </div>
           <div className='w-full h-fit flex flex-col gap-4 pt-4 lg:pt-0 lg:hidden'>
             <p className='text-2xl font-bold text-[#DA0C0C] text-center '>IEBC Provides an extensive number of Programmes from Foundation to Masters which is regulated by UK Government Awarding Body</p>
@@ -1287,6 +1287,305 @@ const HomeScreen = () => {
             <p className='text-4xl font-bold'>5000+</p>
             <p className='text-sm font-medium'>E books</p>
           </div>
+        </div>
+      </section>
+
+      <section className='h-fit w-full relative overflow-hidden px-8'>
+        <div className='h-fit w-full max-w-[1024px] mx-auto overflow-visible'>
+            <div className='flex flex-col pb-8'>
+              <p className='uppercase text-xs text-center'text-center>Our Students Testimonials</p>
+              <p className='text-2xl lg:text-4xl font-bold text-center'>What Our Students Say About Us </p>
+            </div>
+
+            {
+              testimonialListLoading?
+              <div className='h-fit hidden sm:flex'>
+                <Swiper
+                  slidesPerView={2}
+                  spaceBetween={25}
+                  freeMode={true}
+                  autoplay
+                  modules={[FreeMode, Autoplay]}
+                  className=""
+                >
+                  <SwiperSlide className='max-h-[300px] w-full mt-2 mb-12 bg-red-50 p-6 md:p-12 rounded-[8px] relative overflow-hidden '>
+                    {/* <div className='h-[100px] w-[100px] absolute top-0 right-0 bg-[#DA0C0C] rotate-45 -z-20'>
+
+                    </div> */}
+                    <div className='h-fit flex flex-col'>
+                      <Skeleton>
+                        <p className='text-lg font-bold text-[#DA0C0C] capitalize'>Ayesh hiruni</p>
+                      </Skeleton>
+
+                      <Skeleton>
+                        <p className='capitalize text-sm font-medium text-gray-500 '>Selan Bank</p>
+                      </Skeleton>
+                    </div>
+                    <div className='h-[1px] w-full bg-red-100 my-4'></div>
+                    <div className='max-h-fit py-2'>
+                     <Skeleton>
+                       <p className='text-base font-semibold'>"Lorem ipsum dolor sit amet consectetur. In nisl arcu risus at eu ipsum nunc magnis integer. Tristique aliquam risus mauris vitae adipiscing sit eget tristique."</p>
+                     </Skeleton>
+                    </div>
+                  </SwiperSlide>
+
+                  <SwiperSlide className='max-h-[300px] w-full mt-2 mb-12 bg-red-50 p-6 md:p-12 rounded-[8px] relative overflow-hidden '>
+                    {/* <div className='h-[100px] w-[100px] absolute top-0 right-0 bg-[#DA0C0C] rotate-45 -z-20'>
+
+                    </div> */}
+                    <div className='h-fit flex flex-col'>
+                      <Skeleton>
+                        <p className='text-lg font-bold text-[#DA0C0C] capitalize'>Ayesh hiruni</p>
+                      </Skeleton>
+
+                      <Skeleton>
+                        <p className='capitalize text-sm font-medium text-gray-500 '>Selan Bank</p>
+                      </Skeleton>
+                    </div>
+                    <div className='h-[1px] w-full bg-red-100 my-4'></div>
+                    <div className='max-h-fit py-2'>
+                     <Skeleton>
+                       <p className='text-base font-semibold'>"Lorem ipsum dolor sit amet consectetur. In nisl arcu risus at eu ipsum nunc magnis integer. Tristique aliquam risus mauris vitae adipiscing sit eget tristique."</p>
+                     </Skeleton>
+                    </div>
+                  </SwiperSlide>
+                  <SwiperSlide className='max-h-[300px] w-full mt-2 mb-12 bg-red-50 p-6 md:p-12 rounded-[8px] relative overflow-hidden '>
+                    {/* <div className='h-[100px] w-[100px] absolute top-0 right-0 bg-[#DA0C0C] rotate-45 -z-20'>
+
+                    </div> */}
+                    <div className='h-fit flex flex-col'>
+                      <Skeleton>
+                        <p className='text-lg font-bold text-[#DA0C0C] capitalize'>Ayesh hiruni</p>
+                      </Skeleton>
+
+                      <Skeleton>
+                        <p className='capitalize text-sm font-medium text-gray-500 '>Selan Bank</p>
+                      </Skeleton>
+                    </div>
+                    <div className='h-[1px] w-full bg-red-100 my-4'></div>
+                    <div className='max-h-fit py-2'>
+                     <Skeleton>
+                       <p className='text-base font-semibold'>"Lorem ipsum dolor sit amet consectetur. In nisl arcu risus at eu ipsum nunc magnis integer. Tristique aliquam risus mauris vitae adipiscing sit eget tristique."</p>
+                     </Skeleton>
+                    </div>
+                  </SwiperSlide>
+                </Swiper>
+              </div>:
+              testimonials ?
+              <div className='h-fit hidden sm:flex'>
+                <Swiper
+                  slidesPerView={2}
+                  spaceBetween={25}
+                  freeMode={true}
+                  autoplay
+                  modules={[FreeMode, Autoplay]}
+                  className=""
+                >
+                  {
+                    testimonials.filter(f=>f.university == null).map(i => (
+                      <SwiperSlide key={i.id} className='max-h-[300px] w-full mt-2 mb-12 bg-red-50 p-6 md:p-12 rounded-[8px] relative overflow-hidden '>
+                      {/* <div className='h-[100px] w-[100px] absolute top-0 right-0 bg-[#DA0C0C] rotate-45 -z-20'>
+
+                      </div> */}
+                      <div className='h-fit flex flex-col'>
+                        <p className='text-lg font-bold text-[#DA0C0C] capitalize'>{i.name}</p>
+  
+                        <p className='capitalize text-sm font-medium text-gray-500 '>{i.course?i.course.name:''}</p>
+                      </div>
+                      <div className='h-[1px] w-full bg-red-100 my-4'></div>
+                      <div className='max-h-fit py-2'>
+                        <p className='text-base font-semibold'>{parse(i.description)}</p>
+                      </div>
+                    </SwiperSlide>
+                    ))
+                  }
+
+                  
+                </Swiper>
+              </div>:
+              ''
+            }
+
+            {
+              testimonialListLoading?
+              <div className='sm:hidden'>
+                <Swiper
+                  slidesPerView={1}
+                  spaceBetween={25}
+                  freeMode={true}
+                  autoplay
+                  modules={[FreeMode, Autoplay]}
+                  className=""
+                >
+                  <SwiperSlide className='max-h-[300px] w-full mt-2 mb-12 bg-red-50 p-6 md:p-12 rounded-[8px] relative overflow-hidden '>
+                    {/* <div className='h-[100px] w-[100px] absolute top-0 right-0 bg-[#DA0C0C] rotate-45 -z-20'>
+
+                    </div> */}
+                    <div className='flex flex-col'>
+                      <Skeleton>
+                        <p className='text-lg font-bold text-[#DA0C0C] capitalize'>Ayesh hiruni</p>
+                      </Skeleton>
+                      <Skeleton>
+                        <p className='capitalize text-sm font-medium text-gray-500 '>Selan Bank</p>
+                      </Skeleton>
+                    </div>
+                    <div className='h-[1px] w-full bg-red-100 my-4'></div>
+                    <div className='max-h-fit py-2'>
+                     <Skeleton>
+                       <p className='text-base font-semibold'>"Lorem ipsum dolor sit amet consectetur. In nisl arcu risus at eu ipsum nunc magnis integer. Tristique aliquam risus mauris vitae adipiscing sit eget tristique."</p>
+                     </Skeleton>
+                    </div>
+                  </SwiperSlide>
+                  <SwiperSlide className='max-h-[300px] w-full mt-2 mb-12 bg-red-50 p-6 md:p-12 rounded-[8px] relative overflow-hidden '>
+                    {/* <div className='h-[100px] w-[100px] absolute top-0 right-0 bg-[#DA0C0C] rotate-45 -z-20'>
+
+                    </div> */}
+                    <div className='flex flex-col'>
+                      <Skeleton>
+                        <p className='text-lg font-bold text-[#DA0C0C] capitalize'>Ayesh hiruni</p>
+                      </Skeleton>
+                      <Skeleton>
+                        <p className='capitalize text-sm font-medium text-gray-500 '>Selan Bank</p>
+                      </Skeleton>
+                    </div>
+                    <div className='h-[1px] w-full bg-red-100 my-4'></div>
+                    <div className='max-h-fit py-2'>
+                     <Skeleton>
+                       <p className='text-base font-semibold'>"Lorem ipsum dolor sit amet consectetur. In nisl arcu risus at eu ipsum nunc magnis integer. Tristique aliquam risus mauris vitae adipiscing sit eget tristique."</p>
+                     </Skeleton>
+                    </div>
+                  </SwiperSlide>
+
+                  <SwiperSlide className='max-h-[300px] w-full mt-2 mb-12 bg-red-50 p-6 md:p-12 rounded-[8px] relative overflow-hidden '>
+                    {/* <div className='h-[100px] w-[100px] absolute top-0 right-0 bg-[#DA0C0C] rotate-45 -z-20'>
+
+                    </div> */}
+                    <div className='flex flex-col'>
+                      <Skeleton>
+                        <p className='text-lg font-bold text-[#DA0C0C] capitalize'>Ayesh hiruni</p>
+                      </Skeleton>
+                      <Skeleton>
+                        <p className='capitalize text-sm font-medium text-gray-500 '>Selan Bank</p>
+                      </Skeleton>
+                    </div>
+                    <div className='h-[1px] w-full bg-red-100 my-4'></div>
+                    <div className='max-h-fit py-2'>
+                     <Skeleton>
+                       <p className='text-base font-semibold'>"Lorem ipsum dolor sit amet consectetur. In nisl arcu risus at eu ipsum nunc magnis integer. Tristique aliquam risus mauris vitae adipiscing sit eget tristique."</p>
+                     </Skeleton>
+                    </div>
+                  </SwiperSlide>
+                </Swiper>
+              </div>:
+              testimonials ?
+              <div className='sm:hidden'>
+                <Swiper
+                  slidesPerView={1}
+                  spaceBetween={25}
+                  freeMode={true}
+                  autoplay
+                  modules={[FreeMode, Autoplay]}
+                  className=""
+                >
+                  {
+                    testimonials.filter(f=>f.university == null).map(i=>(
+                      <SwiperSlide className='max-h-[300px] w-full mt-2 mb-12 bg-red-50 p-6 md:p-12 rounded-[8px] relative overflow-hidden '>
+                        {/* <div className='h-[100px] w-[100px] absolute top-0 right-0 bg-[#DA0C0C] rotate-45 -z-20'>
+
+                        </div> */}
+                        <div className='flex flex-col'>
+                          <Skeleton>
+                            <p className='text-lg font-bold text-[#DA0C0C] capitalize'>Ayesh hiruni</p>
+                          </Skeleton>
+                          <Skeleton>
+                            <p className='capitalize text-sm font-medium text-gray-500 '>Selan Bank</p>
+                          </Skeleton>
+                        </div>
+                        <div className='h-[1px] w-full bg-red-100 my-4'></div>
+                        <div className='max-h-fit py-2'>
+                         <Skeleton>
+                           <p className='text-base font-semibold'>"Lorem ipsum dolor sit amet consectetur. In nisl arcu risus at eu ipsum nunc magnis integer. Tristique aliquam risus mauris vitae adipiscing sit eget tristique."</p>
+                         </Skeleton>
+                        </div>
+                      </SwiperSlide>
+                    ))
+                  }
+                  
+                </Swiper>
+              </div>:
+              ''
+            }
+
+            <div className='sm:hidden'>
+              <Swiper
+                slidesPerView={1}
+                spaceBetween={25}
+                freeMode={true}
+                autoplay
+                modules={[FreeMode, Autoplay]}
+                className=""
+              >
+                <SwiperSlide className='max-h-[300px] w-full mt-2 mb-12 bg-red-50 p-6 md:p-12 rounded-[8px] relative overflow-hidden '>
+                  {/* <div className='h-[100px] w-[100px] absolute top-0 right-0 bg-[#DA0C0C] rotate-45 -z-20'>
+
+                  </div> */}
+                  <div className='flex flex-col'>
+                    <Skeleton>
+                      <p className='text-lg font-bold text-[#DA0C0C] capitalize'>Ayesh hiruni</p>
+                    </Skeleton>
+                    <Skeleton>
+                      <p className='capitalize text-sm font-medium text-gray-500 '>Selan Bank</p>
+                    </Skeleton>
+                  </div>
+                  <div className='h-[1px] w-full bg-red-100 my-4'></div>
+                  <div className='max-h-fit py-2'>
+                   <Skeleton>
+                     <p className='text-base font-semibold'>"Lorem ipsum dolor sit amet consectetur. In nisl arcu risus at eu ipsum nunc magnis integer. Tristique aliquam risus mauris vitae adipiscing sit eget tristique."</p>
+                   </Skeleton>
+                  </div>
+                </SwiperSlide>
+                <SwiperSlide className='max-h-[300px] w-full mt-2 mb-12 bg-red-50 p-6 md:p-12 rounded-[8px] relative overflow-hidden '>
+                  {/* <div className='h-[100px] w-[100px] absolute top-0 right-0 bg-[#DA0C0C] rotate-45 -z-20'>
+
+                  </div> */}
+                  <div className='flex flex-col'>
+                    <Skeleton>
+                      <p className='text-lg font-bold text-[#DA0C0C] capitalize'>Ayesh hiruni</p>
+                    </Skeleton>
+                    <Skeleton>
+                      <p className='capitalize text-sm font-medium text-gray-500 '>Selan Bank</p>
+                    </Skeleton>
+                  </div>
+                  <div className='h-[1px] w-full bg-red-100 my-4'></div>
+                  <div className='max-h-fit py-2'>
+                   <Skeleton>
+                     <p className='text-base font-semibold'>"Lorem ipsum dolor sit amet consectetur. In nisl arcu risus at eu ipsum nunc magnis integer. Tristique aliquam risus mauris vitae adipiscing sit eget tristique."</p>
+                   </Skeleton>
+                  </div>
+                </SwiperSlide>
+
+                <SwiperSlide className='max-h-[300px] w-full mt-2 mb-12 bg-red-50 p-6 md:p-12 rounded-[8px] relative overflow-hidden '>
+                  {/* <div className='h-[100px] w-[100px] absolute top-0 right-0 bg-[#DA0C0C] rotate-45 -z-20'>
+
+                  </div> */}
+                  <div className='flex flex-col'>
+                    <Skeleton>
+                      <p className='text-lg font-bold text-[#DA0C0C] capitalize'>Ayesh hiruni</p>
+                    </Skeleton>
+                    <Skeleton>
+                      <p className='capitalize text-sm font-medium text-gray-500 '>Selan Bank</p>
+                    </Skeleton>
+                  </div>
+                  <div className='h-[1px] w-full bg-red-100 my-4'></div>
+                  <div className='max-h-fit py-2'>
+                   <Skeleton>
+                     <p className='text-base font-semibold'>"Lorem ipsum dolor sit amet consectetur. In nisl arcu risus at eu ipsum nunc magnis integer. Tristique aliquam risus mauris vitae adipiscing sit eget tristique."</p>
+                   </Skeleton>
+                  </div>
+                </SwiperSlide>
+              </Swiper>
+            </div>
+
         </div>
       </section>
 
@@ -1916,6 +2215,8 @@ const HomeScreen = () => {
 
         </div>
       </section>
+
+      
 
     </div>
   )

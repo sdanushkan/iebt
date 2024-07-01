@@ -55,11 +55,11 @@ const AbroadAboutUsScreen = () => {
           <div className='w-fit flex flex-col gap-4'>
             <p className='text-2xl md:text-4xl text-black font-bold'>About us</p>
             <div className='flex flex-col gap-1'>
-                <p className='text-sm text-black opacity-50 text-justify'>With extensive industry experience and a high success rate in admissions and visa approvals, we have established a prominent position in our field. In addition to these achievements, we offer premium services such as career counseling, country and university selection, course guidance, admission procedures, SOP assistance, education loans, and visa services. Our team of counselors is readily available to address students' queries and ensure all concerns are resolved. We are dedicated to expanding our network with leading universities in highly sought-after countries to provide students with superior options.
+                <p className='text-sm text-black opacity-50 text-left'>With extensive industry experience and a high success rate in admissions and visa approvals, we have established a prominent position in our field. In addition to these achievements, we offer premium services such as career counseling, country and university selection, course guidance, admission procedures, SOP assistance, education loans, and visa services. Our team of counselors is readily available to address students' queries and ensure all concerns are resolved. We are dedicated to expanding our network with leading universities in highly sought-after countries to provide students with superior options.
                 </p>
-                <p className='text-sm text-black opacity-50 text-justify'>We dispel misconceptions and alleviate concerns students may have about studying abroad.
+                <p className='text-sm text-black opacity-50 text-left'>We dispel misconceptions and alleviate concerns students may have about studying abroad.
                 </p>
-                <p className='text-sm text-black opacity-50 text-justify'>At IEBC Global, we conduct regular training sessions for our counselors, admissions team, and visa team to keep them updated on the latest information and requirements of relevant departments. We provide comprehensive assistance to students in every aspect of their study abroad journey.
+                <p className='text-sm text-black opacity-50 text-left'>At IEBC Global, we conduct regular training sessions for our counselors, admissions team, and visa team to keep them updated on the latest information and requirements of relevant departments. We provide comprehensive assistance to students in every aspect of their study abroad journey.
                 </p>
             </div>
           </div>
@@ -135,7 +135,7 @@ const AbroadAboutUsScreen = () => {
           <div className='w-full flex flex-col gap-4'>
             <p className='w-full text-2xl font-bold text-red-500'>Why Choose IEBC?</p>
             <div className='h-fit min-w-full '>
-                <p className='text-justify'>Opting for IEBC Global to shape your career is a prudent decision, as we are recognized as the top overseas education consultants in Sri Lanka. Our success is driven by hard work and logical experience, upheld by ethical business practices that ensure reliable services.</p>
+                <p className='text-left'>Opting for IEBC Global to shape your career is a prudent decision, as we are recognized as the top overseas education consultants in Sri Lanka. Our success is driven by hard work and logical experience, upheld by ethical business practices that ensure reliable services.</p>
                 {/* <img  src='https://media.sproutsocial.com/uploads/1e_facebook-cover-photo_labels@2x-1.png' alt='' className='h-full w-full object-cover'/> */}
             </div>
             <div className='flex flex-col gap-4 w-full'>
@@ -145,21 +145,21 @@ const AbroadAboutUsScreen = () => {
                   <p className='text-lg font-semibold'>Specialized Departments </p>
                 }>
                   <div className='flex flex-col gap-1'>
-                      <p className='text-sm text-black opacity-50 text-justify'>At IEBC Global, we have dedicated departments ensuring smooth operations and accurate handling of  documents and visa files. Each department is responsible for its tasks, delivering comprehensive services to students.</p>
+                      <p className='text-sm text-black opacity-50 text-left'>At IEBC Global, we have dedicated departments ensuring smooth operations and accurate handling of  documents and visa files. Each department is responsible for its tasks, delivering comprehensive services to students.</p>
                   </div>  
                 </AccordionItem>
                 <AccordionItem key="Authenticity and Transparency" title={
                   <p className='text-lg font-semibold'>Authenticity and Transparency</p>
                 }>
                   <div className='flex flex-col gap-1'>
-                    <p className='text-sm text-black opacity-50 text-justify'>Authenticity is a cornerstone of our organization, earning us trust and respect within the industry. We maintain transparency throughout the admission and visa processes, reinforcing our credibility.</p>
+                    <p className='text-sm text-black opacity-50 text-left'>Authenticity is a cornerstone of our organization, earning us trust and respect within the industry. We maintain transparency throughout the admission and visa processes, reinforcing our credibility.</p>
                   </div> 
                 </AccordionItem>
                 <AccordionItem key="Direct Access to University Representatives" title={
                   <p className='text-lg font-semibold'>Direct Access to University Representatives</p>
                 }>
                   <div className='flex flex-col gap-1'>
-                    <p className='text-sm text-black opacity-50 text-justify'>Understanding students' need for accurate information, we organize regular seminars where 
+                    <p className='text-sm text-black opacity-50 text-left'>Understanding students' need for accurate information, we organize regular seminars where 
                     universities visit our offices, allowing students direct interaction and enrollment opportunities.</p>
                   </div>  
                 </AccordionItem>
@@ -167,14 +167,14 @@ const AbroadAboutUsScreen = () => {
                   <p className='text-lg font-semibold'>100% Student Satisfaction</p>
                 }>
                   <div className='flex flex-col gap-1'>
-                    <p className='text-sm text-black opacity-50 text-justify'>Our commitment to student satisfaction is unwavering. From enrollment to graduation, we provide continuous support, establishing a friendly and supportive relationship with our students.</p>
+                    <p className='text-sm text-black opacity-50 text-left'>Our commitment to student satisfaction is unwavering. From enrollment to graduation, we provide continuous support, establishing a friendly and supportive relationship with our students.</p>
                   </div>
                 </AccordionItem>
                 <AccordionItem key="Career Guidance" title={
                   <p className='text-lg font-semibold'>Career Guidance</p>
                 }>
                   <div className='flex flex-col gap-1'>
-                    <p className='text-sm text-black opacity-50 text-justify'>Our experienced counselors provide expert guidance on study programs and destination countries, 
+                    <p className='text-sm text-black opacity-50 text-left'>Our experienced counselors provide expert guidance on study programs and destination countries, 
                     presenting both positive and negative aspects to aid informed decision-making for your career.</p>
                   </div>
                 </AccordionItem>
@@ -182,7 +182,7 @@ const AbroadAboutUsScreen = () => {
                   <p className='text-lg font-semibold'>Proven Excellence</p>
                 }>
                   <div className='flex flex-col gap-1'>
-                    <p className='text-sm text-black opacity-50 text-justify'>IEBC Global has a proven track record of delivering high-quality, customized support that consistently 
+                    <p className='text-sm text-black opacity-50 text-left'>IEBC Global has a proven track record of delivering high-quality, customized support that consistently 
                     achieves successful outcomes, setting benchmarks in the industry.</p>
                   </div>
                 </AccordionItem>
@@ -205,7 +205,7 @@ const AbroadAboutUsScreen = () => {
           <p className='text-2xl md:text-4xl font-bold text-[#DA0C0C] text-center'>LANGUAGE ENTRY TEST</p>
           <div className='h-fit w-full flex flex-col md:flex-row gap-6 lg:gap-12'>      
             
-            <div className='w-full flex flex-col gap-4 text-justify'>
+            <div className='w-full flex flex-col gap-4 text-left'>
               
                 <p>For students aspiring to study abroad in English-taught programs, proving English language proficiency is a crucial requirement. Numerous standardized tests are recognized globally to assess non-native speakers'English skills. These exams are designed to evaluate the ability to understand lectures, participate in discussions, and complete academic assignments.
                 </p>
@@ -238,7 +238,7 @@ const AbroadAboutUsScreen = () => {
           </div>
           <div className='h-fit w-full flex flex-col md:flex-row gap-6 lg:gap-12'>      
             
-            <div className='w-full flex flex-col gap-4 text-justify'>
+            <div className='w-full flex flex-col gap-4 text-left'>
               
                 <p>
                   Adjusting to life abroad involves navigating a new culture, managing daily responsibilities, and building a support network. Initially, acclimating to a different culture, language, and traditions can be both challenging and exciting, and culture shock is a common experience that can be overwhelming for some.
