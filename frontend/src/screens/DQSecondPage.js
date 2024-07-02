@@ -51,6 +51,7 @@ import ReactPlayer from 'react-player'
 import CountUp from 'react-countup';
 
 import sdv from '../assets/sdv.mp4'
+import { FaArrowDown } from "react-icons/fa6";
 
 const DQSecondPage = () => {
   return (
@@ -66,14 +67,17 @@ const DQSecondPage = () => {
         </section>
         <section className='h-fit w-full'>
             <div className='h-fit w-full max-w-[1024px] mx-auto px-6 flex flex-row lg:flex-col-reverse lg:items-center'>
-                <div className='h-[250px] lg:h-[50px] w-[10px] lg:w-[5px] bg-[#DA0C0C] mt-auto'></div>
+                <div className='h-[250px] lg:h-[0px] w-[10px] lg:w-[5px] bg-[#DA0C0C] mt-auto'></div>
                 <div className='h-fit w-full pl-6 gap-4 flex flex-col'>
-                    <div className='h-[200px] md:h-[250px] w-full  bg-gray-50 overflow-hidden'>
+                    <div className='h-[200px] md:h-[250px] w-full lg:w-[400px] mx-auto  bg-gray-50 overflow-hidden'>
                         <img src={c} alt='' className='h-full w-full object-cover' />
                     </div>
-                    <div className='flex flex-col gap-2'>
+                    <div className='flex flex-col gap-2 items-center'>
                         <p className='text-center text-sm font-medium'>Level 4 and 5 Diploma in Business Management</p>
-                        <p className='text-center text-2xl font-bold mt-4'>Earn your secound Higher Diploma</p>
+                        <div className=''>
+                            <FaArrowDown/>
+                        </div>
+                        <p className='text-center text-2xl font-bold '>Earn your secound Higher Diploma</p>
                     </div>
                 </div>
             </div>
@@ -87,7 +91,7 @@ const DQSecondPage = () => {
                             <div className='h-[200px] lg:h-[150px] w-full  bg-gray-50 rounded-[8px] overflow-hidden'>
                                 <img src={c} alt='' className='h-full w-full object-cover' />
                             </div>
-                            <p className='text-left text-sm font-medium'>Level 4 and 5 Diploma in Business Management</p>
+                            <p className='text-left text-sm font-medium'>Hospitality and Tourism Management</p>
                         </div>
                     </div>
 
@@ -97,7 +101,7 @@ const DQSecondPage = () => {
                             <div className='h-[200px] lg:h-[150px] w-full  bg-gray-50 rounded-[8px] overflow-hidden'>
                                 <img src={c} alt='' className='h-full w-full object-cover' />
                             </div>
-                            <p className='text-left text-sm font-medium'>Level 4 and 5 Diploma in Business Management</p>
+                            <p className='text-left text-sm font-medium'>Marketing</p>
                         </div>
                     </div>
 
@@ -107,7 +111,7 @@ const DQSecondPage = () => {
                             <div className='h-[200px] lg:h-[150px] w-full  bg-gray-50 rounded-[8px] overflow-hidden'>
                                 <img src={c} alt='' className='h-full w-full object-cover' />
                             </div>
-                            <p className='text-left text-sm font-medium'>Level 4 and 5 Diploma in Business Management</p>
+                            <p className='text-left text-sm font-medium'>Human Resource Management</p>
                         </div>
                     </div>
 
@@ -117,7 +121,7 @@ const DQSecondPage = () => {
                             <div className='h-[200px] lg:h-[150px] w-full  bg-gray-50 rounded-[8px] overflow-hidden'>
                                 <img src={c} alt='' className='h-full w-full object-cover' />
                             </div>
-                            <p className='text-left text-sm font-medium'>Level 4 and 5 Diploma in Business Management</p>
+                            <p className='text-left text-sm font-medium'>Logistic & Supply Chain Management</p>
                         </div>
                     </div>
 
@@ -127,7 +131,7 @@ const DQSecondPage = () => {
                             <div className='h-[200px] lg:h-[150px] w-full  bg-gray-50 rounded-[8px] overflow-hidden'>
                                 <img src={c} alt='' className='h-full w-full object-cover' />
                             </div>
-                            <p className='text-left text-sm font-medium'>Level 4 and 5 Diploma in Business Management</p>
+                            <p className='text-left text-sm font-medium'>Accounting & Finance</p>
                         </div>
                     </div>
 
