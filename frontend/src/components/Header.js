@@ -345,6 +345,7 @@ const Header = () => {
                   
                 </Accordion>
                 <Link onClick={() => setNavbar(!navbar)} to={'/abroad'} className='text-sm font-semibold text-[#DA0C0C] h-12 flex items-center px-2 '>Study abroad</Link>
+                <Link onClick={() => setNavbar(!navbar)} to={'/dual'} className='text-sm font-semibold text-[#DA0C0C] h-12 flex items-center px-2 '>Dual Qualification</Link>
                 <Link onClick={() => setNavbar(!navbar)} to={'/contact'} className='text-sm font-semibold text-[#DA0C0C] h-12 flex items-center px-2 '>Contact us</Link>
               </div>
             </div>
