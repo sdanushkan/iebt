@@ -35,6 +35,7 @@ import { setHours, setMinutes, getDay } from 'date-fns';
 import WebView from '@luxbit/react-electron-webview'
 import YouTube from 'react-youtube';
 import  apply  from '../assets/apply.png'
+import  dq  from '../assets/dq.jpg'
 import  verification  from '../assets/verification.png'
 import  sp  from '../assets/sp.png'
 import  es  from '../assets/es.png'
@@ -57,7 +58,7 @@ const DualQualificationScreen = () => {
 
         <section className='h-fit w-full relative overflow-hidden'>
 
-          <div className='h-[400px] lg:h-[500px] w-full object-cover object-bottom relative'>
+          <div className='h-[400px] lg:h-[500px] w-full object-cover object-bottom absolute z-0 blur-md'>
             <Swiper
               slidesPerView={1}
               spaceBetween={10}
@@ -80,34 +81,38 @@ const DualQualificationScreen = () => {
             </Swiper>
           </div>
 
-         
-        </section>
-        <section className='h-fit w-full'>
-            <div className='h-fit w-full max-w-[1024px] mx-auto py-[50px] px-6 flex flex-col gap-2'>
-              <p className='text-4xl font-bold text-black'>Summary</p>
-              <p className='text-sm opacity-50'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+          <div className='h-fit mt-[100px] w-full max-w-[1024px]  relative z-30 px-6 mx-auto object-cover object-bottom flex flex-col md:flex-row items-center py-4'>
+            <div className='h-fit w-full max-w-[1024px] items-center mx-auto px-6 gap-2 grid grid-cols-1 md:grid-cols-2'>
+              <div className='h-fit w-full '>
+                  <img src={dq} alt='' className='h-[300px] lg:h-[400px] w-fit object-contain'  />
+              </div>
+              <div className='h-fit px-8 py-6 backdrop-blur-2xl rounded-[8px] flex flex-col gap-4'>
+                <p className='text-4xl font-bold text-white'>Dual Qualification</p>
+                <p className='text-sm text-white opacity-75'>Pathway to Expertise
+                The Dual Qualification program offers learners a flexible and comprehensive educational path by combining Level 4 and 5 Higher Diploma studies. Upon completion, students can choose to specialize in various fields, tailoring their education to their career goals. This innovative Pathway to Expertise marks the program as a pioneering initiative in education.</p>
+                <Link to={'/dual/learnmore'}>
+                  <Button className='bg-[#DA0C0C] w-fit text-white'>
+                    Learn more
+                  </Button>
+                </Link>
+              </div>
             </div>
-        </section>
+          </div>
 
-        <section className='h-fit w-full'>
-            <div className='h-fit w-full max-w-[1024px] mx-auto py-[50px] px-6 grid grid-cols-2 lg:grid-cols-5 gap-2'>
-              <div className=' w-full h-full flex items-center capitalize text-center py-6 px-4 bg-red-50 rounded-[8px]'>
-                <p className='text-[#DA0C0C] font-semibold text-center'>Hospitality and tourism management</p>
-              </div>
-              <div className=' w-full h-full flex items-center capitalize text-center py-6 px-4 bg-red-50 rounded-[8px]'>
-                <p className='text-[#DA0C0C] font-semibold text-center'>marketing</p>
-              </div>
-              <div className=' w-full h-full flex items-center capitalize text-center py-6 px-4 bg-red-50 rounded-[8px]'>
-                <p className='text-[#DA0C0C] font-semibold text-center'>human resource management</p>
-              </div>
-              <div className=' w-full h-full flex items-center capitalize text-center py-6 px-4 bg-red-50 rounded-[8px]'>
-                <p className='text-[#DA0C0C] font-semibold text-center'>logistics and supply chain management</p>
-              </div>
-              <div className=' w-full h-full flex items-center capitalize text-center py-6 px-4 bg-red-50 rounded-[8px]'>
-                <p className='text-[#DA0C0C] font-semibold text-center'>accounting and finance</p>
+          
+        </section>
+        {/* <section className='h-fit w-full'>
+
+            <div className='h-fit w-full max-w-[1024px] mx-auto py-[50px] px-6 gap-2 grid grid-cols-1 md:grid-cols-2'>
+              <div className=''>
+                <p className='text-4xl font-bold text-black'>Dual Qualification</p>
+                <p className='text-sm opacity-50'>Pathway to Expertise
+                The Dual Qualification program offers learners a flexible and comprehensive educational path by combining Level 4 and 5 Higher Diploma studies. Upon completion, students can choose to specialize in various fields, tailoring their education to their career goals. This innovative Pathway to Expertise marks the program as a pioneering initiative in education.</p>
               </div>
             </div>
-        </section>
+        </section> */}
+
+        
       
     </div>
   )
