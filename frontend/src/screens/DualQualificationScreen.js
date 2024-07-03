@@ -59,7 +59,9 @@ const DualQualificationScreen = () => {
         <section className='h-fit w-full relative overflow-hidden mt-[100px]'>
             <div className='h-fit w-full max-w-[1024px] items-center mx-auto px-6 gap-2 grid grid-cols-1 md:grid-cols-2'>
               <div className='h-fit w-full '>
-                  <img src={dq} alt='' className='h-full md:h-[400px] w-full md:w-fit object-contain'  />
+                  <Link  to={'/dual/learnmore'}>
+                    <img src={dq} alt='' className='h-full md:h-[400px] w-full md:w-fit object-contain'  />
+                  </Link>
               </div>
               <div className='h-fit flex flex-col gap-4 '>
                 <p className='text-4xl font-bold text-black'>Dual Qualification</p>
