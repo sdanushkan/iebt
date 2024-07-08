@@ -36,6 +36,8 @@ import WebView from '@luxbit/react-electron-webview'
 import YouTube from 'react-youtube';
 import  apply  from '../assets/apply.png'
 import  dq  from '../assets/dq.jpg'
+import  dqb  from '../assets/dqb.jpg'
+
 import  verification  from '../assets/verification.png'
 import  sp  from '../assets/sp.png'
 import  es  from '../assets/es.png'
@@ -51,22 +53,116 @@ import CountUp from 'react-countup';
 
 import sdv from '../assets/sdv.mp4'
 
+import Marquee from "react-fast-marquee";
+import { getDualQualificationList } from '../actions/courseActions';
 
 const DualQualificationScreen = () => {
-  return (
-    <div className='max-w-screen flex flex-col gap-12 pb-12 overflow-x-hidden'>
 
-        <section className='h-fit w-full relative overflow-hidden mt-[100px]'>
+    const dispatch = useDispatch()
+    const history = useNavigate()
+    const location = useLocation()
+
+    const dualQualificationList = useSelector(state => state.dualQualificationList)
+    const { error, loading, dualQualifications } = dualQualificationList 
+
+    useEffect(() => {
+      dispatch(getDualQualificationList())
+    }, [dispatch])
+
+  return (
+    <div className='max-w-screen flex flex-col gap-4 pb-12 overflow-x-hidden -mb-[90px]'>
+        <div className='h-[75px] w-full mt-[90px] bg-[#DA0C0C] flex items-center justify-center'>      
+          <Marquee autoFill={true}  speed={65}>
+            <p className='text-white text-2xl font-bold mx-14'>Dual Qualification</p>
+          </Marquee>
+        </div>
+        {
+          loading?
+          <div className='max-w-screen flex flex-col gap-4 pb-12 overflow-x-hidden'>
+              <section className='h-fit w-full relative overflow-hidden '>
+                  <div className='h-fit w-full max-w-[1024px] items-center mx-auto px-6 gap-2 grid grid-cols-1 md:grid-cols-2'>
+                    <div className='h-fit w-full '>
+                        <Skeleton className='rounded-[8px]'>
+                          <Link  to={'/dual/learnmore'}>
+                            <img src={dq} alt='' className='h-full md:h-[400px] w-full md:w-fit object-contain'  />
+                          </Link>
+                        </Skeleton>
+                    </div>
+                    <div className='h-fit flex flex-col gap-4 '>
+                      <Skeleton className='rounded-[8px]'>
+                        <p className='text-4xl font-bold text-black'>Dual Qualification</p>
+                      </Skeleton>
+                      <Skeleton className='rounded-[8px]'>
+                        <p className='text-xl font-bold text-[#DA0C0C] underline'>BM+ HTM | MRK | HRM |LSCM | AF</p>
+                      </Skeleton>
+                      <Skeleton className='rounded-[8px]'>
+                        <p className='text-sm text-black opacity-75'>Pathway to Expertise The Dual Qualification program offers learners a flexible and comprehensive educational path by combining Level 4 and 5 Higher Diploma studies. Upon completion of Level 4 and 5 Diploma in Business Management, students can choose to specialize in various fields, tailoring their education to their career goals. This innovative Pathway to Expertise marks the program as a pioneering initiative in education.
+                        </p>
+                      </Skeleton>
+                      <Skeleton className='rounded-[8px]'>
+                        <Link to={'/dual/learnmore'}>
+                          <Button className='bg-[#DA0C0C] w-fit text-white'>
+                            Learn more
+                          </Button>
+                        </Link>
+                      </Skeleton>
+                    </div>
+                  </div>
+              </section>
+              <div className='h-[75px] w-full bg-[#DA0C0C] flex items-center justify-center'>      
+                <Marquee autoFill={true}  speed={65}>
+                  <p className='text-white text-2xl font-bold mx-14'>Dual Qualification</p>
+                </Marquee>
+              </div>
+          </div>:
+          dualQualifications?
+          dualQualifications.map(i => (
+            <div key={i.id} className='max-w-screen flex flex-col gap-4 pb-12 overflow-x-hidden'>
+              <section className='h-fit w-full relative overflow-hidden '>
+                  <div className='h-fit w-full max-w-[1024px] items-center mx-auto px-6 gap-2 grid grid-cols-1 md:grid-cols-2'>
+                    <div className='h-fit w-full '>
+                        <Link  to={`/dual/${i.slug}`}>
+                          <img src={i.image} alt='' className='h-full md:h-[400px] w-full md:w-fit object-contain'  />
+                        </Link>
+                    </div>
+                    <div className='h-fit flex flex-col gap-4 '>
+                      <p className='text-4xl font-bold text-black'>Dual Qualification</p>
+                      <p className='text-xl font-bold text-[#DA0C0C] underline'>{i.title}</p>
+                      <p className='text-sm text-black opacity-75'>{parse(i.description)}</p>
+                      <Link to={`/dual/qualification/${i.slug}`}>
+                        <Button className='bg-[#DA0C0C] w-fit text-white'>
+                          Learn more
+                        </Button>
+                      </Link>
+                    </div>
+                  </div>
+              </section>
+              <div className='h-[75px] w-full bg-[#DA0C0C] flex items-center justify-center'>      
+                <Marquee autoFill={true}  speed={65}>
+                  <p className='text-white text-2xl font-bold mx-14'>Dual Qualification</p>
+                </Marquee>
+              </div>
+            </div>
+          ))
+          :
+          ''
+        }
+        {/* <div className='h-[75px] w-full bg-[#DA0C0C] flex items-center justify-center'>      
+          <Marquee autoFill={true}  speed={65}>
+            <p className='text-white text-2xl font-bold mx-14'>Dual Qualification</p>
+          </Marquee>
+        </div>
+        <section className='h-fit w-full relative overflow-hidden '>
             <div className='h-fit w-full max-w-[1024px] items-center mx-auto px-6 gap-2 grid grid-cols-1 md:grid-cols-2'>
               <div className='h-fit w-full '>
                   <Link  to={'/dual/learnmore'}>
-                    <img src={dq} alt='' className='h-full md:h-[400px] w-full md:w-fit object-contain'  />
+                    <img src={dqb} alt='' className='h-full md:h-[400px] w-full md:w-fit object-contain'  />
                   </Link>
               </div>
               <div className='h-fit flex flex-col gap-4 '>
                 <p className='text-4xl font-bold text-black'>Dual Qualification</p>
-                <p className='text-sm text-black opacity-75'>Pathway to Expertise
-                The Dual Qualification program offers learners a flexible and comprehensive educational path by combining Level 4 and 5 Higher Diploma studies. Upon completion, students can choose to specialize in various fields, tailoring their education to their career goals. This innovative Pathway to Expertise marks the program as a pioneering initiative in education.</p>
+                <p className='text-xl font-bold text-[#DA0C0C] underline'>TT + ECE | PSY </p>
+                <p className='text-sm text-black opacity-75'>Pathway to Expertise The Dual Qualification program offers learners a flexible and comprehensive educational path by combining Level 4 and 5 Higher Diploma studies. Upon completion of Level 4 and 5 Diploma in Teacher Training, students can choose to specialize in related fields such as Psychology and Early Childhood Education, tailoring their education to their career goals. This innovative Pathway to Expertise marks the program as a pioneering initiative in education.</p>
                 <Link to={'/dual/learnmore'}>
                   <Button className='bg-[#DA0C0C] w-fit text-white'>
                     Learn more
@@ -75,16 +171,12 @@ const DualQualificationScreen = () => {
               </div>
             </div>
         </section>
-        {/* <section className='h-fit w-full'>
-
-            <div className='h-fit w-full max-w-[1024px] mx-auto py-[50px] px-6 gap-2 grid grid-cols-1 md:grid-cols-2'>
-              <div className=''>
-                <p className='text-4xl font-bold text-black'>Dual Qualification</p>
-                <p className='text-sm opacity-50'>Pathway to Expertise
-                The Dual Qualification program offers learners a flexible and comprehensive educational path by combining Level 4 and 5 Higher Diploma studies. Upon completion, students can choose to specialize in various fields, tailoring their education to their career goals. This innovative Pathway to Expertise marks the program as a pioneering initiative in education.</p>
-              </div>
-            </div>
-        </section> */}
+        <div className='h-[75px] w-full bg-[#DA0C0C] flex items-center justify-center'>      
+          <Marquee autoFill={true}  speed={65}>
+            <p className='text-white text-2xl font-bold mx-14'>Dual Qualification</p>
+          </Marquee>
+        </div> */}
+     
 
         
       

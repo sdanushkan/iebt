@@ -67,7 +67,7 @@ const CountriesScreen = () => {
 
   useEffect(() => {
     dispatch(getCountryList())
-    dispatch(getTestimonialList())
+    dispatch(getTestimonialList('abroad'))
   }, [dispatch])
 
 
@@ -138,7 +138,7 @@ const CountriesScreen = () => {
             </Swiper>
           </div>
 
-          <div className='h-[400px] lg:h-[500px] w-max-[1024px] mx-auto relative -z-10 flex items-start justify-end bg-black/50'>
+          <div className='h-[400px] lg:h-[500px] w-max-[1024px] mx-auto relative -z-10 flex items-start justify-end'>
               <div className='h-full lg:w-[30%]'>
               <div className='h-full w-full flex flex-col justify-center relative'>
                 <img src='https://www.augusta.edu/studyabroad/images/study-abroad-banner.png' alt='' className='h-full w-full absolute object-cover'/>
@@ -233,6 +233,52 @@ const CountriesScreen = () => {
               </div> 
               </div>
           </div>
+
+          <div className='h-[600px] xl:h-[500px] w-max-[1024px] mx-auto px-8 absolute -z-30 top-0 flex items-start justify-center '>
+            <Swiper
+              slidesPerView={1}
+              spaceBetween={10}
+              direction={'vertical'}
+              
+              modules={[ Autoplay]}
+              className='h-full w-full mt-[100px] flex flex-col justify-center gap-6'
+              autoplay
+            >
+              <SwiperSlide className='w-full h-full flex justify-start object-contain'>
+                <div className='h-[400px] xl:h-[300px] w-full md:w-fit px-6 flex flex-col justify-center gap-6'>
+                  <div className='h-fit w-full md:w-fit backdrop-blur-md flex flex-col gap-4 p-6 rounded-[16px]'>
+                    <div className='flex flex-col gap-2 max-w-[500px] mx-auto'>
+                      <p className='text-2xl md:text-4xl font-bold text-white'>International Education and Business Campus</p>
+                      <p className='text-white/75 text-xs'>Unleashing Brilliance, Building Community</p>
+                    </div>
+                    <Button color='' className="flex bg-[#DA0C0C] text-xs lg:text-sm text-white px-4 md:px-5 py-2 md:py-3 rounded-full w-fit">
+                      <p>Pay online</p>
+                    </Button>
+                  </div>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide className='w-full h-full flex justify-start object-contain'>
+                <div className='h-[400px] xl:h-[300px] w-full md:w-fit px-6 flex flex-col justify-center gap-6'>
+                  <div className='h-fit w-full md:w-fit backdrop-blur-md flex flex-col gap-4 p-6 rounded-[16px]'>
+                    <div className='flex flex-col gap-2 max-w-[500px] mx-auto'>
+                      <p className='text-2xl md:text-4xl font-bold text-white'>International Education and Business Campus</p>
+                      <p className='text-white/75 text-xs'>Unleashing Brilliance, Building Community</p>
+                    </div>
+                    <Button color='' className="flex bg-[#DA0C0C] text-xs lg:text-sm text-white px-4 md:px-5 py-2 md:py-3 rounded-full w-fit">
+                      <p>Pay online</p>
+                    </Button>
+                  </div>
+                </div>
+              </SwiperSlide>
+              {/* <SwiperSlide className='w-full h-full object-contain'>
+                <img src='https://media.istockphoto.com/id/1307457391/photo/happy-black-student-raising-arm-to-answer-question-while-attending-class-with-her-university.jpg?s=612x612&w=0&k=20&c=iZaZFyC-WqlqSQc4elqUNPTxLvWPe8P5Tb_YdZnrI9Q=' alt='' className='h-[600px] xl:h-[500px] w-full object-cover object-center'/>
+              </SwiperSlide> */}
+              {/* <SwiperSlide className='w-full h-full object-contain'>
+                <img src='https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' alt='' className='h-[500px] w-full object-cover object-bottom'/>
+              </SwiperSlide> */}
+            </Swiper>
+            
+          </div>
         </section>
       
     
@@ -262,7 +308,7 @@ const CountriesScreen = () => {
       
 
       <section className='h-fit w-full relative overflow-hidden px-8 py-6'>
-        <div className='h-fit md:h-40 w-full max-w-[1024px] mx-auto grid grid-cols-2 md:grid-cols-4 justify-center gap-2 lg:gap-6'>
+        <div className='h-fit md:h-40 w-full max-w-[1024px] mx-auto grid grid-cols-2 md:grid-cols-5 justify-center gap-2 lg:gap-6'>
         <Link to={'/abroad/about'} className='w-full h-36 flex flex-col items-center justify-center gap-2 md:gap-4 hover:bg-white text-black duration-300 cursor-pointer hover:text-[#DA0C0C] p-10 hover:p-8 rounded-[8px] bg-red-50 hover:shadow-[0px_4px_50px_rgba(0,0,0,0.075)]'>
               <img src={sp}  alt='' className='w-full h-full object-contain' />
               <p className='text-base font-bold text-red-900 px-2 text-center'>About us</p>
@@ -278,6 +324,11 @@ const CountriesScreen = () => {
             <div className='w-full h-36 flex flex-col items-center justify-center gap-2 md:gap-4 hover:bg-white text-black duration-300 cursor-pointer hover:text-[#DA0C0C] p-10 hover:p-8 rounded-[8px] bg-red-50 hover:shadow-[0px_4px_50px_rgba(0,0,0,0.075)]'>
               <img src={verification}  alt='' className='w-full h-full object-contain' />
               <p className='text-base font-bold text-red-900 px-2 text-center'>Book Appoinment</p>
+            </div>
+
+            <div className='w-full h-36 flex flex-col items-center justify-center gap-2 md:gap-4 hover:bg-white text-black duration-300 cursor-pointer hover:text-[#DA0C0C] p-10 hover:p-8 rounded-[8px] bg-red-50 hover:shadow-[0px_4px_50px_rgba(0,0,0,0.075)]'>
+              <img src={es}  alt='' className='w-full h-full object-contain' />
+              <p className='text-base font-bold text-red-900 px-2 text-center'>Event</p>
             </div>
             
         </div>

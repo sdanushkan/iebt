@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Faculty, Course, Level, QualificationApproval, OurQualification, Country, Contact, FAQ, About, AbroadApplication , CountryCategory, Testimonial, Page, University, DualQualificationCourse
+from .models import Faculty, Course, Level, QualificationApproval, OurQualification, Country, Contact, FAQ, About, AbroadApplication , CountryCategory, Testimonial, Page, University, DualQualificationCourse, DualQualification
 import admin_thumbnails
 
 # Register your models here.
@@ -20,19 +20,28 @@ class FAQInline(admin.TabularInline):
     model = FAQ
     extra = 1
 
-# class CourseAdmin(admin.ModelAdmin):
-#     inlines = [UnitInline , CourseRequirmentInline]
+class CourseAdmin(admin.ModelAdmin):
+    # inlines = [UnitInline , CourseRequirmentInline]
+    search_fields= ['popular', 'name', 'faculty']
+    list_filter=['popular']
+    list_display=['name','ebrowcher', 'popular']
+    list_editable = ['ebrowcher', 'popular']
 
 class CountryAdmin(admin.ModelAdmin):
     inlines = [FAQInline] 
+    
+
 
 admin.site.register(Page)
-admin.site.register(Faculty)
+admin.site.register(Faculty)   
 admin.site.register(Level)
 admin.site.register(OurQualification)
-admin.site.register(Course, 
-                    # CourseAdmin
+admin.site.register(Course,  
+                    CourseAdmin
+                    
                     )
+
+admin.site.register(DualQualification)
 
 admin.site.register(DualQualificationCourse)
 

@@ -224,9 +224,18 @@ const Header = () => {
                         }>
                           
                     </Tab>
+                    <Tab key="dual" title={
+                      <Link to={'/dual'} className='flex items-center justify-center gap-1'>
+                        <p className='cursor-pointer font-semibold text-xs uppercase '>dual qualification</p>
+                        {/* <MdOutlineArrowDropDown className='text-white' /> */}
+                      </Link>
+                    }>
+                      
+                    </Tab>
+                    
                     <Tab key="abroad" title={
                       <Link to={'/abroad'} className='flex items-center justify-center gap-1'>
-                        <p className='cursor-pointer font-semibold text-xs uppercase '>Study broad</p>
+                        <p className='cursor-pointer font-semibold text-xs uppercase '>Study abroad</p>
                         {/* <MdOutlineArrowDropDown className='text-white' /> */}
                       </Link>
                     }>
@@ -240,14 +249,7 @@ const Header = () => {
                     }>
                       
                     </Tab>
-                    <Tab key="dual" title={
-                      <Link to={'/dual'} className='flex items-center justify-center gap-1'>
-                        <p className='cursor-pointer font-semibold text-xs uppercase '>dual qualification</p>
-                        {/* <MdOutlineArrowDropDown className='text-white' /> */}
-                      </Link>
-                    }>
-                      
-                    </Tab>
+                    
                     {/* <Tab key="about" title={
                       <Link to={'/about'} className='flex items-center justify-center gap-1'>
                         <p className='cursor-pointer font-semibold text-xs uppercase '>About us</p>
@@ -291,8 +293,6 @@ const Header = () => {
             /> */}
         </Navbar>
         
-
-
         {/* side navbar */}
         <div className={
             navbar?

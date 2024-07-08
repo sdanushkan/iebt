@@ -50,6 +50,7 @@ class OurQualification(models.Model):
     image = models.ImageField(null=True, blank=True, default='/OurQualification/placeholder.png')
     discription = RichTextField(blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
+    courses_list = RichTextField(blank=True, null=True)
 
     def __str__(self):
         return self.name
@@ -75,6 +76,20 @@ class Course(models.Model):
     popular = models.BooleanField(default=False)
     duration = models.CharField(max_length=20, null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
+
+    ebrowcher = models.FileField(upload_to='browcher/', null=True, blank=True)
+
+    gif_logo = models.ImageField(null=True, blank=True, upload_to='git/logo/')
+
+    f_title = models.CharField(max_length=20, null=True, blank=True, default='Graduate Diploma')
+    f_1_name = models.CharField(max_length=20, null=True, blank=True, default='Level 6')
+    f_2_name = models.CharField(max_length=20, null=True, blank=True, default='120 credits')
+    f_gif_logo1 = models.ImageField(null=True, blank=True, upload_to='git/logo/')
+    f_gif_logo2 = models.ImageField(null=True, blank=True, upload_to='git/logo/')
+
+    s_top = models.CharField(max_length=20, null=True, blank=True, default='Up to')
+    s_center = models.CharField(max_length=20, null=True, blank=True, default='56%')
+    s_bottom = models.CharField(max_length=20, null=True, blank=True, default='Scholarship')
 
     def __str__(self):
         return self.name
@@ -208,8 +223,24 @@ class PageCoverImage(models.Model):
         return self.page
     
 
+class DualQualification(models.Model):
+    image = models.ImageField(null=True, blank=True, default='/page/image/placeholder.png', upload_to='dualQualification/')
+    title = models.CharField(max_length=200, null=True, blank=True)
+    slug = models.SlugField(max_length=200, blank=True, null=True)
+    name = models.CharField(max_length=200, null=True, blank=True)
+    description = RichTextField(blank=True, null=True)
+    
+    def __str__(self):
+        return self.name
+    
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.name)
+        super().save(*args, **kwargs )
+    
+
 class DualQualificationCourse(models.Model):
     course = models.ForeignKey(Course, on_delete=models.SET_NULL, null=True)
+    dual_qualification = models.ForeignKey(DualQualification, on_delete=models.SET_NULL, null=True)
     name = models.CharField(max_length=200, null=True, blank=True)
     slug = models.SlugField(max_length=200, blank=True, null=True)
     faculty = models.ForeignKey(Faculty, on_delete=models.SET_NULL, null=True)  

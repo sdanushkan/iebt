@@ -6,4 +6,4 @@ const FacultyScreen = () => {
   )
 }
 
-export default FacultyScreen
+export default FacultyScreen 

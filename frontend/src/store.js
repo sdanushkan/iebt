@@ -2,7 +2,7 @@ import { combineReducers, applyMiddleware } from 'redux'
 import { thunk }  from 'redux-thunk'
 import { configureStore } from '@reduxjs/toolkit'
 // import { composeWithDevTools } from 'redux-devtools-extension'
-import { aboutDetailsReducer, courseListReducer, facultyListReducer, levelListReducer } from './reducers/courseReducers'
+import { aboutDetailsReducer, courseDetailsReducer, courseListReducer, dualQualificationCourseDetailsReducer, dualQualificationCourseListReducer, dualQualificationCoursesListReducer, dualQualificationListReducer, facultyListReducer, levelListReducer, ourQualificationDetailsReducer, ourQualificationListReducer, popularCourseListReducer } from './reducers/courseReducers'
 import { countryListReducer, testimonialListReducer } from './reducers/abroadReducers'
 // import { countryListReducer } from './reducers/countryReducers'
 // import { applicationCreateReducer, contactCreateReducer, serviceListReducer } from './reducers/serviceReducers'
@@ -11,9 +11,17 @@ import { countryListReducer, testimonialListReducer } from './reducers/abroadRed
 
 const reducer = combineReducers({
     courseList : courseListReducer,
+    popularCourseList : popularCourseListReducer,
+    courseDetails : courseDetailsReducer,
+    dualQualificationCourseList : dualQualificationCourseListReducer,
     facultyList : facultyListReducer,
     aboutDetails : aboutDetailsReducer,
     levelList : levelListReducer,
+    ourQualificationList : ourQualificationListReducer,
+    ourQualificationDetails : ourQualificationDetailsReducer,
+    dualQualificationList : dualQualificationListReducer,
+    dualQualificationCoursesList : dualQualificationCoursesListReducer,
+    dualQualificationCourseDetails : dualQualificationCourseDetailsReducer,
 
     countryList :countryListReducer,
     testimonialList : testimonialListReducer,

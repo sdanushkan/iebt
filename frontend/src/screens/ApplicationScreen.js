@@ -25,6 +25,149 @@ const ApplicationScreen = () => {
   const [faculty, setFaculty] = useState('')
   const [course, setCourse] = useState('')
 
+  //personal Details
+  const [name, setName] = useState('')
+  const [cNumber, setCNumber] = useState('')
+  const [email, setEmail] = useState('')
+  const [dob, setDOB] = useState('')
+  const [status, setStatus] = useState('')
+  const [dependent, setDependent] = useState('')
+  const [funds, setFunds] = useState('')
+
+  //Educational Qualification
+  //GCE O/L A-1
+  const [OLS1A1, setOLS1A1] = useState('')
+  const [OLS1A1G, setOLS1A1G] = useState('')
+
+  const [OLS2A1, setOLS2A1] = useState('')
+  const [OLS2A1G, setOLS2A1G] = useState('')
+
+  const [OLS3A1, setOLS3A1] = useState('')
+  const [OLS3A1G, setOLS3A1G] = useState('')
+
+  const [OLS4A1, setOLS4A1] = useState('')
+  const [OLS4A1G, setOLS4A1G] = useState('')
+
+  const [OLS5A1, setOLS5A1] = useState('')
+  const [OLS5A1G, setOLS5A1G] = useState('')
+
+  const [OLS6A1, setOLS6A1] = useState('')
+  const [OLS6A1G, setOLS6A1G] = useState('')
+
+  const [OLS7A1, setOLS7A1] = useState('')
+  const [OLS7A1G, setOLS7A1G] = useState('')
+
+  const [OLS8A1, setOLS8A1] = useState('')
+  const [OLS8A1G, setOLS8A1G] = useState('')
+
+  const [OLS9A1, setOLS9A1] = useState('')
+  const [OLS9A1G, setOLS9A1G] = useState('')
+
+  //GCE O/L A-1
+  const [OLS1A2, setOLS1A2] = useState('')
+  const [OLS1A2G, setOLS1A2G] = useState('')
+
+  const [OLS2A2, setOLS2A2] = useState('')
+  const [OLS2A2G, setOLS2A2G] = useState('')
+  
+  const [OLS3A2, setOLS3A2] = useState('')
+  const [OLS3A2G, setOLS3A2G] = useState('')
+  
+  const [OLS4A2, setOLS4A2] = useState('')
+  const [OLS4A2G, setOLS4A2G] = useState('')
+  
+  const [OLS5A2, setOLS5A2] = useState('')
+  const [OLS5A2G, setOLS5A2G] = useState('')
+  
+  const [OLS6A2, setOLS6A2] = useState('')
+  const [OLS6A2G, setOLS6A2G] = useState('')
+  
+  const [OLS7A2, setOLS7A2] = useState('')
+  const [OLS7A2G, setOLS7A2G] = useState('')
+  
+  const [OLS8A2, setOLS8A2] = useState('')
+  const [OLS8A2G, setOLS8A2G] = useState('')
+  
+  const [OLS9A2, setOLS9A2] = useState('')
+  const [OLS9A2G, setOLS9A2G] = useState('')
+
+   //GCE A/L A-1
+   const [ALS1A1, setALS1A1] = useState('')
+   const [ALS1A1G, setALS1A1G] = useState('')
+   
+   const [ALS2A1, setALS2A1] = useState('')
+   const [ALS2A1G, setALS2A1G] = useState('')
+   
+   const [ALS3A1, setALS3A1] = useState('')
+   const [ALS3A1G, setALS3A1G] = useState('')
+   
+   const [ALS4A1, setALS4A1] = useState('')
+   const [ALS4A1G, setALS4A1G] = useState('')
+
+   //GCE A/L A-1
+   const [ALS1A2, setALS1A2] = useState('')
+   const [ALS1A2G, setALS1A2G] = useState('')
+
+   const [ALS2A2, setALS2A2] = useState('')
+   const [ALS2A2G, setALS2A2G] = useState('')
+
+   const [ALS3A2, setALS3A2] = useState('')
+   const [ALS3A2G, setALS3A2G] = useState('')
+
+   const [ALS4A2, setALS4A2] = useState('')
+   const [ALS4A2G, setALS4A2G] = useState('')
+
+   //Higher Education Qualifications:
+   const [HEQ1, setHEQ1] = useState('')
+   const [HEQ1G, setHEQ1G] = useState('')
+
+   const [HEQ2, setHEQ2] = useState('')
+   const [HEQ2G, setHEQ2G] = useState('')
+
+   const [HEQ3, setHEQ3] = useState('')
+   const [HEQ3G, setHEQ3G] = useState('')
+
+   const [HEQ4, setHEQ4] = useState('')
+   const [HEQ4G, setHEQ4G] = useState('')
+
+   const [HEQ5, setHEQ5] = useState('')
+   const [HEQ5G, setHEQ5G] = useState('')
+
+   //English Language Proficiency 
+   const [OLE, setOLE] = useState('')
+   const [OLEG, setOLEG] = useState('')
+
+   const [AL, setAL] = useState('')
+   const [ALG, setALG] = useState('')
+
+   const [IELTS, setIELTS] = useState('')
+   const [IELTSG, setIELTSG] = useState('')
+
+   //Work Experience 
+   const [company1, setCompany1] = useState('')
+   const [year1, setYear1] = useState('')
+   const [position1, setPosition1] = useState('')
+
+   const [company2, setCompany2] = useState('')
+   const [year2, setYear2] = useState('')
+   const [position2, setPosition2] = useState('')
+
+   const [company3, setCompany3] = useState('')
+   const [year3, setYear3] = useState('')
+   const [position3, setPosition3] = useState('')
+
+   //Preferred Country
+   const [c1, setc1] = useState('')
+   const [c2, setc2] = useState('')
+   const [c3, setc3] = useState('')
+   const [c4, setc4] = useState('')
+
+   //Preferred Intake
+   const [i1, seti1] = useState('')
+   const [i2, seti2] = useState('')
+   const [i3, seti3] = useState('')
+   const [i4, seti4] = useState('')
+  
   const [GSEOLLSelected, setGSEOLLSelected] = React.useState("");
 
   useEffect(() => {

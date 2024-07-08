@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useLocation, useNavigate, useParams } from 'react-router-dom'
-import { getCourseList, getLevelList } from '../actions/courseActions'
-import {Breadcrumbs, BreadcrumbItem} from "@nextui-org/react";
+import { Link, useLocation, useNavigate, useParams } from 'react-router-dom'
+import { getCourseList, getLevelList, getOurQualificationDetails } from '../actions/courseActions'
+import {Breadcrumbs, BreadcrumbItem, Spinner} from "@nextui-org/react";
 import parse from 'html-react-parser';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -22,16 +22,24 @@ const AwardingBodyScreen = () => {
     const history = useNavigate()
     const location = useLocation()
 
-    const courseList = useSelector(state => state.courseList)
-    const { error: courseListError, loading: courseListLoading, courses } = courseList
+    const [nCourse, setNCourse] = useState('')
+
+
+    const ourQualificationDetails = useSelector(state => state.ourQualificationDetails)
+    const { error:ourQualificationDetailsError, loading:ourQualificationDetailsLoading, qualification } = ourQualificationDetails
 
     const levelList = useSelector(state => state.levelList)
     const { error, loading, levels } = levelList
 
     useEffect(() => {
-        dispatch(getCourseList())
         dispatch(getLevelList())
     }, [dispatch])
+
+    useEffect(() => {
+        if (name) {
+            dispatch(getOurQualificationDetails(name))
+        }
+    }, [name])
 
     useEffect(() => {
         window.scroll(0,0);
@@ -72,58 +80,101 @@ const AwardingBodyScreen = () => {
             </div>
         </section>
 
-        {
-            courseListLoading?
-            '':
-            courses?
-            courses.filter( f => f.qualification.slug == name).map(i=>(
-                <section className='h-fit w-full'>
-                    <div className='h-fit w-full max-w-[1024px] mx-auto px-8'>
-                        <div className='border-[1px] border-black/15 rounded-[8px] overflow-hidden'>
-                            <div>
-                                <img src={i.qualification.image} alt='' className='h-fit w-full object-contain' />
-                            </div>
-                            <div className='p-4 flex flex-col gap-2'>
-                                <p className='text-lg font-bold text-left'>{i.qualification.name}</p>
-                                <div className='text-sm text-left opacity-75'>{parse(i.qualification.discription)}</div>
-                            </div>
-                            
-                        </div>
+        { 
+            ourQualificationDetailsLoading?
+            <section className='h-fit w-full'>
+                <div className='h-fit w-full max-w-[1024px] mx-auto px-8'>
+                    <div className='h-fit w-full flex justify-start'>
+                        <Spinner size="md"/>
                     </div>
-                </section>
-            ))[0]:
+                </div>
+            </section>:
+            qualification?
+            <section className='h-fit w-full'>
+                <div className='h-fit w-full max-w-[1024px] mx-auto px-8'>
+                    <div className='border-[1px] border-black/15 rounded-[8px] overflow-hidden'>
+                        <div>
+                            <img src={qualification.image} alt='' className='h-fit w-full object-contain' />
+                        </div>
+                        <div className='p-4 flex flex-col gap-2'>
+                            <p className='text-lg font-bold text-left'>{qualification.name}</p>
+                            <div className='text-sm text-left opacity-75'>{parse(qualification.discription)}</div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </section>:
             ''
         }
 
-        
+        {/* <section className='h-fit w-full'>
+            <div className='h-fit w-full max-w-[1024px] mx-auto px-8'>
+                {
+                    loading?
+                    <p>jghgcf</p>
+                    :
+                    levels?
+                    levels.map(i => (
+                        qualification?
+                        <div key={i.id} className='flex flex-col gap-2'>
+                            {
+                                levels?
+                                levels.filter(f => f.programe.slug == i.slug).map(n=>
+                                    <div key={i.id} className='flex flex-col gap-2'>
+                                        <p className='font-semibold capitalize bg-blue-500 py-2 text-white px-4'>{n.programe.name}</p>
+                                        <div className='p-4 flex flex-col gap-2'>
+                                            {
+                                                qualification.courses?
+                                                qualification.courses.filter(f => f.programe.slug == n.slug).map(m => (
+                                                    <p key={m.id} className='text-sm font-medium capitalize'>{m.name}</p>
+                                                ))
+                                                :
+                                                ""
+                                            }
+                                        </div>
+                                    </div>
+                                ):
+                                ''
+                            }
+                            
+                        </div>
+                        :
+                        ''
+                    ))
+                    :
+                    ''
+                }
+                
+            </div>
+        </section> */}
+
         <section className='h-fit w-full'>
             <div className='h-fit w-full max-w-[1024px] mx-auto px-8'>
                 {
                     loading?
-                    ''
+                    <div className='h-fit w-full flex justify-start'>
+                        <Spinner size="md" />
+                    </div>
                     :
-                    levels?
-                    levels.map(i => (
-                        <div key={i.id} className={
-                            courses?
-                            courses.filter(f => f.programe.slug == i.slug && f.qualification.slug == name).length == 0?
-                            'hidden flex-col gap-2':
-                            'flex flex-col gap-2'
-                            :
-                            'hidden flex-col gap-2'
-                        }>
-                            <p className='font-semibold capitalize bg-blue-500 py-2 text-white px-4'>{i.name}</p>
-                            <div className='p-4 flex flex-col gap-2'>
+                    levels && qualification?
+                    _.uniqBy(qualification.courses, 'programe.slug').map(i => (
+                        <div>
+                            <p className='font-semibold capitalize bg-blue-500 py-2 text-white px-4'>{i.programe.name}</p> 
+                            
+                            <ul className='p-4 flex flex-col gap-2'>
                                 {
-                                    courses?
-                                    courses.filter(f => f.programe.slug == i.slug && f.qualification.slug == name).map(m => (
-                                        <p key={m.id} className='text-sm font-medium capitalize'>{m.name}</p>
+                                    qualification.courses?
+                                    qualification.courses.filter(f => f.programe.slug == i.programe.slug).map(m => (
+                                        <Link className='list-disc' to={`/courses/${m.slug}`}>
+                                            <li key={m.id} className='text-sm font-medium capitalize'>{m.name}</li>
+                                        </Link>
                                     ))
                                     :
                                     ""
                                 }
-                            </div>
+                            </ul>
                         </div>
+                        
                     ))
                     :
                     ''

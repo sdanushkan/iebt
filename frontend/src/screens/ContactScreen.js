@@ -19,11 +19,15 @@ const ContactScreen = () => {
     window.scroll(0,0);
   }, [location]);
   return (
-    <div className='flex flex-col gap-14'>
-      <section className='relative pb-12'>
-          <img src={'https://st4.depositphotos.com/21389766/23112/i/450/depositphotos_231122574-stock-photo-contact-contact-write-email-support.jpg'} alt='' className='h-[300px] w-full object-cover relative -z-40' />
-          
-          <div className='w-full h-fit max-w-[1024px] mx-auto bg-white shadow-[0px_4px_25px_rgba(0,0,0,0.05)] -mt-[100px] relative z-10 md:gap-4 p-12 rounded-[16px]'>
+    <div className='flex flex-col gap-14 '>
+      <section className='relative'>
+          <div className='h-[300px] w-full object-cover relative -z-40'>
+            <img src={'https://st4.depositphotos.com/21389766/23112/i/450/depositphotos_231122574-stock-photo-contact-contact-write-email-support.jpg'} alt='' className='h-[300px] w-full object-cover relative -z-50' />
+            <div className='h-[300px] w-full object-cover absolute -z-10 flex top-0 items-center justify-center bg-black/35 text-white'>
+                <p className='text-2xl font-bold capitalize'>contact info</p>
+            </div>       
+          </div>
+          <div className='w-full h-fit max-w-[1024px] mx-auto bg-white shadow-[0px_4px_25px_rgba(0,0,0,0.05)] -mt-[100px] relative z-10 md:gap-4 pt-12 px-12 rounded-[16px]'>
             <section className='relative'>
             <div className='h-fit w-fit mx-auto px-6 flex items-start gap-8'>
               <div className='flex flex-col gap-4 w-[300px]'>
@@ -47,7 +51,7 @@ const ContactScreen = () => {
                 <section variant='light' className='border-[1px] w-full border-black/10 py-4 px-4 flex gap-4 rounded-2xl'>
                   <Button isIconOnly variant='solid' className='bg-red-100 rounded-full' startContent={<IoHome  />}></Button>
                   <div className='flex flex-col items-start'>
-                    <p className='font-bold capitalize text-base'>our Address</p>
+                    <p className='font-bold capitalize text-base'>Campus location</p>
                     <p className='text-xs text-gray-500'>No. 85 1/3, Galle Road, Dehiwala, Sri Lanka.</p>
                   </div>
                 </section>

@@ -18,6 +18,7 @@ import AbroadAboutUsScreen from './screens/AbroadAboutUsScreen'
 import OurServicesScreen from './screens/OurServicesScreen'
 import DualQualificationScreen from './screens/DualQualificationScreen'
 import DQSecondPage from './screens/DQSecondPage'
+import DQCourseScreen from './screens/DQCourseScreen'
 
 const App = () => {
   return ( 
@@ -32,10 +33,11 @@ const App = () => {
         <Route path='ourservices' element={<OurServicesScreen/>} />
         <Route path='contact' element={<ContactScreen/>} /> 
         <Route path='dual' element={<DualQualificationScreen/>} /> 
-        <Route path='dual/learnmore' element={<DQSecondPage/>} /> 
+        <Route path='dual/:qualification' element={<DQSecondPage/>} /> 
+        <Route path='dual/courses/:course' element={<DQCourseScreen/>} /> 
         <Route path='abroad/about' element={<AbroadAboutUsScreen/>} /> 
         <Route path='countries/:country' element={<CountryScreen/>} />
-        <Route path='courses/:course' element={<CourseScreen/>} />
+        <Route path='courses/:courseSlug' element={<CourseScreen/>} />
         <Route path='abroad'element={<CountriesScreen/>} />
         <Route path='awarding-body/:name' element={<AwardingBodyScreen/>} />
         <Route path='faculties/:faculty' element={<FacultyFilterScreen/>} />

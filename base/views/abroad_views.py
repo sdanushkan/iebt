@@ -23,16 +23,15 @@ def getCountries(request):
         return Response(message)
 
 @api_view(['GET'])
-def getTestimonials(request):
+def getTestimonials(request,page):
     try:
-        testimonials = Testimonial.objects.all()
+        testimonials = Testimonial.objects.filter(page__name=page)[:5]
         serializer = TestimonialSerializer(testimonials, many=True)
         return Response(serializer.data)
 
     except Testimonial.DoesNotExist:
         message = {'detail': 'No Country Found'}
         return Response(message)
-
 
 @api_view(['POST'])
 def createAbroadApplication(request):
