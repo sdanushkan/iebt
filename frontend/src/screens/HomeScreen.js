@@ -109,10 +109,10 @@ const HomeScreen = () => {
 
   return (
     <div className='h-fit w-full flex flex-col gap-4'>
-      <div>
-        <section className='h-fit w-full relative overflow-hidden'>
+      
+      <section className='h-fit w-full relative overflow-hidden'>
 
-        <div className='h-[600px] xl:h-[500px] w-full object-cover object-bottom absolute -z-50'>
+        <div className='h-[600px] xl:h-[500px] w-full object-cover object-bottom absolute -z-50 bg-black'>
           <Swiper
             slidesPerView={1}
             spaceBetween={10}
@@ -124,14 +124,11 @@ const HomeScreen = () => {
             autoplay
           >
             <SwiperSlide className='w-full h-full object-contain'>
-              <img src='https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' alt='' className='h-[600px] xl:h-[500px] w-full object-cover object-bottom'/>
+              <img src='https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' alt='' className='h-[600px] xl:h-[500px] w-full object-cover opacity-50 object-bottom'/>
             </SwiperSlide>
             <SwiperSlide className='w-full h-full object-contain'>
-              <img src='https://media.istockphoto.com/id/1307457391/photo/happy-black-student-raising-arm-to-answer-question-while-attending-class-with-her-university.jpg?s=612x612&w=0&k=20&c=iZaZFyC-WqlqSQc4elqUNPTxLvWPe8P5Tb_YdZnrI9Q=' alt='' className='h-[600px] xl:h-[500px] w-full object-cover object-center'/>
+              <img src='https://media.istockphoto.com/id/1307457391/photo/happy-black-student-raising-arm-to-answer-question-while-attending-class-with-her-university.jpg?s=612x612&w=0&k=20&c=iZaZFyC-WqlqSQc4elqUNPTxLvWPe8P5Tb_YdZnrI9Q=' alt='' className='h-[600px] xl:h-[500px] w-full object-cover opacity-50 object-center'/>
             </SwiperSlide>
-            {/* <SwiperSlide className='w-full h-full object-contain'>
-              <img src='https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' alt='' className='h-[500px] w-full object-cover object-bottom'/>
-            </SwiperSlide> */}
           </Swiper>
         </div>
 
@@ -142,77 +139,55 @@ const HomeScreen = () => {
             direction={'vertical'}
             
             modules={[ Autoplay]}
-            className='h-full w-full mt-[100px] flex flex-col justify-center gap-6'
+            className='h-full w-full mt-[100px] flex flex-col justify-center gap-6 '
             autoplay
           >
             <SwiperSlide className='w-full h-full flex justify-start object-contain'>
-              <div className='h-[400px] xl:h-[300px] w-full md:w-fit px-6 flex flex-col justify-center gap-6'>
-                <div className='h-fit w-full md:w-fit backdrop-blur-md flex flex-col gap-4 p-6 rounded-[16px]'>
+              <div className='h-[300px] w-full max-w-[1024px] mx-auto flex flex-col lg:flex-row items-center justify-start gap-6'>
+                <div className='h-fit w-full md:w-fit flex flex-col items-center mx-auto gap-4 rounded-[16px]'>
                   <div className='flex flex-col gap-2 max-w-[500px] mx-auto'>
-                    <p className='text-2xl md:text-4xl font-bold text-white'>International Education and Business Campus</p>
-                    <p className='text-white/75 text-xs'>Unleashing Brilliance, Building Community</p>
+                    <p className='text-2xl md:text-4xl font-bold text-center text-white'>International Education and Business Campus</p>
+                    <p className='text-center text-white/75 text-xs'>Unleashing Brilliance, Building Community</p>
                   </div>
-                  <Button color='' className="flex bg-[#DA0C0C] text-xs lg:text-sm text-white px-4 md:px-5 py-2 md:py-3 rounded-full w-fit">
+                  <Button color='' className="flex bg-[#DA0C0C] text-xs lg:text-sm text-white px-4 md:px-5 py-2 md:py-3 rounded-full w-fit mx-auto">
                     <p>Pay online</p>
                   </Button>
                 </div>
               </div>
             </SwiperSlide>
             <SwiperSlide className='w-full h-full flex justify-start object-contain'>
-              <div className='h-[400px] xl:h-[300px] w-full md:w-fit px-6 flex flex-col justify-center gap-6'>
-                <div className='h-fit w-full md:w-fit backdrop-blur-md flex flex-col gap-4 p-6 rounded-[16px]'>
+              <div className='h-[300px] w-full max-w-[1024px] mx-auto flex flex-col lg:flex-row items-center justify-start gap-6'>
+                <div className='h-fit w-full md:w-fit flex flex-col items-center mx-auto gap-4 rounded-[16px]'>
                   <div className='flex flex-col gap-2 max-w-[500px] mx-auto'>
-                    <p className='text-2xl md:text-4xl font-bold text-white'>International Education and Business Campus</p>
-                    <p className='text-white/75 text-xs'>Unleashing Brilliance, Building Community</p>
+                    <p className='text-2xl md:text-4xl font-bold text-center text-white'>International Education and Business Campus</p>
+                    <p className='text-center text-white/75 text-xs'>Unleashing Brilliance, Building Community</p>
                   </div>
-                  <Button color='' className="flex bg-[#DA0C0C] text-xs lg:text-sm text-white px-4 md:px-5 py-2 md:py-3 rounded-full w-fit">
+                  <Button color='' className="flex bg-[#DA0C0C] text-xs lg:text-sm text-white px-4 md:px-5 py-2 md:py-3 rounded-full w-fit mx-auto">
                     <p>Pay online</p>
                   </Button>
                 </div>
               </div>
             </SwiperSlide>
-            {/* <SwiperSlide className='w-full h-full object-contain'>
-              <img src='https://media.istockphoto.com/id/1307457391/photo/happy-black-student-raising-arm-to-answer-question-while-attending-class-with-her-university.jpg?s=612x612&w=0&k=20&c=iZaZFyC-WqlqSQc4elqUNPTxLvWPe8P5Tb_YdZnrI9Q=' alt='' className='h-[600px] xl:h-[500px] w-full object-cover object-center'/>
-            </SwiperSlide> */}
-            {/* <SwiperSlide className='w-full h-full object-contain'>
-              <img src='https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' alt='' className='h-[500px] w-full object-cover object-bottom'/>
-            </SwiperSlide> */}
+            <SwiperSlide className='w-full h-full flex justify-start object-contain'>
+              <div className='h-[300px] w-full max-w-[1024px] mx-auto flex flex-col lg:flex-row items-center justify-start gap-6'>
+                <div className='h-fit w-full md:w-fit flex flex-col items-center mx-auto gap-4 rounded-[16px]'>
+                  <div className='flex flex-col gap-2 max-w-[500px] mx-auto'>
+                    <p className='text-2xl md:text-4xl font-bold text-center text-white'>International Education and Business Campus</p>
+                    <p className='text-center text-white/75 text-xs'>Unleashing Brilliance, Building Community</p>
+                  </div>
+                  <Button color='' className="flex bg-[#DA0C0C] text-xs lg:text-sm text-white px-4 md:px-5 py-2 md:py-3 rounded-full w-fit mx-auto">
+                    <p>Pay online</p>
+                  </Button>
+                </div>
+              </div>
+            </SwiperSlide>
+            
+          
           </Swiper>
           
         </div>
-        {/* <div className='w-full max-w-[1000px] h-[400px] md:h-[200px] mx-auto -mt-[600px] md:-mt-[300px] px-4 flex items-center flex-col justify-center  gap-8'>
-            <TypeAnimation
-              sequence={[
-                // Same substring at the start will only be typed out once, initially
-                'International Educational Business Campus',
-                2000
-              ]}
-              wrapper="span"
-              speed={50}
-              style={{ fontSize: '2em', color:'white', fontWeight:600, textAlign:'center' }}
-              repeat={Infinity}
-              className='text-base leading-10'
-            />
-            <Input
-                type="text"
-                placeholder="keyword"
-                labelPlacement="outside"
-                variant="bordered"
-                required
-                value={keyword} 
-                onChange={(e) => setKeyword(e.target.value)} 
-                className='w-full shadow-none rounded-none text-white backdrop-blur-2xl '
-              
-                radius='sm'
-                size='lg'
-                endContent={
-                  <Link to={`/search/${keyword}`}>
-                    <FiSearch  />
-                  </Link>
-                }
-              />
-          </div> */}
-        <div className='h-fit w-full max-w-[1000px] mx-auto px-8 -mt-[100px] relative z-40'>
+        
+        <div className='h-fit w-full max-w-[1024px] mx-auto -mt-[100px] relative z-40'>
           <form className='bg-white shadow-[0px_5px_25px_rgba(0,0,0,0.05)] h-fit w-full z-20 mt-auto  px-6 md:px-12 py-8 flex flex-col gap-4 rounded-[8px]'>
               <div className='flex flex-row  gap-6 items-center justify-between'>
                 <div className='w-full max-w-[500px]'>
@@ -320,46 +295,218 @@ const HomeScreen = () => {
           </form>
         </div>
         <div className='h-[25px]'></div>
-        </section>
+      </section>
 
-        <section className='h-fit w-full relative overflow-hidden py-6'>
-        <div className='h-fit w-full max-w-[1024px] mx-auto flex justify-center px-6 gap-2 lg:gap-6'>
-            <Link to={'/application'} className='w-full max-w-1/2 md:max-w-1/3 lg:max-w-1/5  h-full md:h-48 flex flex-col items-center justify-center gap-4 bg-white text-black duration-200 cursor-pointer hover:text-[#DA0C0C] p-10 rounded-[8px] shadow-[0px_4px_25px_rgba(0,0,0,0.05)] hover:shadow-[0px_4px_25px_rgba(0,0,0,0.075)] '>
-              <img src={apply}  alt='' className='w-16 object-contain' />
-              <p className='text-xs lg:text-sm font-semibold px-2 text-center'>Apply</p>
-            </Link>
-            <div className='w-full max-w-1/2 md:max-w-1/3 lg:max-w-1/5  h-full md:h-48 flex flex-col items-center justify-center gap-4 bg-white text-black duration-200 cursor-pointer hover:text-[#DA0C0C] p-10 rounded-[8px] shadow-[0px_4px_25px_rgba(0,0,0,0.05)] hover:shadow-[0px_4px_50px_rgba(0,0,0,0.075)]'>
-              <img src={verification}  alt='' className='w-16 object-contain' />
-              <p className='text-xs lg:text-sm font-semibold px-2 text-center'>Verify Certificate</p>
-            </div>
-            <div className='w-full max-w-1/2 md:max-w-1/3 lg:max-w-1/5  h-full md:h-48 flex flex-col items-center justify-center gap-4 bg-white text-black duration-200 cursor-pointer hover:text-[#DA0C0C] p-10 rounded-[8px] shadow-[0px_4px_25px_rgba(0,0,0,0.05)] hover:shadow-[0px_4px_50px_rgba(0,0,0,0.075)]'>
-              <img src={sp}  alt='' className='w-16 object-contain' />
-              <p className='text-xs lg:text-sm font-semibold px-2 text-center'>Student Portal</p>
-            </div>
-            <div className='w-full max-w-1/2 md:max-w-1/3 lg:max-w-1/5  h-full md:h-48 flex flex-col items-center justify-center gap-4 bg-white text-black duration-200 cursor-pointer hover:text-[#DA0C0C] p-10 rounded-[8px] shadow-[0px_4px_25px_rgba(0,0,0,0.05)] hover:shadow-[0px_4px_50px_rgba(0,0,0,0.075)]'>
-              <img src={es}  alt='' className='w-16 object-contain' />
-              <p className='text-xs lg:text-sm font-semibold px-2 text-center'>E library</p>
-            </div>
-            <Popover placement="bottom" showArrow={true}>
-              <PopoverTrigger>
-                <div className='w-full max-w-1/2 md:max-w-1/3 lg:max-w-1/5  h-full md:h-48 flex flex-col items-center justify-center gap-4 bg-white text-black duration-200 cursor-pointer hover:text-[#DA0C0C] p-10 rounded-[8px] shadow-[0px_4px_25px_rgba(0,0,0,0.05)] hover:shadow-[0px_4px_50px_rgba(0,0,0,0.075)]'>
-                  <img src={es}  alt='' className='w-16 object-contain' />
-                  <p className='text-xs lg:text-sm font-semibold px-2 text-center'>Events</p>
-                </div>
-              </PopoverTrigger>
-              <PopoverContent>
-                <Calendar
-                  onChange={onChange}
-                  value={value}
-                  tileContent={tileContent}
-                />
+      {/* <section className='h-fit w-full relative overflow-hidden'>
 
-              </PopoverContent>
-            </Popover>
-            
+        <div className='h-[600px] xl:h-[500px] w-full object-cover object-bottom absolute -z-50'>
+          <Swiper
+            slidesPerView={1}
+            spaceBetween={10}
+            pagination={{
+              clickable: true,
+            }}
+            modules={[ Autoplay]}
+            className="w-full"
+            autoplay
+          >
+            <SwiperSlide className='w-full h-full object-contain'>
+              <img src='https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' alt='' className='h-[600px] xl:h-[500px] w-full object-cover object-bottom'/>
+            </SwiperSlide>
+            <SwiperSlide className='w-full h-full object-contain'>
+              <img src='https://media.istockphoto.com/id/1307457391/photo/happy-black-student-raising-arm-to-answer-question-while-attending-class-with-her-university.jpg?s=612x612&w=0&k=20&c=iZaZFyC-WqlqSQc4elqUNPTxLvWPe8P5Tb_YdZnrI9Q=' alt='' className='h-[600px] xl:h-[500px] w-full object-cover object-center'/>
+            </SwiperSlide>
+          </Swiper>
         </div>
-        </section>
+
+        <div className='h-[600px] xl:h-[500px] w-max-[1024px] mx-auto px-8 relative -z-10 flex items-start justify-center bg-black/50'>
+        <Swiper
+            slidesPerView={1}
+            spaceBetween={10}
+            direction={'vertical'}
+            
+            modules={[ Autoplay]}
+            className='h-full w-full mt-[100px] flex flex-col justify-center gap-6 '
+            autoplay
+          >
+            <SwiperSlide className='w-full h-full flex justify-start object-contain'>
+              <div className='h-[400px] xl:h-[300px] w-full max-w-[1024px] mx-auto flex flex-col justify-center gap-6'>
+                <div className='h-fit w-full md:w-fit backdrop-blur-md flex flex-col gap-4 p-6 rounded-[16px]'>
+                  <div className='flex flex-col gap-2 max-w-[500px] mx-auto'>
+                    <p className='text-2xl md:text-4xl font-bold text-white'>International Education and Business Campus</p>
+                    <p className='text-white/75 text-xs'>Unleashing Brilliance, Building Community</p>
+                  </div>
+                  <Button color='' className="flex bg-[#DA0C0C] text-xs lg:text-sm text-white px-4 md:px-5 py-2 md:py-3 rounded-full w-fit">
+                    <p>Pay online</p>
+                  </Button>
+                </div>
+              </div>
+            </SwiperSlide>
+            <SwiperSlide className='w-full h-full flex justify-start object-contain'>
+              <div className='h-[400px] xl:h-[300px] w-full max-w-[1024px] mx-auto flex flex-col justify-center gap-6'>
+                <div className='h-fit w-full md:w-fit backdrop-blur-md flex flex-col gap-4 p-6 rounded-[16px]'>
+                  <div className='flex flex-col gap-2 max-w-[500px] mx-auto'>
+                    <p className='text-2xl md:text-4xl font-bold text-white'>International Education and Business Campus</p>
+                    <p className='text-white/75 text-xs'>Unleashing Brilliance, Building Community</p>
+                  </div>
+                  <Button color='' className="flex bg-[#DA0C0C] text-xs lg:text-sm text-white px-4 md:px-5 py-2 md:py-3 rounded-full w-fit">
+                    <p>Pay online</p>
+                  </Button>
+                </div>
+              </div>
+            </SwiperSlide>
+          
+          </Swiper>
+          
+        </div>
+        
+        <div className='h-fit w-full max-w-[1024px] mx-auto -mt-[100px] relative z-40'>
+          <form className='bg-white shadow-[0px_5px_25px_rgba(0,0,0,0.05)] h-fit w-full z-20 mt-auto  px-6 md:px-12 py-8 flex flex-col gap-4 rounded-[8px]'>
+              <div className='flex flex-row  gap-6 items-center justify-between'>
+                <div className='w-full max-w-[500px]'>
+                  <p className='text-xl font-bold text-[#DA0C0C] text-left'>Search Course</p>
+                  <p className='text-xs text-gray-500'>Search And Filter our courses</p>
+                </div>
+                <div>
+                  <Link to={`${faculty}${programe}${award}${credit}`} color='' className="flex bg-[#DA0C0C] text-xs lg:text-sm text-white px-4 md:px-5 py-2 md:py-3 rounded-full w-fit">
+                    <p>Search</p>
+                  </Link>
+                </div>
+              </div>
+              <div className='flex flex-col md:flex-row items-center justify-between gap-2'>
+                <div className='w-full grid grid-cols-2 md:flex lg:flex-row gap-2'>
+                  <Select
+                    variant={'flat'}
+                    required
+                    placeholder="Faculty"
+                    className='w-full shadow-none rounded-none outline-none'
+                    radius='sm'
+                    size='md'
+                    
+                  >
+                    {
+                      loading?
+                      '':
+                      faculties?
+                      faculties.map((i) => (
+                        <SelectItem onClick={()=> setFaculty(`/${i.slug}`)} value={i.slug} key={i.slug}>
+                          {i.name}
+                        </SelectItem>
+                      ))
+                      :
+                      ''
+                    }
+                  </Select>
+
+                  <Select
+                    variant={'flat'}
+                    required
+                    placeholder="Programme"
+                    className='w-full shadow-none rounded-none outline-none'
+                    radius='sm'
+                    size='md'
+                    
+                  >
+                    {
+                      loading?
+                      '':
+                      levels?
+                      levels.map((i) => (
+                        <SelectItem onClick={()=> setPrograme(`/${i.slug}`)} value={i.slug} key={i.slug}>
+                          {i.name}
+                        </SelectItem>
+                      ))
+                      :
+                      ''
+                    }
+                  </Select>
+                </div>
+                <div className='w-full flex lg:flex-row gap-2'>
+                  <Select
+                    variant={'flat'}
+                    placeholder="Course award"
+                    className='w-full shadow-none rounded-none outline-none'
+                    radius='sm'
+                    size='md'
+                  >
+                    {
+                      ourQualificationListLoading?
+                      '':
+                      qualifications?
+                      qualifications.map((i) => (
+                        <SelectItem onClick={()=> setAward(`/${i.slug}`)} value={i.slug} key={i.slug}>
+                          {i.name}
+                        </SelectItem>
+                      ))
+                      :
+                      ''
+                    }
+                  </Select>
+                  <Select
+                    variant={'flat'}
+                    placeholder="Course credits"
+                    className='w-full shadow-none rounded-none outline-none'
+                    radius='sm'
+                    size='md'
+                  
+                  >
+                    {
+                      popularCourseListLoading?
+                      '':
+                      courses?
+                      _.uniqBy(courses, 'course_credit').map((i) => (
+                        <SelectItem onClick={()=> setAward(`/${i.slug}`)} value={i.slug} key={i.slug}>
+                          {i.course_credit}
+                        </SelectItem>
+                      ))
+                      :
+                      ''
+                    }
+                  </Select>
+                </div>
+              </div>
+          </form>
+        </div>
+        <div className='h-[25px]'></div>
+      </section> */}
+
+      <section className='h-fit w-full relative overflow-hidden py-6'>
+      <div className='h-fit w-full max-w-[1024px] mx-auto flex justify-center px-6 lg:px-0 gap-2 lg:gap-6'>
+          <Link to={'/application'} className='w-full max-w-1/2 md:max-w-1/3 lg:max-w-1/5  h-full md:h-48 flex flex-col items-center justify-center gap-4 bg-white text-black duration-200 cursor-pointer hover:text-[#DA0C0C] p-10 rounded-[8px] shadow-[0px_4px_25px_rgba(0,0,0,0.05)] hover:shadow-[0px_4px_25px_rgba(0,0,0,0.075)] '>
+            <img src={apply}  alt='' className='w-16 object-contain' />
+            <p className='text-xs lg:text-sm font-semibold px-2 text-center'>Apply</p>
+          </Link>
+          <Link to={'/verify'} className='w-full max-w-1/2 md:max-w-1/3 lg:max-w-1/5  h-full md:h-48 flex flex-col items-center justify-center gap-4 bg-white text-black duration-200 cursor-pointer hover:text-[#DA0C0C] p-10 rounded-[8px] shadow-[0px_4px_25px_rgba(0,0,0,0.05)] hover:shadow-[0px_4px_50px_rgba(0,0,0,0.075)]'>
+            <img src={verification}  alt='' className='w-16 object-contain' />
+            <p className='text-xs lg:text-sm font-semibold px-2 text-center'>Verify Certificate</p>
+          </Link>
+          <Link to={'/student/portal'} className='w-full max-w-1/2 md:max-w-1/3 lg:max-w-1/5  h-full md:h-48 flex flex-col items-center justify-center gap-4 bg-white text-black duration-200 cursor-pointer hover:text-[#DA0C0C] p-10 rounded-[8px] shadow-[0px_4px_25px_rgba(0,0,0,0.05)] hover:shadow-[0px_4px_50px_rgba(0,0,0,0.075)]'>
+            <img src={sp}  alt='' className='w-16 object-contain' />
+            <p className='text-xs lg:text-sm font-semibold px-2 text-center'>Student Portal</p>
+          </Link>
+          <div className='w-full max-w-1/2 md:max-w-1/3 lg:max-w-1/5  h-full md:h-48 flex flex-col items-center justify-center gap-4 bg-white text-black duration-200 cursor-pointer hover:text-[#DA0C0C] p-10 rounded-[8px] shadow-[0px_4px_25px_rgba(0,0,0,0.05)] hover:shadow-[0px_4px_50px_rgba(0,0,0,0.075)]'>
+            <img src={es}  alt='' className='w-16 object-contain' />
+            <p className='text-xs lg:text-sm font-semibold px-2 text-center'>E library</p>
+          </div>
+          <Popover placement="bottom" showArrow={true}>
+            <PopoverTrigger>
+              <div className='w-full max-w-1/2 md:max-w-1/3 lg:max-w-1/5  h-full md:h-48 flex flex-col items-center justify-center gap-4 bg-white text-black duration-200 cursor-pointer hover:text-[#DA0C0C] p-10 rounded-[8px] shadow-[0px_4px_25px_rgba(0,0,0,0.05)] hover:shadow-[0px_4px_50px_rgba(0,0,0,0.075)]'>
+                <img src={es}  alt='' className='w-16 object-contain' />
+                <p className='text-xs lg:text-sm font-semibold px-2 text-center'>Events</p>
+              </div>
+            </PopoverTrigger>
+            <PopoverContent>
+              <Calendar
+                onChange={onChange}
+                value={value}
+                tileContent={tileContent}
+              />
+
+            </PopoverContent>
+          </Popover>
+          
       </div>
+      </section>
 
       <section className='h-fit w-full relative overflow-hidden px-8'>
         <div className='h-fit w-full max-w-[1024px] mx-auto justify-center gap-2'>

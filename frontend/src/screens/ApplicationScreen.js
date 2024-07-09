@@ -174,6 +174,20 @@ const ApplicationScreen = () => {
     window.scroll(0,0);
   }, [location]);
 
+  const sendMail = () =>{
+    window.Email.send({
+        Host : "smtp.elasticemail.com",
+        Username : "enquiries@iebc.lk",
+        Password : "CE31FAADB1ED3AD7CAAE79F32A7C9EA3A2D7",
+        To : 'enquiries@iebc.lk',
+        From : "danudanushkan31@gmail.com",
+        Subject : "This is the subject",
+        Body : "And this is the body"
+    }).then(
+      message => alert(message)
+    );
+  }
+
   const courseList = useSelector(state => state.courseList)
     const { error: courseListError, loading: courseListLoading, courses } = courseList
 
@@ -1131,7 +1145,7 @@ const ApplicationScreen = () => {
             <section className='md:col-span-1 w-full'>
               <Button color='' radius='none' className="w-full hidden lg:flex bg-[#DA0C0C] text-white font-medium ">
                 <p>Submit</p>
-                <RiSecurePaymentFill  />
+                <RiSecurePaymentFill  onClick={sendMail}/>
               </Button>
             </section>
           </div>

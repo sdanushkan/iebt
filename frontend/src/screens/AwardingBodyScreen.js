@@ -157,10 +157,9 @@ const AwardingBodyScreen = () => {
                     </div>
                     :
                     levels && qualification?
-                    _.uniqBy(qualification.courses, 'programe.slug').map(i => (
+                    _.uniqBy(qualification.courses, 'programe.id' ).map(i => (
                         <div>
                             <p className='font-semibold capitalize bg-blue-500 py-2 text-white px-4'>{i.programe.name}</p> 
-                            
                             <ul className='p-4 flex flex-col gap-2'>
                                 {
                                     qualification.courses?

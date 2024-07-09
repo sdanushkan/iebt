@@ -35,7 +35,7 @@ class OurQualificationSerializer(serializers.ModelSerializer):
         fields = '__all__'  
 
     def get_courses(self, obj):
-        courses = obj.course_set.all()
+        courses = obj.course_set.all().order_by('programe__id') 
         serializer = CourseListSerializer(courses, many=True)
         return serializer.data 
 

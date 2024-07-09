@@ -24,8 +24,8 @@ class CourseAdmin(admin.ModelAdmin):
     # inlines = [UnitInline , CourseRequirmentInline]
     search_fields= ['popular', 'name', 'faculty']
     list_filter=['popular']
-    list_display=['name','ebrowcher', 'popular']
-    list_editable = ['ebrowcher', 'popular']
+    list_display=['name', 'programe', 'ebrowcher', 'popular', 'show_in_header','show_in_faculty','show_in_qualification', 'show_in_footer']
+    list_editable = [ 'programe', 'ebrowcher', 'popular', 'show_in_header','show_in_faculty','show_in_qualification', 'show_in_footer']
 
 class CountryAdmin(admin.ModelAdmin):
     inlines = [FAQInline] 

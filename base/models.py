@@ -77,6 +77,11 @@ class Course(models.Model):
     duration = models.CharField(max_length=20, null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
+    show_in_header = models.BooleanField(default=False)
+    show_in_faculty = models.BooleanField(default=False)
+    show_in_qualification = models.BooleanField(default=False)
+    show_in_footer = models.BooleanField(default=False)
+
     ebrowcher = models.FileField(upload_to='browcher/', null=True, blank=True)
 
     gif_logo = models.ImageField(null=True, blank=True, upload_to='git/logo/')
