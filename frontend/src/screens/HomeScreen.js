@@ -83,7 +83,7 @@ const HomeScreen = () => {
     const { error:ourQualificationListError, loading:ourQualificationListLoading, qualifications } = ourQualificationList
     
     useEffect(() => {
-      if(courses.length == 0){
+      if(!courses){
         dispatch(getPopularCourseList())
       }
 
@@ -109,9 +109,9 @@ const HomeScreen = () => {
       },
     };
 
-    const submitHandler = () => {
-      history(`${faculty}/${programe}/${qualification}/${credit}`)
-    } 
+    // const submitHandler = () => {
+    //   history(`${faculty}/${programe}/${qualification}/${credit}`)
+    // } 
 
     // useEffect(() => {
     //   window.scroll(0,0);

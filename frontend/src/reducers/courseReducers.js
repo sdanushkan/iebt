@@ -5,6 +5,11 @@ import {
     COURSE_LIST_FAIL,
     COURSE_LIST_RESET,
 
+    COURSE_FILTER_LIST_REQUEST,
+    COURSE_FILTER_LIST_SUCCESS,
+    COURSE_FILTER_LIST_FAIL,
+    COURSE_FILTER_LIST_RESET,
+
     POPULAR_COURSE_LIST_REQUEST,
     POPULAR_COURSE_LIST_SUCCESS,
     POPULAR_COURSE_LIST_FAIL,
@@ -62,7 +67,7 @@ import {
 
 } from '../constants/courseConstants'
 
-export const courseListReducer = (state = { courses: [] }, action) => {
+export const courseListReducer = (state = { courses: null }, action) => {
     switch (action.type) {
         case COURSE_LIST_REQUEST:
             return {
@@ -83,7 +88,7 @@ export const courseListReducer = (state = { courses: [] }, action) => {
 
         case COURSE_LIST_RESET:
             return {
-                courses: []
+                courses: null
             }
 
         default:
@@ -91,7 +96,36 @@ export const courseListReducer = (state = { courses: [] }, action) => {
     }
 }
 
-export const popularCourseListReducer = (state = { courses: [] }, action) => {
+export const courseFilterListReducer = (state = { courses: null }, action) => {
+    switch (action.type) {
+        case COURSE_FILTER_LIST_REQUEST:
+            return {
+                loading: true
+            }
+
+        case COURSE_FILTER_LIST_SUCCESS:
+            return {
+                loading: false,
+                courses: action.payload
+            }
+
+        case COURSE_FILTER_LIST_FAIL:
+            return {
+                loading: false,
+                error: action.payload
+            }
+
+        case COURSE_FILTER_LIST_RESET:
+            return {
+                courses: null
+            }
+
+        default:
+            return state
+    }
+}
+
+export const popularCourseListReducer = (state = { courses: null }, action) => {
     switch (action.type) {
         case POPULAR_COURSE_LIST_REQUEST:
             return {
@@ -112,7 +146,7 @@ export const popularCourseListReducer = (state = { courses: [] }, action) => {
 
         case POPULAR_COURSE_LIST_RESET:
             return {
-                courses: []
+                courses: null
             }
 
         default:
@@ -120,7 +154,7 @@ export const popularCourseListReducer = (state = { courses: [] }, action) => {
     }
 }
 
-export const dualQualificationCourseListReducer = (state = { courses: [] }, action) => {
+export const dualQualificationCourseListReducer = (state = { courses: null }, action) => {
     switch (action.type) {
         case DUAL_QUALIFICATION_COURSE_LIST_REQUEST:
             return {
@@ -141,7 +175,7 @@ export const dualQualificationCourseListReducer = (state = { courses: [] }, acti
 
         case DUAL_QUALIFICATION_COURSE_LIST_RESET:
             return {
-                courses: []
+                courses: null
             }
 
         default:
@@ -150,7 +184,7 @@ export const dualQualificationCourseListReducer = (state = { courses: [] }, acti
 }
 
 
-export const facultyListReducer = (state = { faculties: [] }, action) => {
+export const facultyListReducer = (state = { faculties: null }, action) => {
     switch (action.type) {
         case FACULTY_LIST_REQUEST:
             return {
@@ -171,7 +205,7 @@ export const facultyListReducer = (state = { faculties: [] }, action) => {
 
         case FACULTY_LIST_RESET:
             return {
-                faculties: []
+                faculties: null
             }
 
         default:
@@ -180,7 +214,7 @@ export const facultyListReducer = (state = { faculties: [] }, action) => {
 }
 
 
-export const aboutDetailsReducer = (state = { about: [] }, action) => {
+export const aboutDetailsReducer = (state = { about: null }, action) => {
     switch (action.type) {
         case ABOUT_DETAILS_REQUEST:
             return {
@@ -201,7 +235,7 @@ export const aboutDetailsReducer = (state = { about: [] }, action) => {
 
         case ABOUT_DETAILS_RESET:
             return {
-                about: []
+                about: null
             }
 
         default:
@@ -210,7 +244,7 @@ export const aboutDetailsReducer = (state = { about: [] }, action) => {
 }
 
 
-export const levelListReducer = (state = { levels: [] }, action) => {
+export const levelListReducer = (state = { levels: null }, action) => {
     switch (action.type) {
         case LEVEL_LIST_REQUEST:
             return {
@@ -231,7 +265,7 @@ export const levelListReducer = (state = { levels: [] }, action) => {
 
         case LEVEL_LIST_RESET:
             return {
-                levels: []
+                levels: null
             }
 
         default:
@@ -239,7 +273,7 @@ export const levelListReducer = (state = { levels: [] }, action) => {
     }
 }
 
-export const ourQualificationListReducer = (state = { qualifications: [] }, action) => {
+export const ourQualificationListReducer = (state = { qualifications: null }, action) => {
     switch (action.type) {
         case OUR_QUALIFICATION_LIST_REQUEST:
             return {
@@ -260,7 +294,7 @@ export const ourQualificationListReducer = (state = { qualifications: [] }, acti
 
         case OUR_QUALIFICATION_LIST_RESET:
             return {
-                qualifications: []
+                qualifications: null
             }
 
         default:
@@ -268,7 +302,7 @@ export const ourQualificationListReducer = (state = { qualifications: [] }, acti
     }
 }
 
-export const ourQualificationDetailsReducer = (state = { qualification: [] }, action) => {
+export const ourQualificationDetailsReducer = (state = { qualification: null }, action) => {
     switch (action.type) {
         case OUR_QUALIFICATION_DETAILS_REQUEST:
             return {
@@ -289,7 +323,7 @@ export const ourQualificationDetailsReducer = (state = { qualification: [] }, ac
 
         case OUR_QUALIFICATION_DETAILS_RESET:
             return {
-                qualification: []
+                qualification: null
             }
 
         default:
@@ -297,7 +331,7 @@ export const ourQualificationDetailsReducer = (state = { qualification: [] }, ac
     }
 }
 
-export const courseDetailsReducer = (state = { course: [] }, action) => {
+export const courseDetailsReducer = (state = { course: null }, action) => {
     switch (action.type) {
         case COURSE_DETAILS_REQUEST:
             return {
@@ -318,7 +352,7 @@ export const courseDetailsReducer = (state = { course: [] }, action) => {
 
         case COURSE_DETAILS_RESET:
             return {
-                course: []
+                course: null
             }
 
         default:
@@ -327,7 +361,7 @@ export const courseDetailsReducer = (state = { course: [] }, action) => {
 }
 
 
-export const dualQualificationListReducer = (state = { dualQualifications: [] }, action) => {
+export const dualQualificationListReducer = (state = { dualQualifications: null }, action) => {
     switch (action.type) {
         case DUAL_QUALIFICATION_LIST_REQUEST:
             return {
@@ -348,7 +382,7 @@ export const dualQualificationListReducer = (state = { dualQualifications: [] },
 
         case DUAL_QUALIFICATION_LIST_RESET:
             return {
-                dualQualifications: []
+                dualQualifications: null
             }
 
         default:
@@ -357,7 +391,7 @@ export const dualQualificationListReducer = (state = { dualQualifications: [] },
 }
 
 
-export const dualQualificationCoursesListReducer = (state = { qualifications: [] }, action) => {
+export const dualQualificationCoursesListReducer = (state = { qualifications: null }, action) => {
     switch (action.type) {
         case DUAL_QUALIFICATION_COURSES_LIST_REQUEST:
             return {
@@ -378,7 +412,7 @@ export const dualQualificationCoursesListReducer = (state = { qualifications: []
 
         case DUAL_QUALIFICATION_COURSES_LIST_RESET:
             return {
-                qualifications: []
+                qualifications: null
             }
 
         default:
@@ -386,7 +420,7 @@ export const dualQualificationCoursesListReducer = (state = { qualifications: []
     }
 }
 
-export const dualQualificationCourseDetailsReducer = (state = { course: [] }, action) => {
+export const dualQualificationCourseDetailsReducer = (state = { course: null }, action) => {
     switch (action.type) {
         case DUAL_QUALIFICATION_COURSE_DETAILS_REQUEST:
             return {
@@ -407,7 +441,7 @@ export const dualQualificationCourseDetailsReducer = (state = { course: [] }, ac
 
         case DUAL_QUALIFICATION_COURSE_DETAILS_RESET:
             return {
-                course: []
+                course: null
             }
 
         default:

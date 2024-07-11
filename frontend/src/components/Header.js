@@ -44,9 +44,13 @@ const Header = () => {
     }, [location])
     
     useEffect(() => {
-      dispatch(getFacultyList())
-      dispatch(getLevelList())
-    }, [dispatch])
+      if (!faculties){
+        dispatch(getFacultyList())
+      }
+      if (!levels){
+        dispatch(getLevelList())
+      }
+    }, [dispatch, levels, faculties])
     
 
   return (

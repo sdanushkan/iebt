@@ -29,7 +29,7 @@ const Footer = () => {
     const { error:levelListError, loading:levelListLoading, levels } = levelList
 
     useEffect(() => {
-        dispatch(getCourseList())
+        dispatch(getCourseList('faculties', 'programes', 'qualifications', 'credits'))
         dispatch(getCountryList())
     }, [dispatch])
 

@@ -13,36 +13,34 @@ from base.models import Course, Faculty,Country, About, Level, Contact, DualQual
 from base.serializers import CourseSerializer, FacultySerializer, CountrySerializer, AboutSerializer, LevelSerializer, ContactSerializer, DualQualificationCourseSerializer, CourseListSerializer, OurQualificationSerializer, DualQualificationSerializer, OurQualificationListSerializer
 
 from rest_framework import status
+from django.db.models import Q
 
 @api_view(['GET'])
 def getCourses(request, f, p,q, c):
     try:
         course = Course.objects.all().order_by('programe__id')
 
-        if f !='faculties': 
-            course = Course.objects.filter(faculty__slug =f)
+        filters = Q()
+
+        if f != 'faculties': 
+            filters &= Q(faculty__slug=f)
               
-            if not course.exists():
-                return Response({'detail': 'No Courses Found'})
+        if p != 'programes': 
+            filters &= Q(programe__slug=p)
 
-            elif p !='programes': 
-                course = Course.objects.filter(programe__slug =p)
+        if q != 'qualifications': 
+            filters &= Q(qualification__slug=q)
 
-                if not course.exists():
-                    return Response({'detail': 'No Courses Found'})
-        
-                elif q !='qualifications': 
-                    course = Course.objects.filter(qualification__slug =q)
+        if c != 'credits': 
+            filters &= Q(course_credit=c)       
 
-                    if not course.exists():
-                        return Response({'detail': 'No Courses Found'})
+        # Apply the combined filters to the queryset
+        course = course.filter(filters)
 
-                    elif c !='credits': 
-                        course = Course.objects.filter(course_credit =c)       
-
-                        if not course.exists():
-                            return Response({'detail': 'No Courses Found'})     
-
+        # Check if any courses are found
+        if not course.exists():
+            return Response([{'detail': 'No Courses Found'}], status=404)
+            
         serializer = CourseListSerializer(course, many=True)
         return Response(serializer.data)
 

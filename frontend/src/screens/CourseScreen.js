@@ -41,10 +41,6 @@ const CourseScreen = () => {
 
     const { toPDF, targetRef } = usePDF({filename: 'page.pdf'});
 
-    useEffect(() => {
-        dispatch(getCourseList())
-    }, [dispatch])
-
     // useEffect(() => {
     //     window.scroll(0,0);
     //   }, [location]);

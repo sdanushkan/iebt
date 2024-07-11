@@ -195,7 +195,7 @@ const ApplicationScreen = () => {
     const { error:facultyListError, loading:facultyListLoading, faculties } = facultyList
 
     useEffect(() => {
-      dispatch(getCourseList())
+      dispatch(getCourseList('faculties', 'programes', 'qualifications', 'credits'))
     }, [dispatch])
 
   return (

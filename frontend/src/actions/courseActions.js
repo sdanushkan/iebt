@@ -6,6 +6,11 @@ import {
     COURSE_LIST_FAIL,
     COURSE_LIST_RESET,
 
+    COURSE_FILTER_LIST_REQUEST,
+    COURSE_FILTER_LIST_SUCCESS,
+    COURSE_FILTER_LIST_FAIL,
+    COURSE_FILTER_LIST_RESET,
+
     POPULAR_COURSE_LIST_REQUEST,
     POPULAR_COURSE_LIST_SUCCESS,
     POPULAR_COURSE_LIST_FAIL,
@@ -64,8 +69,9 @@ import {
 } from '../constants/courseConstants'
 
 
-export const getCourseList = (nFaculty, nPrograme, nQualification, nCredits) => async (dispatch) => {
+export const getCourseList = () => async (dispatch) => {
     try {
+        
         dispatch({
             type: COURSE_LIST_REQUEST
         })
@@ -77,7 +83,7 @@ export const getCourseList = (nFaculty, nPrograme, nQualification, nCredits) => 
         }
 
         const { data } = await axios.get(
-            `/api/courses/${nFaculty}/${nPrograme}/${nQualification}/${nCredits}`,
+            `/api/courses/faculties/programes/qualifications/credits`,
             config
         )
 
@@ -90,6 +96,39 @@ export const getCourseList = (nFaculty, nPrograme, nQualification, nCredits) => 
     } catch (error) {
         dispatch({
             type: COURSE_LIST_FAIL,
+            payload: error.response && error.response.data.detail
+                ? error.response.data.detail
+                : error.message,
+        })
+    }
+}
+
+export const getFilterCourseList = (faculty, programe, qualification, credits) => async (dispatch) => {
+    try {
+        dispatch({
+            type: COURSE_FILTER_LIST_REQUEST
+        })
+
+        const config = {
+            headers: {
+                'Content-type': 'application/json',
+            }
+        }
+
+        const { data } = await axios.get(
+            `/api/courses/${faculty}/${programe}/${qualification}/${credits}`,
+            config
+        )
+
+        dispatch({
+            type: COURSE_FILTER_LIST_SUCCESS,
+            payload: data
+        })
+
+
+    } catch (error) {
+        dispatch({
+            type: COURSE_FILTER_LIST_FAIL,
             payload: error.response && error.response.data.detail
                 ? error.response.data.detail
                 : error.message,

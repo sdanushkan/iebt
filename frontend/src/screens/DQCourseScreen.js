@@ -43,7 +43,7 @@ const DQCourseScreen = () => {
     const { toPDF, targetRef } = usePDF({filename: 'page.pdf'});
 
     useEffect(() => {
-        dispatch(getCourseList())
+        dispatch(getCourseList("faculties", "programes","qualifications","credits"))
     }, [dispatch])
 
     // useEffect(() => {
