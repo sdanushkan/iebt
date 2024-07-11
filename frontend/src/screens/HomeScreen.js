@@ -5,7 +5,7 @@ import {Button} from "@nextui-org/button";
 import { IoSearch } from "react-icons/io5";
 import { AiFillSignal } from "react-icons/ai";
 import { BsBookmarksFill } from "react-icons/bs";
-import { FaAward, FaHandHoldingUsd, FaSearchLocation } from "react-icons/fa";
+import { Faqualification, FaHandHoldingUsd, FaSearchLocation } from "react-icons/fa";
 import {Select, SelectItem} from "@nextui-org/react";
 import { MdOutlineAdsClick } from "react-icons/md";
 import { MdOutlineVerified } from "react-icons/md";
@@ -44,10 +44,10 @@ import 'react-calendar/dist/Calendar.css';
 
 const HomeScreen = () => {
     const [keyword, setKeyword] = useState('')
-    const [programe, setPrograme] = useState('')
-    const [credit, setCredit] = useState('')
-    const [award, setAward] = useState('')
-    const [faculty, setFaculty] = useState('')
+    const [faculty, setFaculty] = useState('faculties')
+    const [programe, setPrograme] = useState('programes')
+    const [qualification, setQualification] = useState('qualifications')
+    const [credit, setCredit] = useState('credits')
 
     const [value, setValue] = useState(new Date());
     const [events, setEvents] = useState([
@@ -83,9 +83,20 @@ const HomeScreen = () => {
     const { error:ourQualificationListError, loading:ourQualificationListLoading, qualifications } = ourQualificationList
     
     useEffect(() => {
-      dispatch(getPopularCourseList())
-      dispatch(getTestimonialList('home'))
-      dispatch(getOurQualificationList())
+      if(courses.length == 0){
+        dispatch(getPopularCourseList())
+      }
+
+      if(!testimonials){
+        dispatch(getTestimonialList('home'))
+      }
+
+      if(!qualifications){
+        dispatch(getOurQualificationList())
+      }
+      
+      
+      
     }, [dispatch])
 
     const opts = {
@@ -99,7 +110,7 @@ const HomeScreen = () => {
     };
 
     const submitHandler = () => {
-      history(`${faculty}${programe}${award}${credit}${keyword}`)
+      history(`${faculty}/${programe}/${qualification}/${credit}`)
     } 
 
     // useEffect(() => {
@@ -195,7 +206,7 @@ const HomeScreen = () => {
                   <p className='text-xs text-gray-500'>Search And Filter our courses</p>
                 </div>
                 <div>
-                  <Link to={`${faculty}${programe}${award}${credit}`} color='' className="flex bg-[#DA0C0C] text-xs lg:text-sm text-white px-4 md:px-5 py-2 md:py-3 rounded-full w-fit">
+                  <Link to={`courses/${faculty}/${programe}/${qualification}/${credit}`} className="flex bg-[#DA0C0C] text-xs lg:text-sm text-white px-4 md:px-5 py-2 md:py-3 rounded-full w-fit">
                     <p>Search</p>
                   </Link>
                 </div>
@@ -216,7 +227,7 @@ const HomeScreen = () => {
                       '':
                       faculties?
                       faculties.map((i) => (
-                        <SelectItem onClick={()=> setFaculty(`/${i.slug}`)} value={i.slug} key={i.slug}>
+                        <SelectItem onClick={()=> setFaculty(`${i.slug}`)} value={i.slug} key={i.slug}>
                           {i.name}
                         </SelectItem>
                       ))
@@ -239,7 +250,7 @@ const HomeScreen = () => {
                       '':
                       levels?
                       levels.map((i) => (
-                        <SelectItem onClick={()=> setPrograme(`/${i.slug}`)} value={i.slug} key={i.slug}>
+                        <SelectItem onClick={()=> setPrograme(`${i.slug}`)} value={i.slug} key={i.slug}>
                           {i.name}
                         </SelectItem>
                       ))
@@ -251,7 +262,7 @@ const HomeScreen = () => {
                 <div className='w-full flex lg:flex-row gap-2'>
                   <Select
                     variant={'flat'}
-                    placeholder="Course award"
+                    placeholder="Course qualification"
                     className='w-full shadow-none rounded-none outline-none'
                     radius='sm'
                     size='md'
@@ -261,7 +272,7 @@ const HomeScreen = () => {
                       '':
                       qualifications?
                       qualifications.map((i) => (
-                        <SelectItem onClick={()=> setAward(`/${i.slug}`)} value={i.slug} key={i.slug}>
+                        <SelectItem onClick={()=> setQualification(`${i.slug}`)} value={i.slug} key={i.slug}>
                           {i.name}
                         </SelectItem>
                       ))
@@ -282,7 +293,7 @@ const HomeScreen = () => {
                       '':
                       courses?
                       _.uniqBy(courses, 'course_credit').map((i) => (
-                        <SelectItem onClick={()=> setAward(`/${i.slug}`)} value={i.slug} key={i.slug}>
+                        <SelectItem onClick={()=> setQualification(`${i.slug}`)} value={i.slug} key={i.slug}>
                           {i.course_credit}
                         </SelectItem>
                       ))
@@ -368,7 +379,7 @@ const HomeScreen = () => {
                   <p className='text-xs text-gray-500'>Search And Filter our courses</p>
                 </div>
                 <div>
-                  <Link to={`${faculty}${programe}${award}${credit}`} color='' className="flex bg-[#DA0C0C] text-xs lg:text-sm text-white px-4 md:px-5 py-2 md:py-3 rounded-full w-fit">
+                  <Link to={`${faculty}${programe}${qualification}${credit}`} color='' className="flex bg-[#DA0C0C] text-xs lg:text-sm text-white px-4 md:px-5 py-2 md:py-3 rounded-full w-fit">
                     <p>Search</p>
                   </Link>
                 </div>
@@ -389,7 +400,7 @@ const HomeScreen = () => {
                       '':
                       faculties?
                       faculties.map((i) => (
-                        <SelectItem onClick={()=> setFaculty(`/${i.slug}`)} value={i.slug} key={i.slug}>
+                        <SelectItem onClick={()=> setFaculty(`${i.slug}`)} value={i.slug} key={i.slug}>
                           {i.name}
                         </SelectItem>
                       ))
@@ -412,7 +423,7 @@ const HomeScreen = () => {
                       '':
                       levels?
                       levels.map((i) => (
-                        <SelectItem onClick={()=> setPrograme(`/${i.slug}`)} value={i.slug} key={i.slug}>
+                        <SelectItem onClick={()=> setPrograme(`${i.slug}`)} value={i.slug} key={i.slug}>
                           {i.name}
                         </SelectItem>
                       ))
@@ -424,7 +435,7 @@ const HomeScreen = () => {
                 <div className='w-full flex lg:flex-row gap-2'>
                   <Select
                     variant={'flat'}
-                    placeholder="Course award"
+                    placeholder="Course qualification"
                     className='w-full shadow-none rounded-none outline-none'
                     radius='sm'
                     size='md'
@@ -434,7 +445,7 @@ const HomeScreen = () => {
                       '':
                       qualifications?
                       qualifications.map((i) => (
-                        <SelectItem onClick={()=> setAward(`/${i.slug}`)} value={i.slug} key={i.slug}>
+                        <SelectItem onClick={()=> setQualification(`${i.slug}`)} value={i.slug} key={i.slug}>
                           {i.name}
                         </SelectItem>
                       ))
@@ -455,7 +466,7 @@ const HomeScreen = () => {
                       '':
                       courses?
                       _.uniqBy(courses, 'course_credit').map((i) => (
-                        <SelectItem onClick={()=> setAward(`/${i.slug}`)} value={i.slug} key={i.slug}>
+                        <SelectItem onClick={()=> setQualification(`${i.slug}`)} value={i.slug} key={i.slug}>
                           {i.course_credit}
                         </SelectItem>
                       ))
@@ -1259,7 +1270,7 @@ const HomeScreen = () => {
               <div className='w-full flex flex-col gap-2 items-center justify-center'>
                 <FaArrowRightArrowLeft className='text-8xl text-white' />
                 <p className='text-lg font-bold text-white text-center'>Progression</p>
-                <p className='text-sm text-white text-center'>Our strong partnership with the UK Government regulated awarding bodies allows students to upgrade their career with recognized universities, while also helping you to Easily transfer credits to any universities around the world</p>
+                <p className='text-sm text-white text-center'>Our strong partnership with the UK Government regulated qualificationing bodies allows students to upgrade their career with recognized universities, while also helping you to Easily transfer credits to any universities around the world</p>
               </div>
           </div>
         </div>
@@ -1269,14 +1280,14 @@ const HomeScreen = () => {
         <img src='https://upload.wikimedia.org/wikipedia/commons/c/cd/University-of-Alabama-EngineeringResearchCenter-01.jpg' alt='' className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 h-full w-full z-0 opacity-25' />
         <div className='h-fit min-h-fit w-full max-w-[900px] mx-auto justify-center gap-6 grid grid-col-1 lg:grid-cols-2 divide-y-1 lg:divide-x-1 lg:divide-y-0 divide-[#DA0C0C] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10'>
           <div className='w-full h-fit flex-col gap-4 pt-4 lg:pt-0 hidden lg:flex my-auto'>
-            <p className='text-2xl font-bold text-[#DA0C0C] text-center '>IEBC Provides an extensive number of Programmes from Foundation to Masters which is regulated by UK Government Awarding Body</p>
+            <p className='text-2xl font-bold text-[#DA0C0C] text-center '>IEBC Provides an extensive number of Programmes from Foundation to Masters which is regulated by UK Government qualificationing Body</p>
           </div>
           <div className='w-full h-fit flex flex-col gap-4  px-6 pt-4 lg:pt-0 lg:pl-12'>
             <p className='text-2xl font-bold text-center '>Your inspiration our Motivation</p>
             <p className='text-sm text-gray-700 font-medium text-left'>Students deserve to dream, to be inspired and gain knowledge, as a  college it is our duty to fulfill our student’s inspirations. IEBC is  here to guide students all the way through their studies and career.  Your Inspiration is our motivation.Students deserve to dream, to be inspired and gain knowledge, as a  college it is our duty to fulfill our student’s inspirations. IEBC is  here to guide students all the way through their studies and career.  Your Inspiration is our motivation.</p>
           </div>
           <div className='w-full h-fit flex flex-col gap-4 pt-4 lg:pt-0 lg:hidden'>
-            <p className='text-2xl font-bold text-[#DA0C0C] text-center '>IEBC Provides an extensive number of Programmes from Foundation to Masters which is regulated by UK Government Awarding Body</p>
+            <p className='text-2xl font-bold text-[#DA0C0C] text-center '>IEBC Provides an extensive number of Programmes from Foundation to Masters which is regulated by UK Government qualificationing Body</p>
           </div>
         </div>
       </section>
@@ -2109,7 +2120,7 @@ const HomeScreen = () => {
                     qualifications?
                     qualifications.map(i=>(
                       <SwiperSlide key={i.id} className='bg-white border-[1px] border-red-100 rounded-[8px] mb-12 w-[250px]'>
-                        <Link to={`/awarding-body/${i.slug}`} key={i.id} className='bg-white border-[1px] border-red-100 rounded-[8px] mb-12 w-[250px]'>
+                        <Link to={`/qualificationing-body/${i.slug}`} key={i.id} className='bg-white border-[1px] border-red-100 rounded-[8px] mb-12 w-[250px]'>
                           <img src={i.image} alt='' className='h-[150px] w-[200px] object-contain scale-80 mx-auto hover:scale-105 duration-200' />
                           <div className='flex flex-col py-6 gap-4 px-4 '>
                             <div className='flex flex-col-reverse'>

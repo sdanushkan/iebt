@@ -22,16 +22,14 @@ class FAQInline(admin.TabularInline):
 
 class CourseAdmin(admin.ModelAdmin):
     # inlines = [UnitInline , CourseRequirmentInline]
-    search_fields= ['popular', 'name', 'faculty']
-    list_filter=['popular']
-    list_display=['name', 'programe', 'ebrowcher', 'popular', 'show_in_header','show_in_faculty','show_in_qualification', 'show_in_footer']
-    list_editable = [ 'programe', 'ebrowcher', 'popular', 'show_in_header','show_in_faculty','show_in_qualification', 'show_in_footer']
+    search_fields= [ 'faculty', 'programe', 'qualification']
+    list_filter=[ 'faculty', 'programe', 'qualification']
+    list_display=['name', 'faculty', 'programe', 'qualification', 'ebrowcher',  'show_in_header','show_in_faculty','show_in_qualification', 'show_in_footer']
+    list_editable = [ 'faculty', 'programe', 'qualification', 'ebrowcher',  'show_in_header','show_in_faculty','show_in_qualification', 'show_in_footer']
 
 class CountryAdmin(admin.ModelAdmin):
     inlines = [FAQInline] 
     
-
-
 admin.site.register(Page)
 admin.site.register(Faculty)   
 admin.site.register(Level)

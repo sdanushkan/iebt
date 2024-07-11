@@ -41,15 +41,11 @@ const App = () => {
         <Route path='dual/courses/:course' element={<DQCourseScreen/>} /> 
         <Route path='abroad/about' element={<AbroadAboutUsScreen/>} />  
         <Route path='countries/:country' element={<CountryScreen/>} />
-        <Route path='courses/:courseSlug' element={<CourseScreen/>} />
+        <Route path='courses/:courseSlug' element={<CourseScreen/>} /> 
         <Route path='abroad'element={<CountriesScreen/>} />
         <Route path='awarding-body/:name' element={<AwardingBodyScreen/>} />
-        <Route path='faculties/:faculty' element={<FacultyFilterScreen/>} />
-        <Route path='level/:programe' element={<CourseFilterScreen/>} />
-        <Route path='search/:keyword' element={<CourseFilterScreen/>} />
-        <Route path='faculties/:faculty/:course' element={<CourseFilterScreen/>} />
-        <Route path=':faculty/:programe/:award/:credit' element={<CourseFilterScreen/>} />
-        <Route path=':faculty/:programe/:award/:credit/:keyword' element={<CourseFilterScreen/>} />
+        <Route path='courses/:faculty/:programe/:award/:credit' element={<CourseFilterScreen/>} />
+        {/* <Route path=':faculty/:programe/:award/:credit/:keyword' element={<CourseFilterScreen/>} /> */}
         
       </Routes>
       <Footer/>

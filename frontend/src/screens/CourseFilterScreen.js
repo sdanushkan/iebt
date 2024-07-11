@@ -21,19 +21,23 @@ import _ from 'lodash';
 
 const CourseFilterScreen = () => {
   const [filter, setFilter] = useState(false);
-  const [gridCount, setGridCount] = useState(2);
+  const [gridCount, setGridCount] = useState(2); 
 
-  
+  const {faculty} = useParams()
   const {programe} = useParams()
+  const {qualification} = useParams()
+  const {credit} = useParams()
 
   const dispatch = useDispatch()
   const history = useNavigate()
   const location = useLocation()
 
-  const [nPrograme, setNPrograme] = useState(null)
+  const [nFaculty, setNFaculty] = useState('faculties')
+  const [nPrograme, setNPrograme] = useState('programes')
+  const [nQualification, setNQualification] = useState('qualifications')
+  const [nCredits, setNCredits] = useState('credits')
   const [nCourses, setNCourses] = useState([])
-  const [nFaculty, setNFaculty] = useState(null)
-
+ 
   const levelList = useSelector(state => state.levelList)
   const { error, loading, levels } = levelList
 
@@ -44,25 +48,41 @@ const CourseFilterScreen = () => {
   const { error: facultyListError, loading:facultyListLoading, faculties } = facultyList
   
   useEffect(() => {
-    dispatch(getLevelList())
-    dispatch(getCourseList())
+    if(!levels){
+      dispatch(getLevelList())
+    }
   }, [dispatch])
 
   useEffect(() => {
+    if (credit && programe && qualification && faculty){
+      dispatch(getCourseList(nFaculty, nPrograme, nQualification, nCredits))
+    }
+  }, [dispatch, nFaculty, nPrograme, nQualification, nCredits])
+
+  useEffect(() => {
+    if (faculty) {
+      setNFaculty(faculty)
+    }  
     if (programe) {
       setNPrograme(programe)
     }     
-  }, [location])
+    if (qualification) {
+      setNQualification(qualification)
+    }  
+    if (credit) {
+      setNCredits(credit)
+    }  
+  }, [location, faculty, programe, qualification, credit])
 
-  useEffect(() => {
-    if ((courses) && (nPrograme) && (nFaculty)) {
-      setNCourses(courses.filter(f=> f.faculty.slug == nFaculty.anchorKey && f.programe.slug == nPrograme))
-    } else if ((courses) && (nPrograme)) {
-      setNCourses(courses.filter(f=> f.programe.slug == nPrograme))
-    } else{
-      setNCourses(courses)
-    }
-  }, [courses, nFaculty, nPrograme])
+  // useEffect(() => {
+  //   if ((courses) && (nPrograme) && (nFaculty)) {
+  //     setNCourses(courses.filter(f=> f.faculty.slug == nFaculty.anchorKey && f.programe.slug == nPrograme))
+  //   } else if ((courses) && (nPrograme)) {
+  //     setNCourses(courses.filter(f=> f.programe.slug == nPrograme))
+  //   } else{
+  //     setNCourses(courses)
+  //   }
+  // }, [courses, nFaculty, nPrograme])
 
   // useEffect(() => {
   //   setNCourses(courses.filter(f=> nFaculty.anchorKey? f.faculty.slug == nFaculty.anchorKey : courses))
@@ -122,9 +142,9 @@ const CourseFilterScreen = () => {
         }>
           <div className='h-screen md:h-fit w-full bg-white px-4 md:px-0 py-6 md:py-0 divide-y-1 flex flex-col gap-4'>
         
-              <Accordion  onSelect={nFaculty} onSelectionChange={setNFaculty} isCompact className='w-full min-w-full md:w-[300px] md:min-w-[300px]'>
+              <Accordion   onSelect={nFaculty} onSelectionChange={setNFaculty} isCompact className='w-full min-w-full md:w-[300px] md:min-w-[300px]'>
                 {
-                  facultyListLoading?
+                  facultyListLoading? 
                   "":
                   faculties?
                   faculties.map(i =>(
@@ -149,7 +169,7 @@ const CourseFilterScreen = () => {
                           }}
                         className='w-full'>
                           {
-                              courses || courses.programe?
+                              courses && levels?
                               _.uniqBy(courses.filter(f => f.faculty.name == i.name), 'programe.id').filter(i1 => levels.some(i2 => i1.programe.slug == i2.slug)).map( i3 =>
                                   ( 
                                     <Tab key={i3.programe.slug} title={
@@ -335,13 +355,13 @@ const CourseFilterScreen = () => {
                 <Spinner size="md" />
               </div>
               :
-              nCourses?
-              nCourses.map(i => (
+              courses?
+              courses.map(i => (
                 <Link to={`/courses/${i.slug}`} key={i.id} className=' bg-white p-2 h-fit w-full shadow-[0px_4px_25px_rgba(0,0,0,0.05)] rounded-[16px]'>
                   <img src={i.image} alt='' className='h-[200px] w-full rounded-[8px]' />
                   <div className='pt-4 flex flex-col gap-4'>
                     <div className=''>
-                      <p className='text-xs text-red-600 font-medium'>Post Graduate course</p>
+                      <p className='text-xs text-red-600 font-medium'>{i.programe.name}</p>
                       <p className='font-semibold text-left'>{
                         i.name
                       }</p>

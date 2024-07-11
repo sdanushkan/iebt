@@ -38,7 +38,9 @@ const CountryScreen = () => {
     const { error: countryListError, loading: countryListLoading, countries } = countryList
 
     useEffect(() => {
-        dispatch(getCountryList())
+        if (countries){
+          dispatch(getCountryList())
+        }
     }, [dispatch])
 
     useEffect(() => {

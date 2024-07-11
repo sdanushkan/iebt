@@ -1,6 +1,10 @@
 from django.shortcuts import render
 from datetime import timedelta, datetime
 
+from django.http import HttpResponse
+from django.core.mail import send_mail
+from django.conf import settings
+
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from rest_framework.response import Response
@@ -11,14 +15,39 @@ from base.serializers import CourseSerializer, FacultySerializer, CountrySeriali
 from rest_framework import status
 
 @api_view(['GET'])
-def getCourses(request):
+def getCourses(request, f, p,q, c):
     try:
         course = Course.objects.all().order_by('programe__id')
+
+        if f !='faculties': 
+            course = Course.objects.filter(faculty__slug =f)
+              
+            if not course.exists():
+                return Response({'detail': 'No Courses Found'})
+
+            elif p !='programes': 
+                course = Course.objects.filter(programe__slug =p)
+
+                if not course.exists():
+                    return Response({'detail': 'No Courses Found'})
+        
+                elif q !='qualifications': 
+                    course = Course.objects.filter(qualification__slug =q)
+
+                    if not course.exists():
+                        return Response({'detail': 'No Courses Found'})
+
+                    elif c !='credits': 
+                        course = Course.objects.filter(course_credit =c)       
+
+                        if not course.exists():
+                            return Response({'detail': 'No Courses Found'})     
+
         serializer = CourseListSerializer(course, many=True)
         return Response(serializer.data)
 
     except Course.DoesNotExist:
-        message = {'detail': 'No Country Found'}
+        message = {'detail': 'No Courses Found'}
         return Response(message)
     
 @api_view(['GET'])
@@ -29,6 +58,23 @@ def getPopularCourses(request):
         return Response(serializer.data)
 
     except Course.DoesNotExist:
+        message = {'detail': 'No Country Found'}
+        return Response(message)
+    
+@api_view(['GET'])
+def sendApplicationMail(request):
+    try:
+        subject = 'Test Email'
+        message = 'This is a test email sent from danushkan.'
+        recipient_list = ['appledanushkan31@iebc.lk'] 
+
+
+        from_email = settings.DEFAULT_FROM_EMAIL
+        send_mail(subject, message, from_email, recipient_list)
+
+        return HttpResponse('Email sent successfully.')
+
+    except KeyError:
         message = {'detail': 'No Country Found'}
         return Response(message)
 

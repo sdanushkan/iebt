@@ -64,7 +64,7 @@ import {
 } from '../constants/courseConstants'
 
 
-export const getCourseList = () => async (dispatch) => {
+export const getCourseList = (nFaculty, nPrograme, nQualification, nCredits) => async (dispatch) => {
     try {
         dispatch({
             type: COURSE_LIST_REQUEST
@@ -77,7 +77,7 @@ export const getCourseList = () => async (dispatch) => {
         }
 
         const { data } = await axios.get(
-            `/api/courses/`,
+            `/api/courses/${nFaculty}/${nPrograme}/${nQualification}/${nCredits}`,
             config
         )
 
