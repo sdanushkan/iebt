@@ -159,14 +159,13 @@ const Footer = () => {
 
                   </div>
 
-                  <div className='w-full w-full md:min-w-[200px] flex flex-col justify-center items-center md:items-start md:justify-start gap-2 ml-auto'>
+                  <div className='w-full md:min-w-[200px] flex flex-col justify-center items-center md:items-start md:justify-start gap-2 ml-auto'>
                     <p className='text-sm font-bold border-b-[2px] border-[#DA0C0C] gap-6 flex items-end text-center md:text-left text-white'>USE FULL LINKS </p>
                     <div className='px-4 flex flex-row flex-wrap gap-4 py-2 md:py-4 order-1 text-center md:text-start'>
                       <Link className='text-[10px] text-white/80'>About Us</Link>
                       <Link className='text-[10px] text-white/80'>Visit our virtual office</Link>
                       <Link className='text-[10px] text-white/80'>Book an appointment</Link>
-                      
-
+                    
                     </div>
                   </div>
               </div>
@@ -235,7 +234,7 @@ const Footer = () => {
                             :
                             levels?
                             levels.map(i=>(
-                            <Link className='text-[10px] text-white/80'>{i.name}</Link>
+                            <Link to={`/courses/faculties/${i.slug}/qualifications/credits`} className='text-[10px] text-white/80'>{i.name}</Link>
                             ))
                             :
                             ''

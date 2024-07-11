@@ -71,7 +71,8 @@ export const courseListReducer = (state = { courses: null }, action) => {
     switch (action.type) {
         case COURSE_LIST_REQUEST:
             return {
-                loading: true
+                loading: true,
+                courses: null
             }
 
         case COURSE_LIST_SUCCESS:
@@ -100,7 +101,8 @@ export const courseFilterListReducer = (state = { courses: null }, action) => {
     switch (action.type) {
         case COURSE_FILTER_LIST_REQUEST:
             return {
-                loading: true
+                loading: true,
+                courses: null
             }
 
         case COURSE_FILTER_LIST_SUCCESS:
@@ -129,7 +131,8 @@ export const popularCourseListReducer = (state = { courses: null }, action) => {
     switch (action.type) {
         case POPULAR_COURSE_LIST_REQUEST:
             return {
-                loading: true
+                loading: true,
+                courses: null
             }
 
         case POPULAR_COURSE_LIST_SUCCESS:
@@ -158,7 +161,8 @@ export const dualQualificationCourseListReducer = (state = { courses: null }, ac
     switch (action.type) {
         case DUAL_QUALIFICATION_COURSE_LIST_REQUEST:
             return {
-                loading: true
+                loading: true,
+                courses: null
             }
 
         case DUAL_QUALIFICATION_COURSE_LIST_SUCCESS:
@@ -188,7 +192,8 @@ export const facultyListReducer = (state = { faculties: null }, action) => {
     switch (action.type) {
         case FACULTY_LIST_REQUEST:
             return {
-                loading: true
+                loading: true,
+                faculties: null
             }
 
         case FACULTY_LIST_SUCCESS:
@@ -218,7 +223,8 @@ export const aboutDetailsReducer = (state = { about: null }, action) => {
     switch (action.type) {
         case ABOUT_DETAILS_REQUEST:
             return {
-                loading: true
+                loading: true,
+                about: null
             }
 
         case ABOUT_DETAILS_SUCCESS:
@@ -248,7 +254,8 @@ export const levelListReducer = (state = { levels: null }, action) => {
     switch (action.type) {
         case LEVEL_LIST_REQUEST:
             return {
-                loading: true
+                loading: true,
+                levels: null
             }
 
         case LEVEL_LIST_SUCCESS:

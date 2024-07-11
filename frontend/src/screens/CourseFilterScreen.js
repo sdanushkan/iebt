@@ -88,8 +88,9 @@ const CourseFilterScreen = () => {
   // }, [faculty,programe, qualification, credit])
 
   useEffect(() => {
+
     dispatch(getFilterCourseList(nFaculty, nPrograme, nQualification, nCredits))
-  }, [dispatch, nFaculty, nPrograme, nQualification, nCredits])
+  }, [dispatch, nFaculty, nPrograme, nQualification, nCredits, location])
 
   
   // useEffect(() => {
@@ -165,7 +166,7 @@ const CourseFilterScreen = () => {
                   "":
                   faculties?
                   faculties.map(i =>(
-                    <AccordionItem className='text-sm font-semibold overflow-hidden py-2' key={i.slug} aria-label={i.name} startContent={i.name} classNames={'w-full'}>
+                    <AccordionItem className='text-sm font-semibold overflow-hidden py-2' key={i.slug} aria-label={i.name} startContent={i.name}onClick={()=>setNPrograme('programes')} classNames={'w-full'}>
                       {
                         courseListLoading?
                           <div className='flex flex-col gap-2'>

@@ -148,9 +148,11 @@ const Header = () => {
                                   '':
                                   levels?
                                   levels.map(i => (
-                                    <Button variant='light' key={i.id} size='sm' className='text-left w-full'>
-                                      <Link to={`/level/${i.slug}`} className='text-left w-full'>{i.name}</Link>
-                                    </Button>
+                                    
+                                      <Link to={`/courses/faculties/${i.slug}/qualifications/credits`} className='text-left w-full'>
+                                        <Button variant='light' key={i.id} size='sm' className='text-left w-full flex justify-start'>{i.name}
+                                        </Button>
+                                      </Link>
                                   )):
                                   ''
                                 }
@@ -163,9 +165,13 @@ const Header = () => {
                                   '':
                                   faculties?
                                   faculties.map(i => (
-                                    <Button variant='light' key={i.id} size='sm' className='text-left w-full'>
-                                      <Link to={`/faculties/${i.slug}`} className='text-left w-full'>{i.name}</Link>
-                                    </Button>
+                                    
+                                      <Link to={`/courses/${i.slug}/programes/qualifications/credits`} className='text-left w-full'>
+                                        <Button variant='light' key={i.id} size='sm' className='text-left w-full flex justify-start'>
+                                          {i.name}
+                                        </Button>  
+                                      </Link>
+                                    
                                   )):
                                   ''
                                 }
