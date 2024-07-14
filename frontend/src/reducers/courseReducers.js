@@ -65,20 +65,44 @@ import {
     COURSE_DETAILS_FAIL,
     COURSE_DETAILS_RESET,
 
+    
+    APPLICATION_SEND_REQUEST,
+    APPLICATION_SEND_SUCCESS,
+    APPLICATION_SEND_FAIL,
+    APPLICATION_SEND_RESET,
+
+    SA_SEND_REQUEST,
+    SA_SEND_SUCCESS,
+    SA_SEND_FAIL,
+    SA_SEND_RESET,
+
+    CU_SEND_REQUEST,
+    CU_SEND_SUCCESS,
+    CU_SEND_FAIL,
+    CU_SEND_RESET,
+
+    EVENT_LIST_REQUEST,
+    EVENT_LIST_SUCCESS,
+    EVENT_LIST_FAIL,
+    EVENT_LIST_RESET,
+
+    STUDENT_VERIFY_CHECK_REQUEST,
+    STUDENT_VERIFY_CHECK_SUCCESS,
+    STUDENT_VERIFY_CHECK_FAIL,
+    STUDENT_VERIFY_CHECK_RESET,
+
 } from '../constants/courseConstants'
 
-export const courseListReducer = (state = { courses: null }, action) => {
+export const courseListReducer = (state = { }, action) => {
     switch (action.type) {
         case COURSE_LIST_REQUEST:
             return {
                 loading: true,
-                courses: null
             }
 
         case COURSE_LIST_SUCCESS:
             return {
                 loading: false,
-                courses: action.payload
             }
 
         case COURSE_LIST_FAIL:
@@ -89,7 +113,6 @@ export const courseListReducer = (state = { courses: null }, action) => {
 
         case COURSE_LIST_RESET:
             return {
-                courses: null
             }
 
         default:
@@ -97,12 +120,11 @@ export const courseListReducer = (state = { courses: null }, action) => {
     }
 }
 
-export const courseFilterListReducer = (state = { courses: null }, action) => {
+export const courseFilterListReducer = (state = { }, action) => {
     switch (action.type) {
         case COURSE_FILTER_LIST_REQUEST:
             return {
                 loading: true,
-                courses: null
             }
 
         case COURSE_FILTER_LIST_SUCCESS:
@@ -119,7 +141,6 @@ export const courseFilterListReducer = (state = { courses: null }, action) => {
 
         case COURSE_FILTER_LIST_RESET:
             return {
-                courses: null
             }
 
         default:
@@ -127,12 +148,11 @@ export const courseFilterListReducer = (state = { courses: null }, action) => {
     }
 }
 
-export const popularCourseListReducer = (state = { courses: null }, action) => {
+export const popularCourseListReducer = (state = { }, action) => {
     switch (action.type) {
         case POPULAR_COURSE_LIST_REQUEST:
             return {
                 loading: true,
-                courses: null
             }
 
         case POPULAR_COURSE_LIST_SUCCESS:
@@ -149,7 +169,6 @@ export const popularCourseListReducer = (state = { courses: null }, action) => {
 
         case POPULAR_COURSE_LIST_RESET:
             return {
-                courses: null
             }
 
         default:
@@ -157,12 +176,11 @@ export const popularCourseListReducer = (state = { courses: null }, action) => {
     }
 }
 
-export const dualQualificationCourseListReducer = (state = { courses: null }, action) => {
+export const dualQualificationCourseListReducer = (state = { }, action) => {
     switch (action.type) {
         case DUAL_QUALIFICATION_COURSE_LIST_REQUEST:
             return {
                 loading: true,
-                courses: null
             }
 
         case DUAL_QUALIFICATION_COURSE_LIST_SUCCESS:
@@ -179,7 +197,6 @@ export const dualQualificationCourseListReducer = (state = { courses: null }, ac
 
         case DUAL_QUALIFICATION_COURSE_LIST_RESET:
             return {
-                courses: null
             }
 
         default:
@@ -188,12 +205,11 @@ export const dualQualificationCourseListReducer = (state = { courses: null }, ac
 }
 
 
-export const facultyListReducer = (state = { faculties: null }, action) => {
+export const facultyListReducer = (state = {  }, action) => {
     switch (action.type) {
         case FACULTY_LIST_REQUEST:
             return {
                 loading: true,
-                faculties: null
             }
 
         case FACULTY_LIST_SUCCESS:
@@ -210,7 +226,6 @@ export const facultyListReducer = (state = { faculties: null }, action) => {
 
         case FACULTY_LIST_RESET:
             return {
-                faculties: null
             }
 
         default:
@@ -219,7 +234,7 @@ export const facultyListReducer = (state = { faculties: null }, action) => {
 }
 
 
-export const aboutDetailsReducer = (state = { about: null }, action) => {
+export const aboutDetailsReducer = (state = { }, action) => {
     switch (action.type) {
         case ABOUT_DETAILS_REQUEST:
             return {
@@ -241,7 +256,6 @@ export const aboutDetailsReducer = (state = { about: null }, action) => {
 
         case ABOUT_DETAILS_RESET:
             return {
-                about: null
             }
 
         default:
@@ -250,7 +264,7 @@ export const aboutDetailsReducer = (state = { about: null }, action) => {
 }
 
 
-export const levelListReducer = (state = { levels: null }, action) => {
+export const levelListReducer = (state = {  }, action) => {
     switch (action.type) {
         case LEVEL_LIST_REQUEST:
             return {
@@ -272,7 +286,6 @@ export const levelListReducer = (state = { levels: null }, action) => {
 
         case LEVEL_LIST_RESET:
             return {
-                levels: null
             }
 
         default:
@@ -280,7 +293,7 @@ export const levelListReducer = (state = { levels: null }, action) => {
     }
 }
 
-export const ourQualificationListReducer = (state = { qualifications: null }, action) => {
+export const ourQualificationListReducer = (state = {  }, action) => {
     switch (action.type) {
         case OUR_QUALIFICATION_LIST_REQUEST:
             return {
@@ -301,7 +314,6 @@ export const ourQualificationListReducer = (state = { qualifications: null }, ac
 
         case OUR_QUALIFICATION_LIST_RESET:
             return {
-                qualifications: null
             }
 
         default:
@@ -309,7 +321,7 @@ export const ourQualificationListReducer = (state = { qualifications: null }, ac
     }
 }
 
-export const ourQualificationDetailsReducer = (state = { qualification: null }, action) => {
+export const ourQualificationDetailsReducer = (state = {  }, action) => {
     switch (action.type) {
         case OUR_QUALIFICATION_DETAILS_REQUEST:
             return {
@@ -330,7 +342,6 @@ export const ourQualificationDetailsReducer = (state = { qualification: null }, 
 
         case OUR_QUALIFICATION_DETAILS_RESET:
             return {
-                qualification: null
             }
 
         default:
@@ -338,7 +349,7 @@ export const ourQualificationDetailsReducer = (state = { qualification: null }, 
     }
 }
 
-export const courseDetailsReducer = (state = { course: null }, action) => {
+export const courseDetailsReducer = (state = { }, action) => {
     switch (action.type) {
         case COURSE_DETAILS_REQUEST:
             return {
@@ -359,7 +370,6 @@ export const courseDetailsReducer = (state = { course: null }, action) => {
 
         case COURSE_DETAILS_RESET:
             return {
-                course: null
             }
 
         default:
@@ -368,7 +378,7 @@ export const courseDetailsReducer = (state = { course: null }, action) => {
 }
 
 
-export const dualQualificationListReducer = (state = { dualQualifications: null }, action) => {
+export const dualQualificationListReducer = (state = { }, action) => {
     switch (action.type) {
         case DUAL_QUALIFICATION_LIST_REQUEST:
             return {
@@ -389,7 +399,7 @@ export const dualQualificationListReducer = (state = { dualQualifications: null 
 
         case DUAL_QUALIFICATION_LIST_RESET:
             return {
-                dualQualifications: null
+    
             }
 
         default:
@@ -398,7 +408,7 @@ export const dualQualificationListReducer = (state = { dualQualifications: null 
 }
 
 
-export const dualQualificationCoursesListReducer = (state = { qualifications: null }, action) => {
+export const dualQualificationCoursesListReducer = (state = {  }, action) => {
     switch (action.type) {
         case DUAL_QUALIFICATION_COURSES_LIST_REQUEST:
             return {
@@ -419,7 +429,7 @@ export const dualQualificationCoursesListReducer = (state = { qualifications: nu
 
         case DUAL_QUALIFICATION_COURSES_LIST_RESET:
             return {
-                qualifications: null
+            
             }
 
         default:
@@ -450,6 +460,87 @@ export const dualQualificationCourseDetailsReducer = (state = { course: null }, 
             return {
                 course: null
             }
+
+        default:
+            return state
+    }
+}
+
+export const sendApplicationReducer = (state = {}, action) => {
+    switch (action.type) {
+        case APPLICATION_SEND_REQUEST:
+            return { loading: true }
+
+        case APPLICATION_SEND_SUCCESS:
+            return { loading: false, success:true }
+
+        case APPLICATION_SEND_FAIL:
+            return { loading: false, error: action.payload }
+
+        default:
+            return state
+    }
+}
+
+export const sendSAReducer = (state = {}, action) => {
+    switch (action.type) {
+        case SA_SEND_REQUEST:
+            return { loading: true }
+
+        case SA_SEND_SUCCESS:
+            return { loading: false, success:true }
+
+        case SA_SEND_FAIL:
+            return { loading: false, error: action.payload }
+
+        default:
+            return state
+    }
+}
+
+
+export const sendCUReducer = (state = {}, action) => {
+    switch (action.type) {
+        case CU_SEND_REQUEST:
+            return { loading: true }
+
+        case CU_SEND_SUCCESS:
+            return { loading: false, success:true }
+
+        case CU_SEND_FAIL:
+            return { loading: false, error: action.payload }
+
+        default:
+            return state
+    }
+}
+
+export const eventListReducer = (state = {}, action) => {
+    switch (action.type) {
+        case EVENT_LIST_REQUEST:
+            return { loading: true }
+
+        case EVENT_LIST_SUCCESS:
+            return { loading: false, success:true }
+
+        case EVENT_LIST_FAIL:
+            return { loading: false, error: action.payload }
+
+        default:
+            return state
+    }
+}
+
+export const studentVerificationReducer = (state = {}, action) => {
+    switch (action.type) {
+        case STUDENT_VERIFY_CHECK_REQUEST:
+            return { loading: true }
+
+        case STUDENT_VERIFY_CHECK_SUCCESS:
+            return { loading: false, student: action.payload }
+
+        case STUDENT_VERIFY_CHECK_FAIL:
+            return { loading: false, error: action.payload }
 
         default:
             return state

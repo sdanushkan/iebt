@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import {Input} from "@nextui-org/react";
 import {Textarea} from "@nextui-org/input";
 import { Button } from '@nextui-org/react'
@@ -9,16 +9,33 @@ import { RiSecurePaymentFill } from "react-icons/ri";
 import { useDispatch } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { FaUser } from 'react-icons/fa6';
+import { sendCU } from '../actions/courseActions';
 
 const ContactScreen = () => {
   const dispatch = useDispatch()
     const history = useNavigate()
     const location = useLocation()
 
+    const [email, setemail] = useState('')
+  const [mNumber, setmNumber] = useState('')
+  const [name, setname] = useState('')
+  const [subject, setsubject] = useState('')
+  const [discription, setdiscription] = useState('')
+
   useEffect(() => {
     window.scroll(0,0);
   }, [location]);
-  return (
+
+  const sendMail = () =>{
+    dispatch(sendCU({ 
+        "name": name,
+        "mNumber": mNumber,
+        "email": email,
+        "subject": subject,
+        "discription": discription,
+    }))
+  }
+  return ( 
     <div className='flex flex-col gap-14 '>
       <section className='relative'>
           <div className='h-[300px] w-full object-cover relative -z-40'>
@@ -74,6 +91,8 @@ const ContactScreen = () => {
                       }
                       className='w-full shadow-none rounded-none'
                       radius='sm'
+                      value={name} 
+                            onChange={(e) => setname(e.target.value)}
                       size='md'
                       // endContent={
                       //   // <VscSymbolKeyword />
@@ -84,6 +103,8 @@ const ContactScreen = () => {
                       placeholder="Email Address"
                       labelPlacement="outside"
                       variant="flat"
+                      value={email} 
+                            onChange={(e) => setemail(e.target.value)}
                       startContent={
                         <IoPersonCircle className="text-lg text-default-400 pointer-events-none flex-shrink-0" />
                       }
@@ -107,6 +128,8 @@ const ContactScreen = () => {
                       labelPlacement="outside"
                       variant="flat"
                       maxLength={10}
+                      value={mNumber} 
+                            onChange={(e) => setmNumber(e.target.value)}
                       startContent={
                         <div className="pointer-events-none flex items-center">
                           <span className="text-default-400 text-small">+94</span>
@@ -124,7 +147,8 @@ const ContactScreen = () => {
                       placeholder="Subject"
                       labelPlacement="outside"
                       variant="flat"
-                      
+                      value={subject} 
+                            onChange={(e) => setsubject(e.target.value)}
                       className='w-full shadow-none rounded-none'
                       radius='sm'
                       size='md'
@@ -139,8 +163,10 @@ const ContactScreen = () => {
                     placeholder="Enter your description"
                     className="w-full"
                     variant='flat'
+                    value={discription} 
+                            onChange={(e) => setdiscription(e.target.value)}
                   />
-                  <Button color='' className="hidden lg:flex bg-[#DA0C0C] text-white font-medium md:px-6 py-6 rounded-md">
+                  <Button onClick={sendMail} color='' className="hidden lg:flex bg-[#DA0C0C] text-white font-medium md:px-6 py-6 rounded-md">
                     <p>Submit</p>
                     <RiSecurePaymentFill  />
                   </Button>

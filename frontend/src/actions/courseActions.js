@@ -66,6 +66,31 @@ import {
     DUAL_QUALIFICATION_COURSE_DETAILS_FAIL,
     DUAL_QUALIFICATION_COURSE_DETAILS_RESET,
 
+    APPLICATION_SEND_REQUEST,
+    APPLICATION_SEND_SUCCESS,
+    APPLICATION_SEND_FAIL,
+    APPLICATION_SEND_RESET,
+
+    SA_SEND_REQUEST,
+    SA_SEND_SUCCESS,
+    SA_SEND_FAIL,
+    SA_SEND_RESET,
+
+    CU_SEND_REQUEST,
+    CU_SEND_SUCCESS,
+    CU_SEND_FAIL,
+    CU_SEND_RESET,
+
+    EVENT_LIST_REQUEST,
+    EVENT_LIST_SUCCESS,
+    EVENT_LIST_FAIL,
+    EVENT_LIST_RESET,
+
+    STUDENT_VERIFY_CHECK_REQUEST,
+    STUDENT_VERIFY_CHECK_SUCCESS,
+    STUDENT_VERIFY_CHECK_FAIL,
+    STUDENT_VERIFY_CHECK_RESET,
+
 } from '../constants/courseConstants'
 
 
@@ -480,7 +505,7 @@ export const getDualQualificationCourseDetails = (slug) => async (dispatch) => {
         }
 
         const { data } = await axios.get(
-            `/api/courses/qualification/courses/${slug}`,
+            `/api/courses/dual/qualification/courses/${slug}`,
             config
         )
 
@@ -493,6 +518,171 @@ export const getDualQualificationCourseDetails = (slug) => async (dispatch) => {
     } catch (error) {
         dispatch({
             type: DUAL_QUALIFICATION_COURSE_DETAILS_FAIL,
+            payload: error.response && error.response.data.detail
+                ? error.response.data.detail
+                : error.message,
+        })
+    }
+}
+
+export const sendApplication = (details) => async (dispatch) => {
+    try {
+        dispatch({
+            type: APPLICATION_SEND_REQUEST
+        })
+
+        const config = {
+            headers: {
+                'Content-type': 'application/json'
+            }
+        }
+
+        const { data } = await axios.post(
+            '/api/courses/send-application/',
+            details,
+            config
+        )
+
+        dispatch({
+            type: APPLICATION_SEND_SUCCESS,
+            payload: data
+        })
+
+    } catch (error) {
+        dispatch({
+            type: APPLICATION_SEND_FAIL,
+            payload: error.response && error.response.data.detail
+                ? error.response.data.detail
+                : error.message,
+        })
+    }
+}
+
+export const sendSA = (details) => async (dispatch) => {
+    try {
+        dispatch({
+            type: SA_SEND_REQUEST
+        })
+
+        const config = {
+            headers: {
+                'Content-type': 'application/json'
+            }
+        }
+
+        const { data } = await axios.post(
+            '/api/courses/send-sa/',
+            details,
+            config
+        )
+
+        dispatch({
+            type: SA_SEND_SUCCESS,
+            payload: data
+        })
+
+    } catch (error) {
+        dispatch({
+            type: SA_SEND_FAIL,
+            payload: error.response && error.response.data.detail
+                ? error.response.data.detail
+                : error.message,
+        })
+    }
+}
+
+export const sendCU = (details) => async (dispatch) => {
+    try {
+        dispatch({
+            type: CU_SEND_REQUEST
+        })
+
+        const config = {
+            headers: {
+                'Content-type': 'application/json'
+            }
+        }
+
+        const { data } = await axios.post(
+            '/api/courses/send-cu/',
+            details,
+            config
+        )
+
+        dispatch({ 
+            type: CU_SEND_SUCCESS,
+            payload: data
+        })
+
+    } catch (error) {
+        dispatch({
+            type: CU_SEND_FAIL,
+            payload: error.response && error.response.data.detail
+                ? error.response.data.detail
+                : error.message,
+        })
+    }
+}
+
+export const getEventList = () => async (dispatch) => {
+    try {
+        dispatch({
+            type: EVENT_LIST_REQUEST
+        })
+
+        const config = {
+            headers: {
+                'Content-type': 'application/json',
+            }
+        }
+
+        const { data } = await axios.get(
+            `/api/courses/events/list`,
+            config
+        )
+
+        dispatch({
+            type: EVENT_LIST_SUCCESS,
+            payload: data
+        })
+
+
+    } catch (error) {
+        dispatch({
+            type: EVENT_LIST_FAIL,
+            payload: error.response && error.response.data.detail
+                ? error.response.data.detail
+                : error.message,
+        })
+    }
+}
+
+export const checkVerifiedStudent = (NIC) => async (dispatch) => {
+    try {
+        dispatch({
+            type: STUDENT_VERIFY_CHECK_REQUEST
+        })
+
+        const config = {
+            headers: {
+                'Content-type': 'application/json',
+            }
+        }
+
+        const { data } = await axios.get(
+            `/api/courses/studentVerification/${NIC}`,
+            config
+        )
+
+        dispatch({
+            type: STUDENT_VERIFY_CHECK_SUCCESS,
+            payload: data
+        })
+
+
+    } catch (error) {
+        dispatch({
+            type: STUDENT_VERIFY_CHECK_FAIL,
             payload: error.response && error.response.data.detail
                 ? error.response.data.detail
                 : error.message,

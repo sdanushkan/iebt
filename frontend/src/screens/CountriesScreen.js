@@ -49,11 +49,18 @@ import ReactPlayer from 'react-player'
 import CountUp from 'react-countup';
 
 import sdv from '../assets/sdv.mp4'
+import { sendSA } from '../actions/courseActions';
 
 const CountriesScreen = () => {
   // const WebView = require('@luxbit/react-electron-webview');
 
   const [selected, setSelected] = React.useState("london");
+  const [email, setemail] = useState('')
+  const [mNumber, setmNumber] = useState('')
+  const [YOS, setYOS] = useState('')
+  const [PS, setPS] = useState('')
+  const [SI, setSI] = useState('')
+
 
   const dispatch = useDispatch() 
   const history = useNavigate()
@@ -66,9 +73,15 @@ const CountriesScreen = () => {
   const { error: testimonialListError, loading: testimonialListLoading, testimonials } = testimonialList
 
   useEffect(() => {
-    dispatch(getCountryList())
+    if (!countries){
+      dispatch(getCountryList())
+    }
+
+  }, [dispatch, countries])
+
+  useEffect(() => {
     dispatch(getTestimonialList('abroad'))
-  }, [dispatch])
+  }, [])
 
 
   const [startDate, setStartDate] = useState(null);
@@ -96,6 +109,16 @@ const CountriesScreen = () => {
     return day !== 0; // Disable all Sundays
   };
 
+  const sendMail = () =>{
+    dispatch(sendSA({ 
+        "mNumber": mNumber,
+        "email": email,
+        "YOS": YOS,
+        "PS": PS,
+        "SI": SI,
+    }))
+  }
+ 
   return ( 
     <div className='max-w-screen flex flex-col gap-12 pb-12 overflow-x-hidden'>
       {/* <section className='w-full h-fit relative bg-[#ffecef] max-w-screen overflow-hidden'>
@@ -138,7 +161,7 @@ const CountriesScreen = () => {
             </Swiper>
           </div>
 
-          <div className='h-[400px] lg:h-[500px] w-max-[1024px] mx-auto relative -z-10 flex items-start justify-end'>
+          <div className='h-[400px] lg:h-[500px] w-max-[1024px] mx-auto relative z-30 flex items-start justify-end'>
               <div className='h-full lg:w-[30%]'>
               <div className='h-full w-full flex flex-col justify-center relative'>
                 <img src='https://www.augusta.edu/studyabroad/images/study-abroad-banner.png' alt='' className='h-full w-full absolute object-cover'/>
@@ -146,8 +169,10 @@ const CountriesScreen = () => {
                 <div className='h-full w-full flex flex-col justify-center px-8 md:border-l-[10px] border-white gap-4 relative md:mt-24'>
                   <p className='text-2xl font-bold'>Register</p>
                   <div className='grid grid-cols-1 gap-6'>
-                    <Input isClearable  variant='flat' type='email' placeholder='Email'></Input>
-                    <Input isClearable  variant='flat' type='number' placeholder='Mobile number' startContent={
+                    <Input isClearable  variant='flat' type='email' value={email} 
+                            onChange={(e) => setemail(e.target.value)} placeholder='Email'></Input>
+                    <Input isClearable  variant='flat' type='number' value={mNumber} 
+                            onChange={(e) => setmNumber(e.target.value)} placeholder='Mobile number' startContent={
                       <div className="pointer-events-none flex items-center">
                         <span className="text-default-400 text-small">+94</span>
                       </div>
@@ -165,6 +190,8 @@ const CountriesScreen = () => {
                       placeholder='Year of Study'
                       required
                       size='md'
+                      selectedKeys={YOS}
+                      onSelectionChange={setYOS}
 
                   >
                       <SelectItem key='2025' className=''>
@@ -187,7 +214,8 @@ const CountriesScreen = () => {
                         placeholder='Preferred Study Destination'
                         required
                         size='md'
-
+                        selectedKeys={PS}
+                        onSelectionChange={setPS}
                     >
                         {
                           loading?
@@ -208,6 +236,8 @@ const CountriesScreen = () => {
                         placeholder='Study Intake'
                         required
                         size='md'
+                        selectedKeys={SI}
+                        onSelectionChange={setSI}
 
                     >
                         <SelectItem key='January – March' className=''>
@@ -224,7 +254,7 @@ const CountriesScreen = () => {
                         </SelectItem>
                     </Select>
                   </div>
-                  <Button variant='solid' color='danger' endContent={
+                  <Button variant='solid' color='danger' onClick={sendMail} endContent={
                       <GrFormNextLink />
                   } className='w-fit font-medium bg-[#DA0C0C] text-white mt-4'>
                     Register now
@@ -465,7 +495,7 @@ const CountriesScreen = () => {
               <div className='w-fit mx-auto flex flex-wrap items-center justify-center gap-2 md:gap-4 '>
 
                 {
-                  countries.filter(f => f.category.slug == 'main').map(i => (
+                  countries.filter(f => f.category.name == 'Main').map(i => (
                     <Link key={i.slug} to={`/countries/${i.slug}`} className='bg-white w-[40%] sm:w-[175px] h-[125px] border-1 border-gray-200 gap-8 flex flex-col rounded-[8px] relative overflow-hidden duration-500'>
                       <div className='h-full p-6 flex flex-row justify-between'>
                         <div className='flex flex-col relative z-30 gap-1 mt-auto'>
@@ -622,7 +652,7 @@ const CountriesScreen = () => {
               <div className='w-fit mx-auto flex flex-wrap items-center justify-center gap-2 md:gap-4 '>
 
                 {
-                  countries.filter(f => f.category.slug == 'eu').map(i => (
+                  countries.filter(f => f.category.name == 'EU').map(i => (
                     <Link key={i.slug} to={`/countries/${i.slug}`} className='bg-white w-[40%] sm:w-[175px] h-[125px] border-1 border-gray-200 gap-8 flex flex-col rounded-[8px] relative overflow-hidden duration-500'>
                       <div className='h-full p-6 flex flex-row justify-between'>
                         <div className='flex flex-col relative z-30 gap-1 mt-auto'>
@@ -779,7 +809,7 @@ const CountriesScreen = () => {
               <div className='w-fit mx-auto flex flex-wrap items-center justify-center gap-2 md:gap-4 '>
 
                 {
-                  countries.filter(f => f.category.slug == 'medicine').map(i => (
+                  countries.filter(f => f.category.name == 'Medicine').map(i => (
                     <Link key={i.slug} to={`/countries/${i.slug}`} className='bg-white w-[40%] sm:w-[175px] h-[125px] border-1 border-gray-200 gap-8 flex flex-col rounded-[8px] relative overflow-hidden duration-500'>
                       <div className='h-full p-6 flex flex-row justify-between'>
                         <div className='flex flex-col relative z-30 gap-1 mt-auto'>

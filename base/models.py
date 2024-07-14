@@ -287,3 +287,19 @@ class DualQualificationCourse(models.Model):
     def save(self, *args, **kwargs):
         self.slug = slugify(self.name)
         super().save(*args, **kwargs )
+
+
+class StudentVerification(models.Model):
+    name = models.CharField(max_length=2000, null=True, blank=True)
+    nic = models.CharField(null=True, blank=True, unique=True)
+
+    def __str__(self):
+        return self.name
+    
+
+class Event(models.Model):
+    event = models.CharField(max_length=2000, null=True, blank=True)
+    date = models.DateField(null=True, blank=True, unique=True)
+
+    def __str__(self):
+        return self.event

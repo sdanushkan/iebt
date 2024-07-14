@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Faculty, Level, QualificationApproval, Course, OurQualification, Contact, Country, FAQ, About, AbroadApplication, CountryCategory, Testimonial, DualQualificationCourse,Page, DualQualification
+from .models import Faculty, Level, QualificationApproval, Course, OurQualification, Contact, Country, FAQ, About, AbroadApplication, CountryCategory, Testimonial, DualQualificationCourse,Page, DualQualification, StudentVerification, Event
 
 class FacultySerializer(serializers.ModelSerializer):
     class Meta:
@@ -156,4 +156,16 @@ class DualQualificationCourseSerializer(serializers.ModelSerializer):
     course = CourseSerializer() 
     class Meta:
         model = DualQualificationCourse
+        fields = '__all__'
+
+
+class StudentVerificationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = StudentVerification
+        fields = '__all__'
+
+
+class EventSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Event
         fields = '__all__'

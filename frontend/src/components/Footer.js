@@ -29,9 +29,13 @@ const Footer = () => {
     const { error:levelListError, loading:levelListLoading, levels } = levelList
 
     useEffect(() => {
-        dispatch(getCourseList('faculties', 'programes', 'qualifications', 'credits'))
-        dispatch(getCountryList())
-    }, [dispatch])
+        if(!courses){
+          dispatch(getCourseList('faculties', 'programes', 'qualifications', 'credits'))
+        }
+        if(!countries){
+          dispatch(getCountryList())
+        }
+    }, [dispatch, courses, countries])
 
     useEffect(() => {
         window.scroll(0,0);
@@ -99,30 +103,18 @@ const Footer = () => {
                     <div className='px-4 flex flex-col gap-2 order-1 text-center md:text-start'>
                       <p className='font-bold  gap-6 flex items-end text-center text-sm md:text-left text-white uppercase'>European countries</p>
                       <div className='flex w-full flex-wrap gap-2 text-sm text-white/50 '>
-                        <p>Austria </p> 
-                        <p>Belgium</p> 
-                        <p>Bulgaria</p>
-                        <p>Croatia</p>
-                        <p>Republic of Cyprus</p>
-                        <p>Denmark</p>
-                        <p>Estonia</p>
-                        <p>Finland</p>
-                        <p>France</p>
-                        <p>Germany</p>
-                        <p>Greece</p>
-                        <p>Hungary</p>
-                        <p>Ireland</p>
-                        <p>Latvia</p>
-                        <p>Malta</p>
-                        <p>Netherlands</p>
-                        <p>Luxembourg</p>
-                        <p>Lithuania</p>
-                        <p>Portugal</p>
-                        <p>Latvia</p>
-                        <p>Malta</p>
-                        <p>Romania</p>
-                        <p>Spain</p>
-                        <p>Slovenia</p>
+                      {
+                        loading?
+                        '':
+                        countries?
+                        countries.filter(f => f.category.slug='eu' ).map(i =>(
+                          <Link to={`/countries/${i.slug}`}>{i.name}</Link>
+                        ))
+                        :
+                        ''
+
+                      }
+                        
                         {/* {
                           loading?
                           <Link className='text-[10px] text-white/80'></Link>

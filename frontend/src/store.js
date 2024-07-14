@@ -2,8 +2,8 @@ import { combineReducers, applyMiddleware } from 'redux'
 import { thunk }  from 'redux-thunk'
 import { configureStore } from '@reduxjs/toolkit'
 // import { composeWithDevTools } from 'redux-devtools-extension'
-import { aboutDetailsReducer, courseDetailsReducer, courseFilterListReducer, courseListReducer, dualQualificationCourseDetailsReducer, dualQualificationCourseListReducer, dualQualificationCoursesListReducer, dualQualificationListReducer, facultyListReducer, levelListReducer, ourQualificationDetailsReducer, ourQualificationListReducer, popularCourseListReducer } from './reducers/courseReducers'
-import { countryListReducer, testimonialListReducer } from './reducers/abroadReducers'
+import { aboutDetailsReducer, courseDetailsReducer, courseFilterListReducer, courseListReducer, dualQualificationCourseDetailsReducer, dualQualificationCourseListReducer, dualQualificationCoursesListReducer, dualQualificationListReducer, eventListReducer, facultyListReducer, levelListReducer, ourQualificationDetailsReducer, ourQualificationListReducer, popularCourseListReducer, sendApplicationReducer, studentVerificationReducer } from './reducers/courseReducers'
+import { countryDetailsReducer, countryListReducer, testimonialListReducer } from './reducers/abroadReducers'
 // import { countryListReducer } from './reducers/countryReducers'
 // import { applicationCreateReducer, contactCreateReducer, serviceListReducer } from './reducers/serviceReducers'
 // import { userActivationReducer, userForgotPasswordLinkReducer, userForgotPasswordReducer, userLoginReducer, userRegisterReducer } from './reducers/userReducers'
@@ -26,6 +26,12 @@ const reducer = combineReducers({
 
     countryList :countryListReducer,
     testimonialList : testimonialListReducer,
+
+    sendApplication : sendApplicationReducer,
+    
+    eventList: eventListReducer,
+    studentVerification: studentVerificationReducer,
+    countryDetails: countryDetailsReducer,
     
 })
 

@@ -52,7 +52,7 @@ import CountUp from 'react-countup';
 
 import sdv from '../assets/sdv.mp4'
 import { FaArrowDown } from "react-icons/fa6";
-import { getDualQualificationCourseList, getDualQualificationCoursesList } from '../actions/courseActions';
+import { getDualQualificationCourseDetails, getDualQualificationCourseList, getDualQualificationCoursesList } from '../actions/courseActions';
 import { usePDF } from 'react-to-pdf';
 
 const DQSecondPage = () => {
@@ -68,9 +68,9 @@ const DQSecondPage = () => {
     const { error, loading, qualifications } = dualQualificationCoursesList
     
     useEffect(() => {
-      if (qualification){
+      if (qualification){ 
         dispatch(getDualQualificationCoursesList(qualification))
-      }
+      } 
     }, [dispatch])
     
   return (

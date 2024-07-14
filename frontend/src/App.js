@@ -20,6 +20,7 @@ import DQSecondPage from './screens/DQSecondPage'
 import DQCourseScreen from './screens/DQCourseScreen'
 import VerifyCertificatScreen from './screens/VerifyCertificatScreen'
 import StudentPortalScreen from './screens/StudentPortalScreen'
+import ELibraryScreen from './screens/ELibraryScreen'
 
 const App = () => {
   return ( 
@@ -36,12 +37,14 @@ const App = () => {
         <Route path='verify' element={<VerifyCertificatScreen/>} />
         <Route path='contact' element={<ContactScreen/>} /> 
         <Route path='dual' element={<DualQualificationScreen/>} /> 
-        <Route path='dual/:qualification' element={<DQSecondPage/>} /> 
+        <Route path='dual/:qualification' element={<DQSecondPage/>} />
+        <Route path='qualification/:qualification' element={<DQSecondPage/>} /> 
         <Route path='dual/courses/:course' element={<DQCourseScreen/>} /> 
         <Route path='abroad/about' element={<AbroadAboutUsScreen/>} />  
         <Route path='countries/:country' element={<CountryScreen/>} />
         <Route path='courses/:courseSlug' element={<CourseScreen/>} /> 
         <Route path='abroad'element={<CountriesScreen/>} />
+        <Route path='e_library'element={<ELibraryScreen/>} />
         <Route path='awarding-body/:name' element={<AwardingBodyScreen/>} />
         <Route path='courses/:faculty/:programe/:award/:credit' element={<CourseFilterScreen/>} />
         {/* <Route path=':faculty/:programe/:award/:credit/:keyword' element={<CourseFilterScreen/>} /> */}

@@ -1,0 +1,28 @@
+<!-- templates/email/example_email.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ subject }}</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .container { width: 80%; margin: 0 auto; padding: 20px; }
+        .header { background: #f2f2f2; padding: 10px; }
+        .content { padding: 20px; }
+        .footer { background: #f2f2f2; padding: 10px; text-align: center; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>{{ subject }}</h1>
+        </div>
+        <div class="content">
+            <p>{{ message }}</p>
+        </div>
+        <div class="footer">
+            <p>&copy; 2024 Your Company</p>
+        </div>
+    </div>
+</body>
+</html>

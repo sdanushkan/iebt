@@ -46,3 +46,15 @@ def createAbroadApplication(request):
 
     serializer = AbroadApplicationSerializer(abrod_application, many=False)
     return Response(serializer.data)
+
+
+@api_view(['GET'])
+def getCountry(request, slug):
+    try:
+        countries = Country.objects.get(slug=slug)
+        serializer = CountrySerializer(countries, many=False)
+        return Response(serializer.data)
+
+    except Country.DoesNotExist:
+        message = {'detail': 'No Country Found'}
+        return Response(message)

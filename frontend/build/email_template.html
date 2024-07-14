@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Study Abroad Application</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+        .container {
+            width: 100%;
+            max-width: 800px;
+            margin: auto;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+        }
+        .header {
+            text-align: center;
+            padding-bottom: 20px;
+        }
+        .section {
+            margin-bottom: 20px;
+            padding: 20px;
+        }
+        .section-title {
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+        .field {
+            margin-bottom: 10px;
+        }
+        .field label {
+            display: block;
+            font-weight: bold;
+        }
+        .field p {
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #fff;
+        }
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        .table th, .table td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: left;
+        }
+        .table th {
+            background-color: #f2f2f2;
+        }
+        .footer {
+            text-align: center;
+            padding-top: 20px;
+            font-size: 12px;
+            color: #666;
+        }
+    </style>
+</head>
+<body class="body">
+    <div class="container">
+        {% csrf_token %}
+        <div class="header">
+            <h1>Study Abroad Application</h1>
+            <p>Application Date: {{date}}</p>
+        </div>
+        <div class="section">
+            <div class="section-title">Personal Information</div>
+            <div class="field">
+                <label for="name">01. Name:</label>
+                <p id="name">{{Name}}</p>
+            </div>
+            <div class="field">
+                <label for="contact-number">02. Contact Number:</label>
+                <p id="contact-number">{{Number}}</p>
+            </div>
+            <div class="field">
+                <label for="email">03. Email:</label>
+                <p id="email">{{Email}}</p>
+            </div>
+            <div class="field">
+                <label for="dob">04. Date of Birth:</label>
+                <p id="dob">{{DOB}}</p>
+            </div>
+            <div class="field">
+                <label for="status">05. Applicant Status:</label>
+                <p id="status">{{sex}}</p>
+            </div>
+            <div class="field">
+                <label for="dependents">06. Dependents:</label>
+                <p id="dependents">{{Dependents}}</p>
+            </div>
+            <div class="field">
+                <label for="funds">07. Show funds:</label>
+                <p id="funds">{{funds}}</p>
+            </div>
+        </div>
+        <div class="section">
+            <div class="section-title">Educational Qualification</div>
+            <div class="field">
+                <label for="olevel1-year">01. GCE Ordinary Level – Attempt 1 Year:</label>
+                <p id="olevel1-year">{{OLA1Y}}</p>
+            </div>
+            <div class="field">
+                <label>Subjects & Grades:</label>
+                <table class="table">
+                    <tr>
+                        <th>Subject</th>
+                        <th>Grade</th> 
+                    </tr>
+                    <tr><td>{{OLS1A1}}</td><td>{{OLS1A1G}}</td></tr>
+                    <tr><td>{{OLS2A1}}</td><td>{{OLS2A1G}}</td></tr>
+                    <tr><td>{{OLS3A1}}</td><td>{{OLS3A1G}}</td></tr>
+                    <tr><td>{{OLS4A1}}</td><td>{{OLS4A1G}}</td></tr>
+                    <tr><td>{{OLS5A1}}</td><td>{{OLS5A1G}}</td></tr>
+                    <tr><td>{{OLS6A1}}</td><td>{{OLS6A1G}}</td></tr>
+                    <tr><td>{{OLS7A1}}</td><td>{{OLS7A1G}}</td></tr>
+                    <tr><td>{{OLS8A1}}</td><td>{{OLS8A1G}}</td></tr>
+                    <tr><td>{{OLS9A1}}</td><td>{{OLS9A1G}}</td></tr>
+                </table>
+            </div>
+            <div class="field">
+                <label for="olevel2-year">02. GCE Ordinary Level – Attempt 2 Year:</label>
+                <p id="olevel2-year">{{OLA2Y}}</p>
+            </div>
+            <div class="field">
+                <label>Subjects & Grades:</label>
+                <table class="table">
+                    <tr>
+                        <th>Subject</th>
+                        <th>Grade</th>
+                    </tr>
+                    <tr><td>{{OLS1A2}}</td><td>{{OLS1A2G}}</td></tr>
+                    <tr><td>{{OLS2A2}}</td><td>{{OLS2A2G}}</td></tr>
+                    <tr><td>{{OLS3A2}}</td><td>{{OLS3A2G}}</td></tr>
+                    <tr><td>{{OLS4A2}}</td><td>{{OLS4A2G}}</td></tr>
+                    <tr><td>{{OLS5A2}}</td><td>{{OLS5A2G}}</td></tr>
+                    <tr><td>{{OLS6A2}}</td><td>{{OLS6A2G}}</td></tr>
+                    <tr><td>{{OLS7A2}}</td><td>{{OLS7A2G}}</td></tr>
+                    <tr><td>{{OLS8A2}}</td><td>{{OLS8A2G}}</td></tr>
+                    <tr><td>{{OLS9A2}}</td><td>{{OLS9A2G}}</td></tr>
+                </table>
+            </div>
+            <div class="field">
+                <label for="alevel1-year">03. GCE Advanced Level – Attempt 1 Year:</label>
+                <p id="alevel1-year">{{ALA1Y}}</p>
+            </div>
+            <div class="field">
+                <label>Subjects & Grades:</label>
+                <table class="table">
+                    <tr>
+                        <th>Subject</th>
+                        <th>Grade</th>
+                    </tr>
+                    <tr><td>{{ALS1A1}}</td><td>{{ALS1A1G}}</td></tr>
+                    <tr><td>{{ALS2A1}}</td><td>{{ALS2A1G}}</td></tr>
+                    <tr><td>{{ALS3A1}}</td><td>{{ALS3A1G}}</td></tr>
+                    <tr><td>{{ALS4A1}}</td><td>{{ALS4A1G}}</td></tr>
+                </table>
+            </div>
+            <div class="field">
+                <label for="alevel2-year">04. GCE Advanced Level – Attempt 2 Year:</label>
+                <p id="alevel2-year">{{ALA2Y}}</p>
+            </div>
+            <div class="field">
+                <label>Subjects & Grades:</label>
+                <table class="table">
+                    <tr>
+                        <th>Subject</th>
+                        <th>Grade</th>
+                    </tr>
+                    <tr><td>{{ALS1A2}}</td><td>{{ALS1A2G}}</td></tr>
+                    <tr><td>{{ALS2A2}}</td><td>{{ALS2A2G}}</td></tr>
+                    <tr><td>{{ALS3A2}}</td><td>{{ALS3A2G}}</td></tr>
+                    <tr><td>{{ALS4A2}}</td><td>{{ALS4A2G}}</td></tr>
+                </table>
+            </div>
+            <div class="field">
+                <label for="higher-edu">02. Higher Education Qualifications:</label>
+                <p id="higher-edu">{{Qualifications}}</p>
+            </div>
+            <div class="field">
+                <label>Higher Education Qualifications Details ({Year}, Institute):</label>
+                <table class="table">
+                    <tr>
+                        <th>Subject</th>
+                        <th>Year</th>
+                        <th>Grade</th>
+                    </tr>
+                    <tr><td>{{HEQ1}}</td><td>{{HEQ1Y}}</td><td>{{HEQ1G}}</td></tr>
+                    <tr><td>{{HEQ2}}</td><td>{{HEQ2Y}}</td><td>{{HEQ2G}}</td></tr>
+                    <tr><td>{{HEQ3}}</td><td>{{HEQ3Y}}</td><td>{{HEQ3G}}</td></tr>
+                    <tr><td>{{HEQ4}}</td><td>{{HEQ4Y}}</td><td>{{HEQ4G}}</td></tr>
+                    <tr><td>{{HEQ5}}</td><td>{{HEQ5Y}}</td><td>{{HEQ5G}}</td></tr>
+                </table>
+            </div>
+        </div>
+        <div class="section">
+            <div class="section-title">English Language Proficiency</div>
+            <div class="field">
+                <label for="english-olevel">01. Ordinary Level:</label>
+                <p id="english-olevel">{{OLEG}}</p>
+            </div>
+            <div class="field">
+                <label for="english-alevel">02. Advanced Level:</label>
+                <p id="english-alevel">{{ALG}}</p>
+            </div>
+            <div class="field">
+                <label for="english-ielts">03. IELTS or PTE:</label>
+                <p id="english-ielts">{{IELTSG}}</p>
+            </div>
+        </div>
+        <div class="section">
+            <div class="section-title">Work Experience</div>
+            <div class="field">
+                <label for="work-experience">Employer/ Company, Year, Position:</label>
+                <table class="table">
+                    <tr>
+                        <th>Employer</th>
+                        <th>Year</th>
+                        <th>Position</th>
+                    </tr>
+                    <tr><td>{{company1}}</td><td>{{year1}}</td><td>{{position1}}</td></tr>
+                    <tr><td>{{company2}}</td><td>{{year2}}</td><td>{{position2}}</td></tr>
+                    <tr><td>{{company3}}</td><td>{{year3}}</td><td>{{position3}}</td></tr>
+                    <tr><td>{{company4}}</td><td>{{year4}}</td><td>{{position4}}</td></tr>
+                    <!-- <tr><td>{{company5}}</td><td>{{year5}}</td><td>{{position5}}</td></tr>
+                    <tr><td>{{company6}}</td><td>{{year6}}</td><td>{{position6}}</td></tr>
+                    <tr><td>{{company7}}</td><td>{{year7}}</td><td>{{position7}}</td></tr> -->
+                </table>
+            </div>
+        </div>
+        <div class="section">
+            <div class="section-title">Preferred Country & Intake</div>
+            <div class="field">
+                <label for="preferred-country">Preferred Countries:</label>
+                <table class="table">
+                    <tr>
+                        <th>Preferred Countries</th>
+                    </tr>
+                    <tr><td>{{c1}}</td></tr>
+                    <tr><td>{{c2}}</td></tr>
+                    <tr><td>{{c3}}</td></tr>
+                    <tr><td>{{c4}}</td></tr>
+                    <tr><td>{{c5}}</td></tr>
+                </table>
+            </div>
+            <div class="field">
+                <label for="preferred-intake">Preferred Intake:</label>
+                <table class="table">
+                    <tr>
+                        <th>Preferred Intake</th>
+                    </tr>
+                    <tr><td>{{i1}}</td></tr>
+                    <tr><td>{{i2}}</td></tr>
+                    <tr><td>{{i3}}</td></tr>
+                    <tr><td>{{i4}}</td></tr>
+                    <tr><td>{{i5}}</td></tr>
+                </table>
+            </div>
+        </div>
+        <div class="footer">
+            <p>This is an automated application form. Please do not reply.</p>
+        </div>
+    </div>
+</body>
+</html>

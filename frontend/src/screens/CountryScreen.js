@@ -6,7 +6,7 @@ import {Table, TableHeader, TableColumn, TableBody, TableRow, TableCell, getKeyV
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { find } from 'lodash';
-import { getCountryList } from '../actions/abroadActions';
+import { getCountryDetails, getCountryList } from '../actions/abroadActions';
 import {Breadcrumbs, BreadcrumbItem} from "@nextui-org/react";
 import {Textarea} from "@nextui-org/input";
 import { RiSecurePaymentFill } from "react-icons/ri";
@@ -34,49 +34,49 @@ const CountryScreen = () => {
     const history = useNavigate()
     const location = useLocation()
 
-    const countryList = useSelector(state => state.countryList)
-    const { error: countryListError, loading: countryListLoading, countries } = countryList
+    const countryDetails = useSelector(state => state.countryDetails)
+    const { error: countryDetailsError, loading: countryDetailsLoading, country: countryD } = countryDetails
 
     useEffect(() => {
-        if (countries){
-          dispatch(getCountryList())
+        if (!countryD){
+          dispatch(getCountryDetails(country))
         }
-    }, [dispatch])
+    }, [dispatch, country, countryD])
 
     useEffect(() => {
         window.scroll(0,0);
       }, [location]);
 
-    useEffect(() => {
-        if (country) {
-            setNContry(countries.find( f => f.slug == country))
-        }
-    }, [country])
+
   return (
     <div className='w-full h-fit'>
         {
-            nCountry?
+            countryD?
             <section className='relative'>
-                
-                <div className='h-[400px] w-full object-cover relative -z-40'>
-                  <div className='h-[400px] w-full object-cover absolute top-0 -z-0 bg-black/50 flex items-center justify-center'>
-                    <p className='text-4xl font-bold text-white'>{nCountry.name}</p>
+                 
+                <div className='h-[300px] w-full object-cover relative -z-40'>
+                  <div className='h-[300px] w-full object-cover absolute top-0 -z-0 bg-black/50 flex items-center justify-center'>
+                    <p className='text-4xl font-bold text-white'>{countryD.name}</p>
                   </div>
-                  <img src={nCountry.image} alt='' className='h-[400px] w-full object-cover relative -z-40' />
+                  <img src={countryD.image} alt='' className='h-[300px] w-full object-cover relative -z-40' />
                   
                 </div>
-                
-                
-            </section>:
+                  
+                  
+              </section>
+            :
             ''
         }
 
         {
-          nCountry?
+          countryD?
           <section className='h-fit w-full'>
             <div className='h-fit w-full max-w-[1024px] mx-auto px-8 py-8 grid grid-cols-1 lg:grid-cols-10'>
-              <div className="flex w-full flex-col gap-4 col-span-6">
-                <p className='text-xl font-bold border-dotted border-b-[2px] border-red-500 py-2'>Study in {nCountry.name}</p>
+              {
+                countryD.discription==''?
+                '':
+                <div className="flex w-full flex-col gap-4 col-span-6">
+                <p className='text-xl font-bold border-dotted border-b-[2px] border-red-500 py-2'>Study in {countryD.name}</p>
                 <Tabs aria-label="Options" 
                   classNames={{
                     tabList: "",
@@ -87,15 +87,15 @@ const CountryScreen = () => {
                   size='lg'
                 >
                   {
-                    nCountry.discription != "" ?
-                    <Tab className='' key={`Study in ${nCountry.name}`} title={`Study in ${nCountry.name}`}>
+                    countryD.discription != "" ?
+                    <Tab className='' key={`Study in ${countryD.name}`} title={`Study in ${countryD.name}`}>
                       <div className={
-                        nCountry.discription == ""?
+                        countryD.discription == ""?
                         'h-fit hidden bg-red-50 p-8 rounded-[8px] flex-col gap-4 ':
                         'h-fit bg-red-50 p-8 rounded-[8px] flex flex-col gap-4 '
                       }>
                         {
-                          parse(nCountry.discription)
+                          parse(countryD.discription)
                         } 
                       </div> 
                     </Tab>
@@ -104,15 +104,15 @@ const CountryScreen = () => {
                   }
                
                   {
-                    nCountry.details_and_scholarship != "" ?
+                    countryD.details_and_scholarship != "" ?
                     <Tab className='' key="Details And Scholarship" title="Details And Scholarship">
                       <div className={
-                        nCountry.details_and_scholarship == ""?
+                        countryD.details_and_scholarship == ""?
                         'h-fit hidden bg-red-50 p-8 rounded-[8px] flex-col gap-4 ':
                         'h-fit bg-red-50 p-8 rounded-[8px] flex flex-col gap-4 '
                       }>
                         {
-                          parse(nCountry.details_and_scholarship)
+                          parse(countryD.details_and_scholarship)
                         } 
                       </div> 
                     </Tab>
@@ -120,15 +120,15 @@ const CountryScreen = () => {
                     ''
                   }
                   {
-                    nCountry.visa_reqrequirementi != "" ?
+                    countryD.visa_reqrequirementi != "" ?
                     <Tab className='' key="Student Visa Requirements" title="Student Visa Requirements">
                       <div className={
-                        nCountry.visa_reqrequirementi == ""?
+                        countryD.visa_reqrequirementi == ""?
                         'h-fit hidden bg-red-50 p-8 rounded-[8px] flex-col gap-4 ':
                         'h-fit bg-red-50 p-8 rounded-[8px] flex flex-col gap-4 '
                       }>
                         {
-                          parse(nCountry.visa_reqrequirementi)
+                          parse(countryD.visa_reqrequirementi)
                         } 
                       </div> 
                     </Tab>
@@ -139,15 +139,15 @@ const CountryScreen = () => {
                
                   
                   {
-                    nCountry.details_and_scholarship != "" ?
+                    countryD.details_and_scholarship != "" ?
                     <Tab className='' key="University Details and Scholarships" title="University Details and Scholarships">
                       <div className={
-                        nCountry.details_and_scholarship == ""?
+                        countryD.details_and_scholarship == ""?
                         'h-fit hidden bg-red-50 p-8 rounded-[8px] flex-col gap-4 ':
                         'h-fit bg-red-50 p-8 rounded-[8px] flex flex-col gap-4 '
                       }>
                         {
-                          parse(nCountry.details_and_scholarship)
+                          parse(countryD.details_and_scholarship)
                         } 
                       </div> 
                     </Tab>
@@ -156,15 +156,15 @@ const CountryScreen = () => {
                   }
 
                   {
-                    nCountry.FAQ != "" ?
+                    countryD.FAQ != "" ?
                     <Tab className='' key="FAQ" title="FAQ">
                       <div className={
-                        nCountry.FAQ == ""?
+                        countryD.FAQ == ""?
                         'h-fit hidden bg-red-50 p-8 rounded-[8px] flex-col gap-4 ':
                         'h-fit bg-red-50 p-8 rounded-[8px] flex flex-col gap-4 '
                       }>
                         {
-                          parse(nCountry.FAQ)
+                          parse(countryD.FAQ)
                         } 
                       </div> 
                     </Tab>
@@ -176,11 +176,20 @@ const CountryScreen = () => {
                   
                 </Tabs>
               </div> 
-              <div className='w-full h-fit max-w-[1024px] col-span-4 mx-auto  relative z-10 bg-transparent px-8'>
+              }
+              <div className={
+                countryD.discription==''?
+                'w-full h-fit max-w-[1024px] col-span-full mx-auto  relative z-10 bg-transparent px-8':
+                'w-full h-fit max-w-[1024px] col-span-4 mx-auto  relative z-10 bg-transparent px-8'
+              }>
                   <div className='w-full h-fit mx-auto bg-white rounded-[16px] shadow-[0px_4px_25px_rgba(0,0,0,0.05)] grid grid-cols-1 md:gap-4 p-6'>
 
                       <div className='w-full h-fit md:col-span-3 flex flex-col gap-4'>
-                        <img src={nCountry.flag} alt='' className='h-[150px] w-full'/>
+                        {
+                          countryD.discription ==''?
+                          <img src={countryD.flag} alt='' className='h-[150px] rounded-[8px] md:h-[250px] w-full'/>:
+                          <img src={countryD.flag} alt='' className='h-[150px] rounded-[8px] w-full'/>
+                        }
                         <div className=' '>
                           <p className='text-2xl font-bold'>Book an appointment</p>
                         </div>
@@ -192,7 +201,7 @@ const CountryScreen = () => {
                               variant="flat"
                               placeholder="Enter your Name"
                               onClear={() => console.log("input cleared")}
-                              className="max-w-xs"
+                              className="w-full"
                               radius='sm'
                               startContent={
                                 <FaUserCircle className="text-lg text-default-400 pointer-events-none flex-shrink-0" />
@@ -204,7 +213,7 @@ const CountryScreen = () => {
                               variant="flat"
                               placeholder="Enter your Email"
                               onClear={() => console.log("input cleared")}
-                              className="max-w-xs"
+                              className="w-full"
                               radius='sm'
                               startContent={
                                 <MdEmail className="text-lg text-default-400 pointer-events-none flex-shrink-0" />
@@ -236,7 +245,7 @@ const CountryScreen = () => {
                               labelPlacement="outside"
                               variant="flat"
                               disabled
-                              value={nCountry.name}
+                              value={countryD.name}
                               className='w-full shadow-none rounded-none'
                               radius='sm'
                               size='md'
@@ -272,14 +281,14 @@ const CountryScreen = () => {
                           </Button>
                         </div>
 
-                        <div className='h-[200px] w-full -mt-[100px]'>
-                          <ReactPlayer width={'100%'} light={<img src={thum} alt='Thumbnail'/>} url={sdv} loop={true} playing={false} controls={true} />
+                        <div className='min-h-fit w-full'>
+                          <ReactPlayer height={'100%'} width={'100%'} light={<img src={thum} alt='Thumbnail'/>} url={sdv} loop={true} playing={false} controls={true} />
                         </div>
                         
                       </div>
 
                       {/* <div className='h-[200px] w-full col-span-2 min-w-full max-w-[400px] rounded-[8px]'>
-                          <img src={nCountry.flag} alt='' className='h-full min-w-full object-cover rounded-[8px]' />
+                          <img src={countryD.flag} alt='' className='h-full min-w-full object-cover rounded-[8px]' />
                       </div> */}
                       
                   </div>

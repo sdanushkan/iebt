@@ -1,0 +1,7 @@
+<!-- templates/email/example_email.txt -->
+Subject: {{ subject }}
+
+{{ message }}
+
+---
+Your Company
