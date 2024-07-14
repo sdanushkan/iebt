@@ -61,12 +61,11 @@ class OurQualification(models.Model):
 
 
 class Course(models.Model):
-    name = models.CharField(max_length=200, null=True, blank=True)
+    name = models.CharField(max_length=200, null=True, blank=True, unique=True)
     slug = models.SlugField(max_length=200, blank=True, null=True) 
     faculty = models.ForeignKey(Faculty, on_delete=models.SET_NULL, null=True)  
     image = models.ImageField(null=True, blank=True, default='/course/placeholder.png', upload_to='courses/')  
     course_credit = models.CharField(max_length=200, null=True, blank=True)
-    credit_slug = models.SlugField(max_length=200, blank=True, null=True)
     qualification = models.ForeignKey(OurQualification, on_delete=models.SET_NULL, null=True)    
     class_on = models.CharField(max_length=200, null=True, blank=True)
     programe = models.ForeignKey(Level, on_delete=models.SET_NULL, null=True)
@@ -108,19 +107,6 @@ class Course(models.Model):
         self.slug = slugify(self.name)
         super().save(*args, **kwargs )
 
-    def save(self, *args, **kwargs):
-        if not self.credit_slug:
-            self.credit_slug = self.generate_unique_credit_slug()
-        super().save(*args, **kwargs)
-
-    def generate_unique_credit_slug(self):
-        credit_slug = slugify(self.course_credit)
-        unique_credit_slug = credit_slug
-        num = 1
-        while Course.objects.filter(credit_slug=unique_credit_slug).exists():
-            unique_credit_slug = f"{credit_slug}-{num}"
-            num += 1
-        return unique_credit_slug
     
     # def faculty(self):
     #     reviews = Faculty.objects.filter(Course=self, status=True).aggregate(count=Count('id'))
