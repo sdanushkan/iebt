@@ -64,7 +64,8 @@ class Course(models.Model):
     name = models.CharField(max_length=200, null=True, blank=True, unique=True)
     slug = models.SlugField(max_length=200, blank=True, null=True) 
     faculty = models.ForeignKey(Faculty, on_delete=models.SET_NULL, null=True)  
-    image = models.ImageField(null=True, blank=True, default='/course/placeholder.png', upload_to='courses/')  
+    image = models.ImageField(null=True, blank=True, default='/course/placeholder.png', upload_to='courses/')
+    banner = models.ImageField(null=True, blank=True, default='/course/placeholder.png', upload_to='courses/banner/')  
     course_credit = models.CharField(max_length=200, null=True, blank=True)
     qualification = models.ForeignKey(OurQualification, on_delete=models.SET_NULL, null=True)    
     class_on = models.CharField(max_length=200, null=True, blank=True)
@@ -99,9 +100,6 @@ class Course(models.Model):
 
     def __str__(self):
         return self.name
-    
-    def get_url(self):
-        return reverse('product_detail', args=[self.category.slug, self.id])
     
     def save(self, *args, **kwargs):
         self.slug = slugify(self.name)
