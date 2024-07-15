@@ -9,7 +9,7 @@ import { RiSecurePaymentFill } from "react-icons/ri";
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
 import {Accordion, AccordionItem} from "@nextui-org/accordion";
-import { getCourseList, getFacultyList, sendApplication, sendApplicationMail } from '../actions/courseActions';
+import { getCourseList, getFacultyList, getFilterCourseList, sendApplication, sendApplicationMail } from '../actions/courseActions';
 import {Select, SelectItem} from "@nextui-org/react";
 import { AiFillSignal } from "react-icons/ai";
 import { FaAward } from "react-icons/fa";
@@ -22,11 +22,11 @@ const ApplicationScreen = () => {
   const history = useNavigate()
   const location = useLocation()
 
-  const [faculty, setFaculty] = useState('')
-  const [course, setCourse] = useState('')
+  const [faculty, setFaculty] = useState()
+  const [course, setCourse] = useState()
 
-  const [nfaculty, setnFaculty] = useState('')
-  const [ncourse, setnCourse] = useState('')
+  const [nfaculty, setnFaculty] = useState()
+  const [ncourse, setnCourse] = useState()
 
  
 
@@ -210,8 +210,8 @@ const ApplicationScreen = () => {
 
   const sendMail = () =>{
     dispatch(sendApplicationMail({ 
-      "faculty": faculty,
-      "course": course,
+      "faculty": nfaculty,
+      "course": ncourse,
 
       
 
@@ -451,8 +451,8 @@ seti4('');
   const sendApplication = useSelector(state => state.sendApplication)
   const { error: sendApplicationError, loading: sendApplicationLoading, success:CUSuccess } = sendApplication
 
-  const courseList = useSelector(state => state.courseList)
-    const { error: courseListError, loading: courseListLoading, courses } = courseList
+    const courseFilterList = useSelector(state => state.courseFilterList)
+    const { error: courseFilterListError, loading: courseFilterListLoading, courses } = courseFilterList
 
     const facultyList = useSelector(state => state.facultyList)
     const { error:facultyListError, loading:facultyListLoading, faculties } = facultyList
@@ -466,16 +466,22 @@ seti4('');
     }, [dispatch, courses, faculties, ])
 
     useEffect(() => {
-      setnFaculty(faculty.anchorKey)
-    }, [faculty])
+      if (faculty){
+        setnFaculty(faculty.anchorKey)
+      }
+    }, [faculty])  
     
     useEffect(() => {
-      setnCourse(course.anchorKey)
+      if(course){
+        setnCourse(course.anchorKey)
+      }
     }, [course])
 
     useEffect(() => {
-      dispatch(getCourseList(nfaculty, 'programes', 'qualifications', 'credits'))
-    }, [dispatch, nfaculty])
+      if(nfaculty){
+        dispatch(getFilterCourseList(nfaculty, 'programes', 'qualifications', 'credits'))
+      }
+    }, [ nfaculty])
 
   return (
     <div className='flex flex-col gap-14'> 
@@ -486,8 +492,12 @@ seti4('');
             <section className='w-full relative md:col-span-4'>
               <div className='h-fit w-full mx-auto px-2 sm:px-6 flex items-start gap-8 '>
                 <div className='w-full '>
-                <p className='text-xs text-red-500'>Please fill in all the fields; otherwise, your application will not be considered.*</p>
-                  <Accordion selectionMode="multiple" className='w-full'>
+                {
+                    
+                    CUSuccess?
+                    <p className='text-xs text-green-500 font-lg '>Message send succefully</p>:
+                    <p className='text-xs text-red-500 font-lg '>All fields are required*</p>
+                  }                  <Accordion selectionMode="multiple" className='w-full'>
                     <AccordionItem key="1" aria-label="course applied for" title={
                       <p className='text-[#DA0C0C] uppercase text-sm font-bold'>
                         Course applied for
@@ -526,22 +536,24 @@ seti4('');
                           placeholder="Course award"
                           className='w-full shadow-none rounded-none'
                           radius='sm'
-                          disabled={
-                            nfaculty==''?
-                            true:
-                            false
-                          }
+                          // disabled={
+                          //   nfaculty==''?
+                          //   true:
+                          //   false
+                          // }
                           selectedKeys={course}
                           onSelectionChange={setCourse}
                           required
                           size='md'
                           endContent={
                             <FaAward  />
-                          }
+                          } 
                         >
-                          {
-                            courseListLoading?
-                            '':
+                          { 
+                            courseFilterListLoading?
+                            <SelectItem value={'loading...'} key={'loading...'}>
+                                loading...
+                              </SelectItem>:
                             courses?
                             courses.map((i) => (
                               <SelectItem value={i.slug} key={i.slug}>
@@ -1595,565 +1607,7 @@ seti4('');
                       </p>
                     }>
                       <div className='grid grid-cols-1 gap-4'>
-                        <div className='grid grid-cols-1 gap-4'>
-                          <RadioGroup
-                            label="GCE O/L"
-                            orientation="horizontal"
-                            value={GSEOLLSelected}
-                            onValueChange={setGSEOLLSelected}
-                          >
-                            <Radio value="local">Local</Radio>
-                            <Radio value="tamil">Tamil</Radio>
-                            <Radio value="english">English</Radio>
-                            <Radio value="others">others</Radio>
-                          </RadioGroup>
-                          
-                          <Input
-                            key={'outside'}
-                            type="text"
-                            label="Language"
-                            disabled={
-                              GSEOLLSelected == "others"?
-                              false:
-                              true
-                            }
-                            
-                            placeholder='Enter other language'
-                            labelPlacement={'outside'}
-                          />
-                          
-                          <div className='flex flex-col md:flex-row gap-8'>
-                            <div className='flex flex-col gap-4'>
-                              <p className='text-sm font-medium'>Atempt 1</p>
-                              <div className='flex gap-2'>
-                                <Input
-                                  key={'outside'}
-                                  type="number"
-                                  label="Year"
-                                  placeholder='Enter year'
-                                  labelPlacement={'outside'}
-                                  value={OLA1Y} 
-                                  onChange={(e) => setOLA1Y(e.target.value)} 
-                                />
-                                <Input
-                                  key={'outside'}
-                                  type="text"
-                                  label="Subject"
-                                  placeholder='Subject'
-                                  labelPlacement={'outside'}
-                                  value={OLS1A1} 
-                                  onChange={(e) => setOLS1A1(e.target.value)} 
-                                />
-                                <Input
-                                  key={'outside'}
-                                  type="text"
-                                  label="Garde"
-                                  placeholder='Enter Garde'
-                                  labelPlacement={'outside'}
-                                  value={OLS1A1G} 
-                                  onChange={(e) => setOLS1A1G(e.target.value)}
-                                />
-                              </div>
-                              <div className='flex gap-2'>
-                                <Input
-                                  key={'outside'}
-                                  type="number"
-                                  label="Year"
-                                  placeholder='Enter year'
-                                  labelPlacement={'outside'}
-                                  value={OLA1Y} 
-                                  onChange={(e) => setOLA1Y(e.target.value)}
-                                />
-                                <Input
-                                  key={'outside'}
-                                  type="text"
-                                  label="Subject"
-                                  placeholder='Subject'
-                                  labelPlacement={'outside'}
-                                  value={OLS2A1} 
-                                  onChange={(e) => setOLS2A1(e.target.value)}
-                                />
-                                <Input
-                                  key={'outside'}
-                                  type="text"
-                                  label="Garde"
-                                  placeholder='Enter Garde'
-                                  labelPlacement={'outside'}
-                                  value={OLS2A1G} 
-                                  onChange={(e) => setOLS2A1G(e.target.value)}
-                                />
-                              </div>
-                              <div className='flex gap-2'>
-                                <Input
-                                  key={'outside'}
-                                  type="number"
-                                  label="Year"
-                                  placeholder='Enter year'
-                                  labelPlacement={'outside'}
-                                  value={OLA1Y} 
-                                  onChange={(e) => setOLA1Y(e.target.value)}
-                                />
-                                <Input
-                                  key={'outside'}
-                                  type="text"
-                                  label="Subject"
-                                  placeholder='Subject'
-                                  labelPlacement={'outside'}
-                                  value={OLS3A1} 
-                                  onChange={(e) => setOLS3A1G(e.target.value)}
-                                />
-                                <Input
-                                  key={'outside'}
-                                  type="text"
-                                  label="Garde"
-                                  placeholder='Enter Garde'
-                                  labelPlacement={'outside'}
-                                  value={OLS3A1G} 
-                                  onChange={(e) => setOLS3A1G(e.target.value)}
-                                />
-                              </div>
-                              <div className='flex gap-2'>
-                                <Input
-                                  key={'outside'}
-                                  type="number"
-                                  label="Year"
-                                  placeholder='Enter year'
-                                  labelPlacement={'outside'}
-                                  value={OLA1Y} 
-                                  onChange={(e) => setOLA1Y(e.target.value)}
-                                />
-                                <Input
-                                  key={'outside'}
-                                  type="text"
-                                  label="Subject"
-                                  placeholder='Subject'
-                                  labelPlacement={'outside'}
-                                  value={OLS4A1} 
-                                  onChange={(e) => setOLS4A1(e.target.value)}
-                                />
-                                <Input
-                                  key={'outside'}
-                                  type="text"
-                                  label="Garde"
-                                  placeholder='Enter Garde'
-                                  labelPlacement={'outside'}
-                                  value={OLS4A1G} 
-                                  onChange={(e) => setOLS4A1G(e.target.value)}
-                                />
-                              </div>
-                              <div className='flex gap-2'>
-                                <Input
-                                  key={'outside'}
-                                  type="number"
-                                  label="Year"
-                                  placeholder='Enter year'
-                                  labelPlacement={'outside'}
-                                  value={OLA1Y} 
-                                  onChange={(e) => setOLA1Y(e.target.value)}
-                                />
-                                <Input
-                                  key={'outside'}
-                                  type="text"
-                                  label="Subject"
-                                  placeholder='Subject'
-                                  labelPlacement={'outside'}
-                                  value={OLS5A1} 
-                                  onChange={(e) => setOLS5A1(e.target.value)}
-                                />
-                                <Input
-                                  key={'outside'}
-                                  type="text"
-                                  label="Garde"
-                                  placeholder='Enter Garde'
-                                  labelPlacement={'outside'}
-                                  value={OLS5A1G} 
-                                  onChange={(e) => setOLS5A1G(e.target.value)}
-                                />
-                              </div>
-                              <div className='flex gap-2'>
-                                <Input
-                                  key={'outside'}
-                                  type="number"
-                                  label="Year"
-                                  placeholder='Enter year'
-                                  labelPlacement={'outside'}
-                                  value={OLA1Y} 
-                                  onChange={(e) => setOLA1Y(e.target.value)}
-                                />
-                                <Input
-                                  key={'outside'}
-                                  type="text"
-                                  label="Subject"
-                                  placeholder='Subject'
-                                  labelPlacement={'outside'}
-                                  value={OLS6A1} 
-                                  onChange={(e) => setOLS6A1(e.target.value)}
-                                />
-                                <Input
-                                  key={'outside'}
-                                  type="text"
-                                  label="Garde"
-                                  placeholder='Enter Garde'
-                                  labelPlacement={'outside'}
-                                  value={OLS6A1G} 
-                                  onChange={(e) => setOLS6A1G(e.target.value)}
-                                />
-                              </div>
-                              <div className='flex gap-2'>
-                                <Input
-                                  key={'outside'}
-                                  type="number"
-                                  label="Year"
-                                  placeholder='Enter year'
-                                  labelPlacement={'outside'}
-                                  value={OLA1Y} 
-                                  onChange={(e) => setOLA1Y(e.target.value)}
-                                />
-                                <Input
-                                  key={'outside'}
-                                  type="text"
-                                  label="Subject"
-                                  placeholder='Subject'
-                                  labelPlacement={'outside'}
-                                  value={OLS7A1} 
-                                  onChange={(e) => setOLS7A1(e.target.value)}
-                                />
-                                <Input
-                                  key={'outside'}
-                                  type="text"
-                                  label="Garde"
-                                  placeholder='Enter Garde'
-                                  labelPlacement={'outside'}
-                                  value={OLS7A1G} 
-                                  onChange={(e) => setOLS7A1G(e.target.value)}
-                                />
-                              </div>
-                              <div className='flex gap-2'>
-                                <Input
-                                  key={'outside'}
-                                  type="number"
-                                  label="Year"
-                                  placeholder='Enter year'
-                                  labelPlacement={'outside'}
-                                  value={OLA1Y} 
-                                  onChange={(e) => setOLA1Y(e.target.value)}
-                                />
-                                <Input
-                                  key={'outside'}
-                                  type="text"
-                                  label="Subject"
-                                  placeholder='Subject'
-                                  labelPlacement={'outside'}
-                                  value={OLS8A1} 
-                                  onChange={(e) => setOLS8A1(e.target.value)}
-                                />
-                                <Input
-                                  key={'outside'}
-                                  type="text"
-                                  label="Garde"
-                                  placeholder='Enter Garde'
-                                  labelPlacement={'outside'}
-                                  value={OLS8A1G} 
-                                  onChange={(e) => setOLS8A1G(e.target.value)}
-                                />
-                              </div>
-                              <div className='flex gap-2'>
-                                <Input
-                                  key={'outside'}
-                                  type="number"
-                                  label="Year"
-                                  placeholder='Enter year'
-                                  labelPlacement={'outside'}
-                                  value={OLA1Y} 
-                                  onChange={(e) => setOLA1Y(e.target.value)}
-                                />
-                                <Input
-                                  key={'outside'}
-                                  type="text"
-                                  label="Subject"
-                                  placeholder='Subject'
-                                  labelPlacement={'outside'}
-                                  value={OLS9A1} 
-                                  onChange={(e) => setOLS9A1(e.target.value)}
-                                />
-                                <Input
-                                  key={'outside'}
-                                  type="text"
-                                  label="Garde"
-                                  placeholder='Enter Garde'
-                                  labelPlacement={'outside'}
-                                  value={OLS9A1G} 
-                                  onChange={(e) => setOLS9A1G(e.target.value)}
-                                />
-                              </div>
-                            </div>
-
-                            <div className='flex flex-col gap-4'>
-                              <p className='text-sm font-medium'>Atempt 2</p>
-                              <div className='flex gap-2'>
-                                <Input
-                                  key={'outside'}
-                                  type="number"
-                                  label="Year"
-                                  placeholder='Enter year'
-                                  labelPlacement={'outside'}
-                                  value={OLA2Y} 
-                                  onChange={(e) => setOLA2Y(e.target.value)}
-                                />
-                                <Input
-                                  key={'outside'}
-                                  type="text"
-                                  label="Subject"
-                                  placeholder='Subject'
-                                  labelPlacement={'outside'}
-                                  value={OLS1A2} 
-                                  onChange={(e) => setOLS1A2(e.target.value)}
-                                />
-                                <Input
-                                  key={'outside'}
-                                  type="text"
-                                  label="Garde"
-                                  placeholder='Enter Garde'
-                                  labelPlacement={'outside'}
-                                  value={OLS1A2G} 
-                                  onChange={(e) => setOLS1A2G(e.target.value)}
-                                />
-                              </div>
-                              <div className='flex gap-2'>
-                                <Input
-                                  key={'outside'}
-                                  type="number"
-                                  label="Year"
-                                  placeholder='Enter year'
-                                  labelPlacement={'outside'}
-                                  value={OLA2Y} 
-                                  onChange={(e) => setOLA2Y(e.target.value)}
-                                />
-                                <Input
-                                  key={'outside'}
-                                  type="text"
-                                  label="Subject"
-                                  placeholder='Subject'
-                                  labelPlacement={'outside'}
-                                  value={OLS2A2} 
-                                  onChange={(e) => setOLS2A2(e.target.value)}
-                                />
-                                <Input
-                                  key={'outside'}
-                                  type="text"
-                                  label="Garde"
-                                  placeholder='Enter Garde'
-                                  labelPlacement={'outside'}
-                                  value={OLS2A2G} 
-                                  onChange={(e) => setOLS2A2G(e.target.value)}
-                                />
-                              </div>
-                              <div className='flex gap-2'>
-                                <Input
-                                  key={'outside'}
-                                  type="number"
-                                  label="Year"
-                                  placeholder='Enter year'
-                                  labelPlacement={'outside'}
-                                  value={OLA2Y} 
-                                  onChange={(e) => setOLA2Y(e.target.value)}
-                                />
-                                <Input
-                                  key={'outside'}
-                                  type="text"
-                                  label="Subject"
-                                  placeholder='Subject'
-                                  labelPlacement={'outside'}
-                                  value={OLS3A2} 
-                                  onChange={(e) => setOLS3A2(e.target.value)}
-                                />
-                                <Input
-                                  key={'outside'}
-                                  type="text"
-                                  label="Garde"
-                                  placeholder='Enter Garde'
-                                  labelPlacement={'outside'}
-                                  value={OLS3A2G} 
-                                  onChange={(e) => setOLS3A2G(e.target.value)}
-                                />
-                              </div>
-                              <div className='flex gap-2'>
-                                <Input
-                                  key={'outside'}
-                                  type="number"
-                                  label="Year"
-                                  placeholder='Enter year'
-                                  labelPlacement={'outside'}
-                                  value={OLA2Y} 
-                                  onChange={(e) => setOLA2Y(e.target.value)}
-                                />
-                                <Input
-                                  key={'outside'}
-                                  type="text"
-                                  label="Subject"
-                                  placeholder='Subject'
-                                  labelPlacement={'outside'}
-                                  value={OLS4A2} 
-                                  onChange={(e) => setOLS4A2(e.target.value)}
-                                />
-                                <Input
-                                  key={'outside'}
-                                  type="text"
-                                  label="Garde"
-                                  placeholder='Enter Garde'
-                                  labelPlacement={'outside'}
-                                  value={OLS4A2G} 
-                                  onChange={(e) => setOLS4A2G(e.target.value)}
-                                />
-                              </div>
-                              <div className='flex gap-2'>
-                                <Input
-                                  key={'outside'}
-                                  type="number"
-                                  label="Year"
-                                  placeholder='Enter year'
-                                  labelPlacement={'outside'}
-                                  value={OLA2Y} 
-                                  onChange={(e) => setOLA2Y(e.target.value)}
-                                />
-                                <Input
-                                  key={'outside'}
-                                  type="text"
-                                  label="Subject"
-                                  placeholder='Subject'
-                                  labelPlacement={'outside'}
-                                  value={OLS5A2} 
-                                  onChange={(e) => setOLS5A2(e.target.value)}
-                                />
-                                <Input
-                                  key={'outside'}
-                                  type="text"
-                                  label="Garde"
-                                  placeholder='Enter Garde'
-                                  labelPlacement={'outside'}
-                                  value={OLS5A2G} 
-                                  onChange={(e) => setOLS5A2G(e.target.value)}
-                                />
-                              </div>
-                              <div className='flex gap-2'>
-                                <Input
-                                  key={'outside'}
-                                  type="number"
-                                  label="Year"
-                                  placeholder='Enter year'
-                                  labelPlacement={'outside'}
-                                  value={OLA2Y} 
-                                  onChange={(e) => setOLA2Y(e.target.value)}
-                                />
-                                <Input
-                                  key={'outside'}
-                                  type="text"
-                                  label="Subject"
-                                  placeholder='Subject'
-                                  labelPlacement={'outside'}
-                                  value={OLS6A2} 
-                                  onChange={(e) => setOLS6A2(e.target.value)}
-                                />
-                                <Input
-                                  key={'outside'}
-                                  type="text"
-                                  label="Garde"
-                                  placeholder='Enter Garde'
-                                  labelPlacement={'outside'}
-                                  value={OLS6A2G} 
-                                  onChange={(e) => setOLS6A2G(e.target.value)}
-                                />
-                              </div>
-                              <div className='flex gap-2'>
-                                <Input
-                                  key={'outside'}
-                                  type="number"
-                                  label="Year"
-                                  placeholder='Enter year'
-                                  labelPlacement={'outside'}
-                                  value={OLA2Y} 
-                                  onChange={(e) => setOLA2Y(e.target.value)}
-                                />
-                                <Input
-                                  key={'outside'}
-                                  type="text"
-                                  label="Subject"
-                                  placeholder='Subject'
-                                  labelPlacement={'outside'}
-                                  value={OLS7A2} 
-                                  onChange={(e) => setOLS7A2(e.target.value)}
-                                />
-                                <Input
-                                  key={'outside'}
-                                  type="text"
-                                  label="Garde"
-                                  placeholder='Enter Garde'
-                                  labelPlacement={'outside'}
-                                  value={OLS7A2G} 
-                                  onChange={(e) => setOLS7A2G(e.target.value)}
-                                />
-                              </div>
-                              <div className='flex gap-2'>
-                                <Input
-                                  key={'outside'}
-                                  type="number"
-                                  label="Year"
-                                  placeholder='Enter year'
-                                  labelPlacement={'outside'}
-                                  value={OLA2Y} 
-                                  onChange={(e) => setOLA2Y(e.target.value)}
-                                />
-                                <Input
-                                  key={'outside'}
-                                  type="text"
-                                  label="Subject"
-                                  placeholder='Subject'
-                                  labelPlacement={'outside'}
-                                  value={OLS8A2} 
-                                  onChange={(e) => setOLS8A2(e.target.value)}
-                                />
-                                <Input
-                                  key={'outside'}
-                                  type="text"
-                                  label="Garde"
-                                  placeholder='Enter Garde'
-                                  labelPlacement={'outside'}
-                                  value={OLS8A2G} 
-                                  onChange={(e) => setOLS8A2G(e.target.value)}
-                                />
-                              </div>
-                              <div className='flex gap-2'>
-                                <Input
-                                  key={'outside'}
-                                  type="number"
-                                  label="Year"
-                                  placeholder='Enter year'
-                                  labelPlacement={'outside'}
-                                  value={OLA2Y} 
-                                  onChange={(e) => setOLA2Y(e.target.value)}
-                                />
-                                <Input
-                                  key={'outside'}
-                                  type="text"
-                                  label="Subject"
-                                  placeholder='Subject'
-                                  labelPlacement={'outside'}
-                                  value={OLS9A2} 
-                                  onChange={(e) => setOLS9A2(e.target.value)}
-                                />
-                                <Input
-                                  key={'outside'}
-                                  type="text"
-                                  label="Garde"
-                                  placeholder='Enter Garde'
-                                  labelPlacement={'outside'}
-                                  value={OLS9A2G} 
-                                  onChange={(e) => setOLS9A2G(e.target.value)}
-                                />
-                              </div>
-                            </div>
-                          </div>
-                        </div>
+                       
 
                         <div className='grid grid-cols-1 gap-4'>
                   
@@ -2403,7 +1857,7 @@ seti4('');
                                 <Input
                                   key={'outside'}
                                   type="number"
-                                  label="Year"
+                                  label="from"
                                   placeholder='Enter year'
                                   labelPlacement={'outside'}
                                   value={year1} 
@@ -2421,8 +1875,8 @@ seti4('');
                                 <Input
                                   key={'outside'}
                                   type="text"
-                                  label="Garde"
-                                  placeholder='Enter Garde'
+                                  label="Position"
+                                  placeholder='Enter Position'
                                   labelPlacement={'outside'}
                                   value={position1} 
                                   onChange={(e) => setPosition1(e.target.value)}
@@ -2432,7 +1886,7 @@ seti4('');
                                 <Input
                                   key={'outside'}
                                   type="number"
-                                  label="Year"
+                                  label="from"
                                   placeholder='Enter year'
                                   labelPlacement={'outside'}
                                   value={year2} 
@@ -2450,8 +1904,8 @@ seti4('');
                                 <Input
                                   key={'outside'}
                                   type="text"
-                                  label="Garde"
-                                  placeholder='Enter Garde'
+                                  label="Position"
+                                  placeholder='Enter Position'
                                   labelPlacement={'outside'}
                                   value={position2} 
                                   onChange={(e) => setPosition2(e.target.value)}
@@ -2461,7 +1915,7 @@ seti4('');
                                 <Input
                                   key={'outside'}
                                   type="number"
-                                  label="Year"
+                                  label="from"
                                   placeholder='Enter year'
                                   labelPlacement={'outside'}
                                   value={year3} 
@@ -2479,8 +1933,8 @@ seti4('');
                                 <Input
                                   key={'outside'}
                                   type="text"
-                                  label="Garde"
-                                  placeholder='Enter Garde'
+                                  label="Position"
+                                  placeholder='Enter Position'
                                   labelPlacement={'outside'}
                                   value={position3} 
                                   onChange={(e) => setPosition3(e.target.value)}

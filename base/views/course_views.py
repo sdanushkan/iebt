@@ -198,7 +198,7 @@ def send_application_view(request):
 
     text_content = 'This is an alternative plain text message for email clients that do not support HTML.'
 
-    email = EmailMultiAlternatives(subject, text_content, settings.DEFAULT_FROM_EMAIL, ['enquiries@iebc.lk'])
+    email = EmailMultiAlternatives(subject, text_content, settings.DEFAULT_FROM_EMAIL, ['appledanushkan2002@31'])
     email.attach_alternative(html_content, "text/html")
     email.send()
 
@@ -223,7 +223,7 @@ def send_sa_view(request):
 
     text_content = 'This is an alternative plain text message for email clients that do not support HTML.'
 
-    email = EmailMultiAlternatives(subject, text_content, settings.DEFAULT_FROM_EMAIL, ['enquiries@iebc.lk'])
+    email = EmailMultiAlternatives(subject, text_content, settings.DEFAULT_FROM_EMAIL, ['appledanushkan2002@31'])
     email.attach_alternative(html_content, "text/html")
     email.send()
 
@@ -252,7 +252,7 @@ def send_ba_view(request):
 
     text_content = 'This is an alternative plain text message for email clients that do not support HTML.'
 
-    email = EmailMultiAlternatives(subject, text_content, settings.DEFAULT_FROM_EMAIL, ['enquiries@iebc.lk'])
+    email = EmailMultiAlternatives(subject, text_content, settings.DEFAULT_FROM_EMAIL, ['appledanushkan2002@31'])
     email.attach_alternative(html_content, "text/html")
     email.send()
 
@@ -280,7 +280,7 @@ def send_ca_view(request):
 
     text_content = 'This is an alternative plain text message for email clients that do not support HTML.'
 
-    email = EmailMultiAlternatives(subject, text_content, settings.DEFAULT_FROM_EMAIL, ['enquiries@iebc.lk'])
+    email = EmailMultiAlternatives(subject, text_content, settings.DEFAULT_FROM_EMAIL, ['appledanushkan2002@31'])
     email.attach_alternative(html_content, "text/html")
     email.send()
 
@@ -309,7 +309,7 @@ def send_cu_view(request):
 
     text_content = 'This is an alternative plain text message for email clients that do not support HTML.'
 
-    email = EmailMultiAlternatives(subject, text_content, settings.DEFAULT_FROM_EMAIL, ['enquiries@iebc.lk'])
+    email = EmailMultiAlternatives(subject, text_content, settings.DEFAULT_FROM_EMAIL, ['appledanushkan2002@31'])
     email.attach_alternative(html_content, "text/html")
     email.send()
 
