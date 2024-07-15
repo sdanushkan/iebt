@@ -3,7 +3,7 @@ import {Tabs, Tab, Input, Link, Button, Card, CardBody, CardHeader} from "@nextu
 import { FaRegCircleUser } from "react-icons/fa6";
 import {Divider} from "@nextui-org/react";
 import {Table, TableHeader, TableColumn, TableBody, TableRow, TableCell, getKeyValue} from "@nextui-org/react";
-import { getCourseList } from '../actions/courseActions';
+import { getCourseList, getDualQualificationCourseDetails } from '../actions/courseActions';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { find } from 'lodash';
@@ -43,7 +43,7 @@ const DQCourseScreen = () => {
     const { toPDF, targetRef } = usePDF({filename: 'page.pdf'});
 
     useEffect(() => {
-        dispatch(getCourseList("faculties", "programes","qualifications","credits"))
+        dispatch(getDualQualificationCourseDetails(course))
     }, [dispatch])
 
     // useEffect(() => {

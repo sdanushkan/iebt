@@ -188,7 +188,7 @@ def send_application_view(request):
 
     text_content = 'This is an alternative plain text message for email clients that do not support HTML.'
 
-    email = EmailMultiAlternatives(subject, text_content, settings.DEFAULT_FROM_EMAIL, ['appledanushkan31@gmail.com'])
+    email = EmailMultiAlternatives(subject, text_content, settings.DEFAULT_FROM_EMAIL, ['enquiries@iebc.lk.com'])
     email.attach_alternative(html_content, "text/html")
     email.send()
 
@@ -204,29 +204,83 @@ def send_sa_view(request):
     html_content = render_to_string('email_template_SA.html', {
         'subject': subject, 
         'message': message,
-        
-        
         'email': data['email'],
         'number': data['mNumber'],
         'YOS': data['YOS'],
         'PS': data['PS'],
-        'SI': data['SI'],
-
-        
-
+        'SI': data['SI']
     })
 
     text_content = 'This is an alternative plain text message for email clients that do not support HTML.'
 
-    email = EmailMultiAlternatives(subject, text_content, settings.DEFAULT_FROM_EMAIL, ['appledanushkan31@gmail.com'])
+    email = EmailMultiAlternatives(subject, text_content, settings.DEFAULT_FROM_EMAIL, ['enquiries@iebc.lk.com'])
     email.attach_alternative(html_content, "text/html")
     email.send()
 
     return HttpResponse('Email sent successfully.')
 
 @api_view(['POST'])
-def send_cu_view(request):
+def send_ba_view(request):
     subject = ('Study abroad Application')
+    message = ('Default Message')
+
+    data = request.data
+
+    html_content = render_to_string('email_template_BA.html', {
+        'subject': subject, 
+        'message': message,
+        
+        'email': data['email'],
+        'name': data['name'],
+        'mNumber': data['mNumber'],
+        'subject': data['subject'],
+        'date': data['date'],
+        'YOS': data['YOS'],
+        'destination': data['destination'],
+        'si': data['si'], 
+
+    })
+
+    text_content = 'This is an alternative plain text message for email clients that do not support HTML.'
+
+    email = EmailMultiAlternatives(subject, text_content, settings.DEFAULT_FROM_EMAIL, ['enquiries@iebc.lk.com'])
+    email.attach_alternative(html_content, "text/html")
+    email.send()
+
+    return HttpResponse('Email sent successfully.')
+
+@api_view(['POST'])
+def send_ca_view(request):
+    subject = ('Country Application')
+    message = ('Default Message')
+
+    data = request.data
+
+    html_content = render_to_string('email_template_CA.html', {
+        'subject': subject, 
+        'message': message,
+        
+        'email': data['email'],
+        'name': data['name'],
+        'mNumber': data['mNumber'],
+        'country': data['country'],
+        'intake': data['intake'],
+        
+
+    })
+
+    text_content = 'This is an alternative plain text message for email clients that do not support HTML.'
+
+    email = EmailMultiAlternatives(subject, text_content, settings.DEFAULT_FROM_EMAIL, ['enquiries@iebc.lk.com'])
+    email.attach_alternative(html_content, "text/html")
+    email.send()
+
+    return HttpResponse('Email sent successfully.')
+
+
+@api_view(['POST'])
+def send_cu_view(request):
+    subject = ('Contact us Application')
     message = ('Default Message')
 
     data = request.data
@@ -246,7 +300,7 @@ def send_cu_view(request):
 
     text_content = 'This is an alternative plain text message for email clients that do not support HTML.'
 
-    email = EmailMultiAlternatives(subject, text_content, settings.DEFAULT_FROM_EMAIL, ['appledanushkan31@gmail.com'])
+    email = EmailMultiAlternatives(subject, text_content, settings.DEFAULT_FROM_EMAIL, ['enquiries@iebc.lk.com'])
     email.attach_alternative(html_content, "text/html")
     email.send()
 
@@ -303,7 +357,7 @@ def getPopularCourses(request):
 def sendApplicationMail(request):
     subject = 'Welcome to Our Service'
     from_email = settings.DEFAULT_FROM_EMAIL
-    to = ['appledanushkan31@gmail']
+    to = ['enquiries@iebc.lk']
 
     # Render email content
     text_content = render_to_string('email/example_email.txt')
@@ -315,6 +369,7 @@ def sendApplicationMail(request):
 
     # Send email
     msg.send()
+
 
 @api_view(['GET'])
 def getCoursesByFaculty(request,fslug):
@@ -440,14 +495,14 @@ def getDualQualificationCourses(request, dual):
         return Response(message)
 
 @api_view(['GET'])
-def getDualQualificationCourse(request, name):
+def getDualQualificationCourse(request, slug):
     try:
-        levels = DualQualificationCourse.objects.get(name = name)
+        levels = DualQualificationCourse.objects.get(slug = slug)
         serializer = DualQualificationCourseSerializer(levels, many=False)
         return Response(serializer.data) 
 
     except Level.DoesNotExist:
-        message = {'detail': 'No Levels Found'}
+        message = {'detail': 'No courses Found'}
         return Response(message)
     
 

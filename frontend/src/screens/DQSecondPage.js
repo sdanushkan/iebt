@@ -143,31 +143,9 @@ const DQSecondPage = () => {
                                         <img src={c} alt='' className='h-full w-full object-cover' />
                                     </Skeleton>
                                 </div>
-                                <p className='text-left text-sm font-medium'>Hospitality and Tourism Management</p>
-                            </div>
-                        </div>
-
-                        <div className='h-fit w-full gap-2 flex lg:flex-col items-center'>
-                            <div className='h-[5px] lg:h-[25px] w-[25px] lg:w-[5px] bg-[#DA0C0C]'></div>
-                            <div className='h-fit w-full gap-4 flex flex-col'>
-                                <div className='h-[200px] lg:h-[150px] w-full  bg-gray-50 rounded-[8px] overflow-hidden'>
-                                    <Skeleton className='h-full w-full object-cover'>
-                                        <img src={c} alt='' className='h-full w-full object-cover' />
-                                    </Skeleton>
-                                </div>
-                                <p className='text-left text-sm font-medium'>Marketing</p>
-                            </div>
-                        </div>
-
-                        <div className='h-fit w-full gap-2 flex lg:flex-col items-center'>
-                            <div className='h-[5px] lg:h-[25px] w-[25px] lg:w-[5px] bg-[#DA0C0C]'></div>
-                            <div className='h-fit w-full gap-4 flex flex-col'>
-                                <div className='h-[200px] lg:h-[150px] w-full  bg-gray-50 rounded-[8px] overflow-hidden'>
-                                    <Skeleton className='h-full w-full object-cover'>
-                                        <img src={c} alt='' className='h-full w-full object-cover' />
-                                    </Skeleton>
-                                </div>
-                                <p className='text-left text-sm font-medium'>Human Resource Management</p>
+                                <Skeleton>
+                                    <p className='text-left text-sm font-medium'>Logistic & Supply Chain Management</p>
+                                </Skeleton>
                             </div>
                         </div>
 
@@ -193,7 +171,37 @@ const DQSecondPage = () => {
                                         <img src={c} alt='' className='h-full w-full object-cover' />
                                     </Skeleton>
                                 </div>
-                                <p className='text-left text-sm font-medium'>Accounting & Finance</p>
+                                <Skeleton>
+                                    <p className='text-left text-sm font-medium'>Logistic & Supply Chain Management</p>
+                                </Skeleton>
+                            </div>
+                        </div>
+
+                        <div className='h-fit w-full gap-2 flex lg:flex-col items-center'>
+                            <div className='h-[5px] lg:h-[25px] w-[25px] lg:w-[5px] bg-[#DA0C0C]'></div>
+                            <div className='h-fit w-full gap-4 flex flex-col'>
+                                <div className='h-[200px] lg:h-[150px] w-full  bg-gray-50 rounded-[8px] overflow-hidden'>
+                                    <Skeleton className='h-full w-full object-cover'>
+                                        <img src={c} alt='' className='h-full w-full object-cover' />
+                                    </Skeleton>
+                                </div>
+                                <Skeleton>
+                                    <p className='text-left text-sm font-medium'>Logistic & Supply Chain Management</p>
+                                </Skeleton>
+                            </div>
+                        </div>
+
+                        <div className='h-fit w-full gap-2 flex lg:flex-col items-center'>
+                            <div className='h-[5px] lg:h-[25px] w-[25px] lg:w-[5px] bg-[#DA0C0C]'></div>
+                            <div className='h-fit w-full gap-4 flex flex-col'>
+                                <div className='h-[200px] lg:h-[150px] w-full  bg-gray-50 rounded-[8px] overflow-hidden'>
+                                    <Skeleton className='h-full w-full object-cover'>
+                                        <img src={c} alt='' className='h-full w-full object-cover' />
+                                    </Skeleton>
+                                </div>
+                                <Skeleton>
+                                    <p className='text-left text-sm font-medium'>Logistic & Supply Chain Management</p>
+                                </Skeleton>
                             </div>
                         </div>
 

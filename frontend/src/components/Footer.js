@@ -10,7 +10,7 @@ import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getCourseList } from '../actions/courseActions';
 import _, { map } from 'lodash';
-import { getCountryList } from '../actions/abroadActions';
+import { getEuCountryList, getMainCountryList, getMedicineCountryList } from '../actions/abroadActions';
 
 const Footer = () => {
     const {course} = useParams()
@@ -22,8 +22,33 @@ const Footer = () => {
     const courseList = useSelector(state => state.courseList)
     const { error: courseListError, loading: courseListLoading, courses } = courseList
 
-    const countryList = useSelector(state => state.countryList)
-    const { error, loading, countries } = countryList
+    const mainCountryList = useSelector(state => state.mainCountryList)
+    const { error:mainCountryListError, loading:mainCountryListLoaoding, countries:mainCountries } = mainCountryList
+
+    const euCountryList = useSelector(state => state.euCountryList)
+    const { error:euCountryListError, loading:euCountryListLoaoding, countries:euCountries } = euCountryList
+
+    const medicineCountryList = useSelector(state => state.medicineCountryList)
+    const { error:medicineCountryListError, loading:medicineCountryListLoaoding, countries:medicineCountries } = medicineCountryList
+
+    const testimonialList = useSelector(state => state.testimonialList)
+    const { error: testimonialListError, loading: testimonialListLoading, testimonials } = testimonialList
+
+  useEffect(() => {
+    if (!mainCountries){
+      dispatch(getMainCountryList())
+    }
+
+    if (!euCountries){
+      dispatch(getEuCountryList())
+    }
+
+    if (!medicineCountries){
+      dispatch(getMedicineCountryList())
+    }
+
+  }, [dispatch, mainCountries, euCountries, medicineCountries])
+
 
     const levelList = useSelector(state => state.levelList)
     const { error:levelListError, loading:levelListLoading, levels } = levelList
@@ -32,10 +57,7 @@ const Footer = () => {
         if(!courses){
           dispatch(getCourseList('faculties', 'programes', 'qualifications', 'credits'))
         }
-        if(!countries){
-          dispatch(getCountryList())
-        }
-    }, [dispatch, courses, countries])
+    }, [dispatch, courses])
 
     useEffect(() => {
         window.scroll(0,0);
@@ -85,13 +107,32 @@ const Footer = () => {
                   <div className='w-full md:min-w-[200px] flex flex-col justify-center items-center md:items-start md:justify-start gap-6 pb-4'>
                     <p className='text-lg font-bold border-b-[2px] border-[#DA0C0C]  flex text-center md:text-left text-white uppercase'>Destination</p>
                     <div className='px-4 flex flex-col gap-2 order-1 text-center md:text-start'>
-                      <p className='font-bold  gap-6 flex items-end text-center text-sm md:text-left text-white uppercase'>Popular countries</p>
-                      <div className='flex flex-wrap gap-2 text-sm text-white/50'>
-                        <p>Australia </p>
-                        <p>Canada</p>
-                        <p>New Zealand</p>
-                        <p>USA</p>
-                        <p>United Kingdom</p>
+                      <p className='font-bold  gap-6 flex items-end text-center text-sm md:text-left text-white uppercase'>popular countries</p>
+                      <div className='flex w-full flex-wrap gap-2 text-sm text-white/50 '>
+                      {
+                        mainCountryListLoaoding?
+                        '':
+                        mainCountries?
+                        mainCountries.map(i =>(
+                          <Link to={`/countries/${i.slug}`}>{i.name}</Link>
+                        ))
+                        :
+                        ''
+
+                      }
+                        
+                        {/* {
+                          loading?
+                          <Link className='text-[10px] text-white/80'></Link>
+                          :
+                          countries?
+                          countries.filter(f => f.category.slug == 'eu').map(i => 
+                            <Link key={i.id} className='text-[10px] min-w-fit text-white/80'>{i.name}   |  </Link>
+                          )
+                          :
+
+                          ''
+                        } */}
                       </div>
                       {/* <Link className='text-[10px] text-white/80'>Level 3 (Foundation)</Link>
                       <Link className='text-[10px] text-white/80'>Level 4 and Level 5 (Higher Diploma)</Link>
@@ -104,10 +145,10 @@ const Footer = () => {
                       <p className='font-bold  gap-6 flex items-end text-center text-sm md:text-left text-white uppercase'>European countries</p>
                       <div className='flex w-full flex-wrap gap-2 text-sm text-white/50 '>
                       {
-                        loading?
+                        euCountryListLoaoding?
                         '':
-                        countries?
-                        countries.filter(f => f.category.slug='eu' ).map(i =>(
+                        euCountries?
+                        euCountries.map(i =>(
                           <Link to={`/countries/${i.slug}`}>{i.name}</Link>
                         ))
                         :
@@ -138,8 +179,17 @@ const Footer = () => {
                     <div className='px-4 flex flex-col gap-2 order-1 text-center md:text-start'>
                       <p className='font-bold  gap-6 flex items-end text-center text-sm md:text-left text-white uppercase'>Medicine countries</p>
                       <div className='flex flex-wrap gap-2 text-sm text-white/50'>
-                        <p>Belarus</p>
-                        <p>Russia</p>
+                        {
+                          medicineCountryListLoaoding?
+                          '':
+                          medicineCountries?
+                          medicineCountries.map(i =>(
+                            <Link to={`/countries/${i.slug}`}>{i.name}</Link>
+                          ))
+                          :
+                          ''
+
+                        }
                       </div>
                       {/* <Link className='text-[10px] text-white/80'>Level 3 (Foundation)</Link>
                       <Link className='text-[10px] text-white/80'>Level 4 and Level 5 (Higher Diploma)</Link>

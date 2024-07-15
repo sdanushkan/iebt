@@ -81,6 +81,17 @@ import {
     CU_SEND_FAIL,
     CU_SEND_RESET,
 
+    BA_SEND_REQUEST,
+    BA_SEND_SUCCESS,
+    BA_SEND_FAIL,
+    BA_SEND_RESET,
+
+    CA_SEND_REQUEST,
+    CA_SEND_SUCCESS,
+    CA_SEND_FAIL,
+    CA_SEND_RESET,
+
+
     EVENT_LIST_REQUEST,
     EVENT_LIST_SUCCESS,
     EVENT_LIST_FAIL,
@@ -617,6 +628,72 @@ export const sendCU = (details) => async (dispatch) => {
     } catch (error) {
         dispatch({
             type: CU_SEND_FAIL,
+            payload: error.response && error.response.data.detail
+                ? error.response.data.detail
+                : error.message,
+        })
+    }
+}
+
+export const sendBA = (details) => async (dispatch) => {
+    try {
+        dispatch({
+            type: BA_SEND_REQUEST
+        })
+
+        const config = {
+            headers: {
+                'Content-type': 'application/json'
+            }
+        }
+
+        const { data } = await axios.post(
+            '/api/courses/send-ba/',
+            details,
+            config
+        )
+
+        dispatch({ 
+            type: BA_SEND_SUCCESS,
+            payload: data
+        })
+
+    } catch (error) {
+        dispatch({
+            type: BA_SEND_FAIL,
+            payload: error.response && error.response.data.detail
+                ? error.response.data.detail
+                : error.message,
+        })
+    }
+}
+
+export const sendCA = (details) => async (dispatch) => {
+    try {
+        dispatch({
+            type: CA_SEND_REQUEST
+        })
+
+        const config = {
+            headers: {
+                'Content-type': 'application/json'
+            }
+        }
+
+        const { data } = await axios.post(
+            '/api/courses/send-ca/',
+            details,
+            config
+        )
+
+        dispatch({ 
+            type: CA_SEND_SUCCESS,
+            payload: data
+        })
+
+    } catch (error) {
+        dispatch({
+            type: CA_SEND_FAIL,
             payload: error.response && error.response.data.detail
                 ? error.response.data.detail
                 : error.message,

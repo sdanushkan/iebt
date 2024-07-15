@@ -12,15 +12,16 @@ from rest_framework import status
 
    
 @api_view(['GET'])
-def getCountries(request):
+def getCountries(request,cat):
     try:
-        countries = Country.objects.all()
+        countries = Country.objects.filter(category__slug=cat)
         serializer = CountrySerializer(countries, many=True)
         return Response(serializer.data)
 
     except Country.DoesNotExist:
         message = {'detail': 'No Country Found'}
         return Response(message)
+
 
 @api_view(['GET'])
 def getTestimonials(request,page):

@@ -18,7 +18,7 @@ import { FaUsers } from "react-icons/fa";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { IoArrowForwardOutline } from "react-icons/io5";
 import {RadioGroup, Radio, useRadio, VisuallyHidden, cn} from "@nextui-org/react";
-import { getCountryList, getTestimonialList } from '../actions/abroadActions';
+import { getEuCountryList, getMainCountryList, getMedicineCountryList, getTestimonialList } from '../actions/abroadActions';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import WorldMap from '../components/WorldMap';
@@ -49,7 +49,7 @@ import ReactPlayer from 'react-player'
 import CountUp from 'react-countup';
 
 import sdv from '../assets/sdv.mp4'
-import { sendSA } from '../actions/courseActions';
+import { sendBA, sendSA } from '../actions/courseActions';
 
 const CountriesScreen = () => {
   // const WebView = require('@luxbit/react-electron-webview');
@@ -61,23 +61,40 @@ const CountriesScreen = () => {
   const [PS, setPS] = useState('')
   const [SI, setSI] = useState('')
 
+  const [date, setDate] = useState('')
+  
+
 
   const dispatch = useDispatch() 
   const history = useNavigate()
   const location = useLocation()
 
-  const countryList = useSelector(state => state.countryList)
-  const { error, loading, countries } = countryList
+  const mainCountryList = useSelector(state => state.mainCountryList)
+  const { error:mainCountryListError, loading:mainCountryListLoaoding, countries:mainCountries } = mainCountryList
+
+  const euCountryList = useSelector(state => state.euCountryList)
+  const { error:euCountryListError, loading:euCountryListLoaoding, countries:euCountries } = euCountryList
+
+  const medicineCountryList = useSelector(state => state.medicineCountryList)
+  const { error:medicineCountryListError, loading:medicineCountryListLoaoding, countries:medicineCountries } = medicineCountryList
 
   const testimonialList = useSelector(state => state.testimonialList)
   const { error: testimonialListError, loading: testimonialListLoading, testimonials } = testimonialList
 
   useEffect(() => {
-    if (!countries){
-      dispatch(getCountryList())
+    if (!mainCountries){
+      dispatch(getMainCountryList())
     }
 
-  }, [dispatch, countries])
+    if (!euCountries){
+      dispatch(getEuCountryList())
+    }
+
+    if (!medicineCountries){
+      dispatch(getMedicineCountryList())
+    }
+
+  }, [dispatch, mainCountries, euCountries, medicineCountries])
 
   useEffect(() => {
     dispatch(getTestimonialList('abroad'))
@@ -111,6 +128,16 @@ const CountriesScreen = () => {
 
   const sendMail = () =>{
     dispatch(sendSA({ 
+        "mNumber": mNumber,
+        "email": email,
+        "YOS": YOS,
+        "PS": PS,
+        "SI": SI,
+    }))
+  }
+
+  const sendMailBA = () =>{
+    dispatch(sendBA({ 
         "mNumber": mNumber,
         "email": email,
         "YOS": YOS,
@@ -218,10 +245,31 @@ const CountriesScreen = () => {
                         onSelectionChange={setPS}
                     >
                         {
-                          loading?
+                          mainCountryListLoaoding?
                           "":
-                          countries?
-                          countries.map(i => (
+                          mainCountries?
+                          mainCountries.map(i => (
+                            <SelectItem key={i.slug} value={i.slug} className=''>
+                                {i.name}
+                            </SelectItem>
+                          )):''
+                        }
+                        {
+                          euCountryListLoaoding?
+                          "":
+                          euCountries?
+                          euCountries.map(i => (
+                            <SelectItem key={i.slug} value={i.slug} className=''>
+                                {i.name}
+                            </SelectItem>
+                          )):''
+                        }
+
+{
+                          medicineCountryListLoaoding?
+                          "":
+                          medicineCountries?
+                          medicineCountries.map(i => (
                             <SelectItem key={i.slug} value={i.slug} className=''>
                                 {i.name}
                             </SelectItem>
@@ -371,7 +419,7 @@ const CountriesScreen = () => {
               <p className='text-2xl md:text-4xl font-bold text-[#DA0C0C] text-center capitalize'>Our Countries</p>
             </div>
             {
-              loading?
+              mainCountryListLoaoding?
               <div className='w-fit mx-auto flex flex-wrap items-center justify-center gap-2 md:gap-4 '>
 
                   <Link className='bg-white w-[40%] sm:w-[175px] h-[125px] border-1 border-gray-200 gap-8 flex flex-col rounded-[8px] relative overflow-hidden duration-500'>
@@ -491,11 +539,11 @@ const CountriesScreen = () => {
                 
               </div>
               :
-              countries?
+              mainCountries?
               <div className='w-fit mx-auto flex flex-wrap items-center justify-center gap-2 md:gap-4 '>
 
                 {
-                  countries.filter(f => f.category.name == 'Main').map(i => (
+                  mainCountries.map(i => (
                     <Link key={i.slug} to={`/countries/${i.slug}`} className='bg-white w-[40%] sm:w-[175px] h-[125px] border-1 border-gray-200 gap-8 flex flex-col rounded-[8px] relative overflow-hidden duration-500'>
                       <div className='h-full p-6 flex flex-row justify-between'>
                         <div className='flex flex-col relative z-30 gap-1 mt-auto'>
@@ -528,7 +576,7 @@ const CountriesScreen = () => {
               <p className='text-2xl md:text-4xl font-bold text-[#DA0C0C] text-center capitalize'>european nation countries</p>
             </div>
             {
-              loading?
+              euCountryListLoaoding?
               <div className='w-fit mx-auto flex flex-wrap items-center justify-center gap-2 md:gap-4 '>
 
                   <Link className='bg-white w-[40%] sm:w-[175px] h-[125px] border-1 border-gray-200 gap-8 flex flex-col rounded-[8px] relative overflow-hidden duration-500'>
@@ -648,11 +696,11 @@ const CountriesScreen = () => {
                 
               </div>
               :
-              countries?
+              euCountries?
               <div className='w-fit mx-auto flex flex-wrap items-center justify-center gap-2 md:gap-4 '>
 
                 {
-                  countries.filter(f => f.category.name == 'EU').map(i => (
+                  euCountries.map(i => (
                     <Link key={i.slug} to={`/countries/${i.slug}`} className='bg-white w-[40%] sm:w-[175px] h-[125px] border-1 border-gray-200 gap-8 flex flex-col rounded-[8px] relative overflow-hidden duration-500'>
                       <div className='h-full p-6 flex flex-row justify-between'>
                         <div className='flex flex-col relative z-30 gap-1 mt-auto'>
@@ -685,7 +733,7 @@ const CountriesScreen = () => {
               <p className='text-2xl md:text-4xl font-bold text-[#DA0C0C] text-center capitalize'>medicine</p>
             </div>
             {
-              loading?
+              medicineCountryListLoaoding?
               <div className='w-fit mx-auto flex flex-wrap items-center justify-center gap-2 md:gap-4 '>
 
                   <Link className='bg-white w-[40%] sm:w-[175px] h-[125px] border-1 border-gray-200 gap-8 flex flex-col rounded-[8px] relative overflow-hidden duration-500'>
@@ -805,11 +853,11 @@ const CountriesScreen = () => {
                 
               </div>
               :
-              countries?
+              medicineCountries?
               <div className='w-fit mx-auto flex flex-wrap items-center justify-center gap-2 md:gap-4 '>
 
                 {
-                  countries.filter(f => f.category.name == 'Medicine').map(i => (
+                  medicineCountries.map(i => (
                     <Link key={i.slug} to={`/countries/${i.slug}`} className='bg-white w-[40%] sm:w-[175px] h-[125px] border-1 border-gray-200 gap-8 flex flex-col rounded-[8px] relative overflow-hidden duration-500'>
                       <div className='h-full p-6 flex flex-row justify-between'>
                         <div className='flex flex-col relative z-30 gap-1 mt-auto'>
@@ -986,8 +1034,10 @@ const CountriesScreen = () => {
                 <p className='text-2xl font-bold'>Book an Appointment</p>
                 <Input isClearable  variant='flat' type='text' placeholder='Name'></Input>
                 <div className='grid grid-cols-2 gap-6'>
-                  <Input isClearable  variant='flat' type='email' placeholder='Email'></Input>
-                  <Input isClearable  variant='flat' type='number' placeholder='Mobile number' startContent={
+                  <Input isClearable value={email} 
+                            onChange={(e) => setemail(e.target.value)}  variant='flat' type='email' placeholder='Email'></Input>
+                  <Input isClearable  value={mNumber} 
+                            onChange={(e) => setmNumber(e.target.value)} variant='flat' type='number' placeholder='Mobile number' startContent={
                     <div className="pointer-events-none flex items-center">
                       <span className="text-default-400 text-small">+94</span>
                     </div>
@@ -999,6 +1049,8 @@ const CountriesScreen = () => {
                     onChange={(date) => setStartDate(date)}
                     showTimeSelect
                     filterTime={filterTime}
+                    value={date} 
+                    
                     filterDate={filterDate}
                     dateFormat="MMMM d, yyyy h:mm aa"
                     timeIntervals={30}
@@ -1042,16 +1094,37 @@ const CountriesScreen = () => {
                       size='md'
 
                   >
-                      {
-                        loading?
-                        "":
-                        countries?
-                        countries.map(i => (
-                          <SelectItem key={i.slug} value={i.slug} className=''>
-                              {i.name}
-                          </SelectItem>
-                        )):''
-                      }
+                         {
+                          mainCountryListLoaoding?
+                          "":
+                          mainCountries?
+                          mainCountries.map(i => (
+                            <SelectItem key={i.slug} value={i.slug} className=''>
+                                {i.name}
+                            </SelectItem>
+                          )):''
+                        }
+                        {
+                          euCountryListLoaoding?
+                          "":
+                          euCountries?
+                          euCountries.map(i => (
+                            <SelectItem key={i.slug} value={i.slug} className=''>
+                                {i.name}
+                            </SelectItem>
+                          )):''
+                        }
+
+                        {
+                          medicineCountryListLoaoding?
+                          "":
+                          medicineCountries?
+                          medicineCountries.map(i => (
+                            <SelectItem key={i.slug} value={i.slug} className=''>
+                                {i.name}
+                            </SelectItem>
+                          )):''
+                        }
                   </Select>
                   <Select 
                       className="w-full" 

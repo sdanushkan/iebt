@@ -1,9 +1,19 @@
 import {
     
-    COUNTRY_LIST_REQUEST,
-    COUNTRY_LIST_SUCCESS,
-    COUNTRY_LIST_FAIL,
-    COUNTRY_LIST_RESET,
+    MAIN_COUNTRY_LIST_REQUEST,
+    MAIN_COUNTRY_LIST_SUCCESS,
+    MAIN_COUNTRY_LIST_FAIL,
+    MAIN_COUNTRY_LIST_RESET,
+
+    EU_COUNTRY_LIST_REQUEST,
+    EU_COUNTRY_LIST_SUCCESS,
+    EU_COUNTRY_LIST_FAIL,
+    EU_COUNTRY_LIST_RESET,
+
+    MADICINE_COUNTRY_LIST_REQUEST,
+    MADICINE_COUNTRY_LIST_SUCCESS,
+    MADICINE_COUNTRY_LIST_FAIL,
+    MADICINE_COUNTRY_LIST_RESET,
 
     TESTIMONIAL_LIST_REQUEST, 
     TESTIMONIAL_LIST_SUCCESS,
@@ -17,28 +27,81 @@ import {
 
 } from '../constants/abroadConstants'
 
-export const countryListReducer = (state = {  }, action) => {
+export const mainCountryListReducer = (state = {  }, action) => {
     switch (action.type) {
-        case COUNTRY_LIST_REQUEST:
+        case MAIN_COUNTRY_LIST_REQUEST:
             return {
                 loading: true
             }
 
-        case COUNTRY_LIST_SUCCESS:
+        case MAIN_COUNTRY_LIST_SUCCESS:
             return {
                 loading: false,
                 countries: action.payload
             }
 
-        case COUNTRY_LIST_FAIL:
+        case MAIN_COUNTRY_LIST_FAIL:
             return {
                 loading: false,
                 error: action.payload
             }
 
-        case COUNTRY_LIST_RESET:
+        case MAIN_COUNTRY_LIST_RESET:
+            return {}
+
+        default:
+            return state
+    }
+}
+
+export const euCountryListReducer = (state = {  }, action) => {
+    switch (action.type) {
+        case EU_COUNTRY_LIST_REQUEST:
             return {
+                loading: true
             }
+
+        case EU_COUNTRY_LIST_SUCCESS:
+            return {
+                loading: false,
+                countries: action.payload
+            }
+
+        case EU_COUNTRY_LIST_FAIL:
+            return {
+                loading: false,
+                error: action.payload
+            }
+
+        case EU_COUNTRY_LIST_RESET:
+            return {}
+
+        default:
+            return state
+    }
+}
+
+export const medicineCountryListReducer = (state = {  }, action) => {
+    switch (action.type) {
+        case MADICINE_COUNTRY_LIST_REQUEST:
+            return {
+                loading: true
+            }
+
+        case MADICINE_COUNTRY_LIST_SUCCESS:
+            return {
+                loading: false,
+                countries: action.payload
+            }
+
+        case MADICINE_COUNTRY_LIST_FAIL:
+            return {
+                loading: false,
+                error: action.payload
+            }
+
+        case MADICINE_COUNTRY_LIST_RESET:
+            return {}
 
         default:
             return state

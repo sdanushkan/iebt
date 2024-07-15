@@ -2,8 +2,8 @@ import { combineReducers, applyMiddleware } from 'redux'
 import { thunk }  from 'redux-thunk'
 import { configureStore } from '@reduxjs/toolkit'
 // import { composeWithDevTools } from 'redux-devtools-extension'
-import { aboutDetailsReducer, courseDetailsReducer, courseFilterListReducer, courseListReducer, dualQualificationCourseDetailsReducer, dualQualificationCourseListReducer, dualQualificationCoursesListReducer, dualQualificationListReducer, eventListReducer, facultyListReducer, levelListReducer, ourQualificationDetailsReducer, ourQualificationListReducer, popularCourseListReducer, sendApplicationReducer, studentVerificationReducer } from './reducers/courseReducers'
-import { countryDetailsReducer, countryListReducer, testimonialListReducer } from './reducers/abroadReducers'
+import { aboutDetailsReducer, courseDetailsReducer, courseFilterListReducer, courseListReducer, dualQualificationCourseDetailsReducer, dualQualificationCourseListReducer, dualQualificationCoursesListReducer, dualQualificationListReducer, eventListReducer, facultyListReducer, levelListReducer, ourQualificationDetailsReducer, ourQualificationListReducer, popularCourseListReducer, sendApplicationReducer, sendBAReducer, sendCAReducer, sendCUReducer, sendSAReducer, studentVerificationReducer } from './reducers/courseReducers'
+import { countryDetailsReducer, countryListReducer, euCountryListReducer, mainCountryListReducer, medicineCountryListReducer, testimonialListReducer } from './reducers/abroadReducers'
 // import { countryListReducer } from './reducers/countryReducers'
 // import { applicationCreateReducer, contactCreateReducer, serviceListReducer } from './reducers/serviceReducers'
 // import { userActivationReducer, userForgotPasswordLinkReducer, userForgotPasswordReducer, userLoginReducer, userRegisterReducer } from './reducers/userReducers'
@@ -24,10 +24,16 @@ const reducer = combineReducers({
     dualQualificationCoursesList : dualQualificationCoursesListReducer,
     dualQualificationCourseDetails : dualQualificationCourseDetailsReducer,
 
-    countryList :countryListReducer,
+    mainCountryList :mainCountryListReducer,
+    euCountryList :euCountryListReducer,
+    medicineCountryList : medicineCountryListReducer,
     testimonialList : testimonialListReducer,
 
     sendApplication : sendApplicationReducer,
+    sendSA: sendSAReducer,
+    sendCU: sendCUReducer,
+    sendBA: sendBAReducer,
+    sendCA: sendCAReducer,
     
     eventList: eventListReducer,
     studentVerification: studentVerificationReducer,

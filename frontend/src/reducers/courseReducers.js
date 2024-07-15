@@ -65,7 +65,6 @@ import {
     COURSE_DETAILS_FAIL,
     COURSE_DETAILS_RESET,
 
-    
     APPLICATION_SEND_REQUEST,
     APPLICATION_SEND_SUCCESS,
     APPLICATION_SEND_FAIL,
@@ -80,6 +79,16 @@ import {
     CU_SEND_SUCCESS,
     CU_SEND_FAIL,
     CU_SEND_RESET,
+
+    BA_SEND_REQUEST,
+    BA_SEND_SUCCESS,
+    BA_SEND_FAIL,
+    BA_SEND_RESET,
+
+    CA_SEND_REQUEST,
+    CA_SEND_SUCCESS,
+    CA_SEND_FAIL,
+    CA_SEND_RESET,
 
     EVENT_LIST_REQUEST,
     EVENT_LIST_SUCCESS,
@@ -508,6 +517,38 @@ export const sendCUReducer = (state = {}, action) => {
             return { loading: false, success:true }
 
         case CU_SEND_FAIL:
+            return { loading: false, error: action.payload }
+
+        default:
+            return state
+    }
+}
+
+export const sendBAReducer = (state = {}, action) => {
+    switch (action.type) {
+        case BA_SEND_REQUEST:
+            return { loading: true }
+
+        case BA_SEND_SUCCESS:
+            return { loading: false, success:true }
+
+        case BA_SEND_FAIL:
+            return { loading: false, error: action.payload }
+
+        default:
+            return state
+    }
+}
+
+export const sendCAReducer = (state = {}, action) => {
+    switch (action.type) {
+        case CA_SEND_REQUEST:
+            return { loading: true }
+
+        case CA_SEND_SUCCESS:
+            return { loading: false, success:true }
+
+        case CA_SEND_FAIL:
             return { loading: false, error: action.payload }
 
         default:

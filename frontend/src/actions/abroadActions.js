@@ -1,10 +1,19 @@
 import axios from 'axios'
 import {
-    
-    COUNTRY_LIST_REQUEST,
-    COUNTRY_LIST_SUCCESS,
-    COUNTRY_LIST_FAIL,
-    COUNTRY_LIST_RESET,
+    MAIN_COUNTRY_LIST_REQUEST,
+    MAIN_COUNTRY_LIST_SUCCESS,
+    MAIN_COUNTRY_LIST_FAIL,
+    MAIN_COUNTRY_LIST_RESET,
+
+    EU_COUNTRY_LIST_REQUEST,
+    EU_COUNTRY_LIST_SUCCESS,
+    EU_COUNTRY_LIST_FAIL,
+    EU_COUNTRY_LIST_RESET,
+
+    MADICINE_COUNTRY_LIST_REQUEST,
+    MADICINE_COUNTRY_LIST_SUCCESS,
+    MADICINE_COUNTRY_LIST_FAIL,
+    MADICINE_COUNTRY_LIST_RESET,
 
     COUNTRY_DETAILS_REQUEST,
     COUNTRY_DETAILS_SUCCESS,
@@ -19,10 +28,10 @@ import {
 } from '../constants/abroadConstants'
 
 
-export const getCountryList = () => async (dispatch) => {
+export const getMainCountryList = () => async (dispatch) => {
     try {
         dispatch({
-            type: COUNTRY_LIST_REQUEST
+            type: MAIN_COUNTRY_LIST_REQUEST
         })
 
         const config = {
@@ -32,19 +41,85 @@ export const getCountryList = () => async (dispatch) => {
         }
 
         const { data } = await axios.get(
-            `/api/countries/`,
+            `/api/countries/country/main`,
             config
         )
 
         dispatch({
-            type: COUNTRY_LIST_SUCCESS,
+            type: MAIN_COUNTRY_LIST_SUCCESS,
             payload: data
         })
 
 
     } catch (error) {
         dispatch({
-            type: COUNTRY_LIST_FAIL,
+            type: MAIN_COUNTRY_LIST_FAIL,
+            payload: error.response && error.response.data.detail
+                ? error.response.data.detail
+                : error.message,
+        })
+    }
+}
+
+export const getEuCountryList = () => async (dispatch) => {
+    try {
+        dispatch({
+            type: EU_COUNTRY_LIST_REQUEST
+        })
+
+        const config = {
+            headers: {
+                'Content-type': 'application/json',
+            }
+        }
+
+        const { data } = await axios.get(
+            `/api/countries/country/eu`,
+            config
+        )
+
+        dispatch({
+            type: EU_COUNTRY_LIST_SUCCESS,
+            payload: data
+        })
+
+
+    } catch (error) {
+        dispatch({
+            type: EU_COUNTRY_LIST_FAIL,
+            payload: error.response && error.response.data.detail
+                ? error.response.data.detail
+                : error.message,
+        })
+    }
+}
+
+export const getMedicineCountryList = () => async (dispatch) => {
+    try {
+        dispatch({
+            type: MADICINE_COUNTRY_LIST_REQUEST
+        })
+
+        const config = {
+            headers: {
+                'Content-type': 'application/json',
+            }
+        }
+
+        const { data } = await axios.get(
+            `/api/countries/country/medicine`,
+            config
+        )
+
+        dispatch({
+            type: MADICINE_COUNTRY_LIST_SUCCESS,
+            payload: data
+        })
+
+
+    } catch (error) {
+        dispatch({
+            type: MADICINE_COUNTRY_LIST_FAIL,
             payload: error.response && error.response.data.detail
                 ? error.response.data.detail
                 : error.message,

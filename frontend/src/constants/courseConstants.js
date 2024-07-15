@@ -78,6 +78,16 @@ export const CU_SEND_SUCCESS = 'CU_SEND_SUCCESS'
 export const CU_SEND_FAIL = 'CU_SEND_FAIL'
 export const CU_SEND_RESET = 'CU_SEND_RESET'
 
+export const BA_SEND_REQUEST = 'BA_SEND_REQUEST'
+export const BA_SEND_SUCCESS = 'BA_SEND_SUCCESS'
+export const BA_SEND_FAIL = 'BA_SEND_FAIL'
+export const BA_SEND_RESET = 'BA_SEND_RESET'
+
+export const CA_SEND_REQUEST = 'CA_SEND_REQUEST'
+export const CA_SEND_SUCCESS = 'CA_SEND_SUCCESS'
+export const CA_SEND_FAIL = 'CA_SEND_FAIL'
+export const CA_SEND_RESET = 'CA_SEND_RESET'
+
 export const EVENT_LIST_REQUEST = 'EVENT_LIST_REQUEST'
 export const EVENT_LIST_SUCCESS = 'EVENT_LIST_SUCCESS'
 export const EVENT_LIST_FAIL = 'EVENT_LIST_FAIL'
