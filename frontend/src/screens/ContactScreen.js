@@ -9,7 +9,7 @@ import { RiSecurePaymentFill } from "react-icons/ri";
 import { useDispatch } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { FaUser } from 'react-icons/fa6';
-import { sendCU } from '../actions/courseActions';
+import { sendCU, sendCUMail } from '../actions/courseActions';
 
 const ContactScreen = () => {
   const dispatch = useDispatch()
@@ -27,13 +27,20 @@ const ContactScreen = () => {
   }, [location]);
 
   const sendMail = () =>{
-    dispatch(sendCU({ 
+    if((name!='')&&(mNumber!='')&&(email!='')&&(subject!='')&&(discription!='')){
+      dispatch(sendCUMail({ 
         "name": name,
         "mNumber": mNumber,
         "email": email,
         "subject": subject,
         "discription": discription,
     }))
+    setname('')
+    setmNumber('')
+    setemail('')
+    setsubject('')
+    setdiscription('')
+    }
   }
   return ( 
     <div className='flex flex-col gap-14 '>
@@ -77,7 +84,7 @@ const ContactScreen = () => {
               <div className=''>
                 <div className=''>
                   <p className='text-3xl font-bold capitalize'>send message</p>
-                  <p></p>
+                  <p className='text-xs text-red-500'>All fields are required*</p>
                 </div>
                 <div className='flex flex-col gap-4 py-8'>
                   <div className=' flex gap-4'>

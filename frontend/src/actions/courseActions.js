@@ -569,7 +569,7 @@ export const sendApplication = (details) => async (dispatch) => {
     }
 }
 
-export const sendSA = (details) => async (dispatch) => {
+export const sendSAMail = (details) => async (dispatch) => {
     try {
         dispatch({
             type: SA_SEND_REQUEST
@@ -602,7 +602,7 @@ export const sendSA = (details) => async (dispatch) => {
     }
 }
 
-export const sendCU = (details) => async (dispatch) => {
+export const sendCUMail = (details) => async (dispatch) => {
     try {
         dispatch({
             type: CU_SEND_REQUEST
@@ -635,7 +635,7 @@ export const sendCU = (details) => async (dispatch) => {
     }
 }
 
-export const sendBA = (details) => async (dispatch) => {
+export const sendBAMail = (details) => async (dispatch) => {
     try {
         dispatch({
             type: BA_SEND_REQUEST
@@ -668,7 +668,7 @@ export const sendBA = (details) => async (dispatch) => {
     }
 }
 
-export const sendCA = (details) => async (dispatch) => {
+export const sendCAMail = (details) => async (dispatch) => {
     try {
         dispatch({
             type: CA_SEND_REQUEST

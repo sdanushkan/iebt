@@ -24,6 +24,12 @@ from django.template.loader import render_to_string
 from django.http import HttpResponse
 from django.conf import settings
 
+     # "Passportsizecolourphotos":data["Passportsizecolourphotos"],
+        # "Proofofyourqualiﬁcations":data["Proofofyourqualiﬁcations"],
+        # "CopyofyourBirthCertiﬁcate":data["CopyofyourBirthCertiﬁcate"],
+        # "CopyofyourNationalIdentityCard":["CopyofyourBirthCertiﬁcate"],
+        # "Anyotherrelevantdocuments":data["Anyotherrelevantdocuments"],
+
 @api_view(['POST'])
 def send_application_view(request):
     subject = ('Student Application')
@@ -34,6 +40,10 @@ def send_application_view(request):
     html_content = render_to_string('email_template.html', {
         'subject': subject, 
         'message': message,
+
+
+        'faculty':data['faculty'],
+        'course':data['course'],
         
         'fullName': data['fullName'],
         'fName': data['fName'],
@@ -188,7 +198,7 @@ def send_application_view(request):
 
     text_content = 'This is an alternative plain text message for email clients that do not support HTML.'
 
-    email = EmailMultiAlternatives(subject, text_content, settings.DEFAULT_FROM_EMAIL, ['enquiries@iebc.lk.com'])
+    email = EmailMultiAlternatives(subject, text_content, settings.DEFAULT_FROM_EMAIL, ['enquiries@iebc.lk'])
     email.attach_alternative(html_content, "text/html")
     email.send()
 
@@ -213,7 +223,7 @@ def send_sa_view(request):
 
     text_content = 'This is an alternative plain text message for email clients that do not support HTML.'
 
-    email = EmailMultiAlternatives(subject, text_content, settings.DEFAULT_FROM_EMAIL, ['enquiries@iebc.lk.com'])
+    email = EmailMultiAlternatives(subject, text_content, settings.DEFAULT_FROM_EMAIL, ['enquiries@iebc.lk'])
     email.attach_alternative(html_content, "text/html")
     email.send()
 
@@ -233,17 +243,16 @@ def send_ba_view(request):
         'email': data['email'],
         'name': data['name'],
         'mNumber': data['mNumber'],
-        'subject': data['subject'],
         'date': data['date'],
         'YOS': data['YOS'],
         'destination': data['destination'],
-        'si': data['si'], 
+        'SI': data['SI'], 
 
     })
 
     text_content = 'This is an alternative plain text message for email clients that do not support HTML.'
 
-    email = EmailMultiAlternatives(subject, text_content, settings.DEFAULT_FROM_EMAIL, ['enquiries@iebc.lk.com'])
+    email = EmailMultiAlternatives(subject, text_content, settings.DEFAULT_FROM_EMAIL, ['enquiries@iebc.lk'])
     email.attach_alternative(html_content, "text/html")
     email.send()
 
@@ -271,7 +280,7 @@ def send_ca_view(request):
 
     text_content = 'This is an alternative plain text message for email clients that do not support HTML.'
 
-    email = EmailMultiAlternatives(subject, text_content, settings.DEFAULT_FROM_EMAIL, ['enquiries@iebc.lk.com'])
+    email = EmailMultiAlternatives(subject, text_content, settings.DEFAULT_FROM_EMAIL, ['enquiries@iebc.lk'])
     email.attach_alternative(html_content, "text/html")
     email.send()
 
@@ -300,7 +309,7 @@ def send_cu_view(request):
 
     text_content = 'This is an alternative plain text message for email clients that do not support HTML.'
 
-    email = EmailMultiAlternatives(subject, text_content, settings.DEFAULT_FROM_EMAIL, ['enquiries@iebc.lk.com'])
+    email = EmailMultiAlternatives(subject, text_content, settings.DEFAULT_FROM_EMAIL, ['enquiries@iebc.lk'])
     email.attach_alternative(html_content, "text/html")
     email.send()
 
@@ -357,7 +366,7 @@ def getPopularCourses(request):
 def sendApplicationMail(request):
     subject = 'Welcome to Our Service'
     from_email = settings.DEFAULT_FROM_EMAIL
-    to = ['enquiries@iebc.lk']
+    to = ['appledanushkan31@gmail']
 
     # Render email content
     text_content = render_to_string('email/example_email.txt')

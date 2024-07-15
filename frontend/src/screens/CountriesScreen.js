@@ -49,19 +49,44 @@ import ReactPlayer from 'react-player'
 import CountUp from 'react-countup';
 
 import sdv from '../assets/sdv.mp4'
-import { sendBA, sendSA } from '../actions/courseActions';
+import { sendBA, sendBAMail, sendSA, sendSAMail } from '../actions/courseActions';
 
 const CountriesScreen = () => {
   // const WebView = require('@luxbit/react-electron-webview');
 
   const [selected, setSelected] = React.useState("london");
   const [email, setemail] = useState('')
+  const [name, setname] = useState('')
   const [mNumber, setmNumber] = useState('')
   const [YOS, setYOS] = useState('')
+  const [destination, setdestination] = useState('')
+  const [ndestination, setndestination] = useState('')
+  const [nYOS, setnYOS] = useState('')
   const [PS, setPS] = useState('')
+  const [nPS, setnPS] = useState('')
   const [SI, setSI] = useState('')
+  const [nSI, setnSI] = useState('')
 
   const [date, setDate] = useState('')
+  
+  useEffect(() => {
+    setnYOS(YOS.anchorKey)
+
+  }, [YOS])
+
+  useEffect(() => {
+    setnSI(SI.anchorKey)
+  }, [SI])
+  useEffect(() => {
+    
+    setnPS(PS.anchorKey)
+  }, [PS])
+
+
+  useEffect(() => {
+    
+    setndestination(destination.anchorKey)
+  }, [destination])
   
 
 
@@ -80,6 +105,12 @@ const CountriesScreen = () => {
 
   const testimonialList = useSelector(state => state.testimonialList)
   const { error: testimonialListError, loading: testimonialListLoading, testimonials } = testimonialList
+
+  const sendBA = useSelector(state => state.sendBA)
+  const { error: sendBAError, loading: sendBALoading, success:BASuccess } = sendBA
+
+  const sendSA = useSelector(state => state.sendSA)
+  const { error: sendSAError, loading: sendSALoading, success:SASuccess } = sendSA
 
   useEffect(() => {
     if (!mainCountries){
@@ -127,23 +158,41 @@ const CountriesScreen = () => {
   };
 
   const sendMail = () =>{
-    dispatch(sendSA({ 
-        "mNumber": mNumber,
-        "email": email,
-        "YOS": YOS,
-        "PS": PS,
-        "SI": SI,
-    }))
+      if((mNumber!='')&& (nPS!='')&& (email!='')&& (nYOS!='')&& (nSI!='')){
+        dispatch(sendSAMail({ 
+            "mNumber": mNumber,
+            "email": email,
+            "YOS": nYOS,
+            "PS": nPS,
+            "SI": nSI,
+        }))
+        setmNumber('')
+        setemail('')
+        setYOS('')
+        setSI('')
+        setPS('')
+    }
   }
 
   const sendMailBA = () =>{
-    dispatch(sendBA({ 
+    if((mNumber!='')&& (name!='')&& (email!='')&& (nYOS!='')&&(startDate!='')&& (ndestination!='')&& (nSI!='')){
+      dispatch(sendBAMail({ 
         "mNumber": mNumber,
+        "name": name,
         "email": email,
-        "YOS": YOS,
-        "PS": PS,
-        "SI": SI,
+        "YOS": nYOS,
+        "date": startDate, 
+        "destination": ndestination,
+        "SI": nSI,
     }))
+    setmNumber('')
+    setemail('')
+    setYOS('')
+    setDate('')
+    setdestination('')
+    setSI('')
+    setname('')
+    }
   }
  
   return ( 
@@ -195,6 +244,7 @@ const CountriesScreen = () => {
 
                 <div className='h-full w-full flex flex-col justify-center px-8 md:border-l-[10px] border-white gap-4 relative md:mt-24'>
                   <p className='text-2xl font-bold'>Register</p>
+                  <p className='text-xs text-red-500'>All fields are required*</p>
                   <div className='grid grid-cols-1 gap-6'>
                     <Input isClearable  variant='flat' type='email' value={email} 
                             onChange={(e) => setemail(e.target.value)} placeholder='Email'></Input>
@@ -1032,7 +1082,9 @@ const CountriesScreen = () => {
               <img src='https://www.marketsquaredental.com/files/2011/08/book-now.png' alt='' className='absolute w-full h-full opacity-25 object-contain scale-110' />
               <div className='w-full flex flex-col gap-6'>
                 <p className='text-2xl font-bold'>Book an Appointment</p>
-                <Input isClearable  variant='flat' type='text' placeholder='Name'></Input>
+                <p className='text-xs text-red-500'>All fields are required*</p>
+                <Input isClearable value={name} 
+                            onChange={(e) => setname(e.target.value)}  variant='flat' type='text' placeholder='Name'></Input>
                 <div className='grid grid-cols-2 gap-6'>
                   <Input isClearable value={email} 
                             onChange={(e) => setemail(e.target.value)}  variant='flat' type='email' placeholder='Email'></Input>
@@ -1070,6 +1122,8 @@ const CountriesScreen = () => {
                     placeholder='Year of Study'
                     required
                     size='md'
+                    selectedKeys={YOS}
+                    onSelectionChange={setYOS}
 
                 >
                     <SelectItem key='2025' className=''>
@@ -1092,6 +1146,8 @@ const CountriesScreen = () => {
                       placeholder='Preferred Study Destination'
                       required
                       size='md'
+                      selectedKeys={destination}
+                    onSelectionChange={setdestination}
 
                   >
                          {
@@ -1134,6 +1190,8 @@ const CountriesScreen = () => {
                       placeholder='Study Intake'
                       required
                       size='md'
+                      selectedKeys={SI}
+                    onSelectionChange={setSI}
 
                   >
                       <SelectItem key='January – March' className=''>
@@ -1151,7 +1209,7 @@ const CountriesScreen = () => {
                   </Select>
                 </div>
                 
-                <Button variant='solid' color='danger' endContent={
+                <Button onClick={sendMailBA} variant='solid' color='danger' endContent={
                     <GrFormNextLink />
                 } className='w-fit font-medium bg-[#DA0C0C] text-white mt-4'>
                   Book now

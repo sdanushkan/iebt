@@ -25,13 +25,24 @@ const ApplicationScreen = () => {
   const [faculty, setFaculty] = useState('')
   const [course, setCourse] = useState('')
 
+  const [nfaculty, setnFaculty] = useState('')
+  const [ncourse, setnCourse] = useState('')
+
+ 
+
+  const [isPSP, setIsPSP] = React.useState(false);
+  const [isPOQ, setIsPOQ] = React.useState(false);
+  const [isBC, setIsBC] = React.useState(false);
+  const [isNIC, setIsNIC] = React.useState(false);
+  const [isAR, setIsAR] = React.useState(false);
+
   //personal Details
   const [fullName, setFullName] = useState('')
   const [fName, setFName] = useState('')
   const [lName, setLName] = useState('')
   const [NIC, setNIC] = useState('')
   const [cNumber, setCNumber] = useState('')
-  const [sex, setSex] = useState('')
+  const [sex, setSex] = useState('') 
   const [email, setEmail] = useState('')
   const [dob, setDOB] = useState('')
   const [status, setStatus] = useState('')
@@ -191,8 +202,19 @@ const ApplicationScreen = () => {
     window.scroll(0,0);
   }, [location]);
 
+  // "Passportsizecolourphotos":isPSP,
+      // "Proofofyourqualiﬁcations":isPOQ,
+      // "CopyofyourBirthCertiﬁcate":isBC,
+      // "CopyofyourNationalIdentityCard":isNIC,
+      // "Anyotherrelevantdocuments":isAR,
+
   const sendMail = () =>{
     dispatch(sendApplication({ 
+      "faculty": faculty,
+      "course": course,
+
+      
+
       "fullName": fullName,
       "fName": fName,
       "lName": lName,
@@ -300,6 +322,129 @@ const ApplicationScreen = () => {
       "i3": i3,
       "i4": i4,
   }))
+  setFullName('');
+setFName('');
+setLName('');
+setNIC('');
+setCNumber('');
+setSex('');
+setEmail('');
+setDOB('');
+setStatus('');
+setDependent('');
+setFunds('');
+
+// GCE O/L A-1
+setOLA1Y('');
+setOLS1A1('');
+setOLS1A1G('');
+setOLS2A1('');
+setOLS2A1G('');
+setOLS3A1('');
+setOLS3A1G('');
+setOLS4A1('');
+setOLS4A1G('');
+setOLS5A1('');
+setOLS5A1G('');
+setOLS6A1('');
+setOLS6A1G('');
+setOLS7A1('');
+setOLS7A1G('');
+setOLS8A1('');
+setOLS8A1G('');
+setOLS9A1('');
+setOLS9A1G('');
+
+// GCE O/L A-2
+setOLA2Y('');
+setOLS1A2('');
+setOLS1A2G('');
+setOLS2A2('');
+setOLS2A2G('');
+setOLS3A2('');
+setOLS3A2G('');
+setOLS4A2('');
+setOLS4A2G('');
+setOLS5A2('');
+setOLS5A2G('');
+setOLS6A2('');
+setOLS6A2G('');
+setOLS7A2('');
+setOLS7A2G('');
+setOLS8A2('');
+setOLS8A2G('');
+setOLS9A2('');
+setOLS9A2G('');
+
+// GCE A/L A-1
+setALA1Y('');
+setALS1A1('');
+setALS1A1G('');
+setALS2A1('');
+setALS2A1G('');
+setALS3A1('');
+setALS3A1G('');
+setALS4A1('');
+setALS4A1G('');
+
+// GCE A/L A-2
+setALA2Y('');
+setALS1A2('');
+setALS1A2G('');
+setALS2A2('');
+setALS2A2G('');
+setALS3A2('');
+setALS3A2G('');
+setALS4A2('');
+setALS4A2G('');
+
+// Higher Education Qualifications
+setHEQ1('');
+setHEQ1Y('');
+setHEQ1G('');
+setHEQ2('');
+setHEQ2Y('');
+setHEQ2G('');
+setHEQ3('');
+setHEQ3Y('');
+setHEQ3G('');
+setHEQ4('');
+setHEQ4Y('');
+setHEQ4G('');
+setHEQ5('');
+setHEQ5Y('');
+setHEQ5G('');
+
+// English Language Proficiency
+setOLE('');
+setOLEG('');
+setAL('');
+setALG('');
+setIELTS('');
+setIELTSG('');
+
+// Work Experience
+setCompany1('');
+setYear1('');
+setPosition1('');
+setCompany2('');
+setYear2('');
+setPosition2('');
+setCompany3('');
+setYear3('');
+setPosition3('');
+
+// Preferred Country
+setc1('');
+setc2('');
+setc3('');
+setc4('');
+
+// Preferred Intake
+seti1('');
+seti2('');
+seti3('');
+seti4('');
   }
 
   const courseList = useSelector(state => state.courseList)
@@ -309,17 +454,27 @@ const ApplicationScreen = () => {
     const { error:facultyListError, loading:facultyListLoading, faculties } = facultyList
 
     useEffect(() => {
-      if (!courses) {
-        dispatch(getCourseList('faculties', 'programes', 'qualifications', 'credits'))
-      }
+     
 
       if (!faculties) {
         dispatch(getFacultyList())
       }
-    }, [dispatch, courses, faculties])
+    }, [dispatch, courses, faculties, ])
+
+    useEffect(() => {
+      setnFaculty(faculty.anchorKey)
+    }, [faculty])
+    
+    useEffect(() => {
+      setnCourse(course.anchorKey)
+    }, [course])
+
+    useEffect(() => {
+      dispatch(getCourseList(nfaculty, 'programes', 'qualifications', 'credits'))
+    }, [dispatch, nfaculty])
 
   return (
-    <div className='flex flex-col gap-14'>
+    <div className='flex flex-col gap-14'> 
       <section className='relative'>
           <img src={'https://img.freepik.com/free-vector/futuristic-background-design_23-2148503793.jpg'} alt='' className='h-[400px] w-full object-cover relative -z-40' />
           
@@ -327,6 +482,7 @@ const ApplicationScreen = () => {
             <section className='w-full relative md:col-span-4'>
               <div className='h-fit w-full mx-auto px-2 sm:px-6 flex items-start gap-8 '>
                 <div className='w-full '>
+                <p className='text-xs text-red-500'>Please fill in all the fields; otherwise, your application will not be considered.*</p>
                   <Accordion selectionMode="multiple" className='w-full'>
                     <AccordionItem key="1" aria-label="course applied for" title={
                       <p className='text-[#DA0C0C] uppercase text-sm font-bold'>
@@ -341,6 +497,9 @@ const ApplicationScreen = () => {
                           className='w-full shadow-none rounded-none'
                           radius='sm'
                           size='md'
+                          selectedKeys={faculty} 
+                          onSelectionChange={setFaculty}
+                        
                           endContent={
                             <AiFillSignal />
                           }
@@ -350,7 +509,7 @@ const ApplicationScreen = () => {
                             '':
                             faculties?
                             faculties.map((i) => (
-                              <SelectItem onClick={()=> setFaculty(`/${i.slug}`)} value={i.slug} key={i.slug}>
+                              <SelectItem value={i.slug} key={i.slug}>
                                 {i.name}
                               </SelectItem>
                             ))
@@ -363,6 +522,13 @@ const ApplicationScreen = () => {
                           placeholder="Course award"
                           className='w-full shadow-none rounded-none'
                           radius='sm'
+                          disabled={
+                            nfaculty==''?
+                            true:
+                            false
+                          }
+                          selectedKeys={course}
+                          onSelectionChange={setCourse}
                           required
                           size='md'
                           endContent={
@@ -374,7 +540,7 @@ const ApplicationScreen = () => {
                             '':
                             courses?
                             courses.map((i) => (
-                              <SelectItem onClick={()=> setCourse(`/${i.slug}`)} value={i.slug} key={i.slug}>
+                              <SelectItem value={i.slug} key={i.slug}>
                                 {i.name}
                               </SelectItem>
                             ))
@@ -2379,11 +2545,40 @@ const ApplicationScreen = () => {
                 </div>
               </div>
             </section>
-            <section className='md:col-span-1 w-full'>
+            <section className='md:col-span-1 w-full flex flex-col gap-4'>
               <Button onClick={sendMail} color='' radius='none' className="w-full hidden lg:flex bg-[#DA0C0C] text-white font-medium ">
                 <p>Submit</p>
                 <RiSecurePaymentFill  />
               </Button>
+              <div className='flex flex-col gap-8'>
+                <div className=' flex '>
+                    <p className='text-xs'>After the submission, please email the documents to <span className='text-red-500'>enquiries@iebc.lk</span>. If you do not submit these documents, the application will be considered as not submitted.</p>
+                </div>
+                <div className="flex flex-col gap-4">
+                  <Checkbox size='sm'>
+                  Passport size colour photos (Maximum File Size 2MB)
+                  </Checkbox>
+                  <Checkbox size='sm'>
+                  Proof of your qualiﬁcations(Maximum File Size 2MB)
+                  </Checkbox>
+
+                  <Checkbox size='sm'>
+                  Copy of your Birth Certiﬁcate(Maximum File Size 2MB) 
+                  </Checkbox>
+                  <Checkbox size='sm'>
+                  
+Copy of your National Identity Card(Maximum File Size 2MB) 
+                  </Checkbox>
+                  <Checkbox size='sm'>
+                  
+                  Any other relevant documents (Make ZIP file of all Documnets and Submit Maximum File Size 5MB)                   </Checkbox>
+                  {/* <Checkbox isSelected={isPSP} onValueChange={setIsPSP}  className='text-sm' size='sm' >Passport size colour photos (Maximum File Size 2MB)</Checkbox>
+                  <Checkbox isSelected={isPOQ} onValueChange={setIsPOQ} className='text-sm' size='sm' >Proof of your qualiﬁcations(Maximum File Size 2MB)</Checkbox>
+                  <Checkbox isSelected={isBC} onValueChange={setIsBC} className='text-sm' size='sm' >Copy of your Birth Certiﬁcate(Maximum File Size 2MB) </Checkbox>
+                  <Checkbox isSelected={isNIC} onValueChange={setIsNIC} className='text-sm' size='sm' >Copy of your National Identity Card(Maximum File Size 2MB)  </Checkbox>
+                  <Checkbox isSelected={isAR} onValueChange={setIsAR} className='text-sm' size='sm' >Any other relevant documents (Make ZIP file of all Documnets and Submit Maximum File Size 5MB) </Checkbox> */}
+                </div> 
+              </div>
             </section>
           </div>
       </section>

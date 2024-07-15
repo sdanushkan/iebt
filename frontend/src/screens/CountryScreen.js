@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import {Tabs, Tab, Input, Link, Button, Card, CardBody, CardHeader} from "@nextui-org/react";import { MdAccessTime, MdEmail } from "react-icons/md";
+import {Tabs, Tab, Input, Link, Button, Card, CardBody, CardHeader, Select, SelectItem} from "@nextui-org/react";import { MdAccessTime, MdEmail } from "react-icons/md";
 import { FaArrowRightLong, FaCircleQuestion, FaRegCircleUser } from "react-icons/fa6";
 import {Divider} from "@nextui-org/react";
 import {Table, TableHeader, TableColumn, TableBody, TableRow, TableCell, getKeyValue} from "@nextui-org/react";
@@ -23,8 +23,33 @@ import  sp  from '../assets/sp.png'
 import  es  from '../assets/es.png'
 
 import bg from '../assets/bg.gif'
+import { sendCAMail } from '../actions/courseActions';
 
 const CountryScreen = () => {
+  const [email, setemail] = useState('')
+  const [name, setname] = useState('')
+  const [mNumber, setmNumber] = useState('')
+  const [YOS, setYOS] = useState('')
+  const [destination, setdestination] = useState('')
+  const [ndestination, setndestination] = useState('')
+  const [nYOS, setnYOS] = useState('')
+  const [PS, setPS] = useState('')
+  const [nPS, setnPS] = useState('')
+  const [SI, setSI] = useState('')
+  const [nSI, setnSI] = useState('')
+
+  const [date, setDate] = useState('')
+  
+
+  useEffect(() => {
+    setnSI(SI.anchorKey)
+  }, [SI])
+
+
+  useEffect(() => {
+    
+    setndestination(destination.anchorKey)
+  }, [destination])
 
     const {country} = useParams()
 
@@ -47,6 +72,22 @@ const CountryScreen = () => {
         window.scroll(0,0);
       }, [location]);
 
+      const sendMailCA = () =>{
+        if((mNumber!='')&& (name!='')&& (email!='')&& (nSI!='')){
+          dispatch(sendCAMail({ 
+            "mNumber": mNumber,
+            "name": name,
+            "email": email,
+            "country": country,
+            "intake": nSI,
+        }))
+        setmNumber('')
+        setemail('')
+        setSI('')
+        setname('')
+        }
+      }
+     
 
   return (
     <div className='w-full h-fit'>
@@ -198,6 +239,8 @@ const CountryScreen = () => {
                           <Input
                               isClearable
                               type="text"
+                              value={name} 
+                            onChange={(e) => setname(e.target.value)}
                               variant="flat"
                               placeholder="Enter your Name"
                               onClear={() => console.log("input cleared")}
@@ -214,6 +257,8 @@ const CountryScreen = () => {
                               placeholder="Enter your Email"
                               onClear={() => console.log("input cleared")}
                               className="w-full"
+                              value={email} 
+                            onChange={(e) => setemail(e.target.value)}
                               radius='sm'
                               startContent={
                                 <MdEmail className="text-lg text-default-400 pointer-events-none flex-shrink-0" />
@@ -228,6 +273,8 @@ const CountryScreen = () => {
                               variant="flat"
                               className='w-full shadow-none rounded-none'
                               radius='sm'
+                              value={mNumber} 
+                            onChange={(e) => setmNumber(e.target.value)}
                               size='md'
                               onClear={() => console.log("input cleared")}
                               startContent={
@@ -258,24 +305,31 @@ const CountryScreen = () => {
                             />
                           </div>
                           <div className='flex gap-4'>
-                            <Input
-                              type="text"
-                              placeholder="Intake"
-                              labelPlacement="outside"
-                              variant="flat"
-                              startContent={
-                                <FaCircleQuestion className="text-lg text-default-400 pointer-events-none flex-shrink-0" />
-                              }
-                              className='w-full shadow-none rounded-none'
-                              radius='sm'
+                          <Select 
+                              className="w-full" 
+                              // selectedKeys={pLocation}
+                              // onSelectionChange={setPLocation}
+                              variant=''
+                              placeholder='Year of Study'
+                              required
                               size='md'
-                              // endContent={
-                              //   // <VscSymbolKeyword />
-                              // }
-                            />
+                              selectedKeys={SI}
+                              onSelectionChange={setSI}
+
+                          >
+                              <SelectItem key='2025' className=''>
+                                  2025
+                              </SelectItem>
+                              <SelectItem key='2027' className=''>
+                                  2027
+                              </SelectItem>
+                              <SelectItem key='2028' className=''>
+                                  2028
+                              </SelectItem>
+                          </Select>
                           </div>
                           
-                          <Button color='' size='md' className="hidden lg:flex bg-[#DA0C0C] text-white font-medium rounded-md max-w-fit mt-4">
+                          <Button onClick={sendMailCA} color='' size='md' className="hidden lg:flex bg-[#DA0C0C] text-white font-medium rounded-md max-w-fit mt-4">
                             <p>Submit</p>
                             <FaArrowRightLong/>
                           </Button>
