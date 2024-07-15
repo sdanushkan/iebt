@@ -6,7 +6,7 @@ import { FaPhoneAlt } from "react-icons/fa";
 import { IoMdMail } from "react-icons/io";
 import { IoHome, IoPersonCircle } from "react-icons/io5";
 import { RiSecurePaymentFill } from "react-icons/ri";
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { FaUser } from 'react-icons/fa6';
 import { sendCU, sendCUMail } from '../actions/courseActions';
@@ -21,6 +21,9 @@ const ContactScreen = () => {
   const [name, setname] = useState('')
   const [subject, setsubject] = useState('')
   const [discription, setdiscription] = useState('')
+
+  const sendCU = useSelector(state => state.sendCU)
+  const { error: sendCUError, loading: sendCULoading, success:CUSuccess } = sendCU
 
   useEffect(() => {
     window.scroll(0,0);
@@ -84,11 +87,16 @@ const ContactScreen = () => {
               <div className=''>
                 <div className=''>
                   <p className='text-3xl font-bold capitalize'>send message</p>
-                  <p className='text-xs text-red-500'>All fields are required*</p>
+                  {
+                    
+                    CUSuccess?
+                    <p className='text-xs text-green-500 font-lg '>Message send succefully</p>:
+                    <p className='text-xs text-red-500 font-lg '>All fields are required*</p>
+                  }
                 </div>
                 <div className='flex flex-col gap-4 py-8'>
                   <div className=' flex gap-4'>
-                    <Input
+                    <Input 
                       type="text"
                       placeholder="Name"
                       labelPlacement="outside"

@@ -9,7 +9,7 @@ import { RiSecurePaymentFill } from "react-icons/ri";
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
 import {Accordion, AccordionItem} from "@nextui-org/accordion";
-import { getCourseList, getFacultyList, sendApplication } from '../actions/courseActions';
+import { getCourseList, getFacultyList, sendApplication, sendApplicationMail } from '../actions/courseActions';
 import {Select, SelectItem} from "@nextui-org/react";
 import { AiFillSignal } from "react-icons/ai";
 import { FaAward } from "react-icons/fa";
@@ -209,7 +209,7 @@ const ApplicationScreen = () => {
       // "Anyotherrelevantdocuments":isAR,
 
   const sendMail = () =>{
-    dispatch(sendApplication({ 
+    dispatch(sendApplicationMail({ 
       "faculty": faculty,
       "course": course,
 
@@ -445,7 +445,11 @@ seti1('');
 seti2('');
 seti3('');
 seti4('');
+
   }
+
+  const sendApplication = useSelector(state => state.sendApplication)
+  const { error: sendApplicationError, loading: sendApplicationLoading, success:CUSuccess } = sendApplication
 
   const courseList = useSelector(state => state.courseList)
     const { error: courseListError, loading: courseListLoading, courses } = courseList
@@ -816,7 +820,7 @@ seti4('');
                                   placeholder='Subject'
                                   labelPlacement={'outside'}
                                   value={OLS3A1} 
-                                  onChange={(e) => setOLS3A1G(e.target.value)}
+                                  onChange={(e) => setOLS3A1(e.target.value)}
                                 />
                                 <Input
                                   key={'outside'}

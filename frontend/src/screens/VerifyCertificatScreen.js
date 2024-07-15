@@ -32,10 +32,11 @@ const VerifyCertificatScreen = () => {
               {
               loading?
               <Spinner size='lg'></Spinner>:
-              student.name ?
-
+              student ?
+              student.name?
               <p className='text-green-500 font-bold text-2xl'>Student verification done successfully</p>:
-              <p className='text-red-500 font-bold text-2xl'>There is no student founded!</p>
+              <p className='text-red-500 font-bold text-2xl'>There is no student founded!</p>:
+              ''
             }
             </div>
         </div>

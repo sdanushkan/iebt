@@ -32,16 +32,16 @@ const Header = () => {
 
     const [selected, setSelected] = useState("/");
 
-    useEffect(() => {
-      history(selected)
-    }, [selected])
+    // useEffect(() => {
+    //   history(selected)
+    // }, [selected])
 
-    useEffect(() => {
-      if (location.pathname == '/'){
-        setSelected('/')
-      }
+    // useEffect(() => {
+    //   if (location.pathname == '/'){
+    //     setSelected('/')
+    //   }
 
-    }, [location])
+    // }, [location])
     
     useEffect(() => {
       if (!faculties){

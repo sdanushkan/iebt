@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import {Input, Skeleton} from "@nextui-org/react";
+import {Input, Popover, PopoverContent, PopoverTrigger, Skeleton} from "@nextui-org/react";
 import { VscSymbolKeyword } from "react-icons/vsc";
 import {Button} from "@nextui-org/button";
 import thum from '../assets/thum.png'
@@ -39,6 +39,8 @@ import  verification  from '../assets/verification.png'
 import  sp  from '../assets/sp.png'
 import  es  from '../assets/es.png'
 import parse from 'html-react-parser';
+import Calendar from 'react-calendar';
+import 'react-calendar/dist/Calendar.css';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -52,6 +54,21 @@ import sdv from '../assets/sdv.mp4'
 import { sendBA, sendBAMail, sendSA, sendSAMail } from '../actions/courseActions';
 
 const CountriesScreen = () => {
+  const [value, setValue] = useState(new Date());
+    const [events, setEvents] = useState([
+      { date: new Date(2024, 6, 7), event: 'anniversary' },
+      { date: new Date(2024, 7, 13), event: 'anniversary' },
+    ]);
+
+    const onChange = (nextValue) => {
+      setValue(nextValue);
+    };
+
+    const tileContent = ({ date, view }) => {
+      const event = events.find(e => e.date.toDateString() === date.toDateString());
+      return event && view === 'month' ? <p>{event.event}</p> : null;
+    };
+
   // const WebView = require('@luxbit/react-electron-webview');
 
   const [selected, setSelected] = React.useState("london");
@@ -239,12 +256,18 @@ const CountriesScreen = () => {
 
           <div className='h-[400px] lg:h-[500px] w-max-[1024px] mx-auto relative z-30 flex items-start justify-end'>
               <div className='h-full lg:w-[30%]'>
-              <div className='h-full w-full flex flex-col justify-center relative'>
-                <img src='https://www.augusta.edu/studyabroad/images/study-abroad-banner.png' alt='' className='h-full w-full absolute object-cover'/>
+              <div className='h-full w-full flex flex-col justify-center relative bg-black'>
+                <img src='https://www.augusta.edu/studyabroad/images/study-abroad-banner.png' alt='' className='h-full w-full absolute object-cover opacity-75'/>
 
                 <div className='h-full w-full flex flex-col justify-center px-8 md:border-l-[10px] border-white gap-4 relative md:mt-24'>
                   <p className='text-2xl font-bold'>Register</p>
-                  <p className='text-xs text-red-500'>All fields are required*</p>
+                  
+                  {
+                    
+                    SASuccess?
+                    <p className='text-xs text-green-500 font-lg '>Message send succefully</p>:
+                    <p className='text-xs text-red-500 font-lg '>All fields are required*</p>
+                  }
                   <div className='grid grid-cols-1 gap-6'>
                     <Input isClearable  variant='flat' type='email' value={email} 
                             onChange={(e) => setemail(e.target.value)} placeholder='Email'></Input>
@@ -437,7 +460,7 @@ const CountriesScreen = () => {
 
       <section className='h-fit w-full relative overflow-hidden px-8 py-6'>
         <div className='h-fit md:h-40 w-full max-w-[1024px] mx-auto grid grid-cols-2 md:grid-cols-5 justify-center gap-2 lg:gap-6'>
-        <Link to={'/abroad/about'} className='w-full h-36 flex flex-col items-center justify-center gap-2 md:gap-4 hover:bg-white text-black duration-300 cursor-pointer hover:text-[#DA0C0C] p-10 hover:p-8 rounded-[8px] bg-red-50 hover:shadow-[0px_4px_50px_rgba(0,0,0,0.075)]'>
+          <Link to={'/abroad/about'} className='w-full h-36 flex flex-col items-center justify-center gap-2 md:gap-4 hover:bg-white text-black duration-300 cursor-pointer hover:text-[#DA0C0C] p-10 hover:p-8 rounded-[8px] bg-red-50 hover:shadow-[0px_4px_50px_rgba(0,0,0,0.075)]'>
               <img src={sp}  alt='' className='w-full h-full object-contain' />
               <p className='text-base font-bold text-red-900 px-2 text-center'>About us</p>
             </Link>
@@ -454,10 +477,22 @@ const CountriesScreen = () => {
               <p className='text-base font-bold text-red-900 px-2 text-center'>Book Appoinment</p>
             </div>
 
-            <div className='w-full h-36 flex flex-col items-center justify-center gap-2 md:gap-4 hover:bg-white text-black duration-300 cursor-pointer hover:text-[#DA0C0C] p-10 hover:p-8 rounded-[8px] bg-red-50 hover:shadow-[0px_4px_50px_rgba(0,0,0,0.075)]'>
+            <Popover placement="bottom" showArrow={true}>
+            <PopoverTrigger>
+              <div className='w-full h-36 flex flex-col items-center justify-center gap-2 md:gap-4 hover:bg-white text-black duration-300 cursor-pointer hover:text-[#DA0C0C] p-10 hover:p-8 rounded-[8px] bg-red-50 hover:shadow-[0px_4px_50px_rgba(0,0,0,0.075)]'>
               <img src={es}  alt='' className='w-full h-full object-contain' />
               <p className='text-base font-bold text-red-900 px-2 text-center'>Event</p>
             </div>
+            </PopoverTrigger>
+              <PopoverContent>
+                <Calendar
+                  onChange={onChange}
+                  value={value}
+                  tileContent={tileContent}
+                />
+
+              </PopoverContent>
+            </Popover>
             
         </div>
     </section>
@@ -1082,7 +1117,12 @@ const CountriesScreen = () => {
               <img src='https://www.marketsquaredental.com/files/2011/08/book-now.png' alt='' className='absolute w-full h-full opacity-25 object-contain scale-110' />
               <div className='w-full flex flex-col gap-6'>
                 <p className='text-2xl font-bold'>Book an Appointment</p>
-                <p className='text-xs text-red-500'>All fields are required*</p>
+                {
+                    
+                    BASuccess?
+                    <p className='text-xs text-green-500 font-lg '>Message send succefully</p>:
+                    <p className='text-xs text-red-500 font-lg '>All fields are required*</p>
+                  }
                 <Input isClearable value={name} 
                             onChange={(e) => setname(e.target.value)}  variant='flat' type='text' placeholder='Name'></Input>
                 <div className='grid grid-cols-2 gap-6'>

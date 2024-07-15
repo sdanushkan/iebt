@@ -536,7 +536,7 @@ export const getDualQualificationCourseDetails = (slug) => async (dispatch) => {
     }
 }
 
-export const sendApplication = (details) => async (dispatch) => {
+export const sendApplicationMail = (details) => async (dispatch) => {
     try {
         dispatch({
             type: APPLICATION_SEND_REQUEST
