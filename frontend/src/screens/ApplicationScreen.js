@@ -1719,7 +1719,7 @@ seti4('');
                                   placeholder='Subject'
                                   labelPlacement={'outside'}
                                   value={HEQ5} 
-                                  onChange={(e) => setHEQ5(e.target.value)}
+                                  onChange={(e) => setHEQ4(e.target.value)}
                                 />
                                 <Input
                                   key={'outside'}

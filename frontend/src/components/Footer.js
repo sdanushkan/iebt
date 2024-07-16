@@ -220,7 +220,7 @@ const Footer = () => {
                   <Link className='text-[10px] text-white/80'>STUDENT PORTAL</Link>
                   <Link className='text-[10px] text-white/80'>PAY ONLINE</Link>
                   <Link className='text-[10px] text-white/80'>EVENT CALENDER</Link>
-                  <Link className='text-[10px] text-white/80'>FAQ</Link>
+                  <Link to={'/faq'} className='text-[10px] text-white/80'>FAQ</Link>
                   <Link className='text-[10px] text-white/80'>TESTIMONIAL</Link>
                 </div>
               </div>
@@ -293,7 +293,7 @@ const Footer = () => {
                 <Link className='text-[10px] text-white/80'>FACILITIES</Link>
                 <Link className='text-[10px] text-white/80'>DISTANCE LEARNING</Link>
                 <Link className='text-[10px] text-white/80'>CAREERS</Link>
-                <Link className='text-[10px] text-white/80'>FAQ</Link>
+                <Link to={'/faq'} className='text-[10px] text-white/80'>FAQ</Link>
                 <Link className='text-[10px] text-white/80'>TESTIMONIAL</Link>
               </div>
             </div>
