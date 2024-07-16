@@ -1721,7 +1721,7 @@ const CountriesScreen = () => {
                       <div className='h-fit flex flex-col'>
                         <p className='text-lg font-bold text-[#DA0C0C] capitalize'>{i.name}</p>
   
-                        <p className='capitalize text-sm font-medium text-gray-500 '>{i.course?i.course.name:''}</p>
+                        <p className='capitalize text-sm font-medium text-gray-500 '>{i.university?i.university.name:''}</p>
                       </div>
                       <div className='h-[1px] w-full bg-red-100 my-4'></div>
                       <div className='max-h-fit py-2'>
@@ -1737,9 +1737,9 @@ const CountriesScreen = () => {
               ''
             }
 
-            {
+{
               testimonialListLoading?
-              <div className='sm:hidden'>
+              <div className='h-fit hidden sm:flex'>
                 <Swiper
                   slidesPerView={1}
                   spaceBetween={25}
@@ -1752,21 +1752,9 @@ const CountriesScreen = () => {
                     {/* <div className='h-[100px] w-[100px] absolute top-0 right-0 bg-[#DA0C0C] rotate-45 -z-20'>
 
                     </div> */}
-                    <div className='flex flex-col'>
+                    <div className='h-fit flex flex-col'>
                       <p className='text-lg font-bold text-[#DA0C0C] capitalize'>Ayesh hiruni</p>
-                      <p className='capitalize text-sm font-medium text-gray-500 '>Selan Bank</p>
-                    </div>
-                    <div className='h-[1px] w-full bg-red-100 my-4'></div>
-                    <div className='max-h-fit py-2'>
-                      <p className='text-base font-semibold'>"Lorem ipsum dolor sit amet consectetur. In nisl arcu risus at eu ipsum nunc magnis integer. Tristique aliquam risus mauris vitae adipiscing sit eget tristique."</p>
-                    </div>
-                  </SwiperSlide>
-                  <SwiperSlide className='max-h-[300px] w-full mt-2 mb-12 bg-red-50 p-6 md:p-12 rounded-[8px] relative overflow-hidden '>
-                    {/* <div className='h-[100px] w-[100px] absolute top-0 right-0 bg-[#DA0C0C] rotate-45 -z-20'>
 
-                    </div> */}
-                    <div className='flex flex-col'>
-                      <p className='text-lg font-bold text-[#DA0C0C] capitalize'>Ayesh hiruni</p>
                       <p className='capitalize text-sm font-medium text-gray-500 '>Selan Bank</p>
                     </div>
                     <div className='h-[1px] w-full bg-red-100 my-4'></div>
@@ -1779,8 +1767,23 @@ const CountriesScreen = () => {
                     {/* <div className='h-[100px] w-[100px] absolute top-0 right-0 bg-[#DA0C0C] rotate-45 -z-20'>
 
                     </div> */}
-                    <div className='flex flex-col'>
+                    <div className='h-fit flex flex-col'>
                       <p className='text-lg font-bold text-[#DA0C0C] capitalize'>Ayesh hiruni</p>
+
+                      <p className='capitalize text-sm font-medium text-gray-500 '>Selan Bank</p>
+                    </div>
+                    <div className='h-[1px] w-full bg-red-100 my-4'></div>
+                    <div className='max-h-fit py-2'>
+                      <p className='text-base font-semibold'>"Lorem ipsum dolor sit amet consectetur. In nisl arcu risus at eu ipsum nunc magnis integer. Tristique aliquam risus mauris vitae adipiscing sit eget tristique."</p>
+                    </div>
+                  </SwiperSlide>
+                  <SwiperSlide className='max-h-[300px] w-full mt-2 mb-12 bg-red-50 p-6 md:p-12 rounded-[8px] relative overflow-hidden '>
+                    {/* <div className='h-[100px] w-[100px] absolute top-0 right-0 bg-[#DA0C0C] rotate-45 -z-20'>
+
+                    </div> */}
+                    <div className='h-fit flex flex-col'>
+                      <p className='text-lg font-bold text-[#DA0C0C] capitalize'>Ayesh hiruni</p>
+
                       <p className='capitalize text-sm font-medium text-gray-500 '>Selan Bank</p>
                     </div>
                     <div className='h-[1px] w-full bg-red-100 my-4'></div>
@@ -1791,9 +1794,9 @@ const CountriesScreen = () => {
                 </Swiper>
               </div>:
               testimonials ?
-              <div className='sm:hidden'>
+              <div className='h-fit sm:hidden'>
                 <Swiper
-                  slidesPerView={1}
+                  slidesPerView={2}
                   spaceBetween={25}
                   freeMode={true}
                   autoplay
@@ -1801,79 +1804,31 @@ const CountriesScreen = () => {
                   className=""
                 >
                   {
-                    testimonials.filter(f=>f.university != null).map(i=>(
-                      <SwiperSlide className='max-h-[300px] w-full mt-2 mb-12 bg-red-50 p-6 md:p-12 rounded-[8px] relative overflow-hidden '>
-                        {/* <div className='h-[100px] w-[100px] absolute top-0 right-0 bg-[#DA0C0C] rotate-45 -z-20'>
+                    testimonials.filter(f=>f.university != null).map(i => (
+                      <SwiperSlide key={i.id} className='max-h-[300px] w-full mt-2 mb-12 bg-red-50 p-6 md:p-12 rounded-[8px] relative overflow-hidden '>
+                      {/* <div className='h-[100px] w-[100px] absolute top-0 right-0 bg-[#DA0C0C] rotate-45 -z-20'>
 
-                        </div> */}
-                        <div className='flex flex-col'>
-                          <p className='text-lg font-bold text-[#DA0C0C] capitalize'>Ayesh hiruni</p>
-                          <p className='capitalize text-sm font-medium text-gray-500 '>Selan Bank</p>
-                        </div>
-                        <div className='h-[1px] w-full bg-red-100 my-4'></div>
-                        <div className='max-h-fit py-2'>
-                          <p className='text-base font-semibold'>"Lorem ipsum dolor sit amet consectetur. In nisl arcu risus at eu ipsum nunc magnis integer. Tristique aliquam risus mauris vitae adipiscing sit eget tristique."</p>
-                        </div>
-                      </SwiperSlide>
+                      </div> */}
+                      <div className='h-fit flex flex-col'>
+                        <p className='text-lg font-bold text-[#DA0C0C] capitalize'>{i.name}</p>
+  
+                        <p className='capitalize text-sm font-medium text-gray-500 '>{i.university?i.university.name:''}</p>
+                      </div>
+                      <div className='h-[1px] w-full bg-red-100 my-4'></div>
+                      <div className='max-h-fit py-2'>
+                        <p className='text-base font-semibold'>{parse(i.description)}</p>
+                      </div>
+                    </SwiperSlide>
                     ))
                   }
+
                   
                 </Swiper>
               </div>:
               ''
             }
 
-            <div className='sm:hidden'>
-              <Swiper
-                slidesPerView={1}
-                spaceBetween={25}
-                freeMode={true}
-                autoplay
-                modules={[FreeMode, Autoplay]}
-                className=""
-              >
-                <SwiperSlide className='max-h-[300px] w-full mt-2 mb-12 bg-red-50 p-6 md:p-12 rounded-[8px] relative overflow-hidden '>
-                  {/* <div className='h-[100px] w-[100px] absolute top-0 right-0 bg-[#DA0C0C] rotate-45 -z-20'>
-
-                  </div> */}
-                  <div className='flex flex-col'>
-                    <p className='text-lg font-bold text-[#DA0C0C] capitalize'>Ayesh hiruni</p>
-                    <p className='capitalize text-sm font-medium text-gray-500 '>Selan Bank</p>
-                  </div>
-                  <div className='h-[1px] w-full bg-red-100 my-4'></div>
-                  <div className='max-h-fit py-2'>
-                    <p className='text-base font-semibold'>"Lorem ipsum dolor sit amet consectetur. In nisl arcu risus at eu ipsum nunc magnis integer. Tristique aliquam risus mauris vitae adipiscing sit eget tristique."</p>
-                  </div>
-                </SwiperSlide>
-                <SwiperSlide className='max-h-[300px] w-full mt-2 mb-12 bg-red-50 p-6 md:p-12 rounded-[8px] relative overflow-hidden '>
-                  {/* <div className='h-[100px] w-[100px] absolute top-0 right-0 bg-[#DA0C0C] rotate-45 -z-20'>
-
-                  </div> */}
-                  <div className='flex flex-col'>
-                    <p className='text-lg font-bold text-[#DA0C0C] capitalize'>Ayesh hiruni</p>
-                    <p className='capitalize text-sm font-medium text-gray-500 '>Selan Bank</p>
-                  </div>
-                  <div className='h-[1px] w-full bg-red-100 my-4'></div>
-                  <div className='max-h-fit py-2'>
-                    <p className='text-base font-semibold'>"Lorem ipsum dolor sit amet consectetur. In nisl arcu risus at eu ipsum nunc magnis integer. Tristique aliquam risus mauris vitae adipiscing sit eget tristique."</p>
-                  </div>
-                </SwiperSlide>
-
-                <SwiperSlide className='max-h-[300px] w-full mt-2 mb-12 bg-red-50 p-6 md:p-12 rounded-[8px] relative overflow-hidden '>
-                  {/* <div className='h-[100px] w-[100px] absolute top-0 right-0 bg-[#DA0C0C] rotate-45 -z-20'>
-
-                  </div> */}
-                  <div className='flex flex-col'>
-                    <p className='text-lg font-bold text-[#DA0C0C] capitalize'>Ayesh hiruni</p>
-                    <p className='capitalize text-sm font-medium text-gray-500 '>Selan Bank</p>
-                  </div>
-                  <div className='h-[1px] w-full bg-red-100 my-4'></div>
-                  <div className='max-h-fit py-2'>
-                    <p className='text-base font-semibold'>"Lorem ipsum dolor sit amet consectetur. In nisl arcu risus at eu ipsum nunc magnis integer. Tristique aliquam risus mauris vitae adipiscing sit eget tristique."</p>
-                  </div>
-                </SwiperSlide>
-              </Swiper>
-            </div>
+       
 
         </div>
       </section>

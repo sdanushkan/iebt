@@ -38,6 +38,32 @@ const CourseFilterScreen = () => {
   const [nQualification, setNQualification] = useState(qualification?qualification:'qualifications')
   const [nCredits, setNCredits] = useState(credit?credit:'credits')
   const [nCourses, setNCourses] = useState(null)
+
+  useEffect(() => {
+    if(faculty){
+      setNFaculty(faculty)
+    } else{
+      setNFaculty('faculties')
+    }
+    if(programe){
+      setNPrograme(programe)
+    }else{
+      setNPrograme('programes')
+    }
+
+    if(qualification){
+      setNQualification(qualification)
+    }else{
+      setNQualification('qualifications')
+    }
+ 
+    if(credit){
+      setNCredits(credit)
+    }else{
+      setNCredits('credits')
+    }
+  }, [faculty, programe, qualification, credit])
+  
  
   const levelList = useSelector(state => state.levelList)
   const { error, loading, levels } = levelList
@@ -88,7 +114,6 @@ const CourseFilterScreen = () => {
   // }, [faculty,programe, qualification, credit])
 
   useEffect(() => {
-
     dispatch(getFilterCourseList(nFaculty, nPrograme, nQualification, nCredits))
   }, [dispatch, nFaculty, nPrograme, nQualification, nCredits, location])
 
@@ -114,7 +139,7 @@ const CourseFilterScreen = () => {
 
   return (
     <div className='h-fit w-full md:pt-28 relative pb-12'>
-      <div className='relative h-fit w-full md:hidden '>
+      {/* <div className='relative h-fit w-full md:hidden '>
         <div className='h-fit w-full max-w-[1200px] mx-auto px-4 sm:px-6 overflow-hidden'>
           <div className='flex items-center justify-between my-2 font-medium border-2 mt-28 md:mt-0'>
             <div className='max-h-fit flex divide-x-1 overflow-hidden'>
@@ -150,7 +175,7 @@ const CourseFilterScreen = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
       <div className='h-fit w-full max-w-[1200px] flex gap-4 mx-auto md:px-6 pt-4'>
 
         <div className={

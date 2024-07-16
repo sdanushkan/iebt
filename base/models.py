@@ -215,7 +215,7 @@ class Testimonial(models.Model):
     course = models.ForeignKey(Course, on_delete=models.SET_NULL, null=True, blank=True)
     university = models.ForeignKey(University, on_delete=models.SET_NULL, null=True, blank=True)
     page = models.ForeignKey(Page, on_delete=models.SET_NULL, null=True, blank=True)
-    description = RichTextField(blank=True, null=True)
+    description = RichTextField(blank=True, null=True) 
     
     def __str__(self):
         return self.name
