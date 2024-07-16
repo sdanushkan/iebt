@@ -16,6 +16,8 @@ import { FaAward } from "react-icons/fa";
 import {RadioGroup, Radio} from "@nextui-org/react";
 import {DateInput} from "@nextui-org/date-input";
 import {CalendarDate} from "@internationalized/date";
+import {parseDate, getLocalTimeZone} from "@internationalized/date";
+import {useDateFormatter} from "@react-aria/i18n";
 
 const ApplicationScreen = () => {
   const dispatch = useDispatch()
@@ -28,6 +30,8 @@ const ApplicationScreen = () => {
   const [nfaculty, setnFaculty] = useState()
   const [ncourse, setnCourse] = useState()
 
+  const [GSEOLLSelectedO, setGSEOLLSelectedO] = useState('_')
+  
  
 
   const [isPSP, setIsPSP] = React.useState(false);
@@ -86,27 +90,35 @@ const ApplicationScreen = () => {
   const [OLS1A2, setOLS1A2] = useState('')
   const [OLS1A2G, setOLS1A2G] = useState('')
 
+  const [OLA2Y2, setOLA2Y2] = useState('')
   const [OLS2A2, setOLS2A2] = useState('')
   const [OLS2A2G, setOLS2A2G] = useState('')
   
+  const [OLA2Y3, setOLA2Y3] = useState('')
   const [OLS3A2, setOLS3A2] = useState('')
   const [OLS3A2G, setOLS3A2G] = useState('')
   
+  const [OLA2Y4, setOLA2Y4] = useState('')
   const [OLS4A2, setOLS4A2] = useState('')
   const [OLS4A2G, setOLS4A2G] = useState('')
   
+  const [OLA2Y5, setOLA2Y5] = useState('')
   const [OLS5A2, setOLS5A2] = useState('')
   const [OLS5A2G, setOLS5A2G] = useState('')
   
+  const [OLA2Y6, setOLA2Y6] = useState('')
   const [OLS6A2, setOLS6A2] = useState('')
   const [OLS6A2G, setOLS6A2G] = useState('')
   
+  const [OLA2Y7, setOLA2Y7] = useState('')
   const [OLS7A2, setOLS7A2] = useState('')
   const [OLS7A2G, setOLS7A2G] = useState('')
   
+  const [OLA2Y8, setOLA2Y8] = useState('')
   const [OLS8A2, setOLS8A2] = useState('')
   const [OLS8A2G, setOLS8A2G] = useState('')
   
+  const [OLA2Y9, setOLA2Y9] = useState('')
   const [OLS9A2, setOLS9A2] = useState('')
   const [OLS9A2G, setOLS9A2G] = useState('')
 
@@ -213,7 +225,7 @@ const ApplicationScreen = () => {
       "faculty": nfaculty,
       "course": ncourse,
 
-      
+      "sex":sex,
 
       "fullName": fullName,
       "fName": fName,
@@ -221,11 +233,14 @@ const ApplicationScreen = () => {
       "Number": cNumber,
       "NIC": NIC,
       "Email": email,
-      "DOB": dob,
+      "DOB": value,
       "Sex": sex,
       "Dependents": dependent,
       "Status": status,
       "funds": funds,
+
+      "GSEOLLSelected":GSEOLLSelected,
+      "GSEOLLSelectedO":GSEOLLSelectedO,
       "OLA1Y": OLA1Y,
       "funds": funds,
       "OLS1A1": OLS1A1,
@@ -246,25 +261,43 @@ const ApplicationScreen = () => {
       "OLS8A1G": OLS8A1G,
       "OLS9A1": OLS9A1,
       "OLS9A1G": OLS9A1G,
+
       "OLA2Y": OLA2Y,
       "OLS1A2": OLS1A2,
       "OLS1A2G": OLS1A2G,
+
+      "OLA2Y2": OLA2Y2,
       "OLS2A2": OLS2A2,
       "OLS2A2G": OLS2A2G,
+
+      "OLA2Y3": OLA2Y3,
       "OLS3A2": OLS3A2,
       "OLS3A2G": OLS3A2G,
+
+      "OLA2Y4": OLA2Y4,
       "OLS4A2": OLS4A2,
       "OLS4A2G": OLS4A2G,
+
+      "OLA2Y5": OLA2Y5,
       "OLS5A2": OLS5A2,
       "OLS5A2G": OLS5A2G,
+
+      "OLA2Y6": OLA2Y6,
       "OLS6A2": OLS6A2,
       "OLS6A2G": OLS6A2G,
+
+      "OLA2Y7": OLA2Y7,
       "OLS7A2": OLS7A2,
       "OLS7A2G": OLS7A2G,
+
+      "OLA2Y8": OLA2Y8,
       "OLS8A2": OLS8A2,
       "OLS8A2G": OLS8A2G,
+
+      "OLA2Y9": OLA2Y9,
       "OLS9A2": OLS9A2,
       "OLS9A2G": OLS9A2G,
+
       "ALA1Y": ALA1Y,
       "ALS1A1": ALS1A1,
       "ALS1A1G": ALS1A1G,
@@ -483,6 +516,10 @@ seti4('');
       }
     }, [ nfaculty])
 
+    const [value, setValue] = React.useState(parseDate("2024-04-04"));
+
+  let formatter = useDateFormatter({dateStyle: "full"});
+
   return (
     <div className='flex flex-col gap-14'> 
       <section className='relative'>
@@ -497,7 +534,8 @@ seti4('');
                     CUSuccess?
                     <p className='text-xs text-green-500 font-lg '>Message send succefully</p>:
                     <p className='text-xs text-red-500 font-lg '>All fields are required*</p>
-                  }                  <Accordion selectionMode="multiple" className='w-full'>
+                  }                   
+                  <Accordion defaultExpandedKeys={['1','2']} selectionMode="multiple" className='w-full'>
                     <AccordionItem key="1" aria-label="course applied for" title={
                       <p className='text-[#DA0C0C] uppercase text-sm font-bold'>
                         Course applied for
@@ -556,7 +594,7 @@ seti4('');
                               </SelectItem>:
                             courses?
                             courses.map((i) => (
-                              <SelectItem value={i.slug} key={i.slug}>
+                              <SelectItem value={i.namsluge} key={i.slug}>
                                 {i.name}
                               </SelectItem>
                             ))
@@ -566,7 +604,7 @@ seti4('');
                         </Select>
                       </div>
                     </AccordionItem>
-                    <AccordionItem key="2" aria-label="persona details" title={
+                    <AccordionItem key="2"  aria-label="personal details" title={
                       <p className='text-[#DA0C0C] uppercase text-sm font-bold'>
                         Personal Details
                       </p>
@@ -614,7 +652,12 @@ seti4('');
                                 <Radio value="female">Female</Radio>
                               </RadioGroup>
                             </div>
-                            <DateInput labelPlacement='outside' label={"Birth date"} placeholderValue={new CalendarDate(1995, 11, 6)} className="max-w-sm" />
+                            <div className="w-full flex flex-col gap-y-2 max-w-sm">
+                              <DateInput label="Date (controlled)" value={value} onChange={setValue} />
+                              <p className="text-default-500 text-sm">
+                                Selected date: {value ? formatter.format(value.toDate(getLocalTimeZone())) : "--"}
+                              </p>
+                            </div>
                           </div>
                         </div>
                         <Input
@@ -749,6 +792,8 @@ seti4('');
                               false:
                               true
                             }
+                            value={GSEOLLSelectedO} 
+                            onChange={(e) => setGSEOLLSelectedO(e.target.value)}
                             
                             placeholder='Enter other language'
                             labelPlacement={'outside'}
@@ -1058,8 +1103,8 @@ seti4('');
                                   label="Year"
                                   placeholder='Enter year'
                                   labelPlacement={'outside'}
-                                  value={OLA2Y} 
-                                  onChange={(e) => setOLA2Y(e.target.value)}
+                                  value={OLA2Y2} 
+                                  onChange={(e) => setOLA2Y2(e.target.value)}
                                 />
                                 <Input
                                   key={'outside'}
@@ -1087,8 +1132,8 @@ seti4('');
                                   label="Year"
                                   placeholder='Enter year'
                                   labelPlacement={'outside'}
-                                  value={OLA2Y} 
-                                  onChange={(e) => setOLA2Y(e.target.value)}
+                                  value={OLA2Y3} 
+                                  onChange={(e) => setOLA2Y3(e.target.value)}
                                 />
                                 <Input
                                   key={'outside'}
@@ -1116,8 +1161,8 @@ seti4('');
                                   label="Year"
                                   placeholder='Enter year'
                                   labelPlacement={'outside'}
-                                  value={OLA2Y} 
-                                  onChange={(e) => setOLA2Y(e.target.value)}
+                                  value={OLA2Y4} 
+                                  onChange={(e) => setOLA2Y4(e.target.value)}
                                 />
                                 <Input
                                   key={'outside'}
@@ -1145,8 +1190,8 @@ seti4('');
                                   label="Year"
                                   placeholder='Enter year'
                                   labelPlacement={'outside'}
-                                  value={OLA2Y} 
-                                  onChange={(e) => setOLA2Y(e.target.value)}
+                                  value={OLA2Y5} 
+                                  onChange={(e) => setOLA2Y5(e.target.value)}
                                 />
                                 <Input
                                   key={'outside'}
@@ -1174,8 +1219,8 @@ seti4('');
                                   label="Year"
                                   placeholder='Enter year'
                                   labelPlacement={'outside'}
-                                  value={OLA2Y} 
-                                  onChange={(e) => setOLA2Y(e.target.value)}
+                                  value={OLA2Y6} 
+                                  onChange={(e) => setOLA2Y6(e.target.value)}
                                 />
                                 <Input
                                   key={'outside'}
@@ -1203,8 +1248,8 @@ seti4('');
                                   label="Year"
                                   placeholder='Enter year'
                                   labelPlacement={'outside'}
-                                  value={OLA2Y} 
-                                  onChange={(e) => setOLA2Y(e.target.value)}
+                                  value={OLA2Y7} 
+                                  onChange={(e) => setOLA2Y7(e.target.value)}
                                 />
                                 <Input
                                   key={'outside'}
@@ -1232,8 +1277,8 @@ seti4('');
                                   label="Year"
                                   placeholder='Enter year'
                                   labelPlacement={'outside'}
-                                  value={OLA2Y} 
-                                  onChange={(e) => setOLA2Y(e.target.value)}
+                                  value={OLA2Y8} 
+                                  onChange={(e) => setOLA2Y8(e.target.value)}
                                 />
                                 <Input
                                   key={'outside'}
@@ -1261,8 +1306,8 @@ seti4('');
                                   label="Year"
                                   placeholder='Enter year'
                                   labelPlacement={'outside'}
-                                  value={OLA2Y} 
-                                  onChange={(e) => setOLA2Y(e.target.value)}
+                                  value={OLA2Y9} 
+                                  onChange={(e) => setOLA2Y9(e.target.value)}
                                 />
                                 <Input
                                   key={'outside'}
@@ -1718,7 +1763,7 @@ seti4('');
                                   label="Subject"
                                   placeholder='Subject'
                                   labelPlacement={'outside'}
-                                  value={HEQ5} 
+                                  value={HEQ4} 
                                   onChange={(e) => setHEQ4(e.target.value)}
                                 />
                                 <Input

@@ -75,7 +75,7 @@
             <div class="section-title">Personal Information</div>
             <div class="field">
                 <label for="name">01. Name:</label>
-                <p id="name">{{FullName}}</p>
+                <p id="name">{{fullName}}</p>
             </div>
             <div class="field">
                 <label for="name">first Name:</label>
@@ -113,13 +113,18 @@
                 <label for="dependents">06. Dependents:</label>
                 <p id="dependents">{{Dependents}}</p>
             </div>
-            <div class="field">
+            <!-- <div class="field">
                 <label for="funds">07. Show funds:</label>
                 <p id="funds">{{funds}}</p>
-            </div>
+            </div> -->
         </div>
         <div class="section">
             <div class="section-title">Educational Qualification</div>
+            <div class="field">
+                <label for="olevel1-year">01. GCE Ordinary Level leanguage:</label>
+                <p id="olevel1-year">{{GSEOLLSelected}}:{{GSEOLLSelectedO}}</p>
+            </div>
+            
             <div class="field">
                 <label for="olevel1-year">01. GCE Ordinary Level – Attempt 1 Year:</label>
                 <p id="olevel1-year">{{OLA1Y}}</p>
@@ -151,17 +156,18 @@
                 <table class="table">
                     <tr>
                         <th>Subject</th>
+                        <th>Subject</th>
                         <th>Grade</th>
                     </tr>
-                    <tr><td>{{OLS1A2}}</td><td>{{OLS1A2G}}</td></tr>
-                    <tr><td>{{OLS2A2}}</td><td>{{OLS2A2G}}</td></tr>
-                    <tr><td>{{OLS3A2}}</td><td>{{OLS3A2G}}</td></tr>
-                    <tr><td>{{OLS4A2}}</td><td>{{OLS4A2G}}</td></tr>
-                    <tr><td>{{OLS5A2}}</td><td>{{OLS5A2G}}</td></tr>
-                    <tr><td>{{OLS6A2}}</td><td>{{OLS6A2G}}</td></tr>
-                    <tr><td>{{OLS7A2}}</td><td>{{OLS7A2G}}</td></tr>
-                    <tr><td>{{OLS8A2}}</td><td>{{OLS8A2G}}</td></tr>
-                    <tr><td>{{OLS9A2}}</td><td>{{OLS9A2G}}</td></tr>
+                    <tr><td>{{OLA2Y}}</td><td>{{OLS1A2}}</td><td>{{OLS1A2G}}</td></tr>
+                    <tr><td>{{OLA2Y2}}</td><td>{{OLS2A2}}</td><td>{{OLS2A2G}}</td></tr>
+                    <tr><td>{{OLA2Y3}}</td><td>{{OLS3A2}}</td><td>{{OLS3A2G}}</td></tr>
+                    <tr><td>{{OLA2Y4}}</td><td>{{OLS4A2}}</td><td>{{OLS4A2G}}</td></tr>
+                    <tr><td>{{OLA2Y5}}</td><td>{{OLS5A2}}</td><td>{{OLS5A2G}}</td></tr>
+                    <tr><td>{{OLA2Y6}}</td><td>{{OLS6A2}}</td><td>{{OLS6A2G}}</td></tr>
+                    <tr><td>{{OLA2Y7}}</td><td>{{OLS7A2}}</td><td>{{OLS7A2G}}</td></tr>
+                    <tr><td>{{OLA2Y8}}</td><td>{{OLS8A2}}</td><td>{{OLS8A2G}}</td></tr>
+                    <tr><td>{{OLA2Y9}}</td><td>{{OLS9A2}}</td><td>{{OLS9A2G}}</td></tr>
                 </table>
             </div>
             <div class="field">
@@ -198,10 +204,10 @@
                     <tr><td>{{ALS4A2}}</td><td>{{ALS4A2G}}</td></tr>
                 </table>
             </div>
-            <div class="field">
+            <!-- <div class="field">
                 <label for="higher-edu">02. Higher Education Qualifications:</label>
                 <p id="higher-edu">{{Qualifications}}</p>
-            </div>
+            </div> -->
             <div class="field">
                 <label>Higher Education Qualifications Details ({Year}, Institute):</label>
                 <table class="table">
@@ -222,15 +228,15 @@
             <div class="section-title">English Language Proficiency</div>
             <div class="field">
                 <label for="english-olevel">01. Ordinary Level:</label>
-                <p id="english-olevel">{{OLEG}}</p>
+                <p id="english-olevel">{{OLE}}</p>
             </div>
             <div class="field">
                 <label for="english-alevel">02. Advanced Level:</label>
-                <p id="english-alevel">{{ALG}}</p>
+                <p id="english-alevel">{{AL}}</p>
             </div>
             <div class="field">
                 <label for="english-ielts">03. IELTS or PTE:</label>
-                <p id="english-ielts">{{IELTSG}}</p>
+                <p id="english-ielts">{{IELTS}}</p>
             </div>
         </div>
         <div class="section">
@@ -253,7 +259,7 @@
                 </table>
             </div>
         </div>
-        <div class="section">
+        <!-- <div class="section">
             <div class="section-title">Preferred Country & Intake</div>
             <div class="field">
                 <label for="preferred-country">Preferred Countries:</label>
@@ -281,7 +287,7 @@
                     <tr><td>{{i5}}</td></tr>
                 </table>
             </div>
-        </div>
+        </div> -->
         <div class="footer">
             <p>This is an automated application form. Please do not reply.</p>
         </div>

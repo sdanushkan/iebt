@@ -40,7 +40,7 @@ def send_application_view(request):
     html_content = render_to_string('email_template.html', {
         'subject': subject, 
         'message': message,
-
+        'sex':data['sex'],
 
         'faculty':data['faculty'],
         'course':data['course'],
@@ -48,6 +48,7 @@ def send_application_view(request):
         'fullName': data['fullName'],
         'fName': data['fName'],
         'lName': data['lName'],
+        'Number': data['Number'],
         'NIC': data['NIC'],
         'Email': data['Email'],
         'DOB': data['DOB'],
@@ -55,9 +56,11 @@ def send_application_view(request):
         'Dependents': data['Dependents'],
         'funds': data['funds'],
 
+        'GSEOLLSelected': data['GSEOLLSelected'],
+        'GSEOLLSelectedO': data['GSEOLLSelectedO'],
+
         'OLA1Y': data['OLA1Y'],
         
-        'OLA1Y': data['OLA1Y'],
 
         'OLS1A1': data['OLS1A1'],
         'OLS1A1G': data['OLS1A1G'],
@@ -87,31 +90,39 @@ def send_application_view(request):
         'OLS9A1G': data['OLS9A1G'],
 
         'OLA2Y': data['OLA2Y'],
-
         'OLS1A2': data['OLS1A2'],
         'OLS1A2G': data['OLS1A2G'],
 
+        'OLA2Y2': data['OLA2Y2'],
         'OLS2A2': data['OLS2A2'],
         'OLS2A2G': data['OLS2A2G'],
 
+        'OLA2Y3': data['OLA2Y3'],
         'OLS3A2': data['OLS3A2'],
         'OLS3A2G': data['OLS3A2G'],
+
+        'OLA2Y4': data['OLA2Y4'],
 
         'OLS4A2': data['OLS4A2'],
         'OLS4A2G': data['OLS4A2G'],
 
+        'OLA2Y5': data['OLA2Y5'],
         'OLS5A2': data['OLS5A2'],
         'OLS5A2G': data['OLS5A2G'],
 
+        'OLA2Y6': data['OLA2Y6'],
         'OLS6A2': data['OLS6A2'],
         'OLS6A2G': data['OLS6A2G'],
 
+        'OLA2Y7': data['OLA2Y7'],
         'OLS7A2': data['OLS7A2'],
         'OLS7A2G': data['OLS7A2G'],
 
+        'OLA2Y8': data['OLA2Y8'],
         'OLS8A2': data['OLS8A2'],
         'OLS8A2G': data['OLS8A2G'],
 
+        'OLA2Y9': data['OLA2Y9'],
         'OLS9A2': data['OLS9A2'],
         'OLS9A2G': data['OLS9A2G'],
 
