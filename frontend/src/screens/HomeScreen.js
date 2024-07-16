@@ -481,7 +481,7 @@ const HomeScreen = () => {
       </section> */}
 
       <section className='h-fit w-full relative overflow-hidden py-6'>
-      <div className='h-fit w-full max-w-[1024px] mx-auto flex justify-center px-6 lg:px-0 gap-2 lg:gap-6'>
+      <div className='h-fit w-full max-w-[1024px] mx-auto grid grid-cols-2 md:flex justify-center px-6 lg:px-0 gap-2 lg:gap-6'>
           <Link to={'/application'} className='w-full max-w-1/2 md:max-w-1/3 lg:max-w-1/5  h-full md:h-48 flex flex-col items-center justify-center gap-4 bg-white text-black duration-200 cursor-pointer hover:text-[#DA0C0C] p-10 rounded-[8px] shadow-[0px_4px_25px_rgba(0,0,0,0.05)] hover:shadow-[0px_4px_25px_rgba(0,0,0,0.075)] '>
             <img src={apply}  alt='' className='w-16 object-contain' />
             <p className='text-xs lg:text-sm font-semibold px-2 text-center'>Apply</p>
@@ -531,7 +531,7 @@ const HomeScreen = () => {
                 :
                 faculties?
                 faculties.map(i => (
-                  <Link to={`courses/${i.slug}/programe/awards/credits`} className='h-[150px] md:h-[200px] w-full bg-black relative rounded-[16px] overflow-hidden'>
+                  <Link to={`courses/${i.slug}/programes/awards/credits`} className='h-[150px] md:h-[200px] w-full bg-black relative rounded-[16px] overflow-hidden'>
                     <img src={i.image} alt='' className='h-full w-full relative z-0' />
                     <div className='w-full h-full bg-black/20 absolute z-30 top-0 hover:bg-black/30 duration-200'>
                     </div>
@@ -2082,14 +2082,16 @@ const HomeScreen = () => {
                     qualifications?
                     qualifications.map(i=>(
                       <SwiperSlide key={i.id} className='bg-white border-[1px] border-red-100 rounded-[8px] mb-12 w-[250px]'>
-                        <img src={i.image} alt='' className='h-[150px] w-[200px] object-contain scale-80 mx-auto hover:scale-105 duration-200' />
-                        <div className='flex flex-col py-6 gap-4 px-4 '>
-                          <div className='flex flex-col-reverse'>
-                          <p className='text-xs h-[32px] overflow-hidden text-gray-400'>{parse(i.discription)}</p>
-                          <p className='text-based uppercase font-semibold'>{i.name}</p>
-                          </div>
-                          <p className='text-sm text-[#DA0C0C]'>More Details...</p>
-                        </div>
+                        <Link to={`/awarding-body/${i.slug}`}>
+                            <img src={i.image} alt='' className='h-[150px] w-[200px] object-contain scale-80 mx-auto hover:scale-105 duration-200' />
+                            <div className='flex flex-col py-6 gap-4 px-4 '>
+                              <div className='flex flex-col-reverse'>
+                              <p className='text-xs h-[32px] overflow-hidden text-gray-400'>{parse(i.discription)}</p>
+                              <p className='text-based uppercase font-semibold'>{i.name}</p>
+                              </div>
+                              <p className='text-sm text-[#DA0C0C]'>More Details...</p>
+                            </div>
+                        </Link>
                       </SwiperSlide>
                     )).sort((a, b) => a.order - b.order)
                     :
@@ -2201,14 +2203,16 @@ const HomeScreen = () => {
                     qualifications?
                     qualifications.map(i=>(
                       <SwiperSlide key={i.id} className='bg-white border-[1px] border-red-100 rounded-[8px] mb-12 w-[250px]'>
-                        <img src={i.image} alt='' className='h-[150px] w-[200px] object-contain scale-80 mx-auto hover:scale-105 duration-200' />
-                        <div className='flex flex-col py-6 gap-4 px-4 '>
-                          <div className='flex flex-col-reverse'>
-                          <p className='text-xs h-[32px] overflow-hidden text-gray-400'>{parse(i.discription)}</p>
-                          <p className='text-based uppercase font-semibold'>{i.name}</p>
-                          </div>
-                          <p className='text-sm text-[#DA0C0C]'>More Details...</p>
-                        </div>
+                        <Link to={`/awarding-body/${i.slug}`}>
+                            <img src={i.image} alt='' className='h-[150px] w-[200px] object-contain scale-80 mx-auto hover:scale-105 duration-200' />
+                            <div className='flex flex-col py-6 gap-4 px-4 '>
+                              <div className='flex flex-col-reverse'>
+                              <p className='text-xs h-[32px] overflow-hidden text-gray-400'>{parse(i.discription)}</p>
+                              <p className='text-based uppercase font-semibold'>{i.name}</p>
+                              </div>
+                              <p className='text-sm text-[#DA0C0C]'>More Details...</p>
+                            </div>
+                        </Link>
                       </SwiperSlide>
                     )).sort((a, b) => a.order - b.order)
                     :
@@ -2238,14 +2242,16 @@ const HomeScreen = () => {
                     qualifications?
                     qualifications.map(i=>(
                       <SwiperSlide key={i.id} className='bg-white border-[1px] border-red-100 rounded-[8px] mb-12 w-[250px]'>
-                        <img src={i.image} alt='' className='h-[150px] w-[200px] object-contain scale-80 mx-auto hover:scale-105 duration-200' />
-                        <div className='flex flex-col py-6 gap-4 px-4 '>
-                          <div className='flex flex-col-reverse'>
-                          <p className='text-xs h-[32px] overflow-hidden text-gray-400'>{parse(i.discription)}</p>
-                          <p className='text-based uppercase font-semibold'>{i.name}</p>
-                          </div>
-                          <p className='text-sm text-[#DA0C0C]'>More Details...</p>
-                        </div>
+                        <Link to={`/awarding-body/${i.slug}`}>
+                            <img src={i.image} alt='' className='h-[150px] w-[200px] object-contain scale-80 mx-auto hover:scale-105 duration-200' />
+                            <div className='flex flex-col py-6 gap-4 px-4 '>
+                              <div className='flex flex-col-reverse'>
+                              <p className='text-xs h-[32px] overflow-hidden text-gray-400'>{parse(i.discription)}</p>
+                              <p className='text-based uppercase font-semibold'>{i.name}</p>
+                              </div>
+                              <p className='text-sm text-[#DA0C0C]'>More Details...</p>
+                            </div>
+                        </Link>
                       </SwiperSlide>
                     )).sort((a, b) => a.order - b.order)
                     :
@@ -2318,14 +2324,16 @@ const HomeScreen = () => {
                     qualifications?
                     qualifications.map(i=>(
                       <SwiperSlide key={i.id} className='bg-white border-[1px] border-red-100 rounded-[8px] mb-12 w-[250px]'>
-                        <img src={i.image} alt='' className='h-[150px] w-[200px] object-contain scale-80 mx-auto hover:scale-105 duration-200' />
-                        <div className='flex flex-col py-6 gap-4 px-4 '>
-                          <div className='flex flex-col-reverse'>
-                          <p className='text-xs h-[32px] overflow-hidden text-gray-400'>{parse(i.discription)}</p>
-                          <p className='text-based uppercase font-semibold'>{i.name}</p>
-                          </div>
-                          <p className='text-sm text-[#DA0C0C]'>More Details...</p>
-                        </div>
+                        <Link to={`/awarding-body/${i.slug}`}>
+                            <img src={i.image} alt='' className='h-[150px] w-[200px] object-contain scale-80 mx-auto hover:scale-105 duration-200' />
+                            <div className='flex flex-col py-6 gap-4 px-4 '>
+                              <div className='flex flex-col-reverse'>
+                              <p className='text-xs h-[32px] overflow-hidden text-gray-400'>{parse(i.discription)}</p>
+                              <p className='text-based uppercase font-semibold'>{i.name}</p>
+                              </div>
+                              <p className='text-sm text-[#DA0C0C]'>More Details...</p>
+                            </div>
+                        </Link>
                       </SwiperSlide>
                     )).sort((a, b) => a.order - b.order)
                     :
@@ -2355,14 +2363,16 @@ const HomeScreen = () => {
                     qualifications?
                     qualifications.map(i=>(
                       <SwiperSlide key={i.id} className='bg-white border-[1px] border-red-100 rounded-[8px] mb-12 w-[250px]'>
-                        <img src={i.image} alt='' className='h-[150px] w-[200px] object-contain scale-80 mx-auto hover:scale-105 duration-200' />
-                        <div className='flex flex-col py-6 gap-4 px-4 '>
-                          <div className='flex flex-col-reverse'>
-                          <p className='text-xs h-[32px] overflow-hidden text-gray-400'>{parse(i.discription)}</p>
-                          <p className='text-based uppercase font-semibold'>{i.name}</p>
-                          </div>
-                          <p className='text-sm text-[#DA0C0C]'>More Details...</p>
-                        </div>
+                        <Link to={`/awarding-body/${i.slug}`}>
+                            <img src={i.image} alt='' className='h-[150px] w-[200px] object-contain scale-80 mx-auto hover:scale-105 duration-200' />
+                            <div className='flex flex-col py-6 gap-4 px-4 '>
+                              <div className='flex flex-col-reverse'>
+                              <p className='text-xs h-[32px] overflow-hidden text-gray-400'>{parse(i.discription)}</p>
+                              <p className='text-based uppercase font-semibold'>{i.name}</p>
+                              </div>
+                              <p className='text-sm text-[#DA0C0C]'>More Details...</p>
+                            </div>
+                        </Link>
                       </SwiperSlide>
                     )).sort((a, b) => a.order - b.order)
                     :
@@ -2377,37 +2387,6 @@ const HomeScreen = () => {
         
       
 
-            <div className='sm:hidden'>
-              <Swiper
-                slidesPerView={1}
-                spaceBetween={10}
-                freeMode={true}
-                
-                autoplay
-                modules={[FreeMode,  Autoplay]}
-                className="h-fit"
-              >
-                {
-                  ourQualificationListLoading?
-                  '':
-                  qualifications?
-                  qualifications.map(i=>(
-                    <SwiperSlide key={i.id} className='bg-white border-[1px] border-red-100 rounded-[8px] mb-12 w-[250px]'>
-                      <img src={i.image} alt='' className='h-[150px] w-[200px] object-contain scale-80 mx-auto hover:scale-105 duration-200' />
-                      <div className='flex flex-col py-6 gap-4 px-4 '>
-                        <div className='flex flex-col-reverse'>
-                        <p className='text-xs h-[32px] overflow-hidden text-gray-400'>{i.discription}</p>
-                        <p className='text-based uppercase font-semibold'>{i.name}</p>
-                        </div>
-                        <p className='text-sm text-[#DA0C0C]'>More Details...</p>
-                      </div>
-                    </SwiperSlide>
-                  ))
-                  :
-                  ''
-                }
-              </Swiper>
-            </div>
 
         </div>
       </section>

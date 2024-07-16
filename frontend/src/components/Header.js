@@ -80,7 +80,7 @@ const Header = () => {
             location.pathname == "/login" || location.pathname == "/register" || location.pathname == "/Login" || location.pathname == "/Register"?
             'h-fit w-full z-40 fixed bg-black/50 hidden px-0':
             'h-fit w-full z-40 fixed bg-black/50 md:fixed px-0'
-        }>
+        }> 
             <div className='h-fit w-full max-w-[1200px] max-h-[100px] mx-auto flex justify-between items-center relative border-black/50 py-4'>
                 <div className='flex items-center '>
                   {/* <Button isIconOnly variant='light' onClick={() => setNavbar(!navbar)} className='md:hidden' >

@@ -462,7 +462,7 @@ def getQualificationList(request):
 @api_view(['GET'])
 def getLevels(request):
     try:
-        levels = Level.objects.all().order_by('order')
+        levels = Level.objects.all().order_by("id")
         serializer = LevelSerializer(levels, many=True)
         return Response(serializer.data)
 
@@ -470,16 +470,16 @@ def getLevels(request):
         message = {'detail': 'No Levels Found'}
         return Response(message)
     
-@api_view(['GET'])
-def getLevels(request):
-    try:
-        levels = Level.objects.all()
-        serializer = LevelSerializer(levels, many=True)
-        return Response(serializer.data)
+# @api_view(['GET'])
+# def getLevels(request):
+#     try:
+#         levels = Level.objects.all()
+#         serializer = LevelSerializer(levels, many=True)
+#         return Response(serializer.data)
 
-    except Level.DoesNotExist:
-        message = {'detail': 'No Levels Found'}
-        return Response(message)
+#     except Level.DoesNotExist:
+#         message = {'detail': 'No Levels Found'}
+#         return Response(message)
 
 @api_view(['GET'])
 def getDualQualification(request):

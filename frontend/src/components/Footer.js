@@ -269,7 +269,7 @@ const Footer = () => {
             <div className='flex flex-col'>
               <div className='w-full md:min-w-[200px] flex flex-col justify-center items-center md:items-start md:justify-start gap-2'>
                 <p className='text-sm font-bold border-b-[2px] border-[#DA0C0C] gap-6 flex items-end text-center md:text-left text-white'>PROGRAMMES</p>
-                <div className='px-4 flex flex-col gap-2 py-2 md:py-4 order-1 text-center md:text-start'>
+                <div className='px-4 flex flex-col gap-2 py-2 md:py-4 order-1 text-center md:text-start'> 
                         {
                           levelListLoading?
                             <Link className='text-[10px] text-white/80'>Level 3 (Foundation)</Link>
