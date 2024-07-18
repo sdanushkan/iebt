@@ -7,7 +7,7 @@ from ckeditor.fields import RichTextField
 class Faculty(models.Model):
     name = models.CharField(max_length=200, null=True, blank=True)
     slug = models.SlugField(blank=True, null=True, unique=True)
-    image = models.ImageField(null=True, blank=True, default='/faculty/placeholder.png')
+    image = models.ImageField(null=True, blank=True, default='/faculty/placeholder.png', upload_to='faculty/')
     description = RichTextField(blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
@@ -19,8 +19,9 @@ class Faculty(models.Model):
         verbose_name_plural = 'Faculties'
 
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
-        super().save(*args, **kwargs )
+        if not self.slug:
+            self.slug = slugify(self.name)
+        super().save(*args, **kwargs)
     
 class Level(models.Model):
     name = models.CharField(max_length=200, null=True, blank=True)
@@ -33,8 +34,9 @@ class Level(models.Model):
         return self.name
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
-        super().save(*args, **kwargs )
+        if not self.slug:
+            self.slug = slugify(self.name)
+        super().save(*args, **kwargs)
     
 class QualificationApproval(models.Model):
     name = models.CharField(max_length=200, null=True, blank=True)
@@ -47,8 +49,8 @@ class OurQualification(models.Model):
     name = models.CharField(max_length=200, null=True, blank=True)
     order = models.IntegerField(default=0)
     slug = models.SlugField(blank=True, null=True, unique=True)
-    image = models.ImageField(null=True, blank=True, default='/OurQualification/placeholder.png')
-    discription = RichTextField(blank=True, null=True)
+    image = models.ImageField(null=True, blank=True, default='/OurQualification/placeholder.png', upload_to='OurQualification/')
+    description = RichTextField(blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     courses_list = RichTextField(blank=True, null=True)
 
@@ -56,13 +58,13 @@ class OurQualification(models.Model):
         return self.name
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
-        super().save(*args, **kwargs )
-
+        if not self.slug:
+            self.slug = slugify(self.name)
+        super().save(*args, **kwargs)
 
 class Course(models.Model):
     name = models.CharField(max_length=200, null=True, blank=True, unique=True)
-    slug = models.SlugField(max_length=200, blank=True, null=True) 
+    slug = models.SlugField(max_length=200, blank=True, null=True)
     faculty = models.ForeignKey(Faculty, on_delete=models.SET_NULL, null=True)  
     image = models.ImageField(null=True, blank=True, default='/course/placeholder.png', upload_to='courses/')
     banner = models.ImageField(null=True, blank=True, default='/course/placeholder.png', upload_to='courses/banner/')  
@@ -77,7 +79,6 @@ class Course(models.Model):
     popular = models.BooleanField(default=False)
     duration = models.CharField(max_length=20, null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
-    
 
     show_in_header = models.BooleanField(default=False)
     show_in_faculty = models.BooleanField(default=False)
@@ -102,25 +103,16 @@ class Course(models.Model):
         return self.name
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
-        super().save(*args, **kwargs )
+        if not self.slug:
+            self.slug = slugify(self.name)
+        super().save(*args, **kwargs)
 
-    
-    # def faculty(self):
-    #     reviews = Faculty.objects.filter(Course=self, status=True).aggregate(count=Count('id'))
-    #     count = 0 
-    #     if reviews['count'] is not None:
-    #         count = int(reviews['count'])
-    #     return count
-
-
-    
 class Contact(models.Model):
     name = models.CharField(max_length=2000, null=True, blank=True)
     email = models.EmailField(null=True, blank=True)
     subject = models.CharField(max_length=2000, null=True, blank=True)
     phone_number = models.CharField(max_length=2000, null=True, blank=True)
-    message = models.CharField(max_length=2000, null=True, blank=True)
+    message = models.TextField(null=True, blank=True)
 
     def __str__(self):
         return self.name
@@ -133,8 +125,9 @@ class CountryCategory(models.Model):
         return self.name
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
-        super().save(*args, **kwargs )
+        if not self.slug:
+            self.slug = slugify(self.name)
+        super().save(*args, **kwargs)
     
 class Country(models.Model):
     name = models.CharField(max_length=100, null=True, blank=True)
@@ -143,8 +136,8 @@ class Country(models.Model):
     category = models.ForeignKey(CountryCategory, on_delete=models.SET_NULL, null=True)
     image = models.ImageField(null=True, blank=True, default='/country/image/placeholder.png', upload_to='country/image')
     flag = models.ImageField(null=True, blank=True, default='/country/flag/placeholder.png', upload_to='country/flag')
-    visa_reqrequirementi = RichTextField(blank=True, null=True)
-    discription = RichTextField(blank=True, null=True)
+    visa_requirement = RichTextField(blank=True, null=True)
+    description = RichTextField(blank=True, null=True)
     details_and_scholarship = RichTextField(blank=True, null=True)
     job_and_proposal = RichTextField(blank=True, null=True)
     FAQ = RichTextField(blank=True, null=True) 
@@ -157,8 +150,9 @@ class Country(models.Model):
         verbose_name_plural = 'Countries'
 
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
-        super().save(*args, **kwargs )
+        if not self.slug:
+            self.slug = slugify(self.name)
+        super().save(*args, **kwargs)
     
 class FAQ(models.Model):
     country = models.ForeignKey(Country, on_delete=models.SET_NULL, null=True)
@@ -170,7 +164,7 @@ class FAQ(models.Model):
     
     class Meta:
         verbose_name = 'FAQ'
-        verbose_name_plural = 'FAQ'
+        verbose_name_plural = 'FAQs'
     
 class About(models.Model):
     our_story = RichTextField(blank=True, null=True)
@@ -182,10 +176,10 @@ class About(models.Model):
         return self.vision
 
 class AbroadApplication(models.Model):
-    first_name = models.CharField(max_length=2000, null=True, blank=True)
-    last_name = models.CharField(max_length=2000, null=True, blank=True)
+    first_name = models.CharField(max_length=200, null=True, blank=True)
+    last_name = models.CharField(max_length=200, null=True, blank=True)
     email = models.EmailField(null=True, blank=True)
-    mobile_number = models.CharField(max_length=2000, null=True, blank=True)
+    mobile_number = models.CharField(max_length=200, null=True, blank=True)
     country = models.ForeignKey(Country, on_delete=models.SET_NULL, null=True)
 
     def __str__(self):
@@ -199,16 +193,16 @@ class Page(models.Model):
     
 class University(models.Model):
     name = models.CharField(max_length=200, null=True, blank=True)
-    slug = models.SlugField(blank=True, null=True, unique=True)
+    slug = models.SlugField(unique=True)
     country = models.ForeignKey(Country, on_delete=models.SET_NULL, null=True, blank=True)
     
     def __str__(self):
         return self.name
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
-        super().save(*args, **kwargs )
-
+        if not self.slug:
+            self.slug = slugify(self.name)
+        super().save(*args, **kwargs)
 
 class Testimonial(models.Model):
     name = models.CharField(max_length=200, null=True, blank=True)
@@ -225,7 +219,7 @@ class PageCoverImage(models.Model):
     page = models.ForeignKey(Page, on_delete=models.SET_NULL, null=True)
 
     def __str__(self):
-        return self.page
+        return self.page.name
     
 
 class DualQualification(models.Model):
@@ -239,8 +233,9 @@ class DualQualification(models.Model):
         return self.name
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
-        super().save(*args, **kwargs )
+        if not self.slug:
+            self.slug = slugify(self.name)
+        super().save(*args, **kwargs)
     
 
 class DualQualificationCourse(models.Model):
@@ -266,24 +261,24 @@ class DualQualificationCourse(models.Model):
         return self.name
     
     def get_url(self):
-        return reverse('product_detail', args=[self.category.slug, self.id])
+        return reverse('product_detail', args=[self.course.slug, self.id])
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
-        super().save(*args, **kwargs )
-
+        if not self.slug:
+            self.slug = slugify(self.name)
+        super().save(*args, **kwargs)
 
 class StudentVerification(models.Model):
-    name = models.CharField(max_length=2000, null=True, blank=True)
-    nic = models.CharField(null=True, blank=True, unique=True)
+    name = models.CharField(max_length=200, null=True, blank=True)
+    nic = models.CharField(max_length=200, unique=True)
 
     def __str__(self):
         return self.name
     
 
 class Event(models.Model):
-    event = models.CharField(max_length=2000, null=True, blank=True)
-    date = models.DateField(null=True, blank=True, unique=True)
+    event = models.CharField(max_length=200, null=True, blank=True)
+    date = models.DateField(unique=True)
 
     def __str__(self):
         return self.event

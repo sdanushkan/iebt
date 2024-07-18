@@ -17,6 +17,7 @@ django-ckeditor-5 = "*"
 boto3 = "*"
 django-storages = "*"
 psycopg2 = "*"
+mysqlclient = "*"
 
 [dev-packages]
 

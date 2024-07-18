@@ -1737,7 +1737,7 @@ const CountriesScreen = () => {
               ''
             }
 
-{
+            {
               testimonialListLoading?
               <div className='h-fit hidden sm:flex'>
                 <Swiper
