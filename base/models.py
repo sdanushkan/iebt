@@ -50,7 +50,7 @@ class OurQualification(models.Model):
     order = models.IntegerField(default=0)
     slug = models.SlugField(blank=True, null=True, unique=True)
     image = models.ImageField(null=True, blank=True, default='/OurQualification/placeholder.png', upload_to='OurQualification/')
-    description = RichTextField(blank=True, null=True)
+    # description = RichTextField(blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     courses_list = RichTextField(blank=True, null=True)
 
@@ -67,7 +67,7 @@ class Course(models.Model):
     slug = models.SlugField(max_length=200, blank=True, null=True)
     faculty = models.ForeignKey(Faculty, on_delete=models.SET_NULL, null=True)  
     image = models.ImageField(null=True, blank=True, default='/course/placeholder.png', upload_to='courses/')
-    banner = models.ImageField(null=True, blank=True, default='/course/placeholder.png', upload_to='courses/banner/')  
+    # banner = models.ImageField(null=True, blank=True, default='/course/placeholder.png', upload_to='courses/banner/')  
     course_credit = models.CharField(max_length=200, null=True, blank=True)
     qualification = models.ForeignKey(OurQualification, on_delete=models.SET_NULL, null=True)    
     class_on = models.CharField(max_length=200, null=True, blank=True)
@@ -87,7 +87,7 @@ class Course(models.Model):
 
     ebrowcher = models.FileField(upload_to='browcher/', null=True, blank=True)
 
-    gif_logo = models.ImageField(null=True, blank=True, upload_to='git/logo/')
+    gif_logo = models.ImageField(null=True, blank=True, upload_to='git/logo/') 
 
     f_title = models.CharField(max_length=20, null=True, blank=True, default='Graduate Diploma')
     f_1_name = models.CharField(max_length=20, null=True, blank=True, default='Level 6')
@@ -136,8 +136,8 @@ class Country(models.Model):
     category = models.ForeignKey(CountryCategory, on_delete=models.SET_NULL, null=True)
     image = models.ImageField(null=True, blank=True, default='/country/image/placeholder.png', upload_to='country/image')
     flag = models.ImageField(null=True, blank=True, default='/country/flag/placeholder.png', upload_to='country/flag')
-    visa_requirement = RichTextField(blank=True, null=True)
-    description = RichTextField(blank=True, null=True)
+    # visa_requirement = RichTextField(blank=True, null=True)
+    # description = RichTextField(blank=True, null=True)
     details_and_scholarship = RichTextField(blank=True, null=True)
     job_and_proposal = RichTextField(blank=True, null=True)
     FAQ = RichTextField(blank=True, null=True) 
@@ -160,7 +160,7 @@ class FAQ(models.Model):
     answer = RichTextField(blank=True, null=True)
 
     def __str__(self):
-        return self.country
+        return self.question
     
     class Meta:
         verbose_name = 'FAQ'
@@ -193,7 +193,7 @@ class Page(models.Model):
     
 class University(models.Model):
     name = models.CharField(max_length=200, null=True, blank=True)
-    slug = models.SlugField(unique=True)
+    slug = models.SlugField(unique=True,  null=True, blank=True)
     country = models.ForeignKey(Country, on_delete=models.SET_NULL, null=True, blank=True)
     
     def __str__(self):
