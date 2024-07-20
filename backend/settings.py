@@ -97,31 +97,31 @@ REST_FRAMEWORK = {
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
-# DATABASES = {
-#    'default': {
-#        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#        'NAME': 'postgres',
-#        'USER': 'postgres',
-#        'PASSWORD': 'passwd31',
-#        'HOST': 'iebc-database.c9kouacsgq35.us-east-2.rds.amazonaws.com',
-#        'PORT': '5432'
-#    }
-# }
-
 DATABASES = {
    'default': {
-       'ENGINE': 'django.db.backends.mysql',
-       'NAME': 'iebcdb',
-       'USER': 'admin',
+       'ENGINE': 'django.db.backends.postgresql_psycopg2',
+       'NAME': 'postgres',
+       'USER': 'postgres',
        'PASSWORD': 'passwd31',
-       'HOST': 'iebc-aws-db.c9kouacsgq35.us-east-2.rds.amazonaws.com',
-       'PORT': '3306',
-       'OPTIONS': {
-            'charset': 'utf8mb4',
-            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
-        },
+       'HOST': 'iebc-database.c9kouacsgq35.us-east-2.rds.amazonaws.com',
+       'PORT': '5432'
    }
 }
+
+# DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.mysql',
+#        'NAME': 'iebcdb',
+#        'USER': 'admin',
+#        'PASSWORD': 'passwd31',
+#        'HOST': 'iebc-aws-db.c9kouacsgq35.us-east-2.rds.amazonaws.com',
+#        'PORT': '3306',
+#     #    'OPTIONS': {
+#     #         'charset': 'utf8mb4',
+#     #         'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+#     #     },
+#    }
+# }
 
 
 

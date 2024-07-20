@@ -46,13 +46,13 @@ class QualificationApproval(models.Model):
         return self.name
 
 class OurQualification(models.Model):
-    name = models.CharField(max_length=200, null=True, blank=True)
+    name = models.CharField(max_length=200, unique=True)
     order = models.IntegerField(default=0)
-    slug = models.SlugField(blank=True, null=True, unique=True)
+    slug = models.SlugField(blank=True, null=True)
     image = models.ImageField(null=True, blank=True, default='/OurQualification/placeholder.png', upload_to='OurQualification/')
     # description = RichTextField(blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
-    courses_list = RichTextField(blank=True, null=True)
+    about = RichTextField(blank=True, null=True)
 
     def __str__(self):
         return self.name
