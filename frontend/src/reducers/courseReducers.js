@@ -563,7 +563,7 @@ export const eventListReducer = (state = {}, action) => {
             return { loading: true }
 
         case EVENT_LIST_SUCCESS:
-            return { loading: false, success:true }
+            return { loading: false, eventse:action.payload }
 
         case EVENT_LIST_FAIL:
             return { loading: false, error: action.payload }

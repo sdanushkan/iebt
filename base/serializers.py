@@ -42,7 +42,7 @@ class OurQualificationSerializer(serializers.ModelSerializer):
 class OurQualificationListSerializer(serializers.ModelSerializer):
     class Meta:
         model = OurQualification
-        fields = ['name', 'slug', 'image', 'discription']   
+        fields = ['name', 'slug', 'image', 'courses_list']   
 
 
 class CourseSerializer(serializers.ModelSerializer):

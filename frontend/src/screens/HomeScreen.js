@@ -497,7 +497,7 @@ const HomeScreen = () => {
           <Link to={'/e_library'} className='w-full max-w-1/2 md:max-w-1/3 lg:max-w-1/5  h-full md:h-48 flex flex-col items-center justify-center gap-4 bg-white text-black duration-200 cursor-pointer hover:text-[#DA0C0C] p-10 rounded-[8px] shadow-[0px_4px_25px_rgba(0,0,0,0.05)] hover:shadow-[0px_4px_50px_rgba(0,0,0,0.075)]'>
             <img src={es}  alt='' className='w-16 object-contain' />
             <p className='text-xs lg:text-sm font-semibold px-2 text-center'>E library</p>
-          </Link>
+          </Link> 
           <Popover placement="bottom" showArrow={true}>
             <PopoverTrigger>
               <div className='w-full max-w-1/2 md:max-w-1/3 lg:max-w-1/5  h-full md:h-48 flex flex-col items-center justify-center gap-4 bg-white text-black duration-200 cursor-pointer hover:text-[#DA0C0C] p-10 rounded-[8px] shadow-[0px_4px_25px_rgba(0,0,0,0.05)] hover:shadow-[0px_4px_50px_rgba(0,0,0,0.075)]'>
@@ -1245,36 +1245,6 @@ const HomeScreen = () => {
         </div>
       </section>
 
-      {/* <section className='h-fit w-full relative overflow-hidden px-8 bg-[#DA0C0C] py-4 lg:py-12'>
-        <div className='h-fit w-full max-w-[1024px] mx-auto justify-center gap-6 '>
-          <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4  gap-8'>
-              <div className='w-full flex flex-col gap-2 items-center justify-center'>
-                <VscVerifiedFilled className='text-8xl text-white' />
-                <p className='text-lg font-bold text-white text-center'>Accredited curriculum</p>
-                <p className='text-sm text-white text-center'>Our HEI offers a diverse range of accredited programs designed to meet the highest academic standards. Our qualifications are recognized by WES and UGC Sri Lanka.</p>
-              </div>
-
-              <div className='w-full flex flex-col gap-2 items-center justify-center'>
-                <FaHandHoldingUsd className='text-8xl text-white' />
-                <p className='text-lg font-bold text-white text-center'>Exceptional Educational Investment</p>
-                <p className='text-sm text-white text-center'>We provide an outstanding educational experience that offers great value for students looking to advance their knowledge and skills.</p>
-              </div>
-
-              <div className='w-full flex flex-col gap-2 items-center justify-center'>
-                <FaSearchLocation className='text-8xl text-white' />
-                <p className='text-lg font-bold text-white text-center'>Scholarships</p>
-                <p className='text-sm text-white text-center'>Explore the availability of scholarships to help with the cost of tuition, and rest assured that we're dedicated to helping you find the most affordable courses with us, ensuring that your educational journey is not only enriching but also financially accessible.</p>
-              </div>
-
-              <div className='w-full flex flex-col gap-2 items-center justify-center'>
-                <FaArrowRightArrowLeft className='text-8xl text-white' />
-                <p className='text-lg font-bold text-white text-center'>Progression</p>
-                <p className='text-sm text-white text-center'>Our strong partnership with the UK Government regulated qualificationing bodies allows students to upgrade their career with recognized universities, while also helping you to Easily transfer credits to any universities around the world</p>
-              </div>
-          </div>
-        </div>
-      </section> */}
-
       <section className='min-h-fit h-[500px] w-full relative px-8 lg:py-6 bg-cover bg-bottom ' >
         <img src='https://upload.wikimedia.org/wikipedia/commons/c/cd/University-of-Alabama-EngineeringResearchCenter-01.jpg' alt='' className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 h-full w-full z-0 opacity-25' />
         <div className='h-fit min-h-fit w-full max-w-[900px] mx-auto justify-center gap-6 grid grid-col-1 lg:grid-cols-2 divide-y-1 lg:divide-x-1 lg:divide-y-0 divide-[#DA0C0C] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10'>
@@ -2020,89 +1990,7 @@ const HomeScreen = () => {
               <p className='text-2xl lg:text-4xl font-bold text-center'>Our Qualifications</p>
             </div>
 
-            {
-              popularCourseListLoading?
-              <div className='hidden md:block'>
-                <Swiper
-                  slidesPerView={4}
-                  spaceBetween={10}
-                  freeMode={true}
-                  
-                  autoplay
-                  modules={[FreeMode,  Autoplay]}
-                  className="h-fit"
-                >
-
-                      <SwiperSlide  className='bg-white border-[1px] border-red-100 rounded-[8px] mb-12 w-[250px] p-4'>
-                        <Skeleton className='rounded-[8px] '>
-                          <img src='' alt='' className='h-[150px] w-[200px] object-contain scale-80 mx-auto hover:scale-105 duration-200' />
-                        </Skeleton>
-                        <div className='flex flex-col py-6 gap-4  '>
-                          <div className='flex flex-col-reverse gap-2'>
-                      
-                          <Skeleton className='rounded-[8px]'><p className='text-based uppercase font-semibold'>i.name</p></Skeleton> 
-                          </div>
-                          <Skeleton className='rounded-[8px]'>
-                          <p className='text-sm text-[#DA0C0C]'>More Details...</p>
-                          </Skeleton>
-                        </div>
-                      </SwiperSlide>
-                      <SwiperSlide  className='bg-white border-[1px] border-red-100 rounded-[8px] mb-12 w-[250px] p-4'>
-                        <Skeleton className='rounded-[8px] '>
-                          <img src='' alt='' className='h-[150px] w-[200px] object-contain scale-80 mx-auto hover:scale-105 duration-200' />
-                        </Skeleton>
-                        <div className='flex flex-col py-6 gap-4  '>
-                          <div className='flex flex-col-reverse gap-2'>
-                      
-                          <Skeleton className='rounded-[8px]'><p className='text-based uppercase font-semibold'>i.name</p></Skeleton> 
-                          </div>
-                          <Skeleton className='rounded-[8px]'>
-                          <p className='text-sm text-[#DA0C0C]'>More Details...</p>
-                          </Skeleton>
-                        </div>
-                      </SwiperSlide>
-                      <SwiperSlide  className='bg-white border-[1px] border-red-100 rounded-[8px] mb-12 w-[250px] p-4'>
-                        <Skeleton className='rounded-[8px] '>
-                          <img src='' alt='' className='h-[150px] w-[200px] object-contain scale-80 mx-auto hover:scale-105 duration-200' />
-                        </Skeleton>
-                        <div className='flex flex-col py-6 gap-4  '>
-                          <div className='flex flex-col-reverse gap-2'>
-                      
-                          <Skeleton className='rounded-[8px]'><p className='text-based uppercase font-semibold'>i.name</p></Skeleton> 
-                          </div>
-                          <Skeleton className='rounded-[8px]'>
-                          <p className='text-sm text-[#DA0C0C]'>More Details...</p>
-                          </Skeleton>
-                        </div>
-                      </SwiperSlide>
-
-                  {/* {
-                    ourQualificationListLoading?
-                    '':
-                    qualifications?
-                    qualifications.map(i=>(
-                      <SwiperSlide key={i.id} className='bg-white border-[1px] border-red-100 rounded-[8px] mb-12 w-[250px]'>
-                        <Link to={`/awarding-body/${i.slug}`}>
-                            <img src={i.image} alt='' className='h-[150px] w-[200px] object-contain scale-80 mx-auto hover:scale-105 duration-200' />
-                            <div className='flex flex-col py-6 gap-4 px-4 '>
-                              <div className='flex flex-col-reverse'>
-                              <p className='text-xs h-[32px] overflow-hidden text-gray-400'>{parse(i.discription)}</p>
-                              <p className='text-based uppercase font-semibold'>{i.name}</p>
-                              </div>
-                              <p className='text-sm text-[#DA0C0C]'>More Details...</p>
-                            </div>
-                        </Link>
-                      </SwiperSlide>
-                    )).sort((a, b) => a.order - b.order)
-                    :
-                    ''
-                  } */}
-                </Swiper>
-              </div>
-              :
-
-              courses?
-              <div className='hidden md:block'>
+            <div className='hidden lg:block'>
                 <Swiper
                   slidesPerView={4}
                   spaceBetween={10}
@@ -2120,12 +2008,12 @@ const HomeScreen = () => {
                     '':
                     qualifications?
                     qualifications.map(i=>(
-                      <SwiperSlide key={i.id} className='bg-white border-[1px] border-red-100 rounded-[8px] mb-12 w-[250px]'>
-                        <Link to={`/awarding-body/${i.slug}`} key={i.id} className='bg-white border-[1px] border-red-100 rounded-[8px] mb-12 w-[250px]'>
+                      <SwiperSlide key={i.slug} className='bg-white border-[1px] border-red-100 rounded-[8px] mb-12 w-[250px]'>
+                        <Link to={`/awarding-body/${i.slug}`} className='bg-white border-[1px] border-red-100 rounded-[8px] mb-12 w-[250px]'>
                           <img src={i.image} alt='' className='h-[150px] w-[200px] object-contain scale-80 mx-auto hover:scale-105 duration-200' />
                           <div className='flex flex-col py-6 gap-4 px-4 '>
                             <div className='flex flex-col-reverse'>
-                            <p className='text-xs h-[32px] overflow-hidden text-gray-400'>{parse(i.discription)}</p>
+                            <p className='text-xs h-[32px] overflow-hidden text-gray-400'>{parse(i.courses_list)}</p>
                             <p className='text-based uppercase font-semibold'>{i.name}</p>
                             </div>
                             <p className='text-sm text-[#DA0C0C]'>More Details...</p>
@@ -2137,214 +2025,9 @@ const HomeScreen = () => {
                     ''
                   }
                 </Swiper>
-              </div>:
-              ''
-            }
-
-            {
-              popularCourseListLoading?
-              <div className='hidden sm:block md:hidden'>
-                <Swiper
-                  slidesPerView={2}
-                  spaceBetween={10}
-                  freeMode={true}
-                  
-                  autoplay
-                  modules={[FreeMode,  Autoplay]}
-                  className="h-fit"
-                >
-
-                      <SwiperSlide  className='bg-white border-[1px] border-red-100 rounded-[8px] mb-12 w-[250px] p-4'>
-                        <Skeleton className='rounded-[8px] '>
-                          <img src='' alt='' className='h-[150px] w-[200px] object-contain scale-80 mx-auto hover:scale-105 duration-200' />
-                        </Skeleton>
-                        <div className='flex flex-col py-6 gap-4  '>
-                          <div className='flex flex-col-reverse gap-2'>
-                      
-                          <Skeleton className='rounded-[8px]'><p className='text-based uppercase font-semibold'>i.name</p></Skeleton> 
-                          </div>
-                          <Skeleton className='rounded-[8px]'>
-                          <p className='text-sm text-[#DA0C0C]'>More Details...</p>
-                          </Skeleton>
-                        </div>
-                      </SwiperSlide>
-                      <SwiperSlide  className='bg-white border-[1px] border-red-100 rounded-[8px] mb-12 w-[250px] p-4'>
-                        <Skeleton className='rounded-[8px] '>
-                          <img src='' alt='' className='h-[150px] w-[200px] object-contain scale-80 mx-auto hover:scale-105 duration-200' />
-                        </Skeleton>
-                        <div className='flex flex-col py-6 gap-4  '>
-                          <div className='flex flex-col-reverse gap-2'>
-                      
-                          <Skeleton className='rounded-[8px]'><p className='text-based uppercase font-semibold'>i.name</p></Skeleton> 
-                          </div>
-                          <Skeleton className='rounded-[8px]'>
-                          <p className='text-sm text-[#DA0C0C]'>More Details...</p>
-                          </Skeleton>
-                        </div>
-                      </SwiperSlide>
-                      <SwiperSlide  className='bg-white border-[1px] border-red-100 rounded-[8px] mb-12 w-[250px] p-4'>
-                        <Skeleton className='rounded-[8px] '>
-                          <img src='' alt='' className='h-[150px] w-[200px] object-contain scale-80 mx-auto hover:scale-105 duration-200' />
-                        </Skeleton>
-                        <div className='flex flex-col py-6 gap-4  '>
-                          <div className='flex flex-col-reverse gap-2'>
-                      
-                          <Skeleton className='rounded-[8px]'><p className='text-based uppercase font-semibold'>i.name</p></Skeleton> 
-                          </div>
-                          <Skeleton className='rounded-[8px]'>
-                          <p className='text-sm text-[#DA0C0C]'>More Details...</p>
-                          </Skeleton>
-                        </div>
-                      </SwiperSlide>
-
-                  {/* {
-                    ourQualificationListLoading?
-                    '':
-                    qualifications?
-                    qualifications.map(i=>(
-                      <SwiperSlide key={i.id} className='bg-white border-[1px] border-red-100 rounded-[8px] mb-12 w-[250px]'>
-                        <Link to={`/awarding-body/${i.slug}`}>
-                            <img src={i.image} alt='' className='h-[150px] w-[200px] object-contain scale-80 mx-auto hover:scale-105 duration-200' />
-                            <div className='flex flex-col py-6 gap-4 px-4 '>
-                              <div className='flex flex-col-reverse'>
-                              <p className='text-xs h-[32px] overflow-hidden text-gray-400'>{parse(i.discription)}</p>
-                              <p className='text-based uppercase font-semibold'>{i.name}</p>
-                              </div>
-                              <p className='text-sm text-[#DA0C0C]'>More Details...</p>
-                            </div>
-                        </Link>
-                      </SwiperSlide>
-                    )).sort((a, b) => a.order - b.order)
-                    :
-                    ''
-                  } */}
-                </Swiper>
               </div>
-              :
 
-              courses?
-              <div className='hidden sm:block md:hidden'>
-                <Swiper
-                  slidesPerView={2}
-                  spaceBetween={10}
-                  freeMode={true}
-                  
-                  autoplay
-                  modules={[FreeMode,  Autoplay]}
-                  className="h-fit"
-                >
-
-                    
-
-                  {
-                    ourQualificationListLoading?
-                    '':
-                    qualifications?
-                    qualifications.map(i=>(
-                      <SwiperSlide key={i.id} className='bg-white border-[1px] border-red-100 rounded-[8px] mb-12 w-[250px]'>
-                        <Link to={`/awarding-body/${i.slug}`}>
-                            <img src={i.image} alt='' className='h-[150px] w-[200px] object-contain scale-80 mx-auto hover:scale-105 duration-200' />
-                            <div className='flex flex-col py-6 gap-4 px-4 '>
-                              <div className='flex flex-col-reverse'>
-                              <p className='text-xs h-[32px] overflow-hidden text-gray-400'>{parse(i.discription)}</p>
-                              <p className='text-based uppercase font-semibold'>{i.name}</p>
-                              </div>
-                              <p className='text-sm text-[#DA0C0C]'>More Details...</p>
-                            </div>
-                        </Link>
-                      </SwiperSlide>
-                    )).sort((a, b) => a.order - b.order)
-                    :
-                    ''
-                  }
-                </Swiper>
-              </div>:
-              ''
-            }
-
-{
-              popularCourseListLoading?
-              <div className='sm:hidden'>
-                <Swiper
-                  slidesPerView={1}
-                  spaceBetween={10}
-                  freeMode={true}
-                  
-                  autoplay
-                  modules={[FreeMode,  Autoplay]}
-                  className="h-fit"
-                >
-
-                      <SwiperSlide  className='bg-white border-[1px] border-red-100 rounded-[8px] mb-12 w-[250px] p-4'>
-                        <Skeleton className='rounded-[8px] '>
-                          <img src='' alt='' className='h-[150px] w-[200px] object-contain scale-80 mx-auto hover:scale-105 duration-200' />
-                        </Skeleton>
-                        <div className='flex flex-col py-6 gap-4  '>
-                          <div className='flex flex-col-reverse gap-2'>
-                      
-                          <Skeleton className='rounded-[8px]'><p className='text-based uppercase font-semibold'>i.name</p></Skeleton> 
-                          </div>
-                          <Skeleton className='rounded-[8px]'>
-                          <p className='text-sm text-[#DA0C0C]'>More Details...</p>
-                          </Skeleton>
-                        </div>
-                      </SwiperSlide>
-                      <SwiperSlide  className='bg-white border-[1px] border-red-100 rounded-[8px] mb-12 w-[250px] p-4'>
-                        <Skeleton className='rounded-[8px] '>
-                          <img src='' alt='' className='h-[150px] w-[200px] object-contain scale-80 mx-auto hover:scale-105 duration-200' />
-                        </Skeleton>
-                        <div className='flex flex-col py-6 gap-4  '>
-                          <div className='flex flex-col-reverse gap-2'>
-                      
-                          <Skeleton className='rounded-[8px]'><p className='text-based uppercase font-semibold'>i.name</p></Skeleton> 
-                          </div>
-                          <Skeleton className='rounded-[8px]'>
-                          <p className='text-sm text-[#DA0C0C]'>More Details...</p>
-                          </Skeleton>
-                        </div>
-                      </SwiperSlide>
-                      <SwiperSlide  className='bg-white border-[1px] border-red-100 rounded-[8px] mb-12 w-[250px] p-4'>
-                        <Skeleton className='rounded-[8px] '>
-                          <img src='' alt='' className='h-[150px] w-[200px] object-contain scale-80 mx-auto hover:scale-105 duration-200' />
-                        </Skeleton>
-                        <div className='flex flex-col py-6 gap-4  '>
-                          <div className='flex flex-col-reverse gap-2'>
-                      
-                          <Skeleton className='rounded-[8px]'><p className='text-based uppercase font-semibold'>i.name</p></Skeleton> 
-                          </div>
-                          <Skeleton className='rounded-[8px]'>
-                          <p className='text-sm text-[#DA0C0C]'>More Details...</p>
-                          </Skeleton>
-                        </div>
-                      </SwiperSlide>
-
-                  {/* {
-                    ourQualificationListLoading?
-                    '':
-                    qualifications?
-                    qualifications.map(i=>(
-                      <SwiperSlide key={i.id} className='bg-white border-[1px] border-red-100 rounded-[8px] mb-12 w-[250px]'>
-                        <Link to={`/awarding-body/${i.slug}`}>
-                            <img src={i.image} alt='' className='h-[150px] w-[200px] object-contain scale-80 mx-auto hover:scale-105 duration-200' />
-                            <div className='flex flex-col py-6 gap-4 px-4 '>
-                              <div className='flex flex-col-reverse'>
-                              <p className='text-xs h-[32px] overflow-hidden text-gray-400'>{parse(i.discription)}</p>
-                              <p className='text-based uppercase font-semibold'>{i.name}</p>
-                              </div>
-                              <p className='text-sm text-[#DA0C0C]'>More Details...</p>
-                            </div>
-                        </Link>
-                      </SwiperSlide>
-                    )).sort((a, b) => a.order - b.order)
-                    :
-                    ''
-                  } */}
-                </Swiper>
-              </div>
-              :
-
-              courses?
-              <div className='sm:hidden'>
+              <div className='hidden sm:block lg:hidden'>
                 <Swiper
                   slidesPerView={1}
                   spaceBetween={10}
@@ -2362,27 +2045,61 @@ const HomeScreen = () => {
                     '':
                     qualifications?
                     qualifications.map(i=>(
-                      <SwiperSlide key={i.id} className='bg-white border-[1px] border-red-100 rounded-[8px] mb-12 w-[250px]'>
-                        <Link to={`/awarding-body/${i.slug}`}>
-                            <img src={i.image} alt='' className='h-[150px] w-[200px] object-contain scale-80 mx-auto hover:scale-105 duration-200' />
-                            <div className='flex flex-col py-6 gap-4 px-4 '>
-                              <div className='flex flex-col-reverse'>
-                              <p className='text-xs h-[32px] overflow-hidden text-gray-400'>{parse(i.discription)}</p>
-                              <p className='text-based uppercase font-semibold'>{i.name}</p>
-                              </div>
-                              <p className='text-sm text-[#DA0C0C]'>More Details...</p>
+                      <SwiperSlide key={i.slug} className='bg-white border-[1px] border-red-100 rounded-[8px] mb-12 w-[250px]'>
+                        <Link to={`/awarding-body/${i.slug}`} className='bg-white border-[1px] border-red-100 rounded-[8px] mb-12 w-[250px]'>
+                          <img src={i.image} alt='' className='h-[150px] w-[200px] object-contain scale-80 mx-auto hover:scale-105 duration-200' />
+                          <div className='flex flex-col py-6 gap-4 px-4 '>
+                            <div className='flex flex-col-reverse'>
+                            <p className='text-xs h-[32px] overflow-hidden text-gray-400'>{parse(i.courses_list)}</p>
+                            <p className='text-based uppercase font-semibold'>{i.name}</p>
                             </div>
+                            <p className='text-sm text-[#DA0C0C]'>More Details...</p>
+                          </div>
                         </Link>
                       </SwiperSlide>
-                    )).sort((a, b) => a.order - b.order)
+                    ))
                     :
                     ''
                   }
                 </Swiper>
-              </div>:
-              ''
-            }
+              </div>
 
+              <div className='md:hidden'>
+                <Swiper
+                  slidesPerView={1}
+                  spaceBetween={10}
+                  freeMode={true}
+                  
+                  autoplay
+                  modules={[FreeMode,  Autoplay]}
+                  className="h-fit"
+                >
+
+                    
+
+                  {
+                    ourQualificationListLoading?
+                    '':
+                    qualifications?
+                    qualifications.map(i=>(
+                      <SwiperSlide key={i.slug} className='bg-white border-[1px] border-red-100 rounded-[8px] mb-12 w-[250px]'>
+                        <Link to={`/awarding-body/${i.slug}`} className='bg-white border-[1px] border-red-100 rounded-[8px] mb-12 w-[250px]'>
+                          <img src={i.image} alt='' className='h-[150px] w-[200px] object-contain scale-80 mx-auto hover:scale-105 duration-200' />
+                          <div className='flex flex-col py-6 gap-4 px-4 '>
+                            <div className='flex flex-col-reverse'>
+                            <p className='text-xs h-[32px] overflow-hidden text-gray-400'>{parse(i.courses_list)}</p>
+                            <p className='text-based uppercase font-semibold'>{i.name}</p>
+                            </div>
+                            <p className='text-sm text-[#DA0C0C]'>More Details...</p>
+                          </div>
+                        </Link>
+                      </SwiperSlide>
+                    ))
+                    :
+                    ''
+                  }
+                </Swiper>
+              </div>
 
         
       

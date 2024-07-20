@@ -128,15 +128,17 @@ const CountryScreen = () => {
                   size='lg'
                 >
                   {
-                    countryD.discription != "" ?
+                    countryD.description != "" ?
                     <Tab className='' key={`Study in ${countryD.name}`} title={`Study in ${countryD.name}`}>
                       <div className={
-                        countryD.discription == ""?
+                        countryD.description == ""?
                         'h-fit hidden bg-red-50 p-8 rounded-[8px] flex-col gap-4 ':
                         'h-fit bg-red-50 p-8 rounded-[8px] flex flex-col gap-4 '
                       }>
                         {
-                          parse(countryD.discription)
+                          countryD.description != "" || countryD.description!='null'?
+                          <p className='text-sm'>{countryD.description}</p>:
+                          ''
                         } 
                       </div> 
                     </Tab>
@@ -153,24 +155,30 @@ const CountryScreen = () => {
                         'h-fit bg-red-50 p-8 rounded-[8px] flex flex-col gap-4 '
                       }>
                         {
-                          parse(countryD.details_and_scholarship)
+                          countryD.details_and_scholarship != "" ?
+                          parse(countryD.details_and_scholarship):
+                          ''
                         } 
+                      
                       </div> 
                     </Tab>
                     :
                     ''
                   }
                   {
-                    countryD.visa_reqrequirementi != "" ?
+                    countryD.visa_requirement != "" ?
                     <Tab className='' key="Student Visa Requirements" title="Student Visa Requirements">
                       <div className={
-                        countryD.visa_reqrequirementi == ""?
+                        countryD.visa_requirement == ""?
                         'h-fit hidden bg-red-50 p-8 rounded-[8px] flex-col gap-4 ':
                         'h-fit bg-red-50 p-8 rounded-[8px] flex flex-col gap-4 '
                       }>
-                        {
-                          parse(countryD.visa_reqrequirementi)
+                         {
+                          countryD.visa_requirement != "" ?
+                          parse(countryD.visa_requirement):
+                          ''
                         } 
+                    
                       </div> 
                     </Tab>
                     :
@@ -188,7 +196,9 @@ const CountryScreen = () => {
                         'h-fit bg-red-50 p-8 rounded-[8px] flex flex-col gap-4 '
                       }>
                         {
-                          parse(countryD.details_and_scholarship)
+                          countryD.details_and_scholarship != "" ?
+                          parse(countryD.details_and_scholarship):
+                          ''
                         } 
                       </div> 
                     </Tab>
@@ -353,21 +363,23 @@ const CountryScreen = () => {
           ''
         }
 
-      <section className='h-fit w-full relative overflow-hidden px-8 py-6'>
+      <section className='h-fit w-full px-8 py-6 relative'>
         <div className='h-fit w-full max-w-[800px] mx-auto grid grid-cols-2 md:grid-cols-4 justify-center gap-2 lg:gap-6'>
-          <Link to={'/abroad/about'} className='w-full md:w-48 h-full md:h-48 flex flex-col items-center justify-center gap-4 bg-white text-black duration-200 cursor-pointer hover:text-[#DA0C0C] p-12 hover:p-10 rounded-[8px] shadow-[0px_4px_25px_rgba(0,0,0,0.05)] hover:shadow-[0px_4px_50px_rgba(0,0,0,0.075)]'>
-                <img src={sp}  alt='' className='w-full h-full object-contain' />
-                <p className='text-base font-bold text-red-900 px-2 text-center'>About us</p>
+              <Link to={'/abroad/about'}>
+                <div className='w-full md:w-48 h-full md:h-48 flex flex-col items-center justify-center gap-4 bg-white text-black duration-200 hover:text-[#DA0C0C] p-12 hover:p-10 rounded-[8px] shadow-[0px_4px_25px_rgba(0,0,0,0.05)] hover:shadow-[0px_4px_50px_rgba(0,0,0,0.075)]'>
+                  <img src={sp}  alt='' className='w-full h-full object-contain' />
+                  <p className='text-base font-bold text-red-900 px-2 text-center'>About us</p>
+                </div>
               </Link>
-              <Link to={'/ourservices'} className='w-full md:w-48 h-full md:h-48 flex flex-col items-center justify-center gap-4 bg-white text-black duration-200 cursor-pointer hover:text-[#DA0C0C] p-12 hover:p-10 rounded-[8px] shadow-[0px_4px_25px_rgba(0,0,0,0.05)] hover:shadow-[0px_4px_50px_rgba(0,0,0,0.075)]'>
+              <div to={'/ourservices'} className='w-full md:w-48 h-full md:h-48 flex flex-col items-center justify-center gap-4 bg-white text-black duration-200 hover:text-[#DA0C0C] p-12 hover:p-10 rounded-[8px] shadow-[0px_4px_25px_rgba(0,0,0,0.05)] hover:shadow-[0px_4px_50px_rgba(0,0,0,0.075)]'>
                 <img src={es}  alt='' className='w-full h-full object-contain' />
                 <p className='text-base font-bold text-red-900 px-2 text-center'>Services</p>
-              </Link>
-              <Link to={'/application'} className='w-full md:w-48 h-full md:h-48 flex flex-col items-center justify-center gap-4 bg-white text-black duration-200 cursor-pointer hover:text-[#DA0C0C] p-12 hover:p-10 rounded-[8px] shadow-[0px_4px_25px_rgba(0,0,0,0.05)] hover:shadow-[0px_4px_25px_rgba(0,0,0,0.075)] '>
+              </div>
+              <div to={'/application'} className='w-full md:w-48 h-full md:h-48 flex flex-col items-center justify-center gap-4 bg-white text-black duration-200 hover:text-[#DA0C0C] p-12 hover:p-10 rounded-[8px] shadow-[0px_4px_25px_rgba(0,0,0,0.05)] hover:shadow-[0px_4px_25px_rgba(0,0,0,0.075)] '>
                 <img src={apply}  alt='' className='w-full h-full object-contain' />
                 <p className='text-base font-bold text-red-900 px-2 text-center'>Apply</p>
-              </Link>
-              <div className='w-full md:w-48 h-full md:h-48 flex flex-col items-center justify-center gap-4 bg-white text-black duration-200 cursor-pointer hover:text-[#DA0C0C] p-12 hover:p-10 rounded-[8px] shadow-[0px_4px_25px_rgba(0,0,0,0.05)] hover:shadow-[0px_4px_50px_rgba(0,0,0,0.075)]'>
+              </div>
+              <div className='w-full md:w-48 h-full md:h-48 flex flex-col items-center justify-center gap-4 bg-white text-black duration-200 hover:text-[#DA0C0C] p-12 hover:p-10 rounded-[8px] shadow-[0px_4px_25px_rgba(0,0,0,0.05)] hover:shadow-[0px_4px_50px_rgba(0,0,0,0.075)]'>
                 <img src={verification}  alt='' className='w-full h-full object-contain' />
                 <p className='text-base font-bold text-red-900 px-2 text-center'>Book Appoinment</p>
               </div>

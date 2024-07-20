@@ -366,7 +366,7 @@ def getPopularCourses(request):
     try:
         course = Course.objects.filter(popular=True).order_by('programe__id')
         serializer = CourseListSerializer(course, many=True)
-        return Response(serializer.data)
+        return Response(serializer.data) 
 
     except Course.DoesNotExist:
         message = {'detail': 'No Country Found'}

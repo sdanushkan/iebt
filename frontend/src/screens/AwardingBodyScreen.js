@@ -100,7 +100,7 @@ const AwardingBodyScreen = () => {
                         </div>
                         <div className='p-4 flex flex-col gap-2'>
                             <p className='text-lg font-bold text-left'>{qualification.name}</p>
-                            <div className='text-sm text-left opacity-75'>{parse(qualification.discription)}</div>
+                            <div className='text-sm text-left opacity-75'>{parse(qualification.courses_list)}</div>
                         </div>
                         
                     </div>

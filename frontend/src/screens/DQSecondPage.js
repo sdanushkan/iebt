@@ -111,7 +111,7 @@ const DQSecondPage = () => {
                                 <p className='text-2xl md:text-4xl font-bold text-black text-center'>{i.course.name}</p>                
                             </div>
                             <div className='h-[200px] md:h-[250px] w-full lg:w-[400px] mx-auto  bg-gray-50 overflow-hidden rounded-[16px] '>
-                                <img src={i.image} alt='' className='h-full w-full object-cover' />
+                                <img src={i.course.image} alt='' className='h-full w-full object-cover' />
                             </div>
                             <div className='flex flex-col gap-2 items-center'>
                                 <p className='text-center text-sm font-medium'>{i.course.name}</p>

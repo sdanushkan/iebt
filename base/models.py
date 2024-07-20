@@ -50,9 +50,10 @@ class OurQualification(models.Model):
     order = models.IntegerField(default=0)
     slug = models.SlugField(blank=True, null=True)
     image = models.ImageField(null=True, blank=True, default='/OurQualification/placeholder.png', upload_to='OurQualification/')
-    # description = RichTextField(blank=True, null=True)
+    # description = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     courses_list = RichTextField(blank=True, null=True)
+    # description = models.TextField(default='null')
 
     def __str__(self):
         return self.name
@@ -136,11 +137,12 @@ class Country(models.Model):
     category = models.ForeignKey(CountryCategory, on_delete=models.SET_NULL, null=True)
     image = models.ImageField(null=True, blank=True, default='/country/image/placeholder.png', upload_to='country/image')
     flag = models.ImageField(null=True, blank=True, default='/country/flag/placeholder.png', upload_to='country/flag')
-    # visa_requirement = RichTextField(blank=True, null=True)
-    # description = RichTextField(blank=True, null=True)
+    # visa_requirement = models.TextField()
+    description = models.TextField(default='null')
     details_and_scholarship = RichTextField(blank=True, null=True)
     job_and_proposal = RichTextField(blank=True, null=True)
     FAQ = RichTextField(blank=True, null=True) 
+    visa_requirement = RichTextField(blank=True, null=True) 
 
     def __str__(self):
         return self.name
