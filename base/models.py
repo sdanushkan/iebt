@@ -52,7 +52,7 @@ class OurQualification(models.Model):
     image = models.ImageField(null=True, blank=True, default='/OurQualification/placeholder.png', upload_to='OurQualification/')
     # description = RichTextField(blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
-    about = RichTextField(blank=True, null=True)
+    courses_list = RichTextField(blank=True, null=True)
 
     def __str__(self):
         return self.name
