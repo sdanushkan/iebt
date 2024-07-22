@@ -155,7 +155,50 @@ class Country(models.Model):
         if not self.slug:
             self.slug = slugify(self.name)
         super().save(*args, **kwargs)
+
+class FAQType(models.Model):
+    name = models.CharField(max_length=10, null=True, blank=True)
+    slug = models.SlugField(blank=True, null=True)
+
+    def __str__(self):
+        return self.type
     
+    class Meta:
+        verbose_name = 'FAQ'
+        verbose_name_plural = 'FAQs'  
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.name)
+        super().save(*args, **kwargs)
+
+class FAQq(models.Model):
+    name = models.CharField(max_length=10, null=True, blank=True)
+    slug = models.SlugField(blank=True, null=True)
+    type = models.ForeignKey(FAQType, on_delete=models.SET_NULL, null=True)
+
+    def __str__(self):
+        return self.name
+    
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.name)
+        super().save(*args, **kwargs)
+    
+class FAQa(models.Model):
+    name = models.CharField(max_length=10, null=True, blank=True)
+    slug = models.SlugField(blank=True, null=True)
+    q = models.ForeignKey(FAQq, on_delete=models.SET_NULL, null=True)
+
+    def __str__(self):
+        return self.name
+    
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.name)
+        super().save(*args, **kwargs)
+      
+
 class FAQ(models.Model):
     country = models.ForeignKey(Country, on_delete=models.SET_NULL, null=True)
     question = RichTextField(blank=True, null=True)
