@@ -19,6 +19,10 @@ const VerifyCertificatScreen = () => {
   useEffect(() => {
     dispatch(checkVerifiedStudent(NIC))
   }, [dispatch, NIC])
+
+  useEffect(() => {
+    window.scroll(0,0);
+  }, [location]);
   
 
   return (

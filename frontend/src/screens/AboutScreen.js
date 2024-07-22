@@ -13,9 +13,9 @@ const AboutScreen = () => {
     const [selected, setSelected] = React.useState("photos");
 
 
-    // useEffect(() => {
-    //   window.scroll(0,0);
-    // }, [location]);
+    useEffect(() => {
+      window.scroll(0,0);
+    }, [location]);
   return (
     <div className='h-fit w-full flex flex-col gap-12 pb-12'>
       <section className='h-fit w-full relative bg-black'>

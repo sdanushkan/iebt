@@ -520,6 +520,10 @@ seti4('');
 
   let formatter = useDateFormatter({dateStyle: "full"});
 
+  useEffect(() => {
+    window.scroll(0,0);
+  }, [location]);
+  
   return (
     <div className='flex flex-col gap-14'> 
       <section className='relative'>

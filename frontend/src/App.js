@@ -21,6 +21,7 @@ import DQCourseScreen from './screens/DQCourseScreen'
 import VerifyCertificatScreen from './screens/VerifyCertificatScreen'
 import StudentPortalScreen from './screens/StudentPortalScreen'
 import ELibraryScreen from './screens/ELibraryScreen'
+import EventScreen from './screens/EventScreen'
 
 const App = () => {
   return ( 
@@ -32,6 +33,7 @@ const App = () => {
         <Route path='about' element={<AboutScreen/>} />
         <Route path='student/portal' element={<StudentPortalScreen/>} />
         <Route path='faq' element={<FAQScreen/>} />
+        <Route path='events/:date' element={<EventScreen/>} />
         <Route path='application' element={<ApplicationScreen/>} />
         <Route path='ourservices' element={<OurServicesScreen/>} />
         <Route path='verify' element={<VerifyCertificatScreen/>} />

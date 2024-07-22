@@ -102,16 +102,10 @@ class CountryCategorySerializer(serializers.ModelSerializer):
         fields = '__all__'    
 
 class CountrySerializer(serializers.ModelSerializer):
-    faqs = serializers.SerializerMethodField(read_only=True)
     category = CountryCategorySerializer()
     class Meta:
         model = Country
-        fields = '__all__' 
- 
-    def get_faqs(self, obj):
-        faqs = obj.faq_set.all()
-        serializer = FAQSerializer(faqs, many=True)
-        return serializer.data 
+        fields = '__all__'
 
 class FAQSerializer(serializers.ModelSerializer):
     class Meta:

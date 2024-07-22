@@ -72,6 +72,10 @@ const DQSecondPage = () => {
         dispatch(getDualQualificationCoursesList(qualification))
       } 
     }, [dispatch])
+
+    useEffect(() => {
+        window.scroll(0,0);
+      }, [location]);
     
   return (
     <div>
@@ -85,24 +89,32 @@ const DQSecondPage = () => {
                     <div className='h-[250px] lg:h-[0px] w-[10px] lg:w-[5px] bg-[#DA0C0C] '></div>
                     
                     <div className='h-fit w-full pl-6 gap-4 flex flex-col'>
+                        <Skeleton className='rounded-[6px]'>
                         <div className='h-fit flex flex-col gap-4'>
                             <p className='text-2xl md:text-4xl font-bold text-black text-center'>Dual Higher Diploma</p>                
                         </div>
+                        </Skeleton>
+                        <Skeleton className='rounded-[6px]'>
                         <div className='h-[200px] md:h-[250px] w-full lg:w-[400px] mx-auto  bg-gray-50 overflow-hidden rounded-[16px] '>
                             <img src={c} alt='' className='h-full w-full object-cover' />
                         </div>
+                        </Skeleton>
                         <div className='flex flex-col gap-2 items-center'>
-                            <p className='text-center text-sm font-medium'>Level 4 and 5 Diploma in Business Management</p>
+                            <Skeleton className='rounded-[6px]'>
+                                <p className='text-center text-sm font-medium'>Level 4 and 5 Diploma in Business Management</p>
+                            </Skeleton>
                             <div className=''>
                                 <FaArrowDown/>
                             </div>
-                            <p className='text-center text-2xl font-bold '>Earn your secound Higher Diploma</p>
+                            <Skeleton className='rounded-[6px]'>
+                                <p className='text-center text-2xl font-bold '>Earn your secound Higher Diploma</p>
+                            </Skeleton>
                         </div>
                     </div>
                 </div>:
                 qualifications?
                 qualifications.map(i=>(
-                    <div className='h-fit w-full flex flex-co items-center mt-[100px]'>
+                    <Link to={`/courses/${i.course.slug}`} className='h-fit w-full flex flex-co items-center mt-[100px]'>
                     
                         <div className='h-[250px] lg:h-[0px] w-[10px] lg:w-[5px] bg-[#DA0C0C] '></div>
                         
@@ -121,7 +133,7 @@ const DQSecondPage = () => {
                                 <p className='text-center text-2xl font-bold '>Earn your secound Higher Diploma</p>
                             </div>
                         </div>
-                    </div>
+                    </Link >
                 ))[0]
                 : 
                 ''
@@ -143,7 +155,7 @@ const DQSecondPage = () => {
                                         <img src={c} alt='' className='h-full w-full object-cover' />
                                     </Skeleton>
                                 </div>
-                                <Skeleton>
+                                <Skeleton className='rounded-[6px]'>
                                     <p className='text-left text-sm font-medium'>Logistic & Supply Chain Management</p>
                                 </Skeleton>
                             </div>
@@ -157,7 +169,7 @@ const DQSecondPage = () => {
                                         <img src={c} alt='' className='h-full w-full object-cover' />
                                     </Skeleton>
                                 </div>
-                                <Skeleton>
+                                <Skeleton className='rounded-[6px]'>
                                     <p className='text-left text-sm font-medium'>Logistic & Supply Chain Management</p>
                                 </Skeleton>
                             </div>
@@ -171,7 +183,7 @@ const DQSecondPage = () => {
                                         <img src={c} alt='' className='h-full w-full object-cover' />
                                     </Skeleton>
                                 </div>
-                                <Skeleton>
+                                <Skeleton className='rounded-[6px]'>
                                     <p className='text-left text-sm font-medium'>Logistic & Supply Chain Management</p>
                                 </Skeleton>
                             </div>
@@ -185,7 +197,7 @@ const DQSecondPage = () => {
                                         <img src={c} alt='' className='h-full w-full object-cover' />
                                     </Skeleton>
                                 </div>
-                                <Skeleton>
+                                <Skeleton className='rounded-[6px]'>
                                     <p className='text-left text-sm font-medium'>Logistic & Supply Chain Management</p>
                                 </Skeleton>
                             </div>
@@ -199,7 +211,7 @@ const DQSecondPage = () => {
                                         <img src={c} alt='' className='h-full w-full object-cover' />
                                     </Skeleton>
                                 </div>
-                                <Skeleton>
+                                <Skeleton className='rounded-[6px]'>
                                     <p className='text-left text-sm font-medium'>Logistic & Supply Chain Management</p>
                                 </Skeleton>
                             </div>

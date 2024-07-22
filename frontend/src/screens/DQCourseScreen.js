@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import {Tabs, Tab, Input, Link, Button, Card, CardBody, CardHeader} from "@nextui-org/react";import { MdAccessTime } from "react-icons/md";
+import {Tabs, Tab, Input, Link, Button, Card, CardBody, CardHeader, Spinner} from "@nextui-org/react";import { MdAccessTime } from "react-icons/md";
 import { FaRegCircleUser } from "react-icons/fa6";
 import {Divider} from "@nextui-org/react";
 import {Table, TableHeader, TableColumn, TableBody, TableRow, TableCell, getKeyValue} from "@nextui-org/react";
@@ -40,15 +40,18 @@ const DQCourseScreen = () => {
     const dualQualificationCourseList = useSelector(state => state.dualQualificationCourseList)
     const { error, loading, courses } = dualQualificationCourseList
 
+    const dualQualificationCourseDetails = useSelector(state => state.dualQualificationCourseDetails)
+    const { error:dualQualificationCourseDetailsError, loading: dualQualificationCourseDetailsLoading, co } = dualQualificationCourseDetails
+
     const { toPDF, targetRef } = usePDF({filename: 'page.pdf'});
 
     useEffect(() => {
         dispatch(getDualQualificationCourseDetails(course))
     }, [dispatch])
 
-    // useEffect(() => {
-    //     window.scroll(0,0);
-    //   }, [location]);
+    useEffect(() => {
+        window.scroll(0,0);
+      }, [location]);
 
     useEffect(() => {
         if (course && courses) {
@@ -58,9 +61,13 @@ const DQCourseScreen = () => {
   return (
     <div ref={targetRef} className='w-full h-fit '>
         {
-            nCourse?
+            dualQualificationCourseDetailsLoading?
+            <div className='h-fit w-full flex justify-start mt-[100px]'>
+                <Spinner size="md" />
+              </div>:
+            co?
             <section className='relative overflow-hidden pb-12'>
-                <img src={nCourse.image} alt='' className='h-[400px] w-full object-cover relative -z-40 hidden lg:flex' />
+                <img src={co.image} alt='' className='h-[400px] w-full object-cover relative -z-40 hidden lg:flex' />
                 <div className='absolute top-0 h-[400px] w-full bg-black/75 z-0 flex flex-col items-center justify-center'>
                     <Breadcrumbs 
                         classNames={{
@@ -71,15 +78,15 @@ const DQCourseScreen = () => {
                             separator: "text-white/40 text-center",
                         }}
                     className='text-3xl w-fit font-medium  mx-auto'>
-                        <BreadcrumbItem className='text-3xl max-w-full' ><p className='text-sm text-center md:text-2xl capitalize font-bold'>{nCourse.faculty.name}</p></BreadcrumbItem>
+                        <BreadcrumbItem className='text-3xl max-w-full' ><p className='text-sm text-center md:text-2xl capitalize font-bold'>{co.faculty.name}</p></BreadcrumbItem>
                         <BreadcrumbItem className='text-3xl max-w-full' ><p className='text-sm text-center md:text-2xl capitalize font-bold'>Course</p></BreadcrumbItem><br/>
-                        <BreadcrumbItem className='text-3xl max-w-full' ><p className='text-sm text-center md:text-2xl capitalize font-bold'>{nCourse.name}</p></BreadcrumbItem>
+                        <BreadcrumbItem className='text-3xl max-w-full' ><p className='text-sm text-center md:text-2xl capitalize font-bold'>{co.name}</p></BreadcrumbItem>
                     </Breadcrumbs>
                 </div>
                 <div className='w-full h-fit max-w-[1024px] mx-auto bg-white shadow-[0px_4px_25px_rgba(0,0,0,0.05)] lg:-mt-[100px] relative z-10 grid grid-cols-1 md:grid-cols-5 gap-4 sm:p-4 lg:p-8 rounded-[16px]'>
                     <div className='w-full h-full md:col-span-3 flex flex-col gap-12'>
                         <div className='w-full h-full md:col-span-3 flex flex-col gap-8'>
-                            <img src={nCourse.image} alt='' className='h-[250px] w-full object-cover rounded-[8px]' />
+                            <img src={co.image} alt='' className='h-[250px] w-full object-cover rounded-[8px]' />
                             <div className='flex flex-col gap-6 px-6 lg:px-0'>
                                 <Breadcrumbs 
                                     classNames={{
@@ -90,9 +97,9 @@ const DQCourseScreen = () => {
                                         separator: "text-black/40 text-center",
                                     }}
                                 className='text-3xl font-medium  max-w-fit mx-auto md:hidden'>
-                                    <BreadcrumbItem className='text-3xl ' ><p className='text-sm text-center md:text-2xl capitalize font-bold'>{nCourse.faculty.name}</p></BreadcrumbItem>
+                                    <BreadcrumbItem className='text-3xl ' ><p className='text-sm text-center md:text-2xl capitalize font-bold'>{co.faculty.name}</p></BreadcrumbItem>
                                     <BreadcrumbItem className='text-3xl ' ><p className='text-sm text-center md:text-2xl capitalize font-bold'>Course</p></BreadcrumbItem><br/>
-                                    <BreadcrumbItem className='text-3xl ' ><p className='text-sm text-center md:text-2xl capitalize font-bold'>{nCourse.name}</p></BreadcrumbItem>
+                                    <BreadcrumbItem className='text-3xl ' ><p className='text-sm text-center md:text-2xl capitalize font-bold'>{co.name}</p></BreadcrumbItem>
                                 </Breadcrumbs>
                                 <div className='flex gap-2'>
                                     <Button size='sm' radius='full' variant='bordered' className='px-2 py-2 gap-1 border-[#DA0C0C] border-opacity-50 text-[#DA0C0C] ' startContent={<MdAccessTime/>}>
@@ -102,23 +109,23 @@ const DQCourseScreen = () => {
                                         Online
                                     </Button>
                                 </div>
-                                <p className='text-3xl font-bold'>{nCourse.name}</p>
+                                <p className='text-3xl font-bold'>{co.name}</p>
                                 <div className='flex flex-col sm:flex-row flex-wrap justify-between gap-4 '>
                                     <div className='flex flex-col'>
                                         <p className='text-xs opacity-50'>Level</p>
-                                        <p className='text-sm lg:text-xs font-medium capitalize'>{nCourse.programe.name}</p>
+                                        <p className='text-sm lg:text-xs font-medium capitalize'>{co.programe.name}</p>
                                     </div>
                                     <div className='flex flex-col'>
                                         <p className='text-xs opacity-50'>Class on</p>
-                                        <p className='text-sm lg:text-xs font-medium capitalize'>{nCourse.class_on}</p>
+                                        <p className='text-sm lg:text-xs font-medium capitalize'>{co.class_on}</p>
                                     </div>
                                     <div className='flex flex-col'>
                                         <p className='text-xs opacity-50'>Faculty</p>
-                                        <p className='text-sm lg:text-xs font-medium capitalize'>{nCourse.faculty.name}</p>
+                                        <p className='text-sm lg:text-xs font-medium capitalize'>{co.faculty.name}</p>
                                     </div>
                                     <div className='flex flex-col'>
                                         <p className='text-xs opacity-50'>Awarding by</p>
-                                        <p className='text-sm lg:text-xs font-medium capitalize'>{nCourse.qualification.name}</p>
+                                        <p className='text-sm lg:text-xs font-medium capitalize'>{co.qualification.name}</p>
                                     </div>
 
                                 </div>
@@ -134,20 +141,20 @@ const DQCourseScreen = () => {
                                     <Tab key="overview" title="Overview">
                                         <div className='h-fit flex flex-col gap-4 text-sm text-left p-6 border-[1px] border-black/20 rounded-[8px]'>
                                             <div className='flex flex-col gap-4 text-sm'>
-                                                {parse(nCourse.overview)}
+                                                {parse(co.overview)}
                                             </div>
                                         </div>
                                     </Tab>
                                     <Tab key="requirements" title="Requirements">
                                         <div className='h-fit flex flex-col gap-4 text-sm text-left p-6 border-[1px] border-black/20 rounded-[8px]'>
                                             <div className='flex flex-col gap-4 text-sm'>
-                                                {parse(nCourse.requirements)}
+                                                {parse(co.requirements)}
                                             </div>
                                         </div>
                                     </Tab>
                                     <Tab key="units" title="Units">
                                         <div className='h-fit flex flex-col gap-4 text-sm text-left p-6 border-[1px] border-black/20 rounded-[8px]'>
-                                            {parse(nCourse.units)}
+                                            {parse(co.units)}
                                             {/* <Table aria-label="Example static collection table">
                                                 <TableHeader>
                                                     <TableColumn>Module</TableColumn>
@@ -158,8 +165,8 @@ const DQCourseScreen = () => {
                                                     {
                                                         courseListLoading?
                                                         '':
-                                                        nCourse && nCourse.units?
-                                                        nCourse.units.map(i => (
+                                                        co && co.units?
+                                                        co.units.map(i => (
                                                             <TableRow key={i.id}>
                                                                 <TableCell>{i.name}</TableCell>
                                                                 <TableCell>{i.level.name}</TableCell>
@@ -186,9 +193,9 @@ const DQCourseScreen = () => {
 
                     <div className='h-fit w-full px-7 lg:px-0 md:col-span-2'>
                         <div className='w-full h-full  flex flex-col gap-4 border-[1px] border-[#DA0C0C] border-opacity-25 rounded-[8px] p-4'>
-                            <img src={nCourse.qualification.image} alt='' className='w-full h-fit bg-cover' />
+                            <img src={co.qualification.image} alt='' className='w-full h-fit bg-cover' />
                             
-                            <p className='text-xl font-bold text-[#DA0C0C] text-center' >Qualification Awarded by "{nCourse.qualification.name}"</p>
+                            <p className='text-xl font-bold text-[#DA0C0C] text-center' >Qualification Awarded by "{co.qualification.name}"</p>
                             {/* <img src="https://enc.lk/assets/img/lrn/level-6-graduate-diploma-bachelor's-degree.gif" alt='' className='w-full h-fit bg-cover' /> */}
                             <div className='h-[1px] w-full bg-[#da0c0c] bg-opacity-25'>
 
@@ -229,9 +236,9 @@ const DQCourseScreen = () => {
                                         </SwiperSlide>
                                         <SwiperSlide>
                                             <div className='flex flex-col gap-1 justify-center bg-[#DA0C0C] min-h-[150px] rounded-[8px] p-4'>
-                                            <p className='text-xl font-semibold text-white '>Up to </p>
-                                            <p className='text-6xl font-bold text-white mx-auto'>56%</p>
-                                            <p className='text-xl font-semibold text-white ml-auto'>Scholarship</p>
+                                            {/* <p className='text-xl font-semibold text-white '>Up to </p> */}
+                                            <p className='text-2xl text-center font-bold text-white mx-auto'>Scholarship Available</p>
+                                            {/* <p className='text-xl font-semibold text-white ml-auto'>Scholarship</p> */}
                                         </div>
                                         </SwiperSlide>
                                     </Swiper>

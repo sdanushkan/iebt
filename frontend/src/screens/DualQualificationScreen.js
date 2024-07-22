@@ -69,6 +69,10 @@ const DualQualificationScreen = () => {
       dispatch(getDualQualificationList())
     }, [dispatch])
 
+    useEffect(() => {
+      window.scroll(0,0);
+    }, [location]);
+
   return (
     <div className='max-w-screen flex flex-col gap-4 pb-12 overflow-x-hidden -mb-[90px]'>
         <div className='h-[75px] w-full mt-[90px] bg-[#DA0C0C] flex items-center justify-center'>      

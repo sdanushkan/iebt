@@ -1,8 +1,13 @@
 import { Button, Input } from '@nextui-org/react'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { BiSearch } from 'react-icons/bi'
+import { useLocation } from 'react-router-dom'
 
 const ELibraryScreen = () => {
+  const location = useLocation()
+  useEffect(() => {
+    window.scroll(0,0);
+  }, [location]);
   return (
     <div className='min-h-screen py-8 pt-[128px] flex items-center justify-center'>
     <div className='h-fit w-full max-w-[400px] mx-auto px-6 gap-4 flex flex-col'>

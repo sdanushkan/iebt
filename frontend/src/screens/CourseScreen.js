@@ -41,9 +41,9 @@ const CourseScreen = () => {
 
     const { toPDF, targetRef } = usePDF({filename: 'page.pdf'});
 
-    // useEffect(() => {
-    //     window.scroll(0,0);
-    //   }, [location]);
+    useEffect(() => {
+        window.scroll(0,0);
+      }, [location]);
 
     useEffect(() => {
         if (courseSlug) {

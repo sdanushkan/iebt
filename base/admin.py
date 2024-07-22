@@ -48,16 +48,8 @@ admin.site.register(Event)
 
 # admin.site.register(CourseQualification)
 
-admin.site.register(FAQType)
-admin.site.register(FAQa)
-admin.site.register(FAQq)
 admin.site.register(Country)
 admin.site.register(CountryCategory)
-
-admin.site.register(Contact)
-admin.site.register(FAQ)
-admin.site.register(About)
-admin.site.register(AbroadApplication)
 
 admin.site.register(University)
 admin.site.register(Testimonial)

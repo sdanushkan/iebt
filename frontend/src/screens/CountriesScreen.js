@@ -41,6 +41,7 @@ import  es  from '../assets/es.png'
 import parse from 'html-react-parser';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
+import { format } from 'date-fns';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -51,7 +52,7 @@ import ReactPlayer from 'react-player'
 import CountUp from 'react-countup';
 
 import sdv from '../assets/sdv.mp4'
-import { sendBA, sendBAMail, sendSA, sendSAMail } from '../actions/courseActions';
+import { getEventList, sendBA, sendBAMail, sendSA, sendSAMail } from '../actions/courseActions';
 
 const CountriesScreen = () => {
   const [value, setValue] = useState(new Date());
@@ -129,11 +130,14 @@ const CountriesScreen = () => {
   const sendSA = useSelector(state => state.sendSA)
   const { error: sendSAError, loading: sendSALoading, success:SASuccess } = sendSA
 
+  const eventList = useSelector(state => state.eventList)
+  const { error: eventListError, loading: eventListLoading, eventse } = eventList
+
   useEffect(() => {
     if (!mainCountries){
       dispatch(getMainCountryList())
     }
-
+ 
     if (!euCountries){
       dispatch(getEuCountryList())
     }
@@ -142,12 +146,15 @@ const CountriesScreen = () => {
       dispatch(getMedicineCountryList())
     }
 
-  }, [dispatch, mainCountries, euCountries, medicineCountries])
+    if(!eventse){
+      dispatch(getEventList()) 
+    }
+
+  }, [dispatch, mainCountries, euCountries, medicineCountries, eventse])
 
   useEffect(() => {
     dispatch(getTestimonialList('abroad'))
   }, [])
-
 
   const [startDate, setStartDate] = useState(null);
 
@@ -211,6 +218,10 @@ const CountriesScreen = () => {
     setname('')
     }
   }
+
+  useEffect(() => {
+    window.scroll(0,0);
+  }, [location]);
  
   return ( 
     <div className='max-w-screen flex flex-col gap-12 pb-12 overflow-x-hidden'>
@@ -988,6 +999,128 @@ const CountriesScreen = () => {
             <p className='text-4xl font-bold'><CountUp duration={5} end={60} />+</p>
             <p className='text-sm font-medium'>Success Clients</p>
           </div>
+        </div>
+      </section>
+
+      <section className='h-fit w-full relative overflow-hidden px-8'>
+        <div className='h-fit w-full max-w-[1024px] mx-auto overflow-visible'>
+            <div className='flex flex-col pb-8'>
+              <p className='uppercase text-xs text-center'>News and events</p>
+              <p className='text-2xl lg:text-4xl font-bold text-center'>Our Events</p>
+            </div>
+
+            <div className='hidden lg:block'>
+                <Swiper
+                  slidesPerView={4}
+                  spaceBetween={10}
+                  freeMode={true}
+                  
+                  autoplay
+                  modules={[FreeMode,  Autoplay]}
+                  className="h-fit"
+                >
+
+                    
+
+                  {
+                    eventListLoading?
+                    '':
+                    eventse?
+                    eventse.map(i=>(
+                      <SwiperSlide key={i.slug} className='bg-white border-[1px] border-red-100 rounded-[8px] mb-12 w-[250px] '>
+                        <div className='bg-white border-[1px] border-red-100 rounded-[8px] w-[250px] p-4'>
+                          <img src={i.image? i.image:'https://ucarecdn.com/c49a7d0c-089f-4ac3-854f-d2b2d815c01d/-/crop/750x422/0,39/-/preview/-/format/auto/-/format/auto/-/quality/smart_retina/-/resize/824x/'} alt='' className='object-cover rounded-[6px] h-[150px] w-full mx-auto hover:scale-105 duration-200' />
+                          <div className='flex flex-col pt-6 gap-4'>
+                            <div className='flex flex-col-reverse'>
+                            <p className='text-sm opacity-75'>{i.event}Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                            <p className='text-lg text-[#DA0C0C] font-bold'>{format(new Date(i.date), 'dd MMMM yyyy')}</p>
+                            </div>
+                          </div>
+                        </div>
+                      </SwiperSlide>
+                    ))
+                    :
+                    ''
+                  }
+                </Swiper>
+              </div>
+
+              <div className='hidden sm:block lg:hidden'>
+                <Swiper
+                  slidesPerView={1}
+                  spaceBetween={10}
+                  freeMode={true}
+                  
+                  autoplay
+                  modules={[FreeMode,  Autoplay]}
+                  className="h-fit"
+                >
+
+                    
+
+                  {
+                    eventListLoading?
+                    '':
+                    eventse?
+                    eventse.map(i=>(
+                      <SwiperSlide key={i.slug} className='bg-white border-[1px] border-red-100 rounded-[8px] mb-12 w-[250px] '>
+                        <div className='bg-white border-[1px] border-red-100 rounded-[8px] w-[250px] p-4'>
+                          <img src={i.image? i.image:'https://ucarecdn.com/c49a7d0c-089f-4ac3-854f-d2b2d815c01d/-/crop/750x422/0,39/-/preview/-/format/auto/-/format/auto/-/quality/smart_retina/-/resize/824x/'} alt='' className='object-cover rounded-[6px] h-[150px] w-full mx-auto hover:scale-105 duration-200' />
+                          <div className='flex flex-col pt-6 gap-4'>
+                            <div className='flex flex-col-reverse'>
+                            <p className='text-sm opacity-75'>{i.event}Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                            <p className='text-lg text-[#DA0C0C] font-bold'>{format(new Date(i.date), 'dd MMMM yyyy')}</p>
+                            </div>
+                          </div>
+                        </div>
+                      </SwiperSlide>
+                    ))
+                    :
+                    ''
+                  }
+                </Swiper>
+              </div>
+
+              <div className='md:hidden'>
+                <Swiper
+                  slidesPerView={1}
+                  spaceBetween={10}
+                  freeMode={true}
+                  
+                  autoplay
+                  modules={[FreeMode,  Autoplay]}
+                  className="h-fit"
+                >
+
+                    
+
+                  {
+                    eventListLoading?
+                    '':
+                    eventse?
+                    eventse.map(i=>(
+                      <SwiperSlide key={i.slug} className='bg-white border-[1px] border-red-100 rounded-[8px] mb-12 w-[250px] '>
+                        <div className='bg-white border-[1px] border-red-100 rounded-[8px] w-[250px] p-4'>
+                          <img src={i.image? i.image:'https://ucarecdn.com/c49a7d0c-089f-4ac3-854f-d2b2d815c01d/-/crop/750x422/0,39/-/preview/-/format/auto/-/format/auto/-/quality/smart_retina/-/resize/824x/'} alt='' className='object-cover rounded-[6px] h-[150px] w-full mx-auto hover:scale-105 duration-200' />
+                          <div className='flex flex-col pt-6 gap-4'>
+                            <div className='flex flex-col-reverse'>
+                            <p className='text-sm opacity-75'>{i.event}Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                            <p className='text-lg text-[#DA0C0C] font-bold'>{format(new Date(i.date), 'dd MMMM yyyy')}</p>
+                            </div>
+                          </div>
+                        </div>
+                      </SwiperSlide>
+                    ))
+                    :
+                    ''
+                  }
+                </Swiper>
+              </div>
+
+        
+      
+
+
         </div>
       </section>
 

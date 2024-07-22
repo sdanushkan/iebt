@@ -27,6 +27,7 @@ import {Tooltip} from "@nextui-org/react";
 import ReactWhatsapp from 'react-whatsapp';
 import parse from 'html-react-parser';
 import YouTube from 'react-youtube';
+import { format } from 'date-fns';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -35,7 +36,7 @@ import 'swiper/css/pagination';
 import {  Autoplay, FreeMode } from 'swiper/modules';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { getpopularCourseList, getLevelList, getPopularpopularCourseList, getPopularCourseList, getOurQualificationList } from '../actions/courseActions';
+import { getpopularCourseList, getLevelList, getPopularpopularCourseList, getPopularCourseList, getOurQualificationList, getEventList } from '../actions/courseActions';
 import { FaArrowRightArrowLeft } from 'react-icons/fa6';
 import { getTestimonialList } from '../actions/abroadActions';
 import Calendar from 'react-calendar';
@@ -55,6 +56,8 @@ const HomeScreen = () => {
       { date: new Date(2024, 7, 13), event: 'anniversary' },
     ]);
 
+
+
     const onChange = (nextValue) => {
       setValue(nextValue);
     };
@@ -67,6 +70,9 @@ const HomeScreen = () => {
     const dispatch = useDispatch()
     const history = useNavigate()
     const location = useLocation()
+
+    const eventList = useSelector(state => state.eventList)
+    const { error: eventListError, loading: eventListLoading, eventse } = eventList
 
     const levelList = useSelector(state => state.levelList)
     const { error, loading, levels } = levelList
@@ -95,8 +101,12 @@ const HomeScreen = () => {
       if(!qualifications){
         dispatch(getOurQualificationList())
       }
+
+      if(!eventse){
+        dispatch(getEventList()) 
+      }
             
-    }, [dispatch, courses, testimonials, qualifications])
+    }, [dispatch, courses, testimonials, qualifications, eventse])
 
     const opts = {
       height: '200',
@@ -112,9 +122,9 @@ const HomeScreen = () => {
     //   history(`${faculty}/${programe}/${qualification}/${credit}`)
     // } 
 
-    // useEffect(() => {
-    //   window.scroll(0,0);
-    // }, [location]);
+    useEffect(() => {
+      window.scroll(0,0);
+    }, [location]);
     
 
   return (
@@ -481,41 +491,41 @@ const HomeScreen = () => {
       </section> */}
 
       <section className='h-fit w-full relative overflow-hidden py-6'>
-      <div className='h-fit w-full max-w-[1024px] mx-auto grid grid-cols-2 md:flex justify-center px-6 lg:px-0 gap-2 lg:gap-6'>
-          <Link to={'/application'} className='w-full max-w-1/2 md:max-w-1/3 lg:max-w-1/5  h-full md:h-48 flex flex-col items-center justify-center gap-4 bg-white text-black duration-200 cursor-pointer hover:text-[#DA0C0C] p-10 rounded-[8px] shadow-[0px_4px_25px_rgba(0,0,0,0.05)] hover:shadow-[0px_4px_25px_rgba(0,0,0,0.075)] '>
-            <img src={apply}  alt='' className='w-16 object-contain' />
-            <p className='text-xs lg:text-sm font-semibold px-2 text-center'>Apply</p>
-          </Link>
-          <Link to={'/verify'} className='w-full max-w-1/2 md:max-w-1/3 lg:max-w-1/5  h-full md:h-48 flex flex-col items-center justify-center gap-4 bg-white text-black duration-200 cursor-pointer hover:text-[#DA0C0C] p-10 rounded-[8px] shadow-[0px_4px_25px_rgba(0,0,0,0.05)] hover:shadow-[0px_4px_50px_rgba(0,0,0,0.075)]'>
-            <img src={verification}  alt='' className='w-16 object-contain' />
-            <p className='text-xs lg:text-sm font-semibold px-2 text-center'>Verify Certificate</p>
-          </Link>
-          <Link to={'/student/portal'} className='w-full max-w-1/2 md:max-w-1/3 lg:max-w-1/5  h-full md:h-48 flex flex-col items-center justify-center gap-4 bg-white text-black duration-200 cursor-pointer hover:text-[#DA0C0C] p-10 rounded-[8px] shadow-[0px_4px_25px_rgba(0,0,0,0.05)] hover:shadow-[0px_4px_50px_rgba(0,0,0,0.075)]'>
-            <img src={sp}  alt='' className='w-16 object-contain' />
-            <p className='text-xs lg:text-sm font-semibold px-2 text-center'>Student Portal</p>
-          </Link>
-          <Link to={'/e_library'} className='w-full max-w-1/2 md:max-w-1/3 lg:max-w-1/5  h-full md:h-48 flex flex-col items-center justify-center gap-4 bg-white text-black duration-200 cursor-pointer hover:text-[#DA0C0C] p-10 rounded-[8px] shadow-[0px_4px_25px_rgba(0,0,0,0.05)] hover:shadow-[0px_4px_50px_rgba(0,0,0,0.075)]'>
-            <img src={es}  alt='' className='w-16 object-contain' />
-            <p className='text-xs lg:text-sm font-semibold px-2 text-center'>E library</p>
-          </Link> 
-          <Popover placement="bottom" showArrow={true}>
-            <PopoverTrigger>
-              <div className='w-full max-w-1/2 md:max-w-1/3 lg:max-w-1/5  h-full md:h-48 flex flex-col items-center justify-center gap-4 bg-white text-black duration-200 cursor-pointer hover:text-[#DA0C0C] p-10 rounded-[8px] shadow-[0px_4px_25px_rgba(0,0,0,0.05)] hover:shadow-[0px_4px_50px_rgba(0,0,0,0.075)]'>
-                <img src={es}  alt='' className='w-16 object-contain' />
-                <p className='text-xs lg:text-sm font-semibold px-2 text-center'>Events</p>
-              </div>
-            </PopoverTrigger>
-            <PopoverContent>
-              <Calendar
-                onChange={onChange}
-                value={value}
-                tileContent={tileContent}
-              />
+        <div className='h-fit w-full max-w-[1024px] mx-auto grid grid-cols-2 md:flex justify-center px-6 lg:px-0 gap-2 lg:gap-6'>
+            <Link to={'/application'} className='w-full max-w-1/2 md:max-w-1/3 lg:max-w-1/5  h-full md:h-48 flex flex-col items-center justify-center gap-4 bg-white text-black duration-200 cursor-pointer hover:text-[#DA0C0C] p-10 rounded-[8px] shadow-[0px_4px_25px_rgba(0,0,0,0.05)] hover:shadow-[0px_4px_25px_rgba(0,0,0,0.075)] '>
+              <img src={apply}  alt='' className='w-16 object-contain' />
+              <p className='text-xs lg:text-sm font-semibold px-2 text-center'>Apply</p>
+            </Link>
+            <Link to={'/verify'} className='w-full max-w-1/2 md:max-w-1/3 lg:max-w-1/5  h-full md:h-48 flex flex-col items-center justify-center gap-4 bg-white text-black duration-200 cursor-pointer hover:text-[#DA0C0C] p-10 rounded-[8px] shadow-[0px_4px_25px_rgba(0,0,0,0.05)] hover:shadow-[0px_4px_50px_rgba(0,0,0,0.075)]'>
+              <img src={verification}  alt='' className='w-16 object-contain' />
+              <p className='text-xs lg:text-sm font-semibold px-2 text-center'>Verify Certificate</p>
+            </Link>
+            <Link to={'/student/portal'} className='w-full max-w-1/2 md:max-w-1/3 lg:max-w-1/5  h-full md:h-48 flex flex-col items-center justify-center gap-4 bg-white text-black duration-200 cursor-pointer hover:text-[#DA0C0C] p-10 rounded-[8px] shadow-[0px_4px_25px_rgba(0,0,0,0.05)] hover:shadow-[0px_4px_50px_rgba(0,0,0,0.075)]'>
+              <img src={sp}  alt='' className='w-16 object-contain' />
+              <p className='text-xs lg:text-sm font-semibold px-2 text-center'>Student Portal</p>
+            </Link>
+            <Link to={'/e_library'} className='w-full max-w-1/2 md:max-w-1/3 lg:max-w-1/5  h-full md:h-48 flex flex-col items-center justify-center gap-4 bg-white text-black duration-200 cursor-pointer hover:text-[#DA0C0C] p-10 rounded-[8px] shadow-[0px_4px_25px_rgba(0,0,0,0.05)] hover:shadow-[0px_4px_50px_rgba(0,0,0,0.075)]'>
+              <img src={es}  alt='' className='w-16 object-contain' />
+              <p className='text-xs lg:text-sm font-semibold px-2 text-center'>E library</p>
+            </Link> 
+            <Popover placement="bottom" showArrow={true}>
+              <PopoverTrigger>
+                <div className='w-full max-w-1/2 md:max-w-1/3 lg:max-w-1/5  h-full md:h-48 flex flex-col items-center justify-center gap-4 bg-white text-black duration-200 cursor-pointer hover:text-[#DA0C0C] p-10 rounded-[8px] shadow-[0px_4px_25px_rgba(0,0,0,0.05)] hover:shadow-[0px_4px_50px_rgba(0,0,0,0.075)]'>
+                  <img src={es}  alt='' className='w-16 object-contain' />
+                  <p className='text-xs lg:text-sm font-semibold px-2 text-center'>Events</p>
+                </div>
+              </PopoverTrigger>
+              <PopoverContent>
+                <Calendar
+                  onChange={onChange}
+                  value={value}
+                  tileContent={tileContent}
+                />
 
-            </PopoverContent>
-          </Popover>
-          
-      </div>
+              </PopoverContent>
+            </Popover>
+            
+        </div>
       </section>
 
       <section className='h-fit w-full relative overflow-hidden px-8'>
@@ -1452,6 +1462,128 @@ const HomeScreen = () => {
             <p className='text-4xl font-bold'>5000+</p>
             <p className='text-sm font-medium'>E books</p>
           </div>
+        </div>
+      </section>
+
+      <section className='h-fit w-full relative overflow-hidden px-8'>
+        <div className='h-fit w-full max-w-[1024px] mx-auto overflow-visible'>
+            <div className='flex flex-col pb-8'>
+              <p className='uppercase text-xs text-center'>News and events</p>
+              <p className='text-2xl lg:text-4xl font-bold text-center'>Our Events</p>
+            </div>
+
+            <div className='hidden lg:block'>
+                <Swiper
+                  slidesPerView={4}
+                  spaceBetween={10}
+                  freeMode={true}
+                  
+                  autoplay
+                  modules={[FreeMode,  Autoplay]}
+                  className="h-fit"
+                >
+
+                    
+
+                  {
+                    eventListLoading?
+                    '':
+                    eventse?
+                    eventse.map(i=>(
+                      <SwiperSlide key={i.slug} className='bg-white border-[1px] border-red-100 rounded-[8px] mb-12 w-[250px] '>
+                        <div className='bg-white border-[1px] border-red-100 rounded-[8px] w-[250px] p-4'>
+                          <img src={i.image? i.image:'https://ucarecdn.com/c49a7d0c-089f-4ac3-854f-d2b2d815c01d/-/crop/750x422/0,39/-/preview/-/format/auto/-/format/auto/-/quality/smart_retina/-/resize/824x/'} alt='' className='object-cover rounded-[6px] h-[150px] w-full mx-auto hover:scale-105 duration-200' />
+                          <div className='flex flex-col pt-6 gap-4'>
+                            <div className='flex flex-col-reverse'>
+                            <p className='text-sm opacity-75'>{i.event}Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                            <p className='text-lg text-[#DA0C0C] font-bold'>{format(new Date(i.date), 'dd MMMM yyyy')}</p>
+                            </div>
+                          </div>
+                        </div>
+                      </SwiperSlide>
+                    ))
+                    :
+                    ''
+                  }
+                </Swiper>
+              </div>
+
+              <div className='hidden sm:block lg:hidden'>
+                <Swiper
+                  slidesPerView={1}
+                  spaceBetween={10}
+                  freeMode={true}
+                  
+                  autoplay
+                  modules={[FreeMode,  Autoplay]}
+                  className="h-fit"
+                >
+
+                    
+
+                  {
+                    eventListLoading?
+                    '':
+                    eventse?
+                    eventse.map(i=>(
+                      <SwiperSlide key={i.slug} className='bg-white border-[1px] border-red-100 rounded-[8px] mb-12 w-[250px] '>
+                        <div className='bg-white border-[1px] border-red-100 rounded-[8px] w-[250px] p-4'>
+                          <img src={i.image? i.image:'https://ucarecdn.com/c49a7d0c-089f-4ac3-854f-d2b2d815c01d/-/crop/750x422/0,39/-/preview/-/format/auto/-/format/auto/-/quality/smart_retina/-/resize/824x/'} alt='' className='object-cover rounded-[6px] h-[150px] w-full mx-auto hover:scale-105 duration-200' />
+                          <div className='flex flex-col pt-6 gap-4'>
+                            <div className='flex flex-col-reverse'>
+                            <p className='text-sm opacity-75'>{i.event}Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                            <p className='text-lg text-[#DA0C0C] font-bold'>{format(new Date(i.date), 'dd MMMM yyyy')}</p>
+                            </div>
+                          </div>
+                        </div>
+                      </SwiperSlide>
+                    ))
+                    :
+                    ''
+                  }
+                </Swiper>
+              </div>
+
+              <div className='md:hidden'>
+                <Swiper
+                  slidesPerView={1}
+                  spaceBetween={10}
+                  freeMode={true}
+                  
+                  autoplay
+                  modules={[FreeMode,  Autoplay]}
+                  className="h-fit"
+                >
+
+                    
+
+                  {
+                    eventListLoading?
+                    '':
+                    eventse?
+                    eventse.map(i=>(
+                      <SwiperSlide key={i.slug} className='bg-white border-[1px] border-red-100 rounded-[8px] mb-12 w-[250px] '>
+                        <div className='bg-white border-[1px] border-red-100 rounded-[8px] w-[250px] p-4'>
+                          <img src={i.image? i.image:'https://ucarecdn.com/c49a7d0c-089f-4ac3-854f-d2b2d815c01d/-/crop/750x422/0,39/-/preview/-/format/auto/-/format/auto/-/quality/smart_retina/-/resize/824x/'} alt='' className='object-cover rounded-[6px] h-[150px] w-full mx-auto hover:scale-105 duration-200' />
+                          <div className='flex flex-col pt-6 gap-4'>
+                            <div className='flex flex-col-reverse'>
+                            <p className='text-sm opacity-75'>{i.event}Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                            <p className='text-lg text-[#DA0C0C] font-bold'>{format(new Date(i.date), 'dd MMMM yyyy')}</p>
+                            </div>
+                          </div>
+                        </div>
+                      </SwiperSlide>
+                    ))
+                    :
+                    ''
+                  }
+                </Swiper>
+              </div>
+
+        
+      
+
+
         </div>
       </section>
 

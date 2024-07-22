@@ -45,6 +45,11 @@ const ContactScreen = () => {
     setdiscription('')
     }
   }
+  
+  useEffect(() => {
+    window.scroll(0,0);
+  }, [location]);
+
   return ( 
     <div className='flex flex-col gap-14 '>
       <section className='relative'>
