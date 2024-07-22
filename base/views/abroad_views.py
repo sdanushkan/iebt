@@ -5,8 +5,8 @@ from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from rest_framework.response import Response
 
-from base.models import Country, AbroadApplication, Testimonial
-from base.serializers import CountrySerializer, AbroadApplicationSerializer, TestimonialSerializer
+from base.models import Country, Testimonial
+from base.serializers import CountrySerializer, TestimonialSerializer
 
 from rest_framework import status
 
@@ -33,20 +33,6 @@ def getTestimonials(request,page):
     except Testimonial.DoesNotExist:
         message = {'detail': 'No Country Found'}
         return Response(message)
-
-@api_view(['POST'])
-def createAbroadApplication(request):
-    data = request.data
-    abrod_application = AbroadApplication.objects.create(
-        first_name=data['first_name'],
-        last_name=data['last_name'],
-        email=data['email'], 
-        mobile_number=data['mobile_number'],
-        country=data['country']
-    )
-
-    serializer = AbroadApplicationSerializer(abrod_application, many=False)
-    return Response(serializer.data)
 
 
 @api_view(['GET'])

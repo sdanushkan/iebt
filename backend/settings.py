@@ -108,17 +108,31 @@ REST_FRAMEWORK = {
 #    }
 # }
 
+# DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.mysql',
+#        'NAME': 'iebcdb',
+#        'USER': 'admin',
+#        'PASSWORD': 'passwd31',
+#        'HOST': 'iebc-aws-db.c9kouacsgq35.us-east-2.rds.amazonaws.com',
+#        'PORT': '3306',
+#         'OPTIONS': {
+#             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+#         },
+#    }
+# }
+
 DATABASES = {
    'default': {
        'ENGINE': 'django.db.backends.mysql',
-       'NAME': 'iebcdb',
-       'USER': 'admin',
+       'NAME': 'iebc_demo',
+       'USER': 'root',
        'PASSWORD': 'passwd31',
-       'HOST': 'iebc-aws-db.c9kouacsgq35.us-east-2.rds.amazonaws.com',
+       'HOST': 'localhost',
        'PORT': '3306',
-        'OPTIONS': {
-            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
-        },
+        # 'OPTIONS': {
+        #     'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+        # },
    }
 }
 

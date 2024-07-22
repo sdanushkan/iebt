@@ -11,8 +11,8 @@ from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from rest_framework.response import Response
 
-from base.models import Course, Faculty,Country, About, Level, Contact, DualQualificationCourse, OurQualification, DualQualification, Event, StudentVerification
-from base.serializers import CourseSerializer, FacultySerializer, CountrySerializer, AboutSerializer, LevelSerializer, ContactSerializer, DualQualificationCourseSerializer, CourseListSerializer, OurQualificationSerializer, DualQualificationSerializer, OurQualificationListSerializer, EventSerializer, StudentVerificationSerializer
+from base.models import Course, Faculty, Country, Level, DualQualificationCourse, OurQualification, DualQualification, Event, StudentVerification, FAQType, FAQ
+from base.serializers import CourseSerializer, FacultySerializer, CountrySerializer, LevelSerializer, DualQualificationCourseSerializer, CourseListSerializer, OurQualificationSerializer, FAQTypeSerializer, FAQSerializer, DualQualificationSerializer, OurQualificationListSerializer, EventSerializer, StudentVerificationSerializer
 
 from rest_framework import status
 from django.db.models import Q
@@ -331,7 +331,7 @@ def send_cu_view(request):
 @api_view(['GET'])
 def getCourses(request, f, p,q, c):
     try:
-        course = Course.objects.all().order_by('programe__id')
+        course = Course.objects.all().order_by('programme__id')
 
         filters = Q()
 
@@ -339,7 +339,7 @@ def getCourses(request, f, p,q, c):
             filters &= Q(faculty__slug=f)
               
         if p != 'programes': 
-            filters &= Q(programe__slug=p)
+            filters &= Q(programme__slug=p)
 
         if q != 'qualifications': 
             filters &= Q(qualification__slug=q)
@@ -364,7 +364,7 @@ def getCourses(request, f, p,q, c):
 @api_view(['GET'])
 def getPopularCourses(request):
     try:
-        course = Course.objects.filter(popular=True).order_by('programe__id')
+        course = Course.objects.filter(popular=True).order_by('programme__id')
         serializer = CourseListSerializer(course, many=True)
         return Response(serializer.data) 
 
@@ -394,7 +394,7 @@ def sendApplicationMail(request):
 @api_view(['GET'])
 def getCoursesByFaculty(request,fslug):
     try:
-        course = Course.objects.filter(faculty__slug=fslug).order_by('programe__id')
+        course = Course.objects.filter(faculty__slug=fslug).order_by('programme__id')
         serializer = CourseSerializer(course, many=True)
         return Response(serializer.data)
 
@@ -435,17 +435,6 @@ def getFaculties(request):
 
     except Faculty.DoesNotExist:
         message = {'detail': 'No Faculty Found'}
-        return Response(message)
-
-@api_view(['GET'])
-def getAbout(request):
-    try:
-        about = About.objects.all()
-        serializer = AboutSerializer(about, many=True)
-        return Response(serializer.data)
-
-    except About.DoesNotExist:
-        message = {'detail': 'No About Found'}
         return Response(message)
     
 @api_view(['GET'])
@@ -523,23 +512,7 @@ def getDualQualificationCourse(request, slug):
 
     except Level.DoesNotExist:
         message = {'detail': 'No courses Found'}
-        return Response(message)
-    
-
-@api_view(['POST'])
-def createContact(request):
-    data = request.data
-    contact = Contact.objects.create(
-        name=data['name'],
-        email=data['email'],
-        phoneNumber=data['phoneNumber'], 
-        subject=data['subject'],
-        message=data['message']
-    )
-
-    serializer = ContactSerializer(contact, many=False)
-    return Response(serializer.data)
-    
+        return Response(message)    
 
 @api_view(['GET'])
 def getEvents(request):

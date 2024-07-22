@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Faculty, Level, QualificationApproval, Course, OurQualification, Contact, Country, FAQ, About, AbroadApplication, CountryCategory, Testimonial, DualQualificationCourse,Page, DualQualification, StudentVerification, Event, University
+from .models import Faculty, Level, Course, OurQualification, Country, FAQType, FAQ, CountryCategory, Testimonial, DualQualificationCourse,Page, DualQualification, StudentVerification, Event, University
 
 class FacultySerializer(serializers.ModelSerializer):
     class Meta:
@@ -9,7 +9,7 @@ class FacultySerializer(serializers.ModelSerializer):
 class FacultyListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Faculty
-        fields = ['name','slug']
+        fields = ['name','slug', 'id']
 
 class LevelSerializer(serializers.ModelSerializer):
     class Meta:
@@ -21,13 +21,6 @@ class LevelListSerializer(serializers.ModelSerializer):
         model = Level
         fields = ['name', 'slug', 'id']
 
-
-class QualificationApprovalSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = QualificationApproval
-        fields = '__all__'   
-
-
 class OurQualificationSerializer(serializers.ModelSerializer):
     courses = serializers.SerializerMethodField(read_only=True)
     class Meta:
@@ -35,7 +28,7 @@ class OurQualificationSerializer(serializers.ModelSerializer):
         fields = '__all__'  
 
     def get_courses(self, obj):
-        courses = obj.course_set.all().order_by('programe__id') 
+        courses = obj.course_set.all().order_by('programme__id') 
         serializer = CourseListSerializer(courses, many=True)
         return serializer.data 
 
@@ -48,7 +41,7 @@ class OurQualificationListSerializer(serializers.ModelSerializer):
 class CourseSerializer(serializers.ModelSerializer):
     faculty = FacultySerializer()
     qualification = OurQualificationSerializer()
-    programe = LevelSerializer()
+    programme = LevelSerializer()
     # units = serializers.SerializerMethodField(read_only=True)
     # units = serializers.SerializerMethodField(read_only=True)
     # course_requirments = serializers.SerializerMethodField(read_only=True)
@@ -70,19 +63,19 @@ class CourseSerializer(serializers.ModelSerializer):
 class CourseListSerializer(serializers.ModelSerializer):
     faculty = FacultyListSerializer()
     qualification = OurQualificationListSerializer()
-    programe = LevelListSerializer()
+    programme = LevelListSerializer()
     # units = serializers.SerializerMethodField(read_only=True)
     # units = serializers.SerializerMethodField(read_only=True)
     # course_requirments = serializers.SerializerMethodField(read_only=True)
     
     class Meta: 
         model = Course
-        fields = '__all__' 
-
+        fields =   '__all__' 
+     
 class CourseNameSerializer(serializers.ModelSerializer):
     # faculty = FacultySerializer()
     # qualification = OurQualificationSerializer()
-    # programe = LevelSerializer()
+    # programme = LevelSerializer()
     # units = serializers.SerializerMethodField(read_only=True)
     # units = serializers.SerializerMethodField(read_only=True)
     # course_requirments = serializers.SerializerMethodField(read_only=True)
@@ -90,11 +83,7 @@ class CourseNameSerializer(serializers.ModelSerializer):
     class Meta:
         model = Course
         fields = ['name','id' ]
-
-class ContactSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Contact
-        fields = '__all__'  
+  
 
 class CountryCategorySerializer(serializers.ModelSerializer):
     class Meta:
@@ -105,6 +94,11 @@ class CountrySerializer(serializers.ModelSerializer):
     category = CountryCategorySerializer()
     class Meta:
         model = Country
+        fields = '__all__'
+
+class FAQTypeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = FAQType
         fields = '__all__'
 
 class FAQSerializer(serializers.ModelSerializer):
@@ -130,17 +124,6 @@ class TestimonialSerializer(serializers.ModelSerializer):
         model = Testimonial
         fields = '__all__'  
 
-class AboutSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = About
-        fields = '__all__'    
-
-class AbroadApplicationSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = AbroadApplication
-        fields = '__all__'    
-
-
 # class CourseRequirmentSerializer(serializers.ModelSerializer):
 #     class Meta:
 #         model = CourseRequirment
@@ -152,6 +135,9 @@ class DualQualificationSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class DualQualificationCourseSerializer(serializers.ModelSerializer):
+    faculty = FacultySerializer()
+    qualification = OurQualificationSerializer()
+    programme = LevelSerializer()
     dual_qualification = DualQualificationSerializer() 
     course = CourseSerializer() 
     class Meta:

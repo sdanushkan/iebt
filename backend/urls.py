@@ -26,7 +26,7 @@ from rest_framework_simplejwt.views import (
 from django.conf.urls.i18n import i18n_patterns
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin_panel/', admin.site.urls),
     path('', TemplateView.as_view(template_name='index.html')),
     path('api/courses/', include('base.urls.course_urls')),
     path('api/countries/', include('base.urls.abroad_urls')),
@@ -37,4 +37,4 @@ urlpatterns = [
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-urlpatterns += i18n_patterns(path("administration/", admin.site.urls))
+urlpatterns += i18n_patterns(path("admin_panel/", admin.site.urls))

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Faculty, Course, Level, QualificationApproval, OurQualification, Country, Contact, FAQ, About, AbroadApplication , CountryCategory, Testimonial, Page, University, DualQualificationCourse, DualQualification, StudentVerification, Event, FAQType, FAQq, FAQa
+from .models import Faculty, Course, Level, OurQualification, Country, FAQType, FAQ, CountryCategory, Testimonial, Page, University, DualQualificationCourse, DualQualification, StudentVerification, Event
 import admin_thumbnails
 
 # Register your models here.
@@ -22,10 +22,10 @@ class FAQInline(admin.TabularInline):
 
 # class CourseAdmin(admin.ModelAdmin):
 #     # inlines = [UnitInline , CourseRequirmentInline]
-#     search_fields= [ 'faculty', 'programe', 'qualification']
-#     list_filter=[ 'faculty', 'programe', 'qualification']
-#     list_display=['name', 'faculty', 'programe', 'qualification', 'ebrowcher',  'show_in_header','show_in_faculty','show_in_qualification', 'show_in_footer']
-#     list_editable = [ 'faculty', 'programe', 'qualification', 'ebrowcher',  'show_in_header','show_in_faculty','show_in_qualification', 'show_in_footer']
+#     search_fields= [ 'faculty', 'programme', 'qualification']
+#     list_filter=[ 'faculty', 'programme', 'qualification']
+#     list_display=['name', 'faculty', 'programme', 'qualification', 'ebrowcher',  'show_in_header','show_in_faculty','show_in_qualification', 'show_in_footer']
+#     list_editable = [ 'faculty', 'programme', 'qualification', 'ebrowcher',  'show_in_header','show_in_faculty','show_in_qualification', 'show_in_footer']
 
 class CountryAdmin(admin.ModelAdmin):
     inlines = [FAQInline] 

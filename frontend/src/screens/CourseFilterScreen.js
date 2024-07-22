@@ -120,9 +120,9 @@ const CourseFilterScreen = () => {
   
   // useEffect(() => {
   //   if ((courses) && (nPrograme) && (nFaculty)) {
-  //     setNCourses(courses.filter(f=> f.faculty.slug == nFaculty.anchorKey && f.programe.slug == nPrograme))
+  //     setNCourses(courses.filter(f=> f.faculty.slug == nFaculty.anchorKey && f.programme.slug == nPrograme))
   //   } else if ((courses) && (nPrograme)) {
-  //     setNCourses(courses.filter(f=> f.programe.slug == nPrograme))
+  //     setNCourses(courses.filter(f=> f.programme.slug == nPrograme))
   //   } else{
   //     setNCourses(courses)
   //   }
@@ -213,12 +213,12 @@ const CourseFilterScreen = () => {
                         className='w-full'>
                           {
                               courses && levels?
-                              _.uniqBy(courses.filter(f => f.faculty.name == i.name), 'programe.id').filter(i1 => levels.some(i2 => i1.programe.slug == i2.slug)).map( i3 =>
+                              _.uniqBy(courses.filter(f => f.faculty.name == i.name), 'programme.id').filter(i1 => levels.some(i2 => i1.programme.slug == i2.slug)).map( i3 =>
                                   ( 
-                                    <Tab key={i3.programe.slug} title={
+                                    <Tab key={i3.programme.slug} title={
                                       <div className='flex items-center justify-between space-x-2 text-left overflow-hidden'>
                                         <VscActivateBreakpoints className='ml-0'/>
-                                        <p className='ml-auto w-[200px]'>{i3.programe.name}</p> 
+                                        <p className='ml-auto w-[200px]'>{i3.programme.name}</p> 
                                       </div>
                                     }>
                                     </Tab>
@@ -229,7 +229,7 @@ const CourseFilterScreen = () => {
 
                           {/* {
                             courses && courses.programe && levels?
-                            _.uniqBy(courses.filter(f => f.faculty.name === i.name), 'programe.id').filter(i => levels.some(i2 => i.slug == i2.slug)).map( i3 =>
+                            _.uniqBy(courses.filter(f => f.faculty.name === i.name), 'programme.id').filter(i => levels.some(i2 => i.slug == i2.slug)).map( i3 =>
                               <p>{i3.name}</p>
                             ) :
                             ''                         
@@ -404,7 +404,7 @@ const CourseFilterScreen = () => {
                   <img src={i.image} alt='' className='h-[200px] w-full rounded-[8px]' />
                   <div className='pt-4 flex flex-col gap-4'>
                     <div className=''>
-                      <p className='text-xs text-red-600 font-medium'>{i.programe.name}</p>
+                      <p className='text-xs text-red-600 font-medium'>{i.programme.name}</p>
                       <p className='font-semibold text-left'>{
                         i.name
                       }</p>

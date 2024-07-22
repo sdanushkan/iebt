@@ -487,23 +487,6 @@ const CountriesScreen = () => {
               <img src={verification}  alt='' className='w-full h-full object-contain' />
               <p className='text-base font-bold text-red-900 px-2 text-center'>Book Appoinment</p>
             </div>
-
-            <Popover placement="bottom" showArrow={true}>
-            <PopoverTrigger>
-              <div className='w-full h-36 flex flex-col items-center justify-center gap-2 md:gap-4 hover:bg-white text-black duration-300 cursor-pointer hover:text-[#DA0C0C] p-10 hover:p-8 rounded-[8px] bg-red-50 hover:shadow-[0px_4px_50px_rgba(0,0,0,0.075)]'>
-              <img src={es}  alt='' className='w-full h-full object-contain' />
-              <p className='text-base font-bold text-red-900 px-2 text-center'>Event</p>
-            </div>
-            </PopoverTrigger>
-              <PopoverContent>
-                <Calendar
-                  onChange={onChange}
-                  value={value}
-                  tileContent={tileContent}
-                />
-
-              </PopoverContent>
-            </Popover>
             
         </div>
     </section>

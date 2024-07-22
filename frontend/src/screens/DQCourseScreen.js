@@ -10,6 +10,9 @@ import { find } from 'lodash';
 import parse from 'html-react-parser';
 import { Skeleton } from "@nextui-org/react";
 import uk from '../assets/ukQualification.png'
+import eu from '../assets/euQ.png' 
+import  wes  from '../assets/WES.png'
+import  ugc  from '../assets/UGC.png' 
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -113,7 +116,7 @@ const DQCourseScreen = () => {
                                 <div className='flex flex-col sm:flex-row flex-wrap justify-between gap-4 '>
                                     <div className='flex flex-col'>
                                         <p className='text-xs opacity-50'>Level</p>
-                                        <p className='text-sm lg:text-xs font-medium capitalize'>{co.programe.name}</p>
+                                        <p className='text-sm lg:text-xs font-medium capitalize'>{co.programme.name}</p>
                                     </div>
                                     <div className='flex flex-col'>
                                         <p className='text-xs opacity-50'>Class on</p>
@@ -206,43 +209,408 @@ const DQCourseScreen = () => {
                                     <Skeleton className='text-[#DA0C0C] bg-[#DA0C0C]'>
                                         <img src={uk} alt='' className='h-[50px] w-full object-contain'/>
                                     </Skeleton>
-                                    <img src={uk} alt='' className='h-[50px] w-full object-cover absolute top-0'/>
+                                    {
+                                        co.name.includes('EU')  ?
+                                        <img src={eu} alt='' className='h-[50px] w-full object-cover absolute top-0'/>:
+                                        <img src={uk} alt='' className='h-[50px] w-full object-cover absolute top-0'/>
+                                    }
                                 </div>
                                 <div className='max-w-full'>
-                                    <Swiper
-                                        effect={'flip'}
-                                        grabCursor={true}
-                                        autoplay={{
-                                            delay: 2000,
-                                            disableOnInteraction: false,
-                                        }}
-                                        modules={[EffectFlip, Autoplay]}
-                                    >
-                                        <SwiperSlide>
-                                        <div className='min-h-[150px] flex flex-col items-center justify-center bg-[#DA0C0C] rounded-[8px] gap-2'>
-                                            <p  className='text-2xl font-bold text-white uppercase text-center'>
-                                                Graduate diploma
-                                            </p>
-                                            <div className='flex gap-3'>
-                                                <div className='bg-white text-black capitalize rounded-[8px] h-fit py-4 px-4 flex items-center justify-center'>
-                                                    <p className='font-semibold'>Level 6</p>
+                                    {
+                                        co.programme.slug=='diploma'?
+                                        <Swiper
+                                            effect={'flip'}
+                                            grabCursor={true}
+                                            autoplay={{
+                                                delay: 2000,
+                                                disableOnInteraction: false,
+                                            }}
+                                            modules={[EffectFlip, Autoplay]}
+                                        >
+                                            <SwiperSlide>
+                                                <div className='min-h-[150px] flex flex-col items-center justify-center bg-[#DA0C0C] rounded-[8px] gap-2'>
+                                                    <p  className='text-2xl font-bold text-white uppercase text-center'>
+                                                        {co.programme.name}
+                                                    </p>
+                                                    <div className='flex gap-3'>
+                                                        
+                                                    </div>
                                                 </div>
-                                                <div className='bg-white text-black capitalize rounded-[8px] h-fit py-4 px-4 flex items-center justify-center'>
-                                                    <p className='font-semibold'>120 credits</p>
-                                                </div>
+                                            </SwiperSlide>
+                                            <SwiperSlide>
+                                                <div className='flex flex-col gap-1 justify-center bg-[#DA0C0C] min-h-[150px] rounded-[8px] p-4'>
+                                            
+                                                    <p className='text-3xl font-bold text-white mx-auto text-center'>Scholarship Available</p>
                                                 
-                                            </div>
-                                        </div>
-                                        </SwiperSlide>
-                                        <SwiperSlide>
-                                            <div className='flex flex-col gap-1 justify-center bg-[#DA0C0C] min-h-[150px] rounded-[8px] p-4'>
-                                            {/* <p className='text-xl font-semibold text-white '>Up to </p> */}
-                                            <p className='text-2xl text-center font-bold text-white mx-auto'>Scholarship Available</p>
-                                            {/* <p className='text-xl font-semibold text-white ml-auto'>Scholarship</p> */}
-                                        </div>
-                                        </SwiperSlide>
-                                    </Swiper>
+                                                </div>
+                                            </SwiperSlide>
+                                        </Swiper>:
+                                        co.programme.slug=='foundation-level-3'?
+                                        <Swiper
+                                            effect={'flip'}
+                                            grabCursor={true}
+                                            autoplay={{
+                                                delay: 2000,
+                                                disableOnInteraction: false,
+                                            }}
+                                            modules={[EffectFlip, Autoplay]}
+                                        >
+                                            <SwiperSlide>
+                                                <div className='min-h-[150px] flex flex-col items-center justify-center bg-[#DA0C0C] rounded-[8px] gap-2'>
+                                                    <p  className='text-lg px-2 font-bold text-white uppercase text-center'>
+                                                        {co.programme.name}
+                                                    </p>
+                                                    <div className='flex gap-3'>
+                                                        <div className='bg-white text-black capitalize rounded-[8px] h-fit py-4 px-4 flex items-center justify-center'>
+                                                            <p className='font-semibold'>Level 3</p>
+                                                        </div>
+                                                        <div className='bg-white text-black capitalize rounded-[8px] h-fit py-4 px-4 flex items-center justify-center'>
+                                                            <p className='font-semibold'>120 credits</p>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </SwiperSlide>
+                                            <SwiperSlide>
+                                                <div className='flex flex-col gap-1 justify-center bg-[#DA0C0C] min-h-[150px] rounded-[8px] p-4'>
+                                            
+                                                    <p className='text-3xl font-bold text-white mx-auto text-center'>Scholarship Available</p>
+                                                
+                                                </div>
+                                            </SwiperSlide>
+                                        </Swiper>:
+                                        co.programme.slug=='higher-diploma-level-4-5'?
+                                        <Swiper
+                                            effect={'flip'}
+                                            grabCursor={true}
+                                            autoplay={{
+                                                delay: 2000,
+                                                disableOnInteraction: false,
+                                            }}
+                                            modules={[EffectFlip, Autoplay]}
+                                        >
+                                            <SwiperSlide>
+                                                <div className='min-h-[150px] flex flex-col items-center justify-center bg-[#DA0C0C] rounded-[8px] gap-2'>
+                                                    <p  className='text-lg px-2 font-bold text-white uppercase text-center'>
+                                                        {co.programme.name}
+                                                    </p>
+                                                    <div className='flex gap-3'>
+                                                    <div className='bg-white text-black capitalize rounded-[8px] h-fit py-4 px-4 flex items-center justify-center'>
+                                                            <p className='font-semibold'>Level 4 & 5</p>
+                                                        </div>
+                                                        <div className='bg-white text-black capitalize rounded-[8px] h-fit py-4 px-4 flex items-center justify-center'>
+                                                            <p className='font-semibold'>240 credits</p>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </SwiperSlide>
+                                            <SwiperSlide>
+                                                <div className='flex flex-col gap-1 justify-center bg-[#DA0C0C] min-h-[150px] rounded-[8px] p-4'>
+                                            
+                                                    <p className='text-3xl font-bold text-white mx-auto text-center'>Scholarship Available</p>
+                                                
+                                                </div>
+                                            </SwiperSlide>
+                                        </Swiper>:
+                                        co.programme.slug=='higher-diploma-level-5'?
+                                        <Swiper
+                                            effect={'flip'}
+                                            grabCursor={true}
+                                            autoplay={{
+                                                delay: 2000,
+                                                disableOnInteraction: false,
+                                            }}
+                                            modules={[EffectFlip, Autoplay]}
+                                        >
+                                            <SwiperSlide>
+                                                <div className='min-h-[150px] flex flex-col items-center justify-center bg-[#DA0C0C] rounded-[8px] gap-2'>
+                                                    <p  className='text-lg px-2 font-bold text-white uppercase text-center'>
+                                                        {co.programme.name}
+                                                    </p>
+                                                    <div className='flex gap-3'>
+                                                    <div className='bg-white text-black capitalize rounded-[8px] h-fit py-4 px-4 flex items-center justify-center'>
+                                                            <p className='font-semibold'>Level 5</p>
+                                                        </div>
+                                                        <div className='bg-white text-black capitalize rounded-[8px] h-fit py-4 px-4 flex items-center justify-center'>
+                                                            <p className='font-semibold'>120 credits</p>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </SwiperSlide>
+                                            <SwiperSlide>
+                                                <div className='flex flex-col gap-1 justify-center bg-[#DA0C0C] min-h-[150px] rounded-[8px] p-4'>
+                                            
+                                                    <p className='text-3xl font-bold text-white mx-auto text-center'>Scholarship Available</p>
+                                                
+                                                </div>
+                                            </SwiperSlide>
+                                        </Swiper>:
+                                        co.programme.slug=='graduate-diploma-level-6'?
+                                        <Swiper
+                                            effect={'flip'}
+                                            grabCursor={true}
+                                            autoplay={{
+                                                delay: 2000,
+                                                disableOnInteraction: false,
+                                            }}
+                                            modules={[EffectFlip, Autoplay]}
+                                        >
+                                            <SwiperSlide>
+                                                <div className='min-h-[150px] flex flex-col items-center justify-center bg-[#DA0C0C] rounded-[8px] gap-2'>
+                                                    <p  className='text-lg px-2 font-bold text-white uppercase text-center'>
+                                                        {co.programme.name}
+                                                    </p>
+                                                    <div className='flex gap-3'>
+                                                    <div className='bg-white text-black capitalize rounded-[8px] h-fit py-4 px-4 flex items-center justify-center'>
+                                                            <p className='font-semibold'>Level 6</p>
+                                                        </div>
+                                                        <div className='bg-white text-black capitalize rounded-[8px] h-fit py-4 px-4 flex items-center justify-center'>
+                                                            <p className='font-semibold'>120 credits</p>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </SwiperSlide>
+                                            <SwiperSlide>
+                                                <div className='flex flex-col gap-1 justify-center bg-[#DA0C0C] min-h-[150px] rounded-[8px] p-4'>
+                                            
+                                                    <p className='text-3xl font-bold text-white mx-auto text-center'>Scholarship Available</p>
+                                                
+                                                </div>
+                                            </SwiperSlide>
+                                        </Swiper>:
+                                        co.programme.slug=='bachelors-degree'?
+                                        <Swiper
+                                            effect={'flip'}
+                                            grabCursor={true}
+                                            autoplay={{
+                                                delay: 2000,
+                                                disableOnInteraction: false,
+                                            }}
+                                            modules={[EffectFlip, Autoplay]}
+                                        >
+                                            <SwiperSlide>
+                                                <div className='min-h-[150px] flex flex-col items-center justify-center bg-[#DA0C0C] rounded-[8px] gap-2'>
+                                                    <p  className='text-lg px-2 font-bold text-white uppercase text-center'>
+                                                        {co.programme.name}
+                                                    </p>
+                                                    <div className='flex gap-3'>
+                                                        <div className='bg-white text-black capitalize rounded-[8px] h-fit py-4 px-4 flex items-center justify-center'>
+                                                            <img src={wes} alt='' className='h-12 w-12 object-contain '/>
+                                                        </div>
+                                                        <div className='bg-white text-black capitalize rounded-[8px] h-fit py-4 px-4 flex items-center justify-center'>
+                                                        <img src={ugc}  alt='' className='h-12 w-12 object-contain '/>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </SwiperSlide>
+                                            <SwiperSlide>
+                                                <div className='flex flex-col gap-1 justify-center bg-[#DA0C0C] min-h-[150px] rounded-[8px] p-4'>
+                                            
+                                                    <p className='text-3xl font-bold text-white mx-auto text-center'>Scholarship Available</p>
+                                                
+                                                </div>
+                                            </SwiperSlide>
+                                        </Swiper>:
+                                        co.programme.slug=='bachelors-degree-top-up'?
+                                        <Swiper
+                                            effect={'flip'}
+                                            grabCursor={true}
+                                            autoplay={{
+                                                delay: 2000,
+                                                disableOnInteraction: false,
+                                            }}
+                                            modules={[EffectFlip, Autoplay]}
+                                        >
+                                            <SwiperSlide>
+                                                <div className='min-h-[150px] flex flex-col items-center justify-center bg-[#DA0C0C] rounded-[8px] gap-2'>
+                                                    <p  className='text-lg px-2 font-bold text-white uppercase text-center'>
+                                                        {co.programme.name}
+                                                    </p>
+                                                    <div className='flex gap-3'>
+                                                        <div className='bg-white text-black capitalize rounded-[8px] h-fit py-4 px-4 flex items-center justify-center'>
+                                                            {
+                                                                co.f_gif_logo1? (
+                                                                <img src={co.f_gif_logo1} alt='' className='h-12 w-12 object-contain '/>
+                                                                )
+                                                                :
+                                                                <p className='font-semibold'>{co.f_1_name}</p>
+                                                            }
+                                                        </div>
+                                                        <div className='bg-white text-black capitalize rounded-[8px] h-fit py-4 px-4 flex items-center justify-center'>
+                                                            {
+                                                                co.f_gif_logo1? (
+                                                                <img src={co.f_gif_logo2} alt='' className='h-12 w-12 object-contain '/>
+                                                                )
+                                                                :
+                                                                <p className='font-semibold'>{co.f_2_name}</p>
+                                                            }
+                                                        </div>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </SwiperSlide>
+                                            <SwiperSlide>
+                                                <div className='flex flex-col gap-1 justify-center bg-[#DA0C0C] min-h-[150px] rounded-[8px] p-4'>
+                                            
+                                                    <p className='text-3xl font-bold text-white mx-auto text-center'>Scholarship Available</p>
+                                                
+                                                </div>
+                                            </SwiperSlide>
+                                        </Swiper>:
+                                        co.programme.slug=='post-graduate-diploma-level-7'?
+                                        <Swiper
+                                            effect={'flip'}
+                                            grabCursor={true}
+                                            autoplay={{
+                                                delay: 2000,
+                                                disableOnInteraction: false,
+                                            }}
+                                            modules={[EffectFlip, Autoplay]}
+                                        >
+                                            <SwiperSlide>
+                                                <div className='min-h-[150px] flex flex-col items-center justify-center bg-[#DA0C0C] rounded-[8px] gap-2'>
+                                                    <p  className='text-lg px-2 font-bold text-white uppercase text-center'>
+                                                        {co.programme.name}
+                                                    </p>
+                                                    <div className='flex gap-3'>
+                                                    <div className='bg-white text-black capitalize rounded-[8px] h-fit py-4 px-4 flex items-center justify-center'>
+                                                            <p className='font-semibold'>Level 3</p>
+                                                        </div>
+                                                        <div className='bg-white text-black capitalize rounded-[8px] h-fit py-4 px-4 flex items-center justify-center'>
+                                                            <p className='font-semibold'>120 credits</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </SwiperSlide>
+                                            <SwiperSlide>
+                                                <div className='flex flex-col gap-1 justify-center bg-[#DA0C0C] min-h-[150px] rounded-[8px] p-4'>
+                                            
+                                                    <p className='text-3xl font-bold text-white mx-auto text-center'>Scholarship Available</p>
+                                                
+                                                </div>
+                                            </SwiperSlide>
+                                        </Swiper>:
+                                        co.programme.slug=='masters-degree'?
+                                        <Swiper
+                                            effect={'flip'}
+                                            grabCursor={true}
+                                            autoplay={{
+                                                delay: 2000,
+                                                disableOnInteraction: false,
+                                            }}
+                                            modules={[EffectFlip, Autoplay]}
+                                        >
+                                            <SwiperSlide>
+                                                <div className='min-h-[150px] flex flex-col items-center justify-center bg-[#DA0C0C] rounded-[8px] gap-2'>
+                                                    <p  className='text-lg px-2 font-bold text-white uppercase text-center'>
+                                                        {co.programme.name}
+                                                    </p>
+                                                    <div className='flex gap-3'>
+                                                    <div className='bg-white text-black capitalize rounded-[8px] h-fit py-4 px-4 flex items-center justify-center'>
+                                                            <img src={wes} alt='' className='h-12 w-12 object-contain '/>
+                                                        </div>
+                                                        <div className='bg-white text-black capitalize rounded-[8px] h-fit py-4 px-4 flex items-center justify-center'>
+                                                        <img src={ugc} alt='' className='h-12 w-12 object-contain '/>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </SwiperSlide>
+                                            <SwiperSlide>
+                                                <div className='flex flex-col gap-1 justify-center bg-[#DA0C0C] min-h-[150px] rounded-[8px] p-4'>
+                                            
+                                                    <p className='text-3xl font-bold text-white mx-auto text-center'>Scholarship Available</p>
+                                                
+                                                </div>
+                                            </SwiperSlide>
+                                        </Swiper>:
+                                        co.programme.slug=='masters-degree-top-up'?
+                                        <Swiper
+                                            effect={'flip'}
+                                            grabCursor={true}
+                                            autoplay={{
+                                                delay: 2000,
+                                                disableOnInteraction: false,
+                                            }}
+                                            modules={[EffectFlip, Autoplay]}
+                                        >
+                                            <SwiperSlide>
+                                                <div className='min-h-[150px] flex flex-col items-center justify-center bg-[#DA0C0C] rounded-[8px] gap-2'>
+                                                    <p  className='text-lg px-2 font-bold text-white uppercase text-center'>
+                                                        {co.programme.name}
+                                                    </p>
+                                                    <div className='flex gap-3'>
+                                                    <div className='bg-white text-black capitalize rounded-[8px] h-fit py-4 px-4 flex items-center justify-center'>
+                                                            <img src={wes} alt='' className='h-12 w-12 object-contain '/>
+                                                        </div>
+                                                        <div className='bg-white text-black capitalize rounded-[8px] h-fit py-4 px-4 flex items-center justify-center'>
+                                                        <img src={ugc} alt='' className='h-12 w-12 object-contain '/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </SwiperSlide>
+                                            <SwiperSlide>
+                                                <div className='flex flex-col gap-1 justify-center bg-[#DA0C0C] min-h-[150px] rounded-[8px] p-4'>
+                                            
+                                                    <p className='text-3xl font-bold text-white mx-auto text-center'>Scholarship Available</p>
+                                                
+                                                </div>
+                                            </SwiperSlide>
+                                        </Swiper>:
+                                        co.programme.slug=='doctoral-diploma-level-8'?
+                                        <Swiper
+                                            effect={'flip'}
+                                            grabCursor={true}
+                                            autoplay={{
+                                                delay: 2000,
+                                                disableOnInteraction: false,
+                                            }}
+                                            modules={[EffectFlip, Autoplay]}
+                                        >
+                                            <SwiperSlide>
+                                                <div className='min-h-[150px] flex flex-col items-center justify-center bg-[#DA0C0C] rounded-[8px] gap-2'>
+                                                    <p  className='text-lg px-2 font-bold text-white uppercase text-center'>
+                                                        {co.programme.name}
+                                                    </p>
+                                                    <div className='flex gap-3'>
+                                                        <div className='bg-white text-black capitalize rounded-[8px] h-fit py-4 px-4 flex items-center justify-center'>
+                                                            {
+                                                                co.f_gif_logo1? (
+                                                                <img src={co.f_gif_logo1} alt='' className='h-12 w-12 object-contain '/>
+                                                                )
+                                                                :
+                                                                <p className='font-semibold'>{co.f_1_name}</p>
+                                                            }
+                                                        </div>
+                                                        <div className='bg-white text-black capitalize rounded-[8px] h-fit py-4 px-4 flex items-center justify-center'>
+                                                            {
+                                                                co.f_gif_logo1? (
+                                                                <img src={co.f_gif_logo2} alt='' className='h-12 w-12 object-contain '/>
+                                                                )
+                                                                :
+                                                                <p className='font-semibold'>{co.f_2_name}</p>
+                                                            }
+                                                        </div>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </SwiperSlide>
+                                            <SwiperSlide>
+                                                <div className='flex flex-col gap-1 justify-center bg-[#DA0C0C] min-h-[150px] rounded-[8px] p-4'>
+                                            
+                                                    <p className='text-3xl font-bold text-white mx-auto text-center'>Scholarship Available</p>
+                                                
+                                                </div>
+                                            </SwiperSlide>
+                                        </Swiper>:
+                                        ''
 
+
+                                    }
                                 </div>
                                 <div className=' flex items-center justify-center animate-pulse'>
                                     <img src='https://i.pinimg.com/originals/e7/d1/99/e7d199bc42eeeb001962c6ed63d8b098.gif' alt='' className='h-20 w-h-20' />

@@ -121,13 +121,13 @@ const AwardingBodyScreen = () => {
                         <div key={i.id} className='flex flex-col gap-2'>
                             {
                                 levels?
-                                levels.filter(f => f.programe.slug == i.slug).map(n=>
+                                levels.filter(f => f.programme.slug == i.slug).map(n=>
                                     <div key={i.id} className='flex flex-col gap-2'>
-                                        <p className='font-semibold capitalize bg-blue-500 py-2 text-white px-4'>{n.programe.name}</p>
+                                        <p className='font-semibold capitalize bg-blue-500 py-2 text-white px-4'>{n.programme.name}</p>
                                         <div className='p-4 flex flex-col gap-2'>
                                             {
                                                 qualification.courses?
-                                                qualification.courses.filter(f => f.programe.slug == n.slug).map(m => (
+                                                qualification.courses.filter(f => f.programme.slug == n.slug).map(m => (
                                                     <p key={m.id} className='text-sm font-medium capitalize'>{m.name}</p>
                                                 ))
                                                 :
@@ -160,32 +160,32 @@ const AwardingBodyScreen = () => {
                     </div>
                     :
                     levels && qualification?
-                    _.uniqBy(qualification.courses, 'programe.id' ).map((i, index) => (
+                    _.uniqBy(qualification.courses, 'programme.id' ).map((i, index) => (
                         <div>
                             <div>
                                 {
-                                    i.programe.slug == 'foundation-level-3'?
+                                    i.programme.slug == 'foundation-level-3'?
                                     <div className='flex flex-col gap-1 pt-8 pb-4'>
                                         <p className='text-2xl font-bold capitalize'>Foundation programmes
                                         </p>
                                         <p className='text-sm opacity-50'>Level 3 qualifications enhance subject knowledge and study skills, preparing learners for undergraduate courses at universities.
                                         </p>
                                     </div>:
-                                    i.programe.slug == 'higher-diploma-level-4-5' ?
+                                    i.programme.slug == 'higher-diploma-level-4-5' ?
                                     <div className='flex flex-col gap-1 pt-8 pb-4'>
                                         <p className='text-2xl font-bold capitalize'>Undergraduate programmes
                                         </p>
                                         <p className='text-sm opacity-50'>Level 4, 5, and 6 diploma qualifications correspond to the first, second, and final years of a three-year UK Bachelor's degree, respectively, with each level comprising 120 credits. Completing Level 4 and 5 allows learners to progress to the next level or directly to the final year of a Bachelor's degree at a university. Completing Level 6 qualifications enables learners to advance to Master's level studies at a university.
-
+ 
                                         </p>
                                     </div>:
-                                    i.programe.slug == 'post-graduate-diploma-level-7'?
+                                    i.programme.slug == 'post-graduate-diploma-level-7'?
                                     <div className='flex flex-col gap-1 pt-8 pb-4'>
                                         <p className='text-2xl font-bold capitalize'>Postgraduate Programs</p>
                                         <p className='text-sm opacity-50'>Postgraduate diplomas are taught courses at Level 7 on the Regulated Qualifications Framework (RQF), equivalent to a Pre-Master's degrees.
                                         </p>
                                     </div>:
-                                    i.programe.slug == 'doctoral-diploma-level-8'?
+                                    i.programme.slug == 'doctoral-diploma-level-8'?
                                     <div className='flex flex-col gap-1 pt-8 pb-4'>
                                         <p className='text-2xl font-bold capitalize'>Doctoral Level Programs            </p>
                                         <p className='text-sm opacity-50'>Level 8 diplomas are taught programs on the Regulated Qualifications Framework (RQF) and are also recognized on the European Qualifications Framework (EQF) at Level 8. This level is equivalent to DF-EHEA third cycle qualifications, comparable to doctorate-level study.
@@ -193,14 +193,14 @@ const AwardingBodyScreen = () => {
 This qualification at Level 8 represent knowledge, skills, and competencies that are recognized academically as comparable to Doctoral Degrees and Vocational Qualifications at Level 8.
                                         </p>
                                     </div>:
-                                    i.programe.slug == 'graduate-diploma-level-6'?
+                                    i.programme.slug == 'graduate-diploma-level-6'?
                                     '':
                                     ''
                                 }
                             </div>
                             <div>
                                 <div className='font-semibold capitalize bg-blue-500 py-2 text-white px-4 flex justify-between'>
-                                    <p className='font-semibold capitalize bg-blue-500 py-2 text-white px-4'>{i.programe.name}</p>   
+                                    <p className='font-semibold capitalize bg-blue-500 py-2 text-white px-4'>{i.programme.name}</p>   
                                     <p className='font-semibold capitalize bg-blue-500 py-2 text-white px-4'>{
                                         index+1 == 1?
                                         '1st & 2nd year':
@@ -212,7 +212,7 @@ This qualification at Level 8 represent knowledge, skills, and competencies that
                                 <ul className='p-4 flex flex-col gap-2'>
                                     {
                                         qualification.courses?
-                                        qualification.courses.filter(f => f.programe.slug == i.programe.slug).map(m => (
+                                        qualification.courses.filter(f => f.programme.slug == i.programme.slug).map(m => (
                                             <Link className='list-disc' to={`/courses/${m.slug}`}>
                                                 <li key={m.id} className='text-sm font-medium capitalize'>{m.name}</li>
                                             </Link>
