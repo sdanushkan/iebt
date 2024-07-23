@@ -130,7 +130,7 @@ const HomeScreen = () => {
   return (
     <div className='h-fit w-full flex flex-col gap-4'>
       
-      <section className='h-fit w-full relative overflow-hidden'>
+      {/* <section className='h-fit w-full relative overflow-hidden'>
 
         <div className='h-[600px] xl:h-[500px] w-full object-cover object-bottom absolute -z-50 bg-black'>
           <Swiper
@@ -315,9 +315,9 @@ const HomeScreen = () => {
           </form>
         </div>
         <div className='h-[25px]'></div>
-      </section>
+      </section> */}
 
-      {/* <section className='h-fit w-full relative overflow-hidden'>
+      <section className='h-fit w-full relative overflow-hidden'>
 
         <div className='h-[600px] xl:h-[500px] w-full object-cover object-bottom absolute -z-50'>
           <Swiper
@@ -488,7 +488,7 @@ const HomeScreen = () => {
           </form>
         </div>
         <div className='h-[25px]'></div>
-      </section> */}
+      </section>
 
       <section className='h-fit w-full relative overflow-hidden py-6'>
         <div className='h-fit w-full max-w-[1024px] mx-auto grid grid-cols-2 md:flex justify-center px-6 lg:px-0 gap-2 lg:gap-6'>
@@ -1201,9 +1201,9 @@ const HomeScreen = () => {
               :
               levels?
               levels.map(i => (
-                <ReactWhatsapp number="+94726263061" message={`${i.name}`} className='h-fit w-fit mx-auto flex flex-col items-center relative '>
+                <ReactWhatsapp number="+94778289898" message={`${i.name}`} className='h-fit w-fit mx-auto flex flex-col items-center relative '>
                    <div className='h-[72px] w-16 sm:w-28 flex flex-col items-center justify-center bg-white rounded-[8px] relative z-30 hover:scale-105 duration-300'>
-                      <p className='text-[#DA0C0C] text-center text-2xl font-bold'>26%</p>
+                      <p className='text-[#DA0C0C] text-center text-2xl font-bold'>{i.offers}</p>
                       <p className='text-[#DA0C0C] text-center text-xs font-medium'>Special offer</p>
                     </div> 
                     <div className='h-16 w-24 md:w-36 sm:w-40 flex items-center justify-center text-white font-bold text-center relative z-30 text-xs px-4'>
@@ -1796,75 +1796,7 @@ const HomeScreen = () => {
               ''
             }
 
-            <div className='sm:hidden'>
-              <Swiper
-                slidesPerView={1}
-                spaceBetween={25}
-                freeMode={true}
-                autoplay
-                modules={[FreeMode, Autoplay]}
-                className=""
-              >
-                <SwiperSlide className='max-h-[300px] w-full mt-2 mb-12 bg-red-50 p-6 md:p-12 rounded-[8px] relative overflow-hidden '>
-                  {/* <div className='h-[100px] w-[100px] absolute top-0 right-0 bg-[#DA0C0C] rotate-45 -z-20'>
-
-                  </div> */}
-                  <div className='flex flex-col'>
-                    <Skeleton>
-                      <p className='text-lg font-bold text-[#DA0C0C] capitalize'>Ayesh hiruni</p>
-                    </Skeleton>
-                    <Skeleton>
-                      <p className='capitalize text-sm font-medium text-gray-500 '>Selan Bank</p>
-                    </Skeleton>
-                  </div>
-                  <div className='h-[1px] w-full bg-red-100 my-4'></div>
-                  <div className='max-h-fit py-2'>
-                   <Skeleton>
-                     <p className='text-base font-semibold'>"Lorem ipsum dolor sit amet consectetur. In nisl arcu risus at eu ipsum nunc magnis integer. Tristique aliquam risus mauris vitae adipiscing sit eget tristique."</p>
-                   </Skeleton>
-                  </div>
-                </SwiperSlide>
-                <SwiperSlide className='max-h-[300px] w-full mt-2 mb-12 bg-red-50 p-6 md:p-12 rounded-[8px] relative overflow-hidden '>
-                  {/* <div className='h-[100px] w-[100px] absolute top-0 right-0 bg-[#DA0C0C] rotate-45 -z-20'>
-
-                  </div> */}
-                  <div className='flex flex-col'>
-                    <Skeleton>
-                      <p className='text-lg font-bold text-[#DA0C0C] capitalize'>Ayesh hiruni</p>
-                    </Skeleton>
-                    <Skeleton>
-                      <p className='capitalize text-sm font-medium text-gray-500 '>Selan Bank</p>
-                    </Skeleton>
-                  </div>
-                  <div className='h-[1px] w-full bg-red-100 my-4'></div>
-                  <div className='max-h-fit py-2'>
-                   <Skeleton>
-                     <p className='text-base font-semibold'>"Lorem ipsum dolor sit amet consectetur. In nisl arcu risus at eu ipsum nunc magnis integer. Tristique aliquam risus mauris vitae adipiscing sit eget tristique."</p>
-                   </Skeleton>
-                  </div>
-                </SwiperSlide>
-
-                <SwiperSlide className='max-h-[300px] w-full mt-2 mb-12 bg-red-50 p-6 md:p-12 rounded-[8px] relative overflow-hidden '>
-                  {/* <div className='h-[100px] w-[100px] absolute top-0 right-0 bg-[#DA0C0C] rotate-45 -z-20'>
-
-                  </div> */}
-                  <div className='flex flex-col'>
-                    <Skeleton>
-                      <p className='text-lg font-bold text-[#DA0C0C] capitalize'>Ayesh hiruni</p>
-                    </Skeleton>
-                    <Skeleton>
-                      <p className='capitalize text-sm font-medium text-gray-500 '>Selan Bank</p>
-                    </Skeleton>
-                  </div>
-                  <div className='h-[1px] w-full bg-red-100 my-4'></div>
-                  <div className='max-h-fit py-2'>
-                   <Skeleton>
-                     <p className='text-base font-semibold'>"Lorem ipsum dolor sit amet consectetur. In nisl arcu risus at eu ipsum nunc magnis integer. Tristique aliquam risus mauris vitae adipiscing sit eget tristique."</p>
-                   </Skeleton>
-                  </div>
-                </SwiperSlide>
-              </Swiper>
-            </div>
+        
 
         </div>
       </section>

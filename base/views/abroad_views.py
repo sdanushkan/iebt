@@ -26,7 +26,7 @@ def getCountries(request,cat):
 @api_view(['GET'])
 def getTestimonials(request,page):
     try:
-        testimonials = Testimonial.objects.filter(page__name=page)[:5]
+        testimonials = Testimonial.objects.filter(page__slug=page)[:5]
         serializer = TestimonialSerializer(testimonials, many=True)
         return Response(serializer.data)
 

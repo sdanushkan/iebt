@@ -238,10 +238,10 @@ const DQSecondPage = () => {
                 ''
             }
             <div className='w-full flex items-center'>
-            <Button onClick={() => toPDF()} variant='solid' color='danger' className='w-[300px] bg-blue-500 text-white mx-auto' >
+            <Link variant='solid' color='danger' className='w-[300px] bg-blue-500 text-white mx-auto' >
                 <p className='text-2xl font-black'>E</p>
                 <p>Brouchers</p>
-            </Button>
+            </Link>
             </div>
         </section>
     </div>
