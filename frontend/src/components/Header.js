@@ -332,7 +332,7 @@ const Header = () => {
                     '':
                     levels?
                     levels.map(i => (
-                      <Link onClick={() => setNavbar(!navbar)} to={`/facuties/${i.slug}`} className=' h-8 flex items-center text-xs px-4 font-medium'>{i.name}</Link>
+                      <Link onClick={() => setNavbar(!navbar)} to={`/header/courses/faculties/${i.slug}/qualifications/credits`} className=' h-8 flex items-center text-xs px-4 font-medium'>{i.name}</Link>
                     )):
                     ''
                   }
@@ -346,7 +346,7 @@ const Header = () => {
                       '':
                       faculties?
                       faculties.map(i => (
-                        <Link onClick={() => setNavbar(!navbar)} to={`/facuties/${i.slug}`} className=' h-8 flex items-center text-xs px-4 font-medium'>{i.name}</Link>
+                        <Link onClick={() => setNavbar(!navbar)} to={`header/courses/${i.slug}/programes/qualifications/credits`} className=' h-8 flex items-center text-xs px-4 font-medium'>{i.name}</Link>
                       ))
                       :
                       ''
