@@ -276,7 +276,7 @@ const Footer = () => {
                             :
                             levels?
                             levels.map(i=>(
-                            <Link to={`/courses/faculties/${i.slug}/qualifications/credits`} className='text-[10px] text-white/80'>{i.name}</Link>
+                            <Link to={`/footer/courses/faculties/${i.slug}/qualifications/credits`} className='text-[10px] text-white/80'>{i.name}</Link>
                             ))
                             :
                             ''

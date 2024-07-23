@@ -399,7 +399,12 @@ const CourseFilterScreen = () => {
               </div>
               :
               fCourses?
-              fCourses.map(i => (
+              fCourses.filter(f=>(
+                location.pathname.startsWith(`/header`) ? f.show_in_header==true :
+                location.pathname.startsWith(`/faculty`) ? f.show_in_faculty==true : 
+                location.pathname.startsWith(`/qualification`) ? f.show_in_qualification==true : 
+                location.pathname.startsWith(`/footer`) ? f.show_in_footer==true : fCourses
+              )).map(i => (
                 <Link to={`/courses/${i.slug}`} key={i.id} className=' bg-white p-2 h-fit w-full shadow-[0px_4px_25px_rgba(0,0,0,0.05)] rounded-[16px]'>
                   <img src={i.image} alt='' className='h-[200px] w-full rounded-[8px]' />
                   <div className='pt-4 flex flex-col gap-4'>

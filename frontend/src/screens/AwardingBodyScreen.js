@@ -160,7 +160,7 @@ const AwardingBodyScreen = () => {
                     </div>
                     :
                     levels && qualification?
-                    _.uniqBy(qualification.courses, 'programme.id' ).map((i, index) => (
+                    _.uniqBy(qualification.courses, 'programme.id' ).filter(f=>f.show_in_qualification==true).map((i, index) => (
                         <div>
                             <div>
                                 {
@@ -212,7 +212,7 @@ This qualification at Level 8 represent knowledge, skills, and competencies that
                                 <ul className='p-4 flex flex-col gap-2'>
                                     {
                                         qualification.courses?
-                                        qualification.courses.filter(f => f.programme.slug == i.programme.slug).map(m => (
+                                        qualification.courses.filter(f => f.programme.slug == i.programme.slug).filter(f=>f.show_in_qualification==true).map(m => (
                                             <Link className='list-disc' to={`/courses/${m.slug}`}>
                                                 <li key={m.id} className='text-sm font-medium capitalize'>{m.name}</li>
                                             </Link>

@@ -32,6 +32,16 @@ import { usePDF } from 'react-to-pdf';
 import {Breadcrumbs, BreadcrumbItem} from "@nextui-org/react";
 import { FaWhatsapp } from 'react-icons/fa';
 
+const downloadFile = (url, filename) => {
+    const link = document.createElement('a');
+    link.href = url;
+    link.setAttribute('download', filename); // Set the download attribute with the filename
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link); // Clean up the DOM
+  };
+  
+
 const CourseScreen = () => {
 
     const {courseSlug} = useParams()
@@ -55,6 +65,11 @@ const CourseScreen = () => {
         }
     }, [courseSlug])
     
+    const handleDownload = () => {
+        if(course){
+            downloadFile(course.brochure, 'file.pdf');
+        }
+      };
     
   return (
     <div ref={targetRef} className='w-full h-fit '>
@@ -614,7 +629,10 @@ const CourseScreen = () => {
                                 
                                 
                             </div>
-                            <Button onClick={() => toPDF()} variant='solid' color='danger' className='w-full bg-blue-950 text-white' >
+                            <Button to={course.image} download={true} 
+                            // onClick={() => toPDF()} 
+                            onClick={handleDownload}
+                            variant='solid' color='danger' className='w-full bg-blue-950 text-white' >
                                 <p className='text-2xl font-black'>E</p>
                                 <p>Brouchers</p>
                             </Button>

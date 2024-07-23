@@ -31,6 +31,16 @@ import { usePDF } from 'react-to-pdf';
 import {Breadcrumbs, BreadcrumbItem} from "@nextui-org/react";
 import { FaWhatsapp } from 'react-icons/fa';
 
+const downloadFile = (url, filename) => {
+    const link = document.createElement('a');
+    link.href = url;
+    link.setAttribute('download', filename); // Set the download attribute with the filename
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link); // Clean up the DOM
+  };
+  
+
 const DQCourseScreen = () => {
     const {course} = useParams()
 
@@ -61,6 +71,12 @@ const DQCourseScreen = () => {
             setNCourse(courses.find( f => f.slug == course))
         }
     }, [course])
+
+    const handleDownload = () => {
+        if(co){
+            downloadFile(co.brochure, 'file.pdf');
+        }
+      };
   return (
     <div ref={targetRef} className='w-full h-fit '>
         {
@@ -292,11 +308,11 @@ const DQCourseScreen = () => {
                                             <SwiperSlide>
                                                 <div className='min-h-[150px] flex flex-col items-center justify-center bg-[#DA0C0C] rounded-[8px] gap-2'>
                                                     <p  className='text-lg px-2 font-bold text-white uppercase text-center'>
-                                                        {co.programme.name}
+                                                        Higher Diploma
                                                     </p>
                                                     <div className='flex gap-3'>
                                                     <div className='bg-white text-black capitalize rounded-[8px] h-fit py-4 px-4 flex items-center justify-center'>
-                                                            <p className='font-semibold'>Level 4 & 5</p>
+                                                            <p className='font-semibold'>Level 5</p>
                                                         </div>
                                                         <div className='bg-white text-black capitalize rounded-[8px] h-fit py-4 px-4 flex items-center justify-center'>
                                                             <p className='font-semibold'>240 credits</p>
@@ -619,7 +635,7 @@ const DQCourseScreen = () => {
                                 
                                 
                             </div>
-                            <Button onClick={() => toPDF()} variant='solid' color='danger' className='w-fit bg-blue-950 text-white' >
+                            <Button  onClick={handleDownload} variant='solid' color='danger' className='w-fit bg-blue-950 text-white' >
                                 <p className='text-2xl font-black'>E</p>
                                 <p>Brouchers</p>
                             </Button>

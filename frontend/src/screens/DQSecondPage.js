@@ -21,16 +21,6 @@ import {RadioGroup, Radio, useRadio, VisuallyHidden, cn} from "@nextui-org/react
 import { getCountryList, getTestimonialList } from '../actions/abroadActions';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
-import WorldMap from '../components/WorldMap';
-import { BiSolidMessageSquareDetail } from "react-icons/bi";
-import { FaCalendarAlt } from "react-icons/fa";
-import { IoMdArrowRoundForward } from "react-icons/io";
-import {Accordion, AccordionItem} from "@nextui-org/react";
-import { GrFormNextLink } from "react-icons/gr";
-import {today, isWeekend, getLocalTimeZone} from "@internationalized/date";
-import {useLocale} from "@react-aria/i18n";
-import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
 import { setHours, setMinutes, getDay } from 'date-fns';
 import WebView from '@luxbit/react-electron-webview'
 import YouTube from 'react-youtube';

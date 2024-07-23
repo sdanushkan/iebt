@@ -21,7 +21,6 @@ import {RadioGroup, Radio, useRadio, VisuallyHidden, cn} from "@nextui-org/react
 import { getCountryList, getTestimonialList } from '../actions/abroadActions';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import WorldMap from '../components/WorldMap';
 import { BiSolidMessageSquareDetail } from "react-icons/bi";
 import { FaCalendarAlt } from "react-icons/fa";
 import { IoMdArrowRoundForward } from "react-icons/io";

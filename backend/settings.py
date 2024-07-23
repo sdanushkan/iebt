@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-3zbtjl8p4f*ds8=t@&w7zy7%z4)3bld_4ny(m1l4mg-)=##-0&
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['iebcampus-21002ef054d7.herokuapp.com','*']
+ALLOWED_HOSTS = ['beta.iebc.lk','*']
 
 
 # Application definition
@@ -122,12 +122,26 @@ REST_FRAMEWORK = {
 #    }
 # }
 
+# DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.mysql',
+#        'NAME': 'iebc_demo',
+#        'USER': 'root',
+#        'PASSWORD': 'passwd31',
+#        'HOST': 'localhost',
+#        'PORT': '3306',
+#         # 'OPTIONS': {
+#         #     'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+#         # },
+#    }
+# }
+
 DATABASES = {
    'default': {
        'ENGINE': 'django.db.backends.mysql',
-       'NAME': 'iebc_demo',
-       'USER': 'root',
-       'PASSWORD': 'passwd31',
+       'NAME': 'enclk_iebcdb',
+       'USER': 'enclk_iebcdbuser',
+       'PASSWORD': '&MjK2Qk}HRnp',
        'HOST': 'localhost',
        'PORT': '3306',
         # 'OPTIONS': {
@@ -135,7 +149,6 @@ DATABASES = {
         # },
    }
 }
-
 
 
 # Password validation
@@ -197,7 +210,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://iebcampus-21002ef054d7.herokuapp.com',
+    'https://beta.iebc.lk/',
     'http://localhost'
 ]
 

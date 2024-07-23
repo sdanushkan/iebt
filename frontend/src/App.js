@@ -48,7 +48,10 @@ const App = () => {
         <Route path='abroad'element={<CountriesScreen/>} />
         <Route path='e_library'element={<ELibraryScreen/>} />
         <Route path='awarding-body/:name' element={<AwardingBodyScreen/>} />
-        <Route path='courses/:faculty/:programe/:award/:credit' element={<CourseFilterScreen/>} />
+        <Route path='header/courses/:faculty/:programe/:award/:credit' element={<CourseFilterScreen/>} />
+        <Route path='faculty/courses/:faculty/:programe/:award/:credit' element={<CourseFilterScreen/>} />
+        <Route path='qualification/courses/:faculty/:programe/:award/:credit' element={<CourseFilterScreen/>} />
+        <Route path='footer/courses/:faculty/:programe/:award/:credit' element={<CourseFilterScreen/>} />
         {/* <Route path=':faculty/:programe/:award/:credit/:keyword' element={<CourseFilterScreen/>} /> */}
         
       </Routes>
