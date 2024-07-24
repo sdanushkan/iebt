@@ -10,6 +10,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { FaUser } from 'react-icons/fa6';
 import { sendCU, sendCUMail } from '../actions/courseActions';
+import cu1 from '../assets/cu1.jpg'
+import cu2 from '../assets/cu2.jpg'
+
 
 const ContactScreen = () => {
   const dispatch = useDispatch()
@@ -54,7 +57,7 @@ const ContactScreen = () => {
     <div className='flex flex-col gap-14 '>
       <section className='relative'>
           <div className='h-[300px] w-full object-cover relative -z-40'>
-            <img src={'https://st4.depositphotos.com/21389766/23112/i/450/depositphotos_231122574-stock-photo-contact-contact-write-email-support.jpg'} alt='' className='h-[300px] w-full object-cover relative -z-50' />
+            <img src={cu2} alt='' className='h-[300px] w-full object-cover relative -z-50' />
             <div className='h-[300px] w-full object-cover absolute -z-10 flex top-0 items-center justify-center bg-black/35 text-white'>
                 <p className='text-2xl font-bold capitalize'>contact info</p>
             </div>       
