@@ -26,7 +26,9 @@ def getCountries(request,cat):
 @api_view(['GET'])
 def getTestimonials(request,page):
     try:
-        testimonials = Testimonial.objects.filter(page__slug=page)[:5]
+        current_date = datetime.now()
+        day_number = current_date.day  % 10
+        testimonials = Testimonial.objects.filter(page__slug=page)[day_number:day_number+10]
         serializer = TestimonialSerializer(testimonials, many=True)
         return Response(serializer.data)
 

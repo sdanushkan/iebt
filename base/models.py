@@ -189,6 +189,7 @@ class DualQualification(models.Model):
     slug = models.SlugField(max_length=200, null=True, blank=True)
     name = models.CharField(max_length=200, null=True, blank=True)
     description = RichTextField(null=True, blank=True)
+    brochure = models.FileField(upload_to='brochure/', null=True, blank=True)
 
     def __str__(self):
         return self.name

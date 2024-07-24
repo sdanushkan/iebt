@@ -41,6 +41,10 @@ import parse from 'html-react-parser';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import { format } from 'date-fns';
+import sa1 from '../assets/sa1.jpg'
+import sa2 from '../assets/sa2.jpg'
+import sa3 from '../assets/sa3.jpg'
+import sa4 from '../assets/sa4.jpg'
 
 // Import Swiper styles
 import 'swiper/css';
@@ -104,8 +108,6 @@ const CountriesScreen = () => {
     
     setndestination(destination.anchorKey)
   }, [destination])
-  
-
 
   const dispatch = useDispatch() 
   const history = useNavigate()
@@ -253,21 +255,27 @@ const CountriesScreen = () => {
               autoplay
             >
               <SwiperSlide className='w-full h-full object-contain'>
-                <img src='https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' alt='' className='h-[600px] xl:h-[500px] w-full object-cover object-bottom'/>
+                <img src={sa1} alt='' className='h-[600px] xl:h-[500px] w-full object-cover object-center'/>
               </SwiperSlide>
               <SwiperSlide className='w-full h-full object-contain'>
-                <img src='https://media.istockphoto.com/id/1307457391/photo/happy-black-student-raising-arm-to-answer-question-while-attending-class-with-her-university.jpg?s=612x612&w=0&k=20&c=iZaZFyC-WqlqSQc4elqUNPTxLvWPe8P5Tb_YdZnrI9Q=' alt='' className='h-[600px] xl:h-[500px] w-full object-cover object-center'/>
+                <img src={sa2} alt='' className='h-[600px] xl:h-[500px] w-full object-cover object-center'/>
+              </SwiperSlide>
+              <SwiperSlide className='w-full h-full object-contain'>
+                <img src={sa3} alt='' className='h-[600px] xl:h-[500px] w-full object-cover object-center'/>
+              </SwiperSlide>
+              <SwiperSlide className='w-full h-full object-contain'>
+                <img src={sa4} alt='' className='h-[600px] xl:h-[500px] w-full object-cover object-center'/>
               </SwiperSlide>
               {/* <SwiperSlide className='w-full h-full object-contain'>
-                <img src='https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' alt='' className='h-[500px] w-full object-cover object-bottom'/>
+                <img src='https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' alt='' className='h-[500px] w-full object-cover object-center'/>
               </SwiperSlide> */}
             </Swiper>
           </div>
 
           <div className='h-[400px] lg:h-[500px] w-max-[1024px] mx-auto relative z-30 flex items-start justify-end'>
               <div className='h-full lg:w-[30%]'>
-              <div className='h-full w-full flex flex-col justify-center relative bg-black'>
-                <img src='https://www.augusta.edu/studyabroad/images/study-abroad-banner.png' alt='' className='h-full w-full absolute object-cover opacity-75'/>
+              <div className='h-full w-full flex flex-col justify-center relative bg-blue-500'>
+          
 
                 <div className='h-full w-full flex flex-col justify-center px-8 md:border-l-[10px] border-white gap-4 relative md:mt-24'>
                   <p className='text-2xl font-bold'>Register</p>
@@ -435,7 +443,7 @@ const CountriesScreen = () => {
                 <img src='https://media.istockphoto.com/id/1307457391/photo/happy-black-student-raising-arm-to-answer-question-while-attending-class-with-her-university.jpg?s=612x612&w=0&k=20&c=iZaZFyC-WqlqSQc4elqUNPTxLvWPe8P5Tb_YdZnrI9Q=' alt='' className='h-[600px] xl:h-[500px] w-full object-cover object-center'/>
               </SwiperSlide> */}
               {/* <SwiperSlide className='w-full h-full object-contain'>
-                <img src='https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' alt='' className='h-[500px] w-full object-cover object-bottom'/>
+                <img src='https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' alt='' className='h-[500px] w-full object-cover object-center'/>
               </SwiperSlide> */}
             </Swiper>
             
@@ -469,7 +477,7 @@ const CountriesScreen = () => {
       
 
       <section className='h-fit w-full relative overflow-hidden px-8 py-6'>
-        <div className='h-fit md:h-40 w-full max-w-[1024px] mx-auto grid grid-cols-2 md:grid-cols-5 justify-center gap-2 lg:gap-6'>
+        <div className='h-fit md:h-40 w-full max-w-[1024px] mx-auto grid grid-cols-2 md:grid-cols-4 justify-center gap-2 lg:gap-6'>
           <Link to={'/abroad/about'} className='w-full h-36 flex flex-col items-center justify-center gap-2 md:gap-4 hover:bg-white text-black duration-300 cursor-pointer hover:text-[#DA0C0C] p-10 hover:p-8 rounded-[8px] bg-red-50 hover:shadow-[0px_4px_50px_rgba(0,0,0,0.075)]'>
               <img src={sp}  alt='' className='w-full h-full object-contain' />
               <p className='text-base font-bold text-red-900 px-2 text-center'>About us</p>
@@ -1050,7 +1058,7 @@ const CountriesScreen = () => {
                           <img src={i.image? i.image:'https://ucarecdn.com/c49a7d0c-089f-4ac3-854f-d2b2d815c01d/-/crop/750x422/0,39/-/preview/-/format/auto/-/format/auto/-/quality/smart_retina/-/resize/824x/'} alt='' className='object-cover rounded-[6px] h-[150px] w-full mx-auto hover:scale-105 duration-200' />
                           <div className='flex flex-col pt-6 gap-4'>
                             <div className='flex flex-col-reverse'>
-                            <p className='text-sm opacity-75'>{i.event}Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                            <p className='text-sm opacity-75'>{i.event}</p>
                             <p className='text-lg text-[#DA0C0C] font-bold'>{format(new Date(i.date), 'dd MMMM yyyy')}</p>
                             </div>
                           </div>
@@ -1086,7 +1094,7 @@ const CountriesScreen = () => {
                           <img src={i.image? i.image:'https://ucarecdn.com/c49a7d0c-089f-4ac3-854f-d2b2d815c01d/-/crop/750x422/0,39/-/preview/-/format/auto/-/format/auto/-/quality/smart_retina/-/resize/824x/'} alt='' className='object-cover rounded-[6px] h-[150px] w-full mx-auto hover:scale-105 duration-200' />
                           <div className='flex flex-col pt-6 gap-4'>
                             <div className='flex flex-col-reverse'>
-                            <p className='text-sm opacity-75'>{i.event}Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                            <p className='text-sm opacity-75'>{i.event}</p>
                             <p className='text-lg text-[#DA0C0C] font-bold'>{format(new Date(i.date), 'dd MMMM yyyy')}</p>
                             </div>
                           </div>
@@ -1770,7 +1778,7 @@ const CountriesScreen = () => {
                   freeMode={true}
                   autoplay
                   modules={[FreeMode, Autoplay]}
-                  className=""
+                  className="w-full"
                 >
                   <SwiperSlide className='max-h-[300px] w-full mt-2 mb-12 bg-red-50 p-6 md:p-12 rounded-[8px] relative overflow-hidden '>
                     {/* <div className='h-[100px] w-[100px] absolute top-0 right-0 bg-[#DA0C0C] rotate-45 -z-20'>
@@ -1825,7 +1833,7 @@ const CountriesScreen = () => {
                   freeMode={true}
                   autoplay
                   modules={[FreeMode, Autoplay]}
-                  className=""
+                  className="w-full"
                 >
                   {
                     testimonials.filter(f=>f.university != null).map(i => (
@@ -1861,7 +1869,7 @@ const CountriesScreen = () => {
                   freeMode={true}
                   autoplay
                   modules={[FreeMode, Autoplay]}
-                  className=""
+                  className="w-full"
                 >
                   <SwiperSlide className='max-h-[300px] w-full mt-2 mb-12 bg-red-50 p-6 md:p-12 rounded-[8px] relative overflow-hidden '>
                     {/* <div className='h-[100px] w-[100px] absolute top-0 right-0 bg-[#DA0C0C] rotate-45 -z-20'>
@@ -1916,7 +1924,7 @@ const CountriesScreen = () => {
                   freeMode={true}
                   autoplay
                   modules={[FreeMode, Autoplay]}
-                  className=""
+                  className="w-full"
                 >
                   {
                     testimonials.filter(f=>f.university != null).map(i => (

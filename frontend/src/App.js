@@ -27,7 +27,6 @@ const App = () => {
   return ( 
     <Router>
       <Header/>
-      <Chatbot/>
       <Routes>
         <Route path='/' element={<HomeScreen/>} />
         <Route path='about' element={<AboutScreen/>} />

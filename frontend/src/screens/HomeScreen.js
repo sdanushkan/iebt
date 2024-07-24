@@ -28,6 +28,10 @@ import ReactWhatsapp from 'react-whatsapp';
 import parse from 'html-react-parser';
 import YouTube from 'react-youtube';
 import { format } from 'date-fns';
+import h1 from '../assets/h1.jpg'
+import h2 from '../assets/h2.jpg'
+import sa1 from '../assets/sa1.jpg'
+import sa2 from '../assets/sa2.jpg'
 
 // Import Swiper styles
 import 'swiper/css';
@@ -331,10 +335,16 @@ const HomeScreen = () => {
             autoplay
           >
             <SwiperSlide className='w-full h-full object-contain'>
-              <img src='https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' alt='' className='h-[600px] xl:h-[500px] w-full object-cover object-bottom'/>
+              <img src={h1} alt='' className='h-[600px] xl:h-[500px] w-full object-cover object-center'/>
             </SwiperSlide>
             <SwiperSlide className='w-full h-full object-contain'>
-              <img src='https://media.istockphoto.com/id/1307457391/photo/happy-black-student-raising-arm-to-answer-question-while-attending-class-with-her-university.jpg?s=612x612&w=0&k=20&c=iZaZFyC-WqlqSQc4elqUNPTxLvWPe8P5Tb_YdZnrI9Q=' alt='' className='h-[600px] xl:h-[500px] w-full object-cover object-center'/>
+              <img src={h2}/>
+            </SwiperSlide>
+            <SwiperSlide className='w-full h-full object-contain'>
+              <img src={sa1} alt='' className='h-[600px] xl:h-[500px] w-full object-cover object-center'/>
+            </SwiperSlide>
+            <SwiperSlide className='w-full h-full object-contain'>
+              <img src={sa2}/>
             </SwiperSlide>
           </Swiper>
         </div>
@@ -1659,7 +1669,7 @@ const HomeScreen = () => {
                   freeMode={true}
                   autoplay
                   modules={[FreeMode, Autoplay]}
-                  className=""
+                  className="w-full"
                 >
                   {
                     testimonials.filter(f=>f.university == null).map(i => (
@@ -1765,7 +1775,7 @@ const HomeScreen = () => {
                   freeMode={true}
                   autoplay
                   modules={[FreeMode, Autoplay]}
-                  className=""
+                  className="w-full"
                 >
                   {
                     testimonials.filter(f=>f.university == null).map(i=>(

@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux'
 import { useLocation, useNavigate } from 'react-router-dom'
 import {Accordion, AccordionItem} from "@nextui-org/accordion";
 import {Tabs, Tab, Card, CardBody, CardHeader, Skeleton} from "@nextui-org/react";
-
+import au1 from '../assets/au1.jpg'
 
 const AboutScreen = () => {
   const dispatch = useDispatch()
@@ -19,7 +19,7 @@ const AboutScreen = () => {
   return (
     <div className='h-fit w-full flex flex-col gap-12 pb-12'>
       <section className='h-fit w-full relative bg-black'>
-        <img src={'https://t4.ftcdn.net/jpg/05/08/80/19/360_F_508801991_UTsCAOorx25USitqonfRADueJlzyjhDq.jpg'} alt='' className='h-[300px] w-full object-cover relative z-0 opacity-50' />
+        <img src={au1} alt='' className='h-[300px] w-full object-cover relative z-0 opacity-50' />
         <div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 pt-16'>
           <p className='text-2xl md:text-4xl text-white font-bold'>About us</p>
         </div>

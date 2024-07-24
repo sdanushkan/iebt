@@ -20,12 +20,12 @@ class FAQInline(admin.TabularInline):
     model = FAQ
     extra = 1
 
-# class CourseAdmin(admin.ModelAdmin):
-#     # inlines = [UnitInline , CourseRequirmentInline]
-#     search_fields= [ 'faculty', 'programme', 'qualification']
-#     list_filter=[ 'faculty', 'programme', 'qualification']
-#     list_display=['name', 'faculty', 'programme', 'qualification', 'ebrowcher',  'show_in_header','show_in_faculty','show_in_qualification', 'show_in_footer']
-#     list_editable = [ 'faculty', 'programme', 'qualification', 'ebrowcher',  'show_in_header','show_in_faculty','show_in_qualification', 'show_in_footer']
+class CourseAdmin(admin.ModelAdmin):
+    # inlines = [UnitInline , CourseRequirmentInline]
+    search_fields= [ 'faculty', 'programme', 'qualification']
+    list_filter=[ 'faculty', 'programme', 'qualification']
+    list_display=['name', 'faculty', 'programme', 'qualification', 'ebrowcher',  'show_in_header','show_in_faculty','show_in_qualification', 'show_in_footer']
+    list_editable = [ 'faculty', 'programme', 'qualification', 'ebrowcher',  'show_in_header','show_in_faculty','show_in_qualification', 'show_in_footer']
 
 class CountryAdmin(admin.ModelAdmin):
     inlines = [FAQInline] 
