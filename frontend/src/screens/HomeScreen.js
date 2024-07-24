@@ -338,13 +338,13 @@ const HomeScreen = () => {
               <img src={h1} alt='' className='h-[600px] xl:h-[500px] w-full object-cover object-center'/>
             </SwiperSlide>
             <SwiperSlide className='w-full h-full object-contain'>
-              <img src={h2}/>
+              <img src={h2} alt='' className='h-[600px] xl:h-[500px] w-full object-cover object-center'/>
             </SwiperSlide>
             <SwiperSlide className='w-full h-full object-contain'>
-              <img src={sa1} alt='' className='h-[600px] xl:h-[500px] w-full object-cover object-center'/>
+              <img src={sa1} alt='' className='h-[600px] xl:h-[500px] w-full object-cover object-center' />
             </SwiperSlide>
             <SwiperSlide className='w-full h-full object-contain'>
-              <img src={sa2}/>
+              <img src={sa2} alt='' className='h-[600px] xl:h-[500px] w-full object-cover object-center'/>
             </SwiperSlide>
           </Swiper>
         </div>
@@ -356,7 +356,7 @@ const HomeScreen = () => {
             direction={'vertical'}
             
             modules={[ Autoplay]}
-            className='h-full w-full mt-[100px] flex flex-col justify-center gap-6 '
+            className='h-full w-full mt-[100px] flex flex-col justify-center gap-6 overflow-hidden'
             autoplay
           >
             <SwiperSlide className='w-full h-full flex justify-start object-contain'>
@@ -534,7 +534,7 @@ const HomeScreen = () => {
                 :
                 faculties?
                 faculties.map(i => (
-                  <Link to={`courses/${i.slug}/programes/awards/credits`} className='h-[150px] md:h-[200px] w-full bg-black relative rounded-[16px] overflow-hidden'>
+                  <Link to={`faculty/courses/${i.slug}/programes/awards/credits`} className='h-[150px] md:h-[200px] w-full bg-black relative rounded-[16px] overflow-hidden'>
                     <img src={i.image} alt='' className='h-full w-full relative z-0' />
                     <div className='w-full h-full bg-black/20 absolute z-30 top-0 hover:bg-black/30 duration-200'>
                     </div>
