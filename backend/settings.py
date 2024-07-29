@@ -122,19 +122,19 @@ REST_FRAMEWORK = {
 #    }
 # }
 
-# DATABASES = {
-#    'default': {
-#        'ENGINE': 'django.db.backends.mysql',
-#        'NAME': 'iebc_demo',
-#        'USER': 'root',
-#        'PASSWORD': 'passwd31',
-#        'HOST': 'localhost',
-#        'PORT': '3306',
-#         # 'OPTIONS': {
-#         #     'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
-#         # },
-#    }
-# }
+DATABASES = {
+   'default': {
+       'ENGINE': 'django.db.backends.mysql',
+       'NAME': 'iebc_demo',
+       'USER': 'root',
+       'PASSWORD': 'passwd31',
+       'HOST': 'localhost',
+       'PORT': '3306',
+        # 'OPTIONS': {
+        #     'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+        # },
+   }
+}
 
 DATABASES = {
    'default': {

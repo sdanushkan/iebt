@@ -1,11 +1,11 @@
 {
   "files": {
-    "main.css": "/static/css/main.d5e5b967.css",
-    "main.js": "/static/js/main.d6f3d41c.js",
+    "main.css": "/static/css/main.0a3d24e2.css",
+    "main.js": "/static/js/main.6cfd4686.js",
     "reactPlayerYouTube.js": "/static/js/reactPlayerYouTube.531585be.chunk.js",
     "reactPlayerSoundCloud.js": "/static/js/reactPlayerSoundCloud.4ee94330.chunk.js",
     "reactPlayerVimeo.js": "/static/js/reactPlayerVimeo.7e31af21.chunk.js",
-    "reactPlayerMux.js": "/static/js/reactPlayerMux.bcc4aad5.chunk.js",
+    "reactPlayerMux.js": "/static/js/reactPlayerMux.3bc42904.chunk.js",
     "reactPlayerFacebook.js": "/static/js/reactPlayerFacebook.04b98de8.chunk.js",
     "reactPlayerStreamable.js": "/static/js/reactPlayerStreamable.2f3c04ea.chunk.js",
     "reactPlayerWistia.js": "/static/js/reactPlayerWistia.beeffb9b.chunk.js",
@@ -21,6 +21,13 @@
     "static/js/453.d855a71b.chunk.js": "/static/js/453.d855a71b.chunk.js",
     "static/media/sdv.mp4": "/static/media/sdv.82dc4f88056c4d314db9.mp4",
     "static/media/bg.gif": "/static/media/bg.fc9ddadb4630389a6d3a.gif",
+    "static/media/BANNER-01.jpg": "/static/media/BANNER-01.f5389d8d72630ff86027.jpg",
+    "static/media/BANNER-03.jpg": "/static/media/BANNER-03.384e0108517ac74b0f5e.jpg",
+    "static/media/BANNER-05.jpg": "/static/media/BANNER-05.af70a62253d0d44d3a06.jpg",
+    "static/media/BANNER-06.jpg": "/static/media/BANNER-06.bcb3e728ac28447bdde0.jpg",
+    "static/media/BANNER-07.jpg": "/static/media/BANNER-07.6e853b32479e53423972.jpg",
+    "static/media/BANNER-04.jpg": "/static/media/BANNER-04.72a48d0ba765586eccf2.jpg",
+    "static/media/BANNER-02.jpg": "/static/media/BANNER-02.f7907f4e58326538e837.jpg",
     "static/media/dqb.jpg": "/static/media/dqb.bca84307f5f30afae030.jpg",
     "static/media/sa2.jpg": "/static/media/sa2.cdf8bc3e232edafd5512.jpg",
     "static/media/c.jpg": "/static/media/c.200313d9e7295c3d957a.jpg",
@@ -31,19 +38,20 @@
     "static/media/h2.jpg": "/static/media/h2.a1e34be864b3f58e921f.jpg",
     "static/media/sa1.jpg": "/static/media/sa1.5349401331a86be32e1d.jpg",
     "static/media/apply.png": "/static/media/apply.10407fe8c2e8eca047ad.png",
-    "static/media/h1.jpg": "/static/media/h1.ee184a9caf08c806d57d.jpg",
     "static/media/logoAD.png": "/static/media/logoAD.ac56bc5a4582ffb8f1a1.png",
     "static/media/cu2.jpg": "/static/media/cu2.719c4cdac3173f0aae9d.jpg",
     "static/media/dq.jpg": "/static/media/dq.dbee180ef31a1e181466.jpg",
     "static/media/Logo.png": "/static/media/Logo.d9f1ea32ed139e7a5950.png",
     "static/media/au1.jpg": "/static/media/au1.496f9f2778b51189bfb7.jpg",
+    "static/media/Ofqual.svg": "/static/media/Ofqual.ba00a765d1bea7940122c3b16f891c32.svg",
+    "static/media/inquiry.svg": "/static/media/inquiry.969c99a96eed6aa4836908003620d356.svg",
     "index.html": "/index.html",
-    "main.d5e5b967.css.map": "/static/css/main.d5e5b967.css.map",
-    "main.d6f3d41c.js.map": "/static/js/main.d6f3d41c.js.map",
+    "main.0a3d24e2.css.map": "/static/css/main.0a3d24e2.css.map",
+    "main.6cfd4686.js.map": "/static/js/main.6cfd4686.js.map",
     "reactPlayerYouTube.531585be.chunk.js.map": "/static/js/reactPlayerYouTube.531585be.chunk.js.map",
     "reactPlayerSoundCloud.4ee94330.chunk.js.map": "/static/js/reactPlayerSoundCloud.4ee94330.chunk.js.map",
     "reactPlayerVimeo.7e31af21.chunk.js.map": "/static/js/reactPlayerVimeo.7e31af21.chunk.js.map",
-    "reactPlayerMux.bcc4aad5.chunk.js.map": "/static/js/reactPlayerMux.bcc4aad5.chunk.js.map",
+    "reactPlayerMux.3bc42904.chunk.js.map": "/static/js/reactPlayerMux.3bc42904.chunk.js.map",
     "reactPlayerFacebook.04b98de8.chunk.js.map": "/static/js/reactPlayerFacebook.04b98de8.chunk.js.map",
     "reactPlayerStreamable.2f3c04ea.chunk.js.map": "/static/js/reactPlayerStreamable.2f3c04ea.chunk.js.map",
     "reactPlayerWistia.beeffb9b.chunk.js.map": "/static/js/reactPlayerWistia.beeffb9b.chunk.js.map",
@@ -59,7 +67,7 @@
     "453.d855a71b.chunk.js.map": "/static/js/453.d855a71b.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.d5e5b967.css",
-    "static/js/main.d6f3d41c.js"
+    "static/css/main.0a3d24e2.css",
+    "static/js/main.6cfd4686.js"
   ]
 }

@@ -1836,7 +1836,7 @@ const CountriesScreen = () => {
                   className="w-full"
                 >
                   {
-                    testimonials.filter(f=>f.university != null).map(i => (
+                    testimonials.filter(f=>f.page.slug == 'abroad').map(i => (
                       <SwiperSlide key={i.id} className='max-h-[300px] w-full mt-2 mb-12 bg-red-50 p-6 md:p-12 rounded-[8px] relative overflow-hidden '>
                       {/* <div className='h-[100px] w-[100px] absolute top-0 right-0 bg-[#DA0C0C] rotate-45 -z-20'>
 
@@ -1862,7 +1862,7 @@ const CountriesScreen = () => {
 
             {
               testimonialListLoading?
-              <div className='h-fit hidden sm:flex'>
+              <div className='h-fit sm:hidden'>
                 <Swiper
                   slidesPerView={1}
                   spaceBetween={25}
@@ -1927,7 +1927,7 @@ const CountriesScreen = () => {
                   className="w-full"
                 >
                   {
-                    testimonials.filter(f=>f.university != null).map(i => (
+                    testimonials.filter(f=>f.page.slug == 'abroad').map(i => (
                       <SwiperSlide key={i.id} className='max-h-[300px] w-full mt-2 mb-12 bg-red-50 p-6 md:p-12 rounded-[8px] relative overflow-hidden '>
                       {/* <div className='h-[100px] w-[100px] absolute top-0 right-0 bg-[#DA0C0C] rotate-45 -z-20'>
 
