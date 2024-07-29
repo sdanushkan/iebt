@@ -393,8 +393,8 @@ const HomeScreen = () => {
           >
            <SwiperSlide className='w-full mt-[10px] h-full flex justify-start object-contain'>
               <div className='h-[400px] xl:h-[300px] w-full max-w-[1024px] mx-auto flex flex-col justify-center gap-6'>
-                <div className='h-fit w-full md:w-fit flex flex-col gap-4 rounded-[16px]'>
-                  <div className='flex flex-col gap-1 max-w-[500px] mx-auto'>
+                <div className='h-fit w-fit md:w-fit flex flex-col gap-4 rounded-[16px] p-4 backdrop-blur-lg'>
+                  <div className='flex flex-col gap-1 max-w-[500px]'>
                     <p className='text-2xl md:text-4xl font-bold text-black'>Learn <span className='text-[#DA0C0C] text-3xl md:text-5xl'>Locally</span></p>
                     <p className='text-black font-bold text-3xl'>Excel <span className='text-[#DA0C0C] scale-110'>Globally</span></p>
                     <p className='font-bold text-xl md:text-3xl text-blue-600'>Succeed universally</p>
@@ -413,8 +413,8 @@ const HomeScreen = () => {
 
             <SwiperSlide className='w-full mt-[10px] h-full flex justify-start object-contain'>
               <div className='h-[400px] xl:h-[300px] w-full max-w-[1024px] mx-auto flex flex-col justify-center gap-6'>
-                <div className='h-fit w-full md:w-fit flex flex-col gap-4 rounded-[16px]'>
-                  <div className='flex flex-col gap-1 max-w-[400px] mx-auto'>
+                <div className='h-fit w-fit md:w-fit flex flex-col gap-4 rounded-[16px] p-4 backdrop-blur-lg'>
+                  <div className='flex flex-col gap-1 max-w-[400px]'>
                     <p className='text-white font-bold text-2xl'>Transform your Postgraduate Diploma into a Master's Top up Degree in Only 6 Months</p>
                   </div>
                   <div className='flex gap-2'>
@@ -432,8 +432,8 @@ const HomeScreen = () => {
             
             <SwiperSlide className='w-full mt-[10px] h-full flex justify-start object-contain'>
               <div className='h-[400px] xl:h-[300px] w-full max-w-[1024px] mx-auto flex flex-col justify-center gap-6'>
-                <div className='h-fit w-full md:w-fit flex flex-col gap-4 rounded-[16px]'>
-                  <div className='flex flex-col gap-1 max-w-[400px] mx-auto'>
+                <div className='h-fit w-fit md:w-fit flex flex-col gap-4 rounded-[16px] p-4 backdrop-blur-lg'>
+                  <div className='flex flex-col gap-1 max-w-[400px]'>
                     <p className='text-white font-bold text-2xl'>Top-Rated British Postgraduate Institute in Sri Lanka</p>
                   </div>
                   <div className='flex gap-2'>
@@ -449,8 +449,8 @@ const HomeScreen = () => {
           
             <SwiperSlide className='w-full mt-[10px] h-full flex justify-start object-contain'>
               <div className='h-[400px] xl:h-[300px] w-full max-w-[1024px] mx-auto flex flex-col justify-center gap-6'>
-                <div className='h-fit w-full md:w-fit flex flex-col gap-4 rounded-[16px]'>
-                  <div className='flex flex-col gap-1 max-w-[400px] mx-auto'>
+                <div className='h-fit w-fit md:w-fit flex flex-col gap-4 rounded-[16px] p-4 backdrop-blur-lg'>
+                  <div className='flex flex-col gap-1 max-w-[400px]'>
                     <p className='text-white font-bold text-2xl'>Unlock a Wealth of knowledge with Our Extensive British Graduate Diplomas</p>
                   </div>
                   <div className='flex gap-2'>
@@ -467,8 +467,8 @@ const HomeScreen = () => {
 
             <SwiperSlide className='w-full mt-[10px] h-full flex justify-start object-contain'>
               <div className='h-[400px] xl:h-[300px] w-full max-w-[1024px] mx-auto flex flex-col justify-center gap-6'>
-                <div className='h-fit w-full md:w-fit flex flex-col gap-4 rounded-[16px]'>
-                  <div className='flex flex-col gap-1 max-w-[400px] mx-auto'>
+                <div className='h-fit w-fit md:w-fit flex flex-col gap-4 rounded-[16px] p-4 backdrop-blur-lg'>
+                  <div className='flex flex-col gap-1 max-w-[400px]'>
                     <p className='text-white font-bold text-xl'>Embark on Your British Higher Diploma Journey After A/Ls: Complete 1st and Year Qualifications with us!</p>
                   </div>
                   <div className='flex gap-2'>
@@ -485,8 +485,8 @@ const HomeScreen = () => {
 
             <SwiperSlide className='w-full mt-[10px] h-full flex justify-start object-contain'>
               <div className='h-[400px] xl:h-[300px] w-full max-w-[1024px] mx-auto flex flex-col justify-center gap-6'>
-                <div className='h-fit w-full md:w-fit flex flex-col gap-4 rounded-[16px]'>
-                  <div className='flex flex-col gap-1 max-w-[400px] mx-auto'>
+                <div className='h-fit w-fit md:w-fit flex flex-col gap-4 rounded-[16px] p-4 backdrop-blur-lg'>
+                  <div className='flex flex-col gap-1 max-w-[400px]'>
                     <p className='text-white font-bold text-xl'>Earn a British Diploma with Global Recognition : Your Key to Worldwide success!</p>
                   </div>
                   <div className='flex gap-2'>
@@ -499,8 +499,8 @@ const HomeScreen = () => {
 
             <SwiperSlide className='w-full mt-[10px] h-full flex justify-start object-contain'>
               <div className='h-[400px] xl:h-[300px] w-full max-w-[1024px] mx-auto flex flex-col justify-center gap-6'>
-                <div className='h-fit w-full md:w-fit flex flex-col gap-4 rounded-[16px]'>
-                  <div className='flex flex-col gap-1 max-w-[400px] mx-auto'>
+                <div className='h-fit w-fit md:w-fit flex flex-col gap-4 rounded-[16px] p-4 backdrop-blur-lg'>
+                  <div className='flex flex-col gap-1 max-w-[400px]'>
                     <p className='text-white font-bold text-xl'>Build Your Future: Begin Your Foundation Course After O/Ls to prepare for an Undergraduate Degree!</p>
                   </div>
                   <div className='flex gap-2'>
@@ -523,7 +523,7 @@ const HomeScreen = () => {
                   <p className='text-xs text-gray-500'>Search And Filter our courses</p>
                 </div>
                 <div>
-                  <Link to={`${faculty}${programe}${qualification}${credit}`} color='' className="flex bg-[#DA0C0C] text-xs lg:text-sm text-white px-4 md:px-5 py-2 md:py-3 rounded-full w-fit">
+                  <Link to={`courses/${faculty}/${programe}/${qualification}/${credit}`} color='' className="flex bg-[#DA0C0C] text-xs lg:text-sm text-white px-4 md:px-5 py-2 md:py-3 rounded-full w-fit">
                     <p>Search</p>
                   </Link>
                 </div>
