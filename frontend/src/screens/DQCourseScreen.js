@@ -13,6 +13,7 @@ import uk from '../assets/ukQualification.png'
 import eu from '../assets/euQ.png' 
 import  wes  from '../assets/WES.png'
 import  ugc  from '../assets/UGC.png' 
+import  of  from '../assets/Ofqual.svg'
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -232,8 +233,8 @@ const DQCourseScreen = () => {
                                     }
                                 </div>
                                 <div className='max-w-full'>
-                                    {
-                                        co.programme.slug=='diploma'?
+                                {
+                                        course.programme.slug=='diploma' && (course.qualification.slug=='lrn-uk-qualification')?
                                         <Swiper
                                             effect={'flip'}
                                             grabCursor={true}
@@ -246,7 +247,7 @@ const DQCourseScreen = () => {
                                             <SwiperSlide>
                                                 <div className='min-h-[150px] flex flex-col items-center justify-center bg-[#DA0C0C] rounded-[8px] gap-2'>
                                                     <p  className='text-2xl font-bold text-white uppercase text-center'>
-                                                        {co.programme.name}
+                                                        {course.programme.name}
                                                     </p>
                                                     <div className='flex gap-3'>
                                                         
@@ -261,7 +262,35 @@ const DQCourseScreen = () => {
                                                 </div>
                                             </SwiperSlide>
                                         </Swiper>:
-                                        co.programme.slug=='foundation-level-3'?
+                                        course.programme.slug=='diploma'?
+                                        <Swiper
+                                            effect={'flip'}
+                                            grabCursor={true}
+                                            autoplay={{
+                                                delay: 2000,
+                                                disableOnInteraction: false,
+                                            }}
+                                            modules={[EffectFlip, Autoplay]}
+                                        >
+                                            <SwiperSlide>
+                                                <div className='min-h-[150px] flex flex-col items-center justify-center bg-[#DA0C0C] rounded-[8px] gap-2'>
+                                                    <p  className='text-2xl font-bold text-white uppercase text-center'>
+                                                        {course.programme.name}
+                                                    </p>
+                                                    <div className='flex gap-3'>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </SwiperSlide>
+                                            <SwiperSlide>
+                                                <div className='flex flex-col gap-1 justify-center bg-[#DA0C0C] min-h-[150px] rounded-[8px] p-4'>
+                                            
+                                                    <p className='text-3xl font-bold text-white mx-auto text-center'>Scholarship Available</p>
+                                                
+                                                </div>
+                                            </SwiperSlide>
+                                        </Swiper>:
+                                        course.programme.slug=='foundation-level-3'?
                                         <Swiper
                                             effect={'flip'}
                                             grabCursor={true}
@@ -274,7 +303,7 @@ const DQCourseScreen = () => {
                                             <SwiperSlide>
                                                 <div className='min-h-[150px] flex flex-col items-center justify-center bg-[#DA0C0C] rounded-[8px] gap-2'>
                                                     <p  className='text-lg px-2 font-bold text-white uppercase text-center'>
-                                                        {co.programme.name}
+                                                        {course.programme.name}
                                                     </p>
                                                     <div className='flex gap-3'>
                                                         <div className='bg-white text-black capitalize rounded-[8px] h-fit py-4 px-4 flex items-center justify-center'>
@@ -295,7 +324,7 @@ const DQCourseScreen = () => {
                                                 </div>
                                             </SwiperSlide>
                                         </Swiper>:
-                                        co.programme.slug=='higher-diploma-level-4-5'?
+                                        course.programme.slug=='higher-diploma-level-4-5'&& (course.qualification.slug=='lrn-uk-qualification')?
                                         <Swiper
                                             effect={'flip'}
                                             grabCursor={true}
@@ -308,11 +337,11 @@ const DQCourseScreen = () => {
                                             <SwiperSlide>
                                                 <div className='min-h-[150px] flex flex-col items-center justify-center bg-[#DA0C0C] rounded-[8px] gap-2'>
                                                     <p  className='text-lg px-2 font-bold text-white uppercase text-center'>
-                                                        Higher Diploma
+                                                        {course.programme.name}
                                                     </p>
                                                     <div className='flex gap-3'>
-                                                    <div className='bg-white text-black capitalize rounded-[8px] h-fit py-4 px-4 flex items-center justify-center'>
-                                                            <p className='font-semibold'>Level 5</p>
+                                                        <div className='bg-white text-black capitalize rounded-[8px] h-fit py-4 px-4 flex items-center justify-center'>
+                                                            <p className='font-semibold'>Level 4/5</p>
                                                         </div>
                                                         <div className='bg-white text-black capitalize rounded-[8px] h-fit py-4 px-4 flex items-center justify-center'>
                                                             <p className='font-semibold'>240 credits</p>
@@ -329,7 +358,7 @@ const DQCourseScreen = () => {
                                                 </div>
                                             </SwiperSlide>
                                         </Swiper>:
-                                        co.programme.slug=='higher-diploma-level-5'?
+                                        course.programme.slug=='higher-diploma-level-4-5'?
                                         <Swiper
                                             effect={'flip'}
                                             grabCursor={true}
@@ -342,7 +371,40 @@ const DQCourseScreen = () => {
                                             <SwiperSlide>
                                                 <div className='min-h-[150px] flex flex-col items-center justify-center bg-[#DA0C0C] rounded-[8px] gap-2'>
                                                     <p  className='text-lg px-2 font-bold text-white uppercase text-center'>
-                                                        {co.programme.name}
+                                                        {course.programme.name}
+                                                    </p>
+                                                    <div className='flex gap-3'>
+                                                    <div className='bg-white text-black capitalize rounded-[8px] h-fit py-4 px-4 flex items-center justify-center'>
+                                                            <img src={wes} alt='' className='h-12 w-12 object-contain '/>
+                                                        </div>
+                                                        <div className='bg-white text-black capitalize rounded-[8px] h-fit py-4 px-4 flex items-center justify-center'>
+                                                        <img src={of} alt='' className='h-12 w-12 object-contain '/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </SwiperSlide>
+                                            <SwiperSlide>
+                                                <div className='flex flex-col gap-1 justify-center bg-[#DA0C0C] min-h-[150px] rounded-[8px] p-4'>
+                                            
+                                                    <p className='text-3xl font-bold text-white mx-auto text-center'>Scholarship Available</p>
+                                                
+                                                </div>
+                                            </SwiperSlide>
+                                        </Swiper>:
+                                        course.programme.slug=='higher-diploma-level-5'?
+                                        <Swiper
+                                            effect={'flip'}
+                                            grabCursor={true}
+                                            autoplay={{
+                                                delay: 2000,
+                                                disableOnInteraction: false,
+                                            }}
+                                            modules={[EffectFlip, Autoplay]}
+                                        >
+                                            <SwiperSlide>
+                                                <div className='min-h-[150px] flex flex-col items-center justify-center bg-[#DA0C0C] rounded-[8px] gap-2'>
+                                                    <p  className='text-lg px-2 font-bold text-white uppercase text-center'>
+                                                        {course.programme.name}
                                                     </p>
                                                     <div className='flex gap-3'>
                                                     <div className='bg-white text-black capitalize rounded-[8px] h-fit py-4 px-4 flex items-center justify-center'>
@@ -363,7 +425,7 @@ const DQCourseScreen = () => {
                                                 </div>
                                             </SwiperSlide>
                                         </Swiper>:
-                                        co.programme.slug=='graduate-diploma-level-6'?
+                                        course.programme.slug=='graduate-diploma-level-6' && (course.qualification.slug=='lrn-uk-qualification')?
                                         <Swiper
                                             effect={'flip'}
                                             grabCursor={true}
@@ -376,7 +438,7 @@ const DQCourseScreen = () => {
                                             <SwiperSlide>
                                                 <div className='min-h-[150px] flex flex-col items-center justify-center bg-[#DA0C0C] rounded-[8px] gap-2'>
                                                     <p  className='text-lg px-2 font-bold text-white uppercase text-center'>
-                                                        {co.programme.name}
+                                                        {course.programme.name}
                                                     </p>
                                                     <div className='flex gap-3'>
                                                     <div className='bg-white text-black capitalize rounded-[8px] h-fit py-4 px-4 flex items-center justify-center'>
@@ -397,7 +459,7 @@ const DQCourseScreen = () => {
                                                 </div>
                                             </SwiperSlide>
                                         </Swiper>:
-                                        co.programme.slug=='bachelors-degree'?
+                                        course.programme.slug=='graduate-diploma-level-6' ?
                                         <Swiper
                                             effect={'flip'}
                                             grabCursor={true}
@@ -410,7 +472,40 @@ const DQCourseScreen = () => {
                                             <SwiperSlide>
                                                 <div className='min-h-[150px] flex flex-col items-center justify-center bg-[#DA0C0C] rounded-[8px] gap-2'>
                                                     <p  className='text-lg px-2 font-bold text-white uppercase text-center'>
-                                                        {co.programme.name}
+                                                        {course.programme.name}
+                                                    </p>
+                                                    <div className='flex gap-3'>
+                                                    <div className='bg-white text-black capitalize rounded-[8px] h-fit py-4 px-4 flex items-center justify-center'>
+                                                            <img src={wes} alt='' className='h-12 w-12 object-contain '/>
+                                                        </div>
+                                                        <div className='bg-white text-black capitalize rounded-[8px] h-fit py-4 px-4 flex items-center justify-center'>
+                                                        <img src={of} alt='' className='h-12 w-12 object-contain '/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </SwiperSlide>
+                                            <SwiperSlide>
+                                                <div className='flex flex-col gap-1 justify-center bg-[#DA0C0C] min-h-[150px] rounded-[8px] p-4'>
+                                            
+                                                    <p className='text-3xl font-bold text-white mx-auto text-center'>Scholarship Available</p>
+                                                
+                                                </div>
+                                            </SwiperSlide>
+                                        </Swiper>:
+                                        course.programme.slug=='bachelors-degree'?
+                                        <Swiper
+                                            effect={'flip'}
+                                            grabCursor={true}
+                                            autoplay={{
+                                                delay: 2000,
+                                                disableOnInteraction: false,
+                                            }}
+                                            modules={[EffectFlip, Autoplay]}
+                                        >
+                                            <SwiperSlide>
+                                                <div className='min-h-[150px] flex flex-col items-center justify-center bg-[#DA0C0C] rounded-[8px] gap-2'>
+                                                    <p  className='text-lg px-2 font-bold text-white uppercase text-center'>
+                                                        {course.programme.name}
                                                     </p>
                                                     <div className='flex gap-3'>
                                                         <div className='bg-white text-black capitalize rounded-[8px] h-fit py-4 px-4 flex items-center justify-center'>
@@ -431,7 +526,7 @@ const DQCourseScreen = () => {
                                                 </div>
                                             </SwiperSlide>
                                         </Swiper>:
-                                        co.programme.slug=='bachelors-degree-top-up'?
+                                        course.programme.slug=='bachelors-degree-top-up'?
                                         <Swiper
                                             effect={'flip'}
                                             grabCursor={true}
@@ -444,25 +539,25 @@ const DQCourseScreen = () => {
                                             <SwiperSlide>
                                                 <div className='min-h-[150px] flex flex-col items-center justify-center bg-[#DA0C0C] rounded-[8px] gap-2'>
                                                     <p  className='text-lg px-2 font-bold text-white uppercase text-center'>
-                                                        {co.programme.name}
+                                                        {course.programme.name}
                                                     </p>
                                                     <div className='flex gap-3'>
                                                         <div className='bg-white text-black capitalize rounded-[8px] h-fit py-4 px-4 flex items-center justify-center'>
                                                             {
-                                                                co.f_gif_logo1? (
-                                                                <img src={co.f_gif_logo1} alt='' className='h-12 w-12 object-contain '/>
+                                                                course.f_gif_logo1? (
+                                                                <img src={course.f_gif_logo1} alt='' className='h-12 w-12 object-contain '/>
                                                                 )
                                                                 :
-                                                                <p className='font-semibold'>{co.f_1_name}</p>
+                                                                <p className='font-semibold'>{course.f_1_name}</p>
                                                             }
                                                         </div>
                                                         <div className='bg-white text-black capitalize rounded-[8px] h-fit py-4 px-4 flex items-center justify-center'>
                                                             {
-                                                                co.f_gif_logo1? (
-                                                                <img src={co.f_gif_logo2} alt='' className='h-12 w-12 object-contain '/>
+                                                                course.f_gif_logo1? (
+                                                                <img src={course.f_gif_logo2} alt='' className='h-12 w-12 object-contain '/>
                                                                 )
                                                                 :
-                                                                <p className='font-semibold'>{co.f_2_name}</p>
+                                                                <p className='font-semibold'>{course.f_2_name}</p>
                                                             }
                                                         </div>
                                                         
@@ -477,7 +572,7 @@ const DQCourseScreen = () => {
                                                 </div>
                                             </SwiperSlide>
                                         </Swiper>:
-                                        co.programme.slug=='post-graduate-diploma-level-7'?
+                                        course.programme.slug=='post-graduate-diploma-level-7' && (course.qualification.slug=='othm-uk-qualification' || course.qualification.slug=='qualifi-uk-qualification')?
                                         <Swiper
                                             effect={'flip'}
                                             grabCursor={true}
@@ -490,7 +585,40 @@ const DQCourseScreen = () => {
                                             <SwiperSlide>
                                                 <div className='min-h-[150px] flex flex-col items-center justify-center bg-[#DA0C0C] rounded-[8px] gap-2'>
                                                     <p  className='text-lg px-2 font-bold text-white uppercase text-center'>
-                                                        {co.programme.name}
+                                                        {course.programme.name}
+                                                    </p>
+                                                    <div className='flex gap-3'>
+                                                    <div className='bg-white text-black capitalize rounded-[8px] h-fit py-4 px-4 flex items-center justify-center'>
+                                                            <img src={wes} alt='' className='h-12 w-12 object-contain '/>
+                                                        </div>
+                                                        <div className='bg-white text-black capitalize rounded-[8px] h-fit py-4 px-4 flex items-center justify-center'>
+                                                        <img src={of} alt='' className='h-12 w-12 object-contain '/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </SwiperSlide>
+                                            <SwiperSlide>
+                                                <div className='flex flex-col gap-1 justify-center bg-[#DA0C0C] min-h-[150px] rounded-[8px] p-4'>
+                                            
+                                                    <p className='text-3xl font-bold text-white mx-auto text-center'>Scholarship Available</p>
+                                                
+                                                </div>
+                                            </SwiperSlide>
+                                        </Swiper>:
+                                        course.programme.slug=='post-graduate-diploma-level-7' && (course.qualification.slug=='lrn-uk-qualification')?
+                                        <Swiper
+                                            effect={'flip'}
+                                            grabCursor={true}
+                                            autoplay={{
+                                                delay: 2000,
+                                                disableOnInteraction: false,
+                                            }}
+                                            modules={[EffectFlip, Autoplay]}
+                                        >
+                                            <SwiperSlide>
+                                                <div className='min-h-[150px] flex flex-col items-center justify-center bg-[#DA0C0C] rounded-[8px] gap-2'>
+                                                    <p  className='text-lg px-2 font-bold text-white uppercase text-center'>
+                                                        {course.programme.name}
                                                     </p>
                                                     <div className='flex gap-3'>
                                                     <div className='bg-white text-black capitalize rounded-[8px] h-fit py-4 px-4 flex items-center justify-center'>
@@ -510,7 +638,7 @@ const DQCourseScreen = () => {
                                                 </div>
                                             </SwiperSlide>
                                         </Swiper>:
-                                        co.programme.slug=='masters-degree'?
+                                        course.programme.slug=='masters-degree'?
                                         <Swiper
                                             effect={'flip'}
                                             grabCursor={true}
@@ -523,7 +651,7 @@ const DQCourseScreen = () => {
                                             <SwiperSlide>
                                                 <div className='min-h-[150px] flex flex-col items-center justify-center bg-[#DA0C0C] rounded-[8px] gap-2'>
                                                     <p  className='text-lg px-2 font-bold text-white uppercase text-center'>
-                                                        {co.programme.name}
+                                                        {course.programme.name}
                                                     </p>
                                                     <div className='flex gap-3'>
                                                     <div className='bg-white text-black capitalize rounded-[8px] h-fit py-4 px-4 flex items-center justify-center'>
@@ -544,7 +672,7 @@ const DQCourseScreen = () => {
                                                 </div>
                                             </SwiperSlide>
                                         </Swiper>:
-                                        co.programme.slug=='masters-degree-top-up'?
+                                        course.programme.slug=='masters-degree-top-up' && course.name.includes('EU')?
                                         <Swiper
                                             effect={'flip'}
                                             grabCursor={true}
@@ -556,8 +684,12 @@ const DQCourseScreen = () => {
                                         >
                                             <SwiperSlide>
                                                 <div className='min-h-[150px] flex flex-col items-center justify-center bg-[#DA0C0C] rounded-[8px] gap-2'>
+                                                    <p  className='px-2 font-bold text-white uppercase text-start'>
+                                                        EU
+                                                    </p>
+                                                    
                                                     <p  className='text-lg px-2 font-bold text-white uppercase text-center'>
-                                                        {co.programme.name}
+                                                        {course.programme.name}
                                                     </p>
                                                     <div className='flex gap-3'>
                                                     <div className='bg-white text-black capitalize rounded-[8px] h-fit py-4 px-4 flex items-center justify-center'>
@@ -577,7 +709,43 @@ const DQCourseScreen = () => {
                                                 </div>
                                             </SwiperSlide>
                                         </Swiper>:
-                                        co.programme.slug=='doctoral-diploma-level-8'?
+                                        course.programme.slug=='masters-degree-top-up' && course.name.includes('UK')?
+                                        <Swiper
+                                            effect={'flip'}
+                                            grabCursor={true}
+                                            autoplay={{
+                                                delay: 2000,
+                                                disableOnInteraction: false,
+                                            }}
+                                            modules={[EffectFlip, Autoplay]}
+                                        >
+                                            <SwiperSlide>
+                                                <div className='min-h-[150px] flex flex-col items-center justify-center bg-[#DA0C0C] rounded-[8px] gap-2'>
+                                                    <p  className='px-2 font-bold text-white uppercase text-start'>
+                                                        UK
+                                                    </p>
+                                                    <p  className='text-lg px-2 font-bold text-white uppercase text-center'>
+                                                        {course.programme.name}
+                                                    </p>
+                                                    <div className='flex gap-3'>
+                                                    <div className='bg-white text-black capitalize rounded-[8px] h-fit py-4 px-4 flex items-center justify-center'>
+                                                            <img src={wes} alt='' className='h-12 w-12 object-contain '/>
+                                                        </div>
+                                                        <div className='bg-white text-black capitalize rounded-[8px] h-fit py-4 px-4 flex items-center justify-center'>
+                                                        <img src={ugc} alt='' className='h-12 w-12 object-contain '/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </SwiperSlide>
+                                            <SwiperSlide>
+                                                <div className='flex flex-col gap-1 justify-center bg-[#DA0C0C] min-h-[150px] rounded-[8px] p-4'>
+                                            
+                                                    <p className='text-3xl font-bold text-white mx-auto text-center'>Scholarship Available</p>
+                                                
+                                                </div>
+                                            </SwiperSlide>
+                                        </Swiper>:
+                                        course.programme.slug=='doctoral-diploma-level-8' && (course.qualification.slug=='lrn-uk-qualification')?
                                         <Swiper
                                             effect={'flip'}
                                             grabCursor={true}
@@ -590,25 +758,71 @@ const DQCourseScreen = () => {
                                             <SwiperSlide>
                                                 <div className='min-h-[150px] flex flex-col items-center justify-center bg-[#DA0C0C] rounded-[8px] gap-2'>
                                                     <p  className='text-lg px-2 font-bold text-white uppercase text-center'>
-                                                        {co.programme.name}
+                                                        {course.programme.name}
                                                     </p>
-                                                    <div className='flex gap-3'>
+                                                    {/* <div className='flex gap-3'>
                                                         <div className='bg-white text-black capitalize rounded-[8px] h-fit py-4 px-4 flex items-center justify-center'>
                                                             {
-                                                                co.f_gif_logo1? (
-                                                                <img src={co.f_gif_logo1} alt='' className='h-12 w-12 object-contain '/>
+                                                                course.f_gif_logo1? (
+                                                                <img src={course.f_gif_logo1} alt='' className='h-12 w-12 object-contain '/>
                                                                 )
                                                                 :
-                                                                <p className='font-semibold'>{co.f_1_name}</p>
+                                                                <p className='font-semibold'>{course.f_1_name}</p>
                                                             }
                                                         </div>
                                                         <div className='bg-white text-black capitalize rounded-[8px] h-fit py-4 px-4 flex items-center justify-center'>
                                                             {
-                                                                co.f_gif_logo1? (
-                                                                <img src={co.f_gif_logo2} alt='' className='h-12 w-12 object-contain '/>
+                                                                course.f_gif_logo1? (
+                                                                <img src={course.f_gif_logo2} alt='' className='h-12 w-12 object-contain '/>
                                                                 )
                                                                 :
-                                                                <p className='font-semibold'>{co.f_2_name}</p>
+                                                                <p className='font-semibold'>{course.f_2_name}</p>
+                                                            }
+                                                        </div>
+                                                        
+                                                    </div> */}
+                                                </div>
+                                            </SwiperSlide>
+                                            <SwiperSlide>
+                                                <div className='flex flex-col gap-1 justify-center bg-[#DA0C0C] min-h-[150px] rounded-[8px] p-4'>
+                                            
+                                                    <p className='text-3xl font-bold text-white mx-auto text-center'>Scholarship Available</p>
+                                                
+                                                </div>
+                                            </SwiperSlide>
+                                        </Swiper>:
+                                        course.programme.slug=='doctoral-diploma-level-8'?
+                                        <Swiper
+                                            effect={'flip'}
+                                            grabCursor={true}
+                                            autoplay={{
+                                                delay: 2000,
+                                                disableOnInteraction: false,
+                                            }}
+                                            modules={[EffectFlip, Autoplay]}
+                                        >
+                                            <SwiperSlide>
+                                                <div className='min-h-[150px] flex flex-col items-center justify-center bg-[#DA0C0C] rounded-[8px] gap-2'>
+                                                    <p  className='text-lg px-2 font-bold text-white uppercase text-center'>
+                                                        {course.programme.name}
+                                                    </p>
+                                                    <div className='flex gap-3'>
+                                                        <div className='bg-white text-black capitalize rounded-[8px] h-fit py-4 px-4 flex items-center justify-center'>
+                                                            {
+                                                                course.f_gif_logo1? (
+                                                                <img src={course.f_gif_logo1} alt='' className='h-12 w-12 object-contain '/>
+                                                                )
+                                                                :
+                                                                <p className='font-semibold'>{course.f_1_name}</p>
+                                                            }
+                                                        </div>
+                                                        <div className='bg-white text-black capitalize rounded-[8px] h-fit py-4 px-4 flex items-center justify-center'>
+                                                            {
+                                                                course.f_gif_logo1? (
+                                                                <img src={course.f_gif_logo2} alt='' className='h-12 w-12 object-contain '/>
+                                                                )
+                                                                :
+                                                                <p className='font-semibold'>{course.f_2_name}</p>
                                                             }
                                                         </div>
                                                         
