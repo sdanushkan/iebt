@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Faculty, Level, Course, OurQualification, Country, FAQType, FAQ, CountryCategory, Testimonial, DualQualificationCourse,Page, DualQualification, StudentVerification, Event, University
+from .models import Faculty, Level, Course, OurQualification, Country, FAQType, FAQ, CountryCategory, Testimonial, DualQualificationCourse,Page, DualQualification, StudentVerification, Event, University, Card
 
 class FacultySerializer(serializers.ModelSerializer):
     class Meta:
@@ -37,12 +37,17 @@ class OurQualificationListSerializer(serializers.ModelSerializer):
         model = OurQualification
         fields = ['name', 'slug', 'image', 'courses_list']   
 
+class CardSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Card
+        fields = '__all__'   
+
 
 class CourseSerializer(serializers.ModelSerializer):
     faculty = FacultySerializer()
     qualification = OurQualificationSerializer()
     programme = LevelSerializer()
-    # units = serializers.SerializerMethodField(read_only=True)
+    card = CardSerializer()
     # units = serializers.SerializerMethodField(read_only=True)
     # course_requirments = serializers.SerializerMethodField(read_only=True)
     
@@ -50,10 +55,7 @@ class CourseSerializer(serializers.ModelSerializer):
         model = Course
         fields = '__all__'   
     
-    # def get_units(self, obj):
-    #     units = obj.unit_set.all()
-    #     serializer = UnitSerializer(units, many=True)
-    #     return serializer.data 
+
     
     # def get_course_requirments(self, obj):
     #     course_requirments = obj.courserequirment_set.all()

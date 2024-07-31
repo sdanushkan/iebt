@@ -50,10 +50,23 @@ class OurQualification(models.Model):
             self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
+class Card(models.Model):
+    name = models.CharField(max_length=200, null=True, blank=True)
+    slug = models.SlugField(null=True, blank=True)
+
+    def __str__(self):
+        return self.name
+    
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.name)
+        super().save(*args, **kwargs)
+
 class Course(models.Model):
     name = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, null=True, blank=True)
     faculty = models.ForeignKey(Faculty, on_delete=models.SET_NULL, null=True, blank=True )
+    card = models.ForeignKey(Card, on_delete=models.SET_NULL, null=True, blank=True )
     image = models.ImageField(null=True, blank=True, default='/course/placeholder.png', upload_to='courses/')
     course_credit = models.CharField(max_length=200, null=True, blank=True)
     qualification = models.ForeignKey(OurQualification, on_delete=models.SET_NULL, null=True, blank=True)

@@ -148,11 +148,11 @@ const HomeScreen = () => {
     
 
   return (
-    <div className='h-fit w-full flex flex-col gap-4 pt-[80px]'>
+    <div className='w-full flex flex-col gap-2 pt-[85px]'>
       
-      {/* <section className='h-fit w-full relative overflow-hidden'>
+      <section className='w-full relative overflow-hidden'>
 
-        <div className='h-[600px] xl:h-[500px] w-full object-cover object-bottom absolute -z-50 bg-black'>
+        <div className='w-full object-cover object-bottom '>
           <Swiper
             slidesPerView={1}
             spaceBetween={10}
@@ -163,359 +163,41 @@ const HomeScreen = () => {
             className="w-full"
             autoplay
           >
-            <SwiperSlide className='w-full h-fit object-contain'>
-              <img src='https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' alt='' className='h-[600px] xl:h-[500px] w-full object-cover opacity-50 object-bottom'/>
-            </SwiperSlide>
-            <SwiperSlide className='w-full h-fit object-contain'>
-              <img src='https://media.istockphoto.com/id/1307457391/photo/happy-black-student-raising-arm-to-answer-question-while-attending-class-with-her-university.jpg?s=612x612&w=0&k=20&c=iZaZFyC-WqlqSQc4elqUNPTxLvWPe8P5Tb_YdZnrI9Q=' alt='' className='h-[600px] xl:h-[500px] w-full object-cover opacity-50 object-center'/>
-            </SwiperSlide>
-          </Swiper>
-        </div>
-
-        <div className='h-[600px] xl:h-[500px] w-max-[1024px] mx-auto px-8 relative -z-10 flex items-start justify-center bg-black/50'>
-        <Swiper
-            slidesPerView={1}
-            spaceBetween={10}
-            direction={'vertical'}
-            
-            modules={[ Autoplay]}
-            className='h-full w-full mt-[100px] flex flex-col justify-center gap-6 '
-            autoplay
-          >
-            <SwiperSlide className='w-full h-full flex justify-start object-contain'>
-              <div className='h-[300px] w-full max-w-[1024px] mx-auto flex flex-col lg:flex-row items-center justify-start gap-6'>
-                <div className='h-fit w-full md:w-fit flex flex-col items-center mx-auto gap-4 rounded-[16px]'>
-                  <div className='flex flex-col gap-2 max-w-[500px] mx-auto'>
-                    <p className='text-2xl md:text-4xl font-bold text-center text-white'>International Education and Business Campus</p>
-                    <p className='text-center text-white/75 text-xs'>Unleashing Brilliance, Building Community</p>
-                  </div>
-                  <Button color='' className="flex bg-[#DA0C0C] text-xs lg:text-sm text-white px-4 md:px-5 py-2 md:py-3 rounded-full w-fit mx-auto">
-                    <p>Pay online</p>
-                  </Button>
-                </div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide className='w-full h-full flex justify-start object-contain'>
-              <div className='h-[300px] w-full max-w-[1024px] mx-auto flex flex-col lg:flex-row items-center justify-start gap-6'>
-                <div className='h-fit w-full md:w-fit flex flex-col items-center mx-auto gap-4 rounded-[16px]'>
-                  <div className='flex flex-col gap-2 max-w-[500px] mx-auto'>
-                    <p className='text-2xl md:text-4xl font-bold text-center text-white'>International Education and Business Campus</p>
-                    <p className='text-center text-white/75 text-xs'>Unleashing Brilliance, Building Community</p>
-                  </div>
-                  <Button color='' className="flex bg-[#DA0C0C] text-xs lg:text-sm text-white px-4 md:px-5 py-2 md:py-3 rounded-full w-fit mx-auto">
-                    <p>Pay online</p>
-                  </Button>
-                </div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide className='w-full h-full flex justify-start object-contain'>
-              <div className='h-[300px] w-full max-w-[1024px] mx-auto flex flex-col lg:flex-row items-center justify-start gap-6'>
-                <div className='h-fit w-full md:w-fit flex flex-col items-center mx-auto gap-4 rounded-[16px]'>
-                  <div className='flex flex-col gap-2 max-w-[500px] mx-auto'>
-                    <p className='text-2xl md:text-4xl font-bold text-center text-white'>International Education and Business Campus</p>
-                    <p className='text-center text-white/75 text-xs'>Unleashing Brilliance, Building Community</p>
-                  </div>
-                  <Button color='' className="flex bg-[#DA0C0C] text-xs lg:text-sm text-white px-4 md:px-5 py-2 md:py-3 rounded-full w-fit mx-auto">
-                    <p>Pay online</p>
-                  </Button>
-                </div>
-              </div>
-            </SwiperSlide>
-            
-          
-          </Swiper>
-          
-        </div>
-        
-        <div className='h-fit w-full max-w-[1024px] mx-auto -mt-[100px] relative z-40'>
-          <form className='bg-white shadow-[0px_5px_25px_rgba(0,0,0,0.05)] h-fit w-full z-20 mt-auto  px-6 md:px-12 py-8 flex flex-col gap-4 rounded-[8px]'>
-              <div className='flex flex-row  gap-6 items-center justify-between'>
-                <div className='w-full max-w-[500px]'>
-                  <p className='text-xl font-bold text-[#DA0C0C] text-left'>Search Course</p>
-                  <p className='text-xs text-gray-500'>Search And Filter our courses</p>
-                </div>
-                <div>
-                  <Link to={`courses/${faculty}/${programe}/${qualification}/${credit}`} className="flex bg-[#DA0C0C] text-xs lg:text-sm text-white px-4 md:px-5 py-2 md:py-3 rounded-full w-fit">
-                    <p>Search</p>
-                  </Link>
-                </div>
-              </div>
-              <div className='flex flex-col md:flex-row items-center justify-between gap-2'>
-                <div className='w-full grid grid-cols-2 md:flex lg:flex-row gap-2'>
-                  <Select
-                    variant={'flat'}
-                    required
-                    placeholder="Faculty"
-                    className='w-full shadow-none rounded-none outline-none'
-                    radius='sm'
-                    size='md'
-                    
-                  >
-                    {
-                      loading?
-                      '':
-                      faculties?
-                      faculties.map((i) => (
-                        <SelectItem onClick={()=> setFaculty(`${i.slug}`)} value={i.slug} key={i.slug}>
-                          {i.name}
-                        </SelectItem>
-                      ))
-                      :
-                      ''
-                    }
-                  </Select>
-
-                  <Select
-                    variant={'flat'}
-                    required
-                    placeholder="Programme"
-                    className='w-full shadow-none rounded-none outline-none'
-                    radius='sm'
-                    size='md'
-                    
-                  >
-                    {
-                      loading?
-                      '':
-                      levels?
-                      levels.map((i) => (
-                        <SelectItem onClick={()=> setPrograme(`${i.slug}`)} value={i.slug} key={i.slug}>
-                          {i.name}
-                        </SelectItem>
-                      ))
-                      :
-                      ''
-                    }
-                  </Select>
-                </div>
-                <div className='w-full flex lg:flex-row gap-2'>
-                  <Select
-                    variant={'flat'}
-                    placeholder="Course qualification"
-                    className='w-full shadow-none rounded-none outline-none'
-                    radius='sm'
-                    size='md'
-                  >
-                    {
-                      ourQualificationListLoading?
-                      '':
-                      qualifications?
-                      qualifications.map((i) => (
-                        <SelectItem onClick={()=> setQualification(`${i.slug}`)} value={i.slug} key={i.slug}>
-                          {i.name}
-                        </SelectItem>
-                      ))
-                      :
-                      ''
-                    }
-                  </Select>
-                  <Select
-                    variant={'flat'}
-                    placeholder="Course credits"
-                    className='w-full shadow-none rounded-none outline-none'
-                    radius='sm'
-                    size='md'
-                  
-                  >
-                    {
-                      popularCourseListLoading?
-                      '':
-                      courses?
-                      _.uniqBy(courses, 'course_credit').map((i) => (
-                        <SelectItem onClick={()=> setQualification(`${i.slug}`)} value={i.slug} key={i.slug}>
-                          {i.course_credit}
-                        </SelectItem>
-                      ))
-                      :
-                      ''
-                    }
-                  </Select>
-                </div>
-              </div>
-          </form>
-        </div>
-        <div className='h-[25px]'></div>
-      </section> */}
-
-      <section className='h-fit w-full relative overflow-hidden'>
-
-        <div className='h-fit w-full object-cover object-bottom '>
-          <Swiper
-            slidesPerView={1}
-            spaceBetween={10}
-            pagination={{
-              clickable: true,
-            }}
-            modules={[ Autoplay]}
-            className="h-fit w-full"
-            autoplay
-          >
-            <SwiperSlide className='w-full h-fit object-contain'>
+            <SwiperSlide className='w-full object-contain'>
               <img src={BANNER01} alt='' className='h-fit w-full object-contain object-center'/>
             </SwiperSlide>
 
-            <SwiperSlide className='w-full h-fit object-contain'>
+            <SwiperSlide className='w-full object-contain'>
               <img src={BANNER02} alt='' className='h-fit w-full object-contain object-center'/>
             </SwiperSlide> 
 
-            <SwiperSlide className='w-full h-fit object-contain'>
+            <SwiperSlide className='w-full object-contain'>
               <img src={BANNER03} alt='' className='h-fit w-full object-contain object-center'/>
             </SwiperSlide>
 
-            <SwiperSlide className='w-full h-fit object-contain'>
+            <SwiperSlide className='w-full object-contain'>
               <img src={BANNER04} alt='' className='h-fit w-full object-contain object-center'/>
             </SwiperSlide> 
 
-            <SwiperSlide className='w-full h-fit object-contain'>
+            <SwiperSlide className='w-full object-contain'>
               <img src={BANNER05} alt='' className='h-fit w-full object-contain object-center'/>
             </SwiperSlide> 
 
-            <SwiperSlide className='w-full h-fit object-contain'>
+            <SwiperSlide className='w-full object-contain'>
               <img src={BANNER06} alt='' className='h-fit w-full object-contain object-center'/>
             </SwiperSlide>
 
-            <SwiperSlide className='w-full h-fit object-contain'>
+            <SwiperSlide className='w-full object-contain'>
               <img src={BANNER07} alt='' className='h-fit w-full object-contain object-center'/>
             </SwiperSlide>
             
           </Swiper>
         </div>
 
-        {/* <div className='h-[600px] xl:h-[500px] w-max-[1024px] mx-auto px-8 relative z-10 flex items-start justify-center bg-black/00'>
-        <Swiper
-            slidesPerView={1}
-            spaceBetween={10}
-            direction={'vertical'}
-            
-            modules={[ Autoplay]}
-            className='h-full w-full mt-[100px] flex flex-col justify-center gap-6 overflow-hidden'
-            autoplay
-          >
-           <SwiperSlide className='w-full mt-[10px] h-full flex justify-start object-contain'>
-              <div className='h-[400px] xl:h-[300px] w-full max-w-[1024px] mx-auto flex flex-col justify-center gap-6'>
-                <div className='h-fit w-fit md:w-fit flex flex-col gap-4 rounded-[16px] p-4 backdrop-blur-lg'>
-                  <div className='flex flex-col gap-1 max-w-[500px]'>
-                    <p className='text-2xl md:text-4xl font-bold text-black'>Learn <span className='text-[#DA0C0C] text-3xl md:text-5xl'>Locally</span></p>
-                    <p className='text-black font-bold text-3xl'>Excel <span className='text-[#DA0C0C] scale-110'>Globally</span></p>
-                    <p className='font-bold text-xl md:text-3xl text-blue-600'>Succeed universally</p>
-                  </div>
-                  <div className='flex gap-2'>
-                    <Button color='' className="flex bg-[#DA0C0C] text-xs lg:text-sm text-white px-4 md:px-5 py-2 md:py-3 rounded-full w-fit">
-                      <p>Campus</p>
-                    </Button>
-                    <Button color='' className="flex bg-[#DA0C0C] text-xs lg:text-sm text-white px-4 md:px-5 py-2 md:py-3 rounded-full w-fit">
-                      <p>Study Abroad</p>
-                    </Button>
-                  </div>
-                </div>
-              </div>
-            </SwiperSlide>
+      </section>
 
-            <SwiperSlide className='w-full mt-[10px] h-full flex justify-start object-contain'>
-              <div className='h-[400px] xl:h-[300px] w-full max-w-[1024px] mx-auto flex flex-col justify-center gap-6'>
-                <div className='h-fit w-fit md:w-fit flex flex-col gap-4 rounded-[16px] p-4 backdrop-blur-lg'>
-                  <div className='flex flex-col gap-1 max-w-[400px]'>
-                    <p className='text-white font-bold text-2xl'>Transform your Postgraduate Diploma into a Master's Top up Degree in Only 6 Months</p>
-                  </div>
-                  <div className='flex gap-2'>
-                    <Button color='' className="flex bg-white text-xs lg:text-sm text-[#DA0C0C] px-4 md:px-5 py-2 md:py-3 rounded-full w-fit font-semibold">
-                      <p>INQUIRY</p>
-                    </Button>
-                  </div>
-                  <div className='mt-6 flex gap-2'>
-                      <img src={ugc} alt='' className='h-[50px] rounded-[8px] object-contain'/>
-                      <img src={wes} alt='' className='h-[50px] rounded-[8px] object-contain bg-white'/>
-                  </div>
-                </div>
-              </div>
-            </SwiperSlide> 
-            
-            <SwiperSlide className='w-full mt-[10px] h-full flex justify-start object-contain'>
-              <div className='h-[400px] xl:h-[300px] w-full max-w-[1024px] mx-auto flex flex-col justify-center gap-6'>
-                <div className='h-fit w-fit md:w-fit flex flex-col gap-4 rounded-[16px] p-4 backdrop-blur-lg'>
-                  <div className='flex flex-col gap-1 max-w-[400px]'>
-                    <p className='text-white font-bold text-2xl'>Top-Rated British Postgraduate Institute in Sri Lanka</p>
-                  </div>
-                  <div className='flex gap-2'>
-                    <img src={inquiry} alt='' className='h-[40px] rounded-[8px] object-contain'/>
-                  </div>
-                  <div className='mt-6 flex gap-2'>
-                      <img src={ofqual} alt='' className='h-[50px] rounded-[8px] object-contain'/>
-                      <img src={wes} alt='' className='h-[50px] rounded-[8px] object-contain bg-white'/>
-                  </div>
-                </div>
-              </div>
-            </SwiperSlide> 
-          
-            <SwiperSlide className='w-full mt-[10px] h-full flex justify-start object-contain'>
-              <div className='h-[400px] xl:h-[300px] w-full max-w-[1024px] mx-auto flex flex-col justify-center gap-6'>
-                <div className='h-fit w-fit md:w-fit flex flex-col gap-4 rounded-[16px] p-4 backdrop-blur-lg'>
-                  <div className='flex flex-col gap-1 max-w-[400px]'>
-                    <p className='text-white font-bold text-2xl'>Unlock a Wealth of knowledge with Our Extensive British Graduate Diplomas</p>
-                  </div>
-                  <div className='flex gap-2'>
-                    <img src={inquiry} alt='' className='h-[40px] rounded-[8px] object-contain'/>
-                  </div>
-                  <p className='text-white mt-6 text-lg font-semibold'>Qualification Recognized By</p>
-                  <div className=' flex gap-2'>
-                      <img src={ofqual} alt='' className='h-[50px] rounded-[8px] object-contain'/>
-                      <img src={wes} alt='' className='h-[50px] rounded-[8px] object-contain bg-white'/>
-                  </div>
-                </div>
-              </div>
-            </SwiperSlide> 
-
-            <SwiperSlide className='w-full mt-[10px] h-full flex justify-start object-contain'>
-              <div className='h-[400px] xl:h-[300px] w-full max-w-[1024px] mx-auto flex flex-col justify-center gap-6'>
-                <div className='h-fit w-fit md:w-fit flex flex-col gap-4 rounded-[16px] p-4 backdrop-blur-lg'>
-                  <div className='flex flex-col gap-1 max-w-[400px]'>
-                    <p className='text-white font-bold text-xl'>Embark on Your British Higher Diploma Journey After A/Ls: Complete 1st and Year Qualifications with us!</p>
-                  </div>
-                  <div className='flex gap-2'>
-                    <img src={inquiry} alt='' className='h-[40px] rounded-[8px] object-contain'/>
-                  </div>
-                  <p className='text-white mt-6 text-lg font-semibold'>Qualification Recognized By</p>
-                  <div className=' flex gap-2'>
-                      <img src={ofqual} alt='' className='h-[50px] rounded-[8px] object-contain'/>
-                      <img src={wes} alt='' className='h-[50px] rounded-[8px] object-contain bg-white'/>
-                  </div>
-                </div>
-              </div>
-            </SwiperSlide> 
-
-            <SwiperSlide className='w-full mt-[10px] h-full flex justify-start object-contain'>
-              <div className='h-[400px] xl:h-[300px] w-full max-w-[1024px] mx-auto flex flex-col justify-center gap-6'>
-                <div className='h-fit w-fit md:w-fit flex flex-col gap-4 rounded-[16px] p-4 backdrop-blur-lg'>
-                  <div className='flex flex-col gap-1 max-w-[400px]'>
-                    <p className='text-white font-bold text-xl'>Earn a British Diploma with Global Recognition : Your Key to Worldwide success!</p>
-                  </div>
-                  <div className='flex gap-2'>
-                    <img src={inquiry} alt='' className='h-[40px] rounded-[8px] object-contain'/>
-                  </div>
-                  
-                </div>
-              </div>
-            </SwiperSlide> 
-
-            <SwiperSlide className='w-full mt-[10px] h-full flex justify-start object-contain'>
-              <div className='h-[400px] xl:h-[300px] w-full max-w-[1024px] mx-auto flex flex-col justify-center gap-6'>
-                <div className='h-fit w-fit md:w-fit flex flex-col gap-4 rounded-[16px] p-4 backdrop-blur-lg'>
-                  <div className='flex flex-col gap-1 max-w-[400px]'>
-                    <p className='text-white font-bold text-xl'>Build Your Future: Begin Your Foundation Course After O/Ls to prepare for an Undergraduate Degree!</p>
-                  </div>
-                  <div className='flex gap-2'>
-                    <img src={inquiry} alt='' className='h-[40px] rounded-[8px] object-contain'/>
-                  </div>
-                  
-                </div>
-              </div>
-            </SwiperSlide>
-
-          </Swiper>
-          
-        </div> */}
-        
-        <div className='h-fit w-full max-w-[1024px] mx-auto mt-[50px] relative z-40'>
+      <section className='w-full relative overflow-hidden '>
+        <div className='h-fit w-full max-w-[1024px] mx-auto relative pt-[20px]'>
           <form className='bg-white shadow-[0px_5px_25px_rgba(0,0,0,0.05)] h-fit w-full z-20 mt-auto  px-6 md:px-12 py-8 flex flex-col gap-4 rounded-[8px]'>
               <div className='flex flex-row  gap-6 items-center justify-between'>
                 <div className='w-full max-w-[500px]'>
@@ -622,10 +304,9 @@ const HomeScreen = () => {
               </div>
           </form>
         </div>
-        <div className='h-[25px]'></div>
       </section>
 
-      <section className='h-fit w-full relative overflow-hidden py-6'>
+      <section className='h-fit w-full relative overflow-hidden py-2'>
         <div className='h-fit w-full max-w-[1024px] mx-auto grid grid-cols-2 md:flex justify-center px-6 lg:px-0 gap-2 lg:gap-6'>
             <Link to={'/application'} className='w-full max-w-1/2 md:max-w-1/3 lg:max-w-1/5  h-full md:h-48 flex flex-col items-center justify-center gap-4 bg-white text-black duration-200 cursor-pointer hover:text-[#DA0C0C] p-10 rounded-[8px] shadow-[0px_4px_25px_rgba(0,0,0,0.05)] hover:shadow-[0px_4px_25px_rgba(0,0,0,0.075)] '>
               <img src={apply}  alt='' className='w-16 object-contain' />
@@ -1609,7 +1290,7 @@ const HomeScreen = () => {
                     eventse?
                     eventse.map(i=>(
                       <SwiperSlide key={i.slug} className='bg-white border-[1px] border-red-100 rounded-[8px] mb-12 w-[250px] '>
-                        <div className='bg-white border-[1px] border-red-100 rounded-[8px] w-[250px] p-4'>
+                        <div className='bg-white  rounded-[8px] w-full p-4'>
                           <img src={i.image? i.image:'https://ucarecdn.com/c49a7d0c-089f-4ac3-854f-d2b2d815c01d/-/crop/750x422/0,39/-/preview/-/format/auto/-/format/auto/-/quality/smart_retina/-/resize/824x/'} alt='' className='object-cover rounded-[6px] h-[150px] w-full mx-auto hover:scale-105 duration-200' />
                           <div className='flex flex-col pt-6 gap-4'>
                             <div className='flex flex-col-reverse'>
@@ -1645,7 +1326,7 @@ const HomeScreen = () => {
                     eventse?
                     eventse.map(i=>(
                       <SwiperSlide key={i.slug} className='bg-white border-[1px] border-red-100 rounded-[8px] mb-12 w-[250px] '>
-                        <div className='bg-white border-[1px] border-red-100 rounded-[8px] w-[250px] p-4'>
+                        <div className='bg-white  rounded-[8px] w-full p-4'>
                           <img src={i.image? i.image:'https://ucarecdn.com/c49a7d0c-089f-4ac3-854f-d2b2d815c01d/-/crop/750x422/0,39/-/preview/-/format/auto/-/format/auto/-/quality/smart_retina/-/resize/824x/'} alt='' className='object-cover rounded-[6px] h-[150px] w-full mx-auto hover:scale-105 duration-200' />
                           <div className='flex flex-col pt-6 gap-4'>
                             <div className='flex flex-col-reverse'>
@@ -1681,7 +1362,7 @@ const HomeScreen = () => {
                     eventse?
                     eventse.map(i=>(
                       <SwiperSlide key={i.slug} className='bg-white border-[1px] border-red-100 rounded-[8px] mb-12 w-[250px] '>
-                        <div className='bg-white border-[1px] border-red-100 rounded-[8px] w-[250px] p-4'>
+                        <div className='bg-white  rounded-[8px] w-full p-4'>
                           <img src={i.image? i.image:'https://ucarecdn.com/c49a7d0c-089f-4ac3-854f-d2b2d815c01d/-/crop/750x422/0,39/-/preview/-/format/auto/-/format/auto/-/quality/smart_retina/-/resize/824x/'} alt='' className='object-cover rounded-[6px] h-[150px] w-full mx-auto hover:scale-105 duration-200' />
                           <div className='flex flex-col pt-6 gap-4'>
                             <div className='flex flex-col-reverse'>

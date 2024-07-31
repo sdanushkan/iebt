@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Faculty, Course, Level, OurQualification, Country, FAQType, FAQ, CountryCategory, Testimonial, Page, University, DualQualificationCourse, DualQualification, StudentVerification, Event
+from .models import Faculty, Course, Level, OurQualification, Country, FAQType, FAQ, CountryCategory, Testimonial, Page, University, DualQualificationCourse, DualQualification, StudentVerification, Event, Card
 import admin_thumbnails
 
 # Register your models here.
@@ -53,3 +53,4 @@ admin.site.register(CountryCategory)
 
 admin.site.register(University)
 admin.site.register(Testimonial)
+admin.site.register(Card)
