@@ -160,35 +160,35 @@ const HomeScreen = () => {
               clickable: true,
             }}
             modules={[ Autoplay]}
-            className="w-full"
+            className="h-fit w-full"
             autoplay
           >
-            <SwiperSlide className='w-full object-contain'>
-              <img src={BANNER01} alt='' className='h-fit w-full object-contain object-center'/>
+            <SwiperSlide className='max-h-fit w-full object-contain'>
+              <img src={BANNER01} alt='' className='max-h-fit w-full object-contain object-center'/>
             </SwiperSlide>
 
-            <SwiperSlide className='w-full object-contain'>
-              <img src={BANNER02} alt='' className='h-fit w-full object-contain object-center'/>
+            <SwiperSlide className='max-h-fit w-full object-contain'>
+              <img src={BANNER02} alt='' className='max-h-fit w-full object-contain object-center'/>
             </SwiperSlide> 
 
-            <SwiperSlide className='w-full object-contain'>
-              <img src={BANNER03} alt='' className='h-fit w-full object-contain object-center'/>
+            <SwiperSlide className='max-h-fit w-full object-contain'>
+              <img src={BANNER03} alt='' className='max-h-fit w-full object-contain object-center'/>
             </SwiperSlide>
 
-            <SwiperSlide className='w-full object-contain'>
-              <img src={BANNER04} alt='' className='h-fit w-full object-contain object-center'/>
+            <SwiperSlide className='max-h-fit w-full object-contain'>
+              <img src={BANNER04} alt='' className='max-h-fit w-full object-contain object-center'/>
             </SwiperSlide> 
 
-            <SwiperSlide className='w-full object-contain'>
-              <img src={BANNER05} alt='' className='h-fit w-full object-contain object-center'/>
+            <SwiperSlide className='max-h-fit w-full object-contain'>
+              <img src={BANNER05} alt='' className='max-h-fit w-full object-contain object-center'/>
             </SwiperSlide> 
 
-            <SwiperSlide className='w-full object-contain'>
-              <img src={BANNER06} alt='' className='h-fit w-full object-contain object-center'/>
+            <SwiperSlide className='max-h-fit w-full object-contain'>
+              <img src={BANNER06} alt='' className='max-h-fit w-full object-contain object-center'/>
             </SwiperSlide>
 
-            <SwiperSlide className='w-full object-contain'>
-              <img src={BANNER07} alt='' className='h-fit w-full object-contain object-center'/>
+            <SwiperSlide className='max-h-fit w-full object-contain'>
+              <img src={BANNER07} alt='' className='max-h-fit w-full object-contain object-center'/>
             </SwiperSlide>
             
           </Swiper>

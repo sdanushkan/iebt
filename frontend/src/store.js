@@ -84,7 +84,7 @@ const store = configureStore({
   reducer,
   preloadedState: initialState,
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(middleware),
-  devTools: true, // Explicitly disable the Redux DevTools Extension
+  devTools: false, // Explicitly disable the Redux DevTools Extension
 });
 
 export default store;

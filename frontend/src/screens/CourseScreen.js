@@ -226,7 +226,9 @@ const CourseScreen = () => {
                                         <img src={uk} alt='' className='h-[50px] w-full object-cover absolute top-0'/>
                                     }
                                 </div>
-                                <div className='max-w-full'>
+                                {
+                                    course.card?
+                                    <div className='max-w-full'>
                                     {
                                         course.card.slug=='crt'?
                                         <Swiper
@@ -284,7 +286,7 @@ const CourseScreen = () => {
                                                 </div>
                                             </SwiperSlide>
                                         </Swiper>:
-                                        course.card.slug=='dip'?
+                                        course.card.slug=='dip'? 
                                         <Swiper
                                             effect={'flip'}
                                             grabCursor={true}
@@ -682,7 +684,7 @@ const CourseScreen = () => {
                                                 </div>
                                             </SwiperSlide>
                                         </Swiper>:
-                                        course.card.slug=='mst-top' && course.name.includes('EU')?
+                                        course.card.slug=='mst-top'?
                                         <Swiper
                                             effect={'flip'}
                                             grabCursor={true}
@@ -747,7 +749,9 @@ const CourseScreen = () => {
                                         </Swiper>:
                                         ''
                                     }
-                                </div>
+                                </div>:
+                                ''
+                                }
                                 <div className=' flex items-center justify-center animate-pulse'>
                                     <img src='https://i.pinimg.com/originals/e7/d1/99/e7d199bc42eeeb001962c6ed63d8b098.gif' alt='' className='h-20 w-h-20' />
                                     <p className='text-lg font-bold text-center '>+94 77 828 9898</p>
