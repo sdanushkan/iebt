@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import {Navbar, NavbarBrand, NavbarContent, NavbarItem, Button, DropdownSection} from "@nextui-org/react";
 import logo from '../assets/Logo.png'
+import logo1 from '../assets/Logo1.png'
 import { CiMenuBurger, CiSearch, CiShoppingCart, CiUser } from "react-icons/ci";
 import {Tabs, Tab} from "@nextui-org/react"; 
 import {Badge} from "@nextui-org/badge";
@@ -78,17 +79,24 @@ const Header = () => {
         }}
         shouldHideOnScroll height={'fit'} maxWidth='full' className={
             location.pathname == "/login" || location.pathname == "/register" || location.pathname == "/Login" || location.pathname == "/Register"?
-            'h-fit w-full z-40 fixed bg-black/50 hidden px-0':
-            'h-fit w-full z-40 fixed bg-black/50 md:fixed px-0'
+            'h-fit w-full z-40 fixed bg-black/75 hidden px-0':
+            'h-fit w-full z-40 fixed bg-black/75 md:fixed px-0'
         }> 
             <div className='h-fit w-full max-w-[1200px] max-h-[100px] mx-auto flex justify-between items-center relative border-black/50 py-4'>
                 <div className='flex items-center '>
                   {/* <Button isIconOnly variant='light' onClick={() => setNavbar(!navbar)} className='md:hidden' >
                       <IoMenu  className='text-black text-2xl'/>
                   </Button> */}
-                  <Link to={'/'}>
-                    <img src={logo} alt='' className='h-[56px] lg:h-[64px]' />
-                  </Link>
+                  {
+                    location.pathname == '/abroad'?
+                    <Link to={'/abroad'}>
+                      <img src={logo1} alt='' className='h-[56px] lg:h-[64px] scale-75' />
+                    </Link>:
+                    <Link to={'/'}>
+                      <img src={logo} alt='' className='h-[56px] lg:h-[64px] ' />
+                    </Link>
+
+                  }
                 </div>
                 <div className='hidden lg:flex items-center justify-start gap-4'>
                   <Dropdown

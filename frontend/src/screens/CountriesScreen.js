@@ -3,6 +3,7 @@ import {Input, Popover, PopoverContent, PopoverTrigger, Skeleton} from "@nextui-
 import { VscSymbolKeyword } from "react-icons/vsc";
 import {Button} from "@nextui-org/button";
 import thum from '../assets/thum.png'
+import w from '../assets/w.png'
 import { IoCalendar, IoDocument, IoDocuments, IoSearch } from "react-icons/io5";
 import { AiFillSignal } from "react-icons/ai";
 import { BsBookmarksFill } from "react-icons/bs";
@@ -226,21 +227,9 @@ const CountriesScreen = () => {
  
   return ( 
     <div className='max-w-screen flex flex-col gap-12 pb-12 overflow-x-hidden'>
-      {/* <section className='w-full h-fit relative bg-[#ffecef] max-w-screen overflow-hidden'>
 
-        <div className='h-fit md:h-[500px] w-full max-w-[1100px] mx-auto object-cover relative overflow-hidden bg-[#ffecef] py-6 md:py-0 grid grid-cols-1 md:grid-cols-2'>
-          <div className='h-[350px] md:h-full w-full flex flex-col justify-center gap-4 px-6 md:px-0'>
-            <p className='text-4xl font-black'>Get your free study abroad counselling with IEBC</p>
-            <Button className='w-fit font-medium bg-[#DA0C0C] text-white'>
-              Acquire your dreams
-            </Button>
-          </div>
-          <div className='h-fit md:h-full w-full md:py-16'>
-            <WorldMap className="w-full h-full"/>
-          </div>
-        </div>
 
-      </section> */}
+      
         <section className='h-fit w-full relative overflow-hidden'>
 
           <div className='h-[400px] lg:h-[500px] w-full object-cover object-bottom relative md:absolute -z-50'>
@@ -274,136 +263,13 @@ const CountriesScreen = () => {
 
           <div className='h-[400px] lg:h-[500px] w-max-[1024px] mx-auto relative z-30 flex items-start justify-end'>
               <div className='h-full lg:w-[30%]'>
-              <div className='h-full w-full flex flex-col justify-center relative bg-blue-500'>
-          
-
-                <div className='h-full w-full flex flex-col justify-center px-8 md:border-l-[10px] border-white gap-4 relative md:mt-24'>
-                  <p className='text-2xl font-bold'>Register</p>
-                  
-                  {
-                    
-                    SASuccess?
-                    <p className='text-xs text-green-500 font-lg '>Message send succefully</p>:
-                    <p className='text-xs text-red-500 font-lg '>All fields are required*</p>
-                  }
-                  <div className='grid grid-cols-1 gap-6'>
-                    <Input isClearable  variant='flat' type='email' value={email} 
-                            onChange={(e) => setemail(e.target.value)} placeholder='Email'></Input>
-                    <Input isClearable  variant='flat' type='number' value={mNumber} 
-                            onChange={(e) => setmNumber(e.target.value)} placeholder='Mobile number' startContent={
-                      <div className="pointer-events-none flex items-center">
-                        <span className="text-default-400 text-small">+94</span>
-                      </div>
-                    }></Input>
-                  </div>
-                  <div className='h-fit w-full relative '>
-                    <div className='absolute top-1/2  transform right-2 -translate-y-1/2'>
-                      <IoCalendar/>
-                    </div>
-                    <Select 
-                      className="w-full" 
-                      // selectedKeys={pLocation}
-                      // onSelectionChange={setPLocation}
-                      variant=''
-                      placeholder='Year of Study'
-                      required
-                      size='md'
-                      selectedKeys={YOS}
-                      onSelectionChange={setYOS}
-
-                  >
-                      <SelectItem key='2025' className=''>
-                          2025
-                      </SelectItem>
-                      <SelectItem key='2027' className=''>
-                          2027
-                      </SelectItem>
-                      <SelectItem key='2028' className=''>
-                          2028
-                      </SelectItem>
-                  </Select>
-                  </div>
-                  <div className='grid grid-cols-2 gap-6'>
-                    <Select 
-                        className="w-full" 
-                        // selectedKeys={pLocation}
-                        // onSelectionChange={setPLocation}
-                        variant=''
-                        placeholder='Preferred Study Destination'
-                        required
-                        size='md'
-                        selectedKeys={PS}
-                        onSelectionChange={setPS}
-                    >
-                        {
-                          mainCountryListLoaoding?
-                          "":
-                          mainCountries?
-                          mainCountries.map(i => (
-                            <SelectItem key={i.slug} value={i.slug} className=''>
-                                {i.name}
-                            </SelectItem>
-                          )):''
-                        }
-                        {
-                          euCountryListLoaoding?
-                          "":
-                          euCountries?
-                          euCountries.map(i => (
-                            <SelectItem key={i.slug} value={i.slug} className=''>
-                                {i.name}
-                            </SelectItem>
-                          )):''
-                        }
-
-{
-                          medicineCountryListLoaoding?
-                          "":
-                          medicineCountries?
-                          medicineCountries.map(i => (
-                            <SelectItem key={i.slug} value={i.slug} className=''>
-                                {i.name}
-                            </SelectItem>
-                          )):''
-                        }
-                    </Select>
-                    <Select 
-                        className="w-full" 
-                        // selectedKeys={pLocation}
-                        // onSelectionChange={setPLocation}
-                        variant=''
-                        placeholder='Study Intake'
-                        required
-                        size='md'
-                        selectedKeys={SI}
-                        onSelectionChange={setSI}
-
-                    >
-                        <SelectItem key='January – March' className=''>
-                            January – March
-                        </SelectItem>
-                        <SelectItem key='July – September' className=''>
-                            July – September
-                        </SelectItem>
-                        <SelectItem key='October – December' className=''>
-                            October – December
-                        </SelectItem>
-                        <SelectItem key='I’m Not Sure' className=''>
-                            I’m Not Sure
-                        </SelectItem>
-                    </Select>
-                  </div>
-                  <Button variant='solid' color='danger' onClick={sendMail} endContent={
-                      <GrFormNextLink />
-                  } className='w-fit font-medium bg-[#DA0C0C] text-white mt-4'>
-                    Register now
-                  </Button>
-                </div> 
+              <div className='h-full w-full flex flex-col justify-center relative '>
+                
               </div> 
               </div>
           </div>
 
-          <div className='h-[600px] xl:h-[500px] w-max-[1024px] mx-auto px-8 absolute -z-30 top-0 flex items-start justify-center '>
+          <div className='h-[600px] xl:h-[500px] w-max-[1024px] mx-auto px-8 absolute -z-30 top-0 flex items-start justify-center pt-[50px]'>
             <Swiper
               slidesPerView={1}
               spaceBetween={10}
@@ -426,25 +292,7 @@ const CountriesScreen = () => {
                   </div>
                 </div>
               </SwiperSlide>
-              <SwiperSlide className='w-full h-full flex justify-start object-contain'>
-                <div className='h-[400px] xl:h-[300px] w-full md:w-fit px-6 flex flex-col justify-center gap-6'>
-                  <div className='h-fit w-full md:w-fit backdrop-blur-md flex flex-col gap-4 p-6 rounded-[16px]'>
-                    <div className='flex flex-col gap-2 max-w-[500px] mx-auto'>
-                      <p className='text-2xl md:text-4xl font-bold text-white'>International Education and Business Campus</p>
-                      <p className='text-white/75 text-xs'>Unleashing Brilliance, Building Community</p>
-                    </div>
-                    <Button color='' className="flex bg-[#DA0C0C] text-xs lg:text-sm text-white px-4 md:px-5 py-2 md:py-3 rounded-full w-fit">
-                      <p>Pay online</p>
-                    </Button>
-                  </div>
-                </div>
-              </SwiperSlide>
-              {/* <SwiperSlide className='w-full h-full object-contain'>
-                <img src='https://media.istockphoto.com/id/1307457391/photo/happy-black-student-raising-arm-to-answer-question-while-attending-class-with-her-university.jpg?s=612x612&w=0&k=20&c=iZaZFyC-WqlqSQc4elqUNPTxLvWPe8P5Tb_YdZnrI9Q=' alt='' className='h-[600px] xl:h-[500px] w-full object-cover object-center'/>
-              </SwiperSlide> */}
-              {/* <SwiperSlide className='w-full h-full object-contain'>
-                <img src='https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' alt='' className='h-[500px] w-full object-cover object-center'/>
-              </SwiperSlide> */}
+              
             </Swiper>
             
           </div>
@@ -495,6 +343,137 @@ const CountriesScreen = () => {
               <p className='text-base font-bold text-red-900 px-2 text-center'>Book Appoinment</p>
             </div>
             
+        </div>
+    </section>
+
+    <section className='h-fit w-full bg-blue-600 '>
+        <div className='w-full h-fit max-w-[1100px] mx-auto relative  md:gap-4 px-6 flex'>
+            <div className='h-full w-1/2 hidden md:flex mt-auto'>
+              <img src={w} alt='' className='h-full object-cover ' />
+            </div>
+
+            <div className='h-full w-full md:w-1/2 flex flex-col justify-center px-8 gap-4 relative py-8'>
+              <p className='text-2xl md:text-4xl font-bold text-white'>Register</p>
+              
+              {
+                
+                SASuccess?
+                <p className='text-xs text-green-500 font-lg '>Message send succefully</p>:
+                <p className='text-xs text-red-500 font-lg '>All fields are required*</p>
+              }
+              <div className='grid grid-cols-1 gap-6'>
+                <Input isClearable  variant='flat' type='email' value={email} 
+                        onChange={(e) => setemail(e.target.value)} placeholder='Email'></Input>
+                <Input isClearable  variant='flat' type='number' value={mNumber} 
+                        onChange={(e) => setmNumber(e.target.value)} placeholder='Mobile number' startContent={
+                  <div className="pointer-events-none flex items-center">
+                    <span className="text-default-400 text-small">+94</span>
+                  </div>
+                }></Input>
+              </div>
+              <div className='h-fit w-full relative '>
+                <div className='absolute top-1/2  transform right-2 -translate-y-1/2'>
+                  <IoCalendar/>
+                </div>
+                <Select 
+                  className="w-full" 
+                  // selectedKeys={pLocation}
+                  // onSelectionChange={setPLocation}
+                  variant=''
+                  placeholder='Year of Study'
+                  required
+                  size='md'
+                  selectedKeys={YOS}
+                  onSelectionChange={setYOS}
+
+              >
+                  <SelectItem key='2025' className=''>
+                      2025
+                  </SelectItem>
+                  <SelectItem key='2027' className=''>
+                      2027
+                  </SelectItem>
+                  <SelectItem key='2028' className=''>
+                      2028
+                  </SelectItem>
+              </Select>
+              </div>
+              <div className='grid grid-cols-2 gap-6'>
+                <Select 
+                    className="w-full" 
+                    // selectedKeys={pLocation}
+                    // onSelectionChange={setPLocation}
+                    variant=''
+                    placeholder='Preferred Study Destination'
+                    required
+                    size='md'
+                    selectedKeys={PS}
+                    onSelectionChange={setPS}
+                >
+                    {
+                      mainCountryListLoaoding?
+                      "":
+                      mainCountries?
+                      mainCountries.map(i => (
+                        <SelectItem key={i.slug} value={i.slug} className=''>
+                            {i.name}
+                        </SelectItem>
+                      )):''
+                    }
+                    {
+                      euCountryListLoaoding?
+                      "":
+                      euCountries?
+                      euCountries.map(i => (
+                        <SelectItem key={i.slug} value={i.slug} className=''>
+                            {i.name}
+                        </SelectItem>
+                      )):''
+                    }
+
+{
+                      medicineCountryListLoaoding?
+                      "":
+                      medicineCountries?
+                      medicineCountries.map(i => (
+                        <SelectItem key={i.slug} value={i.slug} className=''>
+                            {i.name}
+                        </SelectItem>
+                      )):''
+                    }
+                </Select>
+                <Select 
+                    className="w-full" 
+                    // selectedKeys={pLocation}
+                    // onSelectionChange={setPLocation}
+                    variant=''
+                    placeholder='Study Intake'
+                    required
+                    size='md'
+                    selectedKeys={SI}
+                    onSelectionChange={setSI}
+
+                >
+                    <SelectItem key='January – March' className=''>
+                        January – March
+                    </SelectItem>
+                    <SelectItem key='July – September' className=''>
+                        July – September
+                    </SelectItem>
+                    <SelectItem key='October – December' className=''>
+                        October – December
+                    </SelectItem>
+                    <SelectItem key='I’m Not Sure' className=''>
+                        I’m Not Sure
+                    </SelectItem>
+                </Select>
+              </div>
+              <Button variant='solid' color='danger' onClick={sendMail} endContent={
+                  <GrFormNextLink />
+              } className='w-fit font-medium bg-[#DA0C0C] text-white mt-4'>
+                Register now
+              </Button>
+            </div> 
         </div>
     </section>
 
@@ -986,7 +965,7 @@ const CountriesScreen = () => {
             <p className='text-sm font-medium'>Universities</p>
           </div>
           <div className='w-full flex flex-col items-center justify-center'>
-            <p className='text-4xl font-bold'><CountUp duration={5} end={60} />+</p>
+            <p className='text-4xl font-bold'><CountUp duration={5} end={2000} />+</p>
             <p className='text-sm font-medium'>Success Clients</p>
           </div>
         </div>

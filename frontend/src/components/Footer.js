@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import logo from '../assets/Logo.png'
+import logo1 from '../assets/logo1.jpg'
 import { CiLinkedin } from "react-icons/ci";
 import logoAD from '../assets/logoAD.png'
 import {Button} from "@nextui-org/react";
@@ -73,7 +74,8 @@ const Footer = () => {
 
         <div className='h-fit w-full max-w-[1200px] mx-auto flex flex-col md:flex-row md:items-center gap-2 lg:gap-4'>
           <div className='h-fit w-full px-8 md:px-0 md:w-[300px] flex flex-col items-center md:text-start mx-auto'>
-            <div className='w-full flex items-center justify-center rounded-[8px]'>
+            <div className='w-full flex items-center justify-center rounded-[8px] flex-col'>
+              <img src={logo1} alt='' className='min-h-[200px] scale-75 rounded-full min-w-[200px] object-contain mx-auto' />
               <img src={logoAD} alt='' className='min-h-[200px] min-w-[200px] object-contain mx-auto' />
             </div>        
             <p className={'text-sm font-bold text-white uppercase text-center hidden'}>International Education and Bussiness campus</p>
