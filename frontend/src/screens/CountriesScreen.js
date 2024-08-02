@@ -1204,40 +1204,17 @@ const CountriesScreen = () => {
         </div>
       </section> */}
 
-      <section className='h-fit max-w-full bg-white overflow-hidden'>
+      <section className='h-fit max-w-full bg-white'>
         <div className='h-fit w-full flex flex-col'>
           
-          <div className='w-full mx-auto max-w-[1024px] flex flex-col md:flex-row gap-16 items-center text-left'>
-            <div className='flex  flex-col md:flex-row gap-2 w-full overflow-hidden'>
-              {/* <div className='lg:max-w-[350px] flex flex-col gap-2'>
-                <p className='text-2xl md:text-4xl font-bold text-[#DA0C0C] text-left uppercase'>OUR SERVICES</p>
-                <p className='text-sm '>IEBC ensures a smooth travel for your educational purpose abroad. Start with our free counselling first</p>
-                <Link to={'/ourservices'}>
-                  <Button endContent={
-                        <GrFormNextLink />
-                    } className='w-fit font-medium bg-[#DA0C0C] text-white mt-4'>
-                    Explore our student services
-                  </Button>
-                </Link>
-                
-              </div>
-              <div className='lg:max-w-[350px] flex flex-col gap-2'>
-                <p className='text-2xl md:text-4xl font-bold text-[#DA0C0C] text-left uppercase'>About our consultancy</p>
-                <p className='text-sm '>IEBC ensures a smooth travel for your educational purpose abroad. Start with our free counselling first</p>
-                <Button endContent={
-                      <GrFormNextLink />
-                  } className='w-fit font-medium bg-[#DA0C0C] text-white mt-4'>
-                  About us
-                </Button>
-              </div> */}
-
-              {/* <video controls> 
-                <source src={sdv} type="video/mp4"  />
-              </video> */}
-              <ReactPlayer url={sdv} loop={true} controls={true} />
+          <div className='w-full mx-auto h-full max-w-[1024px] grid grid-cols-1 md:grid-cols-2 gap-16 items-center text-left'>
+            <div className=' w-full h-full min-h-[100%] min-w-[100%] flex items-center justify-center'>
+            <iframe src="https://www.facebook.com/plugins/video.php?height=311&href=https%3A%2F%2Fwww.facebook.com%2Fiebc.lk%2Fvideos%2F1697568263891857%2F&show_text=false&width=560&t=0" frameborder="0" className='h-full w-full my-auto' allowfullscreen="true"  allowFullScreen="true"></iframe>
+            {/* <ReactPlayer url={sdv} loop={true} controls={true} /> */}
+              
 
             </div>
-            <div className='max-w-screen flex flex-col gap-4 w-full max-w-md relative mx-8 px-4 md:px-0'>
+            <div className='max-w-screen h-fit flex flex-col gap-4 w-full max-w-md relative mx-8 px-4 md:px-0'>
               <img src='https://www.marketsquaredental.com/files/2011/08/book-now.png' alt='' className='absolute w-full h-full opacity-25 object-contain scale-110' />
               <div className='w-full flex flex-col gap-6'>
                 <p className='text-2xl font-bold'>Book an Appointment</p>
