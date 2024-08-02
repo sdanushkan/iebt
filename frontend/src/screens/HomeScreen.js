@@ -1268,7 +1268,7 @@ const HomeScreen = () => {
         <div className='h-fit w-full max-w-[1024px] mx-auto overflow-visible'>
             <div className='flex flex-col pb-8'>
               <p className='uppercase text-xs text-center'>News and events</p>
-              <p className='text-2xl lg:text-4xl font-bold text-center'>Our Events</p>
+              <p className='text-2xl lg:text-4xl font-bold text-center'>News and events</p>
             </div>
 
             <div className='hidden lg:block'>

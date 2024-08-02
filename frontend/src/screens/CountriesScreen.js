@@ -995,7 +995,7 @@ const CountriesScreen = () => {
         <div className='h-fit w-full max-w-[1024px] mx-auto overflow-visible'>
             <div className='flex flex-col pb-8'>
               <p className='uppercase text-xs text-center'>News and events</p>
-              <p className='text-2xl lg:text-4xl font-bold text-center'>Our Events</p>
+              <p className='text-2xl lg:text-4xl font-bold text-center'>News and events</p>
             </div>
 
             <div className='hidden lg:block'>
@@ -1231,11 +1231,10 @@ const CountriesScreen = () => {
                 </Button>
               </div> */}
 
-              <video autoPlay controls> 
-                
+              {/* <video controls> 
                 <source src={sdv} type="video/mp4"  />
-              </video>
-              {/* <ReactPlayer url={sdv} loop={true} playing={false} controls={true} /> */}
+              </video> */}
+              <ReactPlayer url={sdv} loop={true} controls={true} />
 
             </div>
             <div className='max-w-screen flex flex-col gap-4 w-full max-w-md relative mx-8 px-4 md:px-0'>
@@ -1688,10 +1687,10 @@ const CountriesScreen = () => {
                 modules={[FreeMode, Pagination, Autoplay]}
                 className=""
               >
-                <SwiperSlide className='h-[300px] w-full relative mt-4 mb-12'>
+                 <SwiperSlide className='h-[300px] w-full relative mt-4 mb-12'>
                   <div className='h-[200px] w-full relative z-10'>
                     <div className='h-fit w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px] overflow-hidden'>
-                      <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fweb.facebook.com%2Fiebc.lk%2Fvideos%2F390059596804608%2F&show_text=false&width=560&t=0" height={'100%'} width={'full'} className='w-full h-full object-cover' frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+                    <iframe src="https://www.facebook.com/plugins/video.php?height=316&href=https%3A%2F%2Fweb.facebook.com%2FIEBCGlobal%2Fvideos%2F724979536505482%2F&show_text=false&width=560&t=0" height={'100%'} width={'full'} className='w-full h-full object-cover' frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
                     </div>
                   </div>
                   <div className='w-full h-[100px] rounded-[8px] bg-[#DA0C0C] absolute bottom-0 -z-30'>
@@ -1701,7 +1700,7 @@ const CountriesScreen = () => {
                 <SwiperSlide className='h-[300px] w-full relative mt-4 mb-12'>
                   <div className='h-[200px] w-full relative z-10'>
                     <div className='h-fit w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px] overflow-hidden'>
-                      <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fweb.facebook.com%2Fiebc.lk%2Fvideos%2F390059596804608%2F&show_text=false&width=560&t=0" height={'100%'} width={'full'} className='w-full h-full object-cover' frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+                    <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fweb.facebook.com%2FIEBCGlobal%2Fvideos%2F787360559926806%2F&show_text=false&width=560&t=0" height={'100%'} width={'full'} className='w-full h-full object-cover' frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
                     </div>
                   </div>
                   <div className='w-full h-[100px] rounded-[8px] bg-[#DA0C0C] absolute bottom-0 -z-30'>
@@ -1711,7 +1710,7 @@ const CountriesScreen = () => {
                 <SwiperSlide className='h-[300px] w-full relative mt-4 mb-12'>
                   <div className='h-[200px] w-full relative z-10'>
                     <div className='h-fit w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px] overflow-hidden'>
-                      <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fweb.facebook.com%2Fiebc.lk%2Fvideos%2F390059596804608%2F&show_text=false&width=560&t=0" height={'100%'} width={'full'} className='w-full h-full object-cover' frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+                    <iframe src="https://www.facebook.com/plugins/video.php?height=420&href=https%3A%2F%2Fweb.facebook.com%2FIEBCGlobal%2Fvideos%2F1063711408132096%2F&show_text=false&width=560&t=0" height={'100%'} width={'full'} className='w-full h-full object-cover' frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
                     </div>
                   </div>
                   <div className='w-full h-[100px] rounded-[8px] bg-[#DA0C0C] absolute bottom-0 -z-30'>
@@ -1721,7 +1720,79 @@ const CountriesScreen = () => {
                 <SwiperSlide className='h-[300px] w-full relative mt-4 mb-12'>
                   <div className='h-[200px] w-full relative z-10'>
                     <div className='h-fit w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px] overflow-hidden'>
-                      <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fweb.facebook.com%2Fiebc.lk%2Fvideos%2F390059596804608%2F&show_text=false&width=560&t=0" height={'100%'} width={'full'} className='w-full h-full object-cover' frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+                    <iframe src="https://www.facebook.com/plugins/video.php?height=316&href=https%3A%2F%2Fweb.facebook.com%2FIEBCGlobal%2Fvideos%2F1438798656686721%2F&show_text=false&width=560&t=0" height={'100%'} width={'full'} className='w-full h-full object-cover' frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+                    </div>
+                  </div>
+                  <div className='w-full h-[100px] rounded-[8px] bg-[#DA0C0C] absolute bottom-0 -z-30'>
+
+                  </div>
+                </SwiperSlide>
+
+                <SwiperSlide className='h-[300px] w-full relative mt-4 mb-12'>
+                  <div className='h-[200px] w-full relative z-10'>
+                    <div className='h-fit w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px] overflow-hidden'>
+                    <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fweb.facebook.com%2FIEBCGlobal%2Fvideos%2F809322143721464%2F&show_text=false&width=560&t=0" height={'100%'} width={'full'} className='w-full h-full object-cover' frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+                    </div>
+                  </div>
+                  <div className='w-full h-[100px] rounded-[8px] bg-[#DA0C0C] absolute bottom-0 -z-30'>
+
+                  </div>
+                </SwiperSlide>
+                <SwiperSlide className='h-[300px] w-full relative mt-4 mb-12'>
+                  <div className='h-[200px] w-full relative z-10'>
+                    <div className='h-fit w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px] overflow-hidden'>
+                    <iframe src="https://www.facebook.com/plugins/video.php?height=316&href=https%3A%2F%2Fweb.facebook.com%2FIEBCGlobal%2Fvideos%2F308333668443585%2F&show_text=false&width=560&t=0" height={'100%'} width={'full'} className='w-full h-full object-cover' frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+                    </div>
+                  </div>
+                  <div className='w-full h-[100px] rounded-[8px] bg-[#DA0C0C] absolute bottom-0 -z-30'>
+
+                  </div>
+                </SwiperSlide>
+                <SwiperSlide className='h-[300px] w-full relative mt-4 mb-12'>
+                  <div className='h-[200px] w-full relative z-10'>
+                    <div className='h-fit w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px] overflow-hidden'>
+                    <iframe src="https://www.facebook.com/plugins/video.php?height=420&href=https%3A%2F%2Fweb.facebook.com%2FIEBCGlobal%2Fvideos%2F585327600327936%2F&show_text=false&width=560&t=0" height={'100%'} width={'full'} className='w-full h-full object-cover' frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+                    </div>
+                  </div>
+                  <div className='w-full h-[100px] rounded-[8px] bg-[#DA0C0C] absolute bottom-0 -z-30'>
+
+                  </div>
+                </SwiperSlide>
+                <SwiperSlide className='h-[300px] w-full relative mt-4 mb-12'>
+                  <div className='h-[200px] w-full relative z-10'>
+                    <div className='h-fit w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px] overflow-hidden'>
+                    <iframe src="https://www.facebook.com/plugins/video.php?height=420&href=https%3A%2F%2Fweb.facebook.com%2FIEBCGlobal%2Fvideos%2F831771447883217%2F&show_text=false&width=560&t=0" height={'100%'} width={'full'} className='w-full h-full object-cover' frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+                    </div>
+                  </div>
+                  <div className='w-full h-[100px] rounded-[8px] bg-[#DA0C0C] absolute bottom-0 -z-30'>
+
+                  </div>
+                </SwiperSlide>
+
+                <SwiperSlide className='h-[300px] w-full relative mt-4 mb-12'>
+                  <div className='h-[200px] w-full relative z-10'>
+                    <div className='h-fit w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px] overflow-hidden'>
+                    <iframe src="https://www.facebook.com/plugins/video.php?height=420&href=https%3A%2F%2Fweb.facebook.com%2FIEBCGlobal%2Fvideos%2F856088048932476%2F&show_text=false&width=560&t=0" height={'100%'} width={'full'} className='w-full h-full object-cover' frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+                    </div>
+                  </div>
+                  <div className='w-full h-[100px] rounded-[8px] bg-[#DA0C0C] absolute bottom-0 -z-30'>
+
+                  </div>
+                </SwiperSlide>
+                <SwiperSlide className='h-[300px] w-full relative mt-4 mb-12'>
+                  <div className='h-[200px] w-full relative z-10'>
+                    <div className='h-fit w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px] overflow-hidden'>
+                    <iframe src="https://www.facebook.com/plugins/video.php?height=420&href=https%3A%2F%2Fweb.facebook.com%2FIEBCGlobal%2Fvideos%2F469373541830598%2F&show_text=false&width=560&t=0" height={'100%'} width={'full'} className='w-full h-full object-cover' frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+                    </div>
+                  </div>
+                  <div className='w-full h-[100px] rounded-[8px] bg-[#DA0C0C] absolute bottom-0 -z-30'>
+
+                  </div>
+                </SwiperSlide>
+                <SwiperSlide className='h-[300px] w-full relative mt-4 mb-12'>
+                  <div className='h-[200px] w-full relative z-10'>
+                    <div className='h-fit w-[90%] bg-red-50 mx-auto relative z-10 rounded-[8px] overflow-hidden'>
+                    <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fweb.facebook.com%2FIEBCGlobal%2Fvideos%2F650057759927476%2F&show_text=false&width=560&t=0" height={'100%'} width={'full'} className='w-full h-full object-cover' frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
                     </div>
                   </div>
                   <div className='w-full h-[100px] rounded-[8px] bg-[#DA0C0C] absolute bottom-0 -z-30'>
