@@ -117,7 +117,7 @@ const HomeScreen = () => {
       }
 
       if(!eventse){
-        dispatch(getEventList()) 
+        dispatch(getEventList('home')) 
       }
             
     }, [dispatch, courses, testimonials, qualifications, eventse])
@@ -1280,7 +1280,7 @@ const HomeScreen = () => {
                   autoplay
                   modules={[FreeMode,  Autoplay]}
                   className="h-fit"
-                > 
+                >
 
                     
 
@@ -1290,12 +1290,13 @@ const HomeScreen = () => {
                     eventse?
                     eventse.map(i=>(
                       <SwiperSlide key={i.slug} className='bg-white border-[1px] border-red-100 rounded-[8px] mb-12 w-[250px] '>
-                        <div className='bg-white  rounded-[8px] w-full p-4'>
+                        <div className='bg-white border-[1px] border-red-100 rounded-[8px] w-[250px] p-4'>
                           <img src={i.image? i.image:'https://ucarecdn.com/c49a7d0c-089f-4ac3-854f-d2b2d815c01d/-/crop/750x422/0,39/-/preview/-/format/auto/-/format/auto/-/quality/smart_retina/-/resize/824x/'} alt='' className='object-cover rounded-[6px] h-[150px] w-full mx-auto hover:scale-105 duration-200' />
                           <div className='flex flex-col pt-6 gap-4'>
-                            <div className='flex flex-col-reverse'>
-                            <p className='text-sm opacity-75'>{i.event}Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                            <div className='flex flex-col'>
+                            <p className='text-sm opacity-75'>{i.event}</p>
                             <p className='text-lg text-[#DA0C0C] font-bold'>{format(new Date(i.date), 'dd MMMM yyyy')}</p>
+                            <p className='text-sm opacity-75'>{parse(i.description)}</p>
                             </div>
                           </div>
                         </div>
@@ -1326,12 +1327,13 @@ const HomeScreen = () => {
                     eventse?
                     eventse.map(i=>(
                       <SwiperSlide key={i.slug} className='bg-white border-[1px] border-red-100 rounded-[8px] mb-12 w-[250px] '>
-                        <div className='bg-white  rounded-[8px] w-full p-4'>
+                        <div className='bg-white border-[1px] border-red-100 rounded-[8px] w-[250px] p-4'>
                           <img src={i.image? i.image:'https://ucarecdn.com/c49a7d0c-089f-4ac3-854f-d2b2d815c01d/-/crop/750x422/0,39/-/preview/-/format/auto/-/format/auto/-/quality/smart_retina/-/resize/824x/'} alt='' className='object-cover rounded-[6px] h-[150px] w-full mx-auto hover:scale-105 duration-200' />
                           <div className='flex flex-col pt-6 gap-4'>
-                            <div className='flex flex-col-reverse'>
-                            <p className='text-sm opacity-75'>{i.event}Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                            <div className='flex flex-col'>
+                            <p className='text-sm opacity-75'>{i.event}</p>
                             <p className='text-lg text-[#DA0C0C] font-bold'>{format(new Date(i.date), 'dd MMMM yyyy')}</p>
+                            <p className='text-sm opacity-75'>{parse(i.description)}</p>
                             </div>
                           </div>
                         </div>
@@ -1362,12 +1364,13 @@ const HomeScreen = () => {
                     eventse?
                     eventse.map(i=>(
                       <SwiperSlide key={i.slug} className='bg-white border-[1px] border-red-100 rounded-[8px] mb-12 w-[250px] '>
-                        <div className='bg-white  rounded-[8px] w-full p-4'>
+                        <div className='bg-white border-[1px] border-red-100 rounded-[8px] w-[250px] p-4'>
                           <img src={i.image? i.image:'https://ucarecdn.com/c49a7d0c-089f-4ac3-854f-d2b2d815c01d/-/crop/750x422/0,39/-/preview/-/format/auto/-/format/auto/-/quality/smart_retina/-/resize/824x/'} alt='' className='object-cover rounded-[6px] h-[150px] w-full mx-auto hover:scale-105 duration-200' />
                           <div className='flex flex-col pt-6 gap-4'>
-                            <div className='flex flex-col-reverse'>
-                            <p className='text-sm opacity-75'>{i.event}Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                            <div className='flex flex-col'>
+                            <p className='text-sm opacity-75'>{i.event}</p>
                             <p className='text-lg text-[#DA0C0C] font-bold'>{format(new Date(i.date), 'dd MMMM yyyy')}</p>
+                            <p className='text-sm opacity-75'>{parse(i.description)}</p>
                             </div>
                           </div>
                         </div>

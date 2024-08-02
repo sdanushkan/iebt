@@ -515,9 +515,9 @@ def getDualQualificationCourse(request, slug):
         return Response(message)    
 
 @api_view(['GET'])
-def getEvents(request):
+def getEvents(request, page):
     try:
-        course = Event.objects.all()
+        course = Event.objects.filter(page__slug=page)
         serializer = EventSerializer(course, many=True)
         return Response(serializer.data)
 

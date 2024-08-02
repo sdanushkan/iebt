@@ -252,6 +252,7 @@ class StudentVerification(models.Model):
         return self.name
 
 class Event(models.Model):
+    page = models.ForeignKey(Page, on_delete=models.SET_NULL, null=True, blank=True)
     event = models.CharField(max_length=200, null=True, blank=True)
     date = models.DateField(unique=True)
     description = RichTextField(null=True, blank=True)

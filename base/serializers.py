@@ -154,6 +154,7 @@ class StudentVerificationSerializer(serializers.ModelSerializer):
 
 
 class EventSerializer(serializers.ModelSerializer):
+    page = PageSerializer()
     class Meta:
         model = Event
         fields = '__all__'

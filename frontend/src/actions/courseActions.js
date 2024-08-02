@@ -701,7 +701,7 @@ export const sendCAMail = (details) => async (dispatch) => {
     }
 }
 
-export const getEventList = () => async (dispatch) => {
+export const getEventList = (i) => async (dispatch) => {
     try {
         dispatch({
             type: EVENT_LIST_REQUEST
@@ -714,7 +714,7 @@ export const getEventList = () => async (dispatch) => {
         }
 
         const { data } = await axios.get(
-            `/api/courses/events/list`,
+            `/api/courses/events/list/${i}`,
             config
         )
 

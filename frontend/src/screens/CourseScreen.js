@@ -696,9 +696,7 @@ const CourseScreen = () => {
                                         >
                                             <SwiperSlide>
                                                 <div className='min-h-[150px] flex flex-col items-center justify-center bg-[#DA0C0C] rounded-[8px] gap-2'>
-                                                    <p  className='px-2 font-bold text-white uppercase text-start'>
-                                                        EU
-                                                    </p>
+                        
                                                     
                                                     <p  className='text-lg px-2 font-bold text-white uppercase text-center'>
                                                         {course.programme.name}
@@ -736,7 +734,7 @@ const CourseScreen = () => {
                                                     <p  className='text-lg px-2 font-bold text-white uppercase text-center'>
                                                         {course.programme.name}
                                                     </p>
-                                               
+                                                    
                                                 </div>
                                             </SwiperSlide>
                                             <SwiperSlide>

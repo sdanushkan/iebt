@@ -75,7 +75,26 @@ const Footer = () => {
         <div className='h-fit w-full max-w-[1200px] mx-auto flex flex-col md:flex-row md:items-center gap-2 lg:gap-4'>
           <div className='h-fit w-full px-8 md:px-0 md:w-[300px] flex flex-col items-center md:text-start mx-auto'>
             <div className='w-full flex items-center justify-center rounded-[8px] flex-col'>
-              <img src={logo1} alt='' className='min-h-[200px] scale-75 rounded-full min-w-[200px] object-contain mx-auto' />
+              <div className='flex flex-col gap-1'>
+                <img src={logo1} alt='' className='min-h-[200px] scale-75 rounded-full min-w-[200px] object-contain mx-auto' />
+                <div className='py-4 mx-auto'>
+                  <a href='https://www.instagram.com/ieb_consultancy/'>
+                    <Button isIconOnly startContent={<RiInstagramFill className='text-2xl text-white'/>} variant='light'>
+
+                    </Button>
+                  </a>
+                  <a href={'https://www.facebook.com/profile.php?id=61563085658668'}>
+                    <Button isIconOnly startContent={<FaFacebook  className='text-2xl text-white'/>} variant='light'>
+
+                    </Button>
+                  </a>
+                  <a href='http://www.linkedin.com/in/ieb-consultancy-6a9223320'>
+                    <Button isIconOnly startContent={<FaLinkedin  className='text-2xl text-white'/>} variant='light'>
+
+                    </Button>
+                  </a>
+                </div>
+              </div>
               <img src={logoAD} alt='' className='min-h-[200px] min-w-[200px] object-contain mx-auto' />
             </div>        
             <p className={'text-sm font-bold text-white uppercase text-center hidden'}>International Education and Bussiness campus</p>
