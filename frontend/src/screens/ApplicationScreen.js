@@ -648,7 +648,7 @@ seti4('');
                             <div className='h-fit w-full '>
                               <RadioGroup
                                 size='md'
-                                label="Select your favorite city"
+                                label="Select your Gender"
                                 value={sex} 
                                 onChange={(e) => setSex(e.target.value)} 
                               >
@@ -828,8 +828,8 @@ seti4('');
                                 <Input
                                   key={'outside'}
                                   type="text"
-                                  label="Garde"
-                                  placeholder='Enter Garde'
+                                  label="Grade"
+                                  placeholder='Enter Grade'
                                   labelPlacement={'outside'}
                                   value={OLS1A1G} 
                                   onChange={(e) => setOLS1A1G(e.target.value)}
@@ -857,8 +857,8 @@ seti4('');
                                 <Input
                                   key={'outside'}
                                   type="text"
-                                  label="Garde"
-                                  placeholder='Enter Garde'
+                                  label="Grade"
+                                  placeholder='Enter Grade'
                                   labelPlacement={'outside'}
                                   value={OLS2A1G} 
                                   onChange={(e) => setOLS2A1G(e.target.value)}
@@ -886,8 +886,8 @@ seti4('');
                                 <Input
                                   key={'outside'}
                                   type="text"
-                                  label="Garde"
-                                  placeholder='Enter Garde'
+                                  label="Grade"
+                                  placeholder='Enter Grade'
                                   labelPlacement={'outside'}
                                   value={OLS3A1G} 
                                   onChange={(e) => setOLS3A1G(e.target.value)}
@@ -915,8 +915,8 @@ seti4('');
                                 <Input
                                   key={'outside'}
                                   type="text"
-                                  label="Garde"
-                                  placeholder='Enter Garde'
+                                  label="Grade"
+                                  placeholder='Enter Grade'
                                   labelPlacement={'outside'}
                                   value={OLS4A1G} 
                                   onChange={(e) => setOLS4A1G(e.target.value)}
@@ -944,8 +944,8 @@ seti4('');
                                 <Input
                                   key={'outside'}
                                   type="text"
-                                  label="Garde"
-                                  placeholder='Enter Garde'
+                                  label="Grade"
+                                  placeholder='Enter Grade'
                                   labelPlacement={'outside'}
                                   value={OLS5A1G} 
                                   onChange={(e) => setOLS5A1G(e.target.value)}
@@ -973,8 +973,8 @@ seti4('');
                                 <Input
                                   key={'outside'}
                                   type="text"
-                                  label="Garde"
-                                  placeholder='Enter Garde'
+                                  label="Grade"
+                                  placeholder='Enter Grade'
                                   labelPlacement={'outside'}
                                   value={OLS6A1G} 
                                   onChange={(e) => setOLS6A1G(e.target.value)}
@@ -1002,8 +1002,8 @@ seti4('');
                                 <Input
                                   key={'outside'}
                                   type="text"
-                                  label="Garde"
-                                  placeholder='Enter Garde'
+                                  label="Grade"
+                                  placeholder='Enter Grade'
                                   labelPlacement={'outside'}
                                   value={OLS7A1G} 
                                   onChange={(e) => setOLS7A1G(e.target.value)}
@@ -1031,8 +1031,8 @@ seti4('');
                                 <Input
                                   key={'outside'}
                                   type="text"
-                                  label="Garde"
-                                  placeholder='Enter Garde'
+                                  label="Grade"
+                                  placeholder='Enter Grade'
                                   labelPlacement={'outside'}
                                   value={OLS8A1G} 
                                   onChange={(e) => setOLS8A1G(e.target.value)}
@@ -1060,8 +1060,8 @@ seti4('');
                                 <Input
                                   key={'outside'}
                                   type="text"
-                                  label="Garde"
-                                  placeholder='Enter Garde'
+                                  label="Grade"
+                                  placeholder='Enter Grade'
                                   labelPlacement={'outside'}
                                   value={OLS9A1G} 
                                   onChange={(e) => setOLS9A1G(e.target.value)}
@@ -1093,8 +1093,8 @@ seti4('');
                                 <Input
                                   key={'outside'}
                                   type="text"
-                                  label="Garde"
-                                  placeholder='Enter Garde'
+                                  label="Grade"
+                                  placeholder='Enter Grade'
                                   labelPlacement={'outside'}
                                   value={OLS1A2G} 
                                   onChange={(e) => setOLS1A2G(e.target.value)}
@@ -1122,8 +1122,8 @@ seti4('');
                                 <Input
                                   key={'outside'}
                                   type="text"
-                                  label="Garde"
-                                  placeholder='Enter Garde'
+                                  label="Grade"
+                                  placeholder='Enter Grade'
                                   labelPlacement={'outside'}
                                   value={OLS2A2G} 
                                   onChange={(e) => setOLS2A2G(e.target.value)}
@@ -1151,8 +1151,8 @@ seti4('');
                                 <Input
                                   key={'outside'}
                                   type="text"
-                                  label="Garde"
-                                  placeholder='Enter Garde'
+                                  label="Grade"
+                                  placeholder='Enter Grade'
                                   labelPlacement={'outside'}
                                   value={OLS3A2G} 
                                   onChange={(e) => setOLS3A2G(e.target.value)}
@@ -1180,8 +1180,8 @@ seti4('');
                                 <Input
                                   key={'outside'}
                                   type="text"
-                                  label="Garde"
-                                  placeholder='Enter Garde'
+                                  label="Grade"
+                                  placeholder='Enter Grade'
                                   labelPlacement={'outside'}
                                   value={OLS4A2G} 
                                   onChange={(e) => setOLS4A2G(e.target.value)}
@@ -1209,8 +1209,8 @@ seti4('');
                                 <Input
                                   key={'outside'}
                                   type="text"
-                                  label="Garde"
-                                  placeholder='Enter Garde'
+                                  label="Grade"
+                                  placeholder='Enter Grade'
                                   labelPlacement={'outside'}
                                   value={OLS5A2G} 
                                   onChange={(e) => setOLS5A2G(e.target.value)}
@@ -1238,8 +1238,8 @@ seti4('');
                                 <Input
                                   key={'outside'}
                                   type="text"
-                                  label="Garde"
-                                  placeholder='Enter Garde'
+                                  label="Grade"
+                                  placeholder='Enter Grade'
                                   labelPlacement={'outside'}
                                   value={OLS6A2G} 
                                   onChange={(e) => setOLS6A2G(e.target.value)}
@@ -1267,8 +1267,8 @@ seti4('');
                                 <Input
                                   key={'outside'}
                                   type="text"
-                                  label="Garde"
-                                  placeholder='Enter Garde'
+                                  label="Grade"
+                                  placeholder='Enter Grade'
                                   labelPlacement={'outside'}
                                   value={OLS7A2G} 
                                   onChange={(e) => setOLS7A2G(e.target.value)}
@@ -1296,8 +1296,8 @@ seti4('');
                                 <Input
                                   key={'outside'}
                                   type="text"
-                                  label="Garde"
-                                  placeholder='Enter Garde'
+                                  label="Grade"
+                                  placeholder='Enter Grade'
                                   labelPlacement={'outside'}
                                   value={OLS8A2G} 
                                   onChange={(e) => setOLS8A2G(e.target.value)}
@@ -1325,8 +1325,8 @@ seti4('');
                                 <Input
                                   key={'outside'}
                                   type="text"
-                                  label="Garde"
-                                  placeholder='Enter Garde'
+                                  label="Grade"
+                                  placeholder='Enter Grade'
                                   labelPlacement={'outside'}
                                   value={OLS9A2G} 
                                   onChange={(e) => setOLS9A2G(e.target.value)}
@@ -1372,8 +1372,8 @@ seti4('');
                                 <Input
                                   key={'outside'}
                                   type="text"
-                                  label="Garde"
-                                  placeholder='Enter Garde'
+                                  label="Grade"
+                                  placeholder='Enter Grade'
                                   labelPlacement={'outside'}
                                   value={ALS1A1G} 
                                   onChange={(e) => setALS1A1G(e.target.value)}
@@ -1401,8 +1401,8 @@ seti4('');
                                 <Input
                                   key={'outside'}
                                   type="text"
-                                  label="Garde"
-                                  placeholder='Enter Garde'
+                                  label="Grade"
+                                  placeholder='Enter Grade'
                                   labelPlacement={'outside'}
                                   value={ALS2A1G} 
                                   onChange={(e) => setALS2A1G(e.target.value)}
@@ -1430,8 +1430,8 @@ seti4('');
                                 <Input
                                   key={'outside'}
                                   type="text"
-                                  label="Garde"
-                                  placeholder='Enter Garde'
+                                  label="Grade"
+                                  placeholder='Enter Grade'
                                   labelPlacement={'outside'}
                                   value={ALS3A1G} 
                                   onChange={(e) => setALS3A1G(e.target.value)}
@@ -1459,8 +1459,8 @@ seti4('');
                                 <Input
                                   key={'outside'}
                                   type="text"
-                                  label="Garde" 
-                                  placeholder='Enter Garde'
+                                  label="Grade" 
+                                  placeholder='Enter Grade'
                                   labelPlacement={'outside'}
                                   value={ALS4A1G} 
                                   onChange={(e) => setALS4A1G(e.target.value)}
@@ -1488,8 +1488,8 @@ seti4('');
                                 <Input
                                   key={'outside'}
                                   type="text"
-                                  label="Garde"
-                                  placeholder='Enter Garde'
+                                  label="Grade"
+                                  placeholder='Enter Grade'
                                   labelPlacement={'outside'}
                                   value={ALS5A1G} 
                                   onChange={(e) => setALS5A1G(e.target.value)}
@@ -1521,8 +1521,8 @@ seti4('');
                                 <Input
                                   key={'outside'}
                                   type="text"
-                                  label="Garde"
-                                  placeholder='Enter Garde'
+                                  label="Grade"
+                                  placeholder='Enter Grade'
                                   labelPlacement={'outside'}
                                   value={ALS1A2G} 
                                   onChange={(e) => setALS1A2G(e.target.value)}
@@ -1550,8 +1550,8 @@ seti4('');
                                 <Input
                                   key={'outside'}
                                   type="text"
-                                  label="Garde"
-                                  placeholder='Enter Garde'
+                                  label="Grade"
+                                  placeholder='Enter Grade'
                                   labelPlacement={'outside'}
                                   value={ALS2A2G} 
                                   onChange={(e) => setALS2A2G(e.target.value)}
@@ -1579,8 +1579,8 @@ seti4('');
                                 <Input
                                   key={'outside'}
                                   type="text"
-                                  label="Garde"
-                                  placeholder='Enter Garde'
+                                  label="Grade"
+                                  placeholder='Enter Grade'
                                   labelPlacement={'outside'}
                                   value={ALS3A2G} 
                                   onChange={(e) => setALS3A2G(e.target.value)}
@@ -1608,8 +1608,8 @@ seti4('');
                                 <Input
                                   key={'outside'}
                                   type="text"
-                                  label="Garde"
-                                  placeholder='Enter Garde'
+                                  label="Grade"
+                                  placeholder='Enter Grade'
                                   labelPlacement={'outside'}
                                   value={ALS4A2G} 
                                   onChange={(e) => setALS4A2G(e.target.value)}
@@ -1637,8 +1637,8 @@ seti4('');
                                 <Input
                                   key={'outside'}
                                   type="text"
-                                  label="Garde"
-                                  placeholder='Enter Garde'
+                                  label="Grade"
+                                  placeholder='Enter Grade'
                                   labelPlacement={'outside'}
                                   value={ALS5A2G} 
                                   onChange={(e) => setALS5A2G(e.target.value)}
@@ -1686,8 +1686,8 @@ seti4('');
                                 <Input
                                   key={'outside'}
                                   type="text"
-                                  label="Garde"
-                                  placeholder='Enter Garde'
+                                  label="Grade"
+                                  placeholder='Enter Grade'
                                   labelPlacement={'outside'}
                                   value={HEQ1G} 
                                   onChange={(e) => setHEQ1G(e.target.value)}
@@ -1715,8 +1715,8 @@ seti4('');
                                 <Input
                                   key={'outside'}
                                   type="text"
-                                  label="Garde"
-                                  placeholder='Enter Garde'
+                                  label="Grade"
+                                  placeholder='Enter Grade'
                                   labelPlacement={'outside'}
                                   value={HEQ2G} 
                                   onChange={(e) => setHEQ2G(e.target.value)}
@@ -1744,8 +1744,8 @@ seti4('');
                                 <Input
                                   key={'outside'}
                                   type="text"
-                                  label="Garde"
-                                  placeholder='Enter Garde'
+                                  label="Grade"
+                                  placeholder='Enter Grade'
                                   labelPlacement={'outside'}
                                   value={HEQ3G} 
                                   onChange={(e) => setHEQ3G(e.target.value)}
@@ -1773,8 +1773,8 @@ seti4('');
                                 <Input
                                   key={'outside'}
                                   type="text"
-                                  label="Garde" 
-                                  placeholder='Enter Garde'
+                                  label="Grade" 
+                                  placeholder='Enter Grade'
                                   labelPlacement={'outside'}
                                   value={HEQ4G} 
                                   onChange={(e) => setHEQ4G(e.target.value)}
@@ -1802,8 +1802,8 @@ seti4('');
                                 <Input
                                   key={'outside'}
                                   type="text"
-                                  label="Garde" 
-                                  placeholder='Enter Garde'
+                                  label="Grade" 
+                                  placeholder='Enter Grade'
                                   labelPlacement={'outside'}
                                   value={HEQ5G} 
                                   onChange={(e) => setHEQ5G(e.target.value)}
@@ -1831,8 +1831,8 @@ seti4('');
                                 <Input
                                   key={'outside'}
                                   type="text"
-                                  label="Garde"
-                                  placeholder='Enter Garde'
+                                  label="Grade"
+                                  placeholder='Enter Grade'
                                   labelPlacement={'outside'}
                                   value={ALS5A1G} 
                                   onChange={(e) => setALS5A1G(e.target.value)}
@@ -1875,8 +1875,8 @@ seti4('');
                         <Input
                           key={'outside'}
                           type="text"
-                          label="Garde"
-                          placeholder='Enter Garde'
+                          label="Grade"
+                          placeholder='Enter Grade'
                           labelPlacement={'outside'}
                           value={ALS5A1G} 
                           onChange={(e) => setALS5A1G(e.target.value)}
@@ -2012,8 +2012,8 @@ seti4('');
                                 <Input
                                   key={'outside'}
                                   type="text"
-                                  label="Garde"
-                                  placeholder='Enter Garde'
+                                  label="Grade"
+                                  placeholder='Enter Grade'
                                   labelPlacement={'outside'}
                                   value={ALS5A1G} 
                                   onChange={(e) => setALS5A1G(e.target.value)}
