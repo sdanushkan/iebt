@@ -1242,8 +1242,6 @@ const CountriesScreen = () => {
                     onChange={(date) => setStartDate(date)}
                     showTimeSelect
                     filterTime={filterTime}
-                    value={date} 
-                    
                     filterDate={filterDate}
                     dateFormat="MMMM d, yyyy h:mm aa"
                     timeIntervals={30}
