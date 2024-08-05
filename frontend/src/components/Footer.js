@@ -100,7 +100,7 @@ const Footer = () => {
             <p className={'text-sm font-bold text-white uppercase text-center hidden'}>International Education and Bussiness campus</p>
             <div className='h-[1px] w-full bg-red-100 mt-4'></div>
             <div className='py-4'>
-              <a>
+              <a href='https://www.facebook.com/IEBCGlobal/'>
                 <Button isIconOnly startContent={<RiInstagramFill className='text-2xl text-white'/>} variant='light'>
 
                 </Button>
@@ -110,9 +110,11 @@ const Footer = () => {
 
                 </Button>
               </a>
-              <Button isIconOnly startContent={<FaLinkedin  className='text-2xl text-white'/>} variant='light'>
+              <a href='https://www.linkedin.com/company/iebc-visa-global/'>
+                <Button isIconOnly startContent={<FaLinkedin  className='text-2xl text-white'/>} variant='light'>
 
-              </Button>
+                </Button>
+              </a>
             </div>
           </div>
           <div className={'h-fit w-full grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-2 lg:gap-4'}>
