@@ -249,7 +249,7 @@ const DQCourseScreen = () => {
                                             <SwiperSlide>
                                                 <div className='min-h-[150px] flex flex-col items-center justify-center bg-[#DA0C0C] rounded-[8px] gap-2'>
                                                     <p  className='text-2xl font-bold text-white uppercase text-center'>
-                                                        {course.programme.name}
+                                                        {co.programme.name}
                                                     </p>
                                                     <div className='flex gap-3'>
                                                         
@@ -277,7 +277,7 @@ const DQCourseScreen = () => {
                                             <SwiperSlide>
                                                 <div className='min-h-[150px] flex flex-col items-center justify-center bg-[#DA0C0C] rounded-[8px] gap-2'>
                                                     <p  className='text-2xl font-bold text-white uppercase text-center'>
-                                                        {course.programme.name}
+                                                        {co.programme.name}
                                                     </p>
                                                     <div className='flex gap-3'>
                                                         
@@ -305,7 +305,7 @@ const DQCourseScreen = () => {
                                             <SwiperSlide>
                                                 <div className='min-h-[150px] flex flex-col items-center justify-center bg-[#DA0C0C] rounded-[8px] gap-2'>
                                                     <p  className='text-lg px-2 font-bold text-white uppercase text-center'>
-                                                        {course.programme.name}
+                                                        {co.programme.name}
                                                     </p>
                                                     <div className='flex gap-3'>
                                                                                                               
@@ -333,7 +333,7 @@ const DQCourseScreen = () => {
                                             <SwiperSlide>
                                                 <div className='min-h-[150px] flex flex-col items-center justify-center bg-[#DA0C0C] rounded-[8px] gap-2'>
                                                     <p  className='text-lg px-2 font-bold text-white uppercase text-center'>
-                                                        {course.programme.name}
+                                                        {co.programme.name}
                                                     </p>
                                                     <div className='flex gap-3'>
                                                         <div className='bg-white text-black capitalize rounded-[8px] h-fit py-4 px-4 flex items-center justify-center'>
@@ -367,7 +367,7 @@ const DQCourseScreen = () => {
                                             <SwiperSlide>
                                                 <div className='min-h-[150px] flex flex-col items-center justify-center bg-[#DA0C0C] rounded-[8px] gap-2'>
                                                     <p  className='text-lg px-2 font-bold text-white uppercase text-center'>
-                                                        {course.programme.name}
+                                                        {co.programme.name}
                                                     </p>
                                                     <div className='flex gap-3'>
                                                     <div className='bg-white text-black capitalize rounded-[8px] h-fit py-4 px-4 flex items-center justify-center'>
@@ -400,7 +400,7 @@ const DQCourseScreen = () => {
                                             <SwiperSlide>
                                                 <div className='min-h-[150px] flex flex-col items-center justify-center bg-[#DA0C0C] rounded-[8px] gap-2'>
                                                     <p  className='text-lg px-2 font-bold text-white uppercase text-center'>
-                                                        {course.programme.name}
+                                                        {co.programme.name}
                                                     </p>
                                                     <div className='flex gap-3'>
                                                     <div className='bg-white text-black capitalize rounded-[8px] h-fit py-4 px-4 flex items-center justify-center'>
@@ -433,7 +433,7 @@ const DQCourseScreen = () => {
                                             <SwiperSlide>
                                                 <div className='min-h-[150px] flex flex-col items-center justify-center bg-[#DA0C0C] rounded-[8px] gap-2'>
                                                     <p  className='text-lg px-2 font-bold text-white uppercase text-center'>
-                                                        {course.programme.name}
+                                                        {co.programme.name}
                                                     </p>
                                                     <div className='flex gap-3'>
                                                     <div className='bg-white text-black capitalize rounded-[8px] h-fit py-4 px-4 flex items-center justify-center'>
@@ -467,7 +467,7 @@ const DQCourseScreen = () => {
                                             <SwiperSlide>
                                                 <div className='min-h-[150px] flex flex-col items-center justify-center bg-[#DA0C0C] rounded-[8px] gap-2'>
                                                     <p  className='text-lg px-2 font-bold text-white uppercase text-center'>
-                                                        {course.programme.name}
+                                                        {co.programme.name}
                                                     </p>
                                                     <div className='flex gap-3'>
                                                     <div className='bg-white text-black capitalize rounded-[8px] h-fit py-4 px-4 flex items-center justify-center'>
@@ -501,7 +501,7 @@ const DQCourseScreen = () => {
                                             <SwiperSlide>
                                                 <div className='min-h-[150px] flex flex-col items-center justify-center bg-[#DA0C0C] rounded-[8px] gap-2'>
                                                     <p  className='text-lg px-2 font-bold text-white uppercase text-center'>
-                                                        {course.programme.name}
+                                                        {co.programme.name}
                                                     </p>
                                                     <div className='flex gap-3'>
                                                     <div className='bg-white text-black capitalize rounded-[8px] h-fit py-4 px-4 flex items-center justify-center'>
@@ -535,7 +535,7 @@ const DQCourseScreen = () => {
                                             <SwiperSlide>
                                                 <div className='min-h-[150px] flex flex-col items-center justify-center bg-[#DA0C0C] rounded-[8px] gap-2'>
                                                     <p  className='text-lg px-2 font-bold text-white uppercase text-center'>
-                                                        {course.programme.name}
+                                                        {co.programme.name}
                                                     </p>
                                                     <div className='flex gap-3'>
                                                     <div className='bg-white text-black capitalize rounded-[8px] h-fit py-4 px-4 flex items-center justify-center'>
@@ -568,7 +568,7 @@ const DQCourseScreen = () => {
                                             <SwiperSlide>
                                                 <div className='min-h-[150px] flex flex-col items-center justify-center bg-[#DA0C0C] rounded-[8px] gap-2'>
                                                     <p  className='text-lg px-2 font-bold text-white uppercase text-center'>
-                                                        {course.programme.name}
+                                                        {co.programme.name}
                                                     </p>
                                                     <div className='flex gap-3'>
                                                         <div className='bg-white text-black capitalize rounded-[8px] h-fit py-4 px-4 flex items-center justify-center'>
@@ -602,7 +602,7 @@ const DQCourseScreen = () => {
                                             <SwiperSlide>
                                                 <div className='min-h-[150px] flex flex-col items-center justify-center bg-[#DA0C0C] rounded-[8px] gap-2'>
                                                     <p  className='text-lg px-2 font-bold text-white uppercase text-center'>
-                                                        {course.programme.name}
+                                                        {co.programme.name}
                                                     </p>
                                                     <div className='flex gap-3'>
                                                     <div className='bg-white text-black capitalize rounded-[8px] h-fit py-4 px-4 flex items-center justify-center'>
@@ -636,7 +636,7 @@ const DQCourseScreen = () => {
                                             <SwiperSlide>
                                                 <div className='min-h-[150px] flex flex-col items-center justify-center bg-[#DA0C0C] rounded-[8px] gap-2'>
                                                     <p  className='text-lg px-2 font-bold text-white uppercase text-center'>
-                                                        {course.programme.name}
+                                                        {co.programme.name}
                                                     </p>
                                                     <div className='flex gap-3'>
                                                     <div className='bg-white text-black capitalize rounded-[8px] h-fit py-4 px-4 flex items-center justify-center'>
@@ -669,7 +669,7 @@ const DQCourseScreen = () => {
                                             <SwiperSlide>
                                                 <div className='min-h-[150px] flex flex-col items-center justify-center bg-[#DA0C0C] rounded-[8px] gap-2'>
                                                     <p  className='text-lg px-2 font-bold text-white uppercase text-center'>
-                                                        {course.programme.name}
+                                                        {co.programme.name}
                                                     </p>
                                                     <div className='flex gap-3'>
                                                     <div className='bg-white text-black capitalize rounded-[8px] h-fit py-4 px-4 flex items-center justify-center'>
@@ -707,7 +707,7 @@ const DQCourseScreen = () => {
                                                     </p>
                                                     
                                                     <p  className='text-lg px-2 font-bold text-white uppercase text-center'>
-                                                        {course.programme.name}
+                                                        {co.programme.name}
                                                     </p>
                                                     <div className='flex gap-3'>
                                                     <div className='bg-white text-black capitalize rounded-[8px] h-fit py-4 px-4 flex items-center justify-center'>
@@ -740,7 +740,7 @@ const DQCourseScreen = () => {
                                             <SwiperSlide>
                                                 <div className='min-h-[150px] flex flex-col items-center justify-center bg-[#DA0C0C] rounded-[8px] gap-2'>
                                                     <p  className='text-lg px-2 font-bold text-white uppercase text-center'>
-                                                        {course.programme.name}
+                                                        {co.programme.name}
                                                     </p>
                                                
                                                 </div>

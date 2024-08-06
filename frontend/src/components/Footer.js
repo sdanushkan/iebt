@@ -281,8 +281,8 @@ const Footer = () => {
               </a>
             </div>
           </div>
-          <div className='h-fit grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 lg:gap-4'>
-            <div className='w-full md:min-w-[200px] flex flex-col justify-center items-center md:items-start md:justify-start gap-2'>
+          <div className='h-fit grid grid-cols-1 lg:grid-cols-3 gap-2 lg:gap-4'>
+            <div className='w-full flex flex-col justify-center items-center md:items-start md:justify-start gap-2'>
               <p className='text-sm font-bold border-b-[2px] border-[#DA0C0C] gap-6 flex  text-center md:text-left text-white'>AWARDING BODY QUALIFICATION</p>
               <div className='px-4 flex flex-col gap-2 py-2 md:py-4 order-1 text-center md:text-start'>
                 <Link to={`awarding-body/lrn-uk-qualification`} className='text-[10px] text-white/80'>LRN- British Qualification</Link>
@@ -291,7 +291,7 @@ const Footer = () => {
               </div>
             </div>
             <div className='flex flex-col'>
-              <div className='w-full md:min-w-[200px] flex flex-col justify-center items-center md:items-start md:justify-start gap-2'>
+              <div className='w-full  flex flex-col justify-center items-center md:items-start md:justify-start gap-2'>
                 <p className='text-sm font-bold border-b-[2px] border-[#DA0C0C] gap-6 flex items-end text-center md:text-left text-white'>PROGRAMMES</p>
                 <div className='px-4 flex flex-col gap-2 py-2 md:py-4 order-1 text-center md:text-start'> 
                         {
@@ -309,7 +309,7 @@ const Footer = () => {
                 </div>
               </div>             
             </div>
-            <div className='w-full md:min-w-[200px] flex flex-col justify-center items-center md:items-start md:justify-start gap-2 ml-auto'>
+            <div className='w-full flex flex-col justify-center items-center md:items-start md:justify-start gap-2 ml-auto'>
               <p className='text-sm font-bold border-b-[2px] border-[#DA0C0C] gap-6 flex items-end text-center md:text-left text-white'>USE FULL LINKS </p>
               <div className='px-4 flex flex-col gap-2 py-2 md:py-4 order-1 text-center md:text-start'>
                 <Link className='text-[10px] text-white/80'>PROGRESSION</Link>
@@ -325,12 +325,9 @@ const Footer = () => {
               <p className='text-sm font-bold border-b-[2px] border-[#DA0C0C] gap-6 flex items-end text-center md:text-left text-white'>QUICK LINKS</p>
               <div className='px-4 flex flex-col gap-2 py-2 md:py-4 order-1 text-center md:text-start'>
                 <Link to={'/application'} className='text-[10px] text-white/80'>APPLY ONLINE</Link>
-                <Link to={'/'} className='text-[10px] text-white/80'>VERIFY CERTIFICATE</Link>
-                <Link to={'/'} className='text-[10px] text-white/80'>STUDENT PORTAL</Link>
+                <Link to={'/verify'} className='text-[10px] text-white/80'>VERIFY CERTIFICATE</Link>
                 <Link to={'/'} className='text-[10px] text-white/80'>PAY ONLINE</Link>
-                <Link to={'/'} className='text-[10px] text-white/80'>EVENT CALENDER</Link>
                 <Link to={'/faq'} className='text-[10px] text-white/80'>FAQ</Link>
-                <Link to={'/'} className='text-[10px] text-white/80'>TESTIMONIAL</Link>
               </div>
             </div>
           </div>
