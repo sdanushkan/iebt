@@ -1000,7 +1000,7 @@ const CountriesScreen = () => {
 
             <div className='hidden lg:block'>
                 <Swiper
-                  slidesPerView={4}
+                  slidesPerView={3}
                   spaceBetween={10}
                   freeMode={true}
                   
@@ -1016,17 +1016,26 @@ const CountriesScreen = () => {
                     '':
                     eventse?
                     eventse.map(i=>(
-                      <SwiperSlide key={i.slug} className='bg-white border-[1px] border-red-100 rounded-[8px] mb-12 w-[250px] '>
-                        <div className='bg-white border-[1px] border-red-100 rounded-[8px] w-[250px] p-4'>
-                          <img src={i.image? i.image:'https://ucarecdn.com/c49a7d0c-089f-4ac3-854f-d2b2d815c01d/-/crop/750x422/0,39/-/preview/-/format/auto/-/format/auto/-/quality/smart_retina/-/resize/824x/'} alt='' className='object-cover rounded-[6px] h-[150px] w-full mx-auto hover:scale-105 duration-200' />
-                          <div className='flex flex-col pt-6 gap-4'>
-                            <div className='flex flex-col'>
-                            <p className='text-sm opacity-75'>{i.event}</p>
-                            <p className='text-lg text-[#DA0C0C] font-bold'>{format(new Date(i.date), 'dd MMMM yyyy')}</p>
-                            <p className='text-sm opacity-75'>{parse(i.description)}</p>
+                      <SwiperSlide key={i.slug} className='bg-white border-[1px] border-red-100 rounded-[8px] mb-12 w-full '>
+                         <Popover placement="bottom" showArrow={true} backdrop="opaque">
+                            <PopoverTrigger>
+                            <div className='bg-white rounded-[8px] w-full p-4'>
+                              <img src={i.image? i.image:'https://ucarecdn.com/c49a7d0c-089f-4ac3-854f-d2b2d815c01d/-/crop/750x422/0,39/-/preview/-/format/auto/-/format/auto/-/quality/smart_retina/-/resize/824x/'} alt='' className='object-cover rounded-[6px] h-[150px] w-full mx-auto hover:scale-105 duration-200' />
+                              <div className='flex flex-col pt-6 gap-4'>
+                                <div className='flex flex-col'>
+                                
+                                <p className='text-sm opacity-75'>{i.event}</p>
+                                <p className='text-lg text-[#DA0C0C] font-bold'>{format(new Date(i.date), 'dd MMMM yyyy')}</p>
+                                
+                                </div>
+                              </div>
                             </div>
-                          </div>
-                        </div>
+                          </PopoverTrigger>
+                          <PopoverContent>
+                            <p className='text-sm opacity-75 max-w-[400px] w-full p-4'>{parse(i.description)}</p>
+                          </PopoverContent>
+                        </Popover>
+                        
                       </SwiperSlide>
                     ))
                     :
@@ -1035,7 +1044,7 @@ const CountriesScreen = () => {
                 </Swiper>
               </div>
 
-              <div className='hidden sm:block lg:hidden'>
+              <div className='lg:hidden'>
                 <Swiper
                   slidesPerView={1}
                   spaceBetween={10}
@@ -1053,54 +1062,26 @@ const CountriesScreen = () => {
                     '':
                     eventse?
                     eventse.map(i=>(
-                      <SwiperSlide key={i.slug} className='bg-white border-[1px] border-red-100 rounded-[8px] mb-12 w-[250px] '>
-                        <div className='bg-white border-[1px] border-red-100 rounded-[8px] w-[250px] p-4'>
-                          <img src={i.image? i.image:'https://ucarecdn.com/c49a7d0c-089f-4ac3-854f-d2b2d815c01d/-/crop/750x422/0,39/-/preview/-/format/auto/-/format/auto/-/quality/smart_retina/-/resize/824x/'} alt='' className='object-cover rounded-[6px] h-[150px] w-full mx-auto hover:scale-105 duration-200' />
-                          <div className='flex flex-col pt-6 gap-4'>
-                            <div className='flex flex-col'>
-                            <p className='text-sm opacity-75'>{i.event}</p>
-                            <p className='text-lg text-[#DA0C0C] font-bold'>{format(new Date(i.date), 'dd MMMM yyyy')}</p>
-                            <p className='text-sm opacity-75'>{parse(i.description)}</p>
+                      <SwiperSlide key={i.slug} className='bg-white border-[1px] border-red-100 rounded-[8px] mb-12 w-full '>
+                         <Popover placement="bottom" showArrow={true} backdrop="opaque">
+                            <PopoverTrigger>
+                            <div className='bg-white rounded-[8px] w-full p-4'>
+                              <img src={i.image? i.image:'https://ucarecdn.com/c49a7d0c-089f-4ac3-854f-d2b2d815c01d/-/crop/750x422/0,39/-/preview/-/format/auto/-/format/auto/-/quality/smart_retina/-/resize/824x/'} alt='' className='object-cover rounded-[6px] h-[150px] w-full mx-auto hover:scale-105 duration-200' />
+                              <div className='flex flex-col pt-6 gap-4'>
+                                <div className='flex flex-col'>
+                                
+                                <p className='text-sm opacity-75'>{i.event}</p>
+                                <p className='text-lg text-[#DA0C0C] font-bold'>{format(new Date(i.date), 'dd MMMM yyyy')}</p>
+                                
+                                </div>
+                              </div>
                             </div>
-                          </div>
-                        </div>
-                      </SwiperSlide>
-                    ))
-                    :
-                    ''
-                  }
-                </Swiper>
-              </div>
-
-              <div className='md:hidden'>
-                <Swiper
-                  slidesPerView={1}
-                  spaceBetween={10}
-                  freeMode={true}
-                  
-                  autoplay
-                  modules={[FreeMode,  Autoplay]}
-                  className="h-fit"
-                >
-
-                    
-
-                  {
-                    eventListLoading?
-                    '':
-                    eventse?
-                    eventse.map(i=>(
-                      <SwiperSlide key={i.slug} className='bg-white border-[1px] border-red-100 rounded-[8px] mb-12 w-[250px] '>
-                        <div className='bg-white border-[1px] border-red-100 rounded-[8px] w-[250px] p-4'>
-                          <img src={i.image? i.image:'https://ucarecdn.com/c49a7d0c-089f-4ac3-854f-d2b2d815c01d/-/crop/750x422/0,39/-/preview/-/format/auto/-/format/auto/-/quality/smart_retina/-/resize/824x/'} alt='' className='object-cover rounded-[6px] h-[150px] w-full mx-auto hover:scale-105 duration-200' />
-                          <div className='flex flex-col pt-6 gap-4'>
-                            <div className='flex flex-col'>
-                            <p className='text-sm opacity-75'>{i.event}</p>
-                            <p className='text-lg text-[#DA0C0C] font-bold'>{format(new Date(i.date), 'dd MMMM yyyy')}</p>
-                            <p className='text-sm opacity-75'>{parse(i.description)}</p>
-                            </div>
-                          </div>
-                        </div>
+                          </PopoverTrigger>
+                          <PopoverContent>
+                            <p className='text-sm opacity-75 max-w-[400px] w-full p-4'>{parse(i.description)}</p>
+                          </PopoverContent>
+                        </Popover>
+                        
                       </SwiperSlide>
                     ))
                     :
@@ -1115,7 +1096,6 @@ const CountriesScreen = () => {
 
         </div>
       </section>
-
       {/* <section className='w-full h-fit relative '>
           <div className='w-full max-w-[1100px] mx-auto flex flex-col md:flex-row items-center gap-8 md:gap-16 justify-between px-8'>
             <div className='bg-black h-[300px] w-full md:w-[400px]'>
