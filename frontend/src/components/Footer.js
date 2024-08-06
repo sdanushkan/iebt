@@ -312,16 +312,13 @@ const Footer = () => {
             <div className='w-full flex flex-col justify-center items-center md:items-start md:justify-start gap-2 ml-auto'>
               <p className='text-sm font-bold border-b-[2px] border-[#DA0C0C] gap-6 flex items-end text-center md:text-left text-white'>USE FULL LINKS </p>
               <div className='px-4 flex flex-col gap-2 py-2 md:py-4 order-1 text-center md:text-start'>
-                <Link className='text-[10px] text-white/80'>PROGRESSION</Link>
-                <Link className='text-[10px] text-white/80'>QUALITY STANDARDS VALID,VALUED LEARNING</Link>
-                <Link className='text-[10px] text-white/80'>FACILITIES</Link>
-                <Link className='text-[10px] text-white/80'>DISTANCE LEARNING</Link>
-                <Link className='text-[10px] text-white/80'>CAREERS</Link>
+              <Link to={'/application'} className='text-[10px] text-white/80'>APPLY ONLINE</Link>
+                <Link to={'/verify'} className='text-[10px] text-white/80'>VERIFY CERTIFICATE</Link>
+                <Link to={'/'} className='text-[10px] text-white/80'>PAY ONLINE</Link>
                 <Link to={'/faq'} className='text-[10px] text-white/80'>FAQ</Link>
-                <Link className='text-[10px] text-white/80'>TESTIMONIAL</Link>
               </div>
             </div>
-            <div className=' flex-col justify-center items-center md:items-start md:justify-start gap-2 hidden'>
+            {/* <div className=' flex-col justify-center items-center md:items-start md:justify-start gap-2 hidden'>
               <p className='text-sm font-bold border-b-[2px] border-[#DA0C0C] gap-6 flex items-end text-center md:text-left text-white'>QUICK LINKS</p>
               <div className='px-4 flex flex-col gap-2 py-2 md:py-4 order-1 text-center md:text-start'>
                 <Link to={'/application'} className='text-[10px] text-white/80'>APPLY ONLINE</Link>
@@ -329,7 +326,7 @@ const Footer = () => {
                 <Link to={'/'} className='text-[10px] text-white/80'>PAY ONLINE</Link>
                 <Link to={'/faq'} className='text-[10px] text-white/80'>FAQ</Link>
               </div>
-            </div>
+            </div> */}
           </div>
           <div className='h-fit w-auto'>
             <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fweb.facebook.com%2Fiebc.lk%2F%3F_rdc%3D1%26_rdr&tabs=timeline&width=340&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" onScroll={true} className='min-h-full min-w-fit overflow-scroll mx-auto' onScrollCapture={true} height={400} width={400} eframeborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share;"></iframe>    
