@@ -216,6 +216,7 @@ class DualQualificationCourse(models.Model):
     course = models.ForeignKey(Course, on_delete=models.SET_NULL, null=True)
     dual_qualification = models.ForeignKey(DualQualification, on_delete=models.SET_NULL, null=True, related_name='courses')
     name = models.CharField(max_length=200, unique=True)
+    card = models.ForeignKey(Card, on_delete=models.SET_NULL, null=True, blank=True )
     slug = models.SlugField(max_length=200, null=True, blank=True)
     faculty = models.ForeignKey(Faculty, on_delete=models.SET_NULL, null=True, blank=True )
     image = models.ImageField(null=True, blank=True, default='/course/placeholder.png', upload_to='courses/')

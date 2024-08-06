@@ -48,7 +48,7 @@ const AboutScreen = () => {
             <div className='flex flex-col gap-1'>
               <p className='text-sm text-black opacity-50 text-left'>(IEBC) is a higher education institution that specializes in delivering cost-effective and high quality internationally accredited qualifications to a global audience, with a particular emphasis on serving students in Sri Lanka.
                 </p>
-                <p className='text-sm text-black opacity-50 text-left'>As a dedi cat ed educati on As a dedicated education institution, IEBC offers British-regulated diploma programs at various levels (3, 4, 5, 6, 7, and 8) awarded by British awarding organizations regulated by OFQUAL, leading to the attainment of degrees from prestigious UK and EU universities.
+                <p className='text-sm text-black opacity-50 text-left'>As a dedicated education institution, IEBC offers British-regulated diploma programs at various levels (3, 4, 5, 6, 7, and 8) awarded by British awarding organizations regulated by OFQUAL, leading to the attainment of degrees from prestigious UK and EU universities.
               </p>
               <p className='text-sm text-black opacity-50 text-left'>IEBC is a privately owned and for-profit higher education institute dedicated to providing students with the opportunity to access exceptional British qualifications at significantly reduced tuition fees compared to local higher education providers.
               </p>
