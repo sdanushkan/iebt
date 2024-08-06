@@ -212,7 +212,7 @@ const DQSecondPage = () => {
                 qualifications?
                 <div className='h-fit w-fit max-w-[1024px] mx-auto px-6 flex lg:flex-col '>
                     <div className='min-h-full w-[10px] lg:min-h-[5px] lg:max-h-[5px] lg:h-[5px] lg:min-w-full lg:w-full bg-[#DA0C0C]'></div>
-                    <div className='h-fit w-full gap-4 flex py-8 lg:py-0 lg:pb-8'>
+                    <div className='h-fit w-full gap-4 flex flex-col lg:flex-row py-8 lg:py-0 lg:pb-8'>
 
                         {
                             qualifications?
