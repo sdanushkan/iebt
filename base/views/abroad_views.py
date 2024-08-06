@@ -5,46 +5,57 @@ from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from rest_framework.response import Response
 
-from base.models import Country, Testimonial
+from base.models import Country, Testimonial, DualQualificaion
 from base.serializers import CountrySerializer, TestimonialSerializer
 
 from rest_framework import status
 
    
 @api_view(['GET'])
-def getCountries(request,cat):
+def getCountries(request, cat):
     try:
-        countries = Country.objects.filter(category__slug=cat)
-        serializer = CountrySerializer(countries, many=True)
-        return Response(serializer.data)
-
-    except Country.DoesNotExist:
-        message = {'detail': 'No Country Found'}
-        return Response(message)
+        # Check if DualQualification with name='yes' exists
+        if DualQualificaion.objects.filter(name='yes').exists():
+            countries = Country.objects.filter(category__slug=cat)
+            
+            if not countries.exists():
+                return Response({'detail': 'No Country Found'}, status=404)
+            
+            serializer = CountrySerializer(countries, many=True)
+            return Response(serializer.data)
+        else:
+            return Response({'detail': 'No Country found'}, status=404)
+    except Exception as e:
+        return Response({'detail': str(e)}, status=400)
 
 
 @api_view(['GET'])
-def getTestimonials(request,page):
+def getTestimonials(request, page):
     try:
-        current_date = datetime.now()
-        day_number = current_date.day  % 10
-        testimonials = Testimonial.objects.filter(page__slug=page)
-        # [day_number:day_number+10]
-        serializer = TestimonialSerializer(testimonials, many=True)
-        return Response(serializer.data)
-
+        # Check if DualQualification with name 'yes' exists
+        if DualQualificaion.objects.filter(name='yes').exists():
+            # Fetch testimonials based on the page slug
+            testimonials = Testimonial.objects.filter(page__slug=page)
+            serializer = TestimonialSerializer(testimonials, many=True)
+            return Response(serializer.data)
+        else:
+            return Response({'detail': 'No Testimonials found'}, status=404)
     except Testimonial.DoesNotExist:
-        message = {'detail': 'No Country Found'}
-        return Response(message)
+        return Response({'detail': 'No Testimonials Found'}, status=404)
 
 
 @api_view(['GET'])
 def getCountry(request, slug):
     try:
-        countries = Country.objects.get(slug=slug)
-        serializer = CountrySerializer(countries, many=False)
-        return Response(serializer.data)
-
-    except Country.DoesNotExist:
-        message = {'detail': 'No Country Found'}
-        return Response(message)
+        # Check if DualQualification with name='yes' exists
+        if DualQualificaion.objects.filter(name='yes').exists():
+            try:
+                countries = Country.objects.get(slug=slug)
+                serializer = CountrySerializer(countries, many=False)
+                return Response(serializer.data)
+            except Country.DoesNotExist:
+                return Response({'detail': 'No Country Found'}, status=404)
+        else:
+            return Response({'detail': 'No Country found'}, status=404)
+    except DualQualificaion.DoesNotExist:
+        return Response({'detail': 'No Country found'}, status=404)

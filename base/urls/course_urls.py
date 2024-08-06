@@ -22,6 +22,7 @@ urlpatterns = [
    path('dual/qualification/<str:dual>', views.getDualQualificationCourses, name='dual-qualification-course-list'),
    path('search/<str:search_query>', views.searchCourses, name='course-search'),
    path('faculty/<str:fslug>', views.getCoursesByFaculty , name='country-list-by-faculty'), 
+   path('duaul/course/yes', views.getQualificaionList, name='dual-qualification-details'), 
    path('<str:slug>', views.getCourse, name='course-details'), 
    
 

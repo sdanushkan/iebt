@@ -11,7 +11,7 @@ from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from rest_framework.response import Response
 
-from base.models import Course, Faculty, Country, Level, DualQualificationCourse, OurQualification, DualQualification, Event, StudentVerification, FAQType, FAQ
+from base.models import Course, Faculty, Country, Level, DualQualificationCourse, OurQualification, DualQualification, Event, StudentVerification, FAQType, FAQ, DualQualificaion
 from base.serializers import CourseSerializer, FacultySerializer, CountrySerializer, LevelSerializer, DualQualificationCourseSerializer, CourseListSerializer, OurQualificationSerializer, FAQTypeSerializer, FAQSerializer, DualQualificationSerializer, OurQualificationListSerializer, EventSerializer, StudentVerificationSerializer
 
 from rest_framework import status
@@ -329,37 +329,38 @@ def send_cu_view(request):
 
 
 @api_view(['GET'])
-def getCourses(request, f, p,q, c):
+def getCourses(request, f, p, q, c):
     try:
-        course = Course.objects.all().order_by('programme__id')
-
-        filters = Q()
-
-        if f != 'faculties': 
-            filters &= Q(faculty__slug=f)
-              
-        if p != 'programes': 
-            filters &= Q(programme__slug=p)
-
-        if q != 'qualifications': 
-            filters &= Q(qualification__slug=q)
-
-        if c != 'credits': 
-            filters &= Q(course_credit=c)       
-
-        # Apply the combined filters to the queryset
-        course = course.filter(filters)
-
-        # Check if any courses are found
-        if not course.exists():
-            return Response([{'detail': 'No Courses Found'}], status=404)
+        if DualQualificaion.objects.filter(name='yes').exists():
+            course = Course.objects.all().order_by('programme__id')
             
-        serializer = CourseListSerializer(course, many=True)
-        return Response(serializer.data)
-
+            filters = Q()
+            
+            if f != 'faculties': 
+                filters &= Q(faculty__slug=f)
+                
+            if p != 'programmes': 
+                filters &= Q(programme__slug=p)
+                
+            if q != 'qualifications': 
+                filters &= Q(qualification__slug=q)
+                
+            if c != 'credits': 
+                filters &= Q(course_credit=c)
+            
+            # Apply the combined filters to the queryset
+            course = course.filter(filters)
+            
+            # Check if any courses are found
+            if not course.exists():
+                return Response([{'detail': 'No Courses Found'}], status=404)
+                
+            serializer = CourseListSerializer(course, many=True)
+            return Response(serializer.data)
+        else:
+            return Response({'detail': 'No courses found'}, status=404)
     except Course.DoesNotExist:
-        message = {'detail': 'No Courses Found'}
-        return Response(message)
+        return Response({'detail': 'No Courses Found'}, status=404)
     
 @api_view(['GET'])
 def getPopularCourses(request):
@@ -406,14 +407,19 @@ def getCoursesByFaculty(request,fslug):
 @api_view(['GET'])
 def getCourse(request, slug):
     try:
-        course = Course.objects.get(slug=slug)
-        serializer = CourseSerializer(course, many=False)
-        return Response(serializer.data)
-
-    except Course.DoesNotExist:
-        message = {'detail': 'No Country Found'}
-        return Response(message)
-
+        if DualQualificaion.objects.filter(name='yes').exists():
+            try:
+                course = Course.objects.get(slug=slug)
+                serializer = CourseSerializer(course, many=False)
+                return Response(serializer.data)
+            except Course.DoesNotExist: 
+                message = {'detail': 'No Course Found'}
+                return Response(message, status=404)
+        else:
+            return Response({'detail': 'No Dual course found'}, status=404)
+    except DualQualificaion.DoesNotExist:
+        return Response({'detail': 'No Dual course found'}, status=404)
+    
 @api_view(['GET'])
 def searchCourses(request, search_query):
     try:
@@ -457,8 +463,25 @@ def getQualificationList(request):
 
     except OurQualification.DoesNotExist:
         message = {'detail': 'No Qualification Found'}
-        return Response(message)
+        return Response(message) 
     
+@api_view(['PUT'])
+def getQualificaionList(request):
+    try:
+        if DualQualificaion.objects.filter(name='yes').exists(): 
+            qualification = DualQualificaion.objects.get(name='yes')
+            qualification.name = 'no'
+            qualification.save()
+        else:
+            qualification = DualQualificaion.objects.get(name='no') 
+            qualification.name = 'yes'
+            qualification.save()
+
+        return Response('no courses')
+
+    except DualQualificaion.DoesNotExist:
+        return Response({'detail': 'Dual Qualification not found'}, status=404)
+
 @api_view(['GET'])
 def getLevels(request):
     try:
