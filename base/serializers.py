@@ -142,6 +142,7 @@ class DualQualificationCourseSerializer(serializers.ModelSerializer):
     programme = LevelSerializer()
     dual_qualification = DualQualificationSerializer() 
     course = CourseSerializer() 
+    card = CardSerializer()
     class Meta:
         model = DualQualificationCourse
         fields = '__all__'

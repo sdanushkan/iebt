@@ -233,10 +233,10 @@ const DQCourseScreen = () => {
                                     }
                                 </div>
                                 {
-                                    course.card?
+                                    co.card?
                                     <div className='max-w-full'>
                                     {
-                                        course.card.slug=='crt'?
+                                        co.card.slug=='crt'?
                                         <Swiper
                                             effect={'flip'}
                                             grabCursor={true}
@@ -264,7 +264,7 @@ const DQCourseScreen = () => {
                                                 </div>
                                             </SwiperSlide>
                                         </Swiper>:
-                                        course.card.slug=='fd'?
+                                        co.card.slug=='fd'?
                                         <Swiper
                                             effect={'flip'}
                                             grabCursor={true}
@@ -292,7 +292,7 @@ const DQCourseScreen = () => {
                                                 </div>
                                             </SwiperSlide>
                                         </Swiper>:
-                                        course.card.slug=='dip'? 
+                                        co.card.slug=='dip'? 
                                         <Swiper
                                             effect={'flip'}
                                             grabCursor={true}
@@ -320,7 +320,7 @@ const DQCourseScreen = () => {
                                                 </div>
                                             </SwiperSlide>
                                         </Swiper>:
-                                        course.card.slug=='hc-120'?
+                                        co.card.slug=='hc-120'?
                                         <Swiper
                                             effect={'flip'}
                                             grabCursor={true}
@@ -354,7 +354,7 @@ const DQCourseScreen = () => {
                                                 </div>
                                             </SwiperSlide>
                                         </Swiper>:
-                                        course.card.slug=='hc'?
+                                        co.card.slug=='hc'?
                                         <Swiper
                                             effect={'flip'}
                                             grabCursor={true}
@@ -387,7 +387,7 @@ const DQCourseScreen = () => {
                                                 </div>
                                             </SwiperSlide>
                                         </Swiper>:
-                                        course.card.slug=='hd'?
+                                        co.card.slug=='hd'?
                                         <Swiper
                                             effect={'flip'}
                                             grabCursor={true}
@@ -420,7 +420,7 @@ const DQCourseScreen = () => {
                                                 </div>
                                             </SwiperSlide>
                                         </Swiper>:
-                                        course.card.slug=='hd-120'?
+                                        co.card.slug=='hd-120'?
                                         <Swiper
                                             effect={'flip'}
                                             grabCursor={true}
@@ -454,7 +454,7 @@ const DQCourseScreen = () => {
                                                 </div>
                                             </SwiperSlide>
                                         </Swiper>:
-                                        course.card.slug=='hd-240'?
+                                        co.card.slug=='hd-240'?
                                         <Swiper
                                             effect={'flip'}
                                             grabCursor={true}
@@ -488,7 +488,7 @@ const DQCourseScreen = () => {
                                                 </div>
                                             </SwiperSlide>
                                         </Swiper>:
-                                        course.card.slug=='gd-120' ?
+                                        co.card.slug=='gd-120' ?
                                         <Swiper
                                             effect={'flip'}
                                             grabCursor={true}
@@ -522,7 +522,7 @@ const DQCourseScreen = () => {
                                                 </div>
                                             </SwiperSlide>
                                         </Swiper>:
-                                        course.card.slug=='gd' ?
+                                        co.card.slug=='gd' ?
                                         <Swiper
                                             effect={'flip'}
                                             grabCursor={true}
@@ -555,7 +555,7 @@ const DQCourseScreen = () => {
                                                 </div>
                                             </SwiperSlide>
                                         </Swiper>:
-                                        course.card.slug=='bd'?
+                                        co.card.slug=='bd'?
                                         <Swiper
                                             effect={'flip'}
                                             grabCursor={true}
@@ -589,7 +589,7 @@ const DQCourseScreen = () => {
                                                 </div>
                                             </SwiperSlide>
                                         </Swiper>:
-                                        course.card.slug=='pgd-120'?
+                                        co.card.slug=='pgd-120'?
                                         <Swiper
                                             effect={'flip'}
                                             grabCursor={true}
@@ -623,7 +623,7 @@ const DQCourseScreen = () => {
                                                 </div>
                                             </SwiperSlide>
                                         </Swiper>:
-                                        course.card.slug=='pgd'?
+                                        co.card.slug=='pgd'?
                                         <Swiper
                                             effect={'flip'}
                                             grabCursor={true}
@@ -656,7 +656,7 @@ const DQCourseScreen = () => {
                                                 </div>
                                             </SwiperSlide>
                                         </Swiper>:
-                                        course.card.slug=='mst'?
+                                        co.card.slug=='mst'?
                                         <Swiper
                                             effect={'flip'}
                                             grabCursor={true}
@@ -690,7 +690,7 @@ const DQCourseScreen = () => {
                                                 </div>
                                             </SwiperSlide>
                                         </Swiper>:
-                                        course.card.slug=='mst-top'?
+                                        co.card.slug=='mst-top'?
                                         <Swiper
                                             effect={'flip'}
                                             grabCursor={true}
@@ -727,7 +727,7 @@ const DQCourseScreen = () => {
                                                 </div>
                                             </SwiperSlide>
                                         </Swiper>:
-                                        course.card.slug=='dr'?
+                                        co.card.slug=='dr'?
                                         <Swiper
                                             effect={'flip'}
                                             grabCursor={true}
