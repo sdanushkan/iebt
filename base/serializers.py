@@ -55,8 +55,6 @@ class CourseSerializer(serializers.ModelSerializer):
         model = Course
         fields = '__all__'   
     
-
-    
     # def get_course_requirments(self, obj):
     #     course_requirments = obj.courserequirment_set.all()
     #     serializer = CourseRequirmentSerializer(course_requirments, many=True)
@@ -86,7 +84,6 @@ class CourseNameSerializer(serializers.ModelSerializer):
         model = Course
         fields = ['name','id' ]
   
-
 class CountryCategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = CountryCategory

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import {Tabs, Tab, Input, Link, Button, Card, CardBody, CardHeader, Select, SelectItem} from "@nextui-org/react";import { MdAccessTime, MdEmail } from "react-icons/md";
+import {Tabs, Tab, Input, Link, Button, Card, CardBody, CardHeader, Select, SelectItem, Spinner} from "@nextui-org/react";import { MdAccessTime, MdEmail } from "react-icons/md";
 import { FaArrowRightLong, FaCircleQuestion, FaRegCircleUser } from "react-icons/fa6";
 import {Divider} from "@nextui-org/react";
 import {Table, TableHeader, TableColumn, TableBody, TableRow, TableCell, getKeyValue} from "@nextui-org/react";
@@ -62,13 +62,11 @@ const CountryScreen = () => {
     const location = useLocation()
 
     const countryDetails = useSelector(state => state.countryDetails)
-    const { error: countryDetailsError, loading: countryDetailsLoading, country: countryD } = countryDetails
+    const { error: countryDetailsError, loading: countryDetailsLoading, co: countryD } = countryDetails
 
     useEffect(() => {
-        if (!countryD){
-          dispatch(getCountryDetails(country))
-        }
-    }, [dispatch, country, countryD])
+      dispatch(getCountryDetails(country))
+    }, [dispatch, country, location])
 
     useEffect(() => {
         window.scroll(0,0);
@@ -93,8 +91,15 @@ const CountryScreen = () => {
 
   return (
     <div className='w-full h-fit'>
+      
         {
-            countryD?
+          countryDetailsLoading?
+          <div className='pt-[100px]'>
+            <Spinner></Spinner>
+          </div>
+          :
+           
+          countryD?
             <section className='relative'>
                  
                 <div className='h-[300px] w-full object-cover relative -z-40'>
@@ -139,8 +144,8 @@ const CountryScreen = () => {
                       }>
                         {
                           countryD.description != "" || countryD.description!='null'?
-                          <p className='text-sm'>{countryD.description}</p>:
-                          ''
+                          <p className='text-sm'>{parse(countryD.description)}</p>:
+                          '' 
                         } 
                       </div> 
                     </Tab>
@@ -348,7 +353,7 @@ const CountryScreen = () => {
                         </div>
 
                         <div className='min-h-fit w-full'>
-                          <ReactPlayer height={'100%'} width={'100%'} light={<img src={thum} alt='Thumbnail'/>} url={sdv} loop={true} playing={false} controls={true} />
+                        <iframe src="https://www.facebook.com/plugins/video.php?height=311&href=https%3A%2F%2Fwww.facebook.com%2Fiebc.lk%2Fvideos%2F1697568263891857%2F&show_text=false&width=560&t=0" frameborder="0" className='h-full w-full my-auto' allowfullscreen="true"  allowFullScreen="true"></iframe>
                         </div>
                         
                       </div>
@@ -365,7 +370,9 @@ const CountryScreen = () => {
           ''
         }
 
-      <section className='h-fit w-full px-8 py-6 relative'>
+      {
+        countryD?
+        <section className='h-fit w-full px-8 py-6 relative'>
         <div className='h-fit w-full max-w-[800px] mx-auto grid grid-cols-2 md:grid-cols-4 justify-center gap-2 lg:gap-6'>
               <Link to={'/abroad/about'}>
                 <div className='w-full md:w-48 h-full md:h-48 flex flex-col items-center justify-center gap-4 bg-white text-black duration-200 hover:text-[#DA0C0C] p-12 hover:p-10 rounded-[8px] shadow-[0px_4px_25px_rgba(0,0,0,0.05)] hover:shadow-[0px_4px_50px_rgba(0,0,0,0.075)]'>
@@ -387,14 +394,20 @@ const CountryScreen = () => {
               </div>
               
           </div>
-      </section>
+      </section>:
+      ''
+      }
 
-      <section className='h-fit w-full'>
-        <div className='h-fit w-full'>
-            <img src={bg} alt='' className='h-[200px] w-full object-cover' />
-        </div>
-      </section>
-        
+      {
+        countryD?
+        <section className='h-fit w-full'>
+          <div className='h-fit w-full'>
+              <img src={bg} alt='' className='h-[200px] w-full object-cover' />
+          </div>
+        </section>
+        :
+        ''
+      }
     </div>
   )
 }

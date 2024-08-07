@@ -13,22 +13,19 @@ from rest_framework.response import Response
 
 from base.models import Course, Faculty, Country, Level, DualQualificationCourse, OurQualification, DualQualification, Event, StudentVerification, FAQType, FAQ, DualQualificaion
 from base.serializers import CourseSerializer, FacultySerializer, CountrySerializer, LevelSerializer, DualQualificationCourseSerializer, CourseListSerializer, OurQualificationSerializer, FAQTypeSerializer, FAQSerializer, DualQualificationSerializer, OurQualificationListSerializer, EventSerializer, StudentVerificationSerializer
-
+from django.shortcuts import render
 from rest_framework import status
 from django.db.models import Q
 
 # views.py
+
+
 
 from django.core.mail import EmailMultiAlternatives
 from django.template.loader import render_to_string
 from django.http import HttpResponse
 from django.conf import settings
 
-     # "Passportsizecolourphotos":data["Passportsizecolourphotos"],
-        # "Proofofyourqualiﬁcations":data["Proofofyourqualiﬁcations"],
-        # "CopyofyourBirthCertiﬁcate":data["CopyofyourBirthCertiﬁcate"],
-        # "CopyofyourNationalIdentityCard":["CopyofyourBirthCertiﬁcate"],
-        # "Anyotherrelevantdocuments":data["Anyotherrelevantdocuments"],
 
 @api_view(['POST'])
 def send_application_view(request):
@@ -339,7 +336,7 @@ def getCourses(request, f, p, q, c):
             if f != 'faculties': 
                 filters &= Q(faculty__slug=f)
                 
-            if p != 'programmes': 
+            if p != 'programes': 
                 filters &= Q(programme__slug=p)
                 
             if q != 'qualifications': 

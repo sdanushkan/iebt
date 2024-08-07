@@ -146,7 +146,7 @@ export const countryDetailsReducer = (state = { }, action) => {
         case COUNTRY_DETAILS_SUCCESS:
             return {
                 loading: false,
-                country: action.payload
+                co: action.payload
             }
 
         case COUNTRY_DETAILS_FAIL:
