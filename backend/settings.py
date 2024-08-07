@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-3zbtjl8p4f*ds8=t@&w7zy7%z4)3bld_4ny(m1l4mg-)=##-0&
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['beta.iebc.lk','*']
+ALLOWED_HOSTS = ['iebc.lk','www.iebc.lk','*']
 
 
 # Application definition
@@ -85,56 +85,6 @@ REST_FRAMEWORK = {
     )
 }
 
-# Database
-# https://docs.djangoproject.com/en/5.0/ref/settings/#databases
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
-# Database
-# https://docs.djangoproject.com/en/3.1/ref/settings/#databases
-# DATABASES = {
-#    'default': {
-#        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#        'NAME': 'postgres',
-#        'USER': 'postgres',
-#        'PASSWORD': 'passwd31',
-#        'HOST': 'iebc-database.c9kouacsgq35.us-east-2.rds.amazonaws.com',
-#        'PORT': '5432'
-#    }
-# }
-
-# DATABASES = {
-#    'default': {
-#        'ENGINE': 'django.db.backends.mysql',
-#        'NAME': 'iebcdb',
-#        'USER': 'admin',
-#        'PASSWORD': 'passwd31',
-#        'HOST': 'iebc-aws-db.c9kouacsgq35.us-east-2.rds.amazonaws.com',
-#        'PORT': '3306',
-#         'OPTIONS': {
-#             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
-#         },
-#    }
-# }
-
-# DATABASES = {
-#    'default': {
-#        'ENGINE': 'django.db.backends.mysql',
-#        'NAME': 'iebc_demo',
-#        'USER': 'root',
-#        'PASSWORD': 'passwd31',
-#        'HOST': 'localhost',
-#        'PORT': '3306',
-#         # 'OPTIONS': {
-#         #     'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
-#         # },
-#    }
-# }
 
 DATABASES = {
    'default': {
@@ -212,8 +162,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://beta.iebc.lk/',
-    'http://localhost'
+    'https://iebc.lk/',
+    'https://www.iebc.lk/'
 ]
 
 JAZZMIN_SETTINGS = {

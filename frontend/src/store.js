@@ -71,7 +71,7 @@ const store = configureStore({
   reducer,
   preloadedState: initialState,
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(middleware),
-  devTools: true,
+  devTools: false,
 });
 
 export default store;
