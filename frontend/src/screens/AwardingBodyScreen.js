@@ -74,10 +74,10 @@ const AwardingBodyScreen = () => {
                 </Swiper>
             </div>
             <div className='h-[300px] w-full relative z-30 flex flex-col gap-6 md:gap-2 items-center justify-center bg-black/75'>
-                <p className='text-white capitalize text-4xl text-center font-bold mt-[65px]'>{name}</p>
+                <p className='text-white text-4xl text-center font-bold mt-[65px]'>{qualification?qualification.name:''}</p>
                 <Breadcrumbs className='dark'>
                     <BreadcrumbItem className='text-sm text-white'>Home</BreadcrumbItem>
-                    <BreadcrumbItem className='text-sm font-medium uppercase text-white'>{name}</BreadcrumbItem>
+                    <BreadcrumbItem className='text-sm font-medium uppercase text-white'>{qualification?qualification.name:''}</BreadcrumbItem>
                 </Breadcrumbs>
             </div>
         </section>

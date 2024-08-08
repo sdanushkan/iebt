@@ -47,6 +47,7 @@ admin.site.register(StudentVerification)
 admin.site.register(Event)
 
 # admin.site.register(CourseQualification)
+# admin.site.register(DualQualificaion)
 
 admin.site.register(Country)
 admin.site.register(CountryCategory)
@@ -54,4 +55,3 @@ admin.site.register(CountryCategory)
 admin.site.register(University)
 admin.site.register(Testimonial)
 admin.site.register(Card)
-admin.site.register(DualQualificaion)
