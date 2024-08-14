@@ -4,7 +4,7 @@ import {Textarea} from "@nextui-org/input";
 import { Button } from '@nextui-org/react'
 import { FaPhoneAlt } from "react-icons/fa";
 import { IoMdMail } from "react-icons/io";
-import { IoHome, IoPersonCircle } from "react-icons/io5";
+import { IoHome, IoLocationSharp, IoPersonCircle } from "react-icons/io5";
 import { RiSecurePaymentFill } from "react-icons/ri";
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -71,23 +71,26 @@ const ContactScreen = () => {
                   <Button isIconOnly variant='solid' className='bg-red-100 rounded-full' startContent={<FaPhoneAlt />}></Button>
                   <div className='flex flex-col items-start'>
                     <p className='font-bold capitalize text-base'>phone Number</p>
-                    <p className='text-xs text-gray-500'>077 828 9898</p>
                     <p className='text-xs text-gray-500'>0117 455 665</p>
+                    <p className='text-xs text-gray-500'>077 828 9898</p>
                   </div>
                 </section>
                 <section variant='light' className='border-[1px] w-full border-black/10 py-4 px-4 flex gap-4 rounded-2xl'>
                   <Button isIconOnly variant='solid' className='bg-red-100 rounded-full' startContent={<IoMdMail/>}></Button>
                   <div className='flex flex-col items-start'>
                     <p className='font-bold capitalize text-base'>Email</p>
+
                     <p className='text-xs text-gray-500'>info@iebc.lk</p>
+                    <p className='text-xs text-gray-500'>enquiries@iebc.lk</p>
+
                   </div>
                 </section>
 
                 <section variant='light' className='border-[1px] w-full border-black/10 py-4 px-4 flex gap-4 rounded-2xl'>
-                  <Button isIconOnly variant='solid' className='bg-red-100 rounded-full' startContent={<IoHome  />}></Button>
+                  <Button isIconOnly variant='solid' className='bg-red-100 rounded-full' startContent={<IoLocationSharp  />}></Button>
                   <div className='flex flex-col items-start'>
                     <p className='font-bold capitalize text-base'>Campus location</p>
-                    <p className='text-xs text-gray-500'>No. 85 1/3, Galle Road, Dehiwala, Sri Lanka.</p>
+                    <p className='text-xs text-gray-500'>No. 85 1/3, Galle Road, Dehiwala-Mount Lavinia 10350, Sri Lanka.</p>
                   </div>
                 </section>
                 

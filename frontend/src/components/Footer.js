@@ -5,13 +5,15 @@ import { CiLinkedin } from "react-icons/ci";
 import logoAD from '../assets/logoAD.png'
 import {Button} from "@nextui-org/react";
 import { RiInstagramFill } from "react-icons/ri";
-import { FaFacebook, FaYoutube } from "react-icons/fa";
+import { FaFacebook, FaPhoneAlt, FaYoutube } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getCourseList } from '../actions/courseActions';
 import _, { map } from 'lodash';
 import { getEuCountryList, getMainCountryList, getMedicineCountryList } from '../actions/abroadActions';
+import { IoMdMail } from 'react-icons/io';
+import { IoLocationSharp } from 'react-icons/io5';
 
 const Footer = () => {
     const {course} = useParams()
@@ -115,6 +117,40 @@ const Footer = () => {
 
                 </Button>
               </a>
+            </div>
+            <div className='flex flex-col gap-4 py-2'>
+            <div className='flex flex-col gap-4 py-2'>
+              <div className='flex items-center text-white gap-2'>
+                  <div>
+                      <FaPhoneAlt className='text-2xl'/>
+                  </div>
+                  <div className='flex flex-col gap-1'>
+                      <p className='text-xs'>+94 117 455 665 /<br/> +94 77 828 9898</p>
+                  </div>
+              </div>
+     
+            </div>
+            <div className='flex flex-col gap-4 py-2'>
+              <div className='flex items-center text-white gap-2'>
+                  <div>
+                      <IoMdMail className='text-2xl'/>
+                  </div>
+                  <div className='flex flex-col gap-1'>
+                      <p className='text-xs'>info@iebc.lk / enquiries@iebc.lk</p>
+                  </div>
+              </div>
+            
+            </div>
+            <div className='flex flex-col gap-4 py-2'>
+              <div className='flex items-center text-white gap-2'>
+                  <div>
+                      <IoLocationSharp className='text-2xl'/>
+                  </div>
+                  <div className='flex flex-col gap-1'>
+                      <p className='text-xs'>No. 85 1/3, Galle Road, Dehiwala-Mount Lavinia 10350, Sri Lanka.</p>
+                  </div>
+              </div>
+            </div>
             </div>
           </div>
           <div className={'h-fit w-full grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-2 lg:gap-4'}>
@@ -263,6 +299,40 @@ const Footer = () => {
             </div>        
             <p className={'text-sm font-bold text-white uppercase text-center'}>International Education and Bussiness campus</p>
             <div className='h-[1px] w-full bg-red-100 mt-4'></div>
+            <div className='flex flex-col gap-4 py-2'>
+            <div className='flex flex-col gap-4 py-2'>
+              <div className='flex items-center text-white gap-2'>
+                  <div>
+                      <FaPhoneAlt className='text-2xl'/>
+                  </div>
+                  <div className='flex flex-col gap-1'>
+                      <p className='text-xs'>+94 117 455 665 /<br/> +94 77 828 9898</p>
+                  </div>
+              </div>
+     
+            </div>
+            <div className='flex flex-col gap-4 py-2'>
+              <div className='flex items-center text-white gap-2'>
+                  <div>
+                      <IoMdMail className='text-2xl'/>
+                  </div>
+                  <div className='flex flex-col gap-1'>
+                      <p className='text-xs'>info@iebc.lk / enquiries@iebc.lk</p>
+                  </div>
+              </div>
+            
+            </div>
+            <div className='flex flex-col gap-4 py-2'>
+              <div className='flex items-center text-white gap-2'>
+                  <div>
+                      <IoLocationSharp className='text-2xl'/>
+                  </div>
+                  <div className='flex flex-col gap-1'>
+                      <p className='text-xs'>No. 85 1/3, Galle Road, Dehiwala-Mount Lavinia 10350, Sri Lanka.</p>
+                  </div>
+              </div>
+            </div>
+            </div>
             <div className='py-4'>
               <a href='https://www.linkedin.com/company/iebc-campus/'>
                 <Button isIconOnly startContent={<CiLinkedin  className='text-2xl text-white'/>} variant='light'>
