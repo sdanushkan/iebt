@@ -72,8 +72,6 @@ const HomeScreen = () => {
       { date: new Date(2024, 7, 13), event: 'anniversary' },
     ]);
 
-
-
     const onChange = (nextValue) => {
       setValue(nextValue);
     };
