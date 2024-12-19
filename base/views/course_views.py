@@ -239,7 +239,7 @@ def send_sa_view(request):
 
 @api_view(['POST'])
 def send_ba_view(request):
-    subject = ('Study abroad Book appoinment')
+    subject = ('Study abroad Book appointment')
     message = ('Default Message')
 
     data = request.data
